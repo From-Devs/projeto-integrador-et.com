@@ -1,0 +1,100 @@
+*
+{
+    margin: 0;
+    padding: 0;
+
+}
+
+#container{
+    display: flex;
+    
+}
+
+/* PARTE BRANCA (ESQUERDA) */
+
+#parteBranca
+{   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    background-color: white;
+    width: 100%; 
+    height: 100vh; 
+
+}
+
+#inputEmail, #inputSenha
+{
+
+    border: none;
+    width: 480px;
+}
+
+hr
+{
+  
+    color: black;
+}
+
+
+
+
+
+/* PARTE PRETA (DIREITA) */
+
+
+
+
+
+
+
+
+
+/* PARTE DA ANIMACAO DA ONDA */
+
+/* section
+{   
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+
+}
+
+section .wave
+{
+    position: absolute;
+    top: 0;
+    left: -45%;
+    width: 100%;
+    height: 100px;
+    background: url(./../../public/wave.png);
+    background-size: 1000px 100px;
+    transform: rotate(90deg);
+}
+
+section .wave.wave1
+{
+    top: 0;
+    animation: animacao 15s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+
+
+}
+
+@keyframes animacao
+{
+    0%
+    {
+        background-position-x: 0;
+    }
+    100%
+    {
+        background-position-x: 100%;
+    }
+} */
