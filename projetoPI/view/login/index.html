@@ -5,23 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - ET</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab&display=swap" rel="stylesheet">
+
 </head>
 <body id="bodyLogin">
     <div id="container">
         <div id="parteBranca">
-            <h1>BEM-VINDO!</h1>
-            <input id="inputEmail" name="inputEmailouCPF" type="text" placeholder="CPF ou Email:">
-            <hr>
-            <input id="inputSenha" name="inputSenha" type="password" placeholder="Senha:">
-            <hr>
-            <a href="">Esqueceu a senha?</a>
-            <a href=""><button>Entrar</button></a>
-            <p>Novo na ET?</p><a href="">Cadastre-se</a>
-            <img src="" alt=""><a href="">voltar</a>          
+            <h1 id="bemVindo">BEM-VINDO!</h1>
+            <form>
+                <div class="email-input">
+                    <input type="text" class="input" id="email" required>
+                    <label for="EmailCPF">Email ou CPF</label>
+                </div>
+                <div class="senha-input">
+                    <input type="password" class="input" id="senha" required>
+                    <label for="Senha">Senha</label>
+                </div>
+            </form>
+            <a id='esqueciSenha' href="">Esqueceu a senha?</a>
+            <a href=""><button id="botaoEntrar">Entrar</button></a>
+            <div id="cadastro">
+                <p>Novo na ET?</p>
+                <a id="cadastroClique" href="">Cadastre-se</a>
+            </div>
+            <div id="voltarSair">
+                <img src="./../../public/voltarSetinha.png" alt="seta.png">
+                <a id="voltar" href="">voltar</a>          
+            </div>
         </div>
-        <!-- <section>
+        <section>
             <div class="wave wave1"></div>
-        </section> -->
+        </section>
     </div>
     
     <script src="script.js"></script>
@@ -30,4 +44,3 @@
 
 
 <!-- perguntar como vai deixar o input se vai ser input type email ou text pois tem o cpf ai eu ja num sei ne -->
-<!-- colocar foto no img de setinha -->
