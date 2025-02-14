@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(to bottom, black 0%, rgb(36, 36, 36) 30%, rgb(124, 124, 124) 65%, rgba(0, 0, 0, 0) 100%);
+    position: relative;
+    height: 95px;
+    padding-bottom: 9px;
+}
+
+.esquerdo{
+    background-image: linear-gradient(176deg, black 0%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
+    display: flex;
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    gap: 26px;
+    padding-left: 38px;
+}
+
+.esquerdo img{
+    filter: drop-shadow(0px 0px 2px black);
+}
+
+.menu-toggle {
+    display: flex; /* Escondido em telas grandes */
+    flex-direction: column;
+    gap: 9px;
+    cursor: pointer;
+    z-index: 999;
+    filter: drop-shadow(0px 1px 3px black);
+}
+
+.menu-toggle .bar {
+    width: 34px;
+    height: 4px;
+    background: white;
+    transition: transform 0.3s ease;
+}
+
+.direito{
+    width: 50%;
+    height: 100%;
+    background-image: linear-gradient(184deg, black 0%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
+    padding-right: 38px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.direito .botoes{
+    display: flex;
+    gap: 24px;
+}
+
+.direito i{
+    filter: drop-shadow(0px 1px 3px black);
+    font-weight: 100;
+    color: white;
+    font-size: 48px;
+}
