@@ -80,7 +80,7 @@ hr
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 150px 800px 0px 0px;
+    margin: 120px 800px 0px 0px;
 }
 
 #voltar
@@ -91,6 +91,11 @@ hr
 }
 
 /* PARTE PRETA (DIREITA) */
+
+#fotoET
+{
+    margin: 200px;
+}
 
 /* OBS: aqui deve ficar APENAS a foto da ET.com */
 
@@ -190,5 +195,30 @@ section .wave.wave1
     100%
     {
         background-position-x: 1000px;
+    }
+}
+
+/* responsvidade */
+
+@media (max-width: 1280px)
+{
+    /* parte branca */
+
+    #parteBranca
+    {
+        width: 650px;
+    }
+
+
+    /* parte animacao onda */
+    section
+    {
+        height: 100vh;
+    }
+
+    section .wave
+    {
+        position: fixed;
+        transform: rotate(0deg) scaleX(1);
     }
 }
