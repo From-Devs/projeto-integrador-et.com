@@ -10,9 +10,12 @@ require __DIR__ . "/../../../public/componentes/header.php"
     <title>Et.com</title>
     <link rel="stylesheet" href="../../../public/css/header.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../../public/css/teste.css">
 </head>
 <body>
     <!-- Scripts -->
     <script src="../../../public/javascript/header.js"></script>
+
+    <div class="bloco"></div>
 </body>
 </html>
