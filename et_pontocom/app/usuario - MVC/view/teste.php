@@ -12,9 +12,6 @@ require __DIR__ . "/../../../public/componentes/header.php"
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div id="header"></div>
-    <h1>Bungas</h1>
-
     <!-- Scripts -->
     <script src="../../../public/javascript/header.js"></script>
 </body>
