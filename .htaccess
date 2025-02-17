@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /host-gui/fanf_game/public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?rota=$1 [L,QSA]
