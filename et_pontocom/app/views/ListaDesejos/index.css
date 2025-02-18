@@ -1,0 +1,473 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*.cabec{
+    display: flex;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(to bottom, black, rgb(63, 63, 63), rgb(155, 155, 155), rgb(255, 255, 255));
+}
+
+.logo img{
+    width: 105px;
+    margin-left: 25%;
+    margin-top: 5px;
+}
+
+.menu img{
+    width: 35px;
+    margin-left: 50%;
+    margin-top: 50%;
+
+}
+
+.outros{
+    display: flex;
+    gap: 10px;
+    margin: auto;
+    margin-left: 85%;
+}
+
+.lupa img{
+    width: 35px;
+}
+
+.cora img{
+    width: 35px;
+}
+
+.car img{
+    width: 40px;
+}
+
+.perfil img{
+    width: 32px;
+}*/
+
+.titleListDesejos{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.titleListDesejos h3{
+    font-weight: 300;
+    font-size: 35px;
+}
+
+.line01{
+    width: 1000px;
+    border-bottom: 2.5px black solid;
+}
+
+.Line01{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 15px;
+}
+
+.infoCima{
+    display: flex;
+    position: relative;
+    top: 45px;
+    gap: 55px;
+    left: 280px;
+}
+
+/*card01*/
+
+.Card01{
+    display: flex;
+    justify-content: center;
+    margin-top: 65px;
+}
+
+.card01{
+    display: flex;
+    width: 1400px;
+    height: 110px;
+    background: linear-gradient(to right, #72543A, #E4B186, #F3DCC9, #FFFFFF);
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cardImg01 img{
+    width: 100px;
+    margin: auto;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.precoCard01 p{
+    position: relative;
+    left: 50px;
+    top: 45px;
+}
+
+.descrCard01 p{
+    position: relative;
+    left: 280px;
+    top: 45px;
+
+}
+
+.dateCard p{
+    position: relative;
+    left: 600px;
+    top: 45px;
+}
+
+.buttom01{
+    display: flex;
+    position: relative;
+    left: 670px;
+}
+
+.buttom01 input{
+    width: 19px;
+}
+
+/*card02*/
+
+.Card02{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.card02{
+    display: flex;
+    width: 1400px;
+    height: 110px;
+    background: linear-gradient(to right, #31BADA, #B9643A, #FFFFFF, #FFFFFF);
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cardImg02 img{
+    width: 100px;
+    margin: auto;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.precoCard02 p{
+    position: relative;
+    left: 50px;
+    top: 45px;
+}
+
+.descrCard02 p{
+    position: relative;
+    left: 280px;
+    top: 45px;
+
+}
+
+.dateCard p{
+    position: relative;
+    left: 600px;
+    top: 45px;
+}
+
+.buttom02{
+    display: flex;
+    position: relative;
+    left: 670px;
+}
+
+.buttom02 input{
+    width: 19px;
+}
+
+/*card03*/
+
+.Card03{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.card03{
+    display: flex;
+    width: 1400px;
+    height: 110px;
+    background: linear-gradient(to right, #72543A, #E4B186, #F3DCC9, #FFFFFF, #FFFFFF);
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cardImg03 img{
+    width: 100px;
+    margin: auto;
+    position: relative;
+    top: 5px;
+    left: 10px;
+}
+
+.precoCard03 p{
+    position: relative;
+    left: 50px;
+    top: 45px;
+}
+
+.descrCard03 p{
+    position: relative;
+    left: 280px;
+    top: 45px;
+
+}
+
+.dateCard p{
+    position: relative;
+    left: 600px;
+    top: 45px;
+}
+
+.buttom03{
+    display: flex;
+    position: relative;
+    left: 670px;
+}
+
+.buttom03 input{
+    width: 19px;
+}
+
+/*card04*/
+
+.Card04{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.card04{
+    display: flex;
+    width: 1400px;
+    height: 110px;
+    background: linear-gradient(to right, #3F7FD9, #81ABE6, #C0D5F3, #FFFFFF, #FFFFFF);
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cardImg04 img{
+    width: 100px;
+    margin: auto;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.precoCard04 p{
+    position: relative;
+    left: 50px;
+    top: 45px;
+}
+
+.descrCard04 p{
+    position: relative;
+    left: 280px;
+    top: 45px;
+
+}
+
+.dateCard p{
+    position: relative;
+    left: 600px;
+    top: 45px;
+}
+
+.buttom04{
+    display: flex;
+    position: relative;
+    left: 670px;
+}
+
+.buttom04 input{
+    width: 19px;
+}
+
+/*card05*/
+
+.Card05{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.card05{
+    display: flex;
+    width: 1400px;
+    height: 110px;
+    background: linear-gradient(to right, #CC4284, #FFFFFF);
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cardImg05 img{
+    width: 100px;
+    margin: auto;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.precoCard05 p{
+    position: relative;
+    left: 50px;
+    top: 45px;
+}
+
+.descrCard05 p{
+    position: relative;
+    left: 280px;
+    top: 45px;
+
+}
+
+.dateCard p{
+    position: relative;
+    left: 600px;
+    top: 45px;
+}
+
+.buttom05{
+    display: flex;
+    position: relative;
+    left: 670px;
+}
+
+.buttom05 input{
+    width: 19px;
+}
+
+/*card06*/
+
+.Card06{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.card06{
+    display: flex;
+    width: 1400px;
+    height: 110px;
+    background: linear-gradient(to right, #2A2A2A, #656565, #FFFFFF);
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cardImg06 img{
+    width: 100px;
+    margin: auto;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.precoCard06 p{
+    position: relative;
+    left: 50px;
+    top: 45px;
+}
+
+.descrCard06 p{
+    position: relative;
+    left: 280px;
+    top: 45px;
+
+}
+
+.dateCard p{
+    position: relative;
+    left: 600px;
+    top: 45px;
+}
+
+.buttom06{
+    display: flex;
+    position: relative;
+    left: 670px;
+}
+
+.buttom06 input{
+    width: 19px;
+}
+
+.Line02{
+    display: flex;
+    justify-content: center;
+}
+
+.line02{
+    width: 1000px;
+    border-bottom: 3.5px black solid;
+    position: relative;
+    top: 300px;
+    box-shadow: 0px 2.5px 5px rgba(0, 0, 0, 0.582);
+}
+
+/*buttonAdd*/
+
+.button01_add button{
+    display: flex;
+    width: 225px;
+    height: 58px;
+    border-radius: 30px;
+    color: white;
+    background: linear-gradient(to right, #2A2A2A, #656565);
+    border: none;
+    box-shadow: 0px 4px 4.5px rgba(0, 0, 0, 0.452);
+}
+
+.button01_add img{
+    width: 45px;
+    height: 40px;
+    margin: auto;
+    position: relative;
+    left: 5px;
+}
+
+.button01_add p{
+    position: relative;
+    right: 10px;
+    margin: auto;
+}
+
+/*buttonExcluir*/
+
+.Buttons_add_delete{
+    display: flex;
+    justify-content: center;
+    gap: 1020px;
+    margin-top: 100px;
+}
+
+.button01_excluir button{
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+    color: white;
+    background: linear-gradient(to right, #2A2A2A, #656565);
+    border: none;
+    box-shadow: 0px 4px 4.5px rgba(0, 0, 0, 0.452);
+}
+
+.CabeExemplo{
+    width: 100%;
+    height:300px;
+    background-color: black;
+    margin-top: 500px;
+}
+
+
