@@ -1,0 +1,78 @@
+*{
+    padding:0;
+    margin: 0;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:black;
+    flex-direction: column;
+    color: white;
+    margin-top: 100vh;
+    height: 400px;
+}
+
+#Categoria{
+    text-align: center;
+}
+
+#Associado{
+   text-align: center;
+}
+
+#Termos{
+    text-align: center;
+}
+
+#VoltarInicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background-color: black;
+    width: 200px;
+    height: 30px;
+    border: 0;
+}
+
+.colunas{
+    display: flex;
+    gap: 50px;
+    margin-bottom: 60px;
+    margin-right: 45vh;
+}
+
+.ColunsCategoria{
+    display: flex;
+    flex-direction: column;
+}
+
+.ColunsLine{
+    display: flex;
+    gap: 7px;
+    flex-direction: column;
+}
+
+.ColunsAssociado{
+    display: flex;
+    flex-direction: column;
+}
+
+.CategoriaLink{
+    font-size: 20px;
+}
+
+.seta{
+    font-size: 25px;
+}
+
+footer img{
+    width: 370px;
+    gap: 50px;
+    height: 250px;
+    margin-right: 20vh;
+}
+
+
