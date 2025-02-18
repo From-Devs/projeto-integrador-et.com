@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/../../../public/componentes/header.php"
+    require __DIR__ . "/../../../public/componentes/header.php"
 ?>
 
 <!DOCTYPE html>
@@ -13,9 +13,44 @@ require __DIR__ . "/../../../public/componentes/header.php"
     <link rel="stylesheet" href="../../../public/css/teste.css">
 </head>
 <body>
-    <!-- Scripts -->
-    <script src="../../../public/javascript/header.js"></script>
+    <?php
+    echo createHeader()
+    ?>
 
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
+    <div class="bloco"></div>
     <div class="bloco"></div>
 </body>
 </html>

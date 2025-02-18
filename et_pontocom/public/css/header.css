@@ -3,7 +3,9 @@
     margin: 0;
 }
 
-header {
+header{
+    position: fixed;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
