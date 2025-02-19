@@ -9,7 +9,7 @@ function Rodape(){
         </button>
 
         <div class="colunas">
-            <img src="../../../public/imagens/LogoBranca2.png" >
+            <img src="../../../public/imagens/LogoBranca1.png">
             <div class="ColunsCategoria">
                 <h1 id="Categoria">
                     Categorias
@@ -45,19 +45,18 @@ function Rodape(){
                         Sobre
                     </a>
                     <a class="CategoriaLink">
-                        Sobre
-                    </a>
-                    <a class="CategoriaLink">
-                        Sobre
+                        Tornar-se Agora
                     </a>
                 </div>
             </div>
         </div>
-
-        <p id="Termos">
-            © 2024 - Et.com
-        </p>
-
+            <p id="Base">
+                <p id="Termos">
+                © 2024 - Et.com
+                </p>
+                <img src="../../../public/imagens/image.png" id="LogoFromDevs">
+            </p>
+        </div>
     </footer>';
 }
 ?>
