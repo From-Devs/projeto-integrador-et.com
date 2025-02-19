@@ -26,6 +26,8 @@ function createHeader(){
             </div>
         </div>
     </header>
+
+    <script src="../../../public/javascript/header.js"></script>
     ';
 }
 ?>
