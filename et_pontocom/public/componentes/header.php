@@ -9,7 +9,7 @@ function createHeader(){
                 <span class="bar"></span>
             </div>
             
-            <img src="../../../public/imagens/LogoBranca2.png" alt="logo" width="160px">
+            <img src="../../../public/imagens/LogoBranca2.png" alt="logo">
         </div>
 
         <div class="direito">
