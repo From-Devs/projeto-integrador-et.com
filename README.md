@@ -1,6 +1,11 @@
 ## Projeto Integrador ET.com
 
-cada um crie sua branch e commite na sua branch. Crie a branch com o seu nome e use ela até o fim de sua vida.
+Cada um crie a branch com o seu nome e a tarefa que estiver fazendo e faça os commits nela (Exemplo: "Rodape-Eliel"),
+só vamos atualizar a main quando todas as tarefas forem concluídas ou caso realmente 
+for necessário (Colocar componentes para todos usarem etc.).
+
+Caso precisem testar algum componente, criem um arquivo php na pasta de algum dos usuários.
+Exemplo: (et_pontocom/app/views/usuario ou adm ou associado ou teste caso criarem)
 
 ## guilherme
 
