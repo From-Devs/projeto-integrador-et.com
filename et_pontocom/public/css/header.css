@@ -35,7 +35,7 @@ header{
     gap: 9px;
     cursor: pointer;
     z-index: 999;
-    filter: drop-shadow(0px 1px 3px black);
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.466));
 }
 
 .menu-toggle .bar {
@@ -67,6 +67,38 @@ header{
     font-size: 48px;
 }
 
+.pesquisa{
+    position: absolute;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0px 4px 3px black);
+}
+
+.pesquisa input{
+    width: 664px;
+    height: 40px;
+    border: 0;
+    border-radius: 100px;
+}
+
+.pesquisa button{
+    display: flex;
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translate(0,-50%);
+    cursor: pointer;
+    border: 0;
+    background-color: #ffffff00;
+}
+
+.pesquisa i{
+    font-size: 34px;
+    font-weight: 80;
+}
+
 @media (max-width: 600px){
     header{
         height: 70px;
@@ -76,7 +108,7 @@ header{
         background-image: linear-gradient(170deg, black 0%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
         width: 50%;
         align-items: center;
-        gap: 10px;
+        gap: 6px;
         padding-left: 28px;
     }
 

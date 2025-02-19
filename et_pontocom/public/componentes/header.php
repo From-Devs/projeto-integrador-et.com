@@ -12,12 +12,17 @@ function createHeader(){
             <img src="../../../public/imagens/LogoBranca2.png" alt="logo">
         </div>
 
+        <div class="pesquisa">
+            <input type="text"></input>
+            <button><i class="bx bx-search" id="lupa"></i></button>
+        </div>
+
         <div class="direito">
             <div class="botoes">
-                <i class="bx bx-search"></i>
-                <i class="bx bx-heart"></i>
-                <i class="bx bx-cart"></i>
-                <i class="bx bx-user-circle" ></i>
+                <i class="bx bx-search" id="lupa"></i>
+                <i class="bx bx-heart" id="coracao"></i>
+                <i class="bx bx-cart" id="carrinho"></i>
+                <i class="bx bx-user-circle" id="perfil"></i>
             </div>
         </div>
     </header>
