@@ -68,36 +68,69 @@ header{
 }
 
 .pesquisa{
+    height: 45px;
     position: absolute;
-    display: flex;
+    display: none;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    filter: drop-shadow(0px 4px 3px black);
+    /* transform: translate(-50%, -50%); */
+    background-color: white;
+    border-radius: 100px;
+    filter: drop-shadow(0px 4px 3px rgba(0, 0, 0, 0.455));
+    animation: slide-in-top 0.5s both;
 }
 
 .pesquisa input{
-    width: 664px;
-    height: 40px;
+    width: 580px;
+    padding: 14px;
     border: 0;
-    border-radius: 100px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    font-size: 18px;
+}
+
+.pesquisa input:focus{
+    border: none;
 }
 
 .pesquisa button{
     display: flex;
-    position: absolute;
-    right: 22px;
-    top: 50%;
-    transform: translate(0,-50%);
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     border: 0;
     background-color: #ffffff00;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .pesquisa i{
-    font-size: 34px;
-    font-weight: 80;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.pesquisa i::before{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+}
+
+@keyframes slide-in-top {
+    0% {
+      -webkit-transform: translate(-50%,-200%);
+              transform: translate(-50%,-200%);
+
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translate(-50%,-50%);
+              transform: translate(-50%,-50%);
+
+      opacity: 1;
+    }
+  }
 
 @media (max-width: 600px){
     header{

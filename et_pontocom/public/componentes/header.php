@@ -12,7 +12,7 @@ function createHeader(){
             <img src="../../../public/imagens/LogoBranca2.png" alt="logo">
         </div>
 
-        <div class="pesquisa">
+        <div class="pesquisa" id="pesquisaHeader">
             <input type="text"></input>
             <button><i class="bx bx-search" id="lupa"></i></button>
         </div>
