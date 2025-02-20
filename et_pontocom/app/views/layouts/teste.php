@@ -1,6 +1,3 @@
-<?php
-require __DIR__ . "/../../../public/componentes/Rodapé.php"
-?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,9 +7,14 @@ require __DIR__ . "/../../../public/componentes/Rodapé.php"
     <title>et_pontocom</title>
     <link rel="stylesheet" href=" ../../../public/css/Rodape.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <?php echo Rodape()?>
+
+
+
+    
+    <?php include '../../../public/componentes/Rodapé.php'?>
 
 </body>
 </html>

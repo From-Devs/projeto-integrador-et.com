@@ -1,36 +1,18 @@
 *{
-    padding:0;
     margin: 0;
+    padding: 0;
 }
 
-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background:black;
-    flex-direction: column;
+
+footer{
+    font-family: "Montserrat", sans-serif;
+    background-color: black;
     color: white;
-    margin-top: 100vh;
-    height: 500px;
+    margin-top: 57.8vh;
+    
 }
 
-#Categoria{
-    text-align: center;
-}
-
-#Associado{
-   text-align: center;
-}
-
-#Base{
-    display: flex;
-    text-align: center;
-}
-
-#VoltarInicio{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+button{
     color: white;
     background-color: black;
     width: 200px;
@@ -38,53 +20,78 @@ footer {
     border: 0;
 }
 
-.colunas{
+
+.primeiraSecao{
     display: flex;
+    justify-content: center;
+}
+
+.logoPrincipal{
+    width: 370px;
+    height: 250px;
+    margin-left: 120px;
+    margin-top: 50px;
+    user-select: none;
+}
+
+.segundaSecao{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.segundaSubSecao{
+    display: flex;
+    justify-content: center;
+    margin-left: 12%; 
     gap: 50px;
-    margin-bottom: 50px;
-    margin-right: 45vh;
+    margin-top: 40px;
 }
 
 .ColunsCategoria{
     display: flex;
     flex-direction: column;
-}
-
-.ColunsLine{
-    display: flex;
-    gap: 7px;
-    flex-direction: column;
+    gap: 20px;
 }
 
 .ColunsAssociado{
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
-.CategoriaLink{
-    font-size: 20px;
+
+.ColunsLine{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.terceiraSecao{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.terceiraSecao img{
+    width: 300px;
+    height: 120px;
+    user-select: none;
+}
+
+.Termos{
+    margin-right: 580px
+}
+
+.Voltar{
+    font-size: medium;
+    font-family: "Montserrat", sans-serif;
+}
+
+.bx bx-chevron-up seta{
+    width: 200px;
+    height: 40px;
 }
 
 .seta{
-    font-size: 25px;
+    font-size: 30px;
 }
-
-footer img{
-    width: 370px;
-    gap: 50px;
-    height: 250px;
-    margin-right: 20vh;
-}
-
-#LogoFromDevs{
-    position: relative;
-    top:0;
-    float: right;
-    height: 80px;
-    width: 200px;
-    margin-right: 15px;
-    margin-left: 1450px;
-    margin-top:15px;
-    margin-bottom: 0px;
-}
-
