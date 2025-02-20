@@ -1,0 +1,60 @@
+.image-container 
+{
+	position: relative;
+	display: inline-block;
+	margin: 10px;
+}
+  
+img 
+{
+	width: 300px;
+	height: auto;
+	transition: opacity 0.3s ease;
+}
+  
+.overlay 
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: opacity 0.3s ease;
+	height: 99%;
+	border-radius: 15px;
+}
+
+.midias
+{
+	display: flex;
+	flex-direction: column;
+}
+  
+.btn 
+{
+	background-color: #fff;
+	color: #333;
+	padding: 10px 20px;
+	margin: 5px;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+}
+  
+.image-container:hover .overlay 
+{
+	opacity: 1;
+	border-radius: 15px;
+}
+  
+.image-container:hover img 
+{
+	opacity: 0.7; 
+	border-radius: 15px;
+}
+  

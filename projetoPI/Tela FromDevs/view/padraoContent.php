@@ -1,12 +1,16 @@
-function Conteudo($foto, $nome){
+<?php 
+
+function fotoDev($foto){
     return "
-    <div>
-        <img src="$foto" alt="">
-        <h1> $nome </h1>
+    <div class='image-container'>
+    <img src='$foto' alt='imagem'>
+        <div class='overlay'>
+            <button class='btn'>Botão 1</button>
+            <button class='btn'>Botão 2</button>
+        </div>
     </div>
-
+    ";
     
-    "
-
-
 }
+    
+?>
