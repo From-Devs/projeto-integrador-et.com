@@ -3,7 +3,7 @@
     margin: 0;
 }
 
-header{
+.headerUsuario{
     position: fixed;
     width: 100vw;
     display: flex;
@@ -72,13 +72,27 @@ header{
 .pesquisa{
     height: 45px;
     position: absolute;
-    display: none;
+    display: flex;
     top: 50%;
     left: 50%;
     background-color: white;
     border-radius: 100px;
     filter: drop-shadow(0px 4px 3px rgba(0, 0, 0, 0.455));
-    animation: slide-in-top 0.5s both;
+    /* animation: slide-in-top 0.5s both; */
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.pesquisa.open{
+    opacity: 1;
+    transform: translate(-50%,-55%);
+    visibility: visible;
+}
+
+.pesquisa.closed{
+    opacity: 0;
+    transform: translate(-50%,-250%);
+    visibility: hidden;
 }
 
 .pesquisa input{
@@ -88,9 +102,10 @@ header{
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
     font-size: 18px;
+    font-family: "Montserrat", sans-serif;
 }
 
-.pesquisa input:focus{
+#inputHeader:focus{
     border: none;
 }
 
@@ -126,15 +141,30 @@ header{
       opacity: 0;
     }
     100% {
-      -webkit-transform: translate(-50%,-50%);
-              transform: translate(-50%,-50%);
+      -webkit-transform: translate(-50%,-55%);
+              transform: translate(-50%,-55%);
 
       opacity: 1;
     }
   }
 
+@media (max-width: 1300px){
+    .pesquisa input{
+        width: 400px;
+    }
+}
+
+@media (max-width: 1140px){
+    .headerUsuario.pesquisaOpen{
+        padding-bottom: 80px;
+        background-image: linear-gradient(to bottom, black 0%, rgb(22, 22, 22) 30%, rgb(124, 124, 124) 65%, rgba(0, 0, 0, 0) 100%);
+    }
+}
+
+@media (max-width: 992px)
+
 @media (max-width: 600px){
-    header{
+    .headerUsuario{
         height: 70px;
     }
 
@@ -142,7 +172,7 @@ header{
         background-image: linear-gradient(170deg, black 0%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
         width: 50%;
         align-items: center;
-        gap: 6px;
+        gap: 10px;
         padding-left: 28px;
     }
 
@@ -152,7 +182,7 @@ header{
     }
 
     .menu-toggle{
-        transform: scale(0.8);
+        transform: scale(0.9);
     }
 
     .direito{
@@ -169,6 +199,25 @@ header{
         filter: drop-shadow(0px 1px 3px black);
         font-weight: 100;
         color: white;
-        font-size: 36px;
+        font-size: 40px;
     }
+
+    .pesquisa.open{
+        opacity: 1;
+        transform: translate(-50%,-5%);
+        visibility: visible;
+    }
+    
+    .pesquisa.closed{
+        opacity: 0;
+        transform: translate(-50%,-250%);
+        visibility: hidden;
+    }
+
+    .pesquisa input{
+        width: 350px;
+    }
+
+    
 }
+
