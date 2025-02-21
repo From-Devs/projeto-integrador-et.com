@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", serif;
+}
+
+body {
+    height: 100vh;
+}
+
+:root {
+    /*Cores Dashboard Principais*/
+    --cor1-principal: #242424;
+    --cor2-principal: #F8F8F8;
+}
+
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 280px;
+    padding: 10px 14px;
+    background-color: var(--cor1-principal);
+}
+
+.logo,
+.line{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 24px 0;
+}
+
+.sidebar li{
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    font-size: 20px;
+}
+
+.sidebar li .icon,
+.sidebar li .text{
+    color: var(--cor2-principal);
+}
+
+.sidebar li a{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 16px;
+} 
+
+.sidebar li a:hover{
+    width: 100%;
+    background-color: var(--cor2-principal);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: black;
+}
+
+.sidebar li a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 16px;
+    transition: transparent 0.3s ease-in-out;
+}
+
+.sidebar li a:hover,
+.sidebar li.active { 
+    border-radius: 16px;
+    background-color: var(--cor2-principal);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text,
+.sidebar li.active .icon,
+.sidebar li.active .text {
+    color: black;
+}
+
+
+.sidebar .bottom-content{
+    margin-top: 350px;
+}
