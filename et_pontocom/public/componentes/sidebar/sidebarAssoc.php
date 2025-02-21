@@ -15,34 +15,36 @@
                 <img src="../../imagens/LogoBranca1.png" alt="">
             </div>
             <div class="linhaGradiente"></div>
-            <div class="botoesAdm">
-                <ul>
-                    <li><a href="#" class="button_dashboard">
-                        <span class='bx bxs-home' ></span>
-                        <span>Dashboard</span>
-                    </a></li>
-                    <li ><a href="#" class="button_produtos">
-                        <span class='bx bxs-package'></span>
-                        <span>Produtos</span>
-                    </a></li>
-                    <li><a href="#"  class="button_pedidos">
-                        <span class='bx bx-money-withdraw' ></span>
-                        <span>Pedidos</span>
-                    </a></li>
-                    <li><a href="#" class="button_historicoVendas" style="font-size: 13px;">
-                        <span class="fa-solid fa-clock"></span>
-                        <span>Histórico de Vendas</span>
-                    </a></li>
-                    <li><a href="#" class="button_relatorios">
-                        <span class='bx bxs-receipt'></span>
-                        <span>Relatórios</span>
-                    </a></li>
-                </ul>
-            </div>
-            <div><a href="#"  class="button-sair">
-                <span class='bx bx-log-out'></span>
-                <span>Voltar a tela inicial</span>
+            <div class="buttons_geral">
+                <div class="botoesMenu">
+                    <ul>
+                        <li><a href="#" class="button_dashboard">
+                            <span class="fa fa-house-chimney" ></span>
+                            <span class="button_name">Dashboard</span>
+                        </a></li>
+                        <li ><a href="#" class="button_produtos">
+                            <span class='bx bxs-package'></span>
+                            <span class="button_name">Produtos</span>
+                        </a></li>
+                        <li><a href="#"  class="button_pedidos">
+                            <span class='bx bx-money-withdraw' ></span>
+                            <span class="button_name">Pedidos</span>
+                        </a></li>
+                        <li><a href="#" class="button_historicoVendas">
+                            <span class="fa fa-clock"></span>
+                            <span class="button_name">Histórico de Vendas</span>
+                        </a></li>
+                        <li><a href="#" class="button_relatorios">
+                            <span class='bx bxs-receipt'></span>
+                            <span class="button_name">Relatórios</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <div><a href="#"  class="button-sair">
+                    <span class='bx bx-log-out'></span>
+                    <span >Voltar a tela inicial</span>
                 </a></div>
+            </div>
 
         </nav>
     </div>

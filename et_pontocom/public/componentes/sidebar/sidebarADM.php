@@ -16,31 +16,31 @@
                 <img src="../../imagens/LogoBranca1.png" alt="">
             </div>
             <div class="linhaGradiente"></div>
-            <div class="botoesAdm">
+            <div class="botoesMenu">
                 <ul>
                     <li><a href="#" class="button_dashboard">
-                        <span class='bx bxs-home' ></span>
-                        <span>Dashboard</span>
+                        <span class="fa fa-house-chimney"></span>
+                        <span class="button_name">Dashboard</span>
                     </a></li>
                     <li><a href="#" class="button_produtos">
                         <span class='bx bxs-package'></span>
-                        <span>Produtos</span>
+                        <span class="button_name">Produtos</span>
                     </a></li>
                     <li><a href="#" class="button_pedidos">
                         <span class='bx bx-money-withdraw' ></span>
-                        <span>Pedidos</span>
+                        <span class="button_name">Pedidos</span>
                     </a></li>
                     <li><a href="#" class="button_associados">
-                        <span class="fa-solid fa-users" style="font-size: 13px;"></span>
-                        <span>Associados</span>
+                        <span class="fa fa-users"></span>
+                        <span class="button_name">Associados</span>
                     </a></li>
                     <li><a href="#" class="button_relatorios">
                         <span class='bx bxs-receipt'></span>
-                        <span>Relatórios</span>
+                        <span class="button_name">Relatórios</span>
                     </a></li>
                     <li><a href="#" class="button_customizacao">
                         <span class='bx bxs-palette'></span>
-                        <span>Customização</span>
+                        <span class="button_name">Customização</span>
                         
                     </a></li>
                 </ul>
