@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 
@@ -8,16 +9,18 @@ footer{
     font-family: "Montserrat", sans-serif;
     background-color: black;
     color: white;
-    margin-top: 57.8vh;
-    
+    margin-top: 200px;
+    transform-origin: top left;
+
 }
 
 button{
     color: white;
     background-color: black;
     width: 200px;
-    height: 30px;
+    height: 50px;
     border: 0;
+    overflow-y: hidden;
 }
 
 
@@ -79,7 +82,11 @@ button{
 }
 
 .Termos{
-    margin-right: 580px
+    margin-right: 575px
+}
+
+.logoFromDevs{
+    margin-right: 100px;
 }
 
 .Voltar{
@@ -94,4 +101,14 @@ button{
 
 .seta{
     font-size: 30px;
+}
+
+.bloko{
+    width:100px;
+    height: 100px;
+    background-color: blueviolet;
+}
+
+@media(max-width: 576px){
+
 }

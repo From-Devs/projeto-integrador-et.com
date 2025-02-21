@@ -3,7 +3,7 @@
     <footer>
         
         <div class="primeiraSecao">
-            <button type=button id="VoltarInicio">
+            <button type=button id="VoltarInicio" >
                 <i class="bx bx-chevron-up seta" style="color:#ffffff" ></i>
                 <p class="Voltar">Voltar para o início</p>    
             </button>
