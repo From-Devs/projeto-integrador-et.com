@@ -1,5 +1,5 @@
 <?php
-function createHeader(){
+function createHeader($login){
     return '
     <header class="headerUsuario" id="headerUsuario">
         <div class="esquerdo">
@@ -22,7 +22,7 @@ function createHeader(){
                 <i class="bx bx-search" id="lupa2"></i>
                 <i class="bx bx-heart" id="coracao"></i>
                 <i class="bx bx-cart" id="carrinho"></i>
-                <i class="bx bx-user-circle" id="perfil"></i>
+                <i class="bx bx-user-circle '.$login.'" id="perfil"></i>
             </div>
         </div>
     </header>

@@ -1,5 +1,7 @@
 <?php
-    require __DIR__ . "/../../../public/componentes/header.php"
+    require __DIR__ . "/../../../public/componentes/header.php";
+
+    $login = "deslogado";
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +19,7 @@
 </head>
 <body>
     <?php
-    echo createHeader()
+    echo createHeader($login)
     ?>
 
     <div class="bloco"></div>
