@@ -1,0 +1,61 @@
+.btn{
+    width: 150px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.btn:hover{
+    transform: scale(1.05);
+}
+
+.btn-black{
+    background-color: black;
+    color: white;
+}
+
+.btn-white{
+    background-color: white;
+    color: black;
+}
+
+.btn-black:hover{
+    background-color: rgb(76, 76, 76);
+}
+
+.btn-white:hover{
+    background-color: rgb(201, 201, 201);
+}
+
+.btn-cancelar-colorido{
+    background-color: #ff6464;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.btn-cancelar-colorido:hover{
+    background-color: #ff6464bd;
+}
+
+.btn-confirmar-colorido{
+    background-color: #43a728;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.btn-confirmar-colorido:hover{
+    background-color: #44a728ba;
+}
+
+.img-cancelar, .img-confirmar{
+    width: 30px;
+}
