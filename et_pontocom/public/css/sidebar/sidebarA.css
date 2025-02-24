@@ -57,10 +57,10 @@
     list-style: none;
 }
 
-.botoesMenu ul li:focus{
+/* .botoesMenu ul li:focus{
     background-color: var(--cor-sidebar-escrita);
     color: var(--cor-sidebar-fundo);
-}
+} */
 
 .botoesMenu ul li a{
     display: flex;
@@ -96,3 +96,25 @@
     font-weight: 600;
 }
 
+.area_Sair .button_sair{
+    width: 230px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+}
+
+.area_Sair .button_sair .fa{
+    font-size: 15px;
+    border-radius: 8px;
+    padding: 5px;
+    color: var(--cor-sidebar-fundo);
+    background-color: var(--cor-sidebar-escrita);
+    margin-right: 12px;
+    margin-left: 40px;
+}
+
+.area_Sair .button_sair .button_name{
+    color: var(--cor-sidebar-escrita);
+    font-weight: 600;
+}

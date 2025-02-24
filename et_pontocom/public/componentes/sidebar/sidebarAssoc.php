@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
-    <link rel="stylesheet" href="../../css/sidebar/sidebar.css">
+    <link rel="stylesheet" href="../../css/sidebar/sidebarA.css">
 </head>
 <body>
     <div class="sidebar_adm">
@@ -40,9 +40,9 @@
                         </a></li>
                     </ul>
                 </div>
-                <div><a href="#"  class="button-sair">
-                    <span class='bx bx-log-out'></span>
-                    <span >Voltar a tela inicial</span>
+                <div class="area_Sair"><a href="#"  class="button_sair" style="margin-top: 342px;">
+                    <span class="fa fa-arrow-right-from-bracket"></span>
+                    <span class="button_name">Voltar à tela inicial</span>
                 </a></div>
             </div>
 
