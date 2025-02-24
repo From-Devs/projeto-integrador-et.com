@@ -1,17 +1,108 @@
+*
+{
+	margin: 0;
+	padding: 0;
+	font-family: "Inter", serif;
+}
+
+body
+{
+	margin: 0;
+	padding: 0;
+	background-image: url(./../public/background.mp4);
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+
+}
+
+h1
+{
+	color: white;
+	padding-bottom: 60px;
+	text-wrap: wrap;
+	
+}
+
+a
+{
+	text-decoration: none;
+	color: white;
+
+}
+
+#aviso
+{
+	display: flex;
+	align-items: center;
+}
+
+#avisoH1
+{
+	display: flex;
+	align-items: center;
+}
+
+#pointerAviso
+{
+	width: 50px;
+	height: 50px;
+}
+
+
+
+.container
+{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 2% 10% 2% 10%;
+	gap: 50px;
+
+}
+
+#logo
+{
+	width: 30px;
+	height: 30px;
+	color: black;
+	border: none;
+
+}
+
+#divisaoLinkagem
+{
+	display: none;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	width: 200px;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+	border-radius: 12px;
+	background: linear-gradient(to right, #EC01A4, #7D00A5, #000000);
+	transition: background 0.5s ease-in-out;
+
+}
+
 .image-container 
 {
 	position: relative;
 	display: inline-block;
 	margin: 10px;
+
 }
-  
-img 
+
+#frontImage 
 {
 	width: 300px;
 	height: auto;
-	transition: opacity 0.3s ease;
+	
 }
-  
+
 .overlay 
 {
 	position: absolute;
@@ -19,14 +110,15 @@ img
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.5);
 	opacity: 0;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	transition: opacity 0.3s ease;
-	height: 99%;
+	transition: opacity 0.3s ease-in-out;
+	height: 100%;
 	border-radius: 15px;
+	gap: 20px;	
 }
 
 .midias
@@ -34,27 +126,59 @@ img
 	display: flex;
 	flex-direction: column;
 }
-  
-.btn 
+
+.botao
 {
-	background-color: #fff;
-	color: #333;
 	padding: 10px 20px;
 	margin: 5px;
 	border: none;
 	cursor: pointer;
 	font-size: 16px;
+	background-color: transparent;
+	color: white;
 }
-  
-.image-container:hover .overlay 
+
+#divisaoLinkagem:hover
 {
+	background: linear-gradient(to left, #EC01A4, #7D00A5, #000000);
+}
+
+.image-container:hover .overlay 
+{	
 	opacity: 1;
 	border-radius: 15px;
+	transition: filter 1 ease-in;
 }
-  
-.image-container:hover img 
+
+.image-container:hover #frontImage 
 {
-	opacity: 0.7; 
+	opacity: 1; 
 	border-radius: 15px;
+	filter: brightness(0.4);
 }
-  
+
+
+.image-container:hover #divisaoLinkagem
+{
+	display: flex;
+}
+
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

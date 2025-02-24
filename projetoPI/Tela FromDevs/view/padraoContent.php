@@ -1,12 +1,34 @@
 <?php 
 
-function fotoDev($foto){
+function fotoDev($foto, $git, $insta, $linke, $nome){
     return "
+    
     <div class='image-container'>
-    <img src='$foto' alt='imagem'>
+    <img id='frontImage' src='$foto' alt='imagem'>
         <div class='overlay'>
-            <button class='btn'>Botão 1</button>
-            <button class='btn'>Botão 2</button>
+            <div id='nomeDev'> 
+                <h1>
+                    $nome
+                </h1>
+            </div>
+            <div id='divisaoLinkagem' target='_blank'>
+                <img id='logo' src='./../public/logo/gitLogo.png' alt='GitHubImageOFF' 
+                <a href='$git' target='_blank'>
+                    <button class='botao GitHub'>Git Hub</button>
+                </a>
+            </div>
+            <div id='divisaoLinkagem'>
+                <img id='logo' src='./../public/logo/instaLogo.png' alt='InstagramImageOFF'>
+                <a href='$insta' target='_blank'>
+                    <button class='botao Instagram'>Instagram</button>
+                </a>
+            </div>
+            <div id='divisaoLinkagem'>
+                <img id='logo' src='./../public/logo/linkeLogo.png' alt='LinkedinImageOFF'>
+                <a href='$linke' target='_blank'>
+                    <button class='botao Linkedin'>Linkedin</button>
+                </a>
+            </div>
         </div>
     </div>
     ";
@@ -14,3 +36,5 @@ function fotoDev($foto){
 }
     
 ?>
+
+<div id="divisaoLinkagem"></div>
