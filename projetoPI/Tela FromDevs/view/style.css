@@ -72,8 +72,25 @@ a
 
 }
 
-#divisaoLinkagem
-{
+
+@property --myColor1 {
+	syntax: '<color>';
+	initial-value: #EC01A4;
+	inherits: false;
+  }
+  
+  @property --myColor2 {
+	syntax: '<color>';
+	initial-value: #7D00A5;
+	inherits: false;
+  }
+  @property --myColor3 {
+	syntax: '<color>';
+	initial-value: #000000;
+	inherits: false;
+  }
+
+#divisaoLinkagem {
 	display: none;
 	justify-content: center;
 	align-items: center;
@@ -83,9 +100,15 @@ a
 	margin: 0;
 	padding: 0;
 	border-radius: 12px;
-	background: linear-gradient(to right, #EC01A4, #7D00A5, #000000);
-	transition: background 0.5s ease-in-out;
+	background: linear-gradient(to right, var(--myColor1), var(--myColor2), var(--myColor3));
+	transition: --myColor1 0.3s, --myColor2 0.3s, --myColor3 0.3s;
+}
 
+#divisaoLinkagem:hover {
+	--myColor1: #000000;
+	--myColor2: #7D00A5;
+	--myColor3:#EC01A4;
+	
 }
 
 .image-container 
@@ -138,10 +161,6 @@ a
 	color: white;
 }
 
-#divisaoLinkagem:hover
-{
-	background: linear-gradient(to left, #EC01A4, #7D00A5, #000000);
-}
 
 .image-container:hover .overlay 
 {	
