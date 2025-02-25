@@ -18,6 +18,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    float: left;
+    position: fixed;
     width: 287px;
     background-color: var(--cor-sidebar-fundo);
     min-height: 100vh;
@@ -117,4 +119,100 @@
 .area_Sair .button_sair .button_name{
     color: var(--cor-sidebar-escrita);
     font-weight: 600;
+}
+
+
+
+@media (max-width: 700px) {
+    .nav_adm{
+        width: 250px;
+    }
+    .logo{
+        margin-top: 15px;
+        margin-bottom: 4px;
+    }
+    .logo img{
+        width: 150px;
+    }
+    
+    .linhaGradiente{
+        width: 210px;
+        height: 1px;
+        background: linear-gradient(to right, rgba(232,232,231,0),rgba(232,232,231, 0.185),rgba(232, 232, 231, 0.74), rgba(232,232,231, 0.185),rgba(232,232,231,0));
+        margin-bottom: 35px;
+    }
+    
+    .botoesMenu{
+        width: 230px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .botoesMenu ul li{
+        margin-left: 20px;
+        padding: 18px 0 18px 20px;
+        background-color: var(--cor-sidebar-fundo);
+        color: var(--cor-sidebar-escrita);
+        border-radius: 15px;
+        width: 210px;
+        list-style: none;
+    }
+    
+    .botoesMenu ul li a{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-decoration: none;
+        color: var(--cor-sidebar-escrita);
+    }
+    
+    .botoesMenu ul li a .bx{
+        font-size: 16px;
+        border-radius: 8px;
+        padding: 5px;
+        margin-right: 15px;
+        background-color: var(--cor-sidebar-escrita);
+        color: var(--cor-sidebar-fundo);
+    }
+    
+    .botoesMenu ul li a .fa{
+        font-size: 13px;
+        border-radius: 8px;
+        padding: 6px;
+        margin-right: 15px;
+        background-color: var(--cor-sidebar-escrita);
+        color: var(--cor-sidebar-fundo);
+    }
+    
+    .botoesMenu ul li a .fa-users{
+        padding: 6px 5px;
+    }
+    
+    .botoesMenu .button_name{
+        font-weight: 600;
+    }
+    
+    .area_Sair .button_sair{
+        width: 230px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-decoration: none;
+    }
+    
+    .area_Sair .button_sair .fa{
+        font-size: 15px;
+        border-radius: 8px;
+        padding: 5px;
+        color: var(--cor-sidebar-fundo);
+        background-color: var(--cor-sidebar-escrita);
+        margin-right: 12px;
+        margin-left: 40px;
+    }
+    
+    .area_Sair .button_sair .button_name{
+        color: var(--cor-sidebar-escrita);
+        font-weight: 600;
+    }
 }
