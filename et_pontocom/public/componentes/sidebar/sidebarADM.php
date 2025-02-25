@@ -18,40 +18,53 @@
             <div class="linhaGradiente"></div>
             <div class="botoesMenu">
                 <ul>
-                    <li><a href="#" class="button_dashboard">
-                        <span class="fa fa-house-chimney"></span>
-                        <span class="button_name">Dashboard</span>
-                    </a></li>
-                    <li><a href="#" class="button_produtos">
-                        <span class='bx bxs-package'></span>
-                        <span class="button_name">Produtos</span>
-                    </a></li>
-                    <li><a href="#" class="button_pedidos">
-                        <span class='bx bx-money-withdraw' ></span>
-                        <span class="button_name">Pedidos</span>
-                    </a></li>
-                    <li><a href="#" class="button_associados">
-                        <span class="fa fa-users"></span>
-                        <span class="button_name">Associados</span>
-                    </a></li>
-                    <li><a href="#" class="button_relatorios">
-                        <span class='bx bxs-receipt'></span>
-                        <span class="button_name">Relatórios</span>
-                    </a></li>
-                    <li><a href="#" class="button_customizacao">
-                        <span class='bx bxs-palette'></span>
-                        <span class="button_name">Customização</span>
-                        
-                    </a></li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="fa fa-house-chimney"></span>
+                            <span class="button_name">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class='bx bxs-package'></span>
+                            <span class="button_name">Produtos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class='bx bx-money-withdraw' ></span>
+                            <span class="button_name">Pedidos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="fa fa-users"></span>
+                            <span class="button_name">Associados</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class='bx bxs-receipt'></span>
+                            <span class="button_name">Relatórios</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class='bx bxs-palette'></span>
+                            <span class="button_name">Customização</span>   
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <div class="area_Sair"><a href="#" class="button_sair" style="margin-top: 280px;">
+            <div class="area_Sair">
+                <a href="#" class="button_sair" style="margin-top: 280px;">
                 <span class="fa fa-arrow-right-from-bracket"></span>
                 <span class="button_name">Sair</span>
-            </a></div>
-
+                </a>
+            </div>
         </nav>
     </div>
+    <script src="../../javascript/sidebar/sidebarScript.js"></script>
     
 </body>
 </html>

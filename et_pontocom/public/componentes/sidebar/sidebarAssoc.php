@@ -18,36 +18,47 @@
             <div class="buttons_geral">
                 <div class="botoesMenu">
                     <ul>
-                        <li><a href="#" class="button_dashboard">
-                            <span class="fa fa-house-chimney" ></span>
-                            <span class="button_name">Dashboard</span>
-                        </a></li>
-                        <li ><a href="#" class="button_produtos">
-                            <span class='bx bxs-package'></span>
-                            <span class="button_name">Produtos</span>
-                        </a></li>
-                        <li><a href="#"  class="button_pedidos">
-                            <span class='bx bx-money-withdraw' ></span>
-                            <span class="button_name">Pedidos</span>
-                        </a></li>
-                        <li><a href="#" class="button_historicoVendas">
-                            <span class="fa fa-clock"></span>
-                            <span class="button_name">Histórico de Vendas</span>
-                        </a></li>
-                        <li><a href="#" class="button_relatorios">
-                            <span class='bx bxs-receipt'></span>
-                            <span class="button_name">Relatórios</span>
-                        </a></li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="fa fa-house-chimney" ></span>
+                                <span class="button_name">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class='bx bxs-package'></span>
+                                <span class="button_name">Produtos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class='bx bx-money-withdraw' ></span>
+                                <span class="button_name">Pedidos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="fa fa-clock"></span>
+                                <span class="button_name">Histórico de Vendas</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <span class='bx bxs-receipt'></span>
+                                <span class="button_name">Relatórios</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-                <div class="area_Sair"><a href="#"  class="button_sair" style="margin-top: 342px;">
-                    <span class="fa fa-arrow-right-from-bracket"></span>
-                    <span class="button_name">Voltar à tela inicial</span>
-                </a></div>
+                <div class="area_Sair">
+                    <a href="#"  class="button_sair" style="margin-top: 342px;">
+                        <span class="fa fa-arrow-right-from-bracket"></span>
+                        <span class="button_name">Voltar à tela inicial</span>
+                    </a>
+                </div>
             </div>
-
         </nav>
     </div>
-    
+    <script src="../../javascript/sidebar/sidebarScript.js"></script>
 </body>
 </html>
