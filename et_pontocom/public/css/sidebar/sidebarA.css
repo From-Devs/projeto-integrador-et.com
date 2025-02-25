@@ -149,19 +149,13 @@
 }
 
 
-/*_________________Caixa de confirmação da saída_________________*/
-.confirmacaoSair{
-    display: none;
-    position: fixed;
-    z-index: 1000;
-}
-
-
 /*_________________Caso a tela seja menor..._________________*/
 @media (max-width: 1000px) {
     .nav_adm{
         width: 250px;
     }
+
+    
     .logo{
         margin-top: 15px;
         margin-bottom: 4px;
@@ -174,19 +168,20 @@
         height: 1px;
         margin-bottom: 23px;
     }
+
+
     .botoesMenu{
         width: 200px;
     }
-    .botoesMenu ul li{
+    .botoesMenu ul .nav-item{
         margin-left: 0;
         width: 190px;
     }    
-    .botoesMenu ul li a .bx{
+    .botoesMenu ul .nav-item .nav-link .bx{
         font-size: 14px;
         margin-right: 12px;
     }
-    
-    .botoesMenu ul li a .fa{
+    .botoesMenu ul .nav-item .nav-link .fa{
         font-size: 11px;
         margin-right: 12px;
     }
@@ -194,6 +189,8 @@
         font-weight: 600;
         font-size: 11px;
     }
+
+    
     .area_Sair .button_sair{
         width: 200px;
         left: 10px;
