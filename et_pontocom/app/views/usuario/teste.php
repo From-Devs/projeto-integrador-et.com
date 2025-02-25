@@ -1,7 +1,7 @@
 <?php
     require __DIR__ . "/../../../public/componentes/header.php";
 
-    $login = "deslogado";
+    $login = true;
 ?>
 
 <!DOCTYPE html>
