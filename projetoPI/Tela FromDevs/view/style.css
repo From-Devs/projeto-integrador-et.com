@@ -1,3 +1,5 @@
+/* VALORES DEFAULT */
+
 *
 {
 	margin: 0;
@@ -5,32 +7,39 @@
 	font-family: "Inter", serif;
 }
 
+/* ANIMACAO BACKGROUND  */
+
 body
 {
 	margin: 0;
 	padding: 0;
-	background-image: url(./../public/background.mp4);
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
-
 }
 
-h1
-{
-	color: white;
-	padding-bottom: 60px;
-	text-wrap: wrap;
-	
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
+
+/* COLORACAO E DECORACAO PADRAO TEXTO LINKAGEM */
 
 a
 {
 	text-decoration: none;
 	color: white;
-
 }
+
+/* PARTE DO AVISO  */
 
 #aviso
 {
@@ -42,15 +51,18 @@ a
 {
 	display: flex;
 	align-items: center;
+	color: white;
+	font-weight: 300;
+	font-size: large;
 }
 
 #pointerAviso
 {
-	width: 50px;
-	height: 50px;
+	width: 30px;
+	height: 30px;
 }
 
-
+/* CONTAINER PARA ORGANIZAR AS FOTOS */
 
 .container
 {
@@ -60,35 +72,10 @@ a
 	align-items: center;
 	padding: 2% 10% 2% 10%;
 	gap: 50px;
-
-}
-
-#logo
-{
-	width: 30px;
-	height: 30px;
-	color: black;
-	border: none;
-
 }
 
 
-@property --myColor1 {
-	syntax: '<color>';
-	initial-value: #EC01A4;
-	inherits: false;
-  }
-  
-  @property --myColor2 {
-	syntax: '<color>';
-	initial-value: #7D00A5;
-	inherits: false;
-  }
-  @property --myColor3 {
-	syntax: '<color>';
-	initial-value: #000000;
-	inherits: false;
-  }
+/* #DIVISAO E SEPARACAO QUE ENVOLVE AS IMAGENS E OS BOTOES */
 
 #divisaoLinkagem {
 	display: none;
@@ -104,27 +91,32 @@ a
 	transition: --myColor1 0.3s, --myColor2 0.3s, --myColor3 0.3s;
 }
 
-#divisaoLinkagem:hover {
-	--myColor1: #000000;
-	--myColor2: #7D00A5;
-	--myColor3:#EC01A4;
-	
-}
-
 .image-container 
 {
 	position: relative;
 	display: inline-block;
 	margin: 10px;
-
 }
+
+/* IMAGEM QUE MOSTRA OS DEVS */
 
 #frontImage 
 {
 	width: 300px;
 	height: auto;
-	
 }
+
+/* IMAGEM DAS LOGOS DAS REDES SOCIAIS */
+
+#logo
+{
+	width: 30px;
+	height: 30px;
+	color: black;
+	border: none;
+}
+
+/* ANIMACAO DE ESCURECIMENTO E DIVISORIA PARA O HOVER */
 
 .overlay 
 {
@@ -144,14 +136,20 @@ a
 	gap: 20px;	
 }
 
+/* ORGANIZADOR DOS BOTOES PARA FICAREM EM COLUNA */
+
 .midias
 {
 	display: flex;
 	flex-direction: column;
 }
 
+/* BOTAO */
+
 .botao
 {
+	/* esse cara é o que envia para os sites o botão inteiro 
+	em si não é clicavel, apenas a classe botao */
 	padding: 10px 20px;
 	margin: 5px;
 	border: none;
@@ -161,6 +159,26 @@ a
 	color: white;
 }
 
+/* ANIMACAO DO BOTAO  */
+
+@property --myColor1 {
+	syntax: '<color>';
+	initial-value: #EC01A4;
+	inherits: false;
+  }
+  
+  @property --myColor2 {
+	syntax: '<color>';
+	initial-value: #7D00A5;
+	inherits: false;
+  }
+  @property --myColor3 {
+	syntax: '<color>';
+	initial-value: #000000;
+	inherits: false;
+  }
+
+/* HOVERS GERAIS */
 
 .image-container:hover .overlay 
 {	
@@ -176,28 +194,13 @@ a
 	filter: brightness(0.4);
 }
 
-
 .image-container:hover #divisaoLinkagem
 {
 	display: flex;
 }
 
-
-body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+#divisaoLinkagem:hover {
+	--myColor1: #000000;
+	--myColor2: #7D00A5;
+	--myColor3:#EC01A4;
 }

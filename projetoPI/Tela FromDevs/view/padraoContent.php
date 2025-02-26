@@ -7,7 +7,7 @@ function fotoDev($foto, $git, $insta, $linke, $nome){
     <img id='frontImage' src='$foto' alt='imagem'>
         <div class='overlay'>
             <div id='nomeDev'> 
-                <h1>
+                <h1 id='nomeDevUser'>
                     $nome
                 </h1>
             </div>
