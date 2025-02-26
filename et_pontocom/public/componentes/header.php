@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . "/testeSidebar.php";
+
 function createHeader($login){
     if ($login == false){
         $botao1 = "Cadastrar-se";
@@ -10,6 +12,7 @@ function createHeader($login){
     return '
     <header class="headerUsuario" id="headerUsuario">
         <div class="esquerdo">
+            '.createSidebar().'
             <div class="menu-toggle" id="menu-toggle">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -31,7 +34,7 @@ function createHeader($login){
                 <i class="bx bx-cart" id="carrinho"></i>
                 <i class="bx bx-user-circle '.$login.'" id="perfil"></i>
             </div>
-            <div id="menuConta">
+            <div id="menuConta" class="menuConta">
                 <button class="menuButton">'.$botao1.'</button>
                 <button class="menuButton">'.$botao2.'</button>
             </div>

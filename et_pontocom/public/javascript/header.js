@@ -1,48 +1,79 @@
-const header = document.getElementById("headerUsuario");
-const pesquisa = document.getElementById("pesquisaHeader");
-const input = document.getElementById("inputHeader");
-const lupa = document.getElementById("lupa2");
-const coracao = document.getElementById("coracao");
-const carrinho = document.getElementById("carrinho");
-const perfil = document.getElementById("perfil");
-const menuConta = document.getElementById("menuConta");
+document.addEventListener("DOMContentLoaded", function(){
+    const header = document.getElementById("headerUsuario");
+    const pesquisa = document.getElementById("pesquisaHeader");
+    const input = document.getElementById("inputHeader");
+    const lupa = document.getElementById("lupa2");
+    const coracao = document.getElementById("coracao");
+    const carrinho = document.getElementById("carrinho");
+    const perfil = document.getElementById("perfil");
+    const menuConta = document.getElementById("menuConta");
+    const botaoMenu = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    const overlay = document.getElementById('overlay');
 
-console.log(menuConta)
+    menuConta.style.visibility = "hidden";
 
-lupa.addEventListener("click", function(event){
-    if (pesquisa.className == "pesquisa closed"){
+    // Abrir/fechar o menu
+    botaoMenu.addEventListener('click', function (event) {
         event.stopPropagation();
-        pesquisa.className = "pesquisa open";
-        header.className = "headerUsuario pesquisaOpen";
-        menuConta.style.visibility = "hidden";
-    }
-    // else{
-    //     pesquisa.className = "pesquisa closed"
-    //     header.className = "headerUsuario"
-    //     input.value = ""
-    // }
-})
+        menu.classList.toggle('mostrar');
+        overlay.classList.toggle('mostrar'); // Ativa/desativa o overlay
+    });
 
-document.addEventListener("click", function(event){
-    if (pesquisa.className == "pesquisa open" && !pesquisa.contains(event.target)){
-        pesquisa.className = "pesquisa closed";
-        header.className = "headerUsuario";
-        input.value = "";
-    }
-})
+    // Fechar ao clicar fora ou no overlay
+    document.addEventListener('click', function (event) {
+        if (menu.classList.contains('mostrar') && !menu.contains(event.target)) {
+            menu.classList.remove('mostrar');
+            overlay.classList.remove('mostrar');
+        }
+    });
 
-perfil.addEventListener("click", function(event){
-    if (menuConta.style.visibility == "hidden"){
+    // Fechar ao clicar no overlay
+    overlay.addEventListener('click', function () {
+        menu.classList.remove('mostrar');
+        overlay.classList.remove('mostrar');
+    });
+
+    // Impedir fechamento ao clicar dentro do menu
+    menu.addEventListener('click', function (event) {
         event.stopPropagation();
-        menuConta.style.visibility = "visible"
-    }
-    // else{
-    //     menuConta.style.visibility = "visible"
-    // }
-})
+    });
 
-document.addEventListener("click", function(event){
-    if (menuConta.style.visibility == "visible" && !menuConta.contains(event.target)){
-        menuConta.style.visibility = "hidden";
-    }
+    lupa.addEventListener("click", function(event){
+        if (pesquisa.className == "pesquisa closed"){
+            console.log("abrir lupa");
+            event.stopPropagation();
+            pesquisa.className = "pesquisa open";
+            header.className = "headerUsuario pesquisaOpen";
+            menuConta.style.visibility = "hidden";
+        }
+    })
+    
+    perfil.addEventListener("click", function(event){
+        if (menuConta.style.visibility == "hidden"){
+            console.log("abrir menu");
+            event.stopPropagation();
+            menuConta.style.visibility = "visible"
+            pesquisa.className = "pesquisa closed";
+            header.className = "headerUsuario";
+            input.value = "";
+        }
+    })
+    
+    document.addEventListener("click", function(event){
+        if (pesquisa.className == "pesquisa open" && !pesquisa.contains(event.target)){
+            console.log("fechar lupa");
+            pesquisa.className = "pesquisa closed";
+            header.className = "headerUsuario";
+            input.value = "";
+        }
+    })
+    
+    
+    document.addEventListener("click", function(event){
+        if (menuConta.style.visibility == "visible" && !menuConta.contains(event.target)){
+            console.log("fechar menu");
+            menuConta.style.visibility = "hidden";
+        }
+    })
 })
