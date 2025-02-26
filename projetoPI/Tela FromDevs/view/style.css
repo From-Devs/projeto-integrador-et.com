@@ -88,7 +88,7 @@ a
 	padding: 0;
 	border-radius: 12px;
 	background: linear-gradient(to right, var(--myColor1), var(--myColor2), var(--myColor3));
-	transition: --myColor1 0.3s, --myColor2 0.3s, --myColor3 0.3s;
+	transition: --myColor1 0.5s, --myColor2 0.5s, --myColor3 0.5s;
 }
 
 .image-container 
@@ -114,6 +114,12 @@ a
 	height: 30px;
 	color: black;
 	border: none;
+}
+
+#nomeDevUser
+{
+	color: white;
+	padding-bottom: 80px;
 }
 
 /* ANIMACAO DE ESCURECIMENTO E DIVISORIA PARA O HOVER */
@@ -184,7 +190,7 @@ a
 {	
 	opacity: 1;
 	border-radius: 15px;
-	transition: filter 1 ease-in;
+	transition: filter 0.3s ease-in;
 }
 
 .image-container:hover #frontImage 
@@ -193,6 +199,7 @@ a
 	border-radius: 15px;
 	filter: brightness(0.4);
 }
+
 
 .image-container:hover #divisaoLinkagem
 {
