@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
+
     const header = document.getElementById("headerUsuario");
     const pesquisa = document.getElementById("pesquisaHeader");
     const input = document.getElementById("inputHeader");
@@ -11,13 +12,17 @@ document.addEventListener("DOMContentLoaded", function(){
     const menu = document.getElementById('menu');
     const overlay = document.getElementById('overlay');
 
-    menuConta.style.visibility = "hidden";
+    menuConta.style.display = "none";
 
     // Abrir/fechar o menu
     botaoMenu.addEventListener('click', function (event) {
         event.stopPropagation();
         menu.classList.toggle('mostrar');
         overlay.classList.toggle('mostrar'); // Ativa/desativa o overlay
+        menuConta.style.display = "none";
+        pesquisa.className = "pesquisa closed";
+        header.className = "headerUsuario";
+        input.value = "";
     });
 
     // Fechar ao clicar fora ou no overlay
@@ -45,15 +50,15 @@ document.addEventListener("DOMContentLoaded", function(){
             event.stopPropagation();
             pesquisa.className = "pesquisa open";
             header.className = "headerUsuario pesquisaOpen";
-            menuConta.style.visibility = "hidden";
+            menuConta.style.display = "none";
         }
     })
     
     perfil.addEventListener("click", function(event){
-        if (menuConta.style.visibility == "hidden"){
+        if (menuConta.style.display == "none"){
             console.log("abrir menu");
             event.stopPropagation();
-            menuConta.style.visibility = "visible"
+            menuConta.style.display = "flex"
             pesquisa.className = "pesquisa closed";
             header.className = "headerUsuario";
             input.value = "";
@@ -71,9 +76,9 @@ document.addEventListener("DOMContentLoaded", function(){
     
     
     document.addEventListener("click", function(event){
-        if (menuConta.style.visibility == "visible" && !menuConta.contains(event.target)){
+        if (menuConta.style.display == "flex" && !menuConta.contains(event.target)){
             console.log("fechar menu");
-            menuConta.style.visibility = "hidden";
+            menuConta.style.display = "none";
         }
     })
 })
