@@ -32,7 +32,7 @@ function createHeader($login){
                 <i class="bx bx-search" id="lupa2"></i>
                 <i class="bx bx-heart" id="coracao"></i>
                 <i class="bx bx-cart" id="carrinho"></i>
-                <i class="bx bx-user-circle '.$login.'" id="perfil"></i>
+                <i class="bx bx-user-circle" id="perfil"></i>
             </div>
             <div id="menuConta" class="menuConta">
                 <button class="menuButton">'.$botao1.'</button>
