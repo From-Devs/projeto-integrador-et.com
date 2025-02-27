@@ -1,7 +1,7 @@
 <?php
-    require __DIR__ . "/../../../public/componentes/header.php";
+    require __DIR__ . "/../../../public/componentes/header.php"; // import do header
 
-    $login = true;
+    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
 </head>
 <body>
     <?php
-    echo createHeader($login)
+    echo createHeader($login) // função que cria o header
     ?>
 
     <div class="bloco"></div>

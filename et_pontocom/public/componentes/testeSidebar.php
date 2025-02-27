@@ -1,5 +1,5 @@
 <?php
-function createSidebar(){
+function createSidebar(){ // Sidebar de teste, depois trocar para versão oficial.
     return '
     <div id="menu" class="menu">
         <a href="#">Opção 1</a>

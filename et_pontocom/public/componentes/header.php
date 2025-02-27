@@ -1,14 +1,15 @@
 <?php
-require __DIR__ . "/testeSidebar.php";
+require __DIR__ . "/testeSidebar.php"; // Ele pega o componente do sidebar aqui, depois precisa trocar para a versão final do sidebar.
 
-function createHeader($login){
-    if ($login == false){
-        $botao1 = "Cadastrar-se";
+function createHeader($login){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
+    if ($login == false){ // Variaveis para o header (false = Deslogado / true = Logado)
+        $botao1 = "Cadastrar-se"; // Serve para mudar o texto dos botões do menu do perfil
         $botao2 = "Entrar";
     }else{
         $botao1 = "Minha Conta";
         $botao2 = "Sair";
     }
+    // Abaixo é o código do header que vai pro HTML, ele usa a função de criar a sidebar de outro componente.
     return '
     <header class="headerUsuario" id="headerUsuario">
         <div class="esquerdo">
@@ -19,7 +20,7 @@ function createHeader($login){
                 <span class="bar"></span>
             </div>
             
-            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/LogoBranca2.png" alt="logo">
+            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/LogoBranca2.png" alt="logo" id="logoHeader">
         </div>
 
         <div class="pesquisa closed" id="pesquisaHeader">
@@ -35,8 +36,8 @@ function createHeader($login){
                 <i class="bx bx-user-circle" id="perfil"></i>
             </div>
             <div id="menuConta" class="menuConta">
-                <button class="menuButton">'.$botao1.'</button>
-                <button class="menuButton">'.$botao2.'</button>
+                <button class="menuButton" id="botao1">'.$botao1.'</button>
+                <button class="menuButton" id="botao2">'.$botao2.'</button>
             </div>
         </div>
     </header>
