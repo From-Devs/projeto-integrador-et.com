@@ -12,14 +12,19 @@
 <body>
 <div class="sidebar_adm">
     <div class="nav_adm">
-        <div class="logo"><img src="../imagens/LogoBranca2.png" alt=""></div>
+        <div class="logo">
+            <img src="../imagens/LogoBranca2.png" alt="">
+        </div>
     </div>
     <div class="botoes_sidebar">
         <div class="botoes_categoria">
             <ul>
                 <p class="categoria_nome">Categorias</p>
                 <li class="categoria"><a href="" class="categoria_link">
-                    <span class="categoria_titulo">Maquiagem</span>
+                    <div class="categoria_titulo">
+                        <span class="nome_titulo">Maquiagem</span>
+                        <span class='bx bx-chevron-down'></span>
+                    </div>
                     <ul class="submenu">
                         <li><a href="#" class="submenu_link">Pele</a></li>
                         <li><a href="#" class="submenu_link">Olhos</a></li>
@@ -28,7 +33,10 @@
                     </ul>
                 </a></li>
                 <li class="categoria"><a href="" class="categoria_link">
-                    <span class="categoria_titulo">Perfume</span>
+                <div class="categoria_titulo">
+                        <span class="nome_titulo">Perfume</span>
+                        <span class='bx bx-chevron-down'></span>
+                    </div>
                     <ul class="submenu">
                         <li><a href="#" class="submenu_link">Feminino</a></li>
                         <li><a href="#" class="submenu_link">Masculino</a></li>
@@ -36,7 +44,10 @@
                     </ul>
                 </a></li>
                 <li class="categoria"><a href="" class="categoria_link">
-                    <span class="categoria_titulo">SkinCare</span>
+                    <div class="categoria_titulo">
+                        <span class="nome_titulo">SkinCare</span>
+                        <span class='bx bx-chevron-down'></span>
+                    </div>
                     <ul class="submenu">
                         <li><a href="#" class="submenu_link">Limpeza</a></li>
                         <li><a href="#" class="submenu_link">Esfoliação</a></li>
@@ -47,7 +58,10 @@
                     </ul>
                 </a></li>
                 <li class="categoria"><a href="" class="categoria_link">
-                    <span class="categoria_titulo">Cabelo</span>
+                <div class="categoria_titulo">
+                        <span class="nome_titulo">Cabelo</span>
+                        <span class='bx bx-chevron-down'></span>
+                    </div>
                     <ul class="submenu">
                         <li><a href="#" class="submenu_link">Dia-a-dia</a></li>
                         <li><a href="#" class="submenu_link">Tratamentos</a></li>
@@ -57,7 +71,10 @@
                     </ul>
                 </a></li>
                 <li class="categoria"><a href="" class="categoria_link">
-                    <span class="categoria_titulo">Eletrônicos</span>
+                <div class="categoria_titulo">
+                        <span class="nome_titulo">Eletrônicos</span>
+                        <span class='bx bx-chevron-down'></span>
+                    </div>
                     <ul class="submenu">
                         <li><a href="#" class="submenu_link">Cabelo</a></li>
                         <li><a href="#" class="submenu_link">Pincel</a></li>
@@ -65,7 +82,10 @@
                     </ul>
                 </a></li>
                 <li class="categoria"><a href="" class="categoria_link">
-                    <span class="categoria_titulo">Corporal</span>
+                <div class="categoria_titulo">
+                        <span class="nome_titulo">Corporal</span>
+                        <span class='bx bx-chevron-down'></span>
+                    </div>
                     <ul class="submenu">
                         <li><a href="#" class="submenu_link">Body Splash</a></li>
                         <li><a href="#" class="submenu_link">Óleos</a></li>
