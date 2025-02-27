@@ -1,0 +1,11 @@
+<?php
+
+function createCardProdutoLancamento(){
+
+    return '
+
+    ';
+}
+?>
+
+

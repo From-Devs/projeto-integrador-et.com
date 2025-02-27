@@ -20,7 +20,7 @@ function createHeader($login){ // Sempre que reutilizar o header, só utilizar e
                 <span class="bar"></span>
             </div>
             
-            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/LogoBranca2.png" alt="logo" id="logoHeader">
+            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" alt="logo" id="logoHeader">
         </div>
 
         <div class="pesquisa closed" id="pesquisaHeader">
