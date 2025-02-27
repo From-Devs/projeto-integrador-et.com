@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -16,6 +17,7 @@
     <div class="botoes_sidebar">
         <div class="botoes_categoria">
             <ul>
+                <p class="categoria_nome">Categorias</p>
                 <li class="categoria"><a href="" class="categoria_link">
                     <span class="categoria_titulo">Maquiagem</span>
                     <ul class="submenu">
@@ -74,8 +76,10 @@
             </ul>
         </div>
         <div class="botoes_config">
+            <p class="categoria_nome">Ajuda e Configurações</p>
             <ul>
-                <li class="config"><a href="" class="config_link">Minha Conta</a></li>
+                <li class="config"><a href="#" class="config_link">Minha Conta</a></li>
+                <li class="config"><a href="#" class="config_link">Área de Administração</a></li>
                 <li class="config"><a href="" class="config_link">Meus Pedidos</a></li>
                 <li class="config"><a href="" class="config_link">Associados</a></li>
                 <li class="config"><a href="" class="config_link">Termos de Uso e Privacidade</a></li>
