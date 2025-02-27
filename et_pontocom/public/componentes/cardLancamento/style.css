@@ -79,7 +79,7 @@
     width: 220px;
     height: 20px;
     text-align: center;
-    transition: bottom 0.6s ease-in-out;
+    transition: bottom 0.6s ease-in-out, opacity 0.6s ease-in-out;
     font-size: 16px;
     font-weight: bold;
     color: rgb(84, 84, 84);
@@ -93,10 +93,10 @@
 
 .botaoMaisDetalhesCardLancamento{
     position: absolute;
-    bottom: -33px;
+    bottom: -64px;
     width: 220px;
     height: 44px;
-    transition: bottom 0.6s ease-in-out, background-color 0.3s ease-in-out;
+    transition: bottom 0.6s ease-in-out, background-color 0.3s ease-in-out, opacity 0.6s ease-in-out;
     background-color: rgb(255, 255, 255);
     font-size: 16px;
     font-family: "Montserrat", sans-serif;
