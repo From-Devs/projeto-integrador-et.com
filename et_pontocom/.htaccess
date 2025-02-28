@@ -1,0 +1,23 @@
+# RewriteEngine On
+
+# # Detecta se estamos em um subdiretório específico e ajusta a RewriteBase
+# RewriteCond %{REQUEST_URI} ^/projeto-integrador-et.com/et_pontocom/
+# RewriteRule ^(.*)$ /projeto-integrador-et.com/et_pontocom/$1 [L]
+
+# # Permite acesso direto a arquivos dentro de /public/ (CSS, JS, imagens)
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(public/.*)$ $1 [L]
+
+# # Redireciona qualquer outra requisição para o index.php
+# RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+RewriteEngine On
+RewriteBase /projeto-integrador-et.com/et_pontocom/
+
+# Permite acesso direto a arquivos dentro de /public/ (CSS, JS, imagens)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redireciona qualquer outra requisição para o index.php
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
