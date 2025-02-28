@@ -31,6 +31,13 @@
         echo createCardProdutoLancamento("Teste 3","R$ 3000,00");
         ?>
     </div>
+    <div class="secao">
+        <?php
+        echo createCardProdutoLancamento("Teste 1","R$ 1000,00");
+        echo createCardProdutoLancamento("Teste 2","R$ 2000,00");
+        echo createCardProdutoLancamento("Teste 3","R$ 3000,00");
+        ?>
+    </div>
 
     <script src="../../../public/componentes/header/script.js"></script>
     <script src="../../../public/componentes/cardLancamento/script.js"></script>

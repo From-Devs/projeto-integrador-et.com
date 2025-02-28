@@ -10,6 +10,7 @@ function createCardProdutoLancamento($nome,$preco){
             <p class='CardLancamentoPreco' id='CardLancamentoPreco'>".$preco."</p>
             <button class='botaoMaisDetalhesCardLancamento' id='botaoMaisDetalhesCardLancamento'>Mais Detalhes</button>
             <button class='botaoComprarCardLancamento' id='botaoComprarCardLancamento'>Comprar</button>
+            <button class='botaoEspectro' id='botaoEspectro'></button>
         </div>
     </div>
     ";

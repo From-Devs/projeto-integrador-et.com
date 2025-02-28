@@ -1,17 +1,29 @@
+:root{
+    --cor-principal-default: rgb(0, 0, 0);
+    --cor-degrade1-default: rgb(102, 102, 102);
+    --cor-degrade2-default: black;
+    --cor-degrade3-default: black;
+    --cor-principal: #D1061D;
+    --cor-degrade1: ;
+    --cor-degrade2: ;
+    --cor-degrade3: ;
+}
+
 .cardLancamento{
     font-family: "Montserrat", sans-serif;
     position: relative;
     margin-top: 200px; /* Remover dps eu acho */
     width: 282px;
     height: 471px;
-    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.30));
     border-radius: 25px;
     z-index: 9;
     overflow: hidden;
+    transition: filter 0.6s ease-in-out;
 }
 
 .cardLancamento.open{
-    
+    filter: drop-shadow(0px 0px 12px var(--cor-principal-default));
 }
 
 .imgCardLancamento{
@@ -35,8 +47,6 @@
     width: 100%;
     height: 129px;
     background-image: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 75%, rgba(255, 255, 255, 0) 100%);
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
     transition: height 0.6s ease-in-out;
 }
 
@@ -63,14 +73,38 @@
     font-family: "Montserrat", sans-serif;
     width: 100%;
     height: 45px;
-    background-color: black;
+    background-image: linear-gradient(to bottom, var(--cor-degrade1-default) 24%, var(--cor-degrade3-default) 100%);
     color: white;
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.35);
     font-size: 20px;
     font-weight: bold;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
     border: 0;
     clip-path: ellipse(60% 100% at 50% 100%);
+    cursor: pointer;
+    transition: opacity 0.6s ease-in-out, text-shadow 0.6s ease-in;
+}
+
+.botaoComprarCardLancamento.open{
+    opacity: 0.8;
+    text-shadow: 0px 0px 4px rgb(255, 255, 255);
+}
+
+.botaoEspectro{
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
+    height: 45px;
+    background-image: linear-gradient(to bottom, var(--cor-degrade1-default) 24%, var(--cor-degrade3-default) 100%);
+    border: 0;
+    clip-path: ellipse(60% 100% at 50% 100%);
+    opacity: 1;
+    animation-delay: 0.4s;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    animation-fill-mode: backwards;
 }
 
 .CardLancamentoPreco{
@@ -114,4 +148,15 @@
 
 .botaoMaisDetalhesCardLancamento:hover{
     background-color: rgb(200, 200, 200);
+}
+
+@keyframes botaoFantasma{
+    0%{
+        opacity: 1;
+        height: 45px;
+    }
+    100%{
+        opacity: 0;
+        height: 52px;
+    }
 }
