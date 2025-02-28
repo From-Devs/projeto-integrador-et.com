@@ -16,5 +16,3 @@ function createCardProdutoLancamento($nome,$preco){
     ";
 }
 ?>
-
-
