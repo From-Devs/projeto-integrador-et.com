@@ -10,7 +10,15 @@ body{
     flex-direction: column;
 }
 
-.secao{
+.secaoLancamento{
+    height: auto;
+    width: 1380px;
+    overflow-x: scroll;
+}
+
+.containerLancamento{
+    padding: 25px 83px 25px 83px;
     display: flex;
+    width: max-content;
     gap: 17px;
 }

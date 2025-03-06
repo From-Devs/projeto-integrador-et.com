@@ -3,7 +3,7 @@
 function createCardProdutoLancamento($nome,$preco){
 
     return "
-    <div class='cardLancamento' id='cardLancamento1'>
+    <div class='cardLancamento' id='cardLancamento'>
         <img class='imgCardLancamento' id='imgCardLancamento' src='/projeto-integrador-et.com/et_pontocom/public/imagens/produto/marcas-com-rimel-vegano-2-e1649963065836.jpg' alt=''>
         <div class='baixo' id='baixo'>
             <span class='textoCardLancamento' id='textoCardLancamento'>".$nome."</span>

@@ -24,19 +24,19 @@
     echo createHeader($login); // função que cria o header
     ?>
 
-    <div class="secao">
-        <?php
-        echo createCardProdutoLancamento("Teste 1","R$ 1000,00");
-        echo createCardProdutoLancamento("Teste 2","R$ 2000,00");
-        echo createCardProdutoLancamento("Teste 3","R$ 3000,00");
-        ?>
-    </div>
-    <div class="secao">
-        <?php
-        echo createCardProdutoLancamento("Teste 1","R$ 1000,00");
-        echo createCardProdutoLancamento("Teste 2","R$ 2000,00");
-        echo createCardProdutoLancamento("Teste 3","R$ 3000,00");
-        ?>
+    <div class="secaoLancamento">
+        <div class="containerLancamento">
+            <?php
+            echo createCardProdutoLancamento("Teste 1","R$ 1000,00");
+            echo createCardProdutoLancamento("Teste 2","R$ 2000,00");
+            echo createCardProdutoLancamento("Teste 3","R$ 3000,00");
+            echo createCardProdutoLancamento("Teste 4","R$ 1000,00");
+            echo createCardProdutoLancamento("Teste 5","R$ 2000,00");
+            echo createCardProdutoLancamento("Teste 6","R$ 3000,00");
+            echo createCardProdutoLancamento("Teste 7","R$ 2000,00");
+            echo createCardProdutoLancamento("Teste 8","R$ 3000,00");
+            ?>
+        </div>
     </div>
 
     <script src="../../../public/componentes/header/script.js"></script>
