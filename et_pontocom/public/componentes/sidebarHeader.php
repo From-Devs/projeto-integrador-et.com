@@ -10,6 +10,17 @@
 
 </head>
 <body>
+
+<!-- <?php 
+//  function loginUsuario($login){
+//     if ($login == "Associado"){
+//         '<li class="config"><a href="#" class="config_link">Área de Administração</a></li>'
+//     }
+//     return
+//  }
+
+?> -->
+
 <div class="sidebar_adm">
     <div class="nav_adm">
         <div class="logo">
