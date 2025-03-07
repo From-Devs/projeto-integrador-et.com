@@ -40,7 +40,6 @@
                 ?>
             </div>
         </div>
-
     </div>
 
     <script src="../../../public/componentes/header/script.js"></script>

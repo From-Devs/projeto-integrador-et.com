@@ -1,8 +1,3 @@
-*{ /* provavelmente vai precisar tirar isso */
-    padding: 0;
-    margin: 0;
-}
-
 .headerUsuario{ /* styles do container do header no geral */
     position: fixed;
     width: 100vw;

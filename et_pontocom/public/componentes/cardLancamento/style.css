@@ -12,7 +12,6 @@
 .cardLancamento{
     font-family: "Montserrat", sans-serif;
     position: relative;
-    margin-top: 200px; /* Remover dps eu acho */
     width: 282px;
     height: 471px;
     filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.30));
