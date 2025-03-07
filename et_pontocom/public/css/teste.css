@@ -5,13 +5,23 @@
 
 body{
     height: 100vh;
-    display: flex;
+}
+
+.titulo{
+    font-size: 36px;
+}
+
+.lancamentos{
+    width: 100vw;
     align-items: center;
+    display: flex;
     flex-direction: column;
 }
 
-.secaoLancamento{
-    height: auto;
+.frameLancamento{
+    display: flex;
+    align-items: center;
+    height: 521px;
     width: 1380px;
     overflow-x: scroll;
 }
@@ -20,5 +30,6 @@ body{
     padding: 25px 83px 25px 83px;
     display: flex;
     width: max-content;
+    height: 471px;
     gap: 17px;
 }
