@@ -1,7 +1,3 @@
-<?php
-
-echo __DIR__;
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -68,7 +64,7 @@ echo __DIR__;
             </div>
         </nav>
     </div>
-    <script src="../../javascript/sidebar/sidebarScript.js"></script>
+    <script src="/host-gui/projeto/projeto-integrador-et.com/et_pontocom/public/javascript/sidebar/sidebarScript.js"></script>
     
 </body>
 </html>
