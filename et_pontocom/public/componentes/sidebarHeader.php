@@ -1,3 +1,10 @@
+<?php  
+
+session_start();
+// $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
+$tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
+?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -10,17 +17,6 @@
 
 </head>
 <body>
-
-<!-- <?php 
-//  function loginUsuario($login){
-//     if ($login == "Associado"){
-//         '<li class="config"><a href="#" class="config_link">Área de Administração</a></li>'
-//     }
-//     return
-//  }
-
-?> -->
-
     <div class="sidebar_adm">
         <div class="nav_adm">
             <a href="#" class="logo">               <!-- Adicionar o atalho para a página principal -->
@@ -121,9 +117,12 @@
                     <p class="categoria_nome">Ajuda e Configurações</p>
                     <ul>
                         <li class="config"><a href="#" class="config_link">Minha Conta</a></li>
-                        <li class="config"><a href="#" class="config_link">Área de Administração</a></li>
                         <li class="config"><a href="" class="config_link">Meus Pedidos</a></li>
-                        <li class="config"><a href="" class="config_link">Associados</a></li>
+                        <?php if ($tipo_usuario == 'Associado') : ?>
+                            <li class="config"><a href="#" class="config_link">Área de Administração</a></li>
+                        <?php else : ?>
+                            <li class="config"><a href="#" class="config_link">Associados</a></li>
+                        <?php endif; ?>
                         <li class="config"><a href="" class="config_link">Termos de Uso e Privacidade</a></li>
                     </ul>
                 </div>

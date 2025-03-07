@@ -31,7 +31,7 @@
     flex: 1;
     scrollbar-width: none; /* Para Firefox */
     -ms-overflow-style: none; /* Para Internet Explorer e Edge */
-    background: linear-gradient(to bottom, rgb(0,0,0),rgb(0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0),rgb(48, 48, 48));
+    background: linear-gradient(to bottom, rgb(0,0,0),rgb(0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0),rgb(99, 98, 98));
 }
 
 
@@ -125,6 +125,10 @@
 
 
 /*_________________Botões da Configuração_________________*/
+
+.botoes_sidebar .botoes_config{
+    margin-bottom: 100px;
+}
 
 .botoes_sidebar .botoes_config ul .config{
     padding: 10px 18px;
