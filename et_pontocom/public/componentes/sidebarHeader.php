@@ -1,8 +1,8 @@
 <?php  
 
 session_start();
-// $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
-$tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
+$tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
+// $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 ?>
 
 
