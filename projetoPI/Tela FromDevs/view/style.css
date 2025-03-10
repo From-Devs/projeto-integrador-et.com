@@ -190,7 +190,7 @@ a
 {	
 	opacity: 1;
 	border-radius: 15px;
-	transition: filter 0.3s ease-in;
+	transition: filter 1.5s ease-in;
 }
 
 .image-container:hover #frontImage 
