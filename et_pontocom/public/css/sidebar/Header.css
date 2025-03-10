@@ -1,18 +1,44 @@
-main{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+main {
     height: 100vh;
-    background-color:#ECECEC;
+    background-color: #ECECEC;
     margin-left: 287px;
 }
-.main_header{
+
+
+.main_header {
     height: 200px;
     background-color: #F8F8F8;
 }
-.main_header h1{
+
+.main_header h1 {
     font-size: 10px;
-    background-color:blue;
+    background-color: blue;
     padding-top: 83px;
     padding-left: 10px;
 }
+
 .main_fundo {
     height: 100vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+.quadrado {
+    height: 1000px;
+    width: 500px;
+    position: relative;
+    top: -20px;
+    background-color: rgb(226, 217, 217);
 }
