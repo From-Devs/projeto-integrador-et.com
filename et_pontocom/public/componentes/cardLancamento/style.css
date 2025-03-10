@@ -22,6 +22,8 @@
     height: 100%;
     width: 100%;
     transition: filter 0.6s ease-in-out;
+    user-select: none;
+    pointer-events: none;
 }
 
 .imgCardLancamento.open{
@@ -74,6 +76,7 @@
     clip-path: ellipse(60% 100% at 50% 100%);
     cursor: pointer;
     transition: opacity 0.6s ease-in-out, text-shadow 0.3s ease-in;
+    user-select: none;
 }
 
 .botaoComprarCardLancamento.open{
@@ -131,6 +134,7 @@
     cursor: pointer;
     border: 2px solid black;
     opacity: 0;
+    user-select: none;
 }
 
 .botaoMaisDetalhesCardLancamento.open{

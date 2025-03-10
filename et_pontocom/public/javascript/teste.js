@@ -13,11 +13,13 @@ let isDragging = false;
 const dragging = (e) => {
     if (!isDragging) return;
     frame.scrollLeft -= e.movementX;
+    frame.classList.add('dragging');
     console.log(e.movementX);
 };
 
 const dragStop = () => {
     isDragging = false;
+    frame.classList.remove('dragging');
 };
 
 frame.addEventListener('mousemove', dragging);
