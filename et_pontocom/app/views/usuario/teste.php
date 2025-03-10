@@ -27,7 +27,7 @@
     <div class="lancamentos">
         <p class="titulo" id="tituloLancamento">Lançamentos</p>
         <div class="frameLancamentos">
-            <i class="fa-solid fa-chevron-left setaEsquerda"></i>
+            <i class="fa-solid fa-chevron-left setaEsquerda" id="esquerda"></i>
             <div class="degradeEsquerda"></div>
             <div class="frameProdutos">
                 <div class="containerLancamento">
@@ -44,11 +44,12 @@
                 </div>
             </div>
             <div class="degradeDireita"></div>
-            <i class="fa-solid fa-chevron-right setaDireita"></i>
+            <i class="fa-solid fa-chevron-right setaDireita" id="direita"></i>
         </div>
     </div>
 
     <script src="../../../public/componentes/header/script.js"></script>
     <script src="../../../public/componentes/cardLancamento/script.js"></script>
+    <script src="../../../public/javascript/teste.js"></script>
 </body>
 </html>
