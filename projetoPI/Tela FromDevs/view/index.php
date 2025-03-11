@@ -27,7 +27,10 @@
         <?php echo fotoDev("./../public/fotoNossas/mateus.png","","","","Mateus Storti") ?>
         <?php echo fotoDev("./../public/fotoNossas/nicolas.png","","","","Nicolas Eloy") ?>
         <?php echo fotoDev("./../public/fotoNossas/nicolle.png","","","","Nicolle Zaleski") ?>
-        <!-- falta a foto do vinicius e do robert -->
+        <?php echo fotoDev("./../public/fotoNossas/vinicius.png","","","","Vinicius Elionai") ?>
+        <?php echo fotoDev("./../public/fotoNossas/robert.png","","","","Robert Fernandes") ?>
+        <?php echo fotoDev("./../public/fotoNossas/marcos.png","","","","Marcos Paulo") ?>
     </div>
 </body>
 </html>
+

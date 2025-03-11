@@ -1,0 +1,59 @@
+body
+{
+    margin: 0%;
+    padding: 0%;
+}
+
+#containerEsquerda
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    height: 953px;
+    width: 300px;
+}
+
+#imagem
+{
+    display: flex;
+    justify-content: center;
+}
+
+#fotoEt
+{
+    width: 150px;
+    height: 150px;
+
+}
+
+#opcoes
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#botaoPadrao
+{
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    width: 220px;
+    height: 50px;
+    margin: 10px 0 10px 0;
+}
+
+#iconeClique
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 45px;
+    background-color: black;
+    border-radius: 12px;
+
+}
+
+
