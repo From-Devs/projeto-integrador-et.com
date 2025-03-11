@@ -24,8 +24,27 @@
                         <h1>Perfil</h1>
                         <img src="https://i.pinimg.com/736x/91/0b/ec/910becbf6e01b541e0dea7f3bcc515c3.jpg" alt="">
                     </div>
+                    <div class="user-dados">
+                        <div class="user-Letra">
+                            <h1>Nome</h1>
+                        </div>
+                        <div class="user_Box menor">Wellinton R.</div>
+                        <div class="user-Letra">
+                            <h1>Gmail</h1>
+                        </div>
+                        <div class="user_Box">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
+                        <div class="user-Letra">
+                            <h1>CPF</h1>
+                        </div>
+                        <div class="user_Box menor">09x.xxx,xxx-67</div>
+                        <div class="user-Letra">
+                            <h1>Adicionar</h1>
+                        </div>
+                        <div class="user_Box">icones + depois com css</div>
+                    </div>
                 </div>
             </div>
+
         </section>
     </main>
 </body>

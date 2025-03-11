@@ -48,6 +48,8 @@ main {
 }
  
 .quadrado {
+    display: flex;
+    justify-content: space-between;
     box-shadow: black 3px 0 0 10;
     height: 760px;
     border-radius: 20px;
@@ -59,7 +61,6 @@ main {
     filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
 }
 .user-img{
-    display: flex;
     width: 550px;
     height: 550px;
     margin: 25px;
@@ -75,4 +76,29 @@ main {
     height: 430px;
     border-radius: 51%;
     border: 2px black solid;
+}
+.user-dados{
+    margin-top: 40px;
+    margin-right: 140px;
+    height: 500px;
+    width: 450px;
+}
+.user-Letra h1{
+    font-size: 24px;
+    margin-top: 20px;
+}
+.user_Box{
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    height: 58px;
+    width: 100%;
+    border-radius: 8px;
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
+    background-color: #F6F6F6;
+}
+
+.menor{
+    height: 47px;
+    width: 100%;
 }
