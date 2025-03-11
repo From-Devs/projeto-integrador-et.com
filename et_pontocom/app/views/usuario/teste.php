@@ -32,14 +32,14 @@
             <div class="frameProdutos">
                 <div class="containerLancamento">
                     <?php
-                    echo createCardProdutoLancamento("Teste 1","R$ 1000,00");
-                    echo createCardProdutoLancamento("Teste 2","R$ 2000,00");
-                    echo createCardProdutoLancamento("Teste 3","R$ 3000,00");
-                    echo createCardProdutoLancamento("Teste 4","R$ 1000,00");
-                    echo createCardProdutoLancamento("Teste 5","R$ 2000,00");
-                    echo createCardProdutoLancamento("Teste 6","R$ 3000,00");
-                    echo createCardProdutoLancamento("Teste 7","R$ 2000,00");
-                    echo createCardProdutoLancamento("Teste 8","R$ 3000,00");
+                    echo createCardProdutoLancamento("Teste 1","R$ 1000,00","#E1B48C");
+                    echo createCardProdutoLancamento("Teste 2","R$ 2000,00","#D1061D");
+                    echo createCardProdutoLancamento("Teste 3","R$ 3000,00","#D02369");
+                    echo createCardProdutoLancamento("Teste 4","R$ 1000,00","#F0CBDA");
+                    echo createCardProdutoLancamento("Teste 5","R$ 2000,00","#D79185");
+                    echo createCardProdutoLancamento("Teste 6","R$ 3000,00","#C9A176");
+                    echo createCardProdutoLancamento("Teste 7","R$ 2000,00","#745CA3");
+                    echo createCardProdutoLancamento("Teste 8","R$ 3000,00","#F4C83C");
                     ?>
                 </div>
             </div>

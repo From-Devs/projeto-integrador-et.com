@@ -1,6 +1,6 @@
 <?php
 
-function createCardProdutoLancamento($nome,$preco){
+function createCardProdutoLancamento($nome = "Indefinido",$preco = "R$ 0000,00",$cor = "#000000"){
 
     return "
     <article class='cardLancamento' id='cardLancamento'>
@@ -12,6 +12,7 @@ function createCardProdutoLancamento($nome,$preco){
             <button class='botaoComprarCardLancamento' id='botaoComprarCardLancamento'>Comprar</button>
             <button class='botaoEspectro' id='botaoEspectro'></button>
         </div>
+        <div class='cor' style='color:".$cor."';></div>
     </article>
     ";
 }
