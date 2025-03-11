@@ -32,14 +32,14 @@
             <div class="frameProdutos">
                 <div class="containerLancamento">
                     <?php
-                    echo createCardProdutoLancamento("Teste 1","R$ 1000,00","#E1B48C");
-                    echo createCardProdutoLancamento("Teste 2","R$ 2000,00","#D1061D");
-                    echo createCardProdutoLancamento("Teste 3","R$ 3000,00","#D02369");
-                    echo createCardProdutoLancamento("Teste 4","R$ 1000,00","#F0CBDA");
-                    echo createCardProdutoLancamento("Teste 5","R$ 2000,00","#D79185");
-                    echo createCardProdutoLancamento("Teste 6","R$ 3000,00","#C9A176");
-                    echo createCardProdutoLancamento("Teste 7","R$ 2000,00","#745CA3");
-                    echo createCardProdutoLancamento("Teste 8","R$ 3000,00","#F4C83C");
+                    echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg");
+                    echo createCardProdutoLancamento("Avon", "Red Batom","R$ 2000,00","#D1061D","batom.png");
+                    echo createCardProdutoLancamento("Benefit", "BADgal Bang! Máscara de Cílios","R$ 3000,00","#D02369","bang.png");
+                    echo createCardProdutoLancamento("Avon", "Color Trend Delineador Líquido","R$ 1000,00","#F0CBDA","trend.webp");
+                    echo createCardProdutoLancamento("Mari Maria","Diamond Blender Esponja de Maquiagem","R$ 2000,00","#D79185","tri.jpeg");
+                    echo createCardProdutoLancamento("Simple Organic", "SOLUÇÃO RETINOL-LIKE","R$ 3000,00","#C9A176","simple.webp");
+                    echo createCardProdutoLancamento("Princess","Mini Chapinha Bivolt","R$ 2000,00","#745CA3","chapa.webp");
+                    echo createCardProdutoLancamento("O Boticário","L'eau De Lily Soleil Perfume Feminino","R$ 3000,00","#F4C83C","lily.jpg");
                     ?>
                 </div>
             </div>
@@ -50,6 +50,6 @@
 
     <script src="../../../public/componentes/header/script.js"></script>
     <script src="../../../public/componentes/cardLancamento/script.js"></script>
-    <script src="../../../public/javascript/teste.js"></script>
+    <script src="../../../public/javascript/slider.js"></script>
 </body>
 </html>

@@ -15,14 +15,15 @@
 }
 
 .imgCardLancamento{
-    height: 100%;
+    height: 85%;
     width: 100%;
     transition: filter 0.6s ease-in-out;
+    object-fit: cover;
     user-select: none;
     pointer-events: none;
 }
 
-.imgCardLancamento.open{
+.cardLancamento.open .imgCardLancamento{
     filter: blur(3px);
 }
 
@@ -40,7 +41,7 @@
     transition: height 0.6s cubic-bezier(.37,0,.31,1);
 }
 /* (0.445, 0.05, 0.55, 0.95) */
-.baixo.open{
+.cardLancamento.open .baixo{
     height: 270px;
 }
 
@@ -54,7 +55,7 @@
     transition: margin-top 0.6s cubic-bezier(.37,0,.31,1);
 }
 
-.textoCardLancamento.open{
+.cardLancamento.open .textoCardLancamento{
     margin-top: 80px;
 }
 
@@ -75,7 +76,7 @@
     user-select: none;
 }
 
-.botaoComprarCardLancamento.open{
+.cardLancamento.open .botaoComprarCardLancamento{
     opacity: 0.8;
     text-shadow: 0px 0px 4px rgb(255, 255, 255);
 }
@@ -111,7 +112,7 @@
     opacity: 0;
 }
 
-.CardLancamentoPreco.open{
+.cardLancamento.open .CardLancamentoPreco{
     bottom: 110px;
     opacity: 1;
 }
@@ -133,7 +134,7 @@
     user-select: none;
 }
 
-.botaoMaisDetalhesCardLancamento.open{
+.cardLancamento.open .botaoMaisDetalhesCardLancamento{
     bottom: 55px;
     opacity: 1;
 }
