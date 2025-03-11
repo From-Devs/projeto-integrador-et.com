@@ -79,7 +79,6 @@ main {
 }
 .user-dados{
     margin-top: 40px;
-    margin-right: 140px;
     height: 500px;
     width: 450px;
 }
@@ -89,7 +88,7 @@ main {
 }
 .user_Box{
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     height: 58px;
     width: 100%;
@@ -101,4 +100,9 @@ main {
 .menor{
     height: 47px;
     width: 100%;
+}
+.exit{
+    height: 50px;
+    width: 50px;
+    background-color: aquamarine;
 }
