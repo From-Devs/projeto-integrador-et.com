@@ -58,3 +58,21 @@ main {
     background-color: rgb(245, 241, 241);
     filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
 }
+.user-img{
+    display: flex;
+    width: 550px;
+    height: 550px;
+    margin: 25px;
+}
+.user-img h1 {
+    font-size: 30px;
+    margin-left: 10px;
+    color: #000;
+}
+.user-img img{
+    margin-top: 40px;
+    width: 437px;
+    height: 430px;
+    border-radius: 51%;
+    border: 2px black solid;
+}
