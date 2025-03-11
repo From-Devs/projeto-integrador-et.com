@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-        require "../../public/componentes/sidebar/sidebarAssoc.php"
+        require "../../../public/componentes/sidebar/sidebarAssoc.php"
     ?>  
     
 </body>
