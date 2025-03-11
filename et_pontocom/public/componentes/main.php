@@ -12,6 +12,11 @@
             <h1 id="dados">
                 Meus dados     
             </h1>
+            <div class="perfil">
+                <p>
+                    Wellington R.
+                </p>
+           </div>
         </section>
         <section class="main_fundo">
             <div class="quadrado"></div>
