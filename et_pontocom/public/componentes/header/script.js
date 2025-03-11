@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
     const perfil = document.getElementById("perfil");
     const menuConta = document.getElementById("menuConta");
     const botaoMenu = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
+    const menu = document.getElementById('menuSidebar');
     const overlay = document.getElementById('overlay');
     const botao1 = document.getElementById('botao1');
     const botao2 = document.getElementById('botao2');

@@ -1,3 +1,10 @@
+<?php
+    require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
+    require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php"; // import do card
+
+    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,11 +13,16 @@
     <link rel="stylesheet" href="../../../public/css/minhaConta.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../../public/componentes/header/style.css">
+    <link rel="stylesheet" href="../../../public/componentes/sidebar/style.css">
     <title>Minha Conta</title>
 </head>
 <body>
+    <?php
+    echo createHeader($login); // função que cria o header
+    ?>
     <main>
-        <h1>MINHA CONTA</h1>
+        <h1 class="tituloMinhaConta">MINHA CONTA</h1>
         <div class="line-out">
             <div class="line"></div>
         </div>
@@ -75,5 +87,6 @@
             </div>
         </section>
     </main>
+    <script src="../../../public/componentes/header/script.js"></script>
 </body>
 </html>

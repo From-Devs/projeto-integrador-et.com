@@ -1,9 +1,9 @@
 /* Teste de sidebar, não é a sidebar final, depois precisa trocar pela nova */
 
-.menu {
+.menuSidebar {
     position: fixed;
     top: 0;
-    left: -250px; /* Esconde o menu fora da tela */
+    left: -250px; /* Esconde o menuSidebar fora da tela */
     width: 250px;
     height: 100%;
     background-color: #333;
@@ -13,7 +13,7 @@
     z-index: 1000;
 }
 
-.menu a {
+.menuSidebar a {
     display: block;
     padding: 15px;
     color: white;
@@ -21,13 +21,13 @@
     font-size: 18px;
 }
 
-.menu a:hover {
+.menuSidebar a:hover {
     background-color: #575757;
 }
 
-/* Classe para mostrar o menu */
-.menu.mostrar {
-    left: 0; /* Move o menu para a tela */
+/* Classe para mostrar o menuSidebar */
+.menuSidebar.mostrar {
+    left: 0; /* Move o menuSidebar para a tela */
 }
 
 .overlay {
@@ -40,7 +40,7 @@
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     pointer-events: none; /* Permite clicar através do overlay quando invisível */
-    z-index: 999; /* Fica abaixo do menu */
+    z-index: 999; /* Fica abaixo do menuSidebar */
 }
 
 .overlay.mostrar {

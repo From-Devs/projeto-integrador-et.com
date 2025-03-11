@@ -1,3 +1,10 @@
+<?php
+    require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
+    require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php"; // import do card
+
+    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
