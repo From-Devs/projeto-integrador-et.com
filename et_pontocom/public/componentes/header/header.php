@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/../sidebar/testeSidebar.php"; // Ele pega o componente do sidebar aqui, depois precisa trocar para a versão final do sidebar.
+require __DIR__ . "/../sidebar/sidebarHeader.php"; // Ele pega o componente do sidebar aqui, depois precisa trocar para a versão final do sidebar.
 
 function createHeader($login){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
     if ($login == false){ // Variaveis para o header (false = Deslogado / true = Logado)

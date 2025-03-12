@@ -2,7 +2,12 @@
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php"; // import do card
 
+    session_start();
+    $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
+    // $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+
+
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +54,7 @@
     </div>
 
     <script src="../../../public/componentes/header/script.js"></script>
+    <script src="../../../public/componentes/sidebar/script.js"></script>
     <script src="../../../public/componentes/cardLancamento/script.js"></script>
     <script src="../../../public/javascript/slider.js"></script>
 </body>
