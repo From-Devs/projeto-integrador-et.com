@@ -16,7 +16,12 @@
 .sidebar_adm{
     display: flex;
     font-size: 20px;
+    /* left: -250px; 
+    position: fixed; */
+}
 
+.sidebar_adm.mostrar {
+    left: 0; /* Move o menu para a tela */
 }
 
 .nav_adm{

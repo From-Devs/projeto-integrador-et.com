@@ -1,7 +1,7 @@
 <?php
 function createSidebar(){ // Sidebar de teste, depois trocar para versão oficial.
     return '
-    <div class="sidebar_adm">
+    <div class="sidebar_adm" id="sidebar_adm">
         <div class="nav_adm">
             <a href="#" class="logo">               <!-- Adicionar o atalho para a página principal -->
                 <img src="../imagens/LogoBranca2.png" alt="">

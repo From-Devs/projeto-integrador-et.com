@@ -12,7 +12,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/SidebarHeader.css">
+    <link rel="stylesheet" href="sidebarHeader.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
@@ -20,7 +20,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
     <div class="sidebar_adm">
         <div class="nav_adm">
             <a href="#" class="logo">               <!-- Adicionar o atalho para a página principal -->
-                <img src="../imagens/LogoBranca2.png" alt="">
+                <img src="../../imagens/ET/LogoBranca2.png" alt="">
             </a>
             <div class="botoes_sidebar">
                 <div class="botoes_categoria">
@@ -131,6 +131,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
         
     </div>
 
-    <script src="../javascript/SidebarHeader.js"></script>
+    <script src="sidebarHeader.js"></script>
 </body>
 </html>
