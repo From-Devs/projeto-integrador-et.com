@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
     botaoMenu.addEventListener('click', function (event) {
         event.stopPropagation();
         menu.classList.toggle('mostrar');
-        // overlay.classList.toggle('mostrar'); // Ativa/desativa o overlay
+        overlay.classList.toggle('mostrar'); // Ativa/desativa o overlay
         menuConta.style.display = "none";
         pesquisa.className = "pesquisa closed";
         header.className = "headerUsuario";
@@ -77,15 +77,15 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
     document.addEventListener('click', function (event) {
         if (menu.classList.contains('mostrar') && !menu.contains(event.target)) {
             menu.classList.remove('mostrar');
-            // overlay.classList.remove('mostrar');
+            overlay.classList.remove('mostrar');
         }
     });
 
     // Mesma coisa de cima mas quando clicar no fundo
-    // overlay.addEventListener('click', function () {
-    //     menu.classList.remove('mostrar');
-    //     overlay.classList.remove('mostrar');
-    // });
+    overlay.addEventListener('click', function () {
+        menu.classList.remove('mostrar');
+        overlay.classList.remove('mostrar');
+    });
 
     // Impedir fechamento da Sidebar ao clicar dentro da mesma
     menu.addEventListener('click', function (event) {

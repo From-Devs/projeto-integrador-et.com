@@ -1,10 +1,11 @@
 <?php
 function createSidebar(){ // Sidebar de teste, depois trocar para versão oficial.
     return '
+    <div id="overlay" class="overlay"></div>
     <div class="sidebar_adm" id="sidebar_adm">
         <div class="nav_adm">
-            <a href="#" class="logo">               <!-- Adicionar o atalho para a página principal -->
-                <img src="../imagens/LogoBranca2.png" alt="">
+            <a href="#" class="logo">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" alt="">
             </a>
             <div class="botoes_sidebar">
                 <div class="botoes_categoria">
