@@ -13,12 +13,17 @@
     <link rel="stylesheet" href="../../../public/css/editarPerfil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../../public/componentes/header/style.css">
+    <link rel="stylesheet" href="../../../public/componentes/sidebar/style.css">
     <title>Editar Perfil</title>
 </head>
 <body>
+    <?php
+    echo createHeader($login); // função que cria o header
+    ?>
     <header>
         <a href="minhaConta.html" class="back-button"><i class="fas fa-arrow-left"></i></a>
-        <h1>EDITAR PERFIL</h1>
+        <h1 style="margin-top: 0;">EDITAR PERFIL</h1>
     </header>
 
     <div class="line-out">
@@ -55,6 +60,6 @@
         </div>
     </section>
 
-
+    <script src="../../../public/componentes/header/script.js"></script>
 </body>
 </html>

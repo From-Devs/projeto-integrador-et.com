@@ -22,7 +22,7 @@
     echo createHeader($login); // função que cria o header
     ?>
     <main>
-        <h1 class="tituloMinhaConta">MINHA CONTA</h1>
+        <h1 class="tituloMinhaConta" style="margin-top: 0;">MINHA CONTA</h1>
         <div class="line-out">
             <div class="line"></div>
         </div>

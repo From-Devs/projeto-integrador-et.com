@@ -18,7 +18,7 @@ main{
     cursor: pointer;
 }
 
-h1 {
+.tituloMinhaConta {
     padding-top: 131px;
     text-align: center;
 }
