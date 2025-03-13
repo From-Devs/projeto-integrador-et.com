@@ -1,0 +1,260 @@
+body{
+    font-family: "Montserrat", serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    scale: 0.7;
+    background-color: pink;
+}
+
+/* Cores do botão de compra */
+
+:root{
+    --cor-principal-default: rgb(0, 0, 0);
+    --cor-degrade1-default: #3F7FD9;
+    --cor-degrade2-default: black;
+    --cor-degrade3-default: #133285;
+    --cor-principal: #D1061D;
+    --cor-degrade1: ;
+    --cor-degrade2: ;
+    --cor-degrade3: ;
+}
+
+
+
+.coisaDeCima{
+    position: absolute;
+    display: flex;
+    width: 286px;
+    height: 130px;
+    bottom: 265px;
+}
+
+#buraquinho{
+    position: absolute;
+    background-color: white;
+    border-radius: 100%;
+    width: 9px;
+    height: 9px;
+    left: 15px;
+    top: 4px;
+}
+
+.ticketMaldito{
+    position: absolute;
+    transform: scale(0.5);
+    right: 230px;
+    top: px;
+    bottom: -10px;
+
+}
+
+#coraçãoFofo{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    width: 41px;
+    height: 41px;    
+    z-index: 5;
+    border-radius: 100%;
+    border: solid 2.5px #000000;
+    right: 10px;
+}
+
+#oCoração{
+    transform: scale(0.63);
+}
+
+.imagemMaldita{
+    position: absolute;
+    bottom: 0px;
+    z-index: 2;
+    transform: scale(0.5);
+    bottom: 14px;
+    transition: bottom 0.7s ease;
+}
+
+/* Content geral que muda a cor do fundo */
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index:4;
+    width: 286px;
+    height: 406px;
+    border-radius: 24px;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(70deg, #1a3f93, #3f7fd9);
+    transition: box-shadow 0.7s ease;
+}
+
+
+
+
+.contentDeBaixo{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0;
+    bottom: 0;
+    z-index: 1;
+    background-image: linear-gradient(to top, rgb(255, 255, 255) 75%, rgba(30, 144, 255, 0) 100%);
+    height: 211px;
+    width: 286px;
+    transition: height 0.7s ease;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+.content:hover {
+    box-shadow: 0px 0px 10px 7px rgba(63, 127, 217, 0.329);
+}
+
+.content:hover .contentDeBaixo {
+    height: 260px;
+  }
+
+.content:hover .marca {
+    bottom:150px;
+}
+
+.content:hover .nomeProduto {
+    bottom:102px;
+}
+
+.content:hover .imagemMaldita {
+    bottom: 41px;
+}
+
+.content:hover .linha {
+    top: 87px;
+}
+
+.content:hover .precoOriginal {
+    opacity: 100%;
+}
+
+
+
+.linha{
+    position: absolute;
+    background-color: black;
+    width: 242px;
+    height: 0px;
+    top: 65px;
+    margin: 0;
+    transition: top 0.7s ease;
+}
+
+.precoOriginal{
+    position: absolute;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    color: rgba(0, 0, 0, 60%);
+    bottom: 68px;
+    margin: 0;
+    transition: opacity 0.7s ease;
+    opacity: 0%;
+    text-decoration: line-through;
+}
+
+.preco{
+    display: flex;
+    position: absolute;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 23px;
+    align-items: center;
+    justify-content: center;
+    width: 95px;
+    height: 28px;
+    bottom: 29px;
+    margin-top: 0;
+    
+
+}
+
+.botaoComprarCardLancamento{
+    position: absolute;
+    bottom: 0;
+    z-index: 11;
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    height: 45px;
+    background-image: linear-gradient(to bottom, var(--cor-degrade1-default) 25%, var(--cor-degrade3-default) 100%);
+    color: white;
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.35);
+    font-size: 20px;
+    font-weight: bold;
+    border: 0;
+    clip-path: ellipse(60% 100% at 50% 100%);
+    cursor: pointer;
+    transition: opacity 0.6s ease-in-out, text-shadow 0.6s ease-in;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+ 
+.botaoComprarCardLancamento.open{
+    opacity: 0.8;
+    text-shadow: 0px 0px 4px rgb(255, 255, 255);
+}
+ 
+.botaoEspectro{
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
+    height: 45px;
+    background-image: linear-gradient(to bottom, var(--cor-degrade1-default) 24%, var(--cor-degrade3-default) 100%);
+    border: 0;
+    clip-path: ellipse(60% 100% at 50% 100%);
+    opacity: 1;
+    animation-delay: 0.4s;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    animation-fill-mode: backwards;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+.marca{
+   position: absolute;
+   font-weight: 400; 
+   margin: 0;
+   font-size: 16px;
+   bottom: 123px;
+   left: 26px;
+   transition: bottom 0.7s ease;
+}
+
+.nomeProduto{
+    position: absolute;
+    width: 241px;
+    font-weight: 600;
+    margin: 0;
+    font-size: 20px;
+    bottom: 75px;
+    transition: bottom 0.7s ease;
+}
+
+@keyframes botaoFantasma{
+    0%{
+        opacity: 1;
+        height: 45px;
+    }
+    100%{
+        opacity: 0;
+        height: 52px;
+    }
+}
