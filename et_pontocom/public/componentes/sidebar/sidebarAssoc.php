@@ -12,7 +12,7 @@
     <div class="sidebar_adm">
         <nav class="nav_adm">
             <div class="logo">
-                <img src="../../imagens/LogoBranca1.png" alt="">
+                <img src="<?php echo $_SERVER['DOCUMENT_ROOT']; ?>/et_pontocom/public/imagens/LogoBranca1.png" alt="">
             </div>
             <div class="linhaGradiente"></div>
             <div class="buttons_geral">
