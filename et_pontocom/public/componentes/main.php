@@ -43,7 +43,7 @@
                         <div class="user_Box">icones + depois com css</div>
                     </div>
                     <div class="exit">
-                        icones de X
+                        X
                     </div>
 
                 </div>

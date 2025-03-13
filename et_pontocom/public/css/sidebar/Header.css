@@ -106,7 +106,8 @@ main {
     width: 100%;
 }
 .exit{
-    height: 50px;
-    width: 50px;
-    background-color: aquamarine;
+    font-size: 40px;
+    justify-content: flex-end;
+    width: 30px;
+    height: 30px;
 }
