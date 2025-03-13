@@ -1,16 +1,14 @@
-<<<<<<< Updated upstream
+@import url('https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body{
     width: 100vw;
     height: 100vh;
-=======
-@import url('https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-body {
     font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
     background: #f8f8f8;  
 }
+
 
 .description-box {
     max-width: 900px;
@@ -37,5 +35,4 @@ li {
     margin: 5px 0;
     font-size: 16px;
     color: black;
->>>>>>> Stashed changes
 }
