@@ -21,8 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     if (otherSubmenu) otherSubmenu.style.display = "none";
                     if (otherIcon) {
-                        otherIcon.classList.remove("fa-chevron-up");
-                        otherIcon.classList.add("fa-chevron-down");
+                        otherIcon.classList.remove("open");
                     }
                 }
             });
@@ -35,11 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
             // Trocar ícone da seta
             if (icon) {
                 if (isActive) {
-                    icon.classList.remove("fa-chevron-up");
-                    icon.classList.add("fa-chevron-down");
+                    icon.classList.remove("open");
                 } else {
-                    icon.classList.remove("fa-chevron-down");
-                    icon.classList.add("fa-chevron-up");
+                    icon.classList.add("open");
                 }
             }
         });
