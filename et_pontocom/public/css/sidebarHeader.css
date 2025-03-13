@@ -1,0 +1,147 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url(./styles.css);
+
+/*_________________Geral_________________*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat",serif;
+    color: var(--cor-sidebar-escrita);
+}
+
+
+/*_________________Básico da sidebar_________________*/
+.sidebar_adm{
+    display: flex;
+    font-size: 20px;
+
+}
+
+.nav_adm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    float: left;
+    width: 370px;
+    height: 100vh;
+    overflow-y: auto;
+    flex: 1;
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer e Edge */
+    background: linear-gradient(to bottom, rgb(0,0,0),rgb(0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0),rgb(99, 98, 98));
+}
+
+
+/*_________________Logo_________________*/
+.logo{
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+.logo img{
+    width: 180px;
+    height: auto;
+}
+
+
+/*_________________Botões básico_________________*/
+.botoes_sidebar{
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*_________________Botões da Categoria_________________*/
+.botoes_sidebar .botoes_categoria{
+    margin-bottom: 10px;
+    margin-bottom: 100px;
+}
+
+.categoria_nome{  /*Serve tanto para o da categoria quanto o de configuração*/
+    font-size: 17px;
+    color: rgb(160, 160, 160);
+    padding-left: 18px;
+    padding-bottom: 5px;
+}
+
+
+.botoes_categoria ul .categoria{
+    list-style: none;  
+    transition: background-color 0.2s ease-out 0.1s;
+}
+
+.botoes_categoria ul .categoria.active{
+    background-color: rgb(134,134,134);
+}
+
+.botoes_categoria ul .categoria:hover{
+    background-color: rgb(79,74,71);
+    transition-delay: 0s;
+}
+
+.botoes_categoria ul .categoria div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.botoes_categoria ul .categoria .categoria_link{
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 18px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.botoes_categoria ul .categoria .button_sub{
+    font-size: 18px;
+    padding-right: 18px;
+}
+
+.botoes_categoria ul .categoria .submenu{
+    display: none;
+    list-style: none;
+    background-color: rgb(44, 44, 44);
+    position: relative;
+}
+
+.botoes_categoria ul .categoria .submenu li{
+    padding: 13px 0px;
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.137);
+    
+}
+
+.botoes_categoria ul .categoria .submenu li .submenu_link{
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 18px;
+}
+
+
+/*_________________Botões da Configuração_________________*/
+
+.botoes_sidebar .botoes_config{
+    margin-bottom: 100px;
+}
+
+.botoes_sidebar .botoes_config ul .config{
+    padding: 10px 18px;
+    transition: background-color 0.2s ease-out 0.1s;
+}
+
+.botoes_sidebar .botoes_config ul .config:hover{
+    background-color: rgb(79,74,71);
+    transition-delay: 0s;
+}
+
+.botoes_config ul .config .config_link{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+}
