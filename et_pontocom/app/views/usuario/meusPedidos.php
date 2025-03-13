@@ -1,10 +1,10 @@
 <?php
-    require __DIR__ . "/../../../../public/componentes/header/header.php";
+    require __DIR__ . "/../../../public/componentes/header/header.php";
 
 
     session_start();
-    // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente'; // Descomente essa parte para tipo do usuario = Usuário
-    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado"; // Descomente essa parte para tipo do usuario = Associado
+    $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente'; // Descomente essa parte para tipo do usuario = Usuário
+    // $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado"; // Descomente essa parte para tipo do usuario = Associado
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
 
@@ -23,6 +23,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+    <?php
+    echo createHeader($login,$tipo_usuario); // função que cria o header
+    ?>
+    <div class="meusPedidosMain">
+        <h1 class="tituloPrincipalMP">Meus Pedidos</h1>
+        <div class="linhaPrincipal"></div>
+        <div class="pedidosCaminho"></div>
+        <div class="pedidosEntregues"></div>
+    </div>
+
     
 </body>
 </html>
