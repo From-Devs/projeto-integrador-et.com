@@ -1,0 +1,202 @@
+*
+{
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
+
+body
+{
+    display: flex;
+    margin: 0%;
+    padding: 0%;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+/* PARTE LATERAL DA ESQUERDA (MENU BAR) */
+
+#containerEsquerda
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(#141414 77%, #353535 100%);
+    height: 100vh;
+    width: 350px;
+}
+
+/* fotos em geral */
+
+#imagem
+{
+    display: flex;
+    justify-content: center;
+}
+
+#fotoEt
+{
+    margin-top: 30px;
+    width: 200px;
+    height: 150px;
+
+}
+
+/* estilização dos botões */
+
+#opcoes
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#usandoAgoraBotao, #botaoPadrao
+{
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    width: 220px;
+    height: 60px;
+    margin: 10px 0 10px 0;
+    cursor: pointer;
+    border: none;
+}
+
+#botaoPadrao
+{
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+#iconeClique
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 45px;
+    background-color: black;
+    border-radius: 12px;
+
+}
+
+#textoBotao
+{
+    margin-left: 5px;
+}
+
+/* parte do sair */
+
+#saindo
+{
+    gap: 15px;
+    margin-top: 150px;
+    display: flex;
+}
+
+#botaoSair
+{
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 18px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+#sairP
+{
+    color: white;
+    cursor: pointer;
+}
+
+/* PARTE DA DIREITA CONTAINER GERAL */
+
+#container
+{
+    width: 100vw;
+    height: 100vh;
+    margin-left: 50px;
+}
+
+/* estilizacao da parte do icone do usuario */
+
+
+#controleIcon
+{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#iconUsuario
+{
+    width: 250px;
+    height: 80px;
+    display: flex;
+    background-color: black;
+    color: white;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+    margin-top: 40px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+#fotoUser
+{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    margin-left: 30px;
+    width: 70px;
+    height: 70px;
+}
+
+/* filtragem e pesquisa */
+
+#divPesquisarEFiltro
+{
+    display: flex;
+    gap: 250px;
+}
+
+/* pesquuisa */
+
+#inputPesquisar
+{
+    width: 400px;
+    height: 55px;
+    border-radius: 15px;
+    padding-left: 10px;
+    border: none;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+}
+
+/* filtragem */
+
+#botaoFiltragem
+{
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #3449B6;
+    color: white;
+    border-radius: 15px;
+    width: 205px;
+    height: 55px;
+    font-size: 18px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+#imagemFiltro
+{
+    width: 40px;
+    height: 40px;
+}
