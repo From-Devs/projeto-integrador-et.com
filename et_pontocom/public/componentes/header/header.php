@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . "/../sidebar/sidebarHeader.php";
 
-function createHeader($login){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
+function createHeader($login,$tipoUsuario){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
     if ($login == false){ // Variaveis para o header (false = Deslogado / true = Logado)
         $botao1 = "Cadastrar-se"; // Serve para mudar o texto dos botões do menu do perfil
         $botao2 = "Entrar";
@@ -12,7 +12,7 @@ function createHeader($login){ // Sempre que reutilizar o header, só utilizar e
     // Abaixo é o código do header que vai pro HTML, ele usa a função de criar a sidebar de outro componente.
     return '
     <header class="headerUsuario" id="headerUsuario">
-        '.createSidebar().'
+        '.createSidebar($tipoUsuario).'
         <div class="esquerdo">
             <div class="menu-toggle" id="menu-toggle">
                 <span class="bar"></span>
