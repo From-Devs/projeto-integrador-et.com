@@ -1,6 +1,5 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Script carregado!");
 
     const buttonsIcon = document.querySelectorAll(".button_sub");
 
