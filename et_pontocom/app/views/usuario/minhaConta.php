@@ -2,6 +2,9 @@
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php"; // import do card
 
+    session_start();
+    // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
+    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
 
@@ -19,7 +22,7 @@
 </head>
 <body>
     <?php
-    echo createHeader($login); // função que cria o header
+    echo createHeader($login,$tipo_usuario); // função que cria o header
     ?>
     <main>
         <h1 class="tituloMinhaConta" style="margin-top: 0;">MINHA CONTA</h1>
@@ -88,5 +91,6 @@
         </section>
     </main>
     <script src="../../../public/componentes/header/script.js"></script>
+    <script src="../../../public/componentes/sidebar/script.js"></script>
 </body>
 </html>
