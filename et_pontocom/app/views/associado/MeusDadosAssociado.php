@@ -55,5 +55,6 @@
 
         </section>
     </main>
+    <script src="../../../public/componentes/sidebarADM/script.js"></script>
 </body>
 </html>
