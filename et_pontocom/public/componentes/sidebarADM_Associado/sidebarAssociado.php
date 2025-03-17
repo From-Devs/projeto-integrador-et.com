@@ -12,7 +12,7 @@
     <div class="sidebar_adm">
         <nav class="nav_adm">
             <div class="logo">
-                <img src="../../imagens/LogoBranca1.png" alt="">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca1.png" alt="">
             </div>
             <div class="linhaGradiente"></div>
             <div class="buttons_geral">

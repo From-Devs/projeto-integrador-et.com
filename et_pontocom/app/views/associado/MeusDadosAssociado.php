@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php 
-    include "../../../public/componentes/sidebarADM_Associado/sidebarADM.php";
+    include "../../../public/componentes/sidebarADM_Associado/sidebarAssociado.php";
     ?>
     <main>
         <section class="main_header">
