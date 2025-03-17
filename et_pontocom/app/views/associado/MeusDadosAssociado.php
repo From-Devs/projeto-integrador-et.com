@@ -17,9 +17,7 @@
                 Meus dados     
             </h1>
             <div class="perfil">
-                <p>
-                    Wellington R.
-                </p>
+                
            </div>
         </section>
         <section class="main_fundo">
@@ -29,27 +27,31 @@
                         <img src="https://i.pinimg.com/736x/91/0b/ec/910becbf6e01b541e0dea7f3bcc515c3.jpg" alt="">
                     </div>
                     <div class="user-dados">
-                        <div class="user-Letra">
+                        <div class="user-Letra">    
                             <h1>Nome</h1>
                         </div>
-                        <div class="user_Box menor">Wellinton R.</div>
+                            <div class="user_Box menor Texto">Wellinton R.</div>
                         <div class="user-Letra">
                             <h1>Gmail</h1>
                         </div>
-                        <div class="user_Box">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
+                            <div class="user_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
                         <div class="user-Letra">
                             <h1>CPF</h1>
                         </div>
-                        <div class="user_Box menor">09x.xxx,xxx-67</div>
+                            <div class="user_Box menor Texto">09x.xxx,xxx-67</div>
                         <div class="user-Letra">
                             <h1>Adicionar</h1>
                         </div>
-                        <div class="user_Box">icones + depois com css</div>
+                        <div class="icones">
+                            <i class='bx bxl-instagram icone'></i>
+                            <i class='bx bxl-linkedin icone'></i>
+                            <i class='bx bxl-facebook icone' ></i>
+                            <i class='bx bxl-twitter icone' ></i>
+                            <i class='bx bxl-whatsapp icone' ></i>
+                            <i class='bx bx-plus icone'></i>
+                        </div>
                     </div>
-                    <div class="exit">
-                        <i class='bx bx-x'></i>
-                    </div>
-
+                    <i class='bx bx-x exit'></i>
                 </div>
             </div>
 
