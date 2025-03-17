@@ -1,8 +1,8 @@
 <?php
 
-require_once "/xampp/htdocs/projeto-integrador-et.com/et_pontocom/public/componentes/botao.php";
-require_once "/xampp/htdocs/projeto-integrador-et.com/et_pontocom/public/componentes/popUp.php";
 
+require_once "./projeto-integrador-et.com/et_pontocom/public/componentes/botao/botao.php";
+require_once "./projeto-integrador-et.com/et_pontocom/public/componentes/popup/popUp.php";
 ?>
 
 <!DOCTYPE html>
