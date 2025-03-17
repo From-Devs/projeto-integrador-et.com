@@ -26,22 +26,38 @@
     ?>
 
 <div class="conteudoMeusPedidos">
+            <!-- Parte Superior da Página -->
         <div class="areaSuperiorMP">
             <h1 class="tituloPrincipalMP">Meus Pedidos</h1>
             <div class="linhaSuperiorTituloMP"></div>
         </div>
+
+            <!-- Parte de Pedidos que estão a caminho -->
         <section class="pedidoCaminhoMP">
             <h2 class="tituloCaminhoMP">A Caminho</h2>
-            <div class="produtosCaminho"></div>
-            
-
+            <div id="produtosCaminho"></div> <!-- Parte do JavaScript-->
         </section>
 
+            <!-- Parte de Pedidos que foram entregues -->
         <section class="pedidosEntreguesMP">
             <h2 class="tituloEntregueMP">Entregue</h2>
-            <div class="produtosEntregues"></div>
+            <div id="produtosEntregues"></div> <!-- Parte do JavaScript -->
 
         </section>
+
+            <!-- PopUp mostrando todos os pedidos efetuados na compra -->
+        <div class="popUpMP" id="popUpMP">
+            <div class="conteudoPopUpMP">
+                <span class="fecharPopUpMP" onclick="fecharPopUp()">&times;</span>
+                <div class="popUpCardsMP" id="popUpCardsMP"></div>
+                <div class="detalhesPopUpMP">
+                    <span id="dataPedido" class="dataPedido"></span>
+                    <span id="totalPedido" class="totalPedido"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="linhaInferiorMP"></div>
     </div>
 
     <script src="../../../public/componentes/header/script.js"></script>
