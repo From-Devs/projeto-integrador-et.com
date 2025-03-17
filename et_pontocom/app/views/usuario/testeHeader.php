@@ -27,6 +27,8 @@
     echo createHeader($login,$tipo_usuario); // função que cria o header
     ?>
 
+    
+
     <script src="../../../public/componentes/header/script.js"></script>
     <script src="../../../public/componentes/sidebar/script.js"></script>
 </body>

@@ -1,6 +1,5 @@
 <?php
-    require __DIR__ . "/../../../public/componentes/header/header.php";
-
+    require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
 
     session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente'; // Descomente essa parte para tipo do usuario = Usuário
@@ -8,9 +7,8 @@
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
 
-
 <!DOCTYPE html>
-<html lang="pt_BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,13 +24,27 @@
     <?php
     echo createHeader($login,$tipo_usuario); // função que cria o header
     ?>
-    <div class="meusPedidosMain">
-        <h1 class="tituloPrincipalMP">Meus Pedidos</h1>
-        <div class="linhaPrincipal"></div>
-        <div class="pedidosCaminho"></div>
-        <div class="pedidosEntregues"></div>
+
+<div class="conteudoMeusPedidos">
+        <div class="areaSuperiorMP">
+            <h1 class="tituloPrincipalMP">Meus Pedidos</h1>
+            <div class="linhaSuperiorTituloMP"></div>
+        </div>
+        <section class="pedidoCaminhoMP">
+            <h2 class="tituloCaminhoMP">A Caminho</h2>
+            <div class="produtosCaminho"></div>
+            
+
+        </section>
+
+        <section class="pedidosEntreguesMP">
+            <h2 class="tituloEntregueMP">Entregue</h2>
+            <div class="produtosEntregues"></div>
+
+        </section>
     </div>
 
-    
+    <script src="../../../public/componentes/header/script.js"></script>
+    <script src="../../../public/componentes/sidebar/script.js"></script>
 </body>
 </html>
