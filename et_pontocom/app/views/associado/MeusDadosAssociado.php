@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../public/css/MeusDadosAssociado.css">
-    <link rel="stylesheet" href="../../../public/componentes/sidebarADM/style.css">
+    <link rel="stylesheet" href="../../../public/componentes/sidebarADM_Associado/style.css">
     <title>Document</title>
 </head>
 <body>
     <?php 
-    include "../../../public/componentes/sidebarADM/sidebarADM.php";
+    include "../../../public/componentes/sidebarADM_Associado/sidebarADM.php";
     ?>
     <main>
         <section class="main_header">
@@ -55,6 +55,6 @@
 
         </section>
     </main>
-    <script src="../../../public/componentes/sidebarADM/script.js"></script>
+    <script src="../../../public/componentes/sidebarADM_Associado/script.js"></script>
 </body>
 </html>
