@@ -64,14 +64,11 @@ main {
     width: 550px;
     height: 550px;
     margin: 25px;
-    padding-top: ;
-    user-select: none;
 }
 .user-img h1 {
     font-size: 30px;
     margin-left: 10px;
     color: #000;
-    user-select: none;
 }
 .user-img img{
     margin-top: 40px;
@@ -79,7 +76,6 @@ main {
     height: 430px;
     border-radius: 51%;
     border: 2px black solid;
-    user-select: none;
 }
 .user-dados{
     margin-top: 40px;
@@ -106,8 +102,7 @@ main {
     width: 100%;
 }
 .exit{
-    font-size: 40px;
-    justify-content: flex-end;
-    width: 30px;
-    height: 30px;
+    height: 50px;
+    font-size: 30px;
+    width: 50px;
 }
