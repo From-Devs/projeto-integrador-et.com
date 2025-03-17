@@ -91,7 +91,7 @@ main {
     margin-top: 20px;
 }
 .user_Box{
-    margin-top: 10px;
+    padding-left: 10px;
     font-size: 18px;
     text-align: center;
     height: 58px;

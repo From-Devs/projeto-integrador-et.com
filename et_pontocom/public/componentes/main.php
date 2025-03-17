@@ -43,7 +43,7 @@
                         <div class="user_Box">icones + depois com css</div>
                     </div>
                     <div class="exit">
-                        X
+                        <i class='bx bx-x'></i>
                     </div>
 
                 </div>
