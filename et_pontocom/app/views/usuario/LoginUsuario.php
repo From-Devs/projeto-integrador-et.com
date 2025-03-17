@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - ET</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../../public/css/LoginUsuario.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab&display=swap" rel="stylesheet">
 </head>
 <body id="bodyLogin">
@@ -25,17 +25,17 @@
             <a href=""><button id="botaoEntrar">Entrar</button></a>
             <div id="cadastro">
                 <p>Novo na ET?</p>
-                <a id="cadastroClique" href="/Et/CadastroLogin/CadastroUsuario/index.php">Cadastre-se</a>
+                <a id="cadastroClique" href="./CadastroUsuario.php">Cadastre-se</a>
             </div>
         <div id="voltarSair">
-            <img src="./../CadastroUsuario/Imagem/voltar.png" alt="seta.png">
-            <a id="voltar" href="">Voltar</a>          
+            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/icones/voltar.png" alt="seta.png">
+            <a id="voltar" href="./paginaPrincipal.php">Voltar</a>          
         </div>    
         </div>
         <section>
             <div class="wave wave1"></div>
             <div>
-                <img id="fotoET" src="./../CadastroUsuario/Imagem/LogoET.png" alt="">
+                <img id="fotoET" src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca1.png" alt="">
             </div>
         </section>
     </div>

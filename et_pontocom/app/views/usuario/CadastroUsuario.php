@@ -1,4 +1,4 @@
-<?php  require __DIR__."/Componentes/camp.php" ?>
+<?php  require __DIR__."/../../../public/componentes/CampoInput/camp.php" ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CadastroUsuario</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../../public/css/CadastroUsuario.css">
 </head>
 <body>
     <!--Logo-->
@@ -40,15 +40,15 @@
                 
                 <div class="checkbox">
                     <input type="checkbox" name="termos"> 
-                    <label class="termos"> Concordo com os <a href="../../../Et/TermosDeUsoPrivacidade/index.php">Termos de Uso e Privacidade</a></label>
+                    <label class="termos"> Concordo com os <a href="./TermoDeUso.php">Termos de Uso e Privacidade</a></label>
                     </div>
                 <div class="button">
                     <button><a id = "confirmar" href="../LoginUsuario/index.php">Confirmar</a></button>
                 </div>
 
                 <div class= voltarSair>
-                    <img src="./Imagem/voltar.png">
-                    <a id="voltar" href = "./../LoginUsuario/index.php">Voltar</a>
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/icones/voltar.png">
+                    <a id="voltar" href = "./LoginUsuario.php">Voltar</a>
                 </div>
             </div>
     </div>
