@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/css/AdmDados.css">
-    <link rel="stylesheet" href="../../public/componentes/sidebarADM/sidebarA.css">
+    <link rel="stylesheet" href="../../../public/css/MeusDadosAssociado.css">
+    <link rel="stylesheet" href="../../../public/componentes/sidebarADM/sidebarA.css">
     <title>Document</title>
 </head>
 <body>
+    <?php 
+    include "../../../public/componentes/sidebarADM/sidebarADM.php";
+    ?>
     <main>
         <section class="main_header">
             <h1 id="dados">
