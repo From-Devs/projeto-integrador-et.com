@@ -13,7 +13,7 @@
     <div class="sidebar_adm">
         <nav class="nav_adm">
             <div class="logo">
-                <img src="../../imagens/ET/LogoBranca1.png" alt="awdwa">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca1.png" alt="awdwa">
             </div>
             <div class="linhaGradiente"></div>
             <div class="botoesMenu">
