@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;  
+}
+
+
+.description-box {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(180deg, #a5a5a5 40%, #E4E4E4 50%);
+    border-radius: 30px;
+    text-align: left;
+}
+
+h2 {
+    text-align: center;
+    font-size: 28px;
+    color: black;
+}
+
+ul {
+    list-style-type: disc;
+    padding: 20px;
+    margin: 30px;
+}
+
+li {
+    margin: 5px 0;
+    font-size: 16px;
+    color: black;
+}
