@@ -13,56 +13,138 @@
     ?>
     <main>
         <section class="main_header">
-            <h1 id="dados">Meus dados</h1>
-            <div class="perfil-box">
-                <div id="quadrado-perfil">
-                    <h1>Perfil</h1>
-                    <img src="https://i.pinimg.com/736x/91/0b/ec/910becbf6e01b541e0dea7f3bcc515c3.jpg" alt="User Profile Image">
-                </div>    
-                <div id="quadrado-perfil"></div>
-
-            </div>
+            <h1 id="titulo-principal">Meus dados</h1> <!-- ID único para o título principal -->
+            <div id="perfil-usuario" class="perfil"></div> <!-- ID único para o perfil -->
         </section>
         <section class="main_fundo">
-            <div class="pricipais-dados">
-                <div class="editar">
-                    <h1>Editar</h1>
-                </div>
-            </div>
-            <div class="quadrado hidde">
-                <div class="user-img">
-                    <h1>Perfil</h1>
-                    <img src="https://i.pinimg.com/736x/91/0b/ec/910becbf6e01b541e0dea7f3bcc515c3.jpg" alt="User Profile Image">
-                </div>
-                <div class="user-dados">
-                    <div class="user-Letra">
-                        <h1>Nome</h1>
-                        <div class="user_Box menor Texto">Wellinton R.</div>
+            <!-- Tela Principal (principal-perfil) -->
+                <div id="user-info">
+                    <div id="user-perfil">
+                        <div id="nome-perfil">
+                            <h1>Perfil</h1>
+                        </div>  
+                        <div id="img-user">
+                            <img src="https://i.pinimg.com/736x/91/0b/ec/910becbf6e01b541e0dea7f3bcc515c3.jpg" alt="Foto do usuário">
+                            <p>Wellinton R.</p>
+                        </div>  
+                        <div id="icone-editar">
+                            <i class='bx bx-pencil'></i>
+                        </div>
                     </div>
-                    <div class="user-Letra">
-                        <h1>Gmail</h1>
-                        <div class="user_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
-                    </div>
-                    <div class="user-Letra">
-                        <h1>CPF</h1>
-                        <div class="user_Box menor Texto">09x.xxx,xxx-67</div>
-                    </div>
-                    <div class="user-Letra">
-                        <h1>Adicionar</h1>
-                        <div class="icones">
-                            <i class='bx bxl-instagram icone'></i>
-                            <i class='bx bxl-linkedin icone'></i>
-                            <i class='bx bxl-facebook icone'></i>
-                            <i class='bx bxl-twitter icone'></i>
-                            <i class='bx bxl-whatsapp icone'></i>
-                            <i class='bx bx-plus icone'></i>
+                    <div id="user-redes">
+                        <div class="box-rede">
+                            <i class='bx bxl-facebook'></i>
+                            <p>Facebook</p>
+                        </div>
+                        <div class="box-rede">
+                            <i class='bx bxl-instagram'></i>
+                            <p>Instagram</p>
+                        </div>
+                        <div class="box-rede">
+                            <i class='bx bxl-linkedin'></i>
+                            <p>LinkedIn</p>
+                        </div>
+                        <div class="box-rede">
+                            <i class='bx bxl-twitter'></i>
+                            <p>Twitter</p>
+                        </div>
+                        <div class="box-rede">
+                            <i class='bx bxl-whatsapp'></i>
+                            <p>WhatsApp</p>
                         </div>
                     </div>
                 </div>
-                <i class='bx bx-x exit'></i>
+                <div class="parte-dados">
+                    <div class="dado-local">
+                        <div class="titulo-dado">
+                            <h1>Nome</h1>
+                        </div>
+                        <div class="texto-dado">
+                            <p>Wellinton R.</p>
+                        </div>
+                    </div>
+                    <div class="dado-local">
+                        <div class="titulo-dado">
+                            <h1>CPF</h1>
+                        </div>
+                        <div class="texto-dado">
+                            <p>657.676.234-43</p>
+                        </div>
+                    </div>
+                    <div class="dado-local">
+                        <div class="titulo-dado">
+                            <h1>Gmail</h1>
+                        </div>
+                        <div class="texto-dado">
+                            <p>tiginhoJogoTÀPagandoMUITO@Gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="dado-local">
+                        <div class="titulo-dado">
+                            <h1>Data de nascimento</h1>
+                        </div>
+                        <div class="texto-dado">
+                            <p>01/01/1111</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="botao-editar">
+                    <h1>Editar</h1>
+                </div>
+            </div>
+
+            <!-- Tela do Quadrado (quadrado-perfil) -->
+            <div id="quadrado-perfil" class="quadrado hidde">
+                <div class="user-img">
+                    <h1>Perfil</h1>
+                    <img src="https://i.pinimg.com/736x/91/0b/ec/910becbf6e01b541e0dea7f3bcc515c3.jpg" alt="Foto do usuário">
+                </div>
+                <div class="user-dados">
+                    <div class="user-Letra">    
+                        <h1>Nome</h1>
+                    </div>
+                    <div class="user_Box menor Texto">Wellinton R.</div>
+                    <div class="user-Letra">
+                        <h1>Gmail</h1>
+                    </div>
+                    <div class="user_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
+                    <div class="user-Letra">
+                        <h1>CPF</h1>
+                    </div>
+                    <div class="user_Box menor Texto">09x.xxx,xxx-67</div>
+                    <div class="user-Letra">
+                        <h1>Adicionar</h1>
+                    </div>
+                    <div class="icones">
+                        <i class='bx bxl-instagram icone'></i>
+                        <i class='bx bxl-linkedin icone'></i>
+                        <i class='bx bxl-facebook icone'></i>
+                        <i class='bx bxl-twitter icone'></i>
+                        <i class='bx bxl-whatsapp icone'></i>
+                        <i class='bx bx-plus icone'></i>
+                    </div>
+                </div>
+                <i id="fechar-perfil" class='bx bx-x exit'></i>
             </div>
         </section>
     </main>
     <script src="../../../public/componentes/sidebarADM_Associado/script.js"></script>
+    <script>
+        // JavaScript para alternar entre as telas
+        const botaoEditar = document.getElementById('botao-editar');
+        const fecharPerfil = document.getElementById('fechar-perfil');
+        const principalPerfil = document.getElementById('principal-perfil');
+        const quadradoPerfil = document.getElementById('quadrado-perfil');
+
+        botaoEditar.addEventListener('click', () => {
+            principalPerfil.classList.add('hidde'); // Esconde a tela principal
+            quadradoPerfil.classList.remove('hidde'); // Mostra o quadrado
+        });
+
+        fecharPerfil.addEventListener('click', () => {
+            quadradoPerfil.classList.add('hidde'); // Esconde o quadrado
+            principalPerfil.classList.remove('hidde'); // Mostra a tela principal
+        });
+    </script>
 </body>
 </html>
