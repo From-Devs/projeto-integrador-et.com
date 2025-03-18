@@ -3,6 +3,7 @@
     require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php"; // import do card
 
     session_start();
+
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
