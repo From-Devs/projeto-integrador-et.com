@@ -110,7 +110,7 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                     <p class="categoria_nome">Ajuda e Configurações</p>
                     <ul>
                         <li class="config"><a href="#" class="config_link">Minha Conta</a></li>
-                        <li class="config"><a href="#" class="config_link">Meus Pedidos</a></li>
+                        <li class="config"><a href="" class="config_link">Meus Pedidos</a></li>
                         ' . typeSidebar($tipoUsuario) . '
                         <li class="config"><a href="" class="config_link">Termos de Uso e Privacidade</a></li>
                     </ul>
