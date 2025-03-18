@@ -1,26 +1,19 @@
-<?php  
+<?php
+function typeSidebar($tipoUsuario){
+    if($tipoUsuario == "Associado"){
+        return '<li class="config"><a href="#" class="config_link">Área de Administração</a></li>';
+    }else{
+        return '<li class="config"><a href="#" class="config_link">Associados</a></li>';
+    };
+}
 
-session_start();
-$tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
-// $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
-?>
-
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/SidebarHeader.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-</head>
-<body>
-    <div class="sidebar_adm">
+function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para versão oficial.
+    return '
+    <div id="overlay" class="overlay"></div>
+    <div class="sidebar_adm" id="sidebar_adm">
         <div class="nav_adm">
-            <a href="#" class="logo">               <!-- Adicionar o atalho para a página principal -->
-                <img src="../imagens/LogoBranca2.png" alt="">
+            <a href="#" class="logo">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" alt="">
             </a>
             <div class="botoes_sidebar">
                 <div class="botoes_categoria">
@@ -30,7 +23,7 @@ $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
                             <div>
                                 <a href="#" class="categoria_link">Maquiagem</a>
                                 <div class="button_sub">
-                                    <i class='fa fa-chevron-down'></i>
+                                    <i class="fa fa-chevron-down"></i>
                                 </div>
                             </div>
                             <ul class="submenu">
@@ -44,7 +37,7 @@ $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
                             <div>
                                 <a href="#" class="categoria_link">Perfume</a>
                                 <div class="button_sub">
-                                    <i class='fa fa-chevron-down'></i>
+                                    <i class="fa fa-chevron-down"></i>
                                 </div>
                             </div>
                             <ul class="submenu">
@@ -57,7 +50,7 @@ $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
                             <div>
                                 <a href="#" class="categoria_link">SkinCare</a>
                                 <div class="button_sub">
-                                    <i class='fa fa-chevron-down'></i>
+                                    <i class="fa fa-chevron-down"></i>
                                 </div>
                             </div>
                             <ul class="submenu">
@@ -73,7 +66,7 @@ $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
                             <div>
                                 <a href="#" class="categoria_link">Cabelo</a>
                                 <div class="button_sub">
-                                    <i class='fa fa-chevron-down'></i>
+                                    <i class="fa fa-chevron-down"></i>
                                 </div>
                             </div>
                             <ul class="submenu">
@@ -88,7 +81,7 @@ $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
                             <div>
                                 <a href="#" class="categoria_link">Eletrônicos</a>
                                 <div class="button_sub">
-                                    <i class='fa fa-chevron-down'></i>
+                                    <i class="fa fa-chevron-down"></i>
                                 </div>
                             </div>
                             <ul class="submenu">
@@ -101,7 +94,7 @@ $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
                             <div>
                                 <a href="#" class="categoria_link">Corporal</a>
                                 <div class="button_sub">
-                                    <i class='fa fa-chevron-down'></i>
+                                    <i class="fa fa-chevron-down"></i>
                                 </div>
                             </div>
                             <ul class="submenu">
@@ -118,11 +111,7 @@ $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
                     <ul>
                         <li class="config"><a href="#" class="config_link">Minha Conta</a></li>
                         <li class="config"><a href="" class="config_link">Meus Pedidos</a></li>
-                        <?php if ($tipoUsuario == 'Associado') : ?>
-                            <li class="config"><a href="#" class="config_link">Área de Administração</a></li>
-                        <?php else : ?>
-                            <li class="config"><a href="#" class="config_link">Associados</a></li>
-                        <?php endif; ?>
+                        ' . typeSidebar($tipoUsuario) . '
                         <li class="config"><a href="" class="config_link">Termos de Uso e Privacidade</a></li>
                     </ul>
                 </div>
@@ -130,7 +119,6 @@ $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
         </div>
         
     </div>
-
-    <script src="../javascript/SidebarHeader.js"></script>
-</body>
-</html>
+    ';
+}
+?>

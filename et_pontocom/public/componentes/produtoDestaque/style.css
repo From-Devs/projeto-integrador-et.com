@@ -1,0 +1,87 @@
+.produtoDestaque{
+    position: relative;
+    display: block;
+    height: 850px;
+    background-image: linear-gradient(to top, rgb(180, 147, 138) 0%, rgb(254, 225, 216) 55%, rgba(255, 255, 255, 0) 100%);
+    width: 100%;
+    margin-top: 50px;
+    overflow: hidden;
+}
+
+.ondaProdutoDestaque{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* object-fit: fill; */
+    width: 100%;
+}
+
+.ondaPrincipal{
+    z-index: 200;
+    filter: drop-shadow(0px 0px 40px rgb(56, 21, 7));
+}
+
+.ondaFantasma{
+    z-index: 199;
+}
+
+.retanguloProdutoDestaque{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 600px;
+    filter: drop-shadow(0px 0px 60px rgba(56, 21, 7, 0.5));
+    z-index: 198;
+}
+.infoProdutoDestaque{
+    position: absolute;
+    top: 400px;
+    right: 0;
+    z-index: 201;
+    padding-right: 20px;
+    /* margin-bottom: 200px; */
+}
+
+.infoProdutoDestaque .nomeProduto{
+    width: 655px;
+    font-size: 46px;
+    font-weight: 300;
+}
+
+.infoProdutoDestaque .marcaProduto{
+    width: 655px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.infoProdutoDestaque .precoProduto{
+    width: 655px;
+    font-size: 46px;
+    font-weight: 300;
+    margin-top: 18px;
+}
+
+.produtoDestaque .imagemProduto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 150px;
+    left: 200px;
+}
+
+.produtoDestaque .imagemProduto .produto{
+    width: 500px;
+    height: 500px;
+    z-index: 201;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+}
+.produtoDestaque .imagemProduto .luzProduto{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    border-radius: 1000px;
+    filter: blur(120px);
+    z-index: 200;
+}
