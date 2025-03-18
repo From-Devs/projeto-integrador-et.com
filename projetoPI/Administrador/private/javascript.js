@@ -1,17 +1,15 @@
-// Obter o contexto do gráfico à direita
 var ctxDireita = document.getElementById('myChartDireita').getContext('2d');
-// Obter o contexto do gráfico à esquerda
 var ctxEsquerda = document.getElementById('myChartEsquerda').getContext('2d');
 
-// Gráfico à direita
+
 var myChartDireita = new Chart(ctxDireita, {
-  type: 'doughnut', // Tipo de gráfico
+  type: 'doughnut',
   data: {
     labels: ['Centro Oeste', 'Sul', 'Norte', 'Nordeste', 'Sudeste'],
     
     datasets: [{
       label: 'Vendas',
-      data: [12, 19, 3, 5, 2], // Dados para o gráfico
+      data: [12, 19, 3, 5, 2],
       backgroundColor: [
         'rgba(255, 99, 132)',
         'rgba(54, 162, 235)',
@@ -32,7 +30,7 @@ var myChartDireita = new Chart(ctxDireita, {
   options: {
     plugins: {
       legend: {
-        position: 'right', // Posiciona as legendas à direita
+        position: 'right', 
         labels: {
           boxWidth: 20,
           padding: 15
@@ -40,10 +38,10 @@ var myChartDireita = new Chart(ctxDireita, {
       },
       title: {
         display: true,
-        text: 'Regiões que mais compram', // Texto do título
+        text: 'Regiões que mais compram',
         font: {
-          size: 30, // Tamanho grande do título
-          weight: 'bold', // Título em negrito
+          size: 30, 
+          weight: 'bold',
         },
         padding: {
           top: 20,

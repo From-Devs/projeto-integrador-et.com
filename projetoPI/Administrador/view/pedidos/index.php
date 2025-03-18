@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
 </head>
+
 <body>
+
+
+    <div id="lista"></div>
     <div class="sidebar_adm">
         <nav class="nav_adm">
             <div class="logo">
@@ -66,6 +71,85 @@
             </div>
         </nav>
     </div>
+    <!-- aqui acaba o container esquerda -->
+    <div id="container">
+        <div id="controleIcon">
+            <div id="iconUsuario">
+                <img id="fotoUser" src="./../../public/userFoto/userIMG.png" alt="userIMG">
+                <p id="textUser">ADM ET</p>
+            </div>
+        </div>
+        <div id="divPesquisarEFiltro">
+            <div id="pesquisar">
+                <form action="">
+                    <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
+                </form>
+            </div>
+            <div id="filtro">
+                <button id="botaoFiltragem">
+                    <p>Filtros</p>
+                    <img id="imagemFiltro" src="./../../public/filtros/filtro.png" alt="filtro">
+                </button>
+            </div>
+        </div>
+        <div id="titulo">
+            <h1 id="tituloH1">Pedidos</h1>
+        </div>
+    </div>
+
+
+    <script>
+
+        var lista = [
+            {
+                nome: "produto a",
+                preco: 500
+            },
+            {
+                nome: "produto a",
+                preco: 500
+            },
+            {
+                nome: "produto a",
+                preco: 500
+            },
+            {
+                nome: "produto a",
+                preco: 500
+            },
+            {
+                nome: "produto a",
+                preco: 500
+            },
+            {
+                nome: "produto a",
+                preco: 500
+            },
+            {
+                nome: "produto a",
+                preco: 500
+            },
+        ]
+
+
+
+        async function teste() {
+
+
+          const div = document.getElementById("lista")
+          console.log(div)
+
+
+          lista.forEach(item => {
+            div.innerHTML += `<div>${item.title} - ${item.price}</div>`
+          });
+
+
+          
+
+        }
+    </script>
     <script src="./../../private/javascript.js"></script>
 </body>
+
 </html>

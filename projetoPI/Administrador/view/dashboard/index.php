@@ -86,12 +86,12 @@
         <div id="controlePizzas">
             <div id="divPizzaEsquerda">
                 <div id="divControladoraTexto">
-                    <?php pizzas('pizzaTop') ?>
+                    <?php pizzas('Vendedores') ?>
                 </div>
                 <canvas id="myChartEsquerda"></canvas>
             </div>
             <div id="divPizzaDireita">
-                <?php pizzas('Regioes','Centro Oeste','Sul','Norte','Sudeste','Nordeste') ?>
+                <?php pizzas('Regioes') ?>
                 <canvas id="myChartDireita"></canvas>
             </div>
         </div>
@@ -100,6 +100,3 @@
     <script src="./../../private/javascript.js"></script>
 </body>
 </html>
-
-<!-- conversar com o professor, perguntar se essa foi a melhor forma de fazer o redirecionamento e também pedir ajuda -->
-<!-- para fazer as animações dos donuts -->

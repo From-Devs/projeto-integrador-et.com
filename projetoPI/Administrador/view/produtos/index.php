@@ -87,6 +87,27 @@
                 </button>
             </div>
         </div>
+        <div id="titulo">
+            <h1 id="tituloH1">Produtos</h1>
+        </div>
+        <div id="listagem">
+            <div id="listagemControle">
+                <h1>Produto</h1>
+                <h1>Associado</h1>
+                <h1>SKU</h1>
+            </div>
+            <div id="informacoesDaLista">
+                <?php listagemProdutos('Hidratante','Listar Associado','S5D56GE') ?>
+                <?php listagemProdutos('Base Liquída','Listar Associado','FA9DSF5') ?>
+                <?php listagemProdutos('Body Splash','Listar Associado','UJ47R8S') ?>
+                <?php listagemProdutos('Colônia Coffe Man','Listar Associado','FDAS94A') ?>
+                <?php listagemProdutos('Skincare','Listar Associado','9WE8FWS') ?>
+                <?php listagemProdutos('Césio Líquido','Listar Associado','F99W2C9') ?>
+                <?php listagemProdutos('Americio de Limpeza','Listar Associado','8DF5AFE') ?>
+                <?php listagemProdutos('Gel de Limpeza Facial','Listar Associado','3D9S5FW') ?>
+                <?php listagemProdutos('Kit Essenciais','Listar Associado','GER9S8D') ?>
+            </div>
+        </div>
     </div>
     <script src="./../../private/javascript.js"></script>
 </body>

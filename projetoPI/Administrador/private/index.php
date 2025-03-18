@@ -34,7 +34,7 @@ function dadosInforRelatorios($nomeDiv,$icone, $titulo, $alt=''){
     echo $html;
 }
 
-function pizzas($nomeDiv, $pos1='Vendedor 1', $pos2='Vendedor 2', $pos3='Vendedor 3', $pos4='Vendedor 4', $pos5='Vendedor 5'){
+function pizzas($nomeDiv){
     $html = "
     <div id='$nomeDiv'>
         <div id='ajusteSelecionador'>
@@ -44,6 +44,18 @@ function pizzas($nomeDiv, $pos1='Vendedor 1', $pos2='Vendedor 2', $pos3='Vendedo
     ";
 
     echo $html;
+}
+
+function listagemProdutos($nomeProduto, $botaoAssociado, $SKU){
+    $html = "
+        <p id='nome'>$nomeProduto</p>
+        <button id='associado'>$botaoAssociado</button>
+        <p id='sku'>$SKU</p>
+
+    ";
+
+    echo $html;
+
 }
 
 ?>
