@@ -2,7 +2,7 @@
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
 
     session_start();
-    $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente'; // Descomente essa parte para tipo do usuario = Usuário
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente'; // Descomente essa parte para tipo do usuario = Usuário
     // $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado"; // Descomente essa parte para tipo do usuario = Associado
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
@@ -22,7 +22,7 @@
 </head>
 <body>
     <?php
-    echo createHeader($login,$tipo_usuario); // função que cria o header
+    echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
 
 <div class="conteudoMeusPedidos">
