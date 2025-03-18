@@ -1,14 +1,18 @@
 document.addEventListener("DOMContentLoaded", function(){
 
-    const frame = document.querySelectorAll('.frameProdutos');
+    const frame = document.querySelectorAll('.frameSlider');
     
     frame.forEach(item => {
         console.log(item)
-        const icones = document.querySelectorAll('.frameLancamentos i')
+        const icones = item.querySelectorAll('i')
+        const slider = item.querySelector('.frameProdutos')
+
+        console.log(icones)
+        console.log(slider)
         
         icones.forEach(function(icone){
             icone.addEventListener('click',function(){
-                item.scrollLeft += (icone.id === "esquerda" ? -600 : 600);
+                slider.scrollLeft += (icone.id === "esquerda" ? -600 : 600);
             })
         })
     
@@ -16,19 +20,19 @@ document.addEventListener("DOMContentLoaded", function(){
     
         const dragging = (e) => {
             if (!isDragging) return;
-            item.scrollLeft -= e.movementX;
-            item.classList.add('dragging');
+            slider.scrollLeft -= e.movementX;
+            slider.classList.add('dragging');
         };
     
         const dragStop = () => {
             isDragging = false;
-            item.classList.remove('dragging');
+            slider.classList.remove('dragging');
         };
     
-        item.addEventListener('mousemove', dragging);
-        item.addEventListener('mousedown', () => isDragging = true);
-        item.addEventListener('mouseup', dragStop);
-        item.addEventListener('mouseleave', dragStop);
+        slider.addEventListener('mousemove', dragging);
+        slider.addEventListener('mousedown', () => isDragging = true);
+        slider.addEventListener('mouseup', dragStop);
+        slider.addEventListener('mouseleave', dragStop);
 
     })
 

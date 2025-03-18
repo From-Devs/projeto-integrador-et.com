@@ -33,7 +33,7 @@
 
     <div class="lancamentos">
         <p class="titulo" id="tituloLancamento">Lançamentos</p>
-        <div class="frameLancamentos">
+        <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaEsquerda" id="esquerda"></i>
             <div class="degradeEsquerda"></div>
             <div class="frameProdutos">
@@ -76,7 +76,7 @@
 
     <div class="lancamentos">
         <p class="titulo" id="tituloLancamento">Lançamentos</p>
-        <div class="frameLancamentos">
+        <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaEsquerda" id="esquerda"></i>
             <div class="degradeEsquerda"></div>
             <div class="frameProdutos">

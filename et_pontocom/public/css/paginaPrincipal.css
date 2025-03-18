@@ -39,7 +39,7 @@ body{
     z-index: 500;
 }
 
-.frameLancamentos{
+.frameSlider{
     display: flex;
     align-items: center;
     position: relative;
