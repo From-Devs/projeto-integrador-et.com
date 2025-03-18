@@ -1,13 +1,13 @@
 
-    <footer>
+<footer>
         
         <div class="primeiraSecao">
             <button type=button id="VoltarInicio" >
                 <i class="bx bx-chevron-up seta" style="color:#ffffff" ></i>
-                <p class="Voltar">Voltar para o início</p>  
-                  
+                <p class="Voltar">Voltar para o início</p>    
             </button>
         </div>
+
 
         <div class="segundaSecao">
             <div>
@@ -67,6 +67,7 @@
                     <a>
                         <img src="../../../public/imagens/image.png" id="LogoFromDevs">
                     </a>
+                </div>
         </div>
     </footer>
    

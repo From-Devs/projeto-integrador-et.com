@@ -10,19 +10,6 @@
 </head>
 <body>
 
-    <main>
-        <div class="bloko"></div>
-        <div class="bloko"></div>
-        <div class="bloko"></div>
-        <div class="bloko"></div>
-        <div class="bloko"></div>
-        <div class="bloko"></div>
-        <div class="bloko"></div>
-        <div class="bloko"></div>
-        <div class="bloko"></div>
-        <div class="bloko"></div>
-    </main>
-
     <?php include '../../../public/componentes/Rodapé.php'?>
 
     <script src="../../../public/javascript/VoltarCima.js"></script>
