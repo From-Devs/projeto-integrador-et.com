@@ -1,4 +1,4 @@
-<?php require __DIR__."../../../../public/componentes/LoginAssociado/InputsLoginAssoc.php";
+<?php require __DIR__."../../../../public/componentes/cadastassociado/InputsCadastrAssoc.php";
     require_once __DIR__."../../../../public/componentes/botao/botao.php";
     require_once __DIR__."../../../../public/componentes/popup/popUp.php"; 
     
@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../public/css/CadastroAssociado.css">
-    <link rel="stylesheet" href="../../../public/componentes/LoginAssociado/style.css">
+    <link rel="stylesheet" href="../../../public/componentes/cadastassociado/style.css">
     <link rel="stylesheet" href="../../../public/componentes/popup/popUpComponente.css">
     <link rel="stylesheet" href="../../../public/componentes/botao/botoesComponente.css">
     
@@ -22,7 +22,7 @@
         <section>
             <div class="Voltar">
                 <a href="">
-            <img src="../../../public/imagens/LoginAssoc/BotaoVoltar.png" alt="">
+            <img src="../../../public/imagens/cadastassoc/BotaoVoltar.png" alt="">
             <p>voltar</p>
                 </a>
             </div>
@@ -33,7 +33,7 @@
         <!-- Área branca -->
     <form action="" method="post" id="form">
         <div class="Foto">
-            <img src="../../../public/imagens/LoginAssoc/AdicionarFotoLogin.png" alt="Insira sua foto">
+            <img src="../../../public/imagens/cadastassoc/AdicionarFotoCadstr.png" alt="Insira sua foto">
         </div>
         
             <div class="dados">
