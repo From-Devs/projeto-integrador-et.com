@@ -1,8 +1,34 @@
-*{
-    padding: 0;
-    margin: 0;
+.produtoDestaque{
+    position: relative;
+    display: block;
+    height: 850px;
+    background-image: linear-gradient(to top, rgb(180, 147, 138) 0%, rgb(254, 225, 216) 60%, rgba(255, 255, 255, 0) 100%);
+    width: 100%;
+    margin-top: 50px;
 }
 
-.produtoDestaque{
-    height: 850px;
+.ondaProdutoDestaque{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    object-fit: contain;
+    width: 100%;
+}
+
+.ondaPrincipal{
+    z-index: 200;
+    filter: drop-shadow(0px 0px 40px rgb(56, 21, 7));
+}
+
+.ondaFantasma{
+    z-index: 199;
+}
+
+.retanguloProdutoDestaque{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 600px;
+    filter: drop-shadow(0px 0px 60px rgba(56, 21, 7, 0.5));
+    z-index: 198;
 }

@@ -18,6 +18,7 @@
     <title>Et.com</title>
     <link rel="stylesheet" href="../../../public/componentes/header/style.css">
     <link rel="stylesheet" href="../../../public/componentes/sidebar/style.css">
+    <link rel="stylesheet" href="../../../public/componentes/produtoDestaque/style.css">
     <link rel="stylesheet" href="../../../public/css/paginaPrincipal.css">
     <link rel="stylesheet" href="../../../public/componentes/cardLancamento/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -52,6 +53,12 @@
             <div class="degradeDireita"></div>
             <i class="fa-solid fa-chevron-right setaDireita" id="direita"></i>
         </div>
+    </div>
+
+    <div class="produtoDestaque">
+        <img class="ondaProdutoDestaque ondaPrincipal" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/ondaBranca.png" alt="">
+        <img class="ondaProdutoDestaque ondaFantasma" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/ondaFantasma.png" alt="">
+        <img class="retanguloProdutoDestaque retanguloBlur" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/retanguloBlur.png" alt="">
     </div>
 
     <script src="../../../public/componentes/header/script.js"></script>
