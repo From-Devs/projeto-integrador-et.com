@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Parte básica da página */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat",serif;
+}
+
+.conteudoMeusPedidos{
+
+}
+
+
+/*________Área Superior da página________*/
+.conteudoMeusPedidos .areaSuperiorMP{
+
+}
+
+.areaSuperiorMP .tituloPrincipalMP{
+
+}
+
+.areaSuperiorMP .linhaSuperiorTituloMP{
+    
+}
+
+
+
+/*_________Área de pedidos a caminho________*/
+.conteudoMeusPedidos .pedidoCaminhoMP{
+
+}
+
+.pedidoCaminhoMP .tituloCaminhoMP{
+
+}
+
+        /*Nessa área é o que será acrescentado pelo javascript*/
+
+.pedidoCaminhoMP .produtosCaminho{
+    /*...*/
+}
+
+
+
+/*_________Área de pedidos entregues________*/
+.conteudoMeusPedidos .pedidosEntreguesMP{
+
+}
+
+.pedidosEntreguesMP .tituloEntregueMP{
+
+}
+
+        /*Nessa área é o que será acrescentado pelo javascript*/
+
+.pedidosEntreguesMP .produtosEntregues{
+    /*...*/
+}
