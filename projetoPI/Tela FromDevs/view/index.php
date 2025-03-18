@@ -17,15 +17,15 @@
     </div>
     <div class="container">
         <!-- ordem da função fotoDev 1° - imagem / 2° - linkGitHub / 3° - linkInstagram / 4° - linkLinkedin / 5° - nome -->
-        <?php echo fotoDev("./../public/fotoNossas/eduardo.png","https://github.com/thenewgrau","","https://www.linkedin.com/in/eduardo-serafim-821649305/", "Eduardo Serafim") ?>
+        <?php echo fotoDev("./../public/fotoNossas/eduardo.png","https://github.com/thenewgrau","https://www.instagram.com/eduardoserafiim_/","https://www.linkedin.com/in/eduardo-serafim-821649305/", "Eduardo Serafim") ?>
         <?php echo fotoDev("./../public/fotoNossas/daniel.png","","","","Daniel Prospero") ?>
-        <?php echo fotoDev("./../public/fotoNossas/duda.png","","","","Maria Eduarda") ?>
+        <?php echo fotoDev("./../public/fotoNossas/duda.png","https://github.com/RainhaStealth","https://www.instagram.com/dudaa.txz","https://www.linkedin.com/in/maria-eduarda-moreira-6475752a8/ ","Maria Eduarda") ?>
         <?php echo fotoDev("./../public/fotoNossas/eliel.png","","","","Eliel Murbach") ?>
-        <?php echo fotoDev("./../public/fotoNossas/evandro.png","","","","Evandro Marques") ?>
+        <?php echo fotoDev("./../public/fotoNossas/evandro.png","","","https://www.linkedin.com/in/evandrocmarques/","Evandro Marques") ?>
         <?php echo fotoDev("./../public/fotoNossas/guilherme.png","","","","Guilherme Bergamo") ?>
         <?php echo fotoDev("./../public/fotoNossas/kerolin.png","","","","Kerolin Dos Santos") ?>
         <?php echo fotoDev("./../public/fotoNossas/mateus.png","","","","Mateus Storti") ?>
-        <?php echo fotoDev("./../public/fotoNossas/nicolas.png","","","","Nicolas Eloy") ?>
+        <?php echo fotoDev("./../public/fotoNossas/nicolas.png","https://github.com/nicolasmleloy","https://www.instagram.com/nicolas_eloy10","","Nicolas Eloy") ?>
         <?php echo fotoDev("./../public/fotoNossas/nicolle.png","","","","Nicolle Zaleski") ?>
         <?php echo fotoDev("./../public/fotoNossas/vinicius.png","","","","Vinicius Elionai") ?>
         <?php echo fotoDev("./../public/fotoNossas/robert.png","","","","Robert Fernandes") ?>

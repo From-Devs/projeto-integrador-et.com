@@ -21,37 +21,37 @@
             <div class="botoesMenu">
                 <ul>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="index.php" class="nav-link">
                             <span class="fa fa-house-chimney"></span>
                             <span class="button_name">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="./../produtos/index.php" class="nav-link">
                             <span class='bx bxs-package'></span>
                             <span class="button_name">Produtos</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="./../pedidos/index.php" class="nav-link">
                             <span class='bx bx-money-withdraw' ></span>
                             <span class="button_name">Pedidos</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="./../associados/index.php" class="nav-link">
                             <span class="fa fa-users"></span>
                             <span class="button_name">Associados</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="./../relatorios/index.php" class="nav-link">
                             <span class='bx bxs-receipt'></span>
                             <span class="button_name">Relatórios</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="./../customizacao/index.php" class="nav-link">
                             <span class='bx bxs-palette'></span>
                             <span class="button_name">Customização</span>   
                         </a>

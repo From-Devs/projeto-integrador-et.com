@@ -1,4 +1,4 @@
-@import url(style.css);
+@import url(./../rootStyle/style.css);
 
 *
 {
@@ -164,7 +164,7 @@ a
 {
     width: 100vw;
     height: 100vh;
-    margin-left: 320px;
+    margin-left: 350px;
 }
 
 /* estilizacao da parte do icone do usuario */

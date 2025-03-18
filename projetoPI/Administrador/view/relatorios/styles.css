@@ -1,3 +1,11 @@
+@import url(./../rootStyle/style.css);
+
+*
+{
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
+
 body
 {
     display: flex;
@@ -14,99 +22,234 @@ a
 
 /* PARTE LATERAL DA ESQUERDA (MENU BAR) */
 
-#containerEsquerda
-{
+.sidebar_adm{
+    display: flex;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.nav_adm{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(#141414 77%, #353535 100%);
-    height: 100vh;
-    width: 350px;
+    float: left;
+    position: fixed;
+    width: 300px;
+    min-height: 100vh;
+    background-color: var(--cor-sidebar-fundo);
 }
 
-/* fotos em geral */
 
-#imagem
-{
-    display: flex;
-    justify-content: center;
+/*_________________Logo e Linha com Gradiente_________________*/
+.logo{
+    margin-top: 25px;
+    margin-bottom: 8px;
 }
 
-#fotoEt
-{
-    margin-top: 30px;
+.logo img{
     width: 200px;
-    height: 150px;
-
+    height: auto;
 }
 
-/* estilização dos botões */
+.linhaGradiente{
+    width: 240px;
+    height: 2px;
+    background: linear-gradient(to right, rgba(232,232,231,0),rgba(232,232,231, 0.185),rgba(232, 232, 231, 0.74), rgba(232,232,231, 0.185),rgba(232,232,231,0));
+    margin-bottom: 35px;
+}
 
-#opcoes
-{
+
+/*_________________Botões principais da sidebar_________________*/
+.botoesMenu{
+    width: 230px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
-#usandoAgoraBotao, #botaoPadrao
+.botoesMenu ul .nav-item{
+    padding: 18px 0 18px 20px;
+    background-color: var(--cor-sidebar-fundo);
+    border-radius: 15px;
+    width: 210px;
+    list-style: none;
+}
+
+.botoesMenu ul .nav-item .nav-link{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cor-sidebar-escrita);
+}
+
+.botoesMenu ul .nav-item .nav-link .bx{
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 5px;
+    margin-right: 15px;
+    background-color: var(--cor-sidebar-escrita);
+    color: var(--cor-sidebar-fundo);
+    align-items: center;
+}
+
+.botoesMenu ul .nav-item .nav-link .fa{
+    font-size: 13px;
+    border-radius: 8px;
+    padding: 6px;
+    margin-right: 15px;
+    background-color: var(--cor-sidebar-escrita);
+    color: var(--cor-sidebar-fundo);
+    align-items: center;
+}
+
+.botoesMenu ul .nav-item .nav-link .fa-users{
+    padding: 6px 5px;
+}
+
+.botoesMenu .button_name{
+    font-weight: 600;
+}
+
+
+/*_________________Ao clicar em algum botão do menu...animação com JavaScript_________________*/
+.botoesMenu .nav-item.active{
+    background-color: var(--cor-sidebar-escrita);
+}
+
+.botoesMenu .nav-item.active .nav-link{
+    color: var(--cor-sidebar-fundo);
+}
+
+.botoesMenu .nav-item.active .nav-link .bx, .botoesMenu .nav-item.active .nav-link .fa{
+    background-color: var(--cor-sidebar-fundo);
+    color: var(--cor-sidebar-escrita);
+}
+
+.botoesMenu .nav-item.active .nav-link .button_name{
+    font-weight: 600;
+}
+
+
+/*_________________Botão de sair_________________*/
+.area_Sair .button_sair{
+    width: 230px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    position: fixed;
+    bottom: 60px;
+    left: 29px;
+}
+
+.area_Sair .button_sair .fa{
+    font-size: 15px;
+    border-radius: 8px;
+    padding: 5px;
+    color: var(--cor-sidebar-fundo);
+    background-color: var(--cor-sidebar-escrita);
+    margin-right: 12px;
+    margin-left: 40px;
+}
+
+.area_Sair .button_sair .button_name{
+    color: var(--cor-sidebar-escrita);
+    font-weight: 600;
+}
+
+/* CONTAINER DIREITA */
+
+#container
+{
+    width: 100vw;
+    height: 100vh;
+    margin-left: 350px;
+}
+
+/* estilizacao da parte do icone do usuario */
+
+#controleIcon
 {
     display: flex;
-    align-items: center;
-    border-radius: 12px;
-    width: 220px;
-    height: 60px;
-    margin: 10px 0 10px 0;
-    cursor: pointer;
-    border: none;
+    flex-direction: row-reverse;
 }
 
-#botaoPadrao
+#iconUsuario
 {
-    background-color: rgba(0, 0, 0, 0);
-    color: white;
-}
-
-#iconeClique
-{
+    width: 250px;
+    height: 80px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 45px;
     background-color: black;
-    border-radius: 12px;
-
+    color: white;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+    margin-top: 40px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
 }
 
-#textoBotao
+#fotoUser
+{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    margin-left: 30px;
+    width: 70px;
+    height: 70px;
+}
+
+/* botoesPrincipais */
+
+
+#geralInformacoes
+{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+}
+
+#receita, #produto, #abandonadas
+{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    color: white;
+    background-color: black;
+    border-radius: 15px;
+    padding: 10px;
+    height: 150px;
+    width: 450px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+#textoTituloInform
 {
     margin-left: 5px;
-}
-
-/* parte do sair */
-
-#saindo
-{
-    gap: 15px;
-    margin-top: 150px;
-    display: flex;
-}
-
-#botaoSair
-{
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    border-radius: 18px;
-    padding: 10px;
-    cursor: pointer;
-    border: none;
-}
-
-#sairP
-{
     color: white;
-    cursor: pointer;
+}
+
+#textoInformacao
+{
+    margin-left: 10px;
+    width: 100%;
+}
+
+#imagemInforma
+{
+    width: 40px;
+    height: 40px;
+}
+
+#imagemInformaEstilizacao
+{
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    width: 80px;
+    border-radius: 15px;
+    align-items: center;
+    background-color: white;
+    margin-right: 30px;
 }
