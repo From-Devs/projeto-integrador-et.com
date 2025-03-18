@@ -9,32 +9,47 @@
 }
 
 .conteudoMeusPedidos{
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 90px;
 }
 
 
 /*________Área Superior da página________*/
 .conteudoMeusPedidos .areaSuperiorMP{
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 29px;
 }
 
 .areaSuperiorMP .tituloPrincipalMP{
-
+    margin-top: 133px;
+    font-size: 48px;
+    font-weight: 300;
 }
 
-.areaSuperiorMP .linhaSuperiorTituloMP{
-    
+.areaSuperiorMP .linhaSuperiorTituloMP{   /*Linha de enfeite que fica abaixo do titulo*/
+    width: 142vh;
+    height: 3px;
+    background-color: black;
 }
 
 
 
 /*_________Área de pedidos a caminho________*/
 .conteudoMeusPedidos .pedidoCaminhoMP{
-
+    display: flex;
+    flex-direction: column;
+    width: 155vh;
 }
 
 .pedidoCaminhoMP .tituloCaminhoMP{
-
+    font-size: 35px;
 }
 
         /*Nessa área é o que será acrescentado pelo javascript*/
