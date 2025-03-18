@@ -4,7 +4,7 @@
 
     session_start();
     // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
-    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
+    $tipoUsuario = $_SESSION['tipo_usuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 
 
@@ -18,6 +18,7 @@
     <title>Et.com</title>
     <link rel="stylesheet" href="../../../public/componentes/header/style.css">
     <link rel="stylesheet" href="../../../public/componentes/sidebar/style.css">
+    <link rel="stylesheet" href="../../../public/componentes/produtoDestaque/style.css">
     <link rel="stylesheet" href="../../../public/css/paginaPrincipal.css">
     <link rel="stylesheet" href="../../../public/componentes/cardLancamento/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -27,12 +28,55 @@
 </head>
 <body>
     <?php
-    echo createHeader($login,$tipo_usuario); // função que cria o header
+    echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
 
     <div class="lancamentos">
         <p class="titulo" id="tituloLancamento">Lançamentos</p>
-        <div class="frameLancamentos">
+        <div class="frameSlider">
+            <i class="fa-solid fa-chevron-left setaEsquerda" id="esquerda"></i>
+            <div class="degradeEsquerda"></div>
+            <div class="frameProdutos">
+                <div class="containerLancamento">
+                    <?php
+                    echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg");
+                    echo createCardProdutoLancamento("Avon", "Red Batom","R$ 2000,00","#D1061D","batom.png");
+                    echo createCardProdutoLancamento("Benefit", "BADgal Bang! Máscara de Cílios","R$ 3000,00","#D02369","bang.png");
+                    echo createCardProdutoLancamento("Avon", "Color Trend Delineador Líquido","R$ 1000,00","#F0CBDA","trend.webp");
+                    echo createCardProdutoLancamento("Mari Maria","Diamond Blender Esponja de Maquiagem","R$ 2000,00","#D79185","tri.jpeg");
+                    echo createCardProdutoLancamento("Simple Organic", "SOLUÇÃO RETINOL-LIKE","R$ 3000,00","#C9A176","simple.webp");
+                    echo createCardProdutoLancamento("Princess","Mini Chapinha Bivolt","R$ 2000,00","#745CA3","chapa.webp");
+                    echo createCardProdutoLancamento("O Boticário","L'eau De Lily Soleil Perfume Feminino","R$ 3000,00","#F4C83C","lily.jpg");
+                    ?>
+                </div>
+            </div>
+            <div class="degradeDireita"></div>
+            <i class="fa-solid fa-chevron-right setaDireita" id="direita"></i>
+        </div>
+    </div>
+
+    <div class="produtoDestaque">
+        <div class="imagemProduto">
+            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/idole.png" alt="" class="produto">
+            <span class="luzProduto"></span>
+        </div>
+        <div class="infoProdutoDestaque">
+            <h1 class="nomeProduto">KIT LANCÔME LASH IDÔLEA</h1>
+            <h2 class="marcaProduto">LANCÔME</h2>
+            <h1 class="precoProduto">R$ 00.00</h1>
+            <div class="botoesProdutoDestaque">
+                <button class="comprar">Comprar</button> <!-- Trocar pelos componentes do Nicolas -->
+                <button class="verDetalhes">Ver Detalhes</button>
+            </div>
+        </div>
+        <img class="ondaProdutoDestaque ondaPrincipal" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/ondaBranca.png" alt="">
+        <img class="ondaProdutoDestaque ondaFantasma" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/ondaFantasma.png" alt="">
+        <img class="retanguloProdutoDestaque retanguloBlur" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/retanguloBlur.png" alt="">
+    </div>
+
+    <div class="lancamentos">
+        <p class="titulo" id="tituloLancamento">Lançamentos</p>
+        <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaEsquerda" id="esquerda"></i>
             <div class="degradeEsquerda"></div>
             <div class="frameProdutos">

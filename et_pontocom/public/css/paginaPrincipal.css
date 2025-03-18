@@ -5,7 +5,8 @@
 
 body{
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     font-family: "Montserrat", sans-serif;
 }
 
@@ -38,7 +39,7 @@ body{
     z-index: 500;
 }
 
-.frameLancamentos{
+.frameSlider{
     display: flex;
     align-items: center;
     position: relative;
