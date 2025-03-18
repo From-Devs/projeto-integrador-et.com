@@ -3,19 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
- 
+
 html, body {
     height: 100%;
     overflow: hidden;
 }
- 
+
 main {
     height: 100vh;
     background-color: #ECECEC;
     margin-left: 287px;
 }
- 
-.main_header .perfil{
+
+.main_header .perfil {
     display: flex;
     justify-content: flex-end;
     background-color: black;
@@ -34,19 +34,19 @@ main {
     height: 200px;
     background-color: #F8F8F8;
 }
- 
+
 .main_header h1 {
     font-size: 26px;
     padding-top: 92px;
     padding-left: 60px;
 }
- 
+
 .main_fundo {
     height: 100vh;
     display: flex;
     justify-content: center;
 }
- 
+
 .quadrado {
     display: flex;
     justify-content: space-between;
@@ -61,40 +61,45 @@ main {
     filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
 }
 
-.hidde{
+.hidde {
     display: none;
 }
 
-.user-img{
+.user-img {
     display: flex;
     width: 550px;
     height: 550px;
     margin: 25px;
     user-select: none;
 }
+
 .user-img h1 {
     font-size: 30px;
     margin-left: 10px;
     color: #000;
 }
-.user-img img{
+
+.user-img img {
     margin-top: 40px;
     width: 437px;
     height: 430px;
     border-radius: 51%;
     border: 2px black solid;
 }
-.user-dados{
+
+.user-dados {
     margin-top: 40px;
     height: 500px;
     width: 450px;
 }
-.user-Letra h1{
+
+.user-Letra h1 {
     margin-top: 10px;
     font-size: 24px;
     margin-top: 20px;
 }
-.user_Box{
+
+.user_Box {
     margin-top: 20px;
     font-size: 18px;
     text-align: center;
@@ -104,7 +109,8 @@ main {
     filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
     background-color: #F6F6F6;
 }
-.icones{
+
+.icones {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -117,18 +123,26 @@ main {
     filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
     background-color: #F6F6F6;
 }
-.Texto{
+
+.Texto {
     padding-top: 12px;
 }
 
-.icone{
+.icone {
     padding-top: 15px;
 }
 
-.menor{
+.menor {
     height: 47px;
     width: 100%;
 }
-.exit{
+
+.exit {
     font-size: 40px;
+}
+/* user pefil principal */
+#quadrado-perfil{
+    height: 470px;
+    width: 454px;
+    background-color: red;
 }
