@@ -3,7 +3,7 @@
 
     session_start();
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente'; // Descomente essa parte para tipo do usuario = Usuário
-    // $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado"; // Descomente essa parte para tipo do usuario = Associado
+    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado"; // Descomente essa parte para tipo do usuario = Associado
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
 
