@@ -1,13 +1,13 @@
 <?php
-function typeSidebar($tipo_usuario){
-    if($tipo_usuario == "Associado"){
+function typeSidebar($tipoUsuario){
+    if($tipoUsuario == "Associado"){
         return '<li class="config"><a href="#" class="config_link">Área de Administração</a></li>';
     }else{
         return '<li class="config"><a href="#" class="config_link">Associados</a></li>';
     };
 }
 
-function createSidebar($tipo_usuario){ // Sidebar de teste, depois trocar para versão oficial.
+function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para versão oficial.
     return '
     <div id="overlay" class="overlay"></div>
     <div class="sidebar_adm" id="sidebar_adm">
@@ -111,7 +111,7 @@ function createSidebar($tipo_usuario){ // Sidebar de teste, depois trocar para v
                     <ul>
                         <li class="config"><a href="#" class="config_link">Minha Conta</a></li>
                         <li class="config"><a href="" class="config_link">Meus Pedidos</a></li>
-                        ' . typeSidebar($tipo_usuario) . '
+                        ' . typeSidebar($tipoUsuario) . '
                         <li class="config"><a href="" class="config_link">Termos de Uso e Privacidade</a></li>
                     </ul>
                 </div>
