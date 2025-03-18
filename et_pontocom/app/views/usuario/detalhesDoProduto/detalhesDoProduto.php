@@ -12,6 +12,7 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do produto</title>
+    <link rel="stylesheet" href="projeto-integrador-et.com/et_pontocom/public/css/detalhesDoProduto.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/header/style.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/style.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/botoesComponente.css">
