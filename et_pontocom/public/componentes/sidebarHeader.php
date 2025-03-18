@@ -1,8 +1,8 @@
 <?php  
 
 session_start();
-$tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
-// $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
+$tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
+// $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
 ?>
 
 
@@ -118,7 +118,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
                     <ul>
                         <li class="config"><a href="#" class="config_link">Minha Conta</a></li>
                         <li class="config"><a href="" class="config_link">Meus Pedidos</a></li>
-                        <?php if ($tipo_usuario == 'Associado') : ?>
+                        <?php if ($tipoUsuario == 'Associado') : ?>
                             <li class="config"><a href="#" class="config_link">Área de Administração</a></li>
                         <?php else : ?>
                             <li class="config"><a href="#" class="config_link">Associados</a></li>
