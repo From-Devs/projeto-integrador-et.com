@@ -4,7 +4,7 @@
 
     session_start();
     // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
-    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
+    $tipoUsuario = $_SESSION['tipo_usuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 
 
@@ -28,7 +28,7 @@
 </head>
 <body>
     <?php
-    echo createHeader($login,$tipo_usuario); // função que cria o header
+    echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
 
     <div class="lancamentos">
