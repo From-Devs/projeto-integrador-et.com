@@ -95,6 +95,30 @@
         <div id="titulo">
             <h1 id="tituloH1">Pedidos</h1>
         </div>
+        <div id="lista">
+            <table id="tabelaVendas">
+                <thead id="barraCima">
+                    <tr>
+                        <th scope='col'>#</th>
+                        <th scope='col'>Nome Cliente</th>
+                        <th scope='col'>Nome Produto</th>
+                        <th scope='col'>Preço</th>
+                        <th scope='col'>Data</th>
+                        <th scope='col'>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Guilherme Nantes</td>
+                        <td>Hidratante Natura +8</td>
+                        <td>R$ 44,99</td>
+                        <td>20/06/2024</td>
+                        <td>Pago</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 
@@ -102,33 +126,41 @@
 
         var lista = [
             {
-                nome: "produto a",
-                preco: 500
+                nome: "Hidrantante",
+                sku: "S5D56GE"
             },
             {
-                nome: "produto a",
-                preco: 500
+                nome: "Base Líquida",
+                sku: "FA9DSF5"
             },
             {
-                nome: "produto a",
-                preco: 500
+                nome: "Body Splash",
+                sku: "UJ47R8S"
             },
             {
-                nome: "produto a",
-                preco: 500
+                nome: "Colônia Coffe Man",
+                sku: "FDAS94A"
             },
             {
-                nome: "produto a",
-                preco: 500
+                nome: "Skin Care",
+                sku: "9WE8FWS"
             },
             {
-                nome: "produto a",
-                preco: 500
+                nome: "Césio Líquido",
+                sku: "F99W2C9"
             },
             {
-                nome: "produto a",
-                preco: 500
+                nome: "Americio de Limpeza",
+                sku: "8DF5AFE"
             },
+            {
+                nome: "Gel de Limpeza Facial",
+                sku: "3D9S5FW"
+            },
+            {
+                nome: "Kit Essenciais",
+                sku: "GER9S8D"
+            }
         ]
 
 
@@ -141,7 +173,7 @@
 
 
           lista.forEach(item => {
-            div.innerHTML += `<div>${item.title} - ${item.price}</div>`
+            div.innerHTML += `<div>${item.nome} - ${item.sku}</div>`
           });
 
 
