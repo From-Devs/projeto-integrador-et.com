@@ -17,12 +17,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Et.com</title>
-    <link rel="stylesheet" href="../../../public/componentes/header/style.css">
-    <link rel="stylesheet" href="../../../public/componentes/sidebar/style.css">
-    <link rel="stylesheet" href="../../../public/componentes/produtoDestaque/style.css">
-    <link rel="stylesheet" href="../../../public/componentes/rodape/styles.css">
+    
     <link rel="stylesheet" href="../../../public/css/paginaPrincipal.css">
-    <link rel="stylesheet" href="../../../public/componentes/cardLancamento/style.css">
+    <link rel="stylesheet" href="../../../public/componentes/header/styles.css">
+    <link rel="stylesheet" href="../../../public/componentes/sidebar/styles.css">
+    <link rel="stylesheet" href="../../../public/componentes/produtoDestaque/styles.css">
+    <link rel="stylesheet" href="../../../public/componentes/rodape/styles.css">
+    <link rel="stylesheet" href="../../../public/componentes/cardLancamento/styles.css">
+
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
