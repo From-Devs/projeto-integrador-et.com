@@ -1,6 +1,6 @@
 <?php 
 
-function createCardProduto($marca, $nomeProduto, $preco, $imagemProduto, $emDesconto = false, $precoOriginal = ''){
+function createCardProduto($marca, $nomeProduto, $preco, $imagemProduto, $emDesconto = false, $precoOriginal = '', $corPrincipal = "#000000", $corDegrade1 = "#FFFFFF", $corDegrade2 = "#6D6D6D"){
 
     if($emDesconto){
         $classe = 'cardProduto desconto';
@@ -9,8 +9,13 @@ function createCardProduto($marca, $nomeProduto, $preco, $imagemProduto, $emDesc
     };
     return "
     <div class= '$classe'>
+        <div class='cores'>
+            <div class='corDestaque' style='color: $corPrincipal;'></div>
+            <div class='corDegrade1' style='color: $corDegrade1;'></div>
+            <div class='corDegrade2' style='color: $corDegrade2;'></div>
+        </div>
 
-        <div class='coisaDeCima' >
+        <div class='coisaDeCima'>
             <i class='coraçãoFofo'>
                 <img class='oCoração' src='/projeto-integrador-et.com/et_pontocom/public/imagens/produtoCard/coracao.png' alt='Coração em forma de ícone'>
             </i>
