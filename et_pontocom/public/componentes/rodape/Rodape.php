@@ -11,7 +11,7 @@
 
         <div class="segundaSecao">
             <div>
-                <img class="logoPrincipal" src="../../../public/imagens/LogoBranca1.png">
+                <img class="logoPrincipal" src="/projeto-integrador-et.com/et_pontocom/public/imagens/LogoBranca1.png">
             </div>
            
             <div class="segundaSubSecao">
@@ -65,7 +65,7 @@
                         © 2024 - Et.com
                     </p>
                     <a>
-                        <img src="../../../public/imagens/image.png" id="LogoFromDevs">
+                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/image.png" id="LogoFromDevs">
                     </a>
         </div>
     </footer>
