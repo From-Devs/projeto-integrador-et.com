@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const VoltarInicio = document.getElementById("VoltarInicio");
-
+    const VoltarInicio = document.querySelector(".VoltarInicio");
 
     VoltarInicio.addEventListener("click", function () {
         window.scrollTo({

@@ -1,8 +1,10 @@
-
+<?php
+function createRodape(){
+    return '
     <footer>
         
         <div class="primeiraSecao">
-            <button type=button id="VoltarInicio" >
+            <button type=button class="VoltarInicio" >
                 <i class="bx bx-chevron-up seta" style="color:#ffffff" ></i>
                 <p class="Voltar">Voltar para o início</p>  
                   
@@ -11,7 +13,7 @@
 
         <div class="segundaSecao">
             <div>
-                <img class="logoPrincipal" src="/projeto-integrador-et.com/et_pontocom/public/imagens/LogoBranca1.png">
+                <img class="logoPrincipal" src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca1.png">
             </div>
            
             <div class="segundaSubSecao">
@@ -65,8 +67,10 @@
                         © 2024 - Et.com
                     </p>
                     <a>
-                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/image.png" id="LogoFromDevs">
+                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/FromDevsLogo.png" id="LogoFromDevs">
                     </a>
         </div>
     </footer>
-   
+    ';
+}
+?>
