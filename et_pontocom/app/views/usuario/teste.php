@@ -11,6 +11,7 @@ require __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 24px;
         }
     </style>
     <meta charset="UTF-8">
@@ -20,7 +21,10 @@ require __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
     <link href="https://fonts.googleapis.com/css2?family=Germania+One&family=Montserrat:wght@100..900&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <?php echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$30,00", "imagem.png", true, "R$30,00"); ?>
+    <?php
+    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$30,00", "imagem.png", true, "R$30,00");
+    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "imagem4.png", true, "R$30,00");
+    ?>
     <script src="../../../public/componentes/cardProduto/script.js"></script>
 </body>
 </html>
