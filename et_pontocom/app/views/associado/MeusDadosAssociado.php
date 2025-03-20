@@ -18,80 +18,81 @@
         </section>
         <section class="main_fundo">
             <!-- Tela Principal (principal-perfil) -->
-                <div id="user-info">
-                    <div id="user-perfil">
-                        <div id="nome-perfil">
-                            <h1>Perfil</h1>
-                        </div>  
-                        <div id="img-user">
-                            <img src="https://i.pinimg.com/736x/91/0b/ec/910becbf6e01b541e0dea7f3bcc515c3.jpg" alt="Foto do usuário">
-                            <p>Wellinton R.</p>
-                        </div>  
-                        <div id="icone-editar">
-                            <i class='bx bx-pencil'></i>
+                    <div id="user-info">
+                        <div id="user-perfil">
+                            <div id="nome-perfil">
+                                <h1>Perfil</h1>
+                            </div>  
+                            <div id="img-user">
+                                <img src="https://i.pinimg.com/736x/91/0b/ec/910becbf6e01b541e0dea7f3bcc515c3.jpg" alt="Foto do usuário">
+                                <p>Wellinton R.</p>
+                            </div>  
+                            <div id="icone-editar">
+                                <i class='bx bx-pencil'></i>
+                            </div>
+                        </div>
+                        <div id="user-redes">
+                            <div class="box-rede">
+                                <i class='bx bxl-facebook'></i>
+                                <p>Facebook</p>
+                            </div>
+                            <div class="box-rede">
+                                <i class='bx bxl-instagram'></i>
+                                <p>Instagram</p>
+                            </div>
+                            <div class="box-rede">
+                                <i class='bx bxl-linkedin'></i>
+                                <p>LinkedIn</p>
+                            </div>
+                            <div class="box-rede">
+                                <i class='bx bxl-twitter'></i>
+                                <p>Twitter</p>
+                            </div>
+                            <div class="box-rede">
+                                <i class='bx bxl-whatsapp'></i>
+                                <p>WhatsApp</p>
+                            </div>
                         </div>
                     </div>
-                    <div id="user-redes">
-                        <div class="box-rede">
-                            <i class='bx bxl-facebook'></i>
-                            <p>Facebook</p>
+                    <div class="parte-dados">
+                        <div class="dado-local">
+                            <div class="titulo-dado">
+                                <h1>Nome</h1>
+                            </div>
+                            <div class="texto-dado">
+                                <p>Wellinton R.</p>
+                            </div>
                         </div>
-                        <div class="box-rede">
-                            <i class='bx bxl-instagram'></i>
-                            <p>Instagram</p>
+                        <div class="dado-local">
+                            <div class="titulo-dado">
+                                <h1>CPF</h1>
+                            </div>
+                            <div class="texto-dado">
+                                <p>657.676.234-43</p>
+                            </div>
                         </div>
-                        <div class="box-rede">
-                            <i class='bx bxl-linkedin'></i>
-                            <p>LinkedIn</p>
+                        <div class="dado-local">
+                            <div class="titulo-dado">
+                                <h1>Gmail</h1>
+                            </div>
+                            <div class="texto-dado">
+                                <p>tiginhoJogoTÀPagandoMUITO@Gmail.com</p>
+                            </div>
                         </div>
-                        <div class="box-rede">
-                            <i class='bx bxl-twitter'></i>
-                            <p>Twitter</p>
-                        </div>
-                        <div class="box-rede">
-                            <i class='bx bxl-whatsapp'></i>
-                            <p>WhatsApp</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="parte-dados">
-                    <div class="dado-local">
-                        <div class="titulo-dado">
-                            <h1>Nome</h1>
-                        </div>
-                        <div class="texto-dado">
-                            <p>Wellinton R.</p>
-                        </div>
-                    </div>
-                    <div class="dado-local">
-                        <div class="titulo-dado">
-                            <h1>CPF</h1>
-                        </div>
-                        <div class="texto-dado">
-                            <p>657.676.234-43</p>
+                        <div class="dado-local">
+                            <div class="titulo-dado">
+                                <h1>Data de nascimento</h1>
+                            </div>
+                            <div class="texto-dado">
+                                <p>01/01/1111</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="dado-local">
-                        <div class="titulo-dado">
-                            <h1>Gmail</h1>
-                        </div>
-                        <div class="texto-dado">
-                            <p>tiginhoJogoTÀPagandoMUITO@Gmail.com</p>
+                    <div id="editar-botao">
+                        <div id="botao-editar">
+                            <h1>Editar</h1>
                         </div>
                     </div>
-                    <div class="dado-local">
-                        <div class="titulo-dado">
-                            <h1>Data de nascimento</h1>
-                        </div>
-                        <div class="texto-dado">
-                            <p>01/01/1111</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="botao-editar">
-                    <h1>Editar</h1>
-                </div>
-            </div>
 
             <!-- Tela do Quadrado (quadrado-perfil) -->
             <div id="quadrado-perfil" class="quadrado hidde">
@@ -126,25 +127,46 @@
                 </div>
                 <i id="fechar-perfil" class='bx bx-x exit'></i>
             </div>
+            <!-- Tela do Quadrado (edicao-perfil) -->
+            <div id="editiçao-perfil" class="editiçao">
+                <div class="user-img">
+                    <h1>Meus Dados</h1>
+                </div>
+                <i id="fechar-perfil" class='bx bx-x exit'></i>
+            </div>
         </section>
     </main>
     <script src="../../../public/componentes/sidebarADM_Associado/script.js"></script>
     <script>
-        // JavaScript para alternar entre as telas
-        const botaoEditar = document.getElementById('botao-editar');
+         // JavaScript para alternar entre as telas
+        const iconeEditar = document.getElementById('icone-editar');
         const fecharPerfil = document.getElementById('fechar-perfil');
-        const principalPerfil = document.getElementById('principal-perfil');
+        const userInfo = document.getElementById('user-info');
+        const parteDados = document.querySelector('.parte-dados');
+        const botaoEditarDiv = document.getElementById('editar-botao'); // Botão "Editar"
         const quadradoPerfil = document.getElementById('quadrado-perfil');
 
-        botaoEditar.addEventListener('click', () => {
-            principalPerfil.classList.add('hidde'); // Esconde a tela principal
-            quadradoPerfil.classList.remove('hidde'); // Mostra o quadrado
-        });
+        if (iconeEditar && fecharPerfil && userInfo && parteDados && botaoEditarDiv && quadradoPerfil) {
+            iconeEditar.addEventListener('click', () => {
+                // Oculta a tela principal
+                userInfo.classList.add('hidde');
+                parteDados.classList.add('hidde');
+                botaoEditarDiv.classList.add('hidde'); 
+                botaoEditarDiv.classList.add('hidde'); 
+                // Mostra a tela do quadrado
+                quadradoPerfil.classList.add('hidde');
+            });
 
-        fecharPerfil.addEventListener('click', () => {
-            quadradoPerfil.classList.add('hidde'); // Esconde o quadrado
-            principalPerfil.classList.remove('hidde'); // Mostra a tela principal
-        });
+            fecharPerfil.addEventListener('click', () => {
+                // Oculta a tela do quadrado
+                quadradoPerfil.classList.add('hidde');
+
+                // Mostra a tela principal
+                userInfo.classList.add('hidde');
+                parteDados.classList.add('hidde');
+                botaoEditarDiv.classList.add('hidde'); // Mostra o botão "Editar"
+            });
+        }
     </script>
 </body>
 </html>

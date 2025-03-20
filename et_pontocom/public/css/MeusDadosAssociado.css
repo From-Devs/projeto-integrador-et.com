@@ -42,9 +42,10 @@ main {
 }
 
 .main_fundo {
+    padding: 39px;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .quadrado {
@@ -61,9 +62,6 @@ main {
     filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
 }
 
-.hidde {
-    display: none;
-}
 
 .user-img {
     display: flex;
@@ -166,7 +164,7 @@ main {
 #user-perfil #nome-perfil {
     padding-top: 15px;
     padding-left: 15px;
-    font-size: 35px;
+    font-size: 19px;
 }
 
 #user-perfil #img-user img {
@@ -254,4 +252,19 @@ main {
 /* Classe para esconder elementos */
 .hidde {
     display: none;
+}
+
+/* tela editação */
+.editiçao {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: black 3px 0 0 10;
+    height: 760px;
+    border-radius: 20px;
+    width: 1434px;
+    padding-right: -75px;
+    position: relative;
+    bottom: 40px;
+    background-color: #f7f7f7;
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
 }
