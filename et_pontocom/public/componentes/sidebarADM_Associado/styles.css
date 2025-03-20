@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url(../../css/styles.css);
+
+/*_________________Geral_________________*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", serif;
+}
+
+
+/*_________________Básico da sidebar_________________*/
+.sidebar_adm{
+    display: flex;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.nav_adm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    float: left;
+    position: fixed;
+    width: 287px;
+    min-height: 100vh;
+    background-color: var(--cor-sidebar-fundo);
+}
+
+
+/*_________________Logo e Linha com Gradiente_________________*/
+.logo{
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
+
+.logo img{
+    width: 200px;
+    height: auto;
+}
+
+.linhaGradiente{
+    width: 240px;
+    height: 2px;
+    background: linear-gradient(to right, rgba(232,232,231,0),rgba(232,232,231, 0.185),rgba(232, 232, 231, 0.74), rgba(232,232,231, 0.185),rgba(232,232,231,0));
+    margin-bottom: 35px;
+}
+
+
+/*_________________Botões principais da sidebar_________________*/
+.botoesMenu{
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botoesMenu ul .nav-item{
+    margin-left: 20px;
+    padding: 18px 0 18px 20px;
+    background-color: var(--cor-sidebar-fundo);
+    border-radius: 15px;
+    width: 210px;
+    list-style: none;
+}
+
+.botoesMenu ul .nav-item .nav-link{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cor-sidebar-escrita);
+}
+
+.botoesMenu ul .nav-item .nav-link .bx{
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 5px;
+    margin-right: 15px;
+    background-color: var(--cor-sidebar-escrita);
+    color: var(--cor-sidebar-fundo);
+    align-items: center;
+}
+
+.botoesMenu ul .nav-item .nav-link .fa{
+    font-size: 13px;
+    border-radius: 8px;
+    padding: 6px;
+    margin-right: 15px;
+    background-color: var(--cor-sidebar-escrita);
+    color: var(--cor-sidebar-fundo);
+    align-items: center;
+}
+
+.botoesMenu ul .nav-item .nav-link .fa-users{
+    padding: 6px 5px;
+}
+
+.botoesMenu .button_name{
+    font-weight: 600;
+}
+
+
+/*_________________Ao clicar em algum botão do menu...animação com JavaScript_________________*/
+.botoesMenu .nav-item.active{
+    background-color: var(--cor-sidebar-escrita);
+}
+
+.botoesMenu .nav-item.active .nav-link{
+    color: var(--cor-sidebar-fundo);
+}
+
+.botoesMenu .nav-item.active .nav-link .bx, .botoesMenu .nav-item.active .nav-link .fa{
+    background-color: var(--cor-sidebar-fundo);
+    color: var(--cor-sidebar-escrita);
+}
+
+.botoesMenu .nav-item.active .nav-link .button_name{
+    font-weight: 600;
+}
+
+
+/*_________________Botão de sair_________________*/
+.area_Sair .button_sair{
+    width: 230px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    position: fixed;
+    bottom: 60px;
+    left: 29px;
+}
+
+.area_Sair .button_sair .fa{
+    font-size: 15px;
+    border-radius: 8px;
+    padding: 5px;
+    color: var(--cor-sidebar-fundo);
+    background-color: var(--cor-sidebar-escrita);
+    margin-right: 12px;
+    margin-left: 40px;
+}
+
+.area_Sair .button_sair .button_name{
+    color: var(--cor-sidebar-escrita);
+    font-weight: 600;
+}
+
+
+/*_________________Caso a tela seja menor..._________________*/
+@media (max-width: 1000px) {
+    .nav_adm{
+        width: 250px;
+    }
+
+    
+    .logo{
+        margin-top: 15px;
+        margin-bottom: 4px;
+    }
+    .logo img{
+        width: 150px;
+    }
+    .linhaGradiente{
+        width: 210px;
+        height: 1px;
+        margin-bottom: 23px;
+    }
+
+
+    .botoesMenu{
+        width: 200px;
+    }
+    .botoesMenu ul .nav-item{
+        margin-left: 0;
+        width: 190px;
+    }    
+    .botoesMenu ul .nav-item .nav-link .bx{
+        font-size: 14px;
+        margin-right: 12px;
+    }
+    .botoesMenu ul .nav-item .nav-link .fa{
+        font-size: 11px;
+        margin-right: 12px;
+    }
+    .botoesMenu .button_name{
+        font-weight: 600;
+        font-size: 11px;
+    }
+
+    
+    .area_Sair .button_sair{
+        width: 200px;
+        left: 10px;
+    }
+    .area_Sair .button_sair .fa{
+        font-size: 11px;
+        margin-right: 10px;
+    }
+    .area_Sair .button_sair .button_name{
+        font-size: 11px;
+    }
+}
