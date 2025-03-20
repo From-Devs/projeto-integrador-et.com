@@ -1,18 +1,18 @@
 <?php
-function typeSidebar($tipo_usuario){
-    if($tipo_usuario == "Associado"){
+function typeSidebar($tipoUsuario){
+    if($tipoUsuario == "Associado"){
         return '<li class="config"><a href="#" class="config_link">Área de Administração</a></li>';
     }else{
         return '<li class="config"><a href="#" class="config_link">Associados</a></li>';
     };
 }
 
-function createSidebar($tipo_usuario){ // Sidebar de teste, depois trocar para versão oficial.
+function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para versão oficial.
     return '
     <div id="overlay" class="overlay"></div>
     <div class="sidebar_adm" id="sidebar_adm">
         <div class="nav_adm">
-            <a href="#" class="logo">
+            <a href="../../../app/views/usuario/paginaPrincipal.php" class="logo">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" alt="">
             </a>
             <div class="botoes_sidebar">
@@ -110,8 +110,8 @@ function createSidebar($tipo_usuario){ // Sidebar de teste, depois trocar para v
                     <p class="categoria_nome">Ajuda e Configurações</p>
                     <ul>
                         <li class="config"><a href="#" class="config_link">Minha Conta</a></li>
-                        <li class="config"><a href="" class="config_link">Meus Pedidos</a></li>
-                        ' . typeSidebar($tipo_usuario) . '
+                        <li class="config"><a href="../../../app/views/usuario/meusPedidos.php" class="config_link">Meus Pedidos</a></li>
+                        ' . typeSidebar($tipoUsuario) . '
                         <li class="config"><a href="" class="config_link">Termos de Uso e Privacidade</a></li>
                     </ul>
                 </div>
