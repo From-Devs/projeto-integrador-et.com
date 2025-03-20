@@ -8,6 +8,7 @@
     font-size: 1.1rem;
     transition: all 0.3s;
     padding: 5px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .btn:hover{

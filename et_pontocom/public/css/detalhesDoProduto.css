@@ -1,14 +1,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-body{
-    width: 100vw;
-    height: 100vh;
-    font-family: "Montserrat", sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f8f8f8;  
+
+/*Informações principais--------------------------------*/
+.container-detalhes{
+    display: flex;
+    justify-content: center;
+    margin: 0px 300px 0px 300px;
 }
 
+.detalhes-principal{
+    display: flex;
+    margin-top: 200px;
+    gap: 20px;
+}
+
+.detalhes-imagens{
+    display: flex;
+    gap: 20px;
+}
+
+.imagens-lateral{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.imagens-lateral div{
+    width: 150px;
+    height: 190px;
+}
+
+.imagens-lateral div img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.img-principal{
+    display: flex;
+}
+
+.img-principal div{
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 400px;
+    height: 600px;
+}
+
+.img-principal div img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.qtd-produtos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.qtd-produtos button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: gray;
+}
+
+.qtd-produtos span{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.detalhes-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.titulo-produto{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.titulo-produto h3{
+    font-size: 1.2rem;
+}
+
+.mais-detalhes{
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.descricao p{
+    color: rgb(91, 91, 91);
+    text-align: justify;
+}
+
+.btn-juntos{
+    display: flex;
+    align-items: center;
+}
+
+.botoes-detalhes{
+    display: flex;
+    flex-direction: column;
+}
+
+/*Descrição-------------------------------------------------*/
 
 .description-box {
     max-width: 900px;
@@ -36,3 +144,4 @@ li {
     font-size: 16px;
     color: black;
 }
+
