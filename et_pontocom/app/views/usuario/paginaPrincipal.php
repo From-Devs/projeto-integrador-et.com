@@ -3,6 +3,7 @@
     require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php"; // import do card
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     require __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
+    require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
     session_start();
     // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
@@ -21,6 +22,7 @@
     
     <link rel="stylesheet" href="../../../public/css/paginaPrincipal.css">
     <link rel="stylesheet" href="../../../public/componentes/header/styles.css">
+    <link rel="stylesheet" href="../../../public/componentes/botao/styles.css">
     <link rel="stylesheet" href="../../../public/componentes/sidebar/styles.css">
     <link rel="stylesheet" href="../../../public/componentes/produtoDestaque/styles.css">
     <link rel="stylesheet" href="../../../public/componentes/rodape/styles.css">
@@ -67,17 +69,21 @@
             <span class="luzProduto"></span>
         </div>
         <div class="infoProdutoDestaque">
-            <h1 class="nomeProduto">KIT LANCÔME LASH IDÔLEA</h1>
+            <h1 class="nomeProduto">KIT LANCÔME LASH IDÔLE</h1>
             <h2 class="marcaProduto">LANCÔME</h2>
             <h1 class="precoProduto">R$ 00.00</h1>
             <div class="botoesProdutoDestaque">
-                <button class="comprar">Comprar</button> <!-- Trocar pelos componentes do Nicolas -->
-                <button class="verDetalhes">Ver Detalhes</button>
+                <?php
+                echo botaoPersonalizadoRedirect("Comprar", "btn-black", "", "262px", "67px", "20px");
+                echo botaoPersonalizadoRedirect("Ver Detalhes", "btn-white", "", "262px", "67px", "20px");
+                ?>
             </div>
         </div>
-        <img class="ondaProdutoDestaque ondaPrincipal" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/ondaBranca.png" alt="">
-        <img class="ondaProdutoDestaque ondaFantasma" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/ondaFantasma.png" alt="">
-        <img class="retanguloProdutoDestaque retanguloBlur" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/retanguloBlur.png" alt="">
+        <div class="ondasProdutoDestaque">
+            <img class="ondaProdutoDestaque ondaPrincipal" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/ondaBranca.png" alt="">
+            <img class="ondaProdutoDestaque ondaFantasma" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/ondaFantasma.png" alt="">
+            <img class="retanguloProdutoDestaque retanguloBlur" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/retanguloBlur.png" alt="">
+        </div>
     </div>
 
     <div class="sessaoProdutos">

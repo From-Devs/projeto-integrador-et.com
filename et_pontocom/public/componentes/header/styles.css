@@ -24,7 +24,7 @@
 .esquerdo img{ /* logo do header */
     /* width: 160px; */
     height: 85px;
-    filter: drop-shadow(0px 0px 2px black);
+    filter: drop-shadow(0px 1px 2px black);
     cursor: pointer;
 }
 
