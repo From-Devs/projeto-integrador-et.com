@@ -1,0 +1,295 @@
+@import url(styles.css);
+
+*
+{
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
+
+body
+{
+    display: flex;
+    margin: 0%;
+    padding: 0%;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+/* PARTE LATERAL DA ESQUERDA (MENU BAR) */
+
+.sidebar_adm{
+    display: flex;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.nav_adm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    float: left;
+    position: fixed;
+    width: 300px;
+    min-height: 100vh;
+    background-color: var(--cor-sidebar-fundo);
+}
+
+
+/*_________________Logo e Linha com Gradiente_________________*/
+.logo{
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
+
+.logo img{
+    width: 200px;
+    height: auto;
+}
+
+.linhaGradiente{
+    width: 240px;
+    height: 2px;
+    background: linear-gradient(to right, rgba(232,232,231,0),rgba(232,232,231, 0.185),rgba(232, 232, 231, 0.74), rgba(232,232,231, 0.185),rgba(232,232,231,0));
+    margin-bottom: 35px;
+}
+
+
+/*_________________Botões principais da sidebar_________________*/
+.botoesMenu{
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botoesMenu ul .nav-item{
+    padding: 18px 0 18px 20px;
+    background-color: var(--cor-sidebar-fundo);
+    border-radius: 15px;
+    width: 210px;
+    list-style: none;
+}
+
+.botoesMenu ul .nav-item .nav-link{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cor-sidebar-escrita);
+}
+
+.botoesMenu ul .nav-item .nav-link .bx{
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 5px;
+    margin-right: 15px;
+    background-color: var(--cor-sidebar-escrita);
+    color: var(--cor-sidebar-fundo);
+    align-items: center;
+}
+
+.botoesMenu ul .nav-item .nav-link .fa{
+    font-size: 13px;
+    border-radius: 8px;
+    padding: 6px;
+    margin-right: 15px;
+    background-color: var(--cor-sidebar-escrita);
+    color: var(--cor-sidebar-fundo);
+    align-items: center;
+}
+
+.botoesMenu ul .nav-item .nav-link .fa-users{
+    padding: 6px 5px;
+}
+
+.botoesMenu .button_name{
+    font-weight: 600;
+}
+
+
+/*_________________Ao clicar em algum botão do menu...animação com JavaScript_________________*/
+.botoesMenu .nav-item.active{
+    background-color: var(--cor-sidebar-escrita);
+}
+
+.botoesMenu .nav-item.active .nav-link{
+    color: var(--cor-sidebar-fundo);
+}
+
+.botoesMenu .nav-item.active .nav-link .bx, .botoesMenu .nav-item.active .nav-link .fa{
+    background-color: var(--cor-sidebar-fundo);
+    color: var(--cor-sidebar-escrita);
+}
+
+.botoesMenu .nav-item.active .nav-link .button_name{
+    font-weight: 600;
+}
+
+
+/*_________________Botão de sair_________________*/
+.area_Sair .button_sair{
+    width: 230px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    position: fixed;
+    bottom: 60px;
+    left: 29px;
+}
+
+.area_Sair .button_sair .fa{
+    font-size: 15px;
+    border-radius: 8px;
+    padding: 5px;
+    color: var(--cor-sidebar-fundo);
+    background-color: var(--cor-sidebar-escrita);
+    margin-right: 12px;
+    margin-left: 40px;
+}
+
+.area_Sair .button_sair .button_name{
+    color: var(--cor-sidebar-escrita);
+    font-weight: 600;
+}
+
+/* PARTE DA DIREITA CONTAINER GERAL */
+
+#container
+{
+    width: 100vw;
+    height: 100vh;
+    margin-left: 350px;
+}
+
+/* estilizacao da parte do icone do usuario */
+
+
+#controleIcon
+{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#iconUsuario
+{
+    width: 250px;
+    height: 80px;
+    display: flex;
+    background-color: black;
+    color: white;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+    margin-top: 40px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+#fotoUser
+{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    margin-left: 30px;
+    width: 70px;
+    height: 70px;
+}
+
+/* filtragem e pesquisa */
+
+#divPesquisarEFiltro
+{
+    display: flex;
+    gap: 250px;
+}
+
+/* pesquisa */
+
+#inputPesquisar
+{
+    width: 500px;
+    height: 55px;
+    border-radius: 15px;
+    padding-left: 10px;
+    border: none;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+}
+
+/* filtragem */
+
+#botaoFiltragem
+{
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #3449B6;
+    color: white;
+    border-radius: 15px;
+    width: 205px;
+    height: 55px;
+    font-size: 18px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+#imagemFiltro
+{
+    width: 40px;
+    height: 40px;
+}
+
+/* tabela */
+
+#tabelaVendas 
+{
+    width: 97%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+#barraCima 
+{
+    background-color: black;
+    color: white;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+    padding: 10%;
+}
+
+th, td
+{
+    padding: 12px;
+    text-align: center;
+}
+
+th{
+    padding: 2%;
+    font-size: 22px;
+}
+
+td
+{
+    padding: 2%;
+    font-size: 18px;
+}
+
+
+#bordaEsquerda
+{
+    border-top-left-radius: 10px;
+}
+
+
+#bordaDireita
+{
+    border-top-right-radius: 10px;
+}
