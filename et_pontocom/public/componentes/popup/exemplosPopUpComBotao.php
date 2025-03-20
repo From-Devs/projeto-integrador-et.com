@@ -1,8 +1,8 @@
 <?php
 
 
-require_once "./projeto-integrador-et.com/et_pontocom/public/componentes/botao/botao.php";
-require_once "./projeto-integrador-et.com/et_pontocom/public/componentes/popup/popUp.php";
+require_once __DIR__ . "../../botao/botao.php";
+require_once __DIR__ . "../../popup/popUp.php";
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +11,8 @@ require_once "./projeto-integrador-et.com/et_pontocom/public/componentes/popup/p
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste PI</title>
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/botoesComponente.css">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/popUpComponente.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/botoesComponente.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/popUpComponente.css">
 </head>
 <body>
     
@@ -92,7 +92,7 @@ require_once "./projeto-integrador-et.com/et_pontocom/public/componentes/popup/p
     // Relatorio de receitas ---------------------------------------------------------------------
     ?>
 
-<script src="/projeto-integrador-et.com/et_pontocom/public/javascript/popUp.js"></script>
+<script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/popUp.js"></script>
 
 </body>
 </html>
