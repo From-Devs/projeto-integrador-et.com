@@ -64,7 +64,7 @@
     font-family: "Montserrat", sans-serif;
     width: 100%;
     height: 45px;
-    background-image: linear-gradient(to bottom, rgb(102, 102, 102) 24%, black 100%);
+    background-image: linear-gradient(to bottom, rgb(102, 102, 102) 24%, rgb(0, 0, 0) 100%);
     color: white;
     text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.35);
     font-size: 20px;
@@ -76,7 +76,7 @@
     user-select: none;
 }
 
-.cardLancamento.open .botaoComprarCardLancamento{
+.botaoComprarCardLancamento:hover{
     opacity: 0.8;
     text-shadow: 0px 0px 4px rgb(255, 255, 255);
 }

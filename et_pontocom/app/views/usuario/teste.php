@@ -22,8 +22,10 @@ require __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
 </head>
 <body>
     <?php
-    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "imagem.png", true, "R$30,00");
-    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "imagem4.png", true, "R$30,00");
+    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "imagem.png", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "imagem2.png", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "imagem3.png", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "imagem4.png", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
     ?>
     <script src="../../../public/componentes/cardProduto/script.js"></script>
 </body>

@@ -1,6 +1,6 @@
 <?php 
 
-function createCardProduto($marca, $nomeProduto, $preco, $imagemProduto, $emDesconto = false, $precoOriginal = '', $corPrincipal = "#000000", $corDegrade1 = "#FFFFFF", $corDegrade2 = "#6D6D6D"){
+function createCardProduto($marca, $nomeProduto, $preco, $imagemProduto, $emDesconto = false, $precoOriginal = '', $corPrincipal = "#000000", $corDegrade1 = "#000000", $corDegrade2 = "#666666"){
 
     if($emDesconto){
         $classe = 'cardProduto desconto';
@@ -16,14 +16,15 @@ function createCardProduto($marca, $nomeProduto, $preco, $imagemProduto, $emDesc
         </div>
 
         <div class='coisaDeCima'>
-            <i class='coraçãoFofo'>
-                <img class='oCoração' src='/projeto-integrador-et.com/et_pontocom/public/imagens/produtoCard/coracao.png' alt='Coração em forma de ícone'>
+            <span class='balaoDesejos'>Adicionar a Lista de desejos</span>
+            <i class='coracaoFofo'>
+                <img class='coracaoImg' src='/projeto-integrador-et.com/et_pontocom/public/imagens/produtoCard/coracao.png' alt='Coração'>
             </i>
             <img class ='ticketMaldito' src='/projeto-integrador-et.com/et_pontocom/public/imagens/produtoCard/ticket.png' alt='ticket'>
             <i class='buraquinho'></i>
         </div>
 
-        <img class='imagemMaldita' src='/projeto-integrador-et.com/et_pontocom/public/imagens/produtoCard/produtos/$imagemProduto' alt='produtoheiroso'>
+        <img class='imagemMaldita' src='/projeto-integrador-et.com/et_pontocom/public/imagens/produtoCard/produtos/$imagemProduto' alt='Imagem'>
 
         <div class= 'contentDeBaixo'>
             <hr class= 'linha'>
@@ -31,7 +32,7 @@ function createCardProduto($marca, $nomeProduto, $preco, $imagemProduto, $emDesc
             <h1 class = 'nomeProduto'> $nomeProduto </h1>
             <h2 class = 'precoOriginal'> $precoOriginal </2>
             <h1 class = 'preco'> $preco </h1>
-            <button class='botaoComprarCardLancamento' id='botaoComprarCardLancamento'>Comprar</button>
+            <button class='botaoComprarCardProduto'>Comprar</button>
             <button class='botaoEspectro' id='botaoEspectro'></button>
         </div>
         
