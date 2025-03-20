@@ -12,6 +12,7 @@
     font-family: "Montserrat", sans-serif;
     transition: filter 0.6s ease-in-out;
     filter: drop-shadow(0px 6px 3px rgba(0, 0, 0, 0.35));
+    user-select: none;
 }
 
 .coisaDeCima{
@@ -38,6 +39,8 @@
     right: 240px;
     bottom: 5px;
     visibility: hidden;
+    user-select: none;
+    pointer-events: none;
 }
 
 .cardProduto.desconto .ticketMaldito{
@@ -90,6 +93,8 @@
 .coracaoImg{
     padding-top: 2px;
     height: 24px;
+    user-select: none;
+    pointer-events: none;
 }
 
 .contentDeBaixo{
@@ -116,6 +121,8 @@
     transform: scale(0.5);
     bottom: 14px;
     transition: bottom 0.6s ease;
+    user-select: none;
+    pointer-events: none;
 }
 
 .cardProduto:hover .contentDeBaixo {
@@ -142,7 +149,7 @@
     opacity: 100%;
 }
 
-.linha{
+.cardProduto .linha{
     position: absolute;
     background-color: black;
     width: 242px;
@@ -153,7 +160,7 @@
     transition: bottom 0.6s ease;
 }
 
-.marca{
+.cardProduto .marca{
     position: absolute;
     font-weight: 400; 
     margin: 0;
@@ -163,7 +170,7 @@
     transition: bottom 0.6s ease;
 }
  
-.nomeProduto{
+.cardProduto .nomeProduto{
     position: absolute;
     width: 241px;
     height: 48px;
@@ -174,7 +181,7 @@
     transition: bottom 0.6s ease;
 }
 
-.preco{
+.cardProduto .preco{
     display: flex;
     position: absolute;
     font-weight: 500;
@@ -184,8 +191,7 @@
     justify-content: center;
     width: 95px;
     height: 28px;
-    bottom: 29px;
-    margin-top: 0;
+    bottom: 45px;
 }
 
 .precoOriginal{
@@ -223,6 +229,7 @@
     transition: opacity 0.6s ease-in-out, text-shadow 0.6s ease-in;
     border-bottom-left-radius: 24px;
     border-bottom-right-radius: 24px;
+    user-select: none;
 }
  
 .botaoComprarCardProduto.open{
@@ -230,7 +237,7 @@
     text-shadow: 0px 0px 4px rgb(255, 255, 255);
 }
  
-.botaoEspectro{
+.cardProduto .botaoEspectro{
     position: absolute;
     bottom: 0;
     z-index: 10;

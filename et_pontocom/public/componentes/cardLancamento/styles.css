@@ -12,6 +12,7 @@
     z-index: 9;
     overflow: hidden;
     transition: filter 0.6s ease-in-out;
+    user-select: none;
 }
 
 .imgCardLancamento{

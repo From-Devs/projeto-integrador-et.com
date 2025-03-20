@@ -2,14 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url(../../css/styles.css);
 
-/*_________________Geral_________________*/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
 /*_________________Básico da sidebar_________________*/
 .sidebar_adm{
     display: flex;
