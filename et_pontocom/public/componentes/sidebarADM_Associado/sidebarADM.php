@@ -1,10 +1,19 @@
+"<?php 
+
+    require __DIR__ . "/../popUp/popUp.php";
+    require __DIR__ . "/../botao/botao.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../sidebarADM_Associado/styles.css">
+    <link rel="stylesheet" href="../botao/botoesComponente.css">
+    <link rel="stylesheet" href="../popUp/popUpComponente.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
     
@@ -57,14 +66,33 @@
                 </ul>
             </div>
             <div class="area_Sair">
-                <a href="#" class="button_sair" style="margin-top: 280px;">
-                <span class="fa fa-arrow-right-from-bracket"></span>
-                <span class="button_name">Sair</span>
-                </a>
+                
+                <div class="button_sair" id="button_sair" style="margin-top: 280px;">
+                    <span class="fa fa-arrow-right-from-bracket"></span>
+                    <div class="button_name">
+                        <?php  
+                            $btnSim = botaoPersonalizadoRedirect("Sim","btn-white","app/views/usuario/paginaPrincipal.php","40px","20px");
+                            $btnNao = botaoPersonalizadoRedirect("Não","btn-white",null,"70px","20px",);
+
+                            echo botaoPersonalizadoOnClick("Sair",  "btn-black", "abrirPopUp(\"popupSair\")","40px","20px");
+                        ?>
+                    </div>
+                </div> 
             </div>
         </nav>
     </div>
+
+    <?php
+        echo PopUpConfirmar(
+            "popUpSair", 
+            "Deseja sair do perfil de Administrador?",
+            $btnSim,
+            $btnNao,
+            "300px");
+    ?>
     <script src="script.js"></script>
+    <script src="../popUp/popUp.js"></script>
+
     
 </body>
-</html>
+</html>"
