@@ -1,16 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Montserrat", sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+abbr{
+    text-decoration: none;
+}
 
 /*Informações principais--------------------------------*/
 .container-detalhes{
     display: flex;
     justify-content: center;
-    margin: 0px 300px 0px 300px;
+    align-items: center;
 }
 
 .detalhes-principal{
     display: flex;
-    margin-top: 200px;
+    justify-content: center;
+    margin: 200px 0px 150px 0px;
     gap: 20px;
 }
 
@@ -27,8 +42,7 @@
 }
 
 .imagens-lateral div{
-    width: 150px;
-    height: 190px;
+    width: 110px;
 }
 
 .imagens-lateral div img{
@@ -39,13 +53,15 @@
 
 .img-principal{
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .img-principal div{
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 20px;
     width: 400px;
-    height: 600px;
+    height: 550px;
 }
 
 .img-principal div img{
@@ -58,7 +74,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 80px;
+    width: 30%;
     border: 1px solid gray;
     border-radius: 20px;
     padding: 5px;
@@ -80,25 +96,74 @@
 .detalhes-info{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .titulo-produto{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
 }
 
-.titulo-produto h3{
-    font-size: 1.2rem;
+.titulo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    gap: 3px;
+}
+
+.titulo h3{
+    font-size: 1.3rem;
+}
+
+.coracaoImg{
+    display: flex;
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.coracaoImg img{
+    padding-top: 2px;
+    height: 18px;
+    user-select: none;
+    pointer-events: none;
+    margin: 5px;
+}
+
+.sub-titulo-produto{
+    display: flex;
+    margin-left: 10px;
+    gap: 5px;
+}
+
+.preco-produto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.avaliacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avaliacao a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .mais-detalhes{
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
+    padding: 0px 30px;
 }
 
 .descricao p{
@@ -108,7 +173,8 @@
 
 .btn-juntos{
     display: flex;
-    align-items: center;
+    margin-bottom: 10px;
+    gap: 5px;
 }
 
 .botoes-detalhes{
@@ -116,13 +182,15 @@
     flex-direction: column;
 }
 
+
+
 /*Descrição-------------------------------------------------*/
 
 .description-box {
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
-    background: linear-gradient(180deg, #a5a5a5 40%, #E4E4E4 50%);
+    background: linear-gradient(180deg, #bbbbbb 40%, #E4E4E4 50%);
     border-radius: 30px;
     text-align: left;
 }
