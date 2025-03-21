@@ -23,16 +23,7 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
         window.location.href = "home";
     })
 
-    coracao.addEventListener("click", function(){ // Coração leva para lista de desejos
-        window.location.href = "testeCoracao";
-    })
-
-    carrinho.addEventListener("click", function(){ // Carrinho leva pra página de carrinho
-        window.location.href = "testeCarrinho";
-    })
-
     botao1.addEventListener("click", function(){ // Função para que quando o usuário estiver logado ou deslogado, os botões levem para páginas diferentes
-        console.log(botao1.innerHTML);
         switch (botao1.innerHTML) {
             case "Cadastrar-se":
                 window.location.href = "teste1";
@@ -95,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
     // Abrir barra de pesquisa quando clicar na lupa
     lupa.addEventListener("click", function(event){
         if (pesquisa.className == "pesquisa closed"){
-            console.log("abrir lupa");
             event.stopPropagation();
             pesquisa.className = "pesquisa open";
             header.className = "headerUsuario pesquisaOpen";
@@ -106,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
     // Abrir menu do perfil quando clicar no icone de perfil
     perfil.addEventListener("click", function(event){
         if (menuConta.style.display == "none"){
-            console.log("abrir menu");
             event.stopPropagation();
             menuConta.style.display = "flex"
             pesquisa.className = "pesquisa closed";
@@ -118,7 +107,6 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
     // Fechar barra de pesquisa quando clicar fora dela
     document.addEventListener("click", function(event){
         if (pesquisa.className == "pesquisa open" && !pesquisa.contains(event.target)){
-            console.log("fechar lupa");
             pesquisa.className = "pesquisa closed";
             header.className = "headerUsuario";
             input.value = "";
@@ -128,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
     // fechar menu do perfil quando clicar fora dele
     document.addEventListener("click", function(event){
         if (menuConta.style.display == "flex" && !menuConta.contains(event.target)){
-            console.log("fechar menu");
             menuConta.style.display = "none";
         }
     })

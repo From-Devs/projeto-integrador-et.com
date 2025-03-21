@@ -3,6 +3,7 @@
     require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php"; // import do card
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     require __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
+    require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
     session_start();
@@ -40,7 +41,9 @@
     ?>
 
     <div class="sessaoProdutos">
-        <p class="titulo">Lançamentos</p>
+        <div class="tituloSessao">
+            <p class="titulo">Lançamentos</p>
+        </div>
         <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaEsquerda" id="esquerda"></i>
             <div class="degradeEsquerda"></div>
@@ -63,31 +66,15 @@
         </div>
     </div>
 
-    <div class="produtoDestaque">
-        <div class="imagemProduto">
-            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/idole.png" alt="" class="produto">
-            <span class="luzProduto"></span>
-        </div>
-        <div class="infoProdutoDestaque">
-            <h1 class="nomeProduto">KIT LANCÔME LASH IDÔLE</h1>
-            <h2 class="marcaProduto">LANCÔME</h2>
-            <h1 class="precoProduto">R$ 00.00</h1>
-            <div class="botoesProdutoDestaque">
-                <?php
-                echo botaoPersonalizadoRedirect("Comprar", "btn-black", "", "262px", "67px", "20px");
-                echo botaoPersonalizadoRedirect("Ver Detalhes", "btn-white", "", "262px", "67px", "20px");
-                ?>
-            </div>
-        </div>
-        <div class="ondasProdutoDestaque">
-            <img class="ondaProdutoDestaque ondaPrincipal" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/ondaBranca.png" alt="">
-            <img class="ondaProdutoDestaque ondaFantasma" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/ondaFantasma.png" alt="">
-            <img class="retanguloProdutoDestaque retanguloBlur" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoDestaque/retanguloBlur.png" alt="">
-        </div>
-    </div>
+    <?php
+    echo createProdutoDestaque("idole","rgb(0, 0, 145)","rgb(75, 75, 226)","rgb(0, 0, 57)");
+    ?>
 
     <div class="sessaoProdutos">
-        <p class="titulo">Ofertas Imperdíveis</p>
+        <div class="tituloSessao">
+            <p class="titulo">Ofertas Imperdíveis</p>
+            <a href="#">Ver Mais</a>
+        </div>
         <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaEsquerda" id="esquerda"></i>
             <div class="degradeEsquerda"></div>
@@ -111,7 +98,10 @@
     </div>
 
     <div class="sessaoProdutos">
-        <p class="titulo">Mais Vendidos</p>
+        <div class="tituloSessao">
+            <p class="titulo">Mais Vendidos</p>
+            <a href="#">Ver Mais</a>
+        </div>
         <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaEsquerda" id="esquerda"></i>
             <div class="degradeEsquerda"></div>
@@ -143,6 +133,7 @@
     <script src="../../../public/componentes/cardLancamento/script.js"></script>
     <script src="../../../public/componentes/rodape/script.js"></script>
     <script src="../../../public/componentes/cardProduto/script.js"></script>
+    <script src="../../../public/componentes/produtoDestaque/script.js"></script>
     <script src="../../../public/javascript/slider.js"></script>
 </body>
 </html>
