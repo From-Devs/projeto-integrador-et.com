@@ -71,7 +71,7 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
                             </div>
                             <div>
                                 <?php
-                                echo PopUpComImagemETitulo("AddCarrinho", "/produto/img-carrinho.png", "80px", "Adicionado ao carrinho!");
+                                echo PopUpComImagemETitulo("AddCarrinho", "img-carrinho.png", "80px", "Adicionado ao carrinho!");
                                 echo botaoPersonalizadoOnClick("Adicionar ao carrinho", "btn-black", "abrirPopUp(\"AddCarrinho\")");
                                 ?>
                             </div>
