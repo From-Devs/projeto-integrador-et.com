@@ -44,8 +44,11 @@ function createHeader($login,$tipoUsuario){ // Sempre que reutilizar o header, s
                 <span class='bar'></span>
                 <span class='bar'></span>
             </div>
-            
-            <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png' alt='logo' id='logoHeader'>
+
+            <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/paginaPrincipal.php'>
+                <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png' alt='logo' id='logoHeader'>
+            </a>
+
         </div>
 
         <div class='pesquisa closed' id='pesquisaHeader'>
