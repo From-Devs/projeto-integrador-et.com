@@ -41,6 +41,7 @@
     height: 4px;
     background: white;
     transition: transform 0.3s ease;
+    border-radius: 100px;
 }
 
 .direito{ /*parte da direita do header, onde fica os icones*/
