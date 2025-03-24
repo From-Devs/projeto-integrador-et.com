@@ -21,14 +21,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Et.com</title>
     
-    <link rel="stylesheet" href="../../../public/css/paginaPrincipal.css">
-    <link rel="stylesheet" href="../../../public/componentes/header/styles.css">
-    <link rel="stylesheet" href="../../../public/componentes/botao/styles.css">
-    <link rel="stylesheet" href="../../../public/componentes/sidebar/styles.css">
-    <link rel="stylesheet" href="../../../public/componentes/produtoDestaque/styles.css">
-    <link rel="stylesheet" href="../../../public/componentes/rodape/styles.css">
-    <link rel="stylesheet" href="../../../public/componentes/cardLancamento/styles.css">
-    <link rel="stylesheet" href="../../../public/componentes/cardProduto/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/paginaPrincipal.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/header/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/produtoDestaque/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cardLancamento/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/styles.css">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -129,12 +129,12 @@
     echo createRodape();
     ?>
 
-    <script src="../../../public/componentes/header/script.js"></script>
-    <script src="../../../public/componentes/sidebar/script.js"></script>
-    <script src="../../../public/componentes/cardLancamento/script.js"></script>
-    <script src="../../../public/componentes/rodape/script.js"></script>
-    <script src="../../../public/componentes/cardProduto/script.js"></script>
-    <script src="../../../public/componentes/produtoDestaque/script.js"></script>
-    <script src="../../../public/javascript/slider.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardLancamento/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/produtoDestaque/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
 </body>
 </html>
