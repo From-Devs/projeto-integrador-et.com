@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
     const botaoMenu = document.getElementById('menu-toggle');
     const menu = document.getElementById('sidebar_adm');
     const overlay = document.getElementById('overlay');
-    const botao1 = document.getElementById('botao1');
-    const botao2 = document.getElementById('botao2');
     const logo = document.getElementById('logoHeader');
 
     menuConta.style.display = "none"; // tive que colocar isso no script pq no CSS não estava funcionando
@@ -22,36 +20,6 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
     logo.addEventListener("click", function(){ // Quando clicar na logo do header, levar para página inicial
         window.location.href = "home";
     })
-
-    botao1.addEventListener("click", function(){ // Função para que quando o usuário estiver logado ou deslogado, os botões levem para páginas diferentes
-        switch (botao1.innerHTML) {
-            case "Cadastrar-se":
-                window.location.href = "teste1";
-                break;
-
-            case "Minha Conta":
-                window.location.href = "teste2";
-                break;
-        
-            default:
-                break;
-        }
-    });
-
-    botao2.addEventListener("click", function(){ // Mesma coisa de cima só que o outro botão
-        switch (botao2.innerHTML) {
-            case "Entrar":
-                window.location.href = "teste3";
-                break;
-
-            case "Sair":
-                window.location.href = "teste4";
-                break;
-        
-            default:
-                break;
-        }
-    });
 
     // Abrir a Sidebar
     botaoMenu.addEventListener('click', function (event) {
