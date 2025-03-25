@@ -1,0 +1,476 @@
+footer{
+    font-family: "Montserrat", sans-serif;
+    background-color: black;
+    color: white;
+    margin-top: 200px;
+    transform-origin: top left;
+    width: 100%;
+}
+
+.VoltarInicio{
+    color: white;
+    background-color: black;
+    width: 200px;
+    height: 50px;
+    border: 0;
+    overflow-y: hidden;
+    cursor: pointer;
+}
+
+
+.primeiraSecao{
+    display: flex;
+    justify-content: center;
+}
+
+.logoPrincipal{
+    width: 370px;
+    height: 250px;
+    margin-left: 120px;
+    margin-top: 50px;
+    user-select: none;
+}
+
+.segundaSecao{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.segundaSubSecao{
+    display: flex;
+    justify-content: center;
+    margin-left: 12%; 
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.ColunsCategoria{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ColunsAssociado{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.ColunsLine{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.terceiraSecao{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.terceiraSecao img{
+    /* width: 300px; */
+    height: 90px;
+    user-select: none;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.Termos{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    right: 50%;
+    bottom: 0;
+    transform: translate(50%, 0%)
+}
+
+.Voltar{
+    font-size: medium;
+    font-family: "Montserrat", sans-serif;
+}
+
+.bx bx-chevron-up seta{
+    width: 200px;
+    height: 40px;
+}
+
+.seta{
+    font-size: 30px;
+}
+
+.bloko{
+    width:100px;
+    height: 100px;
+    background-color: blueviolet;
+}
+
+@media (max-width: 1300px) {
+
+    footer {
+        font-family: "Montserrat", sans-serif;
+        background-color: black;
+        color: white;
+        margin-top: 200px;
+        transform-origin: top left;
+    }
+
+    button {
+        color: white;
+        background-color: black;
+        width: 200px;
+        height: 50px;
+        border: 0;
+        overflow-y: hidden;
+    }
+
+    .primeiraSecao {
+        display: flex;
+        justify-content: center;
+    }
+
+    .logoPrincipal {
+        width: 370px;
+        height: 250px;
+        margin-left: 120px;
+        margin-top: 50px;
+        user-select: none;
+    }
+
+    .segundaSecao {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .segundaSubSecao {
+        display: flex;
+        justify-content: center;
+        margin-left: 12%;
+        gap: 50px;
+        margin-top: 40px;
+    }
+
+    .ColunsCategoria {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #Categoria {
+        font-size: 25px;
+    }
+
+    #Associado {
+        font-size: 25px;
+    }
+
+    .ColunsAssociado {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .ColunsCategoria, .ColunsAssociado {
+        width: 200px;
+        font-size: 12px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .ColunsLine {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .terceiraSecao {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        position: relative;
+    }
+
+    .terceiraSecao img {
+        height: 60px;
+    }
+
+    .Termos {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        right: 50%;
+        bottom: 0;
+        transform: translate(50%, 0%);
+    }
+
+    .Voltar {
+        font-size: medium;
+        font-family: "Montserrat", sans-serif;
+    }
+
+    .bx bx-chevron-up seta {
+        width: 200px;
+        height: 40px;
+    }
+
+    .seta {
+        font-size: 30px;
+    }
+
+    .bloko {
+        width: 100px;
+        height: 100px;
+        background-color: blueviolet;
+    }
+}
+
+@media (max-width: 992px) {
+    .primeiraSecao {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        text-align: center;
+        margin-left: 18px;
+    }
+
+    .seta {
+        font-size: 24px;
+    }
+
+    .Voltar {
+        font-size: 14px;
+    }
+
+    .logoPrincipal {
+        display: flex;
+        justify-content: center;
+        width: 300px;
+        margin: 10px;
+        height: 250px;
+        margin-left: 82px;
+    }
+
+    .segundaSecao {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 59px;
+    }
+
+    .segundaSubSecao {
+        font-size: 25px;
+        display: flex;
+        flex-direction: column;
+        margin-right: 65px;
+    }
+
+    .ColunsCategoria, .ColunsAssociado {
+        width: 600px;
+        padding: 0 10px;
+        text-align: center;
+        margin-left: 15px;
+    }
+
+    .ColunsLine {
+        gap: 6px;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .CategoriaLink {
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .terceiraSecao {
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
+        position: relative;
+        padding-top: 50px;
+    }
+
+    .Termos {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        right: 50%;
+        bottom: 0;
+        transform: translate(50%, 0%);
+    }
+}
+
+@media (max-width: 768px) {
+    .primeiraSecao {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .seta {
+        font-size: 24px;
+    }
+
+    .Voltar {
+        font-size: 14px;
+    }
+
+    .logoPrincipal {
+        display: flex;
+        justify-content: center;
+        width: 300px;
+        margin: 10px;
+        margin-left: 70px;
+    }
+
+    .segundaSecao {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 59px;
+    }
+
+    .segundaSubSecao {
+        font-size: 25px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ColunsCategoria, .ColunsAssociado {
+        width: 400px;
+        padding: 0 10px;
+        text-align: center;
+        margin-left: 40px;
+    }
+
+    .ColunsLine {
+        gap: 6px;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .CategoriaLink {
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    #Categoria {
+        font-size: 25px;
+    }
+
+    #Associado {
+        font-size: 25px;
+    }
+
+    .terceiraSecao {
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
+    }
+
+    .terceiraSecao img {
+        height: 50px;
+    }
+
+    .Termos {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        right: 50%;
+        bottom: 0;
+        transform: translate(50%, 0%);
+    }
+}
+
+@media (max-width: 576px) {
+    .primeiraSecao {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .seta {
+        font-size: 24px;
+    }
+
+    .Voltar {
+        font-size: 14px;
+    }
+
+    .logoPrincipal {
+        display: flex;
+        justify-content: center;
+        width: 300px;
+        margin: 10px;
+        margin-left: 70px;
+    }
+
+    .segundaSecao {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 60px;
+    }
+
+    .segundaSubSecao {
+        font-size: 25px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ColunsCategoria, .ColunsAssociado {
+        width: 400px;
+        padding: 0 10px;
+        text-align: center;
+        margin-left: 67px;
+    }
+
+    .ColunsLine {
+        gap: 6px;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .CategoriaLink {
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    #Categoria {
+        font-size: 15px;
+    }
+
+    #Associado {
+        font-size: 15px;
+    }
+
+    .terceiraSecao {
+        display: flex;
+        font-size: 12px;
+    }
+
+    .terceiraSecao img {
+        height: 45px;
+    }
+
+    .Termos {
+        font-size: 10px;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        right: 50%;
+        bottom: 0;
+        transform: translate(50%, 0%);
+    }
+}

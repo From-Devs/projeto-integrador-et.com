@@ -1,0 +1,85 @@
+/* Campo = input */
+.campo {
+    position: relative;
+    margin-top: 30px;
+    font-weight: bolder;
+    width: 100%;
+    padding: 5px;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 15px;
+    color: black;
+    transition: 0.5s ease-in-out;
+}
+/* nomeCampo = label */
+.nomeCampo {
+    width: 100%;
+    transition: all 0.2s;
+}
+
+.campo input{
+    position: relative;
+    margin-top: 30px;
+    font-weight: bolder;
+}
+
+.campo label{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    color: black;
+    cursor: text;
+    transition: 0.5s ease-in-out;
+}
+/* organização = div de um único campo */
+.organizacao {
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+    width: 400px;
+    gap: 20px;
+}
+
+.organizacao label {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 16px;
+    color: gray;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.organizacao input:focus + label{
+    top: -15px;
+    font-size: 14px;
+    color: black;
+}
+/* ,
+.organizacao input:not(:placeholder-shown) + label */
+
+/* Área da data de nascimento */
+.Nasc label{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 16px;
+    color: gray;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+}
+/* dados = div com todos os campos com excessão da foto */
+.dados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+/* Cadastro = parte branca no geral */
+.Cadastro {
+    display: flex;
+    width: 100%;
+    margin: 30px 0px 0px 100px;
+    align-items: center;
+    gap: 10px;
+}
