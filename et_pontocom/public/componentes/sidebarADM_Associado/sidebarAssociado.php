@@ -1,3 +1,10 @@
+<?php 
+
+    require __DIR__ . "/../popUp/popUp.php";
+    require __DIR__ . "/../botao/botao.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,7 +13,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
-    <link rel="stylesheet" href="../../css/sidebar/sidebarA.css">
+    <link rel="stylesheet" href="../sidebarADM_Associado/styles.css">
+    <link rel="stylesheet" href="../botao/botoesComponente.css">
+    <link rel="stylesheet" href="../popUp/popUpComponente.css">
 </head>
 <body>
     <div class="sidebar_adm">
@@ -51,14 +60,30 @@
                     </ul>
                 </div>
                 <div class="area_Sair">
-                    <a href="#"  class="button_sair" style="margin-top: 342px;">
-                        <span class="fa fa-arrow-right-from-bracket"></span>
-                        <span class="button_name">Voltar à tela inicial</span>
-                    </a>
+                    <div class="button_sair" id="button_sair" style="margin-top: 280px;">
+                        <span class="fa fa-arrow-right-from-bracket" onclick='abrirPopUp("popupSair")'></span>
+                        <span class="button_name" onclick='abrirPopUp("popupSair")'>Voltar à tela inicial</span>   
+                    </div> 
                 </div>
             </div>
         </nav>
     </div>
-    <script src="../../javascript/sidebar/sidebarScript.js"></script>
+    <?php
+        $btnSim = botaoPersonalizadoRedirect("Sim","btn-white","et_pontocom/app/views/usuario/paginaPrincipal.php","40px","20px");
+        $btnNao = botaoPersonalizadoOnClick("Não","btn-white","fecharPopUp(\"popupSair\")","70px","20px",);
+
+
+        echo PopUpConfirmar(
+            "popUpSair", 
+            "Deseja sair do perfil de Administrador?",
+            $btnSim,
+            $btnNao,
+            "600px",
+            "white",
+            "black",
+            "24px");
+    ?>
+    <script src="script.js"></script>
+    <script src="../popUp/popUp.js"></script>
 </body>
 </html>

@@ -146,6 +146,8 @@
 .area_Sair .button_sair .button_name{
     color: var(--cor-sidebar-escrita);
     font-weight: 600;
+    font-size: 13px;
+    font-family: "Montserrat",serif;
 }
 
 
