@@ -82,3 +82,27 @@
     display: flex;
     gap: 25px;
 }
+
+#containerLancamentos{
+    gap: 17px;
+}
+
+@media (max-width: 1400px){ /*Computador Grande*/
+
+}
+
+@media (max-width: 1200px){ /*Computador*/
+
+}
+
+@media (max-width: 992px){ /*Tablet*/
+
+}
+
+@media (max-width: 768px){ /*Celular Paisagem*/
+
+}
+
+@media (max-width: 576px){ /*Celular Vertical*/
+
+}
