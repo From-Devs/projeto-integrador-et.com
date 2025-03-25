@@ -2,9 +2,9 @@
     position: relative;
     display: block;
     height: 850px;
-    background-image: linear-gradient(to top, rgb(180, 147, 138) 0%, rgb(254, 225, 216) 55%, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(to top, rgb(180, 147, 138) 0%, rgb(254, 225, 216) 50%, rgba(255, 255, 255, 0) 100%);
     width: 100%;
-    margin-top: 50px;
+    margin-top: 30px;
     overflow: hidden;
 }
 
@@ -18,7 +18,7 @@
 
 .ondaPrincipal{
     z-index: 200;
-    filter: drop-shadow(0px 0px 40px rgb(56, 21, 7));
+    filter: drop-shadow(0px 0px 50px rgb(56, 21, 7));
 }
 
 .ondaFantasma{
@@ -30,35 +30,40 @@
     bottom: 0;
     right: 0;
     height: 600px;
-    filter: drop-shadow(0px 0px 60px rgba(56, 21, 7, 0.5));
+    filter: drop-shadow(0px 0px 120px rgba(56, 21, 7, 1));
     z-index: 198;
 }
 .infoProdutoDestaque{
     position: absolute;
-    top: 400px;
-    right: 0;
+    top: 385px;
+    right: 55px;
     z-index: 201;
-    padding-right: 20px;
     /* margin-bottom: 200px; */
 }
 
 .infoProdutoDestaque .nomeProduto{
     width: 655px;
-    font-size: 46px;
+    font-size: 48px;
     font-weight: 300;
 }
 
 .infoProdutoDestaque .marcaProduto{
     width: 655px;
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 700;
 }
 
 .infoProdutoDestaque .precoProduto{
     width: 655px;
-    font-size: 46px;
+    font-size: 48px;
     font-weight: 300;
     margin-top: 18px;
+}
+
+.infoProdutoDestaque .botoesProdutoDestaque{
+    display: flex;
+    margin-top: 26px;
+    gap: 69px;
 }
 
 .produtoDestaque .imagemProduto{
@@ -66,15 +71,14 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 150px;
-    left: 200px;
+    top: 140px;
+    left: 230px;
 }
 
 .produtoDestaque .imagemProduto .produto{
-    width: 500px;
-    height: 500px;
+    width: 550px;
     z-index: 201;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.8));
 }
 .produtoDestaque .imagemProduto .luzProduto{
     position: absolute;
@@ -84,4 +88,24 @@
     border-radius: 1000px;
     filter: blur(120px);
     z-index: 200;
+}
+
+@media (max-width: 1400px){ /*Computador Grande*/
+
+}
+
+@media (max-width: 1200px){ /*Computador*/
+
+}
+
+@media (max-width: 992px){ /*Tablet*/
+
+}
+
+@media (max-width: 768px){ /*Celular Paisagem*/
+
+}
+
+@media (max-width: 576px){ /*Celular Vertical*/
+
 }
