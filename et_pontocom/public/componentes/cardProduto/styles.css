@@ -1,0 +1,281 @@
+.cardProduto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index:4;
+    width: 286px;
+    height: 406px;
+    border-radius: 24px;
+    position: relative;
+    z-index: 1;
+    font-family: "Montserrat", sans-serif;
+    transition: filter 0.6s ease-in-out;
+    filter: drop-shadow(0px 6px 3px rgba(0, 0, 0, 0.35));
+    user-select: none;
+}
+
+.coisaDeCima{
+    position: absolute;
+    display: flex;
+    width: 286px;
+    height: 130px;
+    bottom: 265px;
+}
+
+.buraquinho{
+    position: absolute;
+    background-color: white;
+    border-radius: 100%;
+    width: 9px;
+    height: 9px;
+    left: 15px;
+    top: 4px;
+}
+
+.ticketMaldito{
+    position: absolute;
+    transform: scale(0.5);
+    right: 240px;
+    bottom: 5px;
+    visibility: hidden;
+    user-select: none;
+    pointer-events: none;
+}
+
+.cardProduto.desconto .ticketMaldito{
+    visibility: visible;
+}
+
+.coracaoFofo{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    width: 39px;
+    height: 39px;    
+    z-index: 5;
+    border-radius: 100px;
+    border: solid 2px #000000;
+    right: 10px;
+    cursor: pointer;
+}
+
+.balaoDesejos{
+    display: none;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    background-color: rgb(255, 255, 255);
+    height: min-content;
+    padding: 9px;
+    border-radius: 100px;
+    font-weight: 500;
+    z-index: 3;
+    font-size: 14px;
+    animation: slide-in-favorito 0.3s;
+}
+
+.balaoDesejos::after { /* pontinha de balão em cima do menu */
+    content: '';
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid #ffffff;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.coracaoImg{
+    padding-top: 2px;
+    height: 24px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.contentDeBaixo{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0;
+    bottom: 0;
+    z-index: 1;
+    background-image: linear-gradient(to top, rgb(255, 255, 255) 75%, rgba(0, 0, 0, 0) 100%);
+    height: 211px;
+    width: 286px;
+    transition: height 0.6s ease;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+.imagemMaldita{
+    position: absolute;
+    bottom: 0px;
+    z-index: 2;
+    transform: scale(0.5);
+    bottom: 14px;
+    transition: bottom 0.6s ease;
+    user-select: none;
+    pointer-events: none;
+}
+
+.cardProduto:hover .contentDeBaixo {
+    height: 282px;
+  }
+
+.cardProduto:hover .marca {
+    bottom:151px;
+}
+
+.cardProduto:hover .nomeProduto {
+    bottom:103px;
+}
+
+.cardProduto:hover .imagemMaldita {
+    bottom: 42px;
+}
+
+.cardProduto:hover .linha {
+    bottom: 173px;
+}
+
+.cardProduto:hover .precoOriginal {
+    opacity: 100%;
+}
+
+.cardProduto .linha{
+    position: absolute;
+    background-color: black;
+    width: 242px;
+    height: 1px;
+    bottom: 145px;
+    margin: 0;
+    border: 0;
+    transition: bottom 0.6s ease;
+}
+
+.cardProduto .marca{
+    position: absolute;
+    font-weight: 400; 
+    margin: 0;
+    font-size: 16px;
+    bottom: 123px;
+    left: 26px;
+    transition: bottom 0.6s ease;
+}
+ 
+.cardProduto .nomeProduto{
+    position: absolute;
+    width: 241px;
+    height: 48px;
+    font-weight: 600;
+    margin: 0;
+    font-size: 20px;
+    bottom: 75px;
+    transition: bottom 0.6s ease;
+}
+
+.cardProduto .preco{
+    display: flex;
+    position: absolute;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 23px;
+    align-items: center;
+    justify-content: center;
+    width: 95px;
+    height: 28px;
+    bottom: 45px;
+}
+
+.precoOriginal{
+    position: absolute;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    color: rgba(0, 0, 0, 60%);
+    bottom: 68px;
+    margin: 0;
+    transition: opacity 0.6s ease;
+    opacity: 0%;
+    text-decoration: line-through;
+    visibility: hidden;
+}
+
+.cardProduto.desconto .precoOriginal{
+    visibility: visible;
+}
+
+.botaoComprarCardProduto{
+    position: absolute;
+    bottom: 0;
+    z-index: 11;
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    height: 45px;
+    color: white;
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.35);
+    font-size: 20px;
+    font-weight: bold;
+    border: 0;
+    clip-path: ellipse(60% 100% at 50% 100%);
+    cursor: pointer;
+    transition: opacity 0.6s ease-in-out, text-shadow 0.6s ease-in;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    user-select: none;
+}
+ 
+.botaoComprarCardProduto.open{
+    opacity: 0.8;
+    text-shadow: 0px 0px 4px rgb(255, 255, 255);
+}
+ 
+.cardProduto .botaoEspectro{
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
+    height: 45px;
+    border: 0;
+    clip-path: ellipse(60% 100% at 50% 100%);
+    opacity: 1;
+    animation-delay: 0.4s;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    animation-fill-mode: backwards;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+@keyframes botaoFantasma{
+    0%{
+        opacity: 1;
+        height: 45px;
+    }
+    100%{
+        opacity: 0;
+        height: 52px;
+    }
+}
+
+@keyframes slide-in-favorito{
+    0% {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

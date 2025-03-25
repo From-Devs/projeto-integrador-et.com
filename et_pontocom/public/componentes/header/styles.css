@@ -1,6 +1,7 @@
 .headerUsuario{ /* styles do container do header no geral */
     position: fixed;
-    width: 100vw;
+    top: 0;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,8 +22,9 @@
 }
 
 .esquerdo img{ /* logo do header */
-    width: 160px;
-    filter: drop-shadow(0px 0px 2px black);
+    /* width: 160px; */
+    height: 85px;
+    filter: drop-shadow(0px 1px 2px black);
     cursor: pointer;
 }
 
@@ -39,6 +41,7 @@
     height: 4px;
     background: white;
     transition: transform 0.3s ease;
+    border-radius: 100px;
 }
 
 .direito{ /*parte da direita do header, onde fica os icones*/
@@ -53,14 +56,13 @@
 
 .direito .botoes{ /* Div onde os icones estão agrupados */
     display: flex;
-    gap: 24px;
+    gap: 26px;
 }
 
-.direito i{ /* Icones individualmente */
+.direito .botoes img{ /* Icones individualmente */
     filter: drop-shadow(0px 1px 3px black);
-    font-weight: 100;
-    color: white;
-    font-size: 48px;
+    width: 48px;
+    height: 48px;
     cursor: pointer;
 }
 
@@ -302,4 +304,3 @@
         background-image: linear-gradient(191deg, black 0%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
     }
 }
-
