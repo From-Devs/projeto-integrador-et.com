@@ -257,8 +257,15 @@ main {
 /* tela edição */
 .user-ediçao-usuario{
     display: flex;
-    width: 550px;
-    height: 550px;
+    width: 70px;
+    height: 70px;
     margin: 25px;
     user-select: none;
+}
+.linha{
+    background-color: #000;
+    height: 100%;
+    width: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
