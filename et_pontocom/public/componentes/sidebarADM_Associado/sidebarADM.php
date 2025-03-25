@@ -71,7 +71,7 @@
                     <span class="fa fa-arrow-right-from-bracket"></span>
                     <div class="button_name">
                         <?php  
-                            $btnSim = botaoPersonalizadoRedirect("Sim","btn-white","app/views/usuario/paginaPrincipal.php","40px","20px");
+                            $btnSim = botaoPersonalizadoRedirect("Sim","btn-white","et_pontocom/app/views/usuario/paginaPrincipal.php","40px","20px");
                             $btnNao = botaoPersonalizadoRedirect("Não","btn-white",null,"70px","20px",);
 
                             echo botaoPersonalizadoOnClick("Sair",  "btn-black", "abrirPopUp(\"popupSair\")","40px","20px");
