@@ -187,29 +187,41 @@ abbr{
 /*Descrição-------------------------------------------------*/
 
 .description-box {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
+    max-width: 1600px;
+    margin: 250px auto;
+    padding: 30px 296px;
     background: linear-gradient(180deg, #bbbbbb 40%, #E4E4E4 50%);
     border-radius: 30px;
     text-align: left;
 }
 
-h2 {
+.description-box h2 {
     text-align: center;
     font-size: 28px;
-    color: black;
+    color: #4A4A4A;
+    padding-top: 20px;
 }
 
-ul {
+.description-box h3 {
+    padding: 30px 0 0 90px;
+    color: #4A4A4A;
+
+}
+
+.description-box ul {
     list-style-type: disc;
-    padding: 20px;
-    margin: 30px;
+    padding: 0 50px;
+    margin: 50px;
 }
 
-li {
-    margin: 5px 0;
+.description-box li {
+    margin: 25px 0;
     font-size: 16px;
     color: black;
+}
+
+.description-box p {
+    margin-top: 60px;
+    padding-left: 88px;
 }
 

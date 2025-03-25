@@ -75,7 +75,7 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
                         <div class="btn-juntos">
                             <div class="qtd-produtos">
                                 <button onclick="diminuirQtdProduto()">-</button>
-                                <span>1</span>
+                                <span id="valor">1</span>
                                 <button onclick="aumentarQtdProduto()">+</button>
                             </div>
                             <?php
@@ -95,24 +95,24 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
 
     <div class="description-box">
         <h2>DESCRIÇÃO</h2>
-        <p><strong>Marca: </strong>Mary Kay<br>
-            <strong>Linha: </strong>At Play®<br>
-            <strong>Volume: </strong>29ml<br>
-            <strong>Tipo de Produto: </strong>Base Líquida Matte<br>
+        <p>Marca: Mary Kay<br>
+            Linha: At Play®<br>
+            Volume: 29ml<br>
+            Tipo de Produto: Base Líquida Matte<br>
         </p>
 
             <h3>Características: </h3>
             <ul>
-                <li><strong>Acabamento Matte: </strong>Proporciona um acabamento opaco, ideal para peles mistas a oleosas ou para quem prefere um visual sem brilho.</li>
-                <li><strong>Cobertura: </strong>Oferece uma cobertura leve a média, permitindo a construção de camadas para alcançar o nível desejado de cobertura, sem deixar a pele com aspecto pesado.</li>
-                <li><strong>Fórmula: </strong>A fórmula é leve e confortável, garantindo que a base se espalhe facilmente sobre a pele, proporcionando um acabamento uniforme e natural.</li>
-                <li><strong>Durabilidade: </strong> Desenvolvida para longa duração, a base mantém a pele com aparência impecável por várias horas, resistindo ao calor e à umidade.</li>
-                <li><strong>Controle de Oleosidade: </strong>Ajuda a controlar a oleosidade ao longo do dia, mantendo a pele com aparência fresca e sem brilho excessivo.</li>
-                <li><strong>Disponibilidade de Tons: </strong> Disponível em uma variedade de tons para atender diferentes tonalidades de pele, garantindo um match perfeito para a maioria das pessoas.</li>
-                <li><strong>Indicação: </strong> Indicada para todos os tipos de pele, especialmente para peles oleosas e mistas, devido ao seu efeito matte e controle de oleosidade.</li>
-                <li><strong>Modo de Uso: </strong>Aplicar uma pequena quantidade de produto no dorso da mão e, com o auxílio de um pincel, esponja ou os dedos, espalhar uniformemente pelo rosto, começando do centro para as extremidades.</li>
-                <li><strong>Benefícios Adicionais: </strong>Além de proporcionar uma cobertura natural e uniforme, a base contribui para um visual mais saudável da pele, minimizando a aparência de poros e imperfeições.</li>
-                <li><strong>Embalagem: </strong>Vem em uma embalagem prática e portátil, facilitando o transporte e a aplicação em qualquer lugar.</li>
+                <li>Acabamento Matte: Proporciona um acabamento opaco, ideal para peles mistas a oleosas ou para quem prefere um visual sem brilho.</li>
+                <li>Cobertura: Oferece uma cobertura leve a média, permitindo a construção de camadas para alcançar o nível desejado de cobertura, sem deixar a pele com aspecto pesado.</li>
+                <li>Fórmula: A fórmula é leve e confortável, garantindo que a base se espalhe facilmente sobre a pele, proporcionando um acabamento uniforme e natural.</li>
+                <li>Durabilidade: Desenvolvida para longa duração, a base mantém a pele com aparência impecável por várias horas, resistindo ao calor e à umidade.</li>
+                <li>Controle de Oleosidade: Ajuda a controlar a oleosidade ao longo do dia, mantendo a pele com aparência fresca e sem brilho excessivo.</li>
+                <li>Disponibilidade de Tons: Disponível em uma variedade de tons para atender diferentes tonalidades de pele, garantindo um match perfeito para a maioria das pessoas.</li>
+                <li>Indicação: Indicada para todos os tipos de pele, especialmente para peles oleosas e mistas, devido ao seu efeito matte e controle de oleosidade.</li>
+                <li>Modo de Uso: Aplicar uma pequena quantidade de produto no dorso da mão e, com o auxílio de um pincel, esponja ou os dedos, espalhar uniformemente pelo rosto, começando do centro para as extremidades.</li>
+                <li>Benefícios Adicionais: mAlém de proporcionar uma cobertura natural e uniforme, a base contribui para um visual mais saudável da pele, minimizando a aparência de poros e imperfeições.</li>
+                <li>Embalagem: Vem em uma embalagem prática e portátil, facilitando o transporte e a aplicação em qualquer lugar.</li>
                 <li>Esta base é perfeita para quem busca uma pele com acabamento matte, natural e duradouro, sem abrir mão do conforto e da qualidade.</li>
             </ul>
     </div>
@@ -120,5 +120,6 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/popUp.js"></script>
     <script src="/et_pontocom/app/views/usuario/detalhesDoProduto/detalhesDoProduto.js"></script>
+    <script src="detalhesDoProduto.js"></script>
 </body>
 </html>
