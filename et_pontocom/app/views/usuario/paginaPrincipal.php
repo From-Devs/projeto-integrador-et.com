@@ -40,6 +40,13 @@
     echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
 
+    <div class="linkCategorias">
+        <a class="botaoCategoria" href="">
+            <img src="" alt="" class="iconeCategoria">
+            <p class="tituloCategoria"></p>
+        </a>
+    </div>
+
     <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Lançamentos</p>
