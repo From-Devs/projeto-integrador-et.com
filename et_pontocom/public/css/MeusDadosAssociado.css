@@ -257,15 +257,48 @@ main {
 /* tela edição */
 .user-ediçao-usuario{
     display: flex;
-    width: 70px;
+    width: 0px;
     height: 70px;
     margin: 25px;
     user-select: none;
 }
+.user_Box-ediçao p {
+    padding: 12px;
+}
 .linha{
     background-color: #000;
-    height: 100%;
+    height: 80%;
     width: 5px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin: 50px;
+    border-radius: 8px;
+}
+
+.user-Letra-ediçao h1 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+.user_Box-ediçao {
+    font-size: 18px;
+    margin-top: 12px;
+    justify-content: center;
+    height: 47px;
+    width: 100%;
+    border-radius: 8px;
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
+    background-color: #F6F6F6;
+}
+.ediçao-img{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ediçao-img img{
+    width: 321px;
+    height: 214px;
+}
+.user-dados-edicao{
+    margin-top: 100px;
+    height: 500px;
+    width: 450px;
 }
