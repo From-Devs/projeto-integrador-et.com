@@ -1,0 +1,945 @@
+*{
+    margin: 0px;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.title-container{
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.line{
+    width: 50%;
+    border-bottom: black 3px solid;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+.title h1{
+    font-size: 38px;
+    font-weight: 350;
+}
+
+.card-container{
+    width: 100%;
+    max-width: 1475px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 100px;
+}
+
+/*CARD 01*/
+
+.card01{
+    display: grid;
+    grid-template-columns: 200px 200px 1fr 200px 200px;
+    background: linear-gradient(to right, #3F7FD9, #81ABE6, #C0D5F3, #FFFFFF);
+    border-radius: 10px;
+    box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+    border-radius: 35px;
+}
+
+.cardImg01 img{
+    width: 125px;
+}
+
+.cardImg01{
+    display: flex;
+    justify-content: center;
+    margin-right: 55px;
+}
+
+.cardPreco01{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.cardInfo01{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    margin-right: 350px;
+}
+
+.cardDate01{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-size: 17px;
+}
+
+input[type="checkbox"] {
+    width: 18px;  /* Largura do checkbox */
+    height: 18px; /* Altura do checkbox */
+}
+
+.cardCheck01{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+/*CARD 02*/
+
+.card02{
+    display: grid;
+    grid-template-columns: 200px 200px 1fr 200px 200px;
+    background: linear-gradient(to right, #D29065, #E1B598, #EED6C6, #FFFFFF);
+    border-radius: 10px;
+    box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+    border-radius: 35px;
+}
+
+.cardImg02 img{
+    width: 125px;
+}
+
+.cardImg02{
+    display: flex;
+    justify-content: center;
+    margin-right: 55px;
+}
+
+.cardPreco02{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.cardInfo02{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    margin-right: 350px;
+}
+
+.cardDate02{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-size: 17px;
+}
+
+input[type="checkbox"] {
+    width: 18px;  /* Largura do checkbox */
+    height: 18px; /* Altura do checkbox */
+}
+
+.cardCheck02{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+/*CARD 03*/
+
+.card03{
+    display: grid;
+    grid-template-columns: 200px 200px 1fr 200px 200px;
+    background: linear-gradient(to right, #31BADA, #B9643A, #FFFFFF);
+    border-radius: 10px;
+    box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+    border-radius: 35px;
+}
+
+.cardImg03 img{
+    width: 125px;
+}
+
+.cardImg03{
+    display: flex;
+    justify-content: center;
+    margin-right: 55px;
+}
+
+.cardPreco03{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.cardInfo03{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    margin-right: 350px;
+}
+
+.cardDate03{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-size: 17px;
+}
+
+input[type="checkbox"] {
+    width: 18px;  /* Largura do checkbox */
+    height: 18px; /* Altura do checkbox */
+}
+
+.cardCheck03{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+/*CARD 04*/
+
+.card04{
+    display: grid;
+    grid-template-columns: 200px 200px 1fr 200px 200px;
+    background: linear-gradient(to right, #D29065, #FFFFFF);
+    border-radius: 10px;
+    box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+    border-radius: 35px;
+}
+
+.cardImg04 img{
+    width: 125px;
+}
+
+.cardImg04{
+    display: flex;
+    justify-content: center;
+    margin-right: 55px;
+}
+
+.cardPreco04{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.cardInfo04{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    margin-right: 350px;
+}
+
+.cardDate04{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-size: 17px;
+}
+
+input[type="checkbox"] {
+    width: 18px;  /* Largura do checkbox */
+    height: 18px; /* Altura do checkbox */
+}
+
+.cardCheck04{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    gap: 1075px;
+    margin-top: 75px;
+}
+
+/*BOTÃO 01*/
+
+.button01 button{
+    display: flex;
+    width: 225px;
+    height: 55px;
+    background: linear-gradient(to right, #000000, #666666);
+    border: none;
+    color: white;
+    border-radius: 50px;
+    box-shadow: 0px 2px 5px black;
+}
+
+.button01 img{
+    margin: auto;
+    width: 42px;
+}
+
+.button01 p{
+    margin: auto;
+}
+
+/*BOTÃO 02*/
+
+.button02 button{
+    display: flex;
+    width: 180px;
+    height: 38px;
+    background: linear-gradient(to right, #000000, #666666);
+    border: none;
+    color: white;
+    border-radius: 50px;
+    box-shadow: 0px 2px 5px black;
+}
+
+.button02 p{
+    margin: auto;
+}
+
+.line2{
+    width: 75%;
+    border-bottom: black 3px solid;
+    margin-top: 100px;
+}
+
+
+/*RESPONSI*/
+/*CARD01*/
+
+@media screen and (max-width: 1496px){
+    .title h1{
+        font-size: 32px;
+        font-weight: 350;
+    }
+
+    .button-container{
+        display: flex;
+        justify-content: center;
+        gap: 685px;
+        margin-top: 75px;
+    }
+}
+
+@media screen and (max-width: 1496px){
+    .card-container{
+        width: 100%;
+        max-width: 1100px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 100px;
+    }
+
+    .card01{
+        display: grid;
+        grid-template-columns: 100px 100px 1fr 175px 100px;
+        background: linear-gradient(to right, #3F7FD9, #81ABE6, #C0D5F3, #FFFFFF);
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+    }
+    
+    .cardImg01 img{
+        width: 110px;
+    }
+    
+    .cardImg01{
+        display: flex;
+        justify-content: center;
+        margin-right: 0px;
+    }
+    
+    .cardPreco01{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        margin-left: 85px;
+    }
+    
+    .cardInfo01{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        margin-right: 225px;
+    }
+    
+    .cardDate01{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        font-size: 17px;
+        position: relative;
+        right: 25px;
+    }
+    
+    input[type="checkbox"] {
+        width: 15px;  /* Largura do checkbox */
+        height: 15px; /* Altura do checkbox */
+    }
+    
+    .cardCheck01{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+
+    
+}
+
+/*CARD02*/
+
+@media screen and (max-width: 1496px){
+    .card-container{
+        width: 100%;
+        max-width: 1100px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 100px;
+    }
+
+    .card02{
+        display: grid;
+        grid-template-columns: 100px 100px 1fr 175px 100px;
+        background: linear-gradient(to right, #D29065, #E1B598, #EED6C6, #FFFFFF);
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+    }
+    
+    .cardImg02 img{
+        width: 110px;
+    }
+    
+    .cardImg02{
+        display: flex;
+        justify-content: center;
+        margin-right: 0px;
+    }
+    
+    .cardPreco02{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        margin-left: 85px;
+    }
+    
+    .cardInfo02{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        margin-right: 225px;
+    }
+    
+    .cardDate02{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        font-size: 17px;
+        position: relative;
+        right: 25px;
+    }
+    
+    input[type="checkbox"] {
+        width: 15px;  /* Largura do checkbox */
+        height: 15px; /* Altura do checkbox */
+    }
+    
+    .cardCheck02{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+
+    
+}
+
+/*CARD03*/
+
+@media screen and (max-width: 1496px){
+    .card-container{
+        width: 100%;
+        max-width: 1100px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 100px;
+    }
+
+    .card03{
+        display: grid;
+        grid-template-columns: 100px 100px 1fr 175px 100px;
+        background: linear-gradient(to right, #31BADA, #B9643A, #FFFFFF);
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+    }
+    
+    .cardImg03 img{
+        width: 110px;
+    }
+    
+    .cardImg03{
+        display: flex;
+        justify-content: center;
+        margin-right: 0px;
+    }
+    
+    .cardPreco03{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        margin-left: 85px;
+    }
+    
+    .cardInfo03{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        margin-right: 225px;
+    }
+    
+    .cardDate03{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        font-size: 17px;
+        position: relative;
+        right: 25px;
+    }
+    
+    input[type="checkbox"] {
+        width: 18px;  /* Largura do checkbox */
+        height: 18px; /* Altura do checkbox */
+    }
+    
+    .cardCheck03{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+
+    
+}
+
+/*CARD04*/
+
+@media screen and (max-width: 1496px){
+    .card-container{
+        width: 100%;
+        max-width: 1100px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 100px;
+    }
+
+    .card04{
+        display: grid;
+        grid-template-columns: 100px 100px 1fr 175px 100px;
+        background: linear-gradient(to right, #D29065, #FFFFFF);
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+    }
+    
+    .cardImg04 img{
+        width: 110px;
+    }
+    
+    .cardImg04{
+        display: flex;
+        justify-content: center;
+        margin-right: 0px;
+    }
+    
+    .cardPreco04{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        margin-left: 85px;
+    }
+    
+    .cardInfo04{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        margin-right: 225px;
+    }
+    
+    .cardDate04{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        font-size: 17px;
+        position: relative;
+        right: 25px;
+    }
+    
+    input[type="checkbox"] {
+        width: 18px;  /* Largura do checkbox */
+        height: 18px; /* Altura do checkbox */
+    }
+    
+    .cardCheck04{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+
+    
+}
+
+/*RESPONSIVE2*/
+
+/*CARD01*/
+
+@media screen and (max-width: 1117px){
+    .title h1{
+        font-size: 28px;
+        font-weight: 350;
+    }
+
+    .button-container{
+        display: flex;
+        justify-content: center;
+        gap: 250px;
+        margin-top: 75px;
+    }
+
+    /*BOTÃO 01*/
+
+    .button01 button{
+        display: flex;
+        width: 200px;
+        height: 40px;
+        background: linear-gradient(to right, #000000, #666666);
+        border: none;
+        color: white;
+        border-radius: 50px;
+        box-shadow: 0px 2px 5px black;
+    }
+
+    .button01 img{
+        margin: auto;
+        width: 30px;
+    }
+
+    .button01 p{
+        margin: auto;
+        font-size: 12.5px;
+    }
+
+    /*BOTÃO 02*/
+
+    .button02 button{
+        display: flex;
+        width: 160px;
+        height: 30px;
+        background: linear-gradient(to right, #000000, #666666);
+        border: none;
+        color: white;
+        border-radius: 50px;
+        box-shadow: 0px 2px 5px black;
+    }
+
+    .button02 p{
+        margin: auto;
+        font-size: 12.5px;
+    }
+
+    .line2{
+        width: 75%;
+        border-bottom: black 3px solid;
+        margin-top: 100px;
+    }
+}
+
+@media screen and (max-width: 1117px){
+    .card-container{
+        width: 100%;
+        max-width: 625px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 100px;
+    }
+
+    .card01{
+        display: grid;
+        grid-template-columns: 100px 25px 1fr 100px 100px;
+        background: linear-gradient(to right, #3F7FD9, #81ABE6, #C0D5F3, #FFFFFF);
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+    }
+    
+    .cardImg01 img{
+        width: 95px;
+    }
+    
+    .cardImg01{
+        display: flex;
+        justify-content: center;
+        margin-right: 0px;
+    }
+    
+    .cardPreco01{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        font-size: 13.5px;
+    }
+    
+    .cardInfo01{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        font-size: 11px;
+        margin-right: 35px;
+        width: 205px;
+    }
+    
+    .cardDate01{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        font-size: 12px;
+        position: relative;
+        right: 45px;
+        width: 200px;
+    }
+    
+    input[type="checkbox"] {
+        width: 15px;  /* Largura do checkbox */
+        height: 15px; /* Altura do checkbox */
+    }
+    
+    .cardCheck01{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+}
+
+/*CARD02*/
+
+@media screen and (max-width: 1117px){
+    .card-container{
+        width: 100%;
+        max-width: 625px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 100px;
+    }
+
+    .card02{
+        display: grid;
+        grid-template-columns: 100px 25px 1fr 100px 100px;
+        background: linear-gradient(to right, #D29065, #E1B598, #EED6C6, #FFFFFF);
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+    }
+    
+    .cardImg02 img{
+        width: 95px;
+    }
+    
+    .cardImg02{
+        display: flex;
+        justify-content: center;
+        margin-right: 0px;
+    }
+    
+    .cardPreco02{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        font-size: 13.5px;
+        
+    }
+    
+    .cardInfo02{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        font-size: 11px;
+        margin-right: 35px;
+        width: 205px;
+    }
+    
+    .cardDate02{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        font-size: 12px;
+        position: relative;
+        right: 45px;
+        width: 200px;
+    }
+    
+    input[type="checkbox"] {
+        width: 15px;  /* Largura do checkbox */
+        height: 15px; /* Altura do checkbox */
+    }
+    
+    .cardCheck02{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+}
+
+/*CARD03*/
+
+@media screen and (max-width: 1117px){
+    .card-container{
+        width: 100%;
+        max-width: 625px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 100px;
+    }
+
+    .card03{
+        display: grid;
+        grid-template-columns: 100px 25px 1fr 100px 100px;
+        background: linear-gradient(to right, #31BADA, #B9643A, #FFFFFF);
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+    }
+    
+    .cardImg03 img{
+        width: 95px;
+    }
+    
+    .cardImg03{
+        display: flex;
+        justify-content: center;
+        margin-right: 0px;
+    }
+    
+    .cardPreco03{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        font-size: 13.5px;
+        
+    }
+    
+    .cardInfo03{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        font-size: 11px;
+        margin-right: 35px;
+        width: 205px;
+    }
+    
+    .cardDate03{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        font-size: 12px;
+        position: relative;
+        right: 45px;
+        width: 200px;
+    }
+    
+    input[type="checkbox"] {
+        width: 15px;  /* Largura do checkbox */
+        height: 15px; /* Altura do checkbox */
+    }
+    
+    .cardCheck03{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+}
+
+/*CARD03*/
+
+@media screen and (max-width: 1117px){
+    .card-container{
+        width: 100%;
+        max-width: 625px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 100px;
+    }
+
+    .card04{
+        display: grid;
+        grid-template-columns: 100px 25px 1fr 100px 100px;
+        background: linear-gradient(to right, #D29065, #FFFFFF);
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+    }
+    
+    .cardImg04 img{
+        width: 95px;
+    }
+    
+    .cardImg04{
+        display: flex;
+        justify-content: center;
+        margin-right: 0px;
+    }
+    
+    .cardPreco04{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        font-size: 13.5px;
+        
+    }
+    
+    .cardInfo04{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        font-size: 11px;
+        margin-right: 35px;
+        width: 205px;
+    }
+    
+    .cardDate04{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        font-size: 12px;
+        position: relative;
+        right: 45px;
+        width: 200px;
+    }
+    
+    input[type="checkbox"] {
+        width: 15px;  /* Largura do checkbox */
+        height: 15px; /* Altura do checkbox */
+    }
+    
+    .cardCheck04{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+}
+
+
+
+

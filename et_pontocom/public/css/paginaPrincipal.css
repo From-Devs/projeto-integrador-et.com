@@ -10,15 +10,25 @@ body{
     font-family: "Montserrat", sans-serif;
 }
 
-.sessaoProdutos .titulo{
-    padding-left: 100px;
+.sessaoProdutos .tituloSessao{
+    padding: 0px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 36px;
+}
+
+.tituloSessao a{
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
 }
 
 .sessaoProdutos{
     display: flex;
     flex-direction: column;
-    padding-top: 200px; /* tudo cagado */
+    padding-top: 90px; /* tudo cagado */
 }
 
 .degradeDireita{
@@ -78,9 +88,29 @@ body{
 .containerProdutos{
     padding: 25px 83px 25px 83px;
     display: flex;
-    gap: 24px;
+    gap: 25px;
 }
 
-#containerLancamento{
+#containerLancamentos{
     gap: 17px;
+}
+
+@media (max-width: 1400px){ /*Computador Grande*/
+
+}
+
+@media (max-width: 1200px){ /*Computador*/
+
+}
+
+@media (max-width: 992px){ /*Tablet*/
+
+}
+
+@media (max-width: 768px){ /*Celular Paisagem*/
+
+}
+
+@media (max-width: 576px){ /*Celular Vertical*/
+
 }
