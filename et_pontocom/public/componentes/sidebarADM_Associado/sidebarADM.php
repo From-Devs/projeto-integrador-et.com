@@ -1,4 +1,4 @@
-"<?php 
+<?php 
 
     require __DIR__ . "/../popUp/popUp.php";
     require __DIR__ . "/../botao/botao.php";
@@ -66,35 +66,25 @@
                 </ul>
             </div>
             <div class="area_Sair">
-                
                 <div class="button_sair" id="button_sair" style="margin-top: 280px;">
                     <span class="fa fa-arrow-right-from-bracket" onclick='abrirPopUp("popupSair")'></span>
                     <span class="button_name" onclick='abrirPopUp("popupSair")'>Sair</span>
-                       
-
                 </div> 
+                <?php
+                    $btnSim = botaoPersonalizadoRedirect("Sim","btn-white","et_pontocom/app/views/usuario/paginaPrincipal.php","50px", "30px");
+                    $btnNao = botaoPersonalizadoOnClick("Não", "btn-white", "fecharpopUp('popupSair'),","50px", "30px");
+
+                    echo PopUpConfirmar("popupSair","Deseja sair do perfil de Administrador?",$btnSim,$btnNao,"600px","white","black","24px");
+                ?>
             </div>
+
         </nav>
     </div>
 
-    <?php
-        $btnSim = botaoPersonalizadoRedirect("Sim","btn-white","et_pontocom/app/views/usuario/paginaPrincipal.php","40px","20px");
-        $btnNao = botaoPersonalizadoOnClick("Não","btn-white","fecharPopUp(\"popupSair\")","70px","20px",);
-
-
-        echo PopUpConfirmar(
-            "popUpSair", 
-            "Deseja sair do perfil de Administrador?",
-            $btnSim,
-            $btnNao,
-            "600px",
-            "white",
-            "black",
-            "24px");
-    ?>
+    
     <script src="script.js"></script>
     <script src="../popUp/popUp.js"></script>
 
     
 </body>
-</html>"
+</html>

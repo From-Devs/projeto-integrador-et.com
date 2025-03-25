@@ -8,3 +8,17 @@ document.addEventListener("DOMContentLoaded",function(){
         });
     });
 })
+function fecharPopUp(className) {
+    let popUp = document.querySelector(`dialog.${className}`);
+    if (popUp) {
+        popUp.close();
+    }
+} 
+
+document.querySelectorAll(".popUpDialog").forEach(dialog => {
+    dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) {
+            dialog.close();
+        }
+    });
+});

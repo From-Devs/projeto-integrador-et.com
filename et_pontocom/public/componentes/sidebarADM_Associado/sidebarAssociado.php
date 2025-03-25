@@ -24,65 +24,55 @@
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca1.png" alt="">
             </div>
             <div class="linhaGradiente"></div>
-            <div class="buttons_geral">
-                <div class="botoesMenu">
-                    <ul>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <span class="fa fa-house-chimney" ></span>
-                                <span class="button_name">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <span class='bx bxs-package'></span>
-                                <span class="button_name">Produtos</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <span class='bx bx-money-withdraw' ></span>
-                                <span class="button_name">Pedidos</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <span class="fa fa-clock"></span>
-                                <span class="button_name">Histórico de Vendas</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
+            <div class="botoesMenu">
+                <ul>
+                    <li class="nav-item">
                         <a href="#" class="nav-link">
-                                <span class='bx bxs-receipt'></span>
-                                <span class="button_name">Relatórios</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="area_Sair">
-                    <div class="button_sair" id="button_sair" style="margin-top: 280px;">
-                        <span class="fa fa-arrow-right-from-bracket" onclick='abrirPopUp("popupSair")'></span>
-                        <span class="button_name" onclick='abrirPopUp("popupSair")'>Voltar à tela inicial</span>   
-                    </div> 
-                </div>
+                            <span class="fa fa-house-chimney" ></span>
+                            <span class="button_name">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class='bx bxs-package'></span>
+                            <span class="button_name">Produtos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class='bx bx-money-withdraw' ></span>
+                            <span class="button_name">Pedidos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="fa fa-clock"></span>
+                            <span class="button_name">Histórico de Vendas</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="#" class="nav-link">
+                            <span class='bx bxs-receipt'></span>
+                            <span class="button_name">Relatórios</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="area_Sair">
+                <div class="button_sair" id="button_sair" style="margin-top: 280px;">
+                    <span class="fa fa-arrow-right-from-bracket" onclick='abrirPopUp("popupSair")'></span>
+                    <span class="button_name" onclick='abrirPopUp("popupSair")'>Voltar a tela inicial</span>
+                </div> 
+                <?php
+                    $btnSim = botaoPersonalizadoRedirect("Sim","btn-white","et_pontocom/app/views/usuario/paginaPrincipal.php","50px", "30px");
+                    $btnNao = botaoPersonalizadoOnClick("Não", "btn-white", "fecharpopUp('popupSair'),","50px", "30px");
+
+                    echo PopUpConfirmar("popupSair","Confirmar?",$btnSim,$btnNao,"600px","white","black","24px");
+                ?>
             </div>
         </nav>
     </div>
-    <?php
-        $btnSim = botaoPersonalizadoRedirect("Sim","btn-white","et_pontocom/app/views/usuario/paginaPrincipal.php","40px","20px");
-        $btnNao = botaoPersonalizadoOnClick("Não","btn-white","fecharPopUp(\"popupSair\")","70px","20px",);
-
-
-        echo PopUpConfirmar(
-            "popUpSair", 
-            "Deseja sair do perfil de Administrador?",
-            $btnSim,
-            $btnNao,
-            "600px",
-            "white",
-            "black",
-            "24px");
-    ?>
+    
     <script src="script.js"></script>
     <script src="../popUp/popUp.js"></script>
 </body>
