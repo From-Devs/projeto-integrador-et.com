@@ -62,7 +62,6 @@ main {
     filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
 }
 
-
 .user-img {
     display: flex;
     width: 550px;
@@ -140,6 +139,7 @@ main {
     padding-right: 10px;
     font-size: 40px;
 }
+
 /* tela de editar 01*/
 .principal-perfil {
     display: flex;
@@ -254,17 +254,11 @@ main {
     display: none;
 }
 
-/* tela editação */
-.editiçao {
+/* tela edição */
+.user-ediçao-usuario{
     display: flex;
-    justify-content: space-between;
-    box-shadow: black 3px 0 0 10;
-    height: 760px;
-    border-radius: 20px;
-    width: 1434px;
-    padding-right: -75px;
-    position: relative;
-    bottom: 40px;
-    background-color: #f7f7f7;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
+    width: 550px;
+    height: 550px;
+    margin: 25px;
+    user-select: none;
 }

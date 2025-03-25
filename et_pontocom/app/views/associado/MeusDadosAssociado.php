@@ -128,9 +128,32 @@
                 <i id="fechar-perfil" class='bx bx-x exit'></i>
             </div>
             <!-- Tela do Quadrado (edicao-perfil) -->
-            <div id="editiçao-perfil" class="editiçao">
-                <div class="user-img">
-                    <h1>Meus Dados</h1>
+            <div id="quadrado-perfil" class="quadrado">
+                <div class="user-ediçao-usuario"><h1>Perfil</h1></div>
+                <div class="user-dados">
+                    <div class="user-Letra">    
+                        <h1>Nome</h1>
+                    </div>
+                    <div class="user_Box menor Texto">Wellinton R.</div>
+                    <div class="user-Letra">
+                        <h1>Gmail</h1>
+                    </div>
+                    <div class="user_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
+                    <div class="user-Letra">
+                        <h1>CPF</h1>
+                    </div>
+                    <div class="user_Box menor Texto">09x.xxx,xxx-67</div>
+                    <div class="user-Letra">
+                        <h1>Adicionar</h1>
+                    </div>
+                    <div class="icones">
+                        <i class='bx bxl-instagram icone'></i>
+                        <i class='bx bxl-linkedin icone'></i>
+                        <i class='bx bxl-facebook icone'></i>
+                        <i class='bx bxl-twitter icone'></i>
+                        <i class='bx bxl-whatsapp icone'></i>
+                        <i class='bx bx-plus icone'></i>
+                    </div>
                 </div>
                 <i id="fechar-perfil" class='bx bx-x exit'></i>
             </div>
@@ -154,7 +177,7 @@
                 botaoEditarDiv.classList.add('hidde'); 
                 botaoEditarDiv.classList.add('hidde'); 
                 // Mostra a tela do quadrado
-                quadradoPerfil.classList.add('hidde');
+                // quadradoPerfil.classList.remove('hidde');
             });
 
             fecharPerfil.addEventListener('click', () => {
@@ -162,9 +185,9 @@
                 quadradoPerfil.classList.add('hidde');
 
                 // Mostra a tela principal
-                userInfo.classList.add('hidde');
-                parteDados.classList.add('hidde');
-                botaoEditarDiv.classList.add('hidde'); // Mostra o botão "Editar"
+                userInfo.classList.remove('hidde');
+                parteDados.classList.remove('hidde');
+                botaoEditarDiv.classList.remove('hidde'); // Mostra o botão "Editar"
             });
         }
     </script>
