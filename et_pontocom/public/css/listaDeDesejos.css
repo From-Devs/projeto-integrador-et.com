@@ -1,5 +1,6 @@
 *{
-    margin: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 body{
@@ -13,7 +14,7 @@ body{
 
 .title-container{
     display: flex;
-    margin-top: 50px;
+    margin-top: 150px;
     flex-direction: column;
     gap: 8px;
 }
