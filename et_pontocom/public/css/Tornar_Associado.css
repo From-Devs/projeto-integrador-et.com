@@ -1,0 +1,285 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 400;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.teste {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+  background-color: #000000;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  background-color: white;
+}
+.icons span {
+  margin-left: 15px;
+  cursor: pointer;
+}
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  overflow: hidden;
+  width: 100%;
+}
+.carousel-inner {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.carousel-item {
+  flex: 0 0 auto;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin: 0 40px;
+}
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.carousel-item .name {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+@keyframes scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.carousel-inner {
+  animation: scroll 10s linear infinite;
+}
+.promo-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #000000;
+  margin: 0px 0;
+}
+.promo-content {
+  max-width: 70%;
+  background-color: transparent;
+  padding: 30px;
+  border-radius: 10px;
+  margin-left: -200px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 1;
+}
+.promo-content h2 {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.promo-content p {
+  font-size: 30px;
+  margin-bottom: 20px;
+  max-width: 70%;
+  margin: 0 auto;
+  color: #C6C6C6;
+}
+.promo-content .learn-more,
+.promo-content .join-now {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #5C87D9;
+  background-color: #000000;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+.promo-content .join-now {
+  background-color: #ffffff;
+  color: #37ADD2;
+}
+.promo-image {
+  position: relative;
+  width: 30%;
+  height: 400px;
+  z-index: 1;
+}
+.promo-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.377));
+}
+.promo-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: -1;
+}
+@keyframes shine {
+  0% {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+      box-shadow: 0 0 40px rgba(255, 255, 255, 1);
+  }
+  100% {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+}
+.commission-table {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin: 20px 0;
+  text-align: left;
+}
+.commission-table h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.commission-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.commission-table th, .commission-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.commission-table th {
+  background-color: #4CAF50;
+  color: white;
+}
+.commission-table td {
+  background-color: #ffffff;
+}
+.commission-table p {
+  font-size: 16px;
+  color: #333;
+}
+.cards-section {
+  position: relative;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin: 20px 0;
+  text-align: center;
+  background-image: url('img_Torna+carro/Rectangle.png');
+  background-size: cover;
+  background-position: center;
+  height: 900px;
+  z-index: 1;
+}
+
+.cards-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  z-index: 2;
+}
+
+.card {
+  margin: 10px;
+}
+.caixa_salmão {
+  margin-top: 850px;
+}
+.related-products{
+  margin-top: 100px;
+}
+.cards-section h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.card-content {
+  padding: 10px;
+}
+.card-content h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.card-content p {
+  font-size: 14px;
+  color: #333;
+}
+.card1 {
+  padding: 10px;
+  border-radius: 10px;
+  transition: filter 0.3s ease-in-out;
+}
+
+.card1:hover {
+  filter: drop-shadow(0 0 15px rgba(0, 183, 255, 0.541));
+}
+
+.card2 {
+  padding: 10px;
+  border-radius: 10px;
+  transition: filter 0.3s ease-in-out;
+}
+
+.card2:hover {
+  filter: drop-shadow(0 0 15px #9633ff);
+}
+
+.card3 {
+  padding: 10px;
+  border-radius: 10px;
+  transition: filter 0.3s ease-in-out;
+}
+
+.card3:hover {
+  filter: drop-shadow(0 0 15px #7b00ff);
+}
+
+.card4 {
+  padding: 10px;
+  border-radius: 10px;
+  transition: filter 0.3s ease-in-out;
+}
+
+.card4:hover {
+  filter: drop-shadow(0 0 15px #ff00f2);
+}
+
+.card5 {
+  padding: 10px;
+  border-radius: 10px;
+  transition: filter 0.3s ease-in-out;
+}
+
+.card5:hover {
+  filter: drop-shadow(0 0 15px #ff0059);
+}
+.caixa_salmão {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.caixa_salmão img {
+  max-width: 100%;
+  height: auto;
+}
