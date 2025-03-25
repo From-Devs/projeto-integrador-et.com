@@ -100,64 +100,33 @@
                     <h1>Perfil</h1>
                     <img src="https://i.pinimg.com/736x/91/0b/ec/910becbf6e01b541e0dea7f3bcc515c3.jpg" alt="Foto do usuário">
                 </div>
-                <div class="user-dados">
-                    <div class="user-Letra">    
-                        <h1>Nome</h1>
-                    </div>
-                    <div class="user_Box menor Texto">Wellinton R.</div>
-                    <div class="user-Letra">
-                        <h1>Gmail</h1>
-                    </div>
-                    <div class="user_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
-                    <div class="user-Letra">
-                        <h1>CPF</h1>
-                    </div>
-                    <div class="user_Box menor Texto">09x.xxx,xxx-67</div>
-                    <div class="user-Letra">
-                        <h1>Adicionar</h1>
-                    </div>
-                    <div class="icones">
-                        <i class='bx bxl-instagram icone'></i>
-                        <i class='bx bxl-linkedin icone'></i>
-                        <i class='bx bxl-facebook icone'></i>
-                        <i class='bx bxl-twitter icone'></i>
-                        <i class='bx bxl-whatsapp icone'></i>
-                        <i class='bx bx-plus icone'></i>
-                    </div>
-                </div>
-                <i id="fechar-perfil" class='bx bx-x exit'></i>
             </div>
+
             <!-- Tela do Quadrado (edicao-perfil) -->
             <div id="quadrado-perfil" class="quadrado">
                 <div class="user-ediçao-usuario"><h1>Perfil</h1></div>
-                <div class="user-dados-edicao">
-                    <div class="user-Letra-ediçao"><h1>Nome Nome</h1></div>
-                    <div class="user_Box-ediçao"><p>vector</p></div>
-                    <div class="user-Letra-ediçao"><h1>Sobrenome</h1></div>
-                    <div class="user_Box-ediçao"><p>kkk ah éee nacimento</p></div>
-                    <div class="user-Letra-ediçao"><h1>Gmail</h1></div>
-                    <div class="user_Box-ediçao"><p>tiginhoJogoTÀPagandoMUITOovojogarCArtinho@Gmail.com.</p></div>
-                    <div class="user-Letra-ediçao"><h1>data de nacimento</h1></div>
-                    <div class="date">
-                        <div class="user_Box-ediçao"></div>
-                        <div class="user_Box-ediçao"></div>
-                        <div class="user_Box-ediçao"></div>
-                    </div>
+                <div class="user-dados-direita">
+                <div class="selectDDD">
+                    <div class="bandeira"></div>
+                    <select class="DDDs">
+                        <option class="optDDD" value="55">55+ Brasil</option>
+                        <option class="optDDD" value="1">1+ EUA</option>
+                        <option class="optDDD" value="44">44+ Reino Unido</option>
+                        <option class="optDDD" value="91">91+ Índia</option>
+                    </select>
                 </div>
-                <!-- linha -->
+                </div>
                 <div class="linha"></div>
-                <div class="user-dados-edicao">
-                    <div class="user-Letra-ediçao"><h1>Nome</h1></div>
-                    <div class="user_Box-ediçao Texto">Wellinton R.</div>
-                    <div class="user-Letra-ediçao"><h1>Nome</h1></div>
-                    <div class="user_Box-ediçao Texto">Wellinton R.</div>
-                    <div class="ediçao-img"><img src="https://i.pinimg.com/736x/91/0b/ec/910becbf6e01b541e0dea7f3bcc515c3.jpg" alt="logo"></div>
+
+                <div class="user-dados-esquerda">
                 </div>
                 <i id="fechar-perfil" class='bx bx-x exit'></i>
             </div>
         </section>
     </main>
     <script src="../../../public/componentes/sidebarADM_Associado/script.js"></script>
+    <script src="../../../public/componentes/sidebarADM_Associado/script.js"></script>
+
     <script>
          // JavaScript para alternar entre as telas
         const iconeEditar = document.getElementById('icone-editar');
