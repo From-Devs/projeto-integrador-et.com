@@ -146,13 +146,13 @@ abbr{
     font-weight: normal;
 }
 
-.avaliacao{
+.avaliacao-descricao{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.avaliacao a{
+.avaliacao-descricao a{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,7 +188,7 @@ abbr{
 
 .description-box {
     max-width: 1600px;
-    margin: 250px auto;
+    margin: 250px auto 0px auto;
     padding: 30px 296px;
     background: linear-gradient(180deg, #bbbbbb 40%, #E4E4E4 50%);
     border-radius: 30px;
@@ -225,3 +225,108 @@ abbr{
     padding-left: 88px;
 }
 
+/*Avaliações--------------------------------------------*/
+
+#all-avaliacoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0px 100px 0px;
+}
+
+.avaliacoes{
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #dedede;
+    padding: 15px 10px;
+    border-radius: 30px;
+}
+
+.titulo-avaliacoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    gap: 5px;
+}
+
+.titulo-aval{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.titulo-aval img{
+    width: 100px;
+}
+
+.qtd-respostas h2{
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(52, 52, 52);
+}
+
+.btn-ordenar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 10px 10px 0px 0px;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+.container-avaliacoes{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.avaliacao{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-nome-usuario{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.avaliacao-usuario{
+    width: 80px;
+}
+
+.data-avaliacao span{
+    font-size: 0.9rem;
+}
+
+.descricao-avaliacao{
+    margin: 10px 0px 10px 0px;
+}
+
+.descricao-avaliacao p{
+    font-size: 0.9rem;
+    color: #313131;
+}
+
+.pergunta-avaliacao{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pergunta-avaliacao span{
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.btns-pergunta{
+    display: flex;
+    gap: 5px;
+}

@@ -57,8 +57,8 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
                     </div>
                     <div class="sub-titulo-produto">
                         <span class="preco-produto">R$39,90 |</span>
-                        <abbr title="Avaliações" class="avaliacao">
-                            <a href="#">
+                        <abbr title="Avaliações" class="avaliacao-descricao">
+                            <a href="#all-avaliacoes">
                                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
                                 <span class="qtd-reviews">(10 reviews)</span>
                             </a>
@@ -115,6 +115,114 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
                 <li>Embalagem: Vem em uma embalagem prática e portátil, facilitando o transporte e a aplicação em qualquer lugar.</li>
                 <li>Esta base é perfeita para quem busca uma pele com acabamento matte, natural e duradouro, sem abrir mão do conforto e da qualidade.</li>
             </ul>
+    </div>
+
+    <div id="all-avaliacoes">
+        <div class="avaliacoes">
+            <div class="titulo-avaliacoes">
+                <div class="titulo-aval">
+                    <h1>Avaliações</h1>
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
+                </div>
+                <div class="qtd-respostas">
+                    <h2>4 respostas obtidas</h2>
+                </div>
+                <div class="div-ordenar">
+                    <div>
+                        <button class="btn-ordenar">Ordenar por: <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/setaBaixo.png" alt="seta-baixo"></button>
+                    </div>
+                    <div class="filtro-ordenar">
+
+                    </div>
+                </div>
+            </div>
+            <div class="container-avaliacoes">
+                <hr style="border-color: black;">
+                <div class="avaliacao">
+                    <div class="container-nome-usuario">
+                        <h3 class="nome-usuario">Nícolas Eloy</h3>
+                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
+                    </div>
+                    <div class="data-avaliacao">
+                        <span>01/01/2024</span>
+                    </div>
+                    <div class="descricao-avaliacao">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?</p>
+                    </div>
+                    <div class="pergunta-avaliacao">
+                        <span>Esta avaliação foi útil?</span>
+                        <div class="btns-pergunta">
+                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "", "20px", "0.9rem");
+                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "", "20px", "0.9rem");
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="avaliacao">
+                    <div class="container-nome-usuario">
+                        <h3 class="nome-usuario">Nícolas Eloy</h3>
+                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
+                    </div>
+                    <div class="data-avaliacao">
+                        <span>01/01/2024</span>
+                    </div>
+                    <div class="descricao-avaliacao">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?</p>
+                    </div>
+                    <div class="pergunta-avaliacao">
+                        <span>Esta avaliação foi útil?</span>
+                        <div class="btns-pergunta">
+                        <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "", "20px", "0.9rem");
+                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "", "20px", "0.9rem");
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="avaliacao">
+                    <div class="container-nome-usuario">
+                        <h3 class="nome-usuario">Nícolas Eloy</h3>
+                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
+                    </div>
+                    <div class="data-avaliacao">
+                        <span>01/01/2024</span>
+                    </div>
+                    <div class="descricao-avaliacao">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?</p>
+                    </div>
+                    <div class="pergunta-avaliacao">
+                        <span>Esta avaliação foi útil?</span>
+                        <div class="btns-pergunta">
+                        <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "", "20px", "0.9rem");
+                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "", "20px", "0.9rem");
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="avaliacao">
+                    <div class="container-nome-usuario">
+                        <h3 class="nome-usuario">Nícolas Eloy</h3>
+                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
+                    </div>
+                    <div class="data-avaliacao">
+                        <span>01/01/2024</span>
+                    </div>
+                    <div class="descricao-avaliacao">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?</p>
+                    </div>
+                    <div class="pergunta-avaliacao">
+                        <span>Esta avaliação foi útil?</span>
+                        <div class="btns-pergunta">
+                        <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "", "20px", "0.9rem");
+                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "", "20px", "0.9rem");
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
