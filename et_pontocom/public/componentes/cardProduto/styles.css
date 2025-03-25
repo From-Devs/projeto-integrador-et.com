@@ -74,7 +74,7 @@
     font-weight: 500;
     z-index: 3;
     font-size: 14px;
-    animation: slide-in 0.3s;
+    animation: slide-in-favorito 0.3s;
 }
 
 .balaoDesejos::after { /* pontinha de balão em cima do menu */
@@ -267,7 +267,7 @@
     }
 }
 
-@keyframes slide-in{
+@keyframes slide-in-favorito{
     0% {
         -webkit-transform: translateX(10px);
         transform: translateX(10px);

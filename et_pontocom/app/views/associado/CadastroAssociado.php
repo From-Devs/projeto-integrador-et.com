@@ -9,9 +9,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../public/css/CadastroAssociado.css">
-    <link rel="stylesheet" href="../../../public/componentes/cadastassociado/style.css">
-    <link rel="stylesheet" href="../../../public/componentes/popup/popUpComponente.css">
-    <link rel="stylesheet" href="../../../public/componentes/botao/botoesComponente.css">
+    <link rel="stylesheet" href="../../../public/componentes/cadastassociado/styles.css">
+    <link rel="stylesheet" href="../../../public/componentes/popup/styles.css">
+    <link rel="stylesheet" href="../../../public/componentes/botao/styles.css">
     
     <title>Cadastro Associado</title>
 </head>
@@ -69,8 +69,8 @@
     </div>
     </div>
     <?php $btt = botaoPersonalizadoRedirect("Voltar à Tela de início","btn-white","#");
-    echo PopUpComImagemETitulo("popup","produto/img-pessoa.png","100px","Cadastro Enviado para Validação","Entraremos em contato via WhatsApp após validar",$btt);
+    echo PopUpComImagemETitulo("popup","img-pessoa.png","100px","Cadastro Enviado para Validação","Entraremos em contato via WhatsApp após validar",$btt);
     ?>
-    <script src="../../../public/componentes/popup/popUp.js"></script>
+    <script src="../../../public/componentes/popup/script.js"></script>
 </body>
 </html>
