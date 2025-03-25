@@ -3,6 +3,10 @@
     background: none;
     animation: fadein 0.5s ease-in-out forwards;
     font-family: "Montserrat", sans-serif;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @keyframes fadein{
