@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="sidebar">
-        <?php require "../../../public/componentes/sidebar/sidebarAssoc.php" ?>  
+        <?php require "../../../public/componentes/sidebarADM_Associado/sidebarAssociado.php" ?>  
     </div>
 
     <div class="main">
@@ -58,80 +58,26 @@
         </div>
     </div>
 
-    <?php
-function pizzas($nomeDiv){
-    echo "
-    <div id='$nomeDiv'>
-        <canvas id='myChart$nomeDiv'></canvas>
+    <div id="geralInformacoes">
+            <!-- $nomeDiv,$icone, $titulo, $valor, $alt=''-->
+            <?php dadosInfor('valorVendas','./../../public/iforma/wallet.png','Valor Vendas','R$ 1.500,00','wallet') ?>
+            <?php dadosInfor('lucroLiquido','./../../public/iforma/cifrao.png','Lucro Líquido','R$ 569,00','cifrao') ?>
+            <?php dadosInfor('vendas','./../../public/iforma/grafico.png','Vendas','233','grafico') ?>
+        </div>
+        <div id="controlePizzas">
+            <div id="divPizzaEsquerda">
+                <div id="divControladoraTexto">
+                    <?php pizzas('Vendedores') ?>
+                </div>
+                <canvas id="myChartEsquerda"></canvas>
+            </div>
+            <div id="divPizzaDireita">
+                <?php pizzas('Regioes') ?>
+                <canvas id="myChartDireita"></canvas>
+            </div>
+        </div>
     </div>
-    ";
-}
-
-echo "<div id='container'>";
-pizzas("Direita");
-pizzas("Esquerda");
-echo "</div>";
-?>
-
-<script src="./../../private/javascript.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var ctxDireita = document.getElementById('myChartDireita').getContext('2d');
-        var ctxEsquerda = document.getElementById('myChartEsquerda').getContext('2d');
-
-        var config = {
-            type: 'doughnut',
-            data: {
-                labels: ['Centro Oeste', 'Sul', 'Norte', 'Nordeste', 'Sudeste'],
-                datasets: [{
-                    label: 'Vendas',
-                    data: [12, 19, 3, 5, 2],
-                    backgroundColor: [
-                        'rgba(255, 99, 132)',
-                        'rgba(54, 162, 235)',
-                        'rgba(255, 206, 86)',
-                        'rgba(75, 192, 192)',
-                        'rgba(153, 102, 255)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        position: 'right',
-                        labels: {
-                            boxWidth: 20,
-                            padding: 15
-                        }
-                    },
-                    title: {
-                        display: true,
-                        text: 'Regiões que mais compram',
-                        font: {
-                            size: 20,
-                            weight: 'bold',
-                        },
-                        padding: {
-                            top: 20,
-                            bottom: 30,
-                        }
-                    }
-                }
-            }
-        };
-
-        var myChartDireita = new Chart(ctxDireita, config);
-        var myChartEsquerda = new Chart(ctxEsquerda, config);
-    });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./../../../public/javascript/javascriptAssoc.js"></script>
 </body>
 </html>

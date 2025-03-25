@@ -88,3 +88,49 @@ body{
     color: black;
     border-radius: 10px;
 }
+/* PARTE DAS PIZZAS */
+
+#controlePizzas
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-right: 50px;
+}
+
+#divPizzaEsquerda, #divPizzaDireita
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 750px;
+    height: 470px;
+    border: #0000004D 2px solid;
+    border-radius: 15px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+#divControladoraTexto
+{
+    display: flex;
+    align-items: flex-start
+}
+
+#tituloPizza
+{
+    margin: 15px 0px 0px 20px;
+}
+
+#selecionador
+{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 50px 0px 0px;
+}
+
+#ajusteSelecionador
+{
+    display: flex;
+    flex-direction: row-reverse;
+}
