@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/listaDeDesejos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         <div class="card-container">
             <div class="card01">
                 <div class="cardImg01">
-                    <img src="./img/prod01.png" alt="">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/prod01.png" alt="">
                 </div>
 
                 <div class="cardPreco01">
@@ -43,7 +43,7 @@
 
             <div class="card02">
                 <div class="cardImg02">
-                    <img src="./img/prod02.png" alt="">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/prod02.png" alt="">
                 </div>
 
                 <div class="cardPreco02">
@@ -65,7 +65,7 @@
 
             <div class="card03">
                 <div class="cardImg03">
-                    <img src="./img/prod03.png" alt="">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/prod03.png" alt="">
                 </div>
 
                 <div class="cardPreco03">
@@ -87,7 +87,7 @@
 
             <div class="card04">
                 <div class="cardImg04">
-                    <img src="./img/prod04.png" alt="">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/prod04.png" alt="">
                 </div>
 
                 <div class="cardPreco04">
@@ -111,7 +111,7 @@
 
     <div class="button-container">
         <div class="button01">
-            <button type="submit"><img src="./img/imgButton.png" alt=""><p>Adicionar ao carrinho</p></button>
+            <button type="submit"><img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/imgButton.png" alt=""><p>Adicionar ao carrinho</p></button>
         </div>
 
         <div class="button02">
