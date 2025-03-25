@@ -67,7 +67,7 @@
                     $btnSim = botaoPersonalizadoRedirect("Sim","btn-white","et_pontocom/app/views/usuario/paginaPrincipal.php","50px", "30px");
                     $btnNao = botaoPersonalizadoOnClick("Não", "btn-white", "fecharpopUp('popupSair'),","50px", "30px");
 
-                    echo PopUpConfirmar("popupSair","Confirmar?",$btnSim,$btnNao,"600px","white","black","24px");
+                    echo PopUpConfirmar("popupSair","Confirmar?",$btnSim,$btnNao,"600px","white","black","30px");
                 ?>
             </div>
         </nav>
