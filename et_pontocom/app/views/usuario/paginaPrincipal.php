@@ -42,9 +42,59 @@
     ?>
 
     <div class="linkCategorias">
-        <a class="botaoCategoria" href="">
-            <img src="" alt="" class="iconeCategoria">
-            <p class="tituloCategoria"></p>
+        <a class="linkBotaoCategoria" href="">
+            <div class="botaoCategoria">
+                <div class="containerIconeCategoria">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/batom.png" alt="" class="iconeCategoria">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/batomHover.png" alt="" class="iconeCategoriaHover">
+                </div>
+                <p class="tituloCategoria">Maquiagem</p>
+            </div>
+        </a>
+        <a class="linkBotaoCategoria" href="">
+            <div class="botaoCategoria">
+                <div class="containerIconeCategoria">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/perfume.png" alt="" class="iconeCategoria">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/perfumeHover.png" alt="" class="iconeCategoriaHover">
+                </div>
+                <p class="tituloCategoria">Perfumes</p>
+            </div>
+        </a>
+        <a class="linkBotaoCategoria" href="">
+            <div class="botaoCategoria">
+                <div class="containerIconeCategoria">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/skin.png" alt="" class="iconeCategoria">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/skinHover.png" alt="" class="iconeCategoriaHover">
+                </div>
+                <p class="tituloCategoria">Skin Care</p>
+            </div>
+        </a>
+        <a class="linkBotaoCategoria" href="">
+            <div class="botaoCategoria">
+                <div class="containerIconeCategoria">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/cabelo.png" alt="" class="iconeCategoria">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/cabeloHover.png" alt="" class="iconeCategoriaHover">
+                </div>
+                <p class="tituloCategoria">Cabelo</p>
+            </div>
+        </a>
+        <a class="linkBotaoCategoria" href="">
+            <div class="botaoCategoria">
+                <div class="containerIconeCategoria">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/eletronico.png" alt="" class="iconeCategoria">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/eletronicoHover.png" alt="" class="iconeCategoriaHover">
+                </div>
+                <p class="tituloCategoria">Eletrônicos</p>
+            </div>
+        </a>
+        <a class="linkBotaoCategoria" href="">
+            <div class="botaoCategoria">
+                <div class="containerIconeCategoria">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/corporal.png" alt="" class="iconeCategoria">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/corporalHover.png" alt="" class="iconeCategoriaHover">
+                </div>
+                <p class="tituloCategoria">Corporal</p>
+            </div>
         </a>
     </div>
 
