@@ -19,3 +19,13 @@ function diminuirQtdProduto() {
 function atualizarValor() {
     document.getElementById('valor').textContent = contador;
 }
+
+function abrirFiltro(){
+    let filtro = document.querySelector(".div-ordenar div");
+    let btnOrdenar = document.getElementsByClassName("btn-ordenar")[0];
+    filtro.classList.toggle("filtro-ordenar");
+
+    btnOrdenar.addEventListener("click", () => {
+        filtro.classList.toggle("filtro-ordenar");
+    })
+}

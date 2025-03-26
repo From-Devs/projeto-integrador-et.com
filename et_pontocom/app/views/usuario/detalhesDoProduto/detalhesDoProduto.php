@@ -128,11 +128,19 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
                     <h2>4 respostas obtidas</h2>
                 </div>
                 <div class="div-ordenar">
-                    <div>
-                        <button class="btn-ordenar">Ordenar por: <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/setaBaixo.png" alt="seta-baixo"></button>
-                    </div>
-                    <div class="filtro-ordenar">
-
+                    <button class="btn-ordenar" onclick="abrirFiltro()">Ordenar por: <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/setaBaixo.png" alt="seta-baixo"></button>
+                    <div class="" hidden>
+                        <div class="item-filtro mais-relevantes">
+                            <span>Mais relevantes</span>
+                        </div>
+                        <hr>
+                        <div class="item-filtro mais-recentes">
+                            <span>Mais recentes</span>
+                        </div>
+                        <hr>
+                        <div class="item-filtro mais-antigas">
+                            <span>Mais antigas</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -227,7 +235,6 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
 
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/popUp.js"></script>
-    <script src="/et_pontocom/app/views/usuario/detalhesDoProduto/detalhesDoProduto.js"></script>
-    <script src="detalhesDoProduto.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto/detalhesDoProduto.js"></script>
 </body>
 </html>
