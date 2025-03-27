@@ -141,7 +141,7 @@
                         <td>Colônia Coffe Woman</td>
                         <td>R$ 39,99</td>
                         <td>17/08/2024</td>
-                        <td ><div id="statusPendente"> Pago</div></td> 
+                        <td ><div id="statusPendente"> Pendente</div></td> 
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
@@ -150,7 +150,7 @@
                         <td>Skincare</td>
                         <td>R$ 30,00</td>
                         <td>22/01/2024</td>
-                        <td ><div id="statusPendente"> Pago</div></td> 
+                        <td ><div id="statusPendente"> Pendente</div></td> 
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>

@@ -271,15 +271,21 @@ th, td
     text-align: center;
 }
 
-th{
+th
+{
     padding: 2%;
-    font-size: 22px;
+    font-size: 24px;
 }
 
 td
 {
     padding: 2%;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+tr
+{
+    border-bottom: 0.3px solid #DADADA;
 }
 
 
