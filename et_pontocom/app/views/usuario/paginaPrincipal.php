@@ -42,59 +42,47 @@
     ?>
 
     <div class="linkCategorias">
-        <a class="linkBotaoCategoria" href="">
-            <div class="botaoCategoria">
-                <div class="containerIconeCategoria">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/batom.png" alt="" class="iconeCategoria">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/batomHover.png" alt="" class="iconeCategoriaHover">
-                </div>
-                <p class="tituloCategoria">Maquiagem</p>
+        <a class="botaoCategoria" href="">            
+            <div class="containerIconeCategoria">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/batom.png" alt="" class="iconeCategoria">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/batomHover.png" alt="" class="iconeCategoriaHover">
             </div>
+            <p class="tituloCategoria">Maquiagem</p>            
         </a>
-        <a class="linkBotaoCategoria" href="">
-            <div class="botaoCategoria">
-                <div class="containerIconeCategoria">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/perfume.png" alt="" class="iconeCategoria">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/perfumeHover.png" alt="" class="iconeCategoriaHover">
-                </div>
-                <p class="tituloCategoria">Perfumes</p>
+        <a class="botaoCategoria" href="">            
+            <div class="containerIconeCategoria">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/perfume.png" alt="" class="iconeCategoria">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/perfumeHover.png" alt="" class="iconeCategoriaHover">
             </div>
+            <p class="tituloCategoria">Perfumes</p>            
         </a>
-        <a class="linkBotaoCategoria" href="">
-            <div class="botaoCategoria">
-                <div class="containerIconeCategoria">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/skin.png" alt="" class="iconeCategoria">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/skinHover.png" alt="" class="iconeCategoriaHover">
-                </div>
-                <p class="tituloCategoria">Skin Care</p>
+        <a class="botaoCategoria" href="">            
+            <div class="containerIconeCategoria">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/skin.png" alt="" class="iconeCategoria">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/skinHover.png" alt="" class="iconeCategoriaHover">
             </div>
+            <p class="tituloCategoria">Skin Care</p>            
         </a>
-        <a class="linkBotaoCategoria" href="">
-            <div class="botaoCategoria">
-                <div class="containerIconeCategoria">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/cabelo.png" alt="" class="iconeCategoria">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/cabeloHover.png" alt="" class="iconeCategoriaHover">
-                </div>
-                <p class="tituloCategoria">Cabelo</p>
+        <a class="botaoCategoria" href="">            
+            <div class="containerIconeCategoria">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/cabelo.png" alt="" class="iconeCategoria">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/cabeloHover.png" alt="" class="iconeCategoriaHover">
             </div>
+            <p class="tituloCategoria">Cabelo</p>            
         </a>
-        <a class="linkBotaoCategoria" href="">
-            <div class="botaoCategoria">
-                <div class="containerIconeCategoria">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/eletronico.png" alt="" class="iconeCategoria">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/eletronicoHover.png" alt="" class="iconeCategoriaHover">
-                </div>
-                <p class="tituloCategoria">Eletrônicos</p>
+        <a class="botaoCategoria" href="">            
+            <div class="containerIconeCategoria">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/eletronico.png" alt="" class="iconeCategoria">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/eletronicoHover.png" alt="" class="iconeCategoriaHover">
             </div>
+            <p class="tituloCategoria">Eletrônicos</p>            
         </a>
-        <a class="linkBotaoCategoria" href="">
-            <div class="botaoCategoria">
-                <div class="containerIconeCategoria">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/corporal.png" alt="" class="iconeCategoria">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/corporalHover.png" alt="" class="iconeCategoriaHover">
-                </div>
-                <p class="tituloCategoria">Corporal</p>
+        <a class="botaoCategoria" href="">            
+            <div class="containerIconeCategoria">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/corporal.png" alt="" class="iconeCategoria">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/corporalHover.png" alt="" class="iconeCategoriaHover">
             </div>
+            <p class="tituloCategoria">Corporal</p>            
         </a>
     </div>
 
@@ -103,7 +91,7 @@
             <p class="titulo">Lançamentos</p>
         </div>
         <div class="frameSlider">
-            <i class="fa-solid fa-chevron-left setaEsquerda" id="esquerda"></i>
+            <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
             <div class="degradeEsquerda"></div>
             <div class="frameProdutos">
                 <div class="containerProdutos" id="containerLancamentos">
@@ -120,7 +108,7 @@
                 </div>
             </div>
             <div class="degradeDireita"></div>
-            <i class="fa-solid fa-chevron-right setaDireita" id="direita"></i>
+            <i class="fa-solid fa-chevron-right setaSlider setaDireita" id="direita"></i>
         </div>
     </div>
 
@@ -135,7 +123,7 @@
             <a href="#">Ver Mais</a>
         </div>
         <div class="frameSlider">
-            <i class="fa-solid fa-chevron-left setaEsquerda" id="esquerda"></i>
+            <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
             <div class="degradeEsquerda"></div>
             <div class="frameProdutos">
                 <div class="containerProdutos">
@@ -152,7 +140,7 @@
                 </div>
             </div>
             <div class="degradeDireita"></div>
-            <i class="fa-solid fa-chevron-right setaDireita" id="direita"></i>
+            <i class="fa-solid fa-chevron-right setaSlider setaDireita" id="direita"></i>
         </div>
     </div>
 
@@ -162,7 +150,7 @@
             <a href="#">Ver Mais</a>
         </div>
         <div class="frameSlider">
-            <i class="fa-solid fa-chevron-left setaEsquerda" id="esquerda"></i>
+            <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
             <div class="degradeEsquerda"></div>
             <div class="frameProdutos">
                 <div class="containerProdutos">
@@ -179,7 +167,7 @@
                 </div>
             </div>
             <div class="degradeDireita"></div>
-            <i class="fa-solid fa-chevron-right setaDireita" id="direita"></i>
+            <i class="fa-solid fa-chevron-right setaSlider setaDireita" id="direita"></i>
         </div>
     </div>
 
@@ -194,5 +182,6 @@
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/produtoDestaque/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/paginaPrincipalCategorias.js"></script>
 </body>
 </html>
