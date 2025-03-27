@@ -13,7 +13,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
-    <link rel="stylesheet" href="../sidebarADM_Associado/styles.css">
+    <link rel="stylesheet" href="../sidebarADM_Associado/style.css">
     <link rel="stylesheet" href="../botao/styles.css">
     <link rel="stylesheet" href="../popUp/styles.css">
 </head>
@@ -64,16 +64,16 @@
                     <span class="button_name" onclick='abrirPopUp("popupSair")'>Voltar a tela inicial</span>
                 </div> 
                 <?php
-                    $btnSim = botaoPersonalizadoRedirect("Sim","btn-white","et_pontocom/app/views/usuario/paginaPrincipal.php","50px", "30px");
-                    $btnNao = botaoPersonalizadoOnClick("Não", "btn-white", "fecharPopUp('popupSair')","50px", "30px");
+                    $btnSim = botaoPersonalizadoRedirect("Sim","btn-white","et_pontocom/app/views/usuario/paginaPrincipal.php","60px", "30px");
+                    $btnNao = botaoPersonalizadoOnClick("Não", "btn-white", "fecharPopUp('popupSair')","60px", "30px");
 
-                    echo PopUpConfirmar("popupSair","Confirmar?",$btnSim,$btnNao,"600px","white","black","30px");
+                    echo PopUpConfirmar("popupSair","Confirmar?",$btnSim,$btnNao,"500px","white","black","30px");
                 ?>
             </div>
         </nav>
     </div>
     
-    <script src="./script.js"></script>
+    <script src="./scripts.js"></script>
     <script src="../popUp/script.js"></script>
 </body>
 </html>

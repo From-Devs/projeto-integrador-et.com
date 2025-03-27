@@ -8,12 +8,21 @@ document.addEventListener("DOMContentLoaded",function(){
         });
     });
 })
-function fecharPopUp(className) {
-    let popUp = document.querySelector(`dialog.${className}`);
-    if (popUp) {
-        popUp.close();
-    }
-} 
+
+
+
+document.addEventListener("DOMContentLoaded", function(){
+    document.addEventListener("click", function(event){
+        if (event.target.matches(".btn-white")){
+            const botao = event.target;
+            const popUp = botao.closest("dialog");
+            if (popUp){
+                popUp.close();
+            }
+        }
+    })
+})
+
 
 document.querySelectorAll(".popUpDialog").forEach(dialog => {
     dialog.addEventListener("click", (event) => {
