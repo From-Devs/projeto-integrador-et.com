@@ -9,6 +9,7 @@
 
 
 function botaoPersonalizadoOnClick($texto, $tipo="btn-black", $onClick, $largura="auto", $altura="auto", $tamanhoFonte="1rem"){ 
+
     $tipos = ["btn-black", "btn-white", "btn-green", "btn-red"];
 
     if(in_array($tipo, $tipos)){
@@ -61,7 +62,6 @@ function botaoPersonalizadoRedirect($texto, $tipo="btn-black", $url=null, $largu
         </script>";
         return;
     }
-
 }
 
 ?>
