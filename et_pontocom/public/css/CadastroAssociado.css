@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+/* PARTE CLARA */
+.Foto img{
+    height: 200px;
+    width: 200px;
+}
+
+/* PARTE ESCURA */
+/* botão de voltar */
+.Voltar a {
+    color: white;
+    text-decoration: none;
+}
+.Voltar{
+    height: 45px;
+    width: 45px;
+    margin-left: 30px;
+    margin-top: 8px;
+}
+/* Tela inteira */
+.pagina {
+    display: flex;
+    margin: 0;
+}
+/* Onda + botão de voltar */
+.Decoracao {
+    width: 350px;
+    background-color: black;
+    color: white;
+    margin: 0px 30px 0px 0px;
+    padding-right: 30px;
+}
+
+
+/* PARTE DA DESCRIÇÃO E BOTÕES */
+/* caixa grande de texto */
+.caixa_texto {
+    width: 550px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-left: 70px;
+}
+/* parte debaixo dos inputs pequenos */
+.embaixo {
+    margin-top: 40px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+/* autoexplicativo */
+.botoes {
+    display: flex;
+    flex-direction: column;
+    width: 390px;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+/* autoexplicativo 2.0 */
+.checkbox {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.botoes button{
+    width: 300px;
+    height: 50px;
+    background-color: black;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: larger;
+    cursor: pointer;
+}
+/* div com a checkbox e o texto do lado */
+.privacidade {
+    display: flex;
+    gap: 10px;
+}
+
+/* ANIMACAO DA ONDA */
+
+section
+{   
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+
+}
+
+section .wave
+{
+    position: fixed;
+    top: 45%;
+    right: 36%;
+    width: 100%;
+    height: 100px;
+    background: url(../imagens/wave.png);
+    background-size: 1000px 100px;
+    transform: rotate(90deg) scaleY(-1)
+}
+
+section .wave.wave1
+{
+    top: 0;
+    animation: animacao 10s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+
+
+}
+
+@keyframes animacao
+{
+    0%
+    {
+        background-position-x: 0;
+    }
+    100%
+    {
+        background-position-x: 1000px;
+    }
+}

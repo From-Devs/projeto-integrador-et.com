@@ -3,12 +3,8 @@ document.addEventListener("DOMContentLoaded", function(){
     const frame = document.querySelectorAll('.frameSlider');
     
     frame.forEach(item => {
-        console.log(item)
         const icones = item.querySelectorAll('i')
         const slider = item.querySelector('.frameProdutos')
-
-        console.log(icones)
-        console.log(slider)
         
         icones.forEach(function(icone){
             icone.addEventListener('click',function(){
