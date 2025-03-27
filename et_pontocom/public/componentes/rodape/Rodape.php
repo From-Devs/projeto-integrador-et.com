@@ -64,7 +64,7 @@ function createRodape(){
 
         <div class="terceiraSecao">
                     <p class="Termos">
-                        © 2024 - Et.com
+                        © 2025 - Et.com
                     </p>
                     <a>
                         <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/FromDevsLogo.png" id="LogoFromDevs">
