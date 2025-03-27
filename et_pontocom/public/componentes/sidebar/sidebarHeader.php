@@ -12,7 +12,7 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
     <div id="overlay" class="overlay"></div>
     <div class="sidebar_adm" id="sidebar_adm">
         <div class="nav_adm">
-            <a href="../../../app/views/usuario/paginaPrincipal.php" class="logo">
+            <a href="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" class="logo">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" alt="">
             </a>
             <div class="botoes_sidebar">
@@ -110,7 +110,7 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                     <p class="categoria_nome">Ajuda e Configurações</p>
                     <ul>
                         <li class="config"><a href="#" class="config_link">Minha Conta</a></li>
-                        <li class="config"><a href="../../../app/views/usuario/meusPedidos.php" class="config_link">Meus Pedidos</a></li>
+                        <li class="config"><a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/meusPedidos.php" class="config_link">Meus Pedidos</a></li>
                         ' . typeSidebar($tipoUsuario) . '
                         <li class="config"><a href="" class="config_link">Termos de Uso e Privacidade</a></li>
                     </ul>
