@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
     <link rel="stylesheet" href="../sidebarADM_Associado/styles.css">
-    <link rel="stylesheet" href="../botao/botoesComponente.css">
-    <link rel="stylesheet" href="../popUp/popUpComponente.css">
+    <link rel="stylesheet" href="../botao/styles.css">
+    <link rel="stylesheet" href="../popUp/styles.css">
 </head>
 <body>
     <div class="sidebar_adm">
@@ -74,6 +74,6 @@
     </div>
     
     <script src="./script.js"></script>
-    <script src="../popUp/popUp.js"></script>
+    <script src="../popUp/script.js"></script>
 </body>
 </html>

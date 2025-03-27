@@ -161,9 +161,8 @@
     transform: translate(-50%, -50%);
 }
 
-.popUp{
-    display: flex;
-    gap: 40px;
+.popUp .texto-popUp{
+    margin-bottom: 30px;
 }
 
 .popUp .botoes-popUp{
