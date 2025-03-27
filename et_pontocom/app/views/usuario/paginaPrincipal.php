@@ -7,7 +7,7 @@
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
     session_start();
-    // $tipo_usuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
+    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 
