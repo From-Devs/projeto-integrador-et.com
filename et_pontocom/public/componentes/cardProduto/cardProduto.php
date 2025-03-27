@@ -24,7 +24,7 @@ function createCardProduto($marca, $nomeProduto, $preco, $imagemProduto, $emDesc
             <i class='buraquinho'></i>
         </div>
 
-        <img class='imagemMaldita' src='/projeto-integrador-et.com/et_pontocom/public/imagens/produtoCard/produtos/$imagemProduto' alt='Imagem'>
+        <img class='imagemMaldita' src='/projeto-integrador-et.com/et_pontocom/public/imagens/produto/$imagemProduto' alt='Imagem'>
 
         <div class= 'contentDeBaixo'>
             <hr class= 'linha'>
