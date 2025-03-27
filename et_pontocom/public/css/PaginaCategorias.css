@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+/* PARTE INICIAL */
+.Topo {
+    background-image: url(../imagens/PaginaCategoria/PerfumeFundo.png);
+    height: 970px;
+}
+.Titulo {
+    height: 970px;
+    color: white;
+    font-size: 150px;
+    font-weight: lighter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.Titulo img {
+    position: absolute;
+    z-index: 3;
+}
+/* ONDA */
+section
+{  
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+ 
+}
+
+section .wave
+{
+    position: absolute;
+    top: 0;
+    width: 200%;
+    height: 100px;
+    background: url(../imagens/wave.png);
+    background-size: 1000px 100px;
+    animation: animacao 10s linear infinite;
+}
+ 
+section .wave.wave1
+{
+    top: 0;
+    animation: animacao 10s linear infinite;
+    z-index: 100;
+    opacity: 1;
+    animation-delay: 0s;
+ 
+ 
+}
+
+@keyframes animacao {
+ 
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
+     
+}
+/* PARTE DOS PRODUTOS */
+
+.filtro {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: #D9D9D9;
+    padding: 5px;
+    width: 150px;
+    font-size: larger;
+}
+.PartedeCima {
+    margin: 10px 40px 0px 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 150px;
+}
+.PartedeBaixo {
+    margin: 0px 250px;
+    display: flex;
+}
