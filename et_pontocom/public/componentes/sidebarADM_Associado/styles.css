@@ -161,6 +161,10 @@
     transform: translate(-50%, -50%);
 }
 
+.popUp .icone-fechar{
+    display: none;
+}
+
 .popUp .texto-popUp{
     margin-bottom: 30px;
 }
@@ -169,7 +173,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: 20px;
+    gap: 100px;
     border-radius: 20%;
     background-color: white;
 
