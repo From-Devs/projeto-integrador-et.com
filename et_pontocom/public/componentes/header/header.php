@@ -36,8 +36,9 @@ function createHeader($login,$tipoUsuario){ // Sempre que reutilizar o header, s
 
     // Abaixo é o código do header que vai pro HTML, ele usa a função de criar a sidebar de outro componente.
     return "
+    ".createSidebar($tipoUsuario)."
     <header class='headerUsuario' id='headerUsuario'>
-        ".createSidebar($tipoUsuario)."
+        
         <div class='esquerdo'>
             <div class='menu-toggle' id='menu-toggle'>
                 <span class='bar'></span>

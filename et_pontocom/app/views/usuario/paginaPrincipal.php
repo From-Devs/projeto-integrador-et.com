@@ -41,6 +41,9 @@
     echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
 
+    <div class="carousel"></div>
+    <div class="degradeParaHeader"></div>
+
     <div class="linkCategorias">
         <a class="botaoCategoria" href="">            
             <div class="containerIconeCategoria">
