@@ -1,7 +1,8 @@
 <?php
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
+    require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";  //importar rodapé
 
-    require_once "/xampp/htdocs/projeto-integrador-et.com/et_pontocom/public/componentes/botoes/botao.php";
+    require_once "/xampp/htdocs/projeto-integrador-et.com/et_pontocom/public/componentes/botao/botao.php";
     require_once "/xampp/htdocs/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/popUp.php";
 
     session_start();
@@ -17,12 +18,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Pedidos</title>
     <!-- css -->
-    <link rel="stylesheet" href="../../../public/componentes/header/style.css">
-    <link rel="stylesheet" href="../../../public/componentes/sidebar/style.css">
+    <link rel="stylesheet" href="../../../public/componentes/header/styles.css">
+    <link rel="stylesheet" href="../../../public/componentes/sidebar/styles.css">
     <link rel="stylesheet" href="../../../public/css/meusPedidos.css">
+    <link rel="stylesheet" href="../../../public/componentes/rodape/styles.css">
     <!-- botao e popup -->
-    <link rel="stylesheet" href="../../../public/componentes/botoes/botoesComponente.css">
-    <link rel="stylesheet" href="../../../public/componentes/popUp/popUpComponente.css">
+    <link rel="stylesheet" href="../../../public/componentes/botao/styles.css">
+    <link rel="stylesheet" href="../../../public/componentes/popUp/styles.css">
     <!-- link para icones e outros -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -31,7 +33,7 @@
 </head>
 <body>
     <?php
-    echo createHeader($login,$tipoUsuario); // função que cria o header
+        echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
 
     <div class="conteudoMeusPedidos">
@@ -71,8 +73,15 @@
 
         <div class="linhaInferiorMP"></div>
     </div>
+    <footer>
+        <?php  
+            echo createRodape()
+        ?>
+    </footer>
 
     <script src="../../../public/componentes/header/script.js"></script>
     <script src="../../../public/componentes/sidebar/script.js"></script>
+    <script src="../../../public/componentes/rodape/script.js"></script>
+    <script src="../../../public/javascript/meusPedidos.js"></script>
 </body>
 </html>
