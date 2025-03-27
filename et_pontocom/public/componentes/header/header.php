@@ -60,7 +60,7 @@ function createHeader($login,$tipoUsuario){ // Sempre que reutilizar o header, s
         <div class='direito'>
             <div class='botoes'>
                 <img id='lupa2' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/lupa.png' alt=''>
-                <a href='#'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/coracao.png' alt=''></a>
+                <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/listaDeDesejos.php'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/coracao.png' alt=''></a>
                 <a href='#'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/carrinho.png' alt=''></a>
                 <img id='perfil' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/perfil.png' alt=''>
             </div>
