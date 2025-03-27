@@ -46,6 +46,19 @@
         <center><div class="line"></div></center>
     </div>
 
+    <div class="cont-legend">
+        <div class="cards-legend">
+            <div class="produto">
+                <p><strong>Produto</strong></p>
+            </div>
+
+            <div class="preco">
+                <p><strong>Preço</strong></p>
+            </div>
+        </div>
+    </div>
+   
+
     <div class="container">
         <div class="card-container">
             <div class="card01">
