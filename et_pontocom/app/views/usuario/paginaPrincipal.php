@@ -182,6 +182,6 @@
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/produtoDestaque/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
-    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/paginaPrincipalCategorias.js"></script>
+    <!-- <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/paginaPrincipalCategorias.js"></script> -->
 </body>
 </html>
