@@ -48,7 +48,7 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
                 <div class="titulo-produto">
                     <div class="titulo">
                         <h3>Lorem ipsum dolor sit amet consectetur adipisicing</h3>
-                        <?php echo PopUpComImagemETitulo("popUpFavorito", "img-favorito.png", "120px", "Adicionado aos favoritos!", "", "", "", "200px")?>
+                        <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "120px", "Adicionado aos favoritos!", "", "", "", "200px")?>
                         <abbr title="Adicionar aos favoritos">
                             <button class="coracaoImg" onclick="abrirPopUp('popUpFavorito')">
                                 <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coracao-detalhes-produto.png' alt='Coração'>
@@ -234,7 +234,7 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
     </div>
 
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
-    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/popUp.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto/detalhesDoProduto.js"></script>
 </body>
 </html>
