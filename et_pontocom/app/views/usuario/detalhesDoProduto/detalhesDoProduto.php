@@ -65,7 +65,6 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
                         </abbr>
                     </div>
                 </div>
-                <hr>
                 <div class="mais-detalhes">
                     <div class="descricao">
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores illum iste hic, eius quae natus nobis eveniet voluptates qui facere modi? Explicabo, ad velit. Consequatur placeat possimus dolore accusantium iure.
@@ -127,8 +126,13 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
                 <div class="qtd-respostas">
                     <h2>4 respostas obtidas</h2>
                 </div>
-                <div class="div-ordenar">
-                    <button class="btn-ordenar" onclick="abrirFiltro()">Ordenar por: <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/setaBaixo.png" alt="seta-baixo"></button>
+                <select name="ordenar" id="ordenar">
+                    <option value="" disabled selected>Ordenar por</option>
+                    <option value="maisRelevantes">Mais relevantes</option>
+                    <option value="maisRecentes">Mais recentes</option>
+                    <option value="maisAntigas">Mais antigas</option>
+                </select>
+                    <!-- <button class="btn-ordenar" onclick="abrirFiltro()">Ordenar por: <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/setaBaixo.png" alt="seta-baixo"></button>
                     <div class="" hidden>
                         <div class="item-filtro mais-relevantes">
                             <span>Mais relevantes</span>
@@ -142,17 +146,16 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
                             <span>Mais antigas</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="container-avaliacoes">
-                <hr style="border-color: black;">
                 <div class="avaliacao">
                     <div class="container-nome-usuario">
-                        <h3 class="nome-usuario">Nícolas Eloy</h3>
-                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
+                        <h3 class="nome-usuario">Maria Silva</h3>
+                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-5.png" alt="img-avaliacao">
                     </div>
                     <div class="data-avaliacao">
-                        <span>01/01/2024</span>
+                        <span>10/01/2024</span>
                     </div>
                     <div class="descricao-avaliacao">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?</p>
@@ -166,14 +169,13 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
                         </div>
                     </div>
                 </div>
-                <hr>
                 <div class="avaliacao">
                     <div class="container-nome-usuario">
                         <h3 class="nome-usuario">Nícolas Eloy</h3>
-                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
+                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-2.png" alt="img-avaliacao">
                     </div>
                     <div class="data-avaliacao">
-                        <span>01/01/2024</span>
+                        <span>25/12/2024</span>
                     </div>
                     <div class="descricao-avaliacao">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?</p>
@@ -187,14 +189,13 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
                         </div>
                     </div>
                 </div>
-                <hr>
                 <div class="avaliacao">
                     <div class="container-nome-usuario">
-                        <h3 class="nome-usuario">Nícolas Eloy</h3>
+                        <h3 class="nome-usuario">Marcos Rosa</h3>
                         <img class="avaliacao-usuario" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
                     </div>
                     <div class="data-avaliacao">
-                        <span>01/01/2024</span>
+                        <span>03/08/2024</span>
                     </div>
                     <div class="descricao-avaliacao">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?</p>
@@ -208,11 +209,10 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
                         </div>
                     </div>
                 </div>
-                <hr>
                 <div class="avaliacao">
                     <div class="container-nome-usuario">
-                        <h3 class="nome-usuario">Nícolas Eloy</h3>
-                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
+                        <h3 class="nome-usuario">Evandro Marques</h3>
+                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-3.png" alt="img-avaliacao">
                     </div>
                     <div class="data-avaliacao">
                         <span>01/01/2024</span>

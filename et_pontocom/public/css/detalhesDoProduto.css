@@ -241,7 +241,6 @@ abbr{
     justify-content: space-between;
     align-items: center;
     background-color: #dedede;
-    padding: 15px 10px;
     border-radius: 30px;
 }
 
@@ -271,8 +270,20 @@ abbr{
     color: rgb(52, 52, 52);
 }
 
-.div-ordenar{
-    width: 115px;
+select {
+    padding: 10px;
+    border-radius: 10px 10px 0px 0px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+option {
+    background-color: black;
+    color: white;
+}
+
+/* .div-ordenar{
+    width: 130px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -280,8 +291,6 @@ abbr{
 }
 
 .btn-ordenar{
-    display: flex;
-    width: 100%;
     height: 40px;
     justify-content: center;
     align-items: center;
@@ -324,17 +333,18 @@ abbr{
 .item-filtro span{
     text-align: center;
     font-size: 0.8rem;
-}
+} */
 
 .container-avaliacoes{
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 .avaliacao{
     display: flex;
     flex-direction: column;
+    border-top: 1px solid black;
+    padding: 10px;
 }
 
 .container-nome-usuario{
