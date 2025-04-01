@@ -265,47 +265,6 @@ main {
 .user_Box-ediçao p {
     padding: 12px;
 }
-
-.selectDDD {
-    display: flex;
-    align-items: center;
-    background-color: #e0e0e0;
-    padding: 10px 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.DDDs {
-    border: none;
-    outline: none;
-    appearance: none;
-}
-
-.optDDD{
-    border: none;
-    outline: none;
-}
-
-.bandeira {
-    width: 30px;
-    height: 20px;
-    background-image: url('https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg');
-    background-size: cover;
-    margin-right: 10px;
-}
-
-select {
-    border: none;
-    background: none;
-    font-size: 16px;
-    cursor: pointer;
-    outline: none;
-}
-
-option {
-    font-size: 14px;
-}
-
 .linha{
     display: flex;
     align-items: center;
@@ -340,11 +299,4 @@ option {
 .ediçao-img img{
     width: 321px;
     height: 214px;
-}
-.user-dados-edicao{
-    margin-top: 100px;
-    height: 500px;
-    width: 450px;
-    height: 85%;
-    width: 5px;
 }
