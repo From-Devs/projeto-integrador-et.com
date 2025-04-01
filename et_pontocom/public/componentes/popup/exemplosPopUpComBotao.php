@@ -13,6 +13,8 @@ require_once __DIR__ . "../../popup/popUp.php";
     <title>Teste PI</title>
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/botoesComponente.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/popUpComponente.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     
