@@ -11,7 +11,7 @@
     position: fixed;
     color: var(--cor-sidebar-escrita);
     font-family: "Montserrat",serif;
-    z-index: 1000;
+    z-index: 1002;
     transition: left 0.5s cubic-bezier(.37,0,.31,1); /* Animação de entrada */
 }
 
@@ -175,7 +175,7 @@
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     pointer-events: none; /* Permite clicar através do overlay quando invisível */
-    z-index: 999; /* Fica abaixo do menu */
+    z-index: 1001; /* Fica abaixo do menu */
 }
 
 .overlay.mostrar {
