@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
     const pesquisa = document.getElementById("pesquisaHeader");
     const input = document.getElementById("inputHeader");
     const lupa = document.getElementById("lupa2");
-    const coracao = document.getElementById("coracao");
-    const carrinho = document.getElementById("carrinho");
     const perfil = document.getElementById("perfil");
     const menuConta = document.getElementById("menuConta");
     const botaoMenu = document.getElementById('menu-toggle');
@@ -15,11 +13,6 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
     const logo = document.getElementById('logoHeader');
 
     menuConta.style.display = "none"; // tive que colocar isso no script pq no CSS não estava funcionando
-
-    // depois precisa trocar os caminhos que os botões levam (Ex: coração levar pra lista de desejo)
-    logo.addEventListener("click", function(){ // Quando clicar na logo do header, levar para página inicial
-        window.location.href = "home";
-    })
 
     // Abrir a Sidebar
     botaoMenu.addEventListener('click', function (event) {
