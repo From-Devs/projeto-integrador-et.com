@@ -46,8 +46,11 @@
     <div class="carousel">
         
         <?php
-        // echo createHeader($login,$tipoUsuario,1);
+        echo createHeader($login,$tipoUsuario,1);
         ?>
+        <div class="carouselContent">
+            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" alt="" class="carouselLogo">
+        </div>
         <?php
         echo createOnda(1);
         echo createOnda(0);

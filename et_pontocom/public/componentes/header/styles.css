@@ -66,7 +66,7 @@
     cursor: pointer;
 }
 
-.pesquisa{ /* Barrinha de pesquisa (inicialmente escondida) */
+.pesquisaHeader{ /* Barrinha de pesquisa (inicialmente escondida) */
     height: 45px;
     position: absolute;
     display: flex;
@@ -79,19 +79,19 @@
     transition-timing-function: ease-in-out;
 }
 
-.pesquisa.open{ /* Barrinha de pesquisa quando está na tela */
+.pesquisaHeader.open{ /* Barrinha de pesquisa quando está na tela */
     opacity: 1;
     transform: translate(-50%,-55%);
     visibility: visible;
 }
 
-.pesquisa.closed{ /* Barrinha de pesquisa quando está escondida */
+.pesquisaHeader.closed{ /* Barrinha de pesquisa quando está escondida */
     opacity: 0;
     transform: translate(-50%,-250%);
     visibility: hidden;
 }
 
-.pesquisa input{ /* input da barrinha de pesquisa (onde dá pra escrever) */
+.pesquisaHeader input{ /* input da barrinha de pesquisa (onde dá pra escrever) */
     width: 580px;
     padding: 14px;
     border: 0;
@@ -101,11 +101,11 @@
     font-family: "Montserrat", sans-serif;
 }
 
-#inputHeader:focus{ /* serve para quando vc clicar no input, não aparecer uma borda preta */
+.inputHeader:focus{ /* serve para quando vc clicar no input, não aparecer uma borda preta */
     outline: 0;
 }
 
-.pesquisa button{ /* botão ao lado do input, onde está a lupinha */
+.pesquisaHeader button{ /* botão ao lado do input, onde está a lupinha */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,20 +116,20 @@
     padding-left: 10px;
 }
 
-.pesquisa i{ /* lupinha no botão do input */
+.pesquisaHeader i{ /* lupinha no botão do input */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.pesquisa i::before{ /* lupinha no botão do input também, n lembro qual é a diferença */
+.pesquisaHeader i::before{ /* lupinha no botão do input também, n lembro qual é a diferença */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 36px;
 }
 
-#menuConta{ /* Menu que abre quando clica no icone de perfil (canto superior direito) */
+.menuConta{ /* Menu que abre quando clica no icone de perfil (canto superior direito) */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,7 +145,7 @@
     animation: slide-in 0.3s;
 }
 
-#menuConta::after { /* pontinha de balão em cima do menu */
+.menuConta::after { /* pontinha de balão em cima do menu */
     content: '';
     position: absolute;
     top: -10px;
@@ -174,15 +174,16 @@
     background-color: rgb(200, 200, 200);
 }
 
-.headerCarousel{
+#headerCarousel{
     background-image: none;
-    position: static;
+    position: relative;
 }
 
-.headerCarousel .esquerdo{
+#headerCarousel .esquerdo{
     background-image: none;
 }
-.headerCarousel .direito{
+
+#headerCarousel .direito{
     background-image: none;
 }
 
@@ -221,7 +222,7 @@
 }
 
 @media (max-width: 992px){ /*Tablet*/
-    #menuConta{
+    .menuConta{
         right: 16px;
         bottom: -115px;
     }

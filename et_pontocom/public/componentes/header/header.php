@@ -53,19 +53,19 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
     
             </div>
     
-            <div class='pesquisa closed' id='pesquisaHeader'>
-                <input type='text' id='inputHeader'></input>
-                <button><i class='bx bx-search' id='lupa'></i></button>
+            <div class='pesquisaHeader closed'>
+                <input type='text' class='inputHeader'></input>
+                <button><i class='bx bx-search lupaHeaderInput'></i></button>
             </div>
     
             <div class='direito'>
                 <div class='botoes'>
-                    <img id='lupa2' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/lupa.png' alt=''>
+                    <img class='lupaHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/lupa.png' alt=''>
                     <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/listaDeDesejos.php'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/coracao.png' alt=''></a>
                     <a href='#'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/carrinho.png' alt=''></a>
-                    <img id='perfil' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/perfil.png' alt=''>
+                    <img class='perfilHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/perfil.png' alt=''>
                 </div>
-                <div id='menuConta' class='menuConta'>
+                <div class='menuConta'>
                     $botao1
                     $botao2
                 </div>
@@ -74,7 +74,7 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
         ";
     }else{
         return "
-        <header class='headerUsuario headerCarousel' id='headerUsuario'>
+        <header class='headerUsuario' id='headerCarousel'>
             
             <div class='esquerdo'>
                 <div class='menu-toggle' id='menu-toggle'>
@@ -85,19 +85,19 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
     
             </div>
     
-            <div class='pesquisa closed' id='pesquisaHeader'>
-                <input type='text' id='inputHeader'></input>
-                <button><i class='bx bx-search' id='lupa'></i></button>
+            <div class='pesquisaHeader closed'>
+                <input type='text' class='inputHeader'></input>
+                <button><i class='bx bx-search lupaHeaderInput'></i></button>
             </div>
     
             <div class='direito'>
                 <div class='botoes'>
-                    <img id='lupa2' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/lupa.png' alt=''>
+                    <img class='lupaHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/lupa.png' alt=''>
                     <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/listaDeDesejos.php'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/coracao.png' alt=''></a>
                     <a href='#'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/carrinho.png' alt=''></a>
-                    <img id='perfil' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/perfil.png' alt=''>
+                    <img class='perfilHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/perfil.png' alt=''>
                 </div>
-                <div id='menuConta' class='menuConta'>
+                <div class='menuConta'>
                     $botao1
                     $botao2
                 </div>
