@@ -1,3 +1,4 @@
+//______________Parte de deixar colorida o botão do sidebar ao clicar________________
 document.addEventListener("DOMContentLoaded",function(){
     const menuBotoes = document.querySelectorAll(".nav-item");
 
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded",function(){
 })
 
 
-
+// ____________________Parte de PopUp e botão______________________________
 document.addEventListener("DOMContentLoaded", function(){
     document.addEventListener("click", function(event){
         if (event.target.matches(".btn-white")){
