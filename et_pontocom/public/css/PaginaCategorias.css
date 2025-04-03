@@ -7,6 +7,8 @@
 .Topo {
     background-image: url(../imagens/PaginaCategoria/PerfumeFundo.png);
     height: 970px;
+    z-index: 1000;
+    position: relative;
 }
 .Titulo {
     height: 970px;
@@ -25,7 +27,7 @@
 /* ONDA */
 section
 {  
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100px;
     background-color: rgb(0, 0, 0);
@@ -41,14 +43,14 @@ section .wave
     height: 100px;
     background: url(../imagens/wave.png);
     background-size: 1000px 100px;
-    animation: animacao 10s linear infinite;
+    animation: animacao 10s linear infinite; 
 }
  
 section .wave.wave1
 {
     top: 0;
     animation: animacao 10s linear infinite;
-    z-index: 100;
+    z-index: 1;
     opacity: 1;
     animation-delay: 0s;
  
