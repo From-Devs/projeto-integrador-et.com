@@ -1,4 +1,4 @@
-<?php include __DIR__ . "/../../../public/componentes/telaAssociado/componenteAssociado.php" ?>
+<?php include __DIR__ . "/../../../public/componentes/telaADM/componenteADM.php" ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="./../../../public/css/associado/dashboard-associado.css">
+    <link rel="stylesheet" href="./../../../public/css/DashboardAssociado.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
@@ -15,7 +15,7 @@
     <div class="sidebar_adm">
         <nav class="nav_adm">
             <div class="logo">
-                <img src="../../../public/imagens/ET/LogoBranca1.png" alt="LogoET">
+                <img src="./../../../public/imagens/ET/LogoBranca1.png" alt="LogoET">
             </div>
             <div class="linhaGradiente"></div>
             <div class="botoesMenu">
@@ -66,12 +66,13 @@
             </div>
         </nav>
     </div>
-    <!-- aqui acaba o lado esquerdo -->
+
+    <!-- conteudo main dashboard -->
     <div id="container">
         <div id="controleIcon">
             <div id="iconUsuario">
                 <img id="fotoUser" src="../../../public/imagens/imagensADM/userIMG.png" alt="userIMG">
-                <p id="textUser">Associado ET</p>
+                <p id="textUser">ADM ET</p>
             </div>
         </div>
         <div id="titulo">
@@ -99,4 +100,4 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./../../../public/javascript/javascriptADM.js"></script>
 </body>
-</htmld>
+</html>
