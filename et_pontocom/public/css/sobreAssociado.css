@@ -1,7 +1,11 @@
+/*RESET DA ESTILIZAÇÃO PADRÃO*/
+
 *{
     margin: 0;
     padding: 0;
 }
+
+/*INICIAÇÂO DA ESTILIZAÇÃO*/
 
 body{
     font-family: 'Montserrat', sans-serif;
@@ -121,6 +125,8 @@ body{
     color: black;
 }
 
+/*RESPONSIVIDADE*/
+
 @media screen and (max-width: 820px){
     /*TEXT01*/
     .titleIni h1{
@@ -180,6 +186,10 @@ body{
         text-align: justify;
     }
 }
+
+/*RESPONSIVIDADE*/
+
+/*BOTÃO*/
 
 @media screen and (max-width: 1380px){
     .card-box button{

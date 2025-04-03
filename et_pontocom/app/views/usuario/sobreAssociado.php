@@ -36,6 +36,7 @@
     <?php
     echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
+
     <div class="container">
         <div class="initImg">
             <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/sobreAssociado/imgInicial.png" alt="">
