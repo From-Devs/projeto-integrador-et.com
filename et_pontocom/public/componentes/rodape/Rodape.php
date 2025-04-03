@@ -22,22 +22,22 @@ function createRodape(){
                         Categorias
                     </h1>
                     <div class="ColunsLine">
-                        <a class="CategoriaLink">
+                        <a href="" class="CategoriaLink">
                             Maquiagem
                         </a>
-                        <a class="CategoriaLink">
+                        <a href="" class="CategoriaLink">
                             Perfumes
                         </a>
-                        <a class="CategoriaLink">
+                        <a href="" class="CategoriaLink">
                             SkinCare
                         </a>
-                        <a class="CategoriaLink">
+                        <a href="" class="CategoriaLink">
                             Cabelo
                         </a>
-                        <a class="CategoriaLink">
+                        <a href="" class="CategoriaLink">
                             Eletrônicos
                         </a>
-                        <a class="CategoriaLink">
+                        <a href="" class="CategoriaLink">
                             Corporal
                         </a>
                     </div>
@@ -48,13 +48,13 @@ function createRodape(){
                         Torne-se um Associado
                     </h1>
                     <div class="ColunsLine">
-                        <a class="CategoriaLink">
+                        <a href="" class="CategoriaLink">
                             Sobre
                         </a>
-                        <a class="CategoriaLink">
+                        <a href="" class="CategoriaLink">
                             Tornar-se Agora
                         </a>
-                        <a class="CategoriaLink">
+                        <a href="" class="CategoriaLink">
                             
                         </a>
                     </div>

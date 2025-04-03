@@ -33,6 +33,9 @@ body{
 
 .linkCategorias{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; */
     padding-top: 100px;
     gap: 56px;
 }
@@ -92,10 +95,27 @@ body{
     .wave.fantasma{
         background-size: 100vw 100px;
     } */
+
+    .linkCategorias{
+        transform: scale(0.9);
+        padding-top: 160px;
+    }
+}
+
+@media (max-width: 1300px){ /*Computador*/
+
 }
 
 @media (max-width: 1200px){ /*Computador*/
+    .linkCategorias{
+        transform: scale(0.8);
+    }
+}
 
+@media (max-width: 1067px){ /*Computador*/
+    .linkCategorias{
+        gap: 30px;
+    }
 }
 
 @media (max-width: 992px){ /*Tablet*/

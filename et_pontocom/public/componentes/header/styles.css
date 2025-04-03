@@ -249,6 +249,7 @@
 
     .esquerdo img{
         width: 120px;
+        height: auto;
         filter: drop-shadow(0px 0px 2px black);
     }
 
