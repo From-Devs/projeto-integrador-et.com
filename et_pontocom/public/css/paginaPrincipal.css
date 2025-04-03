@@ -32,10 +32,10 @@ body{
 }
 
 .linkCategorias{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     justify-content: center;
-    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; */
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: 1fr;
     padding-top: 100px;
     gap: 56px;
 }
@@ -119,7 +119,21 @@ body{
 }
 
 @media (max-width: 992px){ /*Tablet*/
+    .linkCategorias{
+        transform: scale(1);
+        padding-top: 140px;
+        gap: 56px;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(2,1fr);
+        grid-template-areas: 
+        "botao1 botao2 botao3"
+        "botao4 botao5 botao6"
+        ;
+    }
 
+    .sessaoProdutos{
+        padding-top: 70px;
+    }
 }
 
 @media (max-width: 768px){ /*Celular Paisagem*/

@@ -22,7 +22,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Et.com</title>
     
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/paginaPrincipal.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/sliderProdutos.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/header/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
@@ -32,6 +31,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cardLancamento/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/ondas/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/paginaPrincipal.css">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -59,42 +59,42 @@
     <div class="degradeParaHeader"></div>
 
     <div class="linkCategorias">
-        <a class="botaoCategoria" href="">            
+        <a class="botaoCategoria botao1" href="">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/batom.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/batomHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Maquiagem</p>            
         </a>
-        <a class="botaoCategoria" href="">            
+        <a class="botaoCategoria botao2" href="">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/perfume.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/perfumeHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Perfumes</p>            
         </a>
-        <a class="botaoCategoria" href="">            
+        <a class="botaoCategoria botao3" href="">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/skin.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/skinHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Skin Care</p>            
         </a>
-        <a class="botaoCategoria" href="">            
+        <a class="botaoCategoria botao4" href="">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/cabelo.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/cabeloHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Cabelo</p>            
         </a>
-        <a class="botaoCategoria" href="">            
+        <a class="botaoCategoria botao5" href="">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/eletronico.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/eletronicoHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Eletrônicos</p>            
         </a>
-        <a class="botaoCategoria" href="">            
+        <a class="botaoCategoria botao6" href="">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/corporal.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/corporalHover.png" alt="" class="iconeCategoriaHover">
