@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url(../../css/styles.css);
+@import url(../popup/popUp.php);
+@import url(../botao/styles.css);
 
 /*_________________Geral_________________*/
 *{
@@ -146,7 +148,44 @@
 .area_Sair .button_sair .button_name{
     color: var(--cor-sidebar-escrita);
     font-weight: 600;
+    font-size: 13px;
+    font-family: "Montserrat",serif;
 }
+
+
+/*___________Tentando estilizar o popup___________*/
+.popUpDialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popUp{
+    display: flex;
+    gap: 20px;
+}
+
+.popUp .icone-fechar{
+    display: none;
+}
+
+.popUp .texto-popUp{
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.popUp .botoes-popUp{
+    display: flex;
+    align-items: center;
+    width: 400px;
+    justify-content: end;
+    gap: 30px;
+    border-radius: 20%;
+    background-color: white;
+
+}
+
 
 
 /*_________________Caso a tela seja menor..._________________*/
