@@ -57,8 +57,8 @@
         </section>
 
             <!-- PopUp mostrando todos os pedidos efetuados na compra -->
-        <!-- <div class="popUpMP" id="popUpMP">
-            <?php  
+        <div class="popUpMP" id="popUpMP">
+         <!--    <?php  
             // echo PopUpConfirmar($id, $texto, $botao1 = "", $botao2 = "", $largura="auto", $corFundo="white", $corFonte="black", $tamanhoFonte="1.5rem")
             ?>
            <div class="conteudoPopUpMP">
