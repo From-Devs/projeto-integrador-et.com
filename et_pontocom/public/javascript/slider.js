@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const frame = document.querySelectorAll('.frameSlider');
     
     frame.forEach(item => {
-        const icones = item.querySelectorAll('i')
+        const icones = item.querySelectorAll('.setaSlider')
         const slider = item.querySelector('.frameProdutos')
         
         icones.forEach(function(icone){
