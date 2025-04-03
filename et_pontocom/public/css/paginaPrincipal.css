@@ -12,22 +12,28 @@ body{
 }
 
 .carousel{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%);
     z-index: 1000;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.carouselLogo{
+    width: 800px;
 }
 
 .degradeParaHeader{
     width: 100%;
     height: 64px;
-    background-image: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0) 50%);
     z-index: 1000;
 }
 
 .linkCategorias{
     display: flex;
-    padding-top: 200px;
+    padding-top: 100px;
     gap: 56px;
 }
 
@@ -79,7 +85,13 @@ body{
 }
 
 @media (max-width: 1400px){ /*Computador Grande*/
-
+    /* .wave.solida{
+        background-size: 100vw 200px;
+    }
+    
+    .wave.fantasma{
+        background-size: 100vw 100px;
+    } */
 }
 
 @media (max-width: 1200px){ /*Computador*/
