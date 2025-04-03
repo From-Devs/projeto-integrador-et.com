@@ -1,3 +1,5 @@
+/*RESET ESTILIZAÇÃO PADRÃO*/
+
 *{
     margin: 0;
     padding: 0;
@@ -42,6 +44,33 @@ body{
     gap: 40px;
     margin-top: 15px;
 }
+
+/*ESTILIZAÇÃO*/
+/*COLUNA COM OS NOMES (PRODUTOS E PRECO)*/
+
+.cont-legend{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.cards-legend{
+    display: grid;
+    width: 1475px;
+    grid-template-columns: 150px 300px;
+    font-size: 18px;
+}
+
+.produto{
+    text-align: center;
+}
+
+.preco{
+    text-align: center;
+}
+
+
+/*ESTILIZAÇÃO DOS CARDS*/
 
 /*CARD 01*/
 
@@ -262,6 +291,8 @@ input[type="checkbox"] {
     margin-top: 75px;
 }
 
+/*ESTILIZAÇÃO DO BOTÃO*/
+
 /*BOTÃO 01*/
 
 .button01 button{
@@ -308,7 +339,8 @@ input[type="checkbox"] {
 }
 
 
-/*RESPONSI*/
+/*RESPONSIDADE DOS CARDS*/
+
 /*CARD01*/
 
 @media screen and (max-width: 1496px){    
@@ -595,7 +627,7 @@ input[type="checkbox"] {
     
 }
 
-/*RESPONSIVE2*/
+/*RESPONSIVIDADE*/
 
 /*CARD01*/
 
@@ -864,7 +896,7 @@ input[type="checkbox"] {
     }
 }
 
-/*CARD03*/
+/*CARD04*/
 
 @media screen and (max-width: 1117px){
     .card-container{
@@ -933,26 +965,6 @@ input[type="checkbox"] {
     }
 }
 
-.cont-legend{
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-}
-
-.cards-legend{
-    display: grid;
-    width: 1475px;
-    grid-template-columns: 150px 300px;
-    font-size: 18px;
-}
-
-.produto{
-    text-align: center;
-}
-
-.preco{
-    text-align: center;
-}
 
 
 
