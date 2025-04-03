@@ -89,6 +89,12 @@
             const setas = carousel.querySelectorAll(".setaCarousel");
             console.log(setas);
 
+            icones.forEach(function(icone){
+                icone.addEventListener('click',function(){
+                    slider.scrollLeft += (icone.id === "esquerda" ? -600 : 600);
+                })
+            })
+
         });
     </script>
 </body>
