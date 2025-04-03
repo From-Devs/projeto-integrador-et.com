@@ -30,22 +30,6 @@ function abrirFiltro(){
     })
 }
 
-// const avaliacoes = document.getElementsByClassName("container-avaliacoes")[0];
-
-// console.log(avaliacoes.children[1]);
-
-// var datas = []
-
-// avaliacoes.forEach(div => {
-//     if(div.className == "avaliacao"){
-//         if(div.childNodes){
-//            div.childNodes.forEach(divAvaliacao => {
-
-//            }); 
-//         }
-//     }
-// });
-
 document.getElementById("ordenar").addEventListener("change", function() {
     let container = document.querySelector(".container-avaliacoes");
     let avaliacoes = Array.from(container.getElementsByClassName("avaliacao"));

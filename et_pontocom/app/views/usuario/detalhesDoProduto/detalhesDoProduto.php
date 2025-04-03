@@ -3,6 +3,8 @@
 require_once __DIR__ . "../../../../../public/componentes/header/header.php";
 require_once __DIR__ . "../../../../../public/componentes/popup/popUp.php";
 require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
+require_once __DIR__ . "../../../../../public/componentes/cardProduto/cardProduto.php";
+require_once __DIR__ . "../../../../../public/componentes/rodape/Rodape.php";
 
 ?>
 
@@ -11,11 +13,13 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css"> 
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/header/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/detalhesDoProduto.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>Detalhes do produto</title>
@@ -49,8 +53,8 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
                     <div class="titulo">
                         <h3>Lorem ipsum dolor sit amet consectetur adipisicing</h3>
                         <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "120px", "Adicionado aos favoritos!", "", "", "", "200px")?>
-                        <abbr title="Adicionar aos favoritos">
-                            <button class="coracaoImg" onclick="abrirPopUp('popUpFavorito')">
+                        <abbr class="abbr-favoritos" title="Adicionar aos favoritos" onclick="abrirPopUp('popUpFavorito')">
+                            <button class="imgCoracao">
                                 <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coracao-detalhes-produto.png' alt='Coração'>
                             </button>
                         </abbr>
@@ -232,9 +236,30 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
             </div>
         </div>
     </div>
+    
+    <div class="container-produtos-similares">
+        <div class="container-container-produtos-similares">
+            <h3 class="titulo-produtos-similares">Produtos similares</h3>
+            <div class="produtos-similares">
+                <?php
+                 echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$30,00", "vult.png", "", "", "#E4B186", "#E4B186", "#E4B186", "");
+                 echo createCardProduto("O Boticário", "Body Splash
+                 Biscoito ou Bolacha", "R$30,00", "biscoito.png", "", "", "#31BADA", "#31BADA", "#31BADA", "");
+                 echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$30,00", "milk.png", "", "", "#133285", "#133285", "#133285", "");
+                 echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", "", "R$30,00", "#77523A", "#77523A", "#77523A", "");
+                ?>
+            </div>
+        </div>
+    </div>
+
+    <?php 
+    echo createRodape(); 
+    ?>
 
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto/detalhesDoProduto.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/script.js"></script>
 </body>
 </html>
