@@ -83,18 +83,41 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-   
+        document.addEventListener("DOMContentLoaded", function () {
+            // Capturando os elementos
             const carousel = document.getElementById("carousel");
+            const produtosCarousel = carousel.querySelector(".produtosCarousel");
+            const imagens = produtosCarousel.querySelectorAll("img");
+            const pagina = carousel.querySelectorAll(".pagina");
             const setas = carousel.querySelectorAll(".setaCarousel");
-            console.log(setas);
 
-            icones.forEach(function(icone){
-                icone.addEventListener('click',function(){
-                    slider.scrollLeft += (icone.id === "esquerda" ? -600 : 600);
-                })
-            })
+            let indix = 0; // Índice do marcador ativo
 
+            setas.forEach(function (seta) {
+                // Capturando o evento de clique das setas
+                seta.addEventListener("click", function () {
+                    // Removendo a classe da página e da imagem atual
+                    pagina[indix].classList.remove("paginaSelecionada");
+                    imagens[indix].classList.remove("itemPrincipal");
+                    
+                    // Atualizando o índice com base na seta clicada
+                    if (seta.id === "esquerda") {
+                        indix = (indix === 0) ? imagens.length - 1 : indix - 1;
+                        console.log("<--- Índice atual:", indix);
+                    } else {
+                        indix = (indix === imagens.length - 1) ? 0 : indix + 1;
+                        console.log("---> Índice atual:", indix);
+                    }
+
+                    // Adicionando a classe na nova página e imagem
+                    imagens[indix].classList.add("itemPrincipal");
+                    pagina[indix].classList.add("paginaSelecionada");
+
+                    // Movendo o carrossel (agora na div correta)
+                    produtosCarousel.scrollLeft = imagens[indix];
+
+                });
+            });
         });
     </script>
 </body>
