@@ -45,6 +45,29 @@ function renderSomenteSubcategorias($categoriasPorTela, $telaAtual) {
     }
 }
 
+function createFiltroCategoria($categoriasPorTela, $telaAtual){
+    if (!isset($categoriasPorTela[$telaAtual])) {
+        echo "<p>Nenhum filtro disponível para essa tela.</p>";
+        return;
+    }
+
+    $categorias = $categoriasPorTela[$telaAtual];
+
+    return '
+    <div class="filtro">
+        <button class="filtro-botao" type="button" onclick="toggleFiltro()">
+            <img src="/projeto-integrador-et.com/et_pontocom/public/componentes/filtroCategoria/filtroimg.png" alt="Ícone de filtro">Filtros
+        </button>
+    </div>
+    
+    <div id="form-filtro" class="filtro-box">
+        <div class="form">
+                '. renderSomenteSubcategorias($categoriasPorTela, $telaAtual); .'
+        </div>
+    </div>
+    '
+}
+
 
 
 ?>
