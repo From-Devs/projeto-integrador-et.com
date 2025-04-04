@@ -167,8 +167,8 @@ require_once __DIR__ . "../../../../../public/componentes/rodape/Rodape.php";
                     <div class="pergunta-avaliacao">
                         <span>Esta avaliação foi útil?</span>
                         <div class="btns-pergunta">
-                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "", "20px", "0.9rem");
-                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "", "20px", "0.9rem");
+                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
+                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
                             ?>
                         </div>
                     </div>
@@ -187,8 +187,8 @@ require_once __DIR__ . "../../../../../public/componentes/rodape/Rodape.php";
                     <div class="pergunta-avaliacao">
                         <span>Esta avaliação foi útil?</span>
                         <div class="btns-pergunta">
-                        <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "", "20px", "0.9rem");
-                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "", "20px", "0.9rem");
+                        <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
+                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
                             ?>
                         </div>
                     </div>
@@ -207,8 +207,8 @@ require_once __DIR__ . "../../../../../public/componentes/rodape/Rodape.php";
                     <div class="pergunta-avaliacao">
                         <span>Esta avaliação foi útil?</span>
                         <div class="btns-pergunta">
-                        <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "", "20px", "0.9rem");
-                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "", "20px", "0.9rem");
+                        <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
+                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
                             ?>
                         </div>
                     </div>
@@ -227,8 +227,8 @@ require_once __DIR__ . "../../../../../public/componentes/rodape/Rodape.php";
                     <div class="pergunta-avaliacao">
                         <span>Esta avaliação foi útil?</span>
                         <div class="btns-pergunta">
-                        <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "", "20px", "0.9rem");
-                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "", "20px", "0.9rem");
+                        <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
+                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
                             ?>
                         </div>
                     </div>

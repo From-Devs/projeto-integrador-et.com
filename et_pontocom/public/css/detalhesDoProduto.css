@@ -15,6 +15,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .detalhes-principal{
@@ -373,4 +374,57 @@ option {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+@media (max-width: 1650px) {
+    .description-box{
+        padding: 10px 0px;
+    }
+}
+
+@media (max-width: 1230px) {
+    .img-principal div{
+        width: 300px;
+        height: 100%;
+    }
+
+    .botoes-detalhes button{
+        width: 100px;
+        height: 40px;
+    }
+
+    .detalhes-principal{
+        margin: 200px 20px 150px 20px;
+    }
+
+    .detalhes-info {
+        font-size: 0.9rem;
+    }
+
+    .container-produtos-similares{
+        flex-wrap: wrap;
+        overflow: scroll;
+    }
+
+    .container-container-produtos-similares{
+        margin: 30px;
+        flex-wrap: wrap;
+        overflow: scroll;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 850px) {
+    .detalhes-principal{
+        flex-direction: column;
+    }
+
+    .botoes-detalhes button{
+        width: 20px;
+    }
+
+    .img-principal div{
+        width: 250px;
+        height: 80%;
+    }
 }
