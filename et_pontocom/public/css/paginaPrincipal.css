@@ -116,9 +116,7 @@ body{
     .linkCategorias{
         gap: 30px;
     }
-}
 
-@media (max-width: 992px){ /*Tablet*/
     .linkCategorias{
         transform: scale(1);
         padding-top: 140px;
@@ -130,10 +128,12 @@ body{
         "botao4 botao5 botao6"
         ;
     }
+}
 
-    .sessaoProdutos{
-        padding-top: 70px;
-    }
+@media (max-width: 992px){ /*Tablet*/
+    
+
+    
 }
 
 @media (max-width: 768px){ /*Celular Paisagem*/
@@ -141,5 +141,15 @@ body{
 }
 
 @media (max-width: 576px){ /*Celular Vertical*/
-
+    .linkCategorias{
+        transform: scale(0.7);
+        padding-top: 0px;
+        gap: 20px;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(2,1fr);
+        grid-template-areas: 
+        "botao1 botao2 botao3"
+        "botao4 botao5 botao6"
+        ;
+    }
 }

@@ -51,10 +51,12 @@
         <div class="carouselContent">
             <!-- <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" alt="" class="carouselLogo"> -->
         </div>
-        <?php
-        echo createOnda(1);
-        echo createOnda(0);
-        ?>
+        <div class="frameOndas">
+            <?php
+            echo createOnda(1);
+            echo createOnda(0);
+            ?>
+        </div>
     </div>
     <div class="degradeParaHeader"></div>
 
@@ -131,7 +133,7 @@
 
     <?php
     // echo createProdutoDestaque("Hidratante Corporal Milk","Nivea","R$20,00","milk.png","rgb(0, 0, 145)","rgb(75, 75, 226)","rgb(0, 0, 57)");
-    echo createProdutoDestaque();
+    // echo createProdutoDestaque();
     ?>
 
     <div class="sessaoProdutos">

@@ -20,21 +20,26 @@
     </div> */
 
 .sessaoProdutos .tituloSessao{
-    padding: 0px 100px;
+    /* padding: 0px 100px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 36px;
-    width: 1180px;
+    width: 100%;
     height: 44px;
-    position: relative;
+    position: static;
 }
 
 .tituloSessao a{
+    padding-right: 100px;
     font-size: 24px;
     text-decoration: none;
     font-weight: 600;
     color: black;
+}
+
+.tituloSessao .titulo{
+    padding-left: 100px;
 }
 
 .sessaoProdutos{
@@ -109,12 +114,27 @@
 }
 
 @media (max-width: 1600px){ /*Computador Grande*/
+    .degradeDireita{
+        right: -2px;
+    }
+    
+    .degradeEsquerda{
+        left: -1px;
+    }
     .sessaoProdutos .tituloSessao{
         width: 980px;
     }
 
     .frameProdutos{
         width: 1180px;
+    }
+
+    .tituloSessao .titulo{
+        padding-left: 0;
+    }
+
+    .tituloSessao a{
+        padding-right: 0;
     }
 }
 
@@ -128,11 +148,11 @@
     }
 
     .cardLancamento{
-        transform: scale(0.9);
+        /* transform: scale(0.9); */
     }
 
     #containerLancamentos{
-        gap: 0px;
+        /* gap: 0px; */
     }
 }
 
@@ -147,7 +167,13 @@
 }
 
 @media (max-width: 992px){ /*Tablet*/
+    .frameProdutos{
+        width: 90vw;
+    }
 
+    .sessaoProdutos .tituloSessao{
+        width: 70vw;
+    }
 }
 
 @media (max-width: 768px){ /*Celular Paisagem*/

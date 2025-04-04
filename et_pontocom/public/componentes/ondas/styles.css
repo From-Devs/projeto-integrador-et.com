@@ -1,12 +1,13 @@
 .wave.solida{
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     width: 100vw;
     height: 250px;
     background: url(/projeto-integrador-et.com/et_pontocom/public/imagens/ondas/ondaSolida.png);
-    background-size: 100vw 250px;
+    background-size: 1920px 250px;
     animation: animacaoOnda 8s linear infinite;
     animation-delay: 0s;
+    overflow-x: hidden;
 }
 
 .wave.fantasma{
@@ -15,7 +16,7 @@
     width: 100vw;
     height: 250px;
     background: url(/projeto-integrador-et.com/et_pontocom/public/imagens/ondas/ondaFantasma.png);
-    background-size: 100vw 250px;
+    background-size: 1920px 250px;
     animation: animacaoOnda 10s linear infinite;
     animation-delay: 0s;
     margin-bottom: 35px;
@@ -29,6 +30,6 @@
     }
     100%
     {
-        background-position-x: 100vw;
+        background-position-x: 1920px;
     }
 }

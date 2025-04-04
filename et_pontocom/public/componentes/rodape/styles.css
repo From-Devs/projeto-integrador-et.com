@@ -254,7 +254,7 @@ footer{
         justify-content: center;
         width: 300px;
         margin: 10px;
-        height: 250px;
+        height: auto;
         margin-left: 82px;
     }
 
