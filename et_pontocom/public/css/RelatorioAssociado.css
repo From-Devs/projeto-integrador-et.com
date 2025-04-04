@@ -53,12 +53,12 @@
 
 /* parte dos cards */
 #titleRelatorios{
-    margin-left: 287px;
+    margin-left: 347px;
 }
 .cardsRelatorios{
     display: flex;
     flex-wrap: wrap;
-    margin-left: 287px;
+    margin-left: 347px;
     margin-top: 30px;
     gap: 50px;
 }
