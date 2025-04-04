@@ -64,6 +64,10 @@ a
 
 /* estilizacao das informacoes principais */
 
+#tituloH1{
+    margin-bottom: 15px;
+}
+
 #geralInformacoes
 {
     display: flex;

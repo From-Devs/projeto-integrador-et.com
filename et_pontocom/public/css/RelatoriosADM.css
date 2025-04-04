@@ -31,6 +31,12 @@ a
 
 /* estilizacao da parte do icone do usuario */
 
+#tituloH1
+{
+    margin-bottom: 15px;
+}
+
+
 #controleIcon
 {
     display: flex;

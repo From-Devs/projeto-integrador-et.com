@@ -52,8 +52,8 @@ a
 	display: flex;
 	align-items: center;
 	color: white;
-	font-weight: 300;
-	font-size: large;
+	font-size: 26px;
+	font: bolder;
 }
 
 #pointerAviso
