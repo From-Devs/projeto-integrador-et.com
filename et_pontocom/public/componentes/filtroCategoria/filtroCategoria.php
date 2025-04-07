@@ -49,7 +49,7 @@ function createFiltroCategoria($categoriasPorTela, $telaAtual){
     if (!isset($categoriasPorTela[$telaAtual])) {
         echo "<p>Nenhum filtro disponível para essa tela.</p>";
         return;
-    }
+    };
 
     $categorias = $categoriasPorTela[$telaAtual];
 
@@ -62,11 +62,11 @@ function createFiltroCategoria($categoriasPorTela, $telaAtual){
     
     <div id="form-filtro" class="filtro-box">
         <div class="form">
-                '. renderSomenteSubcategorias($categoriasPorTela, $telaAtual); .'
+                '. renderSomenteSubcategorias($categoriasPorTela, $telaAtual) .'
         </div>
     </div>
-    '
-}
+    ';
+};
 
 
 

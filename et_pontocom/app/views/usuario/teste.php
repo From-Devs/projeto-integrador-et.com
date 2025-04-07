@@ -1,5 +1,6 @@
 <?php
     require __DIR__ . "/../../../public/componentes/filtroCategoria/filtroCategoria.php";
+    $telaAtual = "Maquiagem";
 ?>
 
 <!DOCTYPE html>
@@ -12,18 +13,9 @@
 
 </head>
 <body>
-    <div class="filtro">
-        <button class="filtro-botao" type="button" onclick="toggleFiltro()">
-            <img src="/projeto-integrador-et.com/et_pontocom/public/componentes/filtroCategoria/filtroimg.png" alt="Ícone de filtro">Filtros
-        </button>
-    </div>
-    
-    <div id="form-filtro" class="filtro-box">
-        <div class="form">
-            <?php $telaAtual = $_GET["tela"] ?? "Maquiagem";
-                renderSomenteSubcategorias($categoriasPorTela, $telaAtual);?>
-        </div>
-    </div>
+    <?php
+    createFiltroCategoria($categoriasPorTela, $telaAtual);
+    ?>
 
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/filtroCategoria/script.js"></script>
 </body>
