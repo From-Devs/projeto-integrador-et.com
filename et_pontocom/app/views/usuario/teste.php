@@ -14,7 +14,7 @@
 </head>
 <body>
     <?php
-    createFiltroCategoria($categoriasPorTela, $telaAtual);
+    echo createFiltroCategoria($categoriasPorTela, $telaAtual);
     ?>
 
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/filtroCategoria/script.js"></script>
