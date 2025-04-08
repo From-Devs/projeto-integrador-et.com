@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
 </head>
 <body>
+
     <div class="sidebar_adm">
         <nav class="nav_adm">
             <div class="logo">
@@ -85,7 +86,7 @@
             <table id="tabelaVendas">
                 <tbody>
                     <tr>
-                        <td>1</td>
+                        <td class="idProduto">1</td>
                         <td>Puro Voodoo</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc" >R$66,666</td>
@@ -93,7 +94,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>2</td>
+                        <td class="idProduto">2</td>
                         <td>Base Wepink</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc" >R$55,555</td>
@@ -101,7 +102,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>3</td>
+                        <td class="idProduto">3</td>
                         <td>Body Splash Wepink</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$11,444</td>
@@ -109,7 +110,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>4</td>
+                        <td class="idProduto">4</td>
                         <td>Perfume da Barbie</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$33,333</td>
@@ -117,7 +118,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>5</td>
+                        <td class="idProduto">5</td>
                         <td>Perfume Carros Katchau</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$22,222</td>
@@ -125,7 +126,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>6</td>
+                        <td class="idProduto">6</td>
                         <td>Perfume do Ben 10</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$21,444</td>
@@ -133,7 +134,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>7</td>
+                        <td class="idProduto">7</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$99,999</td>
@@ -141,7 +142,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>8</td>
+                        <td class="idProduto">8</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$666,66</td>
@@ -149,7 +150,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>9</td>
+                        <td class="idProduto">9</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$666,66</td>
@@ -157,7 +158,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>10</td>
+                        <td class="idProduto">10</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$666,66</td>
@@ -165,7 +166,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>11</td>
+                        <td class="idProduto">11</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$666,66</td>
@@ -173,7 +174,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>12</td>
+                        <td class="idProduto">12</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$666,66</td>
@@ -181,7 +182,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>13</td>
+                        <td class="idProduto">13</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$666,66</td>
@@ -189,7 +190,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>14</td>
+                        <td class="idProduto">14</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$666,66</td>
@@ -197,7 +198,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>15</td>
+                        <td class="idProduto">15</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$666,66</td>
@@ -205,7 +206,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>16</td>
+                        <td class="idProduto">16</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$666,66</td>
@@ -213,7 +214,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>17</td>
+                        <td class="idProduto">17</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$666,66</td>
@@ -221,7 +222,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>18</td>
+                        <td class="idProduto">18</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$666,66</td>
@@ -229,7 +230,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>19</td>
+                        <td class="idProduto">19</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$666,66</td>
@@ -237,7 +238,7 @@
                         <!-- provavelmente vai ter que ter um botão aqui -->
                     </tr>
                     <tr>
-                        <td>20</td>
+                        <td class="idProduto">20</td>
                         <td>Perfume do Skibidi Toilet</td>
                         <td>19/08/24 14:50</td>
                         <td id="precoassoc">R$666,66</td>
