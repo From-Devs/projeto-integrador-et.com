@@ -5,7 +5,7 @@ function createRodape(){
         
         <div class="primeiraSecao">
             <button type=button class="VoltarInicio" >
-                <i class="bx bx-chevron-up seta" style="color:#ffffff" ></i>
+                <i class="fa-solid fa-chevron-up seta" style="color:#ffffff" ></i>
                 <p class="Voltar">Voltar para o início</p>  
                   
             </button>
@@ -43,7 +43,7 @@ function createRodape(){
                     </div>
                 </div>
 
-                <div class="ColunsAssociado">
+                <div class="ColunsCategoria">
                     <h1 id="Associado">
                         Torne-se um Associado
                     </h1>

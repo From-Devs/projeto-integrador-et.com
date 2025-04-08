@@ -148,13 +148,6 @@
         width: 1050px;
     }
 
-    .cardLancamento{
-        /* transform: scale(0.9); */
-    }
-
-    #containerLancamentos{
-        /* gap: 0px; */
-    }
 }
 
 @media (max-width: 1200px){ /*Computador*/

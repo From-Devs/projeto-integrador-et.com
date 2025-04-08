@@ -205,19 +205,19 @@
 /* Todo o código acima é para telas q tenham comprimento acima de 1400px */
 
 @media (max-width: 1400px){ /*Computador Grande*/
-    .pesquisa input{
+    .pesquisaHeader input{
         width: 400px;
     }
 }
 
 @media (max-width: 1200px){ /*Computador*/
-    .pesquisa.open{
+    .pesquisaHeader.open{
         transform: translate(-65%,-55%);
     }
-    .pesquisa.closed{
+    .pesquisaHeader.closed{
         transform: translate(-65%,-250%);
     }
-    .pesquisa input{
+    .pesquisaHeader input{
         width: 270px;
     }
 }
@@ -228,10 +228,10 @@
         bottom: -115px;
     }
 
-    .pesquisa.open{
+    .pesquisaHeader.open{
         transform: translate(-65%,-60%);
     }
-    .pesquisa input{
+    .pesquisaHeader input{
         width: 200px;
         padding-top: 12px;
         padding-bottom: 12px;
@@ -290,25 +290,31 @@
 
     .headerUsuario.pesquisaOpen{
         padding-bottom: 70px;
-        background-image: linear-gradient(to bottom, black 0%, rgb(22, 22, 22) 30%, rgb(124, 124, 124) 75%, rgba(0, 0, 0, 0) 100%);
+        background-image: linear-gradient(to bottom, black 0%, rgb(22, 22, 22) 30%, rgba(0, 0, 0, 0.555) 75%, rgba(0, 0, 0, 0) 100%);
     }
 
-    .pesquisa.open{
+    .pesquisaHeader.open{
         transform: translate(-50%,5%);
     }
     
-    .pesquisa.closed{
+    .pesquisaHeader.closed{
         transform: translate(-50%,-250%);
     }
 
-    .pesquisa input{
-        width: 300px;
+    .pesquisaHeader input{
+        width: 450px;
         padding-top: 12px;
         padding-bottom: 12px;
     }
 }
 
 @media (max-width: 576px){ /*Celular Vertical*/
+    .pesquisaHeader input{
+        width: 300px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
     .esquerdo{
         background-image: linear-gradient(169deg, black 0%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
     }
