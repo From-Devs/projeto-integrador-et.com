@@ -1,20 +1,29 @@
 .filtro-botao {
-    background-color: rgb(182, 182, 182);
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    border: none;
+    border: 2px solid black;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 32px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
     margin-bottom: 10px;
     border-radius: 20px;
-    width: 150px;
     height: 50px;
+    gap: 12px;
+    transition: all 0.3s;
+}
+
+.filtro-botao:hover{
+    transform: scale(1.05);
+    background-color: rgb(201, 201, 201);
 }
 
 .filtro-botao img {
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
 }
 
 
@@ -26,20 +35,31 @@
 }
 
 .form{
-    background-color: rgb(216, 216, 216);
-    width: 250px;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    background-color: rgb(255, 255, 255);
+    padding: 12px;
     margin-bottom: 10px;    
-    border: 10px;
+    border: 2px solid black;
     border-radius: 20px;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-input [type=checkbox]{
-    width: 100px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .item-filtro{
     display: flex;
+    align-items: center;
+}
+
+.categoriaLabel{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.item-filtro input {
+    width: 25px;
+    height: 25px;
+    border: 2px solid black;
 }

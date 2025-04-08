@@ -35,8 +35,9 @@ function renderSomenteSubcategorias($categoriasPorTela, $telaAtual) {
         foreach ($subcategorias as $sub) {
             echo '
                 <div class="item-filtro">
-                    <label>
+                    <label class="categoriaLabel">
                         <input type="checkbox" name="subcategorias[]" value="' . htmlspecialchars($sub) . '"> 
+                        <span class="checkmark"></span>
                         ' . htmlspecialchars($sub) . '
                     </label>
                 </div>
@@ -44,7 +45,4 @@ function renderSomenteSubcategorias($categoriasPorTela, $telaAtual) {
         }
     }
 }
-
-
-
 ?>
