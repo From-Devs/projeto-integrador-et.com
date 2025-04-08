@@ -1,0 +1,68 @@
+.filtro-botao {
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 2px solid black;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 32px;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    height: 50px;
+    gap: 12px;
+    transition: all 0.3s;
+}
+
+.filtro-botao:hover{
+    transform: scale(1.05);
+    background-color: rgb(201, 201, 201);
+}
+
+.filtro-botao img {
+    width: 35px;
+    height: 35px;
+}
+
+
+.filtro-box {
+    display: none;
+}
+.filtro-box.active {
+    display: block;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    background-color: rgb(255, 255, 255);
+    padding: 12px;
+    margin-bottom: 10px;    
+    border: 2px solid black;
+    border-radius: 20px;
+    font-size: 30px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.item-filtro{
+    display: flex;
+    align-items: center;
+}
+
+.categoriaLabel{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.item-filtro input {
+    width: 25px;
+    height: 25px;
+    border: 2px solid black;
+}
