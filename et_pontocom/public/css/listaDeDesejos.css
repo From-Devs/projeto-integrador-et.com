@@ -313,10 +313,9 @@ input[type="checkbox"] {
 
 .button-container{
     display: flex;
-    margin-top: 75px;
     justify-content: space-between;
     /* gap: 57%; */
-    margin: 110px;
+    margin: 75px 200px 75px 200px;
 }
 
 @media (max-width: 650px){
