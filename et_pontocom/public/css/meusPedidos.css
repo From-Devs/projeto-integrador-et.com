@@ -41,6 +41,8 @@
 
 
 
+
+
 /*_________Área de pedidos a caminho________*/
 .conteudoMeusPedidos .pedidoCaminhoMP{
     display: flex;
@@ -55,9 +57,63 @@
 
         /*Nessa área é o que será acrescentado pelo javascript*/
 
-.pedidoCaminhoMP .produtosCaminho{
-    /*...*/
+.pedidoCaminhoMP #produtosCaminho{
+    margin-top: 7px;
+    width: 155vh;
+    max-height: 83vh;
+    padding-right: 6px;
+    overflow-y: auto;
+    background-color: transparent;
 }
+
+.pedidoCaminhoMP #produtosCaminho::-webkit-scrollbar{
+    width: 6px;                                                  /*scroll da área de produtos a caminho*/
+}
+
+#produtosCaminho::-webkit-scrollbar-thumb{
+    background-color: black;                                   /*style do scroll*/
+    border-radius: 10px;
+}
+
+#produtosCaminho .card-produtoMP{
+    height: 24vh;                                                /*tamanho da área de produtos a caminho*/
+}
+
+.card-produtoMP .data-compra{
+    font-size: 15px;
+    padding-left: 40px;
+}
+
+.card-produtoMP .cardcoloridoCam{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+}
+
+.card-produtoMP .cardcoloridoCam .linhaverticalcard{
+    width: 1px;
+    height: 20vh;
+    background-color: black;
+}
+
+.card-produtoMP .cardcoloridoCam .card-info{
+    background-color: darkcyan;
+    display: flex;
+    flex-direction: row;
+    height: 20vh;
+    width: 150vh;
+    border-radius: 30px;
+}
+
+.card-produtoMP .cardcoloridoCam .card-info img{
+    height: 110px;
+    width: auto;
+}
+
+
+        /*Encerrou o card*/
+
 
 
 
