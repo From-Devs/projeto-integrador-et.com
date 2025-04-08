@@ -1,163 +1,223 @@
-<?php
-    require __DIR__ . "/carousel.php"
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <title>Carrossel com Animação</title>
+  <title>Carrossel com Bolinhas Maiores</title>
   <style>
     * {
-      padding: 0;
       margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
+
     body {
       height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: gray;
-    }
-    .carousel {
-      display: flex;
+      font-family: sans-serif;
       flex-direction: column;
-      align-items: center;
+      transition: background-color 0.6s ease;
     }
-    .produtosCarousel {
-      display: flex;
-      align-items: center;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      gap: 20px;
-      padding: 10px;
-    }
-    .produtosCarousel::-webkit-scrollbar {
-      display: none;
-    }
-    .carousel img {
-      height: 300px;
-      flex-shrink: 0;
-      border-radius: 15px;
-    }
-    .carousel .itemPrincipal {
+
+    .carousel {
+      position: relative;
+      width: 800px;
       height: 400px;
+      perspective: 1200px;
+      overflow: hidden;
+      margin-bottom: 20px;
     }
-    .sessoesCarousel {
+
+    .carousel-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel-item {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      height: 300px;
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0;
+      transition: all 0.8s ease;
+      z-index: 0;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .carousel-item.active {
+      transform: translate(-50%, -50%) scale(1.2);
+      opacity: 1;
+      z-index: 3;
+    }
+
+    .carousel-item.left {
+      transform: translate(-200%, -50%) scale(0.9);
+      opacity: 0.5;
+      z-index: 2;
+    }
+
+    .carousel-item.right {
+      transform: translate(100%, -50%) scale(0.9);
+      opacity: 0.5;
+      z-index: 2;
+    }
+
+    .bottom-controls {
       display: flex;
       align-items: center;
-      gap: 15px;
-      margin-top: 20px;
+      gap: 20px;
     }
-    .carousel .pages {
+
+    .Seta-btn {
+      font-size: 28px;
+      color: white;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+
+    .Bolas {
       display: flex;
       gap: 15px;
+      justify-content: center;
+      align-items: center;
     }
-    .carousel .pagina {
-      width: 33px;
-      height: 33px;
-      border-radius: 100px;
+
+    .Bola {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
       background-color: white;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
     }
-    .carousel .paginaSelecionada {
+
+    .Bola.active-Bola {
       background-color: black;
-    }
-    .setaCarousel {
-      font-size: 25px;
-      color: white;
+      transform: scale(1.3);
     }
 
-    @keyframes scale-up-center {
-      0% {
-        transform: scale(0.5);
-        opacity: 0.5;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
+    .cor-1 { background-color: #AE703F; }
+    .cor-2 { background-color: #CC9F9D; }
+    .cor-0 { background-color: #7A3241; }
 
-    @keyframes scale-down-center {
-      0% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(0.7);
-        opacity: 0.5;
-      }
-    }
-
-    .anim-scale-up {
-      animation: scale-up-center 0.4s ease forwards;
-    }
-
-    .anim-scale-down {
-      animation: scale-down-center 0.4s ease forwards;
-    }
+    
   </style>
 </head>
-<body>
-  <div class="carousel" id="carousel">
-    <div class="produtosCarousel">
-      <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/leite.png" alt="">
-      <img class="itemPrincipal" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
-      <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/bocarosa.png" alt="">
-    </div>
-    <div class="sessoesCarousel">
-      <i class="fa-solid fa-chevron-left setaCarousel setaEsquerda" id="esquerda"></i>
-      <div class="pages">
-        <div class="pagina paginaSelecionada"></div>
-        <div class="pagina"></div>
-        <div class="pagina"></div>
+<body class="cor-0">
+    
+  <div class="carousel">
+    <div class="carousel-track" id="MoverCarrousel">
+      <div class="carousel-item">
+        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/leite.png" />
       </div>
-      <i class="fa-solid fa-chevron-right setaCarousel setaDireita" id="direita"></i>
+      <div class="carousel-item">
+        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" />
+      </div>
+      <div class="carousel-item">
+        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/bocarosa.png" />
+      </div>
     </div>
   </div>
 
+  <div class="bottom-controls">
+    <button class="Seta-btn" id="prev"><i class="fas fa-chevron-left"></i></button>
+
+    <div class="Bolas" id="BolasContainer">
+      <div class="Bola" class="cor-0"></div>
+      <div class="Bola" class="cor-0"></div>
+      <div class="Bola" class="cor-0"></div>
+    </div>
+
+    <button class="Seta-btn" id="next"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const carousel = document.getElementById("carousel");
-      const produtosCarousel = carousel.querySelector(".produtosCarousel");
-      const imagens = produtosCarousel.querySelectorAll("img");
-      const pagina = carousel.querySelectorAll(".pagina");
-      const setas = carousel.querySelectorAll(".setaCarousel");
+    const items = document.querySelectorAll('.carousel-item');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    const Bolas = document.querySelectorAll('.Bola');
+    const body = document.body;
 
-      let indix = 1;
+    let current = 0;
+    let Animacao = false;
 
-      setas.forEach(function (seta) {
-        seta.addEventListener("click", function () {
-          // Remover destaque da imagem atual
-          imagens[indix].classList.remove("itemPrincipal", "anim-scale-up");
-          imagens[indix].classList.add("anim-scale-down");
-          pagina[indix].classList.remove("paginaSelecionada");
+    function mudarCorDeFundo(index) {
+      body.className = `cor-${index}`;
+    }
+    function mudarCorDaBola(index) {
+      Bola.className = `cor-${index}`;
+    }
 
-          // Atualizar índice
-          if (seta.id === "esquerda") {
-            indix = (indix === 0) ? imagens.length - 1 : indix - 1;
-          } else {
-            indix = (indix === imagens.length - 1) ? 0 : indix + 1;
-          }
+    function AtualizarCarroseuç() {
+      items.forEach((item, index) => {
+        item.classList.remove('left', 'right', 'active');
 
-
-          imagens[indix].classList.remove("anim-scale-down");
-          imagens[indix].classList.add("itemPrincipal", "anim-scale-up");
-          pagina[indix].classList.add("paginaSelecionada");
-
-
-          imagens[indix].scrollIntoView({
-            behavior: "smooth",
-            inline: "center",
-            block: "nearest"
-          });
-        });
+        if (index === current) {
+          item.classList.add('active');
+        } else if (index === (current - 1 + items.length) % items.length) {
+          item.classList.add('left');
+        } else if (index === (current + 1) % items.length) {
+          item.classList.add('right');
+        }
       });
+
+      Bolas.forEach((Bola, index) => {
+        Bola.classList.toggle('active-Bola', index === current);
+      });
+
+      mudarCorDeFundo(current);
+    }
+
+    function Direcao(direction) {
+      if (Animacao) return;
+      Animacao = true;
+
+      if (direction === 'prev') {
+        current = (current - 1 + items.length) % items.length;
+      } else {
+        current = (current + 1) % items.length;
+      }
+
+      AtualizarCarroseuç();
+
+      setTimeout(() => {
+        Animacao = false;
+      }, 800);
+    }
+
+    function Deslizar(index) {
+      if (Animacao || index === current) return;
+      Animacao = true;
+      current = index;
+      AtualizarCarroseuç();
+      setTimeout(() => {
+        Animacao = false;
+      }, 800);
+    }
+
+    prev.addEventListener('click', () => Direcao('prev'));
+    next.addEventListener('click', () => Direcao('next'));
+
+    Bolas.forEach((Bola, index) => {
+      Bola.addEventListener('click', () => Deslizar(index));
     });
+
+    AtualizarCarroseuç();
   </script>
 </body>
 </html>
