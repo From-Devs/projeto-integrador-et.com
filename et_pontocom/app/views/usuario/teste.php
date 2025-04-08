@@ -6,11 +6,14 @@
     require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
+    require __DIR__ . "/../../../public/componentes/filtroCategoria/filtroCategoria.php";
+        
 
     session_start();
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+    $telaAtual = $_GET["tela"] ?? "Maquiagem";
 
 
 ?>
@@ -32,6 +35,13 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/ondas/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/paginaPrincipal.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/filtroCategoria/style.css">
+
+    <style>
+        .filtro{
+            margin-top: 100px;
+        }
+    </style>
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -43,14 +53,25 @@
     echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
 
+    <div class="filtro">
+        <button class="filtro-botao" type="button" onclick="toggleFiltro()">
+            <img src="/projeto-integrador-et.com/et_pontocom/public/componentes/filtroCategoria/filtroimg.png" alt="Ícone de filtro">Filtros
+        </button>
+    </div>
+    
+    <div id="form-filtro" class="filtro-box">
+        <div class="form">
+            <?php 
+            renderSomenteSubcategorias($categoriasPorTela, $telaAtual);
+            ?>
+        </div>
+    </div>
+
 
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/script.js"></script>
-    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardLancamento/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/script.js"></script>
-    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/script.js"></script>
-    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/produtoDestaque/script.js"></script>
-    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/filtroCategoria/script.js"></script>
     <!-- <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/paginaPrincipalCategorias.js"></script> -->
 </body>
 </html>
