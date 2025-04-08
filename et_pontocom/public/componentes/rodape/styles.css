@@ -122,15 +122,6 @@ footer{
         transform-origin: top left;
     }
 
-    button {
-        color: white;
-        background-color: black;
-        width: 200px;
-        height: 50px;
-        border: 0;
-        overflow-y: hidden;
-    }
-
     .primeiraSecao {
         display: flex;
         justify-content: center;
