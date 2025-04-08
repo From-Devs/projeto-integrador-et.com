@@ -2,21 +2,23 @@
     "produtos" : [
         {
             "id":  1,
-            "imagem": "/projeto-integrador-et.com/et_pontocom/public/componentes/imagens/produtosMeusPedidos/amor-amor-perfume-feminino.png",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/produtosMeusPedidos/amor-amor-perfume-feminino.png",
             "nome": "AMOR AMOR",
             "marca": "Cacharel",
             "tamanho": "100ml",
             "categoria": "Perfume",
-            "preço": "R$ 405,30"
+            "preço": 405.30,
+            "dataCompra": "08/04/2026"
         },
         {
             "id":  2,
-            "imagem": "/projeto-integrador-et.com/et_pontocom/public/componentes/imagens/produtosMeusPedidos/base-liquida-matte-vult.png",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/produtosMeusPedidos/base-liquida-matte-vult.png",
             "nome": "Base Líquida Efeito Matte",
             "marca": "Vult",
             "tamanho": "26ml",
             "categoria": "Maquiagem",
-            "preço": "R$ 23,87"
+            "preço": 23.87,
+            "dataCompra": "06/03/2026"
         },
         {
             "id":  3,
@@ -25,7 +27,8 @@
             "marca": "O Boticário",
             "tamanho": "200ml",
             "categoria": "Body Splash",
-            "preço": "R$ 84,90"
+            "preço": 84.90,
+            "dataCompra": "01/02/2026"
         },
         {
             "id":  4,
@@ -34,7 +37,8 @@
             "marca": "Bruna Tavares",
             "tamanho": "",
             "categoria": "Maquiagem",
-            "preço": "R$ 45,68"
+            "preço": 45.68,
+            "dataCompra": "26/01/2026"
         },
         {
             "id":  5,
@@ -43,16 +47,18 @@
             "marca": "Bruna Tavares",
             "tamanho": "6ml",
             "categoria": "Maquiagem",
-            "preço": "R$ 35,89"
+            "preço": 35.89,
+            "dataCompra": "20/12/2025"
         },
         {
             "id":  6,
             "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/produtosMeusPedidos/epidrat-mantecorp-facial.png",
-            "nome": "Mantecorp Epidrat Calm Hidratante",
+            "nome": "Epidrat Calm Hidratante",
             "marca": "Mantecorp",
             "tamanho": "50ml",
             "categoria": "SkinCare",
-            "preço": "R$ 66,60"
+            "preço": 66.60,
+            "dataCompra": "18/11/2025"
         },
         {
             "id":  7,
@@ -61,7 +67,8 @@
             "marca": "Mari Maria Makeup",
             "tamanho": "Grande",
             "categoria": "Acessórios",
-            "preço": "R$ 35,90"
+            "preço": 35.90,
+            "dataCompra": "16/11/2025"
         },
         {
             "id":  8,
@@ -70,7 +77,8 @@
             "marca": "Nivea",
             "tamanho": "400ml",
             "categoria": "Corporal",
-            "preço": "R$ 20,99"
+            "preço": 20.99,
+            "dataCompra": "14/10/2025"
         },
         {
             "id":  9,
@@ -79,7 +87,8 @@
             "marca": "O Boticário",
             "tamanho": "100ml",
             "categoria": "Perfume",
-            "preço": "R$ 169,00"
+            "preço": 169.00,
+            "dataCompra": "10/09/2025"
         },
         {
             "id":  10,
@@ -88,7 +97,8 @@
             "marca": "Mari Maria Makeup",
             "tamanho": "",
             "categoria": "Acessórios",
-            "preço": "R$ 95,90"
+            "preço": 95.90,
+            "dataCompra": "10/08/2025"
         },
         {
             "id":  11,
@@ -97,7 +107,8 @@
             "marca": "Avon",
             "tamanho": "50g",
             "categoria": "SkinCare",
-            "preço": "R$75,90"
+            "preço": 75.90,
+            "dataCompra": "09/07/2025"
         },
         {
             "id":  12,
@@ -106,7 +117,8 @@
             "marca": "Maybelline",
             "tamanho": "",
             "categoria": "Maquiagem",
-            "preço": "R$99,51"
+            "preço": 99.51,
+            "dataCompra": "03/07/2025"
         },
         {
             "id":  13,
@@ -115,7 +127,8 @@
             "marca": "Truss",
             "tamanho": "550g",
             "categoria": "Cabelo",
-            "preço": "R$ 269,99"
+            "preço": 269.99,
+            "dataCompra": "29/06/2025"
         }
     ]
 }
