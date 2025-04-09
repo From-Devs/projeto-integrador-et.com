@@ -141,13 +141,8 @@ body{
         transform: scale(0.9);
         padding-top: 0px;
         gap: 25px;
-        grid-template-columns: repeat(3,1fr);
-        grid-template-rows: repeat(2,1fr);
-        grid-template-areas: 
-        "botao1 botao2 botao3"
-        "botao4 botao5 botao6"
-        ;
     }
+
 }
 
 @media (max-width: 576px){ /*Celular Vertical*/

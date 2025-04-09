@@ -7,7 +7,6 @@ function createRodape(){
             <button type=button class="VoltarInicio" >
                 <i class="fa-solid fa-chevron-up seta" style="color:#ffffff" ></i>
                 <p class="Voltar">Voltar para o início</p>  
-                  
             </button>
         </div>
 
@@ -18,7 +17,7 @@ function createRodape(){
            
             <div class="segundaSubSecao">
                 <div class="ColunsCategoria">
-                    <h1 id="Categoria">
+                    <h1 class="tituloCategoria" id="Categoria">
                         Categorias
                     </h1>
                     <div class="ColunsLine">
@@ -44,7 +43,7 @@ function createRodape(){
                 </div>
 
                 <div class="ColunsCategoria">
-                    <h1 id="Associado">
+                    <h1 class="tituloCategoria" id="Associado">
                         Torne-se um Associado
                     </h1>
                     <div class="ColunsLine">
@@ -54,22 +53,19 @@ function createRodape(){
                         <a href="" class="CategoriaLink">
                             Tornar-se Agora
                         </a>
-                        <a href="" class="CategoriaLink">
-                            
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="terceiraSecao">
-                    <p class="Termos">
-                        © 2025 - Et.com
-                    </p>
-                    <a>
-                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/FromDevsLogo.png" id="LogoFromDevs">
-                    </a>
-        </div>
+            <a>
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/FromDevsLogo.png" id="LogoFromDevs">
+            </a>
+            <p class="Termos">
+                © 2025 - Et.com
+            </p>
+            </div>
     </footer>
     ';
 }

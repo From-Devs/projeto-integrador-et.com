@@ -8,10 +8,10 @@ footer{
 }
 
 .VoltarInicio{
+    display: flex;
+    flex-direction: column;
     color: white;
     background-color: black;
-    width: 200px;
-    height: 50px;
     padding-top: 10px;
     border: 0;
     cursor: pointer;
@@ -26,28 +26,27 @@ footer{
 .primeiraSecao{
     display: flex;
     justify-content: center;
+    padding-bottom: 20px;
 }
 
 .segundaSecao .logoPrincipal{
     width: auto;
-    height: 250px;
-    margin-left: 120px;
-    margin-top: 50px;
+    height: 300px;
     user-select: none;
 }
 
 .segundaSecao{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    gap: 120px;
 }
 
 .segundaSubSecao{
     display: flex;
     justify-content: center;
-    margin-left: 12%; 
+    margin-right: 100px; 
     gap: 50px;
-    margin-top: 40px;
 }
 
 .ColunsCategoria{
@@ -60,6 +59,10 @@ footer{
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+.ColunsCategoria .tituloCategoria{
+    font-size: 26px;
 }
 
 .terceiraSecao{
@@ -101,22 +104,25 @@ footer{
 
 @media (max-width: 1300px) {
 
-    #Categoria {
-        font-size: 25px;
+    .ColunsCategoria h1{
+        font-size: 26px;
     }
 
-    #Associado {
-        font-size: 25px;
-    }
-
-    .ColunsCategoria, .ColunsAssociado {
-        width: 200px;
-        font-size: 12px;
-        gap: 10px;
+    .ColunsCategoria {
+        font-size: 16px;
+        gap: 20px;
     }
 
     .terceiraSecao img {
         height: 60px;
+    }
+
+    .segundaSecao .logoPrincipal{
+        height: 250px;
+    }
+
+    .segundaSecao{
+        gap: 60px;
     }
 
 }
@@ -124,9 +130,7 @@ footer{
 @media (max-width: 1067px) {
 
     .primeiraSecao {
-        margin-bottom: 10px;
         text-align: center;
-        margin-left: 18px;
     }
 
     .seta {
@@ -137,32 +141,29 @@ footer{
         font-size: 14px;
     }
 
-    .logoPrincipal {
+    .segundaSecao .logoPrincipal {
         display: flex;
         justify-content: center;
         width: 300px;
-        margin: 10px;
         height: auto;
-        margin-left: 82px;
     }
 
     .segundaSecao {
         flex-direction: column;
         justify-content: center;
-        margin-right: 59px;
+        gap: 40px;
     }
 
     .segundaSubSecao {
         font-size: 25px;
         flex-direction: column;
-        margin-right: 65px;
+        margin-right: 0;
     }
 
-    .ColunsCategoria, .ColunsAssociado {
+    .ColunsCategoria{
         width: 600px;
         padding: 0 10px;
         text-align: center;
-        margin-left: 15px;
     }
 
     .ColunsLine {
@@ -179,21 +180,15 @@ footer{
 
     .terceiraSecao {
         flex-direction: column;
-        font-size: 12px;
-        padding-top: 50px;
+        padding-top: 10px;
     }
 
 }
 
 @media (max-width: 768px) {
 
-    .logoPrincipal {
-        margin-left: 70px;
-    }
-
-    .ColunsCategoria, .ColunsAssociado {
+    .ColunsCategoria {
         width: 400px;
-        margin-left: 40px;
     }
 
     #Categoria {
@@ -204,42 +199,44 @@ footer{
         font-size: 25px;
     }
 
-    .terceiraSecao {
+    .terceiraSecao{
+        padding-top: 30px;
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
     }
 
     .terceiraSecao img {
-        height: 50px;
+        height: 80px;
+        margin-bottom: 50px;
     }
 
 }
 
 @media (max-width: 576px) {
 
-    .segundaSecao {
-        margin-right: 60px;
+    .ColunsCategoria .tituloCategoria{
+        font-size: 18px;
     }
 
-    .ColunsCategoria, .ColunsAssociado {
+    #Associado{
+        width: 200px;
+    }
+
+    .segundaSubSecao{
+        gap: 35px;
+    }
+
+    .ColunsCategoria {
         width: 400px;
         padding: 0 10px;
         text-align: center;
-        margin-left: 67px;
-    }
-
-    #Categoria {
-        font-size: 15px;
-    }
-
-    #Associado {
-        font-size: 15px;
+        align-items: center;
     }
 
     .terceiraSecao img {
-        height: 45px;
-    }
-
-    .Termos {
-        font-size: 10px;
+        height: 60px;
     }
 }

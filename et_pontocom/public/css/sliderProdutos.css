@@ -213,7 +213,7 @@
     }
 
     .setaSlider{
-        display: none;
+        visibility: hidden;
     }
 
 }
