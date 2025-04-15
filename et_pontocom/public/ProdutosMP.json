@@ -2,7 +2,7 @@
     "produtos" : [
         {
             "id":  1,
-            "imagem": "",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/",
             "nome": "AMOR AMOR",
             "marca": "Cacharel",
             "tamanho": "100ml",
