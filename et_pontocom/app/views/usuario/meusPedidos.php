@@ -82,6 +82,6 @@
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/script.js"></script>
-    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/MeusPedidos.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/meusPedidos.js"></script>
 </body>
 </html>
