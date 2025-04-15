@@ -63,14 +63,14 @@ require_once __DIR__ . "/../botao/botao.php";
             ";
         } else {
             return "
-                <li class='nav-item " . ($paginaAtual == 'testedashboard.php' ? 'active' : '') . "'>
-                    <a href='/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/testedashboard.php' class='nav-link'>
+                <li class='nav-item " . ($paginaAtual == 'Dashboard.php' ? 'active' : '') . "'>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/adm/Dashboard.php' class='nav-link'>
                         <span class='fa fa-house-chimney'></span>
                         <span class='button_name'>Dashboard</span>
                     </a>
                 </li>
-                <li class='nav-item " . ($paginaAtual == 'testeprodutos.php' ? 'active' : '') . "'>
-                    <a href='/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/testeprodutos.php' class='nav-link'>
+                <li class='nav-item " . ($paginaAtual == 'Produtos.php' ? 'active' : '') . "'>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/adm/Produtos.php' class='nav-link'>
                         <span class='bx bxs-package'></span>
                         <span class='button_name'>Produtos</span>
                     </a>
@@ -106,7 +106,7 @@ require_once __DIR__ . "/../botao/botao.php";
         $btnSim = botaoPersonalizadoRedirect('Sim','btn-white','et_pontocom/app/views/usuario/paginaPrincipal.php','60px', '30px');
         $btnNao = botaoPersonalizadoOnClick('Não', 'btn-white', 'fecharPopUp("popupSair")','60px', '30px');
         return "
-            <body>
+            
                 <div class='sidebar_adm'>
                     <nav class='nav_adm'>
                         <div class='logo'>
@@ -132,7 +132,7 @@ require_once __DIR__ . "/../botao/botao.php";
                 
                 <script src='./scripts.js'></script>
                 <script src='../popUp/script.js'></script>
-            </body>
+            
         ";
     }
 
