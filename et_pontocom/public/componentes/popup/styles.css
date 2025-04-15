@@ -26,7 +26,6 @@
     padding: 15px;
     border-radius: 20px;
     border: none;
-    flex-wrap: wrap;
     box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
 }
 
@@ -59,7 +58,8 @@
     justify-content: end;
 }
 
-.icone-fechar{
+.icone-fechar img{
     width: 20px;
+    height: 20px;
     cursor: pointer;
 }

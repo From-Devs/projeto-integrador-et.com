@@ -48,22 +48,22 @@ session_start();
                 <img src="./../../../public/imagens/associado/iconeRelatorioReceitas.png" alt="">
             </div>
         </div>
-        <?php echo PopUpConfirmar("relatorioReceitas", "Relatório receitas", "<button id='btnRelatorio'>teste <img src='' alt=''></button>", "", "", "gray", "white")?>
-        <div class="cardRelatorio">
+        <?php echo PopUpConfirmar("relatorioProduto", "Relatório produto", "<button id='btnRelatorio'>teste <img src='' alt=''></button>", "", "", "gray", "white")?>
+        <div class="cardRelatorio" onclick="abrirPopUp('relatorioProduto')">
             <h2 id="textCard">Receita por Produto</h2>
             <div class="iconCard">
                 <img src="./../../../public/imagens/associado/iconeReceitaProduto.png" alt="">
             </div>
         </div>
-        <?php echo PopUpConfirmar("relatorioReceitas", "Relatório receitas", "<button id='btnRelatorio'>teste <img src='' alt=''></button>", "", "", "gray", "white")?>
-        <div class="cardRelatorio">
+        <?php echo PopUpConfirmar("relatorioVendas", "Relatório vendas", "<button id='btnRelatorio'>teste <img src='' alt=''></button>", "", "", "gray", "white")?>
+        <div class="cardRelatorio" onclick="abrirPopUp('relatorioVendas')">
             <h2 id="textCard">Vendas Abandonadas</h2>
             <div class="iconCard">
                 <img src="./../../../public/imagens/associado/iconeVendasAbandonadas.png" alt="">
             </div>
         </div>
-        <?php echo PopUpConfirmar("relatorioReceitas", "Relatório receitas", "<button id='btnRelatorio'>teste <img src='' alt=''></button>", "", "", "gray", "white")?>
-        <div class="cardRelatorio">
+        <?php echo PopUpConfirmar("relatorioSaldo", "Relatório saldo", "<button id='btnRelatorio'>teste <img src='' alt=''></button>", "", "", "gray", "white")?>
+        <div class="cardRelatorio" onclick="abrirPopUp('relatorioSaldo')">
             <h2 id="textCard">Saldo a Receber</h2>
             <div class="iconCard">
                 <img src="./../../../public/imagens/associado/iconeSaldoReceber.png" alt="">
@@ -72,6 +72,6 @@ session_start();
     </div>
     <script src="./../../../public/javascript/associado/RelatorioAssociado.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
-    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/script.js"></script>
 </body>
 </html>
