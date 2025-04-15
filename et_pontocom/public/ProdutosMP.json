@@ -1,0 +1,134 @@
+{
+    "produtos" : [
+        {
+            "id":  1,
+            "imagem": "",
+            "nome": "AMOR AMOR",
+            "marca": "Cacharel",
+            "tamanho": "100ml",
+            "categoria": "Perfume",
+            "preço": 405.30,
+            "dataCompra": "08/04/2026"
+        },
+        {
+            "id":  2,
+            "imagem": "",
+            "nome": "Base Líquida Efeito Matte",
+            "marca": "Vult",
+            "tamanho": "26ml",
+            "categoria": "Maquiagem",
+            "preço": 23.87,
+            "dataCompra": "06/03/2026"
+        },
+        {
+            "id":  3,
+            "imagem": "",
+            "nome": "Body Splash Desodorante Colônia Cuide-se Bem Nuvem",
+            "marca": "O Boticário",
+            "tamanho": "200ml",
+            "categoria": "Body Splash",
+            "preço": 84.90,
+            "dataCompra": "01/02/2026"
+        },
+        {
+            "id":  4,
+            "imagem": "",
+            "nome": "BT OVNI Batom Sombra 3x1 Galaxy",
+            "marca": "Bruna Tavares",
+            "tamanho": "",
+            "categoria": "Maquiagem",
+            "preço": 45.68,
+            "dataCompra": "26/01/2026"
+        },
+        {
+            "id":  5,
+            "imagem": "",
+            "nome": "BT Velvet 2x1 Blackberry",
+            "marca": "Bruna Tavares",
+            "tamanho": "6ml",
+            "categoria": "Maquiagem",
+            "preço": 35.89,
+            "dataCompra": "20/12/2025"
+        },
+        {
+            "id":  6,
+            "imagem": "",
+            "nome": "Epidrat Calm Hidratante",
+            "marca": "Mantecorp",
+            "tamanho": "50ml",
+            "categoria": "SkinCare",
+            "preço": 66.60,
+            "dataCompra": "18/11/2025"
+        },
+        {
+            "id":  7,
+            "imagem": "",
+            "nome": "Esponja Flat Blende",
+            "marca": "Mari Maria Makeup",
+            "tamanho": "Grande",
+            "categoria": "Acessórios",
+            "preço": 35.90,
+            "dataCompra": "16/11/2025"
+        },
+        {
+            "id":  8,
+            "imagem": "",
+            "nome": "Creme Hidratante Milk - Pele Seca a Extrasseca",
+            "marca": "Nivea",
+            "tamanho": "400ml",
+            "categoria": "Corporal",
+            "preço": 20.99,
+            "dataCompra": "14/10/2025"
+        },
+        {
+            "id":  9,
+            "imagem": "",
+            "nome": "Malbec Tradicional",
+            "marca": "O Boticário",
+            "tamanho": "100ml",
+            "categoria": "Perfume",
+            "preço": 169.00,
+            "dataCompra": "10/09/2025"
+        },
+        {
+            "id":  10,
+            "imagem": "",
+            "nome": "Pincel Angular Para Base",
+            "marca": "Mari Maria Makeup",
+            "tamanho": "",
+            "categoria": "Acessórios",
+            "preço": 95.90,
+            "dataCompra": "10/08/2025"
+        },
+        {
+            "id":  11,
+            "imagem": "",
+            "nome": "Creme Renew Reversalist Dia Vitalidade 30+",
+            "marca": "Avon",
+            "tamanho": "50g",
+            "categoria": "SkinCare",
+            "preço": 75.90,
+            "dataCompra": "09/07/2025"
+        },
+        {
+            "id":  12,
+            "imagem": "",
+            "nome": "Superstay Vinyl Ink Liquid Lipstick",
+            "marca": "Maybelline",
+            "tamanho": "",
+            "categoria": "Maquiagem",
+            "preço": 99.51,
+            "dataCompra": "03/07/2025"
+        },
+        {
+            "id":  13,
+            "imagem": "",
+            "nome": "Net Mask Máscara Capilar",
+            "marca": "Truss",
+            "tamanho": "550g",
+            "categoria": "Cabelo",
+            "preço": 269.99,
+            "dataCompra": "29/06/2025"
+        }
+    ]
+}
