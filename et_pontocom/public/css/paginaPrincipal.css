@@ -11,13 +11,25 @@ body{
     overflow-x: hidden;
 }
 
-.carousel{
+.carouselContainer{
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%);
+    /* background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%); */
     z-index: 1000;
     position: relative;
     box-sizing: border-box;
+    transition: background-color 0.6s ease;
+}
+
+.carouselContent{
+    display: flex;
+}
+
+.componenteCarousel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .carouselLogo{
@@ -32,7 +44,10 @@ body{
 }
 
 .linkCategorias{
-    display: flex;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: 1fr;
     padding-top: 100px;
     gap: 56px;
 }
@@ -92,20 +107,60 @@ body{
     .wave.fantasma{
         background-size: 100vw 100px;
     } */
+
+    .linkCategorias{
+        transform: scale(0.9);
+        padding-top: 160px;
+    }
+}
+
+@media (max-width: 1300px){ /*Computador*/
+
 }
 
 @media (max-width: 1200px){ /*Computador*/
+    .linkCategorias{
+        transform: scale(0.8);
+    }
+}
 
+@media (max-width: 1067px){ /*Computador*/
+    .linkCategorias{
+        gap: 30px;
+    }
+
+    .linkCategorias{
+        transform: scale(1);
+        padding-top: 140px;
+        gap: 56px;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(2,1fr);
+        grid-template-areas: 
+        "botao1 botao2 botao3"
+        "botao4 botao5 botao6"
+        ;
+    }
 }
 
 @media (max-width: 992px){ /*Tablet*/
+    
 
+    
 }
 
 @media (max-width: 768px){ /*Celular Paisagem*/
+    .linkCategorias{
+        transform: scale(0.9);
+        padding-top: 0px;
+        gap: 25px;
+    }
 
 }
 
 @media (max-width: 576px){ /*Celular Vertical*/
-
+    .linkCategorias{
+        transform: scale(0.8);
+        gap: 20px;
+        grid-auto-flow: column;
+    }
 }
