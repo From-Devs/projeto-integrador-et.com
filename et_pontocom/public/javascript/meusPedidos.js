@@ -1,5 +1,5 @@
 /////// Função para exibir os cards dos produtos a caminho
- fetch("/projeto-integrador-et.com/et_pontocom/public/componentes/APIMP/produtosMP.json")
+ fetch("/projeto-integrador-et.com/et_pontocom/public/componentes/APIMP/ProdutosMP.json")
  .then(response => response.json())
  .then(data => {
     const container = document.getElementById('produtosCaminho');
