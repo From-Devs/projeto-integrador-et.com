@@ -1,6 +1,6 @@
 <?php
-    require __DIR__ . "//projeto-integrador-et.com/et_pontocom/public/componentes/header/header.php"; // import do header
-    require __DIR__ . "//projeto-integrador-et.com/et_pontocom/public/componentes/rodape/Rodape.php";  //importar rodapé
+    require __DIR__ . "/projeto-integrador-et.com/et_pontocom/public/componentes/header/header.php"; // import do header
+    require __DIR__ . "/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/Rodape.php";  //importar rodapé
 
     require_once "/xampp/htdocs/projeto-integrador-et.com/et_pontocom/public/componentes/botao/botao.php";
     require_once "/xampp/htdocs/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/popUp.php";
