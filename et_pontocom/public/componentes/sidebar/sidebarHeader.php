@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../../../app/views/usuario/meusPedidos.php">
+
 <?php
 function typeSidebar($tipoUsuario){
     if($tipoUsuario == "Associado"){
