@@ -20,7 +20,7 @@
     <!-- css -->
     <link rel="stylesheet" href="../../../public/componentes/header/styles.css">
     <link rel="stylesheet" href="../../../public/componentes/sidebar/styles.css">
-    <link rel="stylesheet" href="../../../public/css/meusPedidos.css">
+    <link rel="stylesheet" href="../../../public/css/MeusPedidos.css">
     <link rel="stylesheet" href="../../../public/componentes/rodape/styles.css">
     <!-- botao e popup -->
     <link rel="stylesheet" href="../../../public/componentes/botao/styles.css">
