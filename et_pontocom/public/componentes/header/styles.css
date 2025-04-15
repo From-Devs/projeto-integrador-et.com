@@ -177,7 +177,8 @@
 
 #headerCarousel{
     background-image: none;
-    position: relative;
+    position: absolute;
+    top: 0;
 }
 
 #headerCarousel .esquerdo{

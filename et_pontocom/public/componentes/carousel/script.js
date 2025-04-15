@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
       Bola.className = `cor-${index}`;
     }
 
-    function AtualizarCarroseuç() {
+    function AtualizarCarousel() {
       items.forEach((item, index) => {
         item.classList.remove('left', 'right', 'active');
 
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(){
         current = (current + 1) % items.length;
       }
 
-      AtualizarCarroseuç();
+      AtualizarCarousel();
 
       setTimeout(() => {
         Animacao = false;
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function(){
       if (Animacao || index === current) return;
       Animacao = true;
       current = index;
-      AtualizarCarroseuç();
+      AtualizarCarousel();
       setTimeout(() => {
         Animacao = false;
       }, 800);
@@ -70,6 +70,6 @@ document.addEventListener("DOMContentLoaded", function(){
       Bola.addEventListener('click', () => Deslizar(index));
     });
 
-    AtualizarCarroseuç();
+    AtualizarCarousel();
  
 });
