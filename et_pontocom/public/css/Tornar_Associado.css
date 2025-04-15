@@ -7,6 +7,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-color: #F9F9F9;
+  z-index: 1;
 }
 .teste {
   display: flex;
@@ -22,7 +24,17 @@ body {
 .icons span {
   margin-left: 15px;
   cursor: pointer;
+} 
+.carousel-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #000000; /* Ajuste a cor conforme necessário */
+  position: relative;
+  z-index: 1002;
 }
+
 .carousel-container {
   display: flex;
   justify-content: center;
@@ -34,7 +46,8 @@ body {
 .carousel-inner {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 200%;
+  margin-top: 100px;
 }
 .carousel-item {
   flex: 0 0 auto;
@@ -55,12 +68,25 @@ body {
   font-weight: bold;
 }
 @keyframes scroll {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  from{
+      transform: translate(10%);
+  }
+  to{
+      transform: translate(0%);
+  }
 }
 .carousel-inner {
-  animation: scroll 10s linear infinite;
+  animation: scroll 5s linear infinite;
+
 }
+.waves-container {
+  position: absolute;
+  bottom: -50px;
+  width: 100%;
+  height: 250px; /* Ajuste conforme necessário */
+  z-index: -1; /* Coloca as ondas atrás do conteúdo */
+}
+
 .promo-section {
   position: relative;
   display: flex;
@@ -69,32 +95,47 @@ body {
   padding: 20px;
   background-color: #000000;
   margin: 0px 0;
+  overflow: hidden; /* Adicionado para garantir que as ondas não saiam da seção */
 }
 .promo-content {
   max-width: 70%;
   background-color: transparent;
-  padding: 30px;
+  padding: 150px;
   border-radius: 10px;
   margin-left: -200px;
   color: #ffffff;
   text-align: center;
   z-index: 1;
+  margin-top: -100px;
 }
+
 .promo-content h2 {
   font-size: 50px;
   font-weight: bold;
   margin-bottom: 10px;
 }
+
 .promo-content p {
   font-size: 30px;
   margin-bottom: 20px;
   max-width: 70%;
   margin: 0 auto;
+  text-align: center;
   color: #C6C6C6;
 }
+
+.azul {
+  font-weight: bold;
+  color: #5C87D9;
+  margin-bottom: 20px;
+  margin: 0 auto;
+  font-size: 30px;
+  max-width: 70%;
+}
+
 .promo-content .learn-more,
 .promo-content .join-now {
-  display: inline-block;
+  display: block;
   padding: 10px 20px;
   margin-right: 10px;
   text-decoration: none;
@@ -103,91 +144,74 @@ body {
   border-radius: 5px;
   margin: 10px auto;
 }
+
 .promo-content .join-now {
   background-color: #ffffff;
   color: #37ADD2;
+  width: 150px;
 }
 .promo-image {
-  position: relative;
+  position: absolute;
   width: 30%;
-  height: 400px;
-  z-index: 1;
-}
-.promo-image img {
-  width: 100%;
-  height: auto;
+  height: auto; /* Ajuste a altura para permitir que a imagem se mova */
+  z-index: 1001;
   object-fit: cover;
   border-radius: 10px;
   filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.377));
+  margin-top: -320px; /* Ajuste conforme necessário */
+  margin-left: -400px;
 }
-.promo-image::before {
-  content: '';
+
+.substituir-imagem {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  pointer-events: none;
-  z-index: -1;
+  display: block;
+  margin-left: 1200px;
+  top: 530px; /* Ajusta a margem superior para mover a imagem mais para baixo */
+  width: 30%; /* Ajusta a largura da imagem conforme necessário */
+  height: auto; /* Mantém a proporção da imagem */
+  object-fit: cover; /* Ajusta a imagem para cobrir a área */
+  border-radius: 10px; /* Adiciona bordas arredondadas */
+  z-index: 1002; /* Garante que a imagem fique acima de outros elementos */
 }
-@keyframes shine {
-  0% {
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-  }
-  50% {
-      box-shadow: 0 0 40px rgba(255, 255, 255, 1);
-  }
-  100% {
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-  }
-}
+
 .commission-table {
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;
   margin: 20px 0;
   text-align: left;
+  position: absolute;
+  margin-top: 287px;
+  z-index: 2;
 }
 .commission-table h2 {
+  color:#000000;;
   font-size: 30px;
+  font-weight: 200;
   margin-bottom: 20px;
-}
-.commission-table table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-.commission-table th, .commission-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-.commission-table th {
-  background-color: #4CAF50;
-  color: white;
-}
-.commission-table td {
-  background-color: #ffffff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
 }
 .commission-table p {
   font-size: 16px;
-  color: #333;
+  color: #AA8E8E;
 }
 .cards-section {
   position: relative;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;
-  margin: 20px 0;
+  margin: 0px;
   text-align: center;
-  background-image: url('img_Torna+carro/Rectangle.png');
+  max-width: 1918px;
+  max-height: 760px;
+  background-image: url('TornarAssociado/Rectangle.png');
   background-size: cover;
   background-position: center;
-  height: 900px;
+  height: 800px;
   z-index: 1;
+  margin-top: 200px;
+  margin-left: -1px;
 }
-
 .cards-container {
   position: absolute;
   top: 50%;
@@ -198,15 +222,11 @@ body {
   flex-wrap: nowrap;
   z-index: 2;
 }
-
 .card {
   margin: 10px;
 }
 .caixa_salmão {
   margin-top: 850px;
-}
-.related-products{
-  margin-top: 100px;
 }
 .cards-section h2 {
   font-size: 30px;
@@ -228,47 +248,38 @@ body {
   border-radius: 10px;
   transition: filter 0.3s ease-in-out;
 }
-
 .card1:hover {
   filter: drop-shadow(0 0 15px rgba(0, 183, 255, 0.541));
 }
-
 .card2 {
   padding: 10px;
   border-radius: 10px;
   transition: filter 0.3s ease-in-out;
 }
-
 .card2:hover {
   filter: drop-shadow(0 0 15px #9633ff);
 }
-
 .card3 {
   padding: 10px;
   border-radius: 10px;
   transition: filter 0.3s ease-in-out;
 }
-
 .card3:hover {
   filter: drop-shadow(0 0 15px #7b00ff);
 }
-
 .card4 {
   padding: 10px;
   border-radius: 10px;
   transition: filter 0.3s ease-in-out;
 }
-
 .card4:hover {
   filter: drop-shadow(0 0 15px #ff00f2);
 }
-
 .card5 {
   padding: 10px;
   border-radius: 10px;
   transition: filter 0.3s ease-in-out;
 }
-
 .card5:hover {
   filter: drop-shadow(0 0 15px #ff0059);
 }
@@ -277,9 +288,57 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+  margin-top: 200px;
+  margin-left:100px;
 }
-
 .caixa_salmão img {
   max-width: 100%;
   height: auto;
+}
+.sej {
+display: flex;
+justify-content: left;
+align-items: left;
+margin-top: 730px;
+margin-left: 1000px;
+}
+
+.associ{
+  
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin-right: 1700px;
+  text-align: left;
+  position: absolute;
+  margin-top: -200px;
+  z-index: 2;
+}
+.associ h2{
+  color: #877d7d;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.wave.solida{
+  position: absolute;
+  bottom: -100px;
+  margin-left: -1890px;
+  width: 100vw;
+  height: 250px;
+  background: url(ondas/ondaSolida.png);
+  background-size: 100vw 250px;
+  animation: animacaoOnda 8s linear infinite;
+  animation-delay: 0s;
+  opacity: 0.99;
+}
+@keyframes animacaoOnda
+{
+  0%
+  {
+      background-position-x: 100vw;
+  }
+  100%
+  {
+      background-position-x: 0;
+  }
 }
