@@ -87,6 +87,8 @@
     transform: scale(1.3);
   }
 
-  .cor-1 { background-color: d#7A3241; }
-  .cor-2 { background-color:#AE703F; }
-  .cor-0 { background-color: #CC9F9D; }
+  .cor-1 { background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%); }
+  .cor-2 { background-image: linear-gradient(to bottom, #C69065 0%, #B88D6B 50%, #EBC1B6 100%); }
+  .cor-0 { background-image: linear-gradient(to bottom, #F2D5AF 0%, #CC9F9D 50%, #CE766C 100%); }
+  /* .cor-2 { background-color:#AE703F; }
+  .cor-0 { background-color: #CC9F9D; } */

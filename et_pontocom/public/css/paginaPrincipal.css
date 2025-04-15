@@ -18,7 +18,7 @@ body{
     z-index: 1000;
     position: relative;
     box-sizing: border-box;
-    transition: background-color 0.6s ease;
+    transition: background-image 0.6s ease;
 }
 
 .carouselContent{
