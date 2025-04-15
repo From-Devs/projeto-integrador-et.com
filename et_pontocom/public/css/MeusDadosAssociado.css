@@ -251,100 +251,44 @@ main {
 
 /* Classe para esconder elementos */
 .hidde {
-    display: none;
+    display: none; 
 }
 
 /* tela edição */
-.user-ediçao-usuario{
-    display: flex;
-    width: 0px;
-    height: 70px;
-    margin: 25px;
-    user-select: none;
-}
-.user_Box-ediçao p {
-    padding: 12px;
-}
-
-.selectDDD {
-    display: flex;
-    align-items: center;
-    background-color: #e0e0e0;
-    padding: 10px 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.DDDs {
-    border: none;
-    outline: none;
-    appearance: none;
-}
-
-.optDDD{
-    border: none;
-    outline: none;
-}
-
-.bandeira {
-    width: 30px;
-    height: 20px;
-    background-image: url('https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg');
-    background-size: cover;
-    margin-right: 10px;
-}
-
-select {
-    border: none;
-    background: none;
-    font-size: 16px;
-    cursor: pointer;
-    outline: none;
-}
-
-option {
-    font-size: 14px;
-}
-
 .linha{
-    display: flex;
-    align-items: center;
-    margin-top: 50px;
-    background-color: #000;
-    height: 80%;
+    margin: 40px;
     width: 5px;
-    margin: 50px;
-    border-radius: 8px;
+    height: 90%;
+    background-color: #000;
+}
+.ptr1{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+.ptr2{
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+}
+.user-ediçao-usuario{
+    position:absolute;
+    margin: 40px;
 }
 
-.user-Letra-ediçao h1 {
-    font-size: 24px;
+.edicao_Box {
     margin-top: 20px;
-}
-.user_Box-ediçao {
     font-size: 18px;
-    margin-top: 12px;
-    justify-content: center;
-    height: 47px;
+    text-align: center;
+    height: 58px;
     width: 100%;
     border-radius: 8px;
     filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
     background-color: #F6F6F6;
 }
-.ediçao-img{
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.ediçao-img img{
-    width: 321px;
-    height: 214px;
-}
-.user-dados-edicao{
-    margin-top: 100px;
-    height: 500px;
-    width: 450px;
-    height: 85%;
-    width: 5px;
+.edicao-Letra h1 {
+    margin-top: 10px;
+    font-size: 24px;
+    margin-top: 20px;
 }

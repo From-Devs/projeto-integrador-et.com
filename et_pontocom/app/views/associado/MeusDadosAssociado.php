@@ -130,41 +130,21 @@
 
             <!-- Tela do Quadrado (edicao-perfil) -->
             <div id="quadrado-perfil" class="quadrado">
-                <div class="user-ediçao-usuario"><h1>Perfil</h1></div>
-                <div class="user-dados-direita">
-                <div class="selectDDD">
-                    <div class="bandeira"></div>
-                    <select class="DDDs">
-                        <option class="optDDD" value="55">55+ Brasil</option>
-                        <option class="optDDD" value="1">1+ EUA</option>
-                        <option class="optDDD" value="44">44+ Reino Unido</option>
-                        <option class="optDDD" value="91">91+ Índia</option>
-                    </select>
-                </div>
-                <div class="user-dados-edicao">
-                    <div class="user-Letra-ediçao"><h1>Nome Nome</h1></div>
-                    <div class="user_Box-ediçao"><p>vector</p></div>
-                    <div class="user-Letra-ediçao"><h1>Sobrenome</h1></div>
-                    <div class="user_Box-ediçao"><p>kkk ah éee nacimento</p></div>
-                    <div class="user-Letra-ediçao"><h1>Gmail</h1></div>
-                    <div class="user_Box-ediçao"><p>tiginhoJogoTÀPagandoMUITOovojogarCArtinho@Gmail.com.</p></div>
-                    <div class="user-Letra-ediçao"><h1>data de nacimento</h1></div>
-                    <div class="date">
-                        <div class="user_Box-ediçao"></div>
-                        <div class="user_Box-ediçao"></div>
-                        <div class="user_Box-ediçao"></div>
-                    </div>
-                </div>
-                <!-- linha -->
+                <div class="user-ediçao-usuario"><h1>Meus Dados</h1></div>
+                <div class="ptr1">
+                    <div class="edicao-Letra"><h1>Gmail</h1></div>
+                    <div class="edicao_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
+                    <div class="edicao-Letra"><h1>Gmail</h1></div>
+                    <div class="edicao_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
+                    <div class="edicao-Letra"><h1>Gmail</h1></div>
+                    <div class="edicao_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
+                    <div class="edicao-Letra"><h1>Gmail</h1></div>
+                    <div class="edicao_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
+                    <div class="edicao-Letra"><h1>Gmail</h1></div>
+                    <div class="edicao_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
                 <div class="linha"></div>
+                <div class="ptr2">
 
-                <div class="user-dados-esquerda">
-                <div class="user-dados-edicao">
-                    <div class="user-Letra-ediçao"><h1>Nome</h1></div>
-                    <div class="user_Box-ediçao Texto">Wellinton R.</div>
-                    <div class="user-Letra-ediçao"><h1>Nome</h1></div>
-                    <div class="user_Box-ediçao Texto">Wellinton R.</div>
-                    <div class="ediçao-img"><img src="https://i.pinimg.com/736x/91/0b/ec/910becbf6e01b541e0dea7f3bcc515c3.jpg" alt="logo"></div>
                 </div>
                 <i id="fechar-perfil" class='bx bx-x exit'></i>
             </div>
