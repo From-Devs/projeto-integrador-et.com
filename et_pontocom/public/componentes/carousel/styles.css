@@ -1,0 +1,92 @@
+.carousel {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    perspective: 1200px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 300px;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: all 0.8s ease;
+    z-index: 0;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .carousel-item.active {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+    z-index: 3;
+  }
+
+  .carousel-item.left {
+    transform: translate(-200%, -50%) scale(0.9);
+    opacity: 0.5;
+    z-index: 2;
+  }
+
+  .carousel-item.right {
+    transform: translate(100%, -50%) scale(0.9);
+    opacity: 0.5;
+    z-index: 2;
+  }
+
+  .bottom-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .Seta-btn {
+    font-size: 28px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+
+  .Bolas {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Bola {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .Bola.active-Bola {
+    background-color: black;
+    transform: scale(1.3);
+  }
+
+  .cor-1 { background-color: d#7A3241; }
+  .cor-2 { background-color:#AE703F; }
+  .cor-0 { background-color: #CC9F9D; }
