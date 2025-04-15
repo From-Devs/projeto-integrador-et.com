@@ -124,7 +124,7 @@ require_once __DIR__ . "/../botao/botao.php";
                                 <span class='button_name' onclick=\"abrirPopUp('popupSair')\">Voltar a tela inicial</span>
                             </div> 
                             "
-                                . PopUpConfirmar('popupSair','Confirmar?',$btnSim,$btnNao,'500px','white','black','30px'); 
+                                . PopUpConfirmar('popupSair','Confirmar?',$btnSim,$btnNao,'500px','white','black','30px') . 
                             "
                         </div>
                     </nav>
