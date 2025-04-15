@@ -111,6 +111,7 @@ body{
 .card01{
     display: grid;
     grid-template-columns: 150px auto auto auto auto;
+    height: 122.19px;
     background: linear-gradient(to right, #3F7FD9, #81ABE6, #C0D5F3, #FFFFFF);
     border-radius: 10px;
     box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
@@ -318,7 +319,7 @@ input[type="checkbox"] {
     margin: 75px 200px 75px 200px;
 }
 
-@media (max-width: 650px){
+@media (max-width: 850px){
     .button-container{
         display: flex;
         flex-direction: column;
