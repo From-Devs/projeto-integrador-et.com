@@ -189,6 +189,10 @@
     background-image: none;
 }
 
+#headerCarousel .esquerdo img{
+    display: none;
+}
+
 @keyframes slide-in{ /* animação de quando abre o menu do perfil */
     0% {
         -webkit-transform: translateY(10px);
@@ -220,6 +224,12 @@
     }
     .pesquisaHeader input{
         width: 270px;
+    }
+}
+
+@media (max-width: 1067px){ /*Computador*/
+    #headerCarousel .esquerdo img{
+        display: block;
     }
 }
 

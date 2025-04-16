@@ -3,7 +3,7 @@
     width: 800px;
     height: 400px;
     perspective: 1200px;
-    overflow: hidden;
+    overflow: visible;
     margin-bottom: 20px;
   }
 
@@ -107,3 +107,68 @@
   .cor-0 { background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%); }
   .cor-1 { background-image: linear-gradient(to bottom, #C69065 0%, #B88D6B 50%, #EBC1B6 100%); }
   .cor-2 { background-image: linear-gradient(to bottom, #F2D5AF 0%, #CC9F9D 50%, #CE766C 100%); }
+
+  @media (max-width: 1800px){ /*Computador Grande*/
+    .carousel {
+      margin-bottom: 0px;
+    }
+
+    .carousel-item {
+      width: 150px;
+      height: 255px;
+    }
+}
+
+@media (max-width: 1525px){ /*Computador Grande*/
+  .carousel {
+    width: 700px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 1300px){ /*Computador Grande*/
+  .carousel {
+    width: 600px;
+    height: 300px;
+  }
+
+  .carousel-item {
+    width: 125px;
+    height: 255px;
+  }
+}
+
+@media (max-width: 1200px){ /*Computador Grande*/
+  .carousel {
+    width: 525px;
+    height: 300px;
+  }
+
+  .carousel-item {
+    width: 110px;
+  }
+}
+
+@media (max-width: 1067px){ /*Computador Grande*/
+  .carousel {
+    width: 550px;
+    height: 350px;
+  }
+
+  .carousel-item {
+    width: 150px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px){ /*Computador Grande*/
+  .carousel {
+    width: 550px;
+    height: 350px;
+  }
+
+  .carousel-item {
+    width: 125px;
+    height: 300px;
+  }
+}

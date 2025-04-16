@@ -14,6 +14,7 @@ body{
 .carouselContainer{
     width: 100%;
     height: 105vh;
+    min-height: 900px;
     z-index: 1000;
     position: relative;
     box-sizing: border-box;
@@ -127,6 +128,26 @@ body{
     }
 }
 
+@media (max-width: 1800px){ /*Computador Grande*/
+    .carouselContent{
+        gap: 30px;
+    }
+
+    .carouselLogo{
+        width: 650px;
+    }
+}
+
+@media (max-width: 1525px){ /*Computador Grande*/
+    .carouselContent{
+        gap: 0px;
+    }
+
+    .carouselLogo{
+        width: 550px;
+    }
+}
+
 @media (max-width: 1400px){ /*Computador Grande*/
     /* .wave.solida{
         background-size: 100vw 200px;
@@ -150,6 +171,10 @@ body{
     .linkCategorias{
         transform: scale(0.8);
     }
+
+    .carouselLogo{
+        width: 475px;
+    }
 }
 
 @media (max-width: 1067px){ /*Computador*/
@@ -167,6 +192,10 @@ body{
         "botao1 botao2 botao3"
         "botao4 botao5 botao6"
         ;
+    }
+
+    .carouselLogo{
+        display: none;
     }
 }
 
