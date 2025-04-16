@@ -1,0 +1,227 @@
+
+/* container dirieta */
+
+#container{
+    margin-left: 350px;
+}
+
+/* pesquisa */
+
+
+#inputPesquisar
+{
+    display: flex;
+    width: 740px;
+    height: 55px;
+    border-radius: 15px;
+    padding-left: 10px;
+    border: none;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    background: url(../lupa.png)no-repeat;
+    background-size: 40px 40px; 
+    background-position: 675px center;
+}
+
+#inputPesquisar::placeholder {
+    padding-left: 20px; 
+}
+
+#vendasmais{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/*_________________Caso a tela seja menor..._________________*/
+@media (max-width: 1000px) {
+    .nav_adm{
+        width: 250px;
+    }
+
+    
+    .logo{
+        margin-top: 15px;
+        margin-bottom: 4px;
+    }
+    .logo img{
+        width: 150px;
+    }
+    .linhaGradiente{
+        width: 210px;
+        height: 1px;
+        margin-bottom: 23px;
+    }
+
+
+    .botoesMenu{
+        width: 200px;
+    }
+    .botoesMenu ul .nav-item{
+        margin-left: 0;
+        width: 190px;
+    }    
+    .botoesMenu ul .nav-item .nav-link .bx{
+        font-size: 14px;
+        margin-right: 12px;
+    }
+    .botoesMenu ul .nav-item .nav-link .fa{
+        font-size: 11px;
+        margin-right: 12px;
+    }
+    .botoesMenu .button_name{
+        font-weight: 600;
+        font-size: 11px;
+    }
+
+    
+    .area_Sair .button_sair{
+        width: 200px;
+        left: 10px;
+    }
+    .area_Sair .button_sair .fa{
+        font-size: 11px;
+        margin-right: 10px;
+    }
+    .area_Sair .button_sair .button_name{
+        font-size: 11px;
+    }
+}
+
+#controleIcon
+{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#iconUsuario
+{
+    width: 250px;
+    height: 80px;
+    display: flex;
+    background-color: black;
+    color: white;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+    margin-top: 40px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+#fotoUser
+{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    margin-left: 30px;
+    width: 70px;
+    height: 70px;
+}
+
+
+#textUser2{
+    font-size: 12px;
+}
+
+/* @media (max-width: 1550px) {
+
+    .idProduto{
+        right: 13px;
+        color: #5DA400;
+    
+    }
+
+    td {
+        font-size: 5px;
+
+    }
+
+} */
+
+#lista {
+    width: 97%;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+#tabelaVendas {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+#barraCima {
+    background-color: black;
+    color: white;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+    padding: 10%;
+}
+
+th, td {
+    padding: 1px;
+    text-align: center;
+}
+
+th {
+    padding: 2%;
+    font-size: 24px;
+}
+
+#th2{
+    padding-left: 8.3%;
+}
+
+#th3{
+    padding-left: 8%;
+}
+
+td {
+    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-right: 13px;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    right: 30px;
+}
+
+tr {
+    border-bottom: 0.1px solid #DADADA;
+    
+
+}
+
+.idProduto{
+    
+    padding-left: 4%;
+
+}
+
+#precoassoc {
+    color: #5DA400; 
+}
+
+#bordaEsquerda {
+    border-top-left-radius: 10px;
+}
+
+#bordaDireita {
+    border-top-right-radius: 10px;
+}
+
+.tabela-body {
+    max-height: 620px;
+    max-width: 100vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.tabela-body::-webkit-scrollbar {
+    display: none; 
+}
+
