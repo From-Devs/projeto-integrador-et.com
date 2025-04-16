@@ -57,13 +57,13 @@
 
   .carousel-item.left {
     transform: translate(-200%, -50%) scale(0.9);
-    opacity: 0.5;
+    opacity: 0.4;
     z-index: 2;
   }
 
   .carousel-item.right {
     transform: translate(100%, -50%) scale(0.9);
-    opacity: 0.5;
+    opacity: 0.4;
     z-index: 2;
   }
 

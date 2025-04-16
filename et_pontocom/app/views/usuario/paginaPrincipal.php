@@ -47,6 +47,8 @@
 
     <div class="carouselContainer" id="carousel">
         
+        <div class="carouselBackground" id="carouselBackground"></div>
+        
         <?php
         echo createHeader($login,$tipoUsuario,1);
         ?>

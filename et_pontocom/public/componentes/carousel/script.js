@@ -5,12 +5,16 @@ document.addEventListener("DOMContentLoaded", function(){
     const next = document.getElementById('next');
     const Bolas = document.querySelectorAll('.Bola');
     const carousel = document.getElementById('carousel');
+    const background = document.getElementById('carouselBackground');
 
     let current = 0;
     let Animacao = false;
 
     function mudarCorDeFundo(index) {
       carousel.className = `carouselContainer cor-${index}`;
+      background.style.animation = 'CarouselDegrade 0.8s ease'
+      setTimeout(() => {background.className = `carouselBackground cor-${index}`},799)
+      setTimeout(() => {background.style.animation = ''},800)
     }
     function mudarCorDaBola(index) {
       Bola.className = `cor-${index}`;
