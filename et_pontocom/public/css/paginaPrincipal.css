@@ -14,7 +14,7 @@ body{
 .carouselContainer{
     width: 100%;
     height: 105vh;
-    min-height: 900px;
+    min-height: 700px;
     z-index: 1000;
     position: relative;
     box-sizing: border-box;
@@ -25,18 +25,21 @@ body{
     position: absolute;
     width: 100%;
     height: 100%;
-    /* animation: CarouselDegrade 0.8s ease;
-    background-image: linear-gradient(to top, blue 0%, red 100%); */
 }
 
 .carouselContent{
     display: flex;
     width: 100%;
-    /* height: 100vh; */
-    margin-top: 150px;
+    height: 100%;
+    /* margin-top: 150px; */
     gap: 50px;
     justify-content: center;
     align-items: center;
+}
+
+.carouselWrapper{
+    display: flex;
+    margin-bottom: 200px;
 }
 
 .componenteCarousel{
@@ -142,6 +145,9 @@ body{
     .carouselContent{
         gap: 0px;
     }
+    .carouselContainer{
+        /* min-height: 750px; */
+    }
 
     .carouselLogo{
         width: 550px;
@@ -197,12 +203,39 @@ body{
     .carouselLogo{
         display: none;
     }
+
+    .carouselContainer{
+        /* min-height: 800px; */
+    }
 }
 
-@media (max-width: 992px){ /*Tablet*/
+@media (max-height: 900px){ /*Tablet*/
+    .wave.solida{
+        height: 200px;
+        background-size: 1920px 200px;
+    }
     
+    .wave.fantasma{
+        height: 200px;
+        background-size: 1920px 200px;
+    }
+}
 
+
+
+
+@media (max-height: 768px){ /*Celular Paisagem*/
+    .wave.solida{
+        height: 160px;
+        background-size: 1920px 160px;
+    }
     
+    .wave.fantasma{
+        height: 160px;
+        background-size: 1920px 160px;
+    }
+
+
 }
 
 @media (max-width: 768px){ /*Celular Paisagem*/
@@ -211,6 +244,7 @@ body{
         padding-top: 0px;
         gap: 25px;
     }
+
 
 }
 

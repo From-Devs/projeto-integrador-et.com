@@ -181,6 +181,10 @@
     top: 0;
 }
 
+#headerCarousel .pesquisaHeader{
+    z-index: 1002;
+}
+
 #headerCarousel .esquerdo{
     background-image: none;
 }

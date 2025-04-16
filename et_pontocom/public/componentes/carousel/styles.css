@@ -4,7 +4,6 @@
     height: 400px;
     perspective: 1200px;
     overflow: visible;
-    margin-bottom: 20px;
   }
 
   .carouselContainer{
@@ -35,7 +34,7 @@
     top: 50%;
     left: 50%;
     width: 200px;
-    height: 300px;
+    height: 350px;
     transform: translate(-50%, -50%) scale(0.8);
     opacity: 0;
     transition: all 0.8s ease;
@@ -107,10 +106,6 @@
   .cor-2 { background-image: linear-gradient(to bottom, #F2D5AF 0%, #CC9F9D 50%, #CE766C 100%); }
 
   @media (max-width: 1800px){ /*Computador Grande*/
-    .carousel {
-      margin-bottom: 0px;
-    }
-
     .carousel-item {
       width: 150px;
       height: 255px;

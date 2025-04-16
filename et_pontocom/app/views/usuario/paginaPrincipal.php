@@ -53,11 +53,13 @@
         echo createHeader($login,$tipoUsuario,1);
         ?>
         <div class="carouselContent">
-            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" alt="" class="carouselLogo">
-            <div class="componenteCarousel">
-                <?php
-                echo createCarousel(); // função que cria o header
-                ?>
+            <div class="carouselWrapper">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" alt="" class="carouselLogo">
+                <div class="componenteCarousel">
+                    <?php
+                    echo createCarousel(); // função que cria o header
+                    ?>
+                </div>
             </div>
         </div>
         <div class="frameOndas">
