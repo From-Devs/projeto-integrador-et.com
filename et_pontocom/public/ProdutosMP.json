@@ -2,7 +2,7 @@
     "produtos" : [
         {
             "id":  1,
-            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/amor-amor-perfume-feminino.png",
             "nome": "AMOR AMOR",
             "marca": "Cacharel",
             "tamanho": "100ml",
@@ -12,7 +12,7 @@
         },
         {
             "id":  2,
-            "imagem": "",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/base-liquida-matte-vult.png",
             "nome": "Base Líquida Efeito Matte",
             "marca": "Vult",
             "tamanho": "26ml",
@@ -22,7 +22,7 @@
         },
         {
             "id":  3,
-            "imagem": "",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/bodysplash-cuide-se-bem.png",
             "nome": "Body Splash Desodorante Colônia Cuide-se Bem Nuvem",
             "marca": "O Boticário",
             "tamanho": "200ml",
@@ -32,7 +32,7 @@
         },
         {
             "id":  4,
-            "imagem": "",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/bt-ovni.png.png",
             "nome": "BT OVNI Batom Sombra 3x1 Galaxy",
             "marca": "Bruna Tavares",
             "tamanho": "",
@@ -42,7 +42,7 @@
         },
         {
             "id":  5,
-            "imagem": "",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/bt-velvet-blackberry.png",
             "nome": "BT Velvet 2x1 Blackberry",
             "marca": "Bruna Tavares",
             "tamanho": "6ml",
@@ -52,7 +52,7 @@
         },
         {
             "id":  6,
-            "imagem": "",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/epidrat-mantecorp-facial.png",
             "nome": "Epidrat Calm Hidratante",
             "marca": "Mantecorp",
             "tamanho": "50ml",
@@ -62,7 +62,7 @@
         },
         {
             "id":  7,
-            "imagem": "",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/esponja-mari-maria.png",
             "nome": "Esponja Flat Blende",
             "marca": "Mari Maria Makeup",
             "tamanho": "Grande",
@@ -72,7 +72,7 @@
         },
         {
             "id":  8,
-            "imagem": "",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/hidratante-nivea.png",
             "nome": "Creme Hidratante Milk - Pele Seca a Extrasseca",
             "marca": "Nivea",
             "tamanho": "400ml",
@@ -82,7 +82,7 @@
         },
         {
             "id":  9,
-            "imagem": "",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/Malbec_Colonia.png",
             "nome": "Malbec Tradicional",
             "marca": "O Boticário",
             "tamanho": "100ml",
@@ -92,7 +92,7 @@
         },
         {
             "id":  10,
-            "imagem": "",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/pincel-marimaria.png",
             "nome": "Pincel Angular Para Base",
             "marca": "Mari Maria Makeup",
             "tamanho": "",
@@ -102,7 +102,7 @@
         },
         {
             "id":  11,
-            "imagem": "",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/renew-avon.png",
             "nome": "Creme Renew Reversalist Dia Vitalidade 30+",
             "marca": "Avon",
             "tamanho": "50g",
@@ -112,7 +112,7 @@
         },
         {
             "id":  12,
-            "imagem": "",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/superstay-ink-vinyl.png",
             "nome": "Superstay Vinyl Ink Liquid Lipstick",
             "marca": "Maybelline",
             "tamanho": "",
@@ -122,7 +122,7 @@
         },
         {
             "id":  13,
-            "imagem": "",
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/truss_net_masc.png",
             "nome": "Net Mask Máscara Capilar",
             "marca": "Truss",
             "tamanho": "550g",
