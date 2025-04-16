@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const prev = document.getElementById('prev');
     const next = document.getElementById('next');
     const Bolas = document.querySelectorAll('.Bola');
-    const carousel = document.getElementById('carousel');
+   const carousel = document.getElementById('carousel');
     const background = document.getElementById('carouselBackground');
 
     let current = 0;
@@ -15,9 +15,6 @@ document.addEventListener("DOMContentLoaded", function(){
       background.style.animation = 'CarouselDegrade 0.8s ease'
       setTimeout(() => {background.className = `carouselBackground cor-${index}`},799)
       setTimeout(() => {background.style.animation = ''},800)
-    }
-    function mudarCorDaBola(index) {
-      Bola.className = `cor-${index}`;
     }
 
     function AtualizarCarousel() {
@@ -35,7 +32,24 @@ document.addEventListener("DOMContentLoaded", function(){
 
       Bolas.forEach((Bola, index) => {
         Bola.classList.toggle('active-Bola', index === current);
-      });
+        // console.log(Bola.classList); // debugging mostra a list class
+        // retorna a cor patrão definido pelo usuario
+        Bola.style.background = '#fff';
+        // compara os index 
+        if (index === current) {
+          if (current === 0) {
+              // retorna a cor 1
+              Bola.style.background = '#7A3241'; 
+            } else if (current === 1) {
+              // retorna a cor 2
+              Bola.style.background = '#AE703F';
+            } else {
+              // retorna a cor 3
+                Bola.style.background = '#AE665E';
+            }
+        }
+    });
+    
 
       mudarCorDeFundo(current);
     }

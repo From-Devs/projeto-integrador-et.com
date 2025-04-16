@@ -87,20 +87,18 @@
     display: flex;
     gap: 15px;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
   }
-
+  
   .Bola {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background-color: white;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
   }
-
   .Bola.active-Bola {
-    background-color: black;
+    
     transform: scale(1.3);
   }
 
