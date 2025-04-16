@@ -19,9 +19,9 @@
             <button class='Seta-btn' id='prev'><i class='fas fa-chevron-left'></i></button>
 
             <div class='Bolas' id='BolasContainer'>
-                <div class='Bola' class='cor-0'></div>
-                <div class='Bola' class='cor-0'></div>
-                <div class='Bola' class='cor-0'></div>
+                <div class='Bola' class=''></div>
+                <div class='Bola' class=''></div>
+                <div class='Bola' class=''></div>
             </div>
 
             <button class='Seta-btn' id='next'><i class='fas fa-chevron-right'></i></button>
