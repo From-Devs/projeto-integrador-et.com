@@ -15,6 +15,7 @@ footer{
     padding-top: 10px;
     border: 0;
     cursor: pointer;
+    justify-content: center;
 }
 
 .VoltarInicio .Voltar{
