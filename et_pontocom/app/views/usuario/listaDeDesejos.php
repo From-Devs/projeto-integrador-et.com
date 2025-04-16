@@ -5,7 +5,7 @@
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
     session_start();
-    // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
+    $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipo_usuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
@@ -37,7 +37,7 @@
 <body>
 
     <?php
-    //echo createHeader($login,$tipoUsuario); // função que cria o header
+    echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
     <div class="title-container">
         <div class="title">
@@ -208,7 +208,7 @@
     <center><div class="line2"></div></center>
     
     
-    <!--<div class="sessaoProdutos">
+    <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Sugestões</p>
             <a href="#">Ver Mais</a>
@@ -219,24 +219,24 @@
             <div class="frameProdutos">
                 <div class="containerProdutos">
                     <?php
-                    //echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    //echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    //echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    //echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
-                    //echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    //echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    //echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    //echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
                     ?>
                 </div>
             </div>
             <div class="degradeDireita"></div>
             <i class="fa-solid fa-chevron-right setaDireita" id="direita"></i>
         </div>
-    </div>-->
+    </div>
 
     <?php
-    //echo createRodape();
+    echo createRodape();
     ?>
 
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
