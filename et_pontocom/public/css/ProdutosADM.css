@@ -24,7 +24,6 @@ a
 #container
 {
     width: 100vw;
-    height: 100vh;
     margin-left: 350px;
 }
 
@@ -51,7 +50,7 @@ a
     align-items: center;
     overflow: hidden;
     gap: 10px;
-    margin-top: 40px;
+    margin-top: 20px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
