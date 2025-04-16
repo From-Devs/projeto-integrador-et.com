@@ -1,5 +1,5 @@
 /////// Função para exibir os cards dos produtos a caminho
-fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
+fetch("/projeto-integrador-et.com/et_pontocom/public/produtosMP.json")
 .then(response => response.json())
 .then(data => {
    const container = document.getElementById('produtosCaminho');
@@ -13,12 +13,17 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
            <div class="cardcoloridoCam">
                <div class="linhaverticalcard"></div>
                <div class="card-info">
-                   <img src= "${produto.imagem}" alt="${produto.nome}">
-                   <div class="info-caminho">
-                       <span class="titulo">${produto.marca} ${produto.nome}</span>
-                       <span class="verMais">Mais produtos</span>
-                   </div>
-                   <div class="popupMPcaminho>+</div>
+                    <div class="card-imagem">
+                        <img src= "${produto.imagem}" alt="${produto.nome}">
+                    </div>
+                    <div class="info-caminho">
+                        <div class="informacoes-card">
+                            <span class="titulo">${produto.nome} ${produto.marca} ${produto.tamanho}</span>
+                            <span class="titulo">${produto.categoria}</span>
+                        </div>
+                        <span class="verMais">Ver Mais</span>
+                    </div>
+                    <div class="popupMPcaminho>+</div>
                </div>
            </div>
        `;

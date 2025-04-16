@@ -60,41 +60,45 @@
 .pedidoCaminhoMP #produtosCaminho{
     margin-top: 7px;
     width: 155vh;
-    max-height: 83vh;
+    max-height: 50vh;
     padding-right: 6px;
     overflow-y: auto;
-    background-color: transparent;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(48vh,1fr));
+    gap: 40px;
 }
 
 .pedidoCaminhoMP #produtosCaminho::-webkit-scrollbar{
-    width: 6px;                                                  /*scroll da área de produtos a caminho*/
+    width: 5px;                                                  /*scroll da área de produtos a caminho*/
 }
 
 #produtosCaminho::-webkit-scrollbar-thumb{
-    background-color: black;                                   /*style do scroll*/
+    background-color: rgba(0, 0, 0, 0.363);                                   /*style do scroll*/
     border-radius: 10px;
 }
 
 #produtosCaminho .card-produtoMP{
-    height: 24vh;                                                /*tamanho da área de produtos a caminho*/
+    /* background-color: rgb(5, 116, 116); */
+    display: flex;
+    flex-direction: column;
+    height: 26vh;
 }
 
 .card-produtoMP .data-compra{
     font-size: 15px;
-    padding-left: 40px;
 }
 
 .card-produtoMP .cardcoloridoCam{
     margin-top: 10px;
     display: flex;
     flex-direction: row;
-    gap: 35px;
+    gap: 15px;
 }
 
 .card-produtoMP .cardcoloridoCam .linhaverticalcard{
     width: 1px;
-    height: 20vh;
-    background-color: black;
+    height: 23vh;
+    background-color: rgba(0, 0, 0, 0.507);
 }
 
 .card-produtoMP .cardcoloridoCam .card-info{
@@ -102,14 +106,29 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 20vh;
-    width: 150vh;
+    height: 23vh;
+    width: 46vh;
     border-radius: 30px;
 }
 
-.card-produtoMP .cardcoloridoCam .card-info img{
+.card-produtoMP .cardcoloridoCam .card-info .card-imagem{
+    padding-left:30px;
+
+    display: flex;
+    align-items: center;                                                        /* Ver isso depois */
+    justify-content: center;
+}
+
+.card-produtoMP .cardcoloridoCam .card-info .card-imagem img{
     height: 120px;
     width: auto;
+    filter: drop-shadow(0 4p 8px rgba(0,0,0,0));                              /*Ver isso depois*/  
+}
+
+.card-produtoMP .cardcoloridoCam .card-info .informacoes-card{
+    display: flex;
+    flex-direction: column;
+    gap
 }
 
 
