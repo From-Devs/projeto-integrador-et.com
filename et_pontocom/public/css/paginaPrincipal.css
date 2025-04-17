@@ -145,9 +145,6 @@ body{
     .carouselContent{
         gap: 0px;
     }
-    .carouselContainer{
-        /* min-height: 750px; */
-    }
 
     .carouselLogo{
         width: 550px;
@@ -202,10 +199,6 @@ body{
 
     .carouselLogo{
         display: none;
-    }
-
-    .carouselContainer{
-        /* min-height: 800px; */
     }
 }
 
