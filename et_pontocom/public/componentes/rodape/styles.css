@@ -8,40 +8,46 @@ footer{
 }
 
 .VoltarInicio{
+    display: flex;
+    flex-direction: column;
     color: white;
     background-color: black;
-    width: 200px;
-    height: 50px;
+    padding-top: 10px;
     border: 0;
-    overflow-y: hidden;
     cursor: pointer;
+    justify-content: center;
+}
+
+.VoltarInicio .Voltar{
+    font-size: 17px;
+    font-family: "Montserrat", sans-serif;
 }
 
 
 .primeiraSecao{
     display: flex;
     justify-content: center;
+    padding-bottom: 20px;
 }
 
-.logoPrincipal{
-    width: 370px;
-    height: 250px;
-    margin-left: 120px;
-    margin-top: 50px;
+.segundaSecao .logoPrincipal{
+    width: auto;
+    height: 300px;
     user-select: none;
 }
 
 .segundaSecao{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    gap: 120px;
 }
+
 .segundaSubSecao{
     display: flex;
     justify-content: center;
-    margin-left: 12%; 
+    margin-right: 100px; 
     gap: 50px;
-    margin-top: 40px;
 }
 
 .ColunsCategoria{
@@ -50,17 +56,14 @@ footer{
     gap: 20px;
 }
 
-.ColunsAssociado{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-
-.ColunsLine{
+.ColunsCategoria .ColunsLine{
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+.ColunsCategoria .tituloCategoria{
+    font-size: 26px;
 }
 
 .terceiraSecao{
@@ -71,25 +74,19 @@ footer{
 }
 
 .terceiraSecao img{
-    /* width: 300px; */
-    height: 90px;
+    height: 70px;
     user-select: none;
     cursor: pointer;
     padding-right: 10px;
 }
 
-.Termos{
+.terceiraSecao .Termos{
     display: flex;
     position: absolute;
     align-items: center;
     right: 50%;
-    bottom: 0;
+    bottom: 5px;
     transform: translate(50%, 0%)
-}
-
-.Voltar{
-    font-size: medium;
-    font-family: "Montserrat", sans-serif;
 }
 
 .bx bx-chevron-up seta{
@@ -97,143 +94,44 @@ footer{
     height: 40px;
 }
 
-.seta{
+.primeiraSecao .seta{
     font-size: 30px;
 }
 
-.bloko{
-    width:100px;
-    height: 100px;
-    background-color: blueviolet;
+.CategoriaLink{
+    text-decoration: none;
+    color: white;
 }
 
 @media (max-width: 1300px) {
 
-    footer {
-        font-family: "Montserrat", sans-serif;
-        background-color: black;
-        color: white;
-        margin-top: 200px;
-        transform-origin: top left;
-    }
-
-    button {
-        color: white;
-        background-color: black;
-        width: 200px;
-        height: 50px;
-        border: 0;
-        overflow-y: hidden;
-    }
-
-    .primeiraSecao {
-        display: flex;
-        justify-content: center;
-    }
-
-    .logoPrincipal {
-        width: 370px;
-        height: 250px;
-        margin-left: 120px;
-        margin-top: 50px;
-        user-select: none;
-    }
-
-    .segundaSecao {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-    }
-
-    .segundaSubSecao {
-        display: flex;
-        justify-content: center;
-        margin-left: 12%;
-        gap: 50px;
-        margin-top: 40px;
+    .ColunsCategoria h1{
+        font-size: 26px;
     }
 
     .ColunsCategoria {
-        display: flex;
-        flex-direction: column;
+        font-size: 16px;
         gap: 20px;
-    }
-
-    #Categoria {
-        font-size: 25px;
-    }
-
-    #Associado {
-        font-size: 25px;
-    }
-
-    .ColunsAssociado {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .ColunsCategoria, .ColunsAssociado {
-        width: 200px;
-        font-size: 12px;
-        display: flex;
-        gap: 10px;
-    }
-
-    .ColunsLine {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .terceiraSecao {
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
-        position: relative;
     }
 
     .terceiraSecao img {
         height: 60px;
     }
 
-    .Termos {
-        display: flex;
-        position: absolute;
-        align-items: center;
-        right: 50%;
-        bottom: 0;
-        transform: translate(50%, 0%);
+    .segundaSecao .logoPrincipal{
+        height: 250px;
     }
 
-    .Voltar {
-        font-size: medium;
-        font-family: "Montserrat", sans-serif;
+    .segundaSecao{
+        gap: 60px;
     }
 
-    .bx bx-chevron-up seta {
-        width: 200px;
-        height: 40px;
-    }
-
-    .seta {
-        font-size: 30px;
-    }
-
-    .bloko {
-        width: 100px;
-        height: 100px;
-        background-color: blueviolet;
-    }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1067px) {
+
     .primeiraSecao {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 10px;
         text-align: center;
-        margin-left: 18px;
     }
 
     .seta {
@@ -244,39 +142,33 @@ footer{
         font-size: 14px;
     }
 
-    .logoPrincipal {
+    .segundaSecao .logoPrincipal {
         display: flex;
         justify-content: center;
         width: 300px;
-        margin: 10px;
-        height: 250px;
-        margin-left: 82px;
+        height: auto;
     }
 
     .segundaSecao {
-        display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-right: 59px;
+        gap: 40px;
     }
 
     .segundaSubSecao {
         font-size: 25px;
-        display: flex;
         flex-direction: column;
-        margin-right: 65px;
+        margin-right: 0;
     }
 
-    .ColunsCategoria, .ColunsAssociado {
+    .ColunsCategoria{
         width: 600px;
         padding: 0 10px;
         text-align: center;
-        margin-left: 15px;
     }
 
     .ColunsLine {
         gap: 6px;
-        flex-direction: column;
         margin-bottom: 10px;
     }
 
@@ -288,78 +180,16 @@ footer{
     }
 
     .terceiraSecao {
-        display: flex;
         flex-direction: column;
-        font-size: 12px;
-        position: relative;
-        padding-top: 50px;
+        padding-top: 10px;
     }
 
-    .Termos {
-        display: flex;
-        position: absolute;
-        align-items: center;
-        right: 50%;
-        bottom: 0;
-        transform: translate(50%, 0%);
-    }
 }
 
 @media (max-width: 768px) {
-    .primeiraSecao {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 10px;
-        text-align: center;
-    }
 
-    .seta {
-        font-size: 24px;
-    }
-
-    .Voltar {
-        font-size: 14px;
-    }
-
-    .logoPrincipal {
-        display: flex;
-        justify-content: center;
-        width: 300px;
-        margin: 10px;
-        margin-left: 70px;
-    }
-
-    .segundaSecao {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-right: 59px;
-    }
-
-    .segundaSubSecao {
-        font-size: 25px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .ColunsCategoria, .ColunsAssociado {
+    .ColunsCategoria {
         width: 400px;
-        padding: 0 10px;
-        text-align: center;
-        margin-left: 40px;
-    }
-
-    .ColunsLine {
-        gap: 6px;
-        flex-direction: column;
-        margin-bottom: 10px;
-    }
-
-    .CategoriaLink {
-        display: flex;
-        flex-direction: column;
-        font-size: 20px;
-        text-align: center;
     }
 
     #Categoria {
@@ -370,107 +200,44 @@ footer{
         font-size: 25px;
     }
 
-    .terceiraSecao {
+    .terceiraSecao{
+        padding-top: 30px;
         display: flex;
         flex-direction: column;
-        font-size: 12px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
     }
 
     .terceiraSecao img {
-        height: 50px;
+        height: 80px;
+        margin-bottom: 50px;
     }
 
-    .Termos {
-        display: flex;
-        position: absolute;
-        align-items: center;
-        right: 50%;
-        bottom: 0;
-        transform: translate(50%, 0%);
-    }
 }
 
 @media (max-width: 576px) {
-    .primeiraSecao {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 10px;
-        text-align: center;
+
+    .ColunsCategoria .tituloCategoria{
+        font-size: 18px;
     }
 
-    .seta {
-        font-size: 24px;
+    #Associado{
+        width: 200px;
     }
 
-    .Voltar {
-        font-size: 14px;
+    .segundaSubSecao{
+        gap: 35px;
     }
 
-    .logoPrincipal {
-        display: flex;
-        justify-content: center;
-        width: 300px;
-        margin: 10px;
-        margin-left: 70px;
-    }
-
-    .segundaSecao {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-right: 60px;
-    }
-
-    .segundaSubSecao {
-        font-size: 25px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .ColunsCategoria, .ColunsAssociado {
+    .ColunsCategoria {
         width: 400px;
         padding: 0 10px;
         text-align: center;
-        margin-left: 67px;
-    }
-
-    .ColunsLine {
-        gap: 6px;
-        flex-direction: column;
-        margin-bottom: 10px;
-    }
-
-    .CategoriaLink {
-        display: flex;
-        flex-direction: column;
-        font-size: 20px;
-        text-align: center;
-    }
-
-    #Categoria {
-        font-size: 15px;
-    }
-
-    #Associado {
-        font-size: 15px;
-    }
-
-    .terceiraSecao {
-        display: flex;
-        font-size: 12px;
+        align-items: center;
     }
 
     .terceiraSecao img {
-        height: 45px;
-    }
-
-    .Termos {
-        font-size: 10px;
-        display: flex;
-        position: absolute;
-        align-items: center;
-        right: 50%;
-        bottom: 0;
-        transform: translate(50%, 0%);
+        height: 60px;
     }
 }
