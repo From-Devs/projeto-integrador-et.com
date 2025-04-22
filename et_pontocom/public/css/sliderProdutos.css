@@ -1,0 +1,242 @@
+/* <div class="frameSlider">
+        <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
+        <div class="degradeEsquerda"></div>
+        <div class="frameProdutos">
+            <div class="containerProdutos" id="containerLancamentos">
+                <?php
+                    echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg");
+                    echo createCardProdutoLancamento("Avon", "Red Batom","R$ 2000,00","#D1061D","batom.png");
+                    echo createCardProdutoLancamento("Benefit", "BADgal Bang! Máscara de Cílios","R$ 3000,00","#D02369","bang.png");
+                    echo createCardProdutoLancamento("Avon", "Color Trend Delineador Líquido","R$ 1000,00","#F0CBDA","trend.webp");
+                    echo createCardProdutoLancamento("Mari Maria","Diamond Blender Esponja de Maquiagem","R$ 2000,00","#D79185","tri.jpeg");
+                    echo createCardProdutoLancamento("Simple Organic", "SOLUÇÃO RETINOL-LIKE","R$ 3000,00","#C9A176","simple.webp");
+                    echo createCardProdutoLancamento("Princess","Mini Chapinha Bivolt","R$ 2000,00","#745CA3","chapa.webp");
+                    echo createCardProdutoLancamento("O Boticário","L'eau De Lily Soleil Perfume Feminino","R$ 3000,00","#F4C83C","lily.jpg");
+                ?>
+            </div>
+        </div>
+        <div class="degradeDireita"></div>
+        <i class="fa-solid fa-chevron-right setaSlider setaDireita" id="direita"></i>
+    </div> */
+
+.sessaoProdutos .tituloSessao{
+    /* padding: 0px 100px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 36px;
+    width: 100%;
+    position: static;
+}
+
+.tituloSessao a{
+    padding-right: 100px;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+}
+
+.tituloSessao .titulo{
+    padding-left: 100px;
+}
+
+.sessaoProdutos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px; /* tudo cagado */
+}
+
+.degradeDireita{
+    background-image: linear-gradient(to left, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
+    height: 100%;
+    width: 64px;
+    position: absolute;
+    right: 0;
+    z-index: 500;
+}
+
+.degradeEsquerda{
+    background-image: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
+    height: 100%;
+    width: 64px;
+    position: absolute;
+    left: 0;
+    z-index: 500;
+}
+
+.frameSlider{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.setaSlider{
+    z-index: 501;
+    cursor: pointer;
+    font-size: 35px;
+}
+
+.setaDireita{
+    position: absolute;
+    right: -22px;
+}
+
+.setaEsquerda{
+    position: absolute;
+    left: -22px;
+}
+
+.frameProdutos{
+    display: flex;
+    width: 1380px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.frameProdutos.dragging{
+    scroll-behavior: auto;
+    cursor: grab;
+}
+
+.frameProdutos.dragging .containerLancamento .cardLancamento{
+    user-select: none;
+}
+
+.containerProdutos{
+    padding: 25px 83px 25px 83px;
+    display: flex;
+    gap: 25px;
+}
+
+#containerLancamentos{
+    gap: 17px;
+}
+
+@media (max-width: 1600px){ /*Computador Grande*/
+    .degradeDireita{
+        right: -2px;
+    }
+    
+    .degradeEsquerda{
+        left: -1px;
+    }
+    .sessaoProdutos .tituloSessao{
+        width: 980px;
+    }
+
+    .frameProdutos{
+        width: 1180px;
+    }
+
+    .tituloSessao .titulo{
+        padding-left: 0;
+    }
+
+    .tituloSessao a{
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 1400px){ /*Computador*/
+    .sessaoProdutos .tituloSessao{
+        width: 850px;
+    }
+
+    .frameProdutos{
+        width: 1050px;
+    }
+
+}
+
+@media (max-width: 1200px){ /*Computador*/
+    .sessaoProdutos .tituloSessao{
+        width: 600px;
+    }
+
+    .frameProdutos{
+        width: 800px;
+    }
+}
+
+@media (max-width: 992px){ /*Tablet*/
+    .frameProdutos{
+        width: 90vw;
+    }
+
+    .containerProdutos{
+        padding: 25px 83px 25px 83px;
+        display: flex;
+        gap: 25px;
+    }
+
+    .sessaoProdutos .tituloSessao{
+        width: 70vw;
+    }
+
+    .setaDireita{
+        right: -12px;
+    }
+    
+    .setaEsquerda{
+        left: -12px;
+    }
+}
+
+@media (max-width: 768px){ /*Celular Paisagem*/
+
+    .frameProdutos{
+        width: 100vw;
+    }
+
+    .degradeDireita{
+        right: 0px;
+    }
+    
+    .degradeEsquerda{
+        left: 0px;
+    }
+
+    .sessaoProdutos .tituloSessao{
+        width: 100%;
+    }
+
+    .tituloSessao .titulo{
+        padding-left: 100px;
+        font-size: 28px;
+    }
+
+    .tituloSessao a{
+        padding-right: 100px;
+        font-size: 22px;
+    }
+
+    .setaSlider{
+        visibility: hidden;
+    }
+
+}
+
+@media (max-width: 576px){ /*Celular Vertical*/
+    .tituloSessao .titulo{
+        padding-left: 50px;
+        font-size: 28px;
+    }
+
+    .tituloSessao a{
+        padding-right: 50px;
+        font-size: 22px;
+    }
+
+    .degradeDireita{
+        background-image: linear-gradient(to left, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
+        width: 50px;
+    }
+    
+    .degradeEsquerda{
+        background-image: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
+        width: 50px;
+    }
+
+}
