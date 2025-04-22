@@ -1,0 +1,146 @@
+@import url(styles.css);
+
+*
+{
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
+
+body
+{
+    display: flex;
+    margin: 0%;
+    padding: 0%;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+/* PARTE DA DIREITA CONTAINER GERAL */
+
+#tituloH1
+{
+    margin-top: 20px;
+}
+
+#container
+{
+    width: 100vw;
+    height: 100vh;
+    margin-left: 350px;
+}
+
+/* estilizacao da parte do icone do usuario */
+
+
+#controleIcon
+{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#iconUsuario
+{
+    width: 250px;
+    height: 80px;
+    display: flex;
+    background-color: black;
+    color: white;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+    margin-top: 20px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+#fotoUser
+{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    margin-left: 30px;
+    width: 70px;
+    height: 70px;
+}
+
+/* filtragem e pesquisa */
+
+#divPesquisarEFiltro
+{
+    display: flex;
+    gap: 250px;
+}
+
+/* pesquisa */
+
+#inputPesquisar
+{
+    width: 500px;
+    height: 55px;
+    border-radius: 15px;
+    padding-left: 10px;
+    border: none;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+}
+
+/* tabela */
+
+#tabelaVendas 
+{
+    width: 97%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+#barraCima 
+{
+    background-color: black;
+    color: white;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+    padding: 10%;
+}
+
+th, td
+{
+    padding: 12px;
+    text-align: center;
+}
+
+th
+{
+    padding: 2%;
+    font-size: 24px;
+}
+
+td
+{
+    padding: 2%;
+    font-size: 20px;
+}
+
+tr
+{
+    border-bottom: 0.3px solid #DADADA;
+}
+
+
+#bordaEsquerda
+{
+    border-top-left-radius: 10px;
+}
+
+
+#bordaDireita
+{
+    border-top-right-radius: 10px;
+}

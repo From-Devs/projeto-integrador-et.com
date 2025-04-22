@@ -24,47 +24,88 @@ Pode ser necessário trocar o caminho dos styles e scripts dependendo de onde a 
 <?php
 require __DIR__ . "/../sidebar/sidebarHeader.php"; // import do componente da sidebar
 
-function createHeader($login,$tipoUsuario){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
-    if ($login == false){                   // $login (sujeito a mudança): é o estado de login do usuário, true pra logado e false para deslogado
-        $botao1 = "Cadastrar-se";           // $tipoUsuario (sujeito a mudança): é o tipo de conta, associado ou usuario (veja como funciona na teste.php)
-        $botao2 = "Entrar";
+function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
+                                            // $login (sujeito a mudança): é o estado de login do usuário, true pra logado e false para deslogado
+    if ($login == false){                   // $tipoUsuario (sujeito a mudança): é o tipo de conta, associado ou usuario (veja como funciona na teste.php)
+        $botao1 = botaoPersonalizadoRedirect('Cadastrar-se', 'btn-white', '', '155px', '44px', '16px');           
+        $botao2 = botaoPersonalizadoRedirect('Entrar', 'btn-white', '', '155px', '44px', '16px');
     }else{
         $botao1 = "Minha Conta";
         $botao2 = "Sair";
     }
-    // Abaixo é o código do header que vai pro HTML, ele usa a função de criar a sidebar de outro componente.
-    return '
-    <header class="headerUsuario" id="headerUsuario">
-        '.createSidebar($tipoUsuario).'
-        <div class="esquerdo">
-            <div class="menu-toggle" id="menu-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+
+    if($tipo == 0){
+        // Abaixo é o código do header que vai pro HTML, ele usa a função de criar a sidebar de outro componente.
+        return "
+        ".createSidebar($tipoUsuario)."
+        <header class='headerUsuario' id='headerUsuario'>
             
-            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" alt="logo" id="logoHeader">
-        </div>
-
-        <div class="pesquisa closed" id="pesquisaHeader">
-            <input type="text" id="inputHeader"></input>
-            <button><i class="bx bx-search" id="lupa"></i></button>
-        </div>
-
-        <div class="direito">
-            <div class="botoes">
-                <i class="bx bx-search" id="lupa2"></i>
-                <i class="bx bx-heart" id="coracao"></i>
-                <i class="bx bx-cart" id="carrinho"></i>
-                <i class="bx bx-user-circle" id="perfil"></i>
+            <div class='esquerdo'>
+                <div class='menu-toggle' id='menu-toggle'>
+                    <span class='bar'></span>
+                    <span class='bar'></span>
+                    <span class='bar'></span>
+                </div>
+    
+                <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/paginaPrincipal.php'>
+                    <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png' alt='logo' id='logoHeader'>
+                </a>
+    
             </div>
-            <div id="menuConta" class="menuConta">
-                <button class="menuButton" id="botao1">'.$botao1.'</button>
-                <button class="menuButton" id="botao2">'.$botao2.'</button>
+    
+            <div class='pesquisaHeader closed'>
+                <input type='text' class='inputHeader'></input>
+                <button><i class='bx bx-search lupaHeaderInput'></i></button>
             </div>
-        </div>
-    </header>
-    ';
+    
+            <div class='direito'>
+                <div class='botoes'>
+                    <img class='lupaHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/lupa.png' alt=''>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/listaDeDesejos.php'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/coracao.png' alt=''></a>
+                    <a href='#'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/carrinho.png' alt=''></a>
+                    <img class='perfilHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/perfil.png' alt=''>
+                </div>
+                <div class='menuConta'>
+                    $botao1
+                    $botao2
+                </div>
+            </div>
+        </header>
+        ";
+    }else{
+        return "
+        <header class='headerUsuario' id='headerCarousel'>
+            
+            <div class='esquerdo'>
+                <div class='menu-toggle' id='menu-toggle'>
+                    <span class='bar'></span>
+                    <span class='bar'></span>
+                    <span class='bar'></span>
+                </div>
+    
+            </div>
+    
+            <div class='pesquisaHeader closed'>
+                <input type='text' class='inputHeader'></input>
+                <button><i class='bx bx-search lupaHeaderInput'></i></button>
+            </div>
+    
+            <div class='direito'>
+                <div class='botoes'>
+                    <img class='lupaHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/lupa.png' alt=''>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/listaDeDesejos.php'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/coracao.png' alt=''></a>
+                    <a href='#'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/carrinho.png' alt=''></a>
+                    <img class='perfilHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/perfil.png' alt=''>
+                </div>
+                <div class='menuConta'>
+                    $botao1
+                    $botao2
+                </div>
+            </div>
+        </header>
+        ";
+    }
+
 }
 ?>
 
