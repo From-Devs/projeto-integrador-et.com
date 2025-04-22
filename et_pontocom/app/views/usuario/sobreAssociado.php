@@ -34,7 +34,7 @@
 </head>
 <body>
     <?php
-    echo createHeader($login,$tipoUsuario); // função que cria o header
+    //echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
 
     <div class="container">
@@ -74,7 +74,7 @@
     </div>
 
     <?php
-    echo createRodape();
+    //echo createRodape();
     ?>
 
 
