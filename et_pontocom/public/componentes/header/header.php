@@ -82,6 +82,10 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
                     <span class='bar'></span>
                     <span class='bar'></span>
                 </div>
+
+                <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/paginaPrincipal.php'>
+                    <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png' alt='logo' id='logoHeader'>
+                </a>
     
             </div>
     

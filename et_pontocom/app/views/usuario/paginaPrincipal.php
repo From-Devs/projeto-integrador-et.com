@@ -47,15 +47,19 @@
 
     <div class="carouselContainer" id="carousel">
         
+        <div class="carouselBackground" id="carouselBackground"></div>
+        
         <?php
         echo createHeader($login,$tipoUsuario,1);
         ?>
         <div class="carouselContent">
-            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" alt="" class="carouselLogo">
-            <div class="componenteCarousel">
-                <?php
-                echo createCarousel(); // função que cria o header
-                ?>
+            <div class="carouselWrapper">
+                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" alt="" class="carouselLogo">
+                <div class="componenteCarousel">
+                    <?php
+                    echo createCarousel(); // função que cria o header
+                    ?>
+                </div>
             </div>
         </div>
         <div class="frameOndas">
@@ -138,10 +142,15 @@
         </div>
     </div>
 
-    <div class="produtoDestaque">
-        <div class="imagemProduto">
-            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/idole.png" alt="" class="produto">
-            <span class="luzProduto"></span>
+    <?php
+    // echo createProdutoDestaque("Hidratante Corporal Milk","Nivea","R$20,00","milk.png","rgb(0, 0, 145)","rgb(75, 75, 226)","rgb(0, 0, 57)");
+    // echo createProdutoDestaque();
+    ?>
+
+    <div class="sessaoProdutos">
+        <div class="tituloSessao">
+            <p class="titulo">Ofertas Imperdíveis</p>
+            <a href="#">Ver Mais</a>
         </div>
         <div class="infoProdutoDestaque">
             <h1 class="nomeProduto">KIT LANCÔME LASH IDÔLEA</h1>
