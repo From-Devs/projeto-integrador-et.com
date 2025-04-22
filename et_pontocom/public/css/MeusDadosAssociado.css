@@ -15,7 +15,18 @@ main {
     margin-left: 287px;
 }
 
-.main_header .perfil {
+.main_header {
+    height: 200px;
+    background-color: #F8F8F8;
+}
+
+#titulo-principal {
+    font-size: 26px;
+    padding-top: 92px;
+    padding-left: 60px;
+}
+
+#perfil-usuario {
     display: flex;
     justify-content: flex-end;
     background-color: black;
@@ -30,21 +41,11 @@ main {
     filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
 }
 
-.main_header {
-    height: 200px;
-    background-color: #F8F8F8;
-}
-
-.main_header h1 {
-    font-size: 26px;
-    padding-top: 92px;
-    padding-left: 60px;
-}
-
 .main_fundo {
+    padding: 39px;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .quadrado {
@@ -57,12 +58,8 @@ main {
     padding-right: -75px;
     position: relative;
     bottom: 40px;
-    background-color: rgb(245, 241, 241);
+    background-color: #f7f7f7;
     filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
-}
-
-.hidde {
-    display: none;
 }
 
 .user-img {
@@ -138,11 +135,136 @@ main {
 }
 
 .exit {
+    padding-top: 10px;
+    padding-right: 10px;
     font-size: 40px;
 }
-/* user pefil principal */
-#quadrado-perfil{
-    height: 470px;
-    width: 454px;
-    background-color: red;
+
+/* tela de editar 01*/
+.principal-perfil {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+}
+
+#user-perfil {
+    display: flex;
+    padding: 20px;
+    padding-top: 25px;
+    justify-content: space-between;
+    height: 454px;
+    width: 470px;
+    border-radius: 15px;
+    background-color: #fdfdfd;
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
+}
+
+#user-perfil #nome-perfil {
+    padding-top: 15px;
+    padding-left: 15px;
+    font-size: 19px;
+}
+
+#user-perfil #img-user img {
+    margin: 5px;
+    text-align: center;
+    height: 199px;
+    width: 195px;
+    border-radius: 50%;
+}
+
+#user-perfil #img-user {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    box-shadow: black 3px 0 0 10;
+}
+
+#icone-editar {
+    font-size: 21px;
+    display: flex;
+    height: 73px;
+    width: 74px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#botao-editar {
+    display: flex;
+    height: 50px;
+    width: 154px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
+}
+
+.box-rede {
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
+    display: flex;
+    margin-top: 20px;
+    height: 54px;
+    width: 470px;
+    align-items: center;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+}
+
+.box-rede i {
+    display: flex;
+    padding-left: 10px;
+    font-size: 30px;  
+    text-align: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;  
+}
+
+.parte-dados {
+    padding-top: 40px;
+}
+
+.dado-local {
+    position: relative;
+    margin-top: 15px;
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
+    height: 102px;
+    width: 784px;
+    align-items: center;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+}
+
+.titulo-dado {
+    padding: 20px;
+}
+
+.texto-dado {
+    text-align: center;
+}
+
+/* Classe para esconder elementos */
+.hidde {
+    display: none; 
+}
+
+/* tela edição */
+.usertitulo{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin: 25px;
+    user-select: none;
+}
+
+.usertitulo h1 {
+    font-size: 30px;
+    margin-left: 10px;
+    color: #000;
 }
