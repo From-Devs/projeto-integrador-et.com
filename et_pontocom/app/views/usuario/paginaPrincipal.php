@@ -144,7 +144,7 @@
 
     <?php
     // echo createProdutoDestaque("Hidratante Corporal Milk","Nivea","R$20,00","milk.png","rgb(0, 0, 145)","rgb(75, 75, 226)","rgb(0, 0, 57)");
-    // echo createProdutoDestaque();
+    echo createProdutoDestaque();
     ?>
 
     <div class="sessaoProdutos">
