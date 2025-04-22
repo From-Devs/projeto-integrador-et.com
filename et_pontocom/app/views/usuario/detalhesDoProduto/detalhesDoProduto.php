@@ -17,9 +17,9 @@ require_once __DIR__ . "../../../../../public/componentes/rodape/Rodape.php";
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/header/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/styles.css">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/detalhesDoProduto.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/detalhesDoProduto.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>Detalhes do produto</title>
@@ -62,13 +62,14 @@ require_once __DIR__ . "../../../../../public/componentes/rodape/Rodape.php";
                     <div class="sub-titulo-produto">
                         <span class="preco-produto">R$39,90 |</span>
                         <abbr title="Avaliações" class="avaliacao-descricao">
-                            <a href="#all-avaliacoes">
+                            <a href="#" onclick="irAteAvaliacoes()">
                                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
                                 <span class="qtd-reviews">(10 reviews)</span>
                             </a>
                         </abbr>
                     </div>
                 </div>
+                <hr color="#d4d4d4">
                 <div class="mais-detalhes">
                     <div class="descricao">
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores illum iste hic, eius quae natus nobis eveniet voluptates qui facere modi? Explicabo, ad velit. Consequatur placeat possimus dolore accusantium iure.
@@ -96,7 +97,11 @@ require_once __DIR__ . "../../../../../public/componentes/rodape/Rodape.php";
         </div>
     </div>
 
-    <div class="description-box">
+    <div class="container-btn-baixo">
+        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/img-seta-baixo.svg" alt="img-baixo" onclick="irAteDescricao()">
+    </div>
+
+    <div id="description-box">
         <h2>DESCRIÇÃO</h2>
         <p>Marca: Mary Kay<br>
             Linha: At Play®<br>
@@ -114,7 +119,7 @@ require_once __DIR__ . "../../../../../public/componentes/rodape/Rodape.php";
                 <li>Disponibilidade de Tons: Disponível em uma variedade de tons para atender diferentes tonalidades de pele, garantindo um match perfeito para a maioria das pessoas.</li>
                 <li>Indicação: Indicada para todos os tipos de pele, especialmente para peles oleosas e mistas, devido ao seu efeito matte e controle de oleosidade.</li>
                 <li>Modo de Uso: Aplicar uma pequena quantidade de produto no dorso da mão e, com o auxílio de um pincel, esponja ou os dedos, espalhar uniformemente pelo rosto, começando do centro para as extremidades.</li>
-                <li>Benefícios Adicionais: mAlém de proporcionar uma cobertura natural e uniforme, a base contribui para um visual mais saudável da pele, minimizando a aparência de poros e imperfeições.</li>
+                <li>Benefícios Adicionais: Além de proporcionar uma cobertura natural e uniforme, a base contribui para um visual mais saudável da pele, minimizando a aparência de poros e imperfeições.</li>
                 <li>Embalagem: Vem em uma embalagem prática e portátil, facilitando o transporte e a aplicação em qualquer lugar.</li>
                 <li>Esta base é perfeita para quem busca uma pele com acabamento matte, natural e duradouro, sem abrir mão do conforto e da qualidade.</li>
             </ul>

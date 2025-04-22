@@ -53,3 +53,14 @@ document.getElementById("ordenar").addEventListener("change", function() {
 
     avaliacoes.forEach(avaliacao => container.appendChild(avaliacao));
 });
+
+
+function irAteAvaliacoes() {
+    const avaliacoes = document.getElementById("all-avaliacoes");
+    avaliacoes.scrollIntoView({behavior: "smooth"})
+}
+
+function irAteDescricao() {
+    const avaliacoes = document.getElementById("description-box");
+    avaliacoes.scrollIntoView({behavior: "smooth"})
+}
