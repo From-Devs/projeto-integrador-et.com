@@ -127,30 +127,17 @@
                 </div>
                 <i id="fechar-perfil" class='bx bx-x exit'></i>
             </div>
-
+            
             <!-- Tela do Quadrado (edicao-perfil) -->
             <div id="quadrado-perfil" class="quadrado">
-                <div class="user-ediçao-usuario"><h1>Meus Dados</h1></div>
-                <div class="ptr1">
-                    <div class="edicao-Letra"><h1>Gmail</h1></div>
-                    <div class="edicao_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
-                    <div class="edicao-Letra"><h1>Gmail</h1></div>
-                    <div class="edicao_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
-                    <div class="edicao-Letra"><h1>Gmail</h1></div>
-                    <div class="edicao_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
-                    <div class="edicao-Letra"><h1>Gmail</h1></div>
-                    <div class="edicao_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
-                    <div class="edicao-Letra"><h1>Gmail</h1></div>
-                    <div class="edicao_Box Texto">tiginhoJogoTÀPagandoMUITO@Gmail.com</div>
-                <div class="linha"></div>
-                <div class="ptr2">
-
+                <div class="usertitulo">
+                  <h1>Perfil</h1>
                 </div>
-                <i id="fechar-perfil" class='bx bx-x exit'></i>
+                
             </div>
         </section>
     </main>
-    <script src="../../../public/componentes/sidebarADM_Associado/script.js"></script>
+    <script src="../../../public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script>
          // JavaScript para alternar entre as telas
         const iconeEditar = document.getElementById('icone-editar');

@@ -255,157 +255,16 @@ main {
 }
 
 /* tela edição */
-/* .quadrado-edicao {
-    width: 700px;
-    padding: 20px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ccc;
-    font-family: Arial, sans-serif;
-  }
-  
-  .quadrado-edicao h2 {
-    margin-bottom: 20px;
-  }
-  
-  .formulario-dividido {
+.usertitulo{
     display: flex;
-    gap: 20px;
-  }
-  
-  .lado-esquerdo, .lado-direito {
-    width: 45%;
-  }
-  
-  label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-  }
-  
-  .data-nascimento {
-    display: flex;
-    gap: 5px;
-    margin-top: 5px;
-  }
-  
-  .data-nascimento select {
-    flex: 1;
-  }
-  
-  .telefone {
-    display: flex;
-    gap: 5px;
-    margin-top: 5px;
-  }
-  
-  .telefone select {
-    width: 30%;
-  }
-  
-  .telefone input {
-    width: 70%;
-  }
-  .telefone-unico {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .telefone-unico .prefixo {
-    display: flex;
-    align-items: center;
-    background: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 8px 0 0 8px;
-    padding: 0 8px;
-    height: 40px;
-  }
-  
-  .telefone-unico select {
-    border: none;
-    background: transparent;
-    font-size: 14px;
-    appearance: none;
-    padding-right: 10px;
-  }
-  
-  .telefone-unico .bandeira {
-    width: 20px;
-    margin-right: 5px;
-    border-radius: 50%;
-  }
-  
-  .telefone-unico input {
-    flex: 1;
-    height: 40px;
-    border: 1px solid #ccc;
-    border-left: none;
-    border-radius: 0 8px 8px 0;
-    padding: 8px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-  }
-  
-  
-  .linha-vertical {
-    width: 2px;
-    background-color: #999;
-  }
-  
-  .logo {
-    text-align: center;
-    font-size: 18px;
-    margin: 30px 0;
-    font-family: 'Georgia', serif;
-  }
-  
-  .logo strong {
-    font-size: 32px;
-  }
-  
-  .botoes {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  
-  .btn-cancelar, .btn-confirmar {
-    flex: 1;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .btn-cancelar {
-    background-color: #f44336;
-    color: white;
-  }
-  
-  .btn-confirmar {
-    background-color: #4caf50;
-    color: white;
-  }
-  
-  .valido {
-    font-size: 12px;
-    color: green;
-    margin-top: 3px;
-    display: block;
-  }
-   */
+    width: 50px;
+    height: 50px;
+    margin: 25px;
+    user-select: none;
+}
+
+.usertitulo h1 {
+    font-size: 30px;
+    margin-left: 10px;
+    color: #000;
+}
