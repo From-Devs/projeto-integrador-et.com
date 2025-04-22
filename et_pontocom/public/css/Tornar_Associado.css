@@ -32,7 +32,7 @@ body {
   margin-bottom: 20px;
   color: #000000; /* Ajuste a cor conforme necessário */
   position: relative;
-  z-index: 1002;
+  z-index: 901;
 }
 
 .carousel-container {
@@ -154,7 +154,7 @@ body {
   position: absolute;
   width: 30%;
   height: auto; /* Ajuste a altura para permitir que a imagem se mova */
-  z-index: 1001;
+  z-index: 900;
   object-fit: cover;
   border-radius: 10px;
   filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.377));
@@ -171,7 +171,7 @@ body {
   height: auto; /* Mantém a proporção da imagem */
   object-fit: cover; /* Ajusta a imagem para cobrir a área */
   border-radius: 10px; /* Adiciona bordas arredondadas */
-  z-index: 1002; /* Garante que a imagem fique acima de outros elementos */
+  z-index: 901; /* Garante que a imagem fique acima de outros elementos */
 }
 
 .commission-table {
@@ -204,7 +204,7 @@ body {
   text-align: center;
   max-width: 1918px;
   max-height: 760px;
-  background-image: url('TornarAssociado/Rectangle.png');
+  background-image: url('/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/Rectangle.png');
   background-size: cover;
   background-position: center;
   height: 800px;
@@ -325,7 +325,7 @@ margin-left: 1000px;
   margin-left: -1890px;
   width: 100vw;
   height: 250px;
-  background: url(ondas/ondaSolida.png);
+  background: url(/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/wave.png);
   background-size: 100vw 250px;
   animation: animacaoOnda 8s linear infinite;
   animation-delay: 0s;
