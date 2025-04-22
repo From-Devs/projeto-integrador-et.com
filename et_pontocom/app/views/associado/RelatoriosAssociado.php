@@ -13,12 +13,12 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatórios</title>
-    <link rel="stylesheet" href="./../../../public/css/RelatorioAssociado.css">
     <link rel="stylesheet" href="./../../../public/componentes/popup/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
+    <link rel="stylesheet" href="./../../../public/css/RelatorioAssociado.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
 </head>
@@ -41,28 +41,28 @@ session_start();
     <!--cards relatorios-->
     <h1 id="titleRelatorios">Relatórios</h1>
     <div class="cardsRelatorios">
-        <?php echo PopUpConfirmar("relatorioReceitas", "Relatório receitas", "<button id='btnRelatorio'>teste <img src='' alt=''></button>", "", "500px", "gray", "white")?>
+        <?php echo PopUpConfirmar("relatorioReceitas", "Relatório de Receitas", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "500px", "gray", "white")?>
         <div class="cardRelatorio" onclick="abrirPopUp('relatorioReceitas')">
             <h2 id="textCard">Relatorio de Receitas</h2>
             <div class="iconCard">
                 <img src="./../../../public/imagens/associado/iconeRelatorioReceitas.png" alt="">
             </div>
         </div>
-        <?php echo PopUpConfirmar("relatorioProduto", "Relatório produto", "<button id='btnRelatorio'>teste <img src='' alt=''></button>", "", "", "gray", "white")?>
+        <?php echo PopUpConfirmar("relatorioProduto", "Relatório de Receitas por Produto", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "", "gray", "white")?>
         <div class="cardRelatorio" onclick="abrirPopUp('relatorioProduto')">
             <h2 id="textCard">Receita por Produto</h2>
             <div class="iconCard">
                 <img src="./../../../public/imagens/associado/iconeReceitaProduto.png" alt="">
             </div>
         </div>
-        <?php echo PopUpConfirmar("relatorioVendas", "Relatório vendas", "<button id='btnRelatorio'>teste <img src='' alt=''></button>", "", "", "gray", "white")?>
+        <?php echo PopUpConfirmar("relatorioVendas", "Relatório de Vendas Abandonadas", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "", "gray", "white")?>
         <div class="cardRelatorio" onclick="abrirPopUp('relatorioVendas')">
             <h2 id="textCard">Vendas Abandonadas</h2>
             <div class="iconCard">
                 <img src="./../../../public/imagens/associado/iconeVendasAbandonadas.png" alt="">
             </div>
         </div>
-        <?php echo PopUpConfirmar("relatorioSaldo", "Relatório saldo", "<button id='btnRelatorio'>teste <img src='' alt=''></button>", "", "", "gray", "white")?>
+        <?php echo PopUpConfirmar("relatorioSaldo", "Relatório de Saldo a Receber", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "", "gray", "white")?>
         <div class="cardRelatorio" onclick="abrirPopUp('relatorioSaldo')">
             <h2 id="textCard">Saldo a Receber</h2>
             <div class="iconCard">

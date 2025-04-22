@@ -94,4 +94,26 @@
     justify-content: center;
     background-color: var(--white-color);
     border-radius: 10px;
+}   
+
+.popUp .botoes-popUp{
+    background-color: transparent;
+}
+
+.btn-relatorio{
+    display: flex;
+    font-size: 20px;
+    width: 100%;
+    height: 60px;
+    border-radius: 64px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #282828;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.icone-fechar{
+    cursor: pointer;
 }
