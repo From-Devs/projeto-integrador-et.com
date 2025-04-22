@@ -86,6 +86,6 @@ require_once __DIR__ . "../../../../../public/componentes/botao/botao.php";
     </div>
 
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
-    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/popUp.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
 </body>
 </html>
