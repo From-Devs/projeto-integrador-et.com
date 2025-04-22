@@ -84,160 +84,73 @@ main {
 #user-perfil #img-user {
     display: flex;
     flex-direction: column;
-    font-family: "Montserrat", sans-serif;
-    overflow-x: hidden;
+    align-self: center;
+    align-items: center;
+    box-shadow: black 3px 0 0 10;
 }
 
-.carouselContainer{
-    width: 100%;
-    height: 100vh;
-    /* background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%); */
-    z-index: 1000;
-    position: relative;
-    box-sizing: border-box;
-    transition: background-color 0.6s ease;
-}
-
-.carouselContent{
+#icone-editar {
+    font-size: 21px;
     display: flex;
-}
-
-.componenteCarousel{
-    display: flex;
+    height: 73px;
+    width: 74px;
+    text-align: center;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
 }
 
-.carouselLogo{
-    width: 800px;
-}
-
-.degradeParaHeader{
-    width: 100%;
-    height: 64px;
-    background-image: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0) 50%);
-    z-index: 1000;
-}
-
-.linkCategorias{
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(6,1fr);
-    grid-template-rows: 1fr;
-    padding-top: 100px;
-    gap: 56px;
-}
-
-.botaoCategoria{
-    text-decoration: none;
-    transition: transform 0.3s ease-out, filter 0.3s ease-out;
-    width: 150px;
-    height: 150px;
+#botao-editar {
     display: flex;
-    flex-direction: column;
-    background-color: rgb(0, 0, 0);
-    border-radius: 100px;
+    height: 50px;
+    width: 154px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 12px;
     align-items: center;
     justify-content: center;
-    gap: 11px;
-    filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
 }
 
-.botaoCategoria:hover{
-    transform: scale(1.1);
-    filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
+.box-rede {
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
+    display: flex;
+    margin-top: 20px;
+    height: 54px;
+    width: 470px;
+    align-items: center;
+    background-color: #fdfdfd;
+    border-radius: 12px;
 }
 
-.containerIconeCategoria{
+.box-rede i {
+    display: flex;
+    padding-left: 10px;
+    font-size: 30px;  
+    text-align: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;  
+}
+
+.parte-dados {
+    padding-top: 40px;
+}
+
+.dado-local {
     position: relative;
-    width: 55px;
-    height: 55px;
+    margin-top: 15px;
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
+    height: 102px;
+    width: 784px;
+    align-items: center;
+    background-color: #fdfdfd;
+    border-radius: 12px;
 }
 
-.containerIconeCategoria img{
-    height: 55px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+.titulo-dado {
+    padding: 20px;
 }
 
-.iconeCategoria{
-    z-index: 2;
-}
-
-.iconeCategoriaHover{
-    z-index: 1;
-}
-
-.tituloCategoria{
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-}
-
-@media (max-width: 1400px){ /*Computador Grande*/
-    /* .wave.solida{
-        background-size: 100vw 200px;
-    }
-    
-    .wave.fantasma{
-        background-size: 100vw 100px;
-    } */
-
-    .linkCategorias{
-        transform: scale(0.9);
-        padding-top: 160px;
-    }
-}
-
-@media (max-width: 1300px){ /*Computador*/
-
-}
-
-@media (max-width: 1200px){ /*Computador*/
-    .linkCategorias{
-        transform: scale(0.8);
-    }
-}
-
-@media (max-width: 1067px){ /*Computador*/
-    .linkCategorias{
-        gap: 30px;
-    }
-
-    .linkCategorias{
-        transform: scale(1);
-        padding-top: 140px;
-        gap: 56px;
-        grid-template-columns: repeat(3,1fr);
-        grid-template-rows: repeat(2,1fr);
-        grid-template-areas: 
-        "botao1 botao2 botao3"
-        "botao4 botao5 botao6"
-        ;
-    }
-}
-
-@media (max-width: 992px){ /*Tablet*/
-    
-
-    
-}
-
-@media (max-width: 768px){ /*Celular Paisagem*/
-    .linkCategorias{
-        transform: scale(0.9);
-        padding-top: 0px;
-        gap: 25px;
-    }
-
-}
-
-@media (max-width: 576px){ /*Celular Vertical*/
-    .linkCategorias{
-        transform: scale(0.8);
-        gap: 20px;
-        grid-auto-flow: column;
-    }
+.texto-dado {
+    text-align: center;
 }

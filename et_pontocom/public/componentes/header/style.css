@@ -9,7 +9,6 @@
     height: 95px;
     padding-bottom: 9px;
     z-index: 998;
-    /* box-sizing: border-box; */
 }
 
 .esquerdo{ /* parte da esquerda do header, onde fica as três barrinhas e a logo */
@@ -67,7 +66,7 @@
     cursor: pointer;
 }
 
-.pesquisaHeader{ /* Barrinha de pesquisa (inicialmente escondida) */
+.pesquisa{ /* Barrinha de pesquisa (inicialmente escondida) */
     height: 45px;
     position: absolute;
     display: flex;
@@ -80,19 +79,19 @@
     transition-timing-function: ease-in-out;
 }
 
-.pesquisaHeader.open{ /* Barrinha de pesquisa quando está na tela */
+.pesquisa.open{ /* Barrinha de pesquisa quando está na tela */
     opacity: 1;
     transform: translate(-50%,-55%);
     visibility: visible;
 }
 
-.pesquisaHeader.closed{ /* Barrinha de pesquisa quando está escondida */
+.pesquisa.closed{ /* Barrinha de pesquisa quando está escondida */
     opacity: 0;
     transform: translate(-50%,-250%);
     visibility: hidden;
 }
 
-.pesquisaHeader input{ /* input da barrinha de pesquisa (onde dá pra escrever) */
+.pesquisa input{ /* input da barrinha de pesquisa (onde dá pra escrever) */
     width: 580px;
     padding: 14px;
     border: 0;
@@ -102,11 +101,11 @@
     font-family: "Montserrat", sans-serif;
 }
 
-.inputHeader:focus{ /* serve para quando vc clicar no input, não aparecer uma borda preta */
+#inputHeader:focus{ /* serve para quando vc clicar no input, não aparecer uma borda preta */
     outline: 0;
 }
 
-.pesquisaHeader button{ /* botão ao lado do input, onde está a lupinha */
+.pesquisa button{ /* botão ao lado do input, onde está a lupinha */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,20 +116,20 @@
     padding-left: 10px;
 }
 
-.pesquisaHeader i{ /* lupinha no botão do input */
+.pesquisa i{ /* lupinha no botão do input */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.pesquisaHeader i::before{ /* lupinha no botão do input também, n lembro qual é a diferença */
+.pesquisa i::before{ /* lupinha no botão do input também, n lembro qual é a diferença */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 36px;
 }
 
-.menuConta{ /* Menu que abre quando clica no icone de perfil (canto superior direito) */
+#menuConta{ /* Menu que abre quando clica no icone de perfil (canto superior direito) */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -146,7 +145,7 @@
     animation: slide-in 0.3s;
 }
 
-.menuConta::after { /* pontinha de balão em cima do menu */
+#menuConta::after { /* pontinha de balão em cima do menu */
     content: '';
     position: absolute;
     top: -10px;
@@ -175,19 +174,6 @@
     background-color: rgb(200, 200, 200);
 }
 
-#headerCarousel{
-    background-image: none;
-    position: relative;
-}
-
-#headerCarousel .esquerdo{
-    background-image: none;
-}
-
-#headerCarousel .direito{
-    background-image: none;
-}
-
 @keyframes slide-in{ /* animação de quando abre o menu do perfil */
     0% {
         -webkit-transform: translateY(10px);
@@ -205,33 +191,33 @@
 /* Todo o código acima é para telas q tenham comprimento acima de 1400px */
 
 @media (max-width: 1400px){ /*Computador Grande*/
-    .pesquisaHeader input{
+    .pesquisa input{
         width: 400px;
     }
 }
 
 @media (max-width: 1200px){ /*Computador*/
-    .pesquisaHeader.open{
+    .pesquisa.open{
         transform: translate(-65%,-55%);
     }
-    .pesquisaHeader.closed{
+    .pesquisa.closed{
         transform: translate(-65%,-250%);
     }
-    .pesquisaHeader input{
+    .pesquisa input{
         width: 270px;
     }
 }
 
 @media (max-width: 992px){ /*Tablet*/
-    .menuConta{
+    #menuConta{
         right: 16px;
         bottom: -115px;
     }
 
-    .pesquisaHeader.open{
+    .pesquisa.open{
         transform: translate(-65%,-60%);
     }
-    .pesquisaHeader input{
+    .pesquisa input{
         width: 200px;
         padding-top: 12px;
         padding-bottom: 12px;
@@ -250,7 +236,6 @@
 
     .esquerdo img{
         width: 120px;
-        height: auto;
         filter: drop-shadow(0px 0px 2px black);
     }
 
@@ -268,9 +253,11 @@
         gap: 24px;
     }
     
-    .direito .botoes img{ /* Icones individualmente */
-        width: 40px;
-        height: 40px;
+    .direito i{
+        filter: drop-shadow(0px 1px 3px black);
+        font-weight: 100;
+        color: white;
+        font-size: 40px;
     }
 
 }
@@ -290,31 +277,25 @@
 
     .headerUsuario.pesquisaOpen{
         padding-bottom: 70px;
-        background-image: linear-gradient(to bottom, black 0%, rgb(22, 22, 22) 30%, rgba(0, 0, 0, 0.555) 75%, rgba(0, 0, 0, 0) 100%);
+        background-image: linear-gradient(to bottom, black 0%, rgb(22, 22, 22) 30%, rgb(124, 124, 124) 75%, rgba(0, 0, 0, 0) 100%);
     }
 
-    .pesquisaHeader.open{
+    .pesquisa.open{
         transform: translate(-50%,5%);
     }
     
-    .pesquisaHeader.closed{
+    .pesquisa.closed{
         transform: translate(-50%,-250%);
     }
 
-    .pesquisaHeader input{
-        width: 450px;
+    .pesquisa input{
+        width: 300px;
         padding-top: 12px;
         padding-bottom: 12px;
     }
 }
 
 @media (max-width: 576px){ /*Celular Vertical*/
-    .pesquisaHeader input{
-        width: 300px;
-        padding-top: 12px;
-        padding-bottom: 12px;
-    }
-
     .esquerdo{
         background-image: linear-gradient(169deg, black 0%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
     }
