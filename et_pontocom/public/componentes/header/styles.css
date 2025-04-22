@@ -16,10 +16,10 @@
     background-image: linear-gradient(177deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%);
     display: flex;
     height: 100%;
-    width: 50%;
+    width: 50vw;
     align-items: center;
     gap: 26px;
-    padding-left: 38px;
+
 }
 
 .esquerdo img{ /* logo do header */
@@ -35,6 +35,7 @@
     gap: 9px;
     cursor: pointer;
     filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.466));
+    padding-left: 38px;
 }
 
 .menu-toggle .bar { /* Tag das barrinhas individuais*/
@@ -46,10 +47,9 @@
 }
 
 .direito{ /*parte da direita do header, onde fica os icones*/
-    width: 50%;
+    width: 50vw;
     height: 100%;
     background-image: linear-gradient(183deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%);
-    padding-right: 38px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -58,10 +58,11 @@
 .direito .botoes{ /* Div onde os icones estão agrupados */
     display: flex;
     gap: 26px;
+    padding-right: 38px;
 }
 
 .direito .botoes img{ /* Icones individualmente */
-    filter: drop-shadow(0px 1px 3px black);
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.466));
     width: 48px;
     height: 48px;
     cursor: pointer;
@@ -75,7 +76,7 @@
     left: 50%;
     background-color: white;
     border-radius: 100px;
-    filter: drop-shadow(0px 4px 3px rgba(0, 0, 0, 0.455));
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.466));
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
 }
@@ -261,7 +262,6 @@
         width: 50%;
         align-items: center;
         gap: 10px;
-        padding-left: 28px;
     }
 
     .esquerdo img{
@@ -272,16 +272,17 @@
 
     .menu-toggle{
         transform: scale(0.9);
+        padding-left: 28px;
     }
 
     .direito{
         background-image: linear-gradient(186deg, black 0%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
-        padding-right: 28px;
     }
     
     .direito .botoes{
         display: flex;
         gap: 24px;
+        padding-right: 28px;
     }
     
     .direito .botoes img{ /* Icones individualmente */
