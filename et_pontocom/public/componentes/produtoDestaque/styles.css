@@ -98,6 +98,12 @@
     }
 }
 
+@media (max-width: 1600px){ /*Computador Grande*/
+    .produtoDestaque .imagemProduto{
+        left: 160px;
+    }
+}
+
 @media (max-width: 1525px){ /*Computador Grande*/
     .infoProdutoDestaque{
         transform: scale(0.6);
