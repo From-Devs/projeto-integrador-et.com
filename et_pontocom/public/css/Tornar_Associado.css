@@ -1,32 +1,15 @@
-body {
-  font-family: 'Montserrat', sans-serif;
+*{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-weight: 400;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
   background-color: #F9F9F9;
-  z-index: 1;
 }
-.teste {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 10px;
-  background-color: #000000;
-}
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  background-color: white;
-}
-.icons span {
-  margin-left: 15px;
-  cursor: pointer;
-} 
+
+
 .carousel-title {
-  text-align: center;
+  
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -53,7 +36,7 @@ body {
   flex: 0 0 auto;
   width: 150px;
   height: 150px;
-  text-align: center;
+  
   margin: 0 40px;
 }
 .carousel-item img {
@@ -79,13 +62,6 @@ body {
   animation: scroll 5s linear infinite;
 
 }
-.waves-container {
-  position: absolute;
-  bottom: -50px;
-  width: 100%;
-  height: 250px; /* Ajuste conforme necessário */
-  z-index: -1; /* Coloca as ondas atrás do conteúdo */
-}
 
 .promo-section {
   position: relative;
@@ -93,14 +69,16 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  padding-bottom: 60px;
   background-color: #000000;
-  margin: 0px 0;
+  
   overflow: hidden; /* Adicionado para garantir que as ondas não saiam da seção */
 }
 .promo-content {
   max-width: 70%;
   background-color: transparent;
   padding: 150px;
+  padding-top: 200px;
   border-radius: 10px;
   margin-left: -200px;
   color: #ffffff;
@@ -154,11 +132,11 @@ body {
   position: absolute;
   width: 30%;
   height: auto; /* Ajuste a altura para permitir que a imagem se mova */
-  z-index: 900;
+  z-index: 901;
   object-fit: cover;
   border-radius: 10px;
   filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.377));
-  margin-top: -320px; /* Ajuste conforme necessário */
+  margin-top: -240px; /* Ajuste conforme necessário */
   margin-left: -400px;
 }
 
@@ -166,12 +144,12 @@ body {
   position: absolute;
   display: block;
   margin-left: 1200px;
-  top: 530px; /* Ajusta a margem superior para mover a imagem mais para baixo */
+  top: 570px; /* Ajusta a margem superior para mover a imagem mais para baixo */
   width: 30%; /* Ajusta a largura da imagem conforme necessário */
   height: auto; /* Mantém a proporção da imagem */
   object-fit: cover; /* Ajusta a imagem para cobrir a área */
   border-radius: 10px; /* Adiciona bordas arredondadas */
-  z-index: 901; /* Garante que a imagem fique acima de outros elementos */
+  z-index: 902; /* Garante que a imagem fique acima de outros elementos */
 }
 
 .commission-table {
@@ -201,7 +179,7 @@ body {
   background-color: #f9f9f9;
   border-radius: 10px;
   margin: 0px;
-  text-align: center;
+  
   max-width: 1918px;
   max-height: 760px;
   background-image: url('/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/Rectangle.png');
@@ -224,9 +202,6 @@ body {
 }
 .card {
   margin: 10px;
-}
-.caixa_salmão {
-  margin-top: 850px;
 }
 .cards-section h2 {
   font-size: 30px;
@@ -304,10 +279,8 @@ margin-left: 1000px;
 }
 
 .associ{
-  
-  padding: 20px;
+
   background-color: #f9f9f9;
-  border-radius: 10px;
   margin-right: 1700px;
   text-align: left;
   position: absolute;
@@ -323,8 +296,9 @@ margin-left: 1000px;
   position: absolute;
   bottom: -100px;
   margin-left: -1890px;
-  width: 100vw;
-  height: 250px;
+  width: 150vw;
+  height: 240px;
+  top: 450px;
   background: url(/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/wave.png);
   background-size: 100vw 250px;
   animation: animacaoOnda 8s linear infinite;

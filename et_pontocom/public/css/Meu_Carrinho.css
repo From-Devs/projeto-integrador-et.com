@@ -1,24 +1,11 @@
-body {
-    font-family: 'Montserrat', sans-serif;
+*{
     margin: 0;
     padding: 0;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
     font-weight: 400;
-}
-.teste {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #000000;
-}
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    background-color: white;/
-}
-.icons span {
-    margin-left: 15px;
-    cursor: pointer;
 }
 main {
     padding: 20px;
@@ -29,7 +16,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    background-color: #ffffff;
+
     margin-right: 200px;
 }
 th, td {
@@ -191,14 +178,6 @@ tfoot {
     border: 1px solid #ccc;
     border-radius: 5px;
     height: 30px;
-}
-.bot {
-    padding: 10px;
-    gap: 20px;
-    border: none;
-    background-color: #000000;
-    border-radius: 10px;
-    color: white;
 }
 td img {
     margin-left: 20px;

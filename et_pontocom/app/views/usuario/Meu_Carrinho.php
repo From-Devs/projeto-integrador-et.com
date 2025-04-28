@@ -1,22 +1,38 @@
+<?php
+    require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
+    require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
+    require __DIR__ . "/../../../public/componentes/botao/botao.php";
+    
+    
+    session_start();
+    // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
+    $tipoUsuario = $_SESSION['tipo_usuario'] ?? "Associado";
+    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Carrinho</title>
-  <link rel="stylesheet" href="Meu_Carrinho.css">
+  <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/Meu_Carrinho.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/styles.css">
+  <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/header/styles.css">
+  <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
+  <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap' rel='stylesheet'>
+  <script src='https://kit.fontawesome.com/661f108459.js' crossorigin='anonymous'></script>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'>
 </head>
 
 <body>
-  <header class="teste">
-    <div class="logo">Logo</div>
-    <div class="icons">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </header>
+<?php
+    echo createHeader($login,$tipoUsuario); // função que cria o header
+    ?>
   <main>
     <h1 class="Meio">Meu Carrinho</h1>
     <form method="post" action="">
@@ -34,10 +50,10 @@
         <tbody>
           <?php
           $produtos = [
-            ["CREME CORTES SÉRUM", 50.00, 1, "MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4 (1).png"],
-            ["MÁSCARA CAPILAR", 30.00, 1, "MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4 (2).png"],
-            ["CONDICIONADOR", 20.00, 1, "MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4 (3).png"],
-            ["BODY LOTION", 40.00, 1, "MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4.png"],
+            ["CREME CORTES SÉRUM", 50.00, 1, "/projeto-integrador-et.com/et_pontocom/public/imagens/MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4 (1).png"],
+            ["MÁSCARA CAPILAR", 30.00, 1, "/projeto-integrador-et.com/et_pontocom/public/imagens/MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4 (2).png"],
+            ["CONDICIONADOR", 20.00, 1, "/projeto-integrador-et.com/et_pontocom/public/imagens/MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4 (3).png"],
+            ["BODY LOTION", 40.00, 1, "/projeto-integrador-et.com/et_pontocom/public/imagens/MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4.png"],
           ];
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             foreach ($produtos as $index => $produto) {
@@ -93,22 +109,6 @@
       </div>
     </form>
   </main>
-  <section class="related-products">
-    <h2>Relacionados</h2>
-    
-  </section>
-  <footer>
-    <div class="footer-links">
-      <a href="#">Sobre</a>
-      <a href="#">Contato</a>
-      <a href="#">Política de Privacidade</a>
-    </div>
-    <div class="social-media">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </footer>
   <script>
     function incrementQuantity(index) {
       var input = document.querySelector(`input[name='quantidade[${index}]']`);
@@ -139,5 +139,11 @@
       input.addEventListener('input', calcularTotal);
     });
   </script>
+   <?php
+    echo createRodape();
+    ?>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/script.js"></script>
 </body>
 </html>
