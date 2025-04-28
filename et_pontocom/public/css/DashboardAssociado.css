@@ -6,6 +6,11 @@
     font-family: "Montserrat", sans-serif;
 }
 
+:root{
+    --black-color: #141414;
+    --white-color: #ececec;
+}
+
 body
 {
     display: flex;
@@ -13,6 +18,7 @@ body
     padding: 0%;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    overflow: hidden;
 }
 
 a
@@ -167,21 +173,19 @@ a
     margin-left: 350px;
 }
 
-/* estilizacao da parte do icone do usuario */
+/* parte do icone do usuario */
 
-#controleIcon
-{
+.controleIcon{
     display: flex;
     flex-direction: row-reverse;
 }
 
-#iconUsuario
-{
-    width: 250px;
-    height: 80px;
+.iconUsuario{
+    width: 300px;
+    height: 100px;
     display: flex;
-    background-color: black;
-    color: white;
+    background-color: var(--black-color);
+    color: var(--white-color);
     align-items: center;
     overflow: hidden;
     gap: 10px;
@@ -189,15 +193,23 @@ a
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
+
+    & contentUser{
+        display: flex;
+    }
 }
 
-#fotoUser
-{
+.contentUser #textUser, #cargoUser{
+    font-size: 20px;
+    gap: 5px;
+}
+
+#fotoUser{
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
-    margin-left: 30px;
-    width: 70px;
-    height: 70px;
+    margin-left: 22px;
+    width: 74px;
+    height: 74px;
 }
 
 /* estilizacao das informacoes principais */
@@ -213,12 +225,13 @@ a
 {
     display: flex;
     align-items: center;
-    gap: 100px;
+    gap: 32px;
     background-color: #14A166;
     border-radius: 15px;
     padding: 10px;
-    height: 150px;
-    width: 450px;
+    margin-top: 30px;
+    height: 126px;
+    width: 482px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -277,6 +290,7 @@ a
 {
     display: flex;
     justify-content: space-between;
+    gap: 40px;
     margin-top: 50px;
     margin-right: 50px;
 }
@@ -287,7 +301,7 @@ a
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 750px;
+    width: 725px;
     height: 470px;
     border: #0000004D 2px solid;
     border-radius: 15px;
@@ -317,5 +331,3 @@ a
     display: flex;
     flex-direction: row-reverse;
 }
-
-/* ANIMACAO DOS DONUTS */

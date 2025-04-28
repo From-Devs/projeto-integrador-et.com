@@ -70,7 +70,7 @@ session_start();
             </div>
         </div>
     </div>
-    <script src="./../../../public/javascript/associado/RelatorioAssociado.js"></script>
+    <script src="./../../../public/javascript/RelatorioAssociado.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/script.js"></script>
 </body>
