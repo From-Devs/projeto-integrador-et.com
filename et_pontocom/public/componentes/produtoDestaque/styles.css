@@ -29,14 +29,14 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    height: 600px;
+    height: 31.25%;
     filter: drop-shadow(0px 0px 120px rgba(56, 21, 7, 1));
     z-index: 198;
 }
 .infoProdutoDestaque{
     position: absolute;
-    top: 385px;
-    right: 55px;
+    bottom: 199px;
+    right: 3%;
     z-index: 201;
     /* margin-bottom: 200px; */
 }
@@ -90,8 +90,25 @@
     z-index: 200;
 }
 
-@media (max-width: 1400px){ /*Computador Grande*/
+@media (max-width: 1850px){ /*Computador*/
+    .infoProdutoDestaque{
+        transform: scale(0.8);
+        right: 0px;
+        bottom: 160px;
+    }
+}
 
+@media (max-width: 1600px){ /*Computador Grande*/
+    .produtoDestaque .imagemProduto{
+        left: 160px;
+    }
+}
+
+@media (max-width: 1525px){ /*Computador Grande*/
+    .infoProdutoDestaque{
+        transform: scale(0.6);
+        bottom: 120px;
+    }
 }
 
 @media (max-width: 1200px){ /*Computador*/
