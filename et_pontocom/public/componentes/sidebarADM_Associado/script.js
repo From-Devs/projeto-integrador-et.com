@@ -34,3 +34,17 @@ document.querySelectorAll(".popUpDialog").forEach(dialog => {
 });
 
 
+// ____________________Abrir e fechar o Sidebar no Mobile______________________________
+document.addEventListener("DOMContentLoaded", function(){
+    const toggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar_adm');
+
+    if (toggle && sidebar) {
+        toggle.addEventListener('click', function() {
+            console.log('Botão clicado'); // <- Adicione isso!
+            sidebar.classList.toggle('active');
+        });
+    } else {
+        console.error('Botão ou sidebar não encontrados.');
+    }
+});

@@ -2,7 +2,7 @@
         
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/Style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
 
@@ -11,6 +11,7 @@
 
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
+
 
 
 
@@ -106,7 +107,6 @@ require_once __DIR__ . "/../botao/botao.php";
         $btnSim = botaoPersonalizadoRedirect('Sim','btn-white','et_pontocom/app/views/usuario/paginaPrincipal.php','60px', '30px');
         $btnNao = botaoPersonalizadoOnClick('Não', 'btn-white', 'fecharPopUp("popupSair")','60px', '30px');
         return "
-            <body>
                 <div class='menu-toggle' id='menu-toggle'>
                     <span></span>
                     <span></span>
@@ -135,9 +135,8 @@ require_once __DIR__ . "/../botao/botao.php";
                     </nav>
                 </div>
                 
-                <script src='./scripts.js'></script>
-                <script src='../popUp/script.js'></script>
-            </body>
+
+            
         ";
     }
 
