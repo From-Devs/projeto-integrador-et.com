@@ -74,10 +74,22 @@ tr
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: greenyellow;
+    border: none;
+    background-color: #fff;
     border-radius: 50%;
 }
 
-.cancelarButton{
+
+.validarButton:hover{
+    background-color: greenyellow;
+    cursor: pointer;
+
+
+}
+
+.cancelarButton:hover{
     background-color: red;
+    cursor: pointer;
+
+
 }
