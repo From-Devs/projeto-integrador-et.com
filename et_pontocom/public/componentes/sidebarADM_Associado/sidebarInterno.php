@@ -107,12 +107,12 @@ require_once __DIR__ . "/../botao/botao.php";
         $btnNao = botaoPersonalizadoOnClick('Não', 'btn-white', 'fecharPopUp("popupSair")','60px', '30px');
         return "
             <body>
-                <div class='menu_mobile'>
-                    <span class='botão_menu' onclick='abrirSidebar()'>
-                        &#9776;
-                    </span>
+                <div class='menu-toggle' id='menu-toggle'>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <div class='sidebar_adm'>
+                <div class='sidebar_adm' id='sidebar_adm'>
                     <nav class='nav_adm'>
                         <div class='logo'>
                             <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca1.png' alt=''>
@@ -137,7 +137,7 @@ require_once __DIR__ . "/../botao/botao.php";
                 
                 <script src='./scripts.js'></script>
                 <script src='../popUp/script.js'></script>
-            
+            </body>
         ";
     }
 
