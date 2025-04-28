@@ -45,13 +45,6 @@
     z-index: 201;
 }
 
-.infoProdutoDestaque{
-    /* position: absolute;
-    bottom: 199px;
-    right: 3%; */
-    
-}
-
 .infoProdutoDestaque .nomeProduto{
     width: 655px;
     font-size: 48px;
@@ -114,12 +107,22 @@
 }
 
 @media (max-width: 1650px){ /*Computador Grande*/
+    .produtoDestaque{
+        height: 800px;
+        margin-top: 30px;
+    }
+
     .wrapperInfoProdutoDestaque{
         height: 70%;
     }
 
     .infoProdutoDestaque{
         transform: scale(0.8);
+    }
+
+    .produtoDestaque .imagemProduto{
+        left: 180px;
+        top: 120px;
     }
 }
 
@@ -131,20 +134,131 @@
     .infoProdutoDestaque{
         transform: scale(0.8);
     }
+
+    .produtoDestaque .imagemProduto{
+        left: 140px;
+    }
 }
 
 @media (max-width: 1400px){ /*Computador*/
+
+    .infoProdutoDestaque{
+        transform: scale(0.75);
+    }
+
+    .produtoDestaque .imagemProduto{
+        left: 120px;
+    }
+}
+
+@media (max-width: 1350px){ /*Computador*/
+    .produtoDestaque{
+        height: 700px;
+        margin-top: 0px;
+    }
+
+    .wrapperInfoProdutoDestaque{
+        height: 70%;
+    }
+
+    .infoProdutoDestaque{
+        transform: scale(0.70);
+    }
+
+    .produtoDestaque .imagemProduto{
+        left: 100px;
+        top: 80px;
+        transform: scale(0.9);
+    }
+
+}
+
+@media (max-width: 1300px){ /*Computador*/
+    .wrapperInfoProdutoDestaque{
+        height: 62%;
+    }
+
+    .infoProdutoDestaque{
+        transform: scale(0.65);
+    }
+
+    .produtoDestaque .imagemProduto{
+        left: 100px;
+        top: 80px;
+        transform: scale(0.9);
+    }
+
+}
+
+@media (max-width: 1200px){ /*Computador*/
+    .produtoDestaque{
+        height: 650px;
+        margin-top: 0px;
+    }
+
     .wrapperInfoProdutoDestaque{
         height: 60%;
     }
 
     .infoProdutoDestaque{
-        transform: scale(0.75);
+        transform: scale(0.60);
     }
+
+    .produtoDestaque .imagemProduto{
+        left: 45px;
+        top: 50px;
+        transform: scale(0.85);
+    }
+
+}
+
+@media (max-width: 1067px){ /*Computador*/
+    .ondaProdutoDestaque{
+        width: 1067px;
+        right: 0;
+        left: auto;
+    }
+
+    .produtoDestaque{
+        height: 650px;
+        margin-top: 0px;
+    }
+
+    .wrapperInfoProdutoDestaque{
+        width: 400px;
+        height: 60%;
+        right: 12px;
+    }
+
+    .infoProdutoDestaque{
+        transform: scale(0.60);
+    }
+
+    .produtoDestaque .imagemProduto{
+        left: auto;
+        right: 470px;
+        top: 50px;
+        transform: scale(0.85);
+    }
+
 }
 
 @media (max-width: 992px){ /*Tablet*/
+    .produtoDestaque .imagemProduto{
+        left: auto;
+        right: 410px;
+        top: 50px;
+        transform: scale(0.65);
+    }
+}
 
+@media (max-width: 880px){ /*Tablet*/
+    .produtoDestaque .imagemProduto{
+        left: auto;
+        right: 360px;
+        top: 50px;
+        transform: scale(0.55);
+    }
 }
 
 @media (max-width: 768px){ /*Celular Paisagem*/
