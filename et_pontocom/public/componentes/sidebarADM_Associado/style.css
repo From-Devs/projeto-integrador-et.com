@@ -12,30 +12,14 @@
 }
 
 
-
-/*____________________________Menu Mobile________________________________*/
-.menu_mobile{
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1001;
-    display: none;
-}
-
-.menu_mobile .botão_menu{
-    font-size: 28px;
-    cursor: pointer;
-    color: var(--cor-sidebar-escrita);
-}
-
-
-
-
 /*_________________Básico da sidebar_________________*/
 .sidebar_adm{
     display: flex;
     overflow: hidden;
     font-size: 12px;
+    transform: translateX(0); /* Começa visível no desktop */
+    transition: transform 0.3s ease;
+    z-index: 1000;
 }
 
 .nav_adm{
@@ -258,28 +242,43 @@
     }
 }
 
-@media (max-width: 700px){
-    .menu_mobile{
-        display: block;
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1001;
-    }
-    .sidebar_adm{
-        position: fixed;
-        top: 0;
-        left: -100%;
-        transition: left 0.3s ease;
-        width: 250px;
-        height: 100vh;
-        background-color: var(--cor-sidebar-fundo);
+/*___________________________________________Botão de menu do sidebar pelo mobile__________________________________*/
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001; /* Fica na frente de tudo */
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--cor-sidebar-escrita);
+    margin-bottom: 5px;
+    border-radius: 2px;
+}
+
+/* ______________Estilo Mobile_______________ */
+@media (max-width: 768px) {
+    .sidebar_adm {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
         z-index: 1000;
-        flex-direction: column;
-        align-items: center;
     }
-    .sidebar_adm.sidebar_aberta{
-        left: 0;
+
+    .sidebar_adm.active {
+        transform: translateX(0);
     }
-    
+
+    .menu-toggle {
+        display: flex;
+    }
 }
