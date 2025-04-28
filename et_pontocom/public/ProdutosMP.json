@@ -108,7 +108,7 @@
             "categoria": "Acessórios",
             "preço": 95.90,
             "dataCompra": "10/08/2025",
-            "corFundo": "linear-gradient(to right, rgb(187, 49, 1), rgb(204, 79, 38), rgb(209, 133, 107), rgb(236, 200, 187),rgb(255, 255, 255));"
+            "corFundo": "linear-gradient(to right, rgb(187, 49, 1), rgb(232, 104, 63), rgb(235, 149, 120), rgb(236, 200, 187),rgb(255, 255, 255));"
         },
         {
             "id":  11,
