@@ -12,6 +12,25 @@
 }
 
 
+
+/*____________________________Menu Mobile________________________________*/
+.menu_mobile{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    display: none;
+}
+
+.menu_mobile .botão_menu{
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--cor-sidebar-escrita);
+}
+
+
+
+
 /*_________________Básico da sidebar_________________*/
 .sidebar_adm{
     display: flex;
@@ -195,8 +214,6 @@
     .nav_adm{
         width: 250px;
     }
-
-    
     .logo{
         margin-top: 15px;
         margin-bottom: 4px;
@@ -209,8 +226,6 @@
         height: 1px;
         margin-bottom: 23px;
     }
-
-
     .botoesMenu{
         width: 200px;
     }
@@ -230,8 +245,6 @@
         font-weight: 600;
         font-size: 11px;
     }
-
-    
     .area_Sair .button_sair{
         width: 200px;
         left: 10px;
@@ -243,4 +256,30 @@
     .area_Sair .button_sair .button_name{
         font-size: 11px;
     }
+}
+
+@media (max-width: 700px){
+    .menu_mobile{
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1001;
+    }
+    .sidebar_adm{
+        position: fixed;
+        top: 0;
+        left: -100%;
+        transition: left 0.3s ease;
+        width: 250px;
+        height: 100vh;
+        background-color: var(--cor-sidebar-fundo);
+        z-index: 1000;
+        flex-direction: column;
+        align-items: center;
+    }
+    .sidebar_adm.sidebar_aberta{
+        left: 0;
+    }
+    
 }

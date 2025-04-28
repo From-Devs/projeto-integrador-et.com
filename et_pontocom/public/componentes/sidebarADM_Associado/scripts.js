@@ -32,3 +32,13 @@ document.querySelectorAll(".popUpDialog").forEach(dialog => {
         }
     });
 });
+
+//__________________________Abrir sidebar no mobile________________________________
+
+const botaoMenu = document.querySelector('.botão_menu');
+const sidebar = document.querySelector('.sidebar_adm');
+
+botaoMenu.addEventListener('click', () => {
+    sidebar.classList.toggle('sidebar_aberta');
+});
+

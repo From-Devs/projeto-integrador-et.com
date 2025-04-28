@@ -107,6 +107,11 @@ require_once __DIR__ . "/../botao/botao.php";
         $btnNao = botaoPersonalizadoOnClick('Não', 'btn-white', 'fecharPopUp("popupSair")','60px', '30px');
         return "
             <body>
+                <div class='menu_mobile'>
+                    <span class='botão_menu' onclick='abrirSidebar()'>
+                        &#9776;
+                    </span>
+                </div>
                 <div class='sidebar_adm'>
                     <nav class='nav_adm'>
                         <div class='logo'>
