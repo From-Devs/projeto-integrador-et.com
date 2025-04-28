@@ -27,6 +27,7 @@
     border-radius: 20px;
     border: none;
     box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
+    gap: 30px;
 }
 
 .popUpDialog::backdrop{
@@ -58,7 +59,7 @@
     justify-content: end;
 }
 
-.icone-fechar img{
+.icone-fechar{
     width: 20px;
     height: 20px;
     cursor: pointer;

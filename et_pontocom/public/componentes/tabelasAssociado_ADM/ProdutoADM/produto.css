@@ -61,3 +61,13 @@ tr
 {
     display: none; 
 }
+
+.acoes-tabela{
+    display: flex;
+    justify-content: space-around;
+}
+
+.excluir img, .editar img{
+    cursor: pointer;
+    width: 30px;
+}
