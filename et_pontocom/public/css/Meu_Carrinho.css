@@ -84,6 +84,7 @@ tfoot {
     border-bottom: 1px solid #a8a8aa;
     padding-bottom: 5px;
     margin-bottom: 20px;
+    margin-top: 200px;
 }
 .frete-container {
     display: flex;

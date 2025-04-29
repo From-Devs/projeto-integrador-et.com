@@ -102,7 +102,7 @@
             <td class="total-value" id="total">R$ <?php echo $subtotal + 10; ?></td>
           </tr>
         </tfoot>
-      </table class="table1>
+      </table class="table1">
       <div class="button-container">
         <button type="submit" formaction="realizar_pedido.php">Realizar Pedido</button>
         <button type="submit" formaction="excluir_pedido.php">Excluir Pedido</button>
