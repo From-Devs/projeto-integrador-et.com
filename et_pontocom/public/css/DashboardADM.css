@@ -64,7 +64,9 @@ a
 
 /* estilizacao das informacoes principais */
 
-#tituloH1{
+#titulo
+{
+    display: flex;
     margin-bottom: 15px;
 }
 
@@ -184,4 +186,131 @@ a
     flex-direction: row-reverse;
 }
 
-/* ANIMACAO DOS DONUTS */
+/* RESPONSIVIDADE */
+@media (max-width: 1669px) {
+    #container
+    {
+        width: 1304px;
+    }
+
+    #controleIcon
+    {
+        width: 1304px;
+    }
+
+    #geralInformacoes
+    {
+        margin-right: 50px;
+        gap: 25px;
+    }
+
+    #valorVendas, #lucroLiquido, #vendas
+    {
+        gap: 10px;
+        padding: 10px;
+        height: 150px;
+        width: 400px;
+    }
+
+    #controlePizzas
+    {
+        width: 1250px;
+        margin: 50px 0px 0px 0px;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    #divPizzaDireita
+    {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 1619px) {
+    #container
+    {
+        width: 1254px;
+    }
+
+    #controleIcon
+    {
+        width: 1254px;
+    }
+
+    #geralInformacoes
+    {
+        margin-right: 50px;
+    }
+
+    #controlePizzas
+    {
+        width: 1250px;
+        margin: 50px 0px 0px 0px;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+}
+
+
+@media (max-width: 1569px) {
+    #container
+    {
+        width: 1254px;
+    }
+
+    #controleIcon
+    {
+        width: 1204px;
+    }
+
+    #geralInformacoes
+    {
+        margin-right: 50px;
+    }
+
+    #controlePizzas
+    {
+        width: 1250px;
+        margin: 50px 0px 0px 0px;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 1419px) {
+    #container
+    {
+        width: 1054px;
+    }
+
+    #controleIcon
+    {
+        width: 1054px;
+    }
+
+    #valorVendas, #lucroLiquido, #vendas
+    {
+        gap: 10px;
+        padding: 10px;
+        height: 150px;
+        width: 300px;
+    }
+
+    #geralInformacoes
+    {
+        margin-right: 50px;
+    }
+
+    #controlePizzas
+    {
+        width: 1050px;
+        margin: 50px 0px 0px 0px;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+}
