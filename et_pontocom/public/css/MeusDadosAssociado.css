@@ -1,270 +1,36 @@
-* {
+body{
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
-
-html, body {
-    height: 100%;
-    overflow: hidden;
+.seu_pai{
+    padding-left: 287px;
+    width: 1920px;
+    height: 1080px;
+    background-color: rgb(243, 0, 0);
 }
-
-main {
-    height: 100vh;
-    background-color: #ECECEC;
-    margin-left: 287px;
-}
-
-.main_header {
-    height: 200px;
+header{
     background-color: #F8F8F8;
+    height: 170px;
 }
-
-#titulo-principal {
-    font-size: 26px;
-    padding-top: 92px;
-    padding-left: 60px;
-}
-
-#perfil-usuario {
-    display: flex;
-    justify-content: flex-end;
-    background-color: black;
-    color: azure;
-    position: absolute;
-    right: 0;
-    width: 200px;
-    height: 103px;
-    top: 42px;
-    border-top-left-radius: 200px;
-    border-bottom-left-radius: 200px;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
-}
-
-.main_fundo {
-    padding: 39px;
-    height: 100vh;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.quadrado {
-    display: flex;
-    justify-content: space-between;
-    box-shadow: black 3px 0 0 10;
-    height: 760px;
-    border-radius: 20px;
-    width: 1434px;
-    padding-right: -75px;
+.titulo{
     position: relative;
-    bottom: 40px;
-    background-color: #f7f7f7;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
+    font-size: x-large;
+    font-style: inherit;
+    color: black;
+    top: 100px;
+    left: 130px;
 }
-
-.user-img {
-    display: flex;
-    width: 550px;
-    height: 550px;
-    margin: 25px;
-    user-select: none;
-}
-
-.user-img h1 {
-    font-size: 30px;
-    margin-left: 10px;
-    color: #000;
-}
-
-.user-img img {
-    margin-top: 40px;
-    width: 437px;
-    height: 430px;
-    border-radius: 51%;
-    border: 2px black solid;
-}
-
-.user-dados {
-    margin-top: 40px;
-    height: 500px;
-    width: 450px;
-}
-
-.user-Letra h1 {
-    margin-top: 10px;
-    font-size: 24px;
-    margin-top: 20px;
-}
-
-.user_Box {
-    margin-top: 20px;
-    font-size: 18px;
-    text-align: center;
-    height: 58px;
-    width: 100%;
-    border-radius: 8px;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
-    background-color: #F6F6F6;
-}
-
-.icones {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    font-size: 40px;
-    text-align: center;
-    height: 70px;
-    width: 100%;
-    border-radius: 8px;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
-    background-color: #F6F6F6;
-}
-
-.Texto {
-    padding-top: 12px;
-}
-
-.icone {
-    padding-top: 15px;
-}
-
-.menor {
-    height: 47px;
-    width: 100%;
-}
-
-.exit {
-    padding-top: 10px;
-    padding-right: 10px;
-    font-size: 40px;
-}
-
-/* tela de editar 01*/
-.principal-perfil {
-    display: flex;
-    justify-content: space-around;
+main{
+    background-color: #F0F0F0;
     height: 100%;
     width: 100%;
-    padding: 30px;
 }
-
-#user-perfil {
-    display: flex;
-    padding: 20px;
-    padding-top: 25px;
-    justify-content: space-between;
-    height: 454px;
-    width: 470px;
-    border-radius: 15px;
-    background-color: #fdfdfd;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
-}
-
-#user-perfil #nome-perfil {
-    padding-top: 15px;
-    padding-left: 15px;
-    font-size: 19px;
-}
-
-#user-perfil #img-user img {
-    margin: 5px;
-    text-align: center;
-    height: 199px;
-    width: 195px;
-    border-radius: 50%;
-}
-
-#user-perfil #img-user {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    align-items: center;
-    box-shadow: black 3px 0 0 10;
-}
-
-#icone-editar {
-    font-size: 21px;
-    display: flex;
-    height: 73px;
-    width: 74px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
-
-#botao-editar {
-    display: flex;
-    height: 50px;
-    width: 154px;
-    background-color: #000;
-    color: #fff;
-    border-radius: 12px;
-    align-items: center;
-    justify-content: center;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
-}
-
-.box-rede {
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
-    display: flex;
-    margin-top: 20px;
-    height: 54px;
-    width: 470px;
-    align-items: center;
-    background-color: #fdfdfd;
-    border-radius: 12px;
-}
-
-.box-rede i {
-    display: flex;
-    padding-left: 10px;
-    font-size: 30px;  
-    text-align: center;
-    align-items: center;
-    height: 50px;
-    width: 50px;  
-}
-
-.parte-dados {
-    padding-top: 40px;
-}
-
-.dado-local {
-    position: relative;
-    margin-top: 15px;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
-    height: 102px;
-    width: 784px;
-    align-items: center;
-    background-color: #fdfdfd;
-    border-radius: 12px;
-}
-
-.titulo-dado {
-    padding: 20px;
-}
-
-.texto-dado {
-    text-align: center;
-}
-
-/* Classe para esconder elementos */
-.hidde {
-    display: none; 
-}
-
-/* tela edição */
-.usertitulo{
-    display: flex;
-    width: 50px;
-    height: 50px;
-    margin: 25px;
-    user-select: none;
-}
-
-.usertitulo h1 {
-    font-size: 30px;
-    margin-left: 10px;
-    color: #000;
+section .box{
+    padding-left: 147px;
+    background-color: black;
+    height: 19px;
+    width: 19px;
 }
