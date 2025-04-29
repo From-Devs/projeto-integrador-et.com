@@ -226,3 +226,47 @@ input[type="checkbox"]:checked::before {
     color: rgb(0, 0, 0); 
     position: absolute; 
 }
+/* Estilos para telas menores (menores que 768px) */
+@media (max-width: 768px) {
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+    }
+    main {
+        margin: 0 10px;
+    }
+    .table1 {
+        width: 100%;
+        font-size: 10px;
+    }
+    th, td {
+        padding: 5px; /* Reduzir o padding */
+        font-size: 10px; /* Reduzir o tamanho da fonte */
+    }
+    tbody tr, tfoot tr {
+        display: flex;
+        flex-direction: column; /* Exibir cada linha como uma coluna */
+        margin-bottom: 5px; /* Reduzir o espaçamento entre as "linhas" */
+    }
+    tbody td, tfoot td {
+        padding: 5px; /* Reduzir o padding */
+        border-bottom: 1px solid #ddd; /* Ajustar a borda */
+    }
+    .button-container {
+        flex-direction: column; /* Exibir botões em coluna */
+        gap: 10px;
+        width: 100%;
+    }
+    .button-container button {
+        width: 100%; /* Botões ocupam 100% da largura */
+        font-size: 12px; /* Ajustar o tamanho da fonte */
+    }
+    img {
+        max-width: 80px; /* Definir um tamanho máximo para as imagens */
+        height: auto;
+        display: inline-block; /* Exibir imagens inline */
+        margin: 0; /* Remover margens */
+        vertical-align: middle; /* Alinhar verticalmente ao meio */
+    }
+}
