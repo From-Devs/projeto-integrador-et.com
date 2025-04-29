@@ -17,7 +17,7 @@
     display: flex;
     overflow: hidden;
     font-size: 12px;
-    transform: translateX(0); /* Começa visível no desktop */
+    transform: none;
     transition: transform 0.3s ease;
     z-index: 1000;
 }
@@ -29,8 +29,30 @@
     float: left;
     position: fixed;
     width: 287px;
-    min-height: 100vh;
+    min-height: 100%;
     background-color: var(--cor-sidebar-fundo);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001; /* Fica na frente de tudo */
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--cor-sidebar-escrita);
+    margin-bottom: 5px;
+    border-radius: 2px;
 }
 
 
@@ -136,7 +158,7 @@
     align-items: center;
     text-decoration: none;
     position: fixed;
-    bottom: 60px;
+    bottom: 7%;
     left: 29px;
 }
 
@@ -194,7 +216,7 @@
 
 
 /*_________________Caso a tela seja menor..._________________*/
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
     .nav_adm{
         width: 250px;
     }
@@ -242,43 +264,139 @@
     }
 }
 
-/*___________________________________________Botão de menu do sidebar pelo mobile__________________________________*/
-
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 30px;
-    height: 25px;
-    cursor: pointer;
-    z-index: 1001; /* Fica na frente de tudo */
+@media (max-width: 1067px){ /*Computador*/
+    .nav_adm{
+        width: 200px;
+    }
+    .logo{
+        margin-top: 15px;
+        margin-bottom: 4px;
+    }
+    .logo img{
+        width: 100px;
+    }
+    .linhaGradiente{
+        width: 160px;
+        height: 1px;
+        margin-bottom: 23px;
+    }
+    .botoesMenu{
+        width: 150px;
+    }
+    .botoesMenu ul .nav-item{
+        margin-left: 0;
+        width: 140px;
+    }    
+    .botoesMenu ul .nav-item .nav-link .bx{
+        font-size: 14px;
+        margin-right: 12px;
+    }
+    .botoesMenu ul .nav-item .nav-link .fa{
+        font-size: 11px;
+        margin-right: 12px;
+    }
+    .botoesMenu .button_name{
+        font-weight: 600;
+        font-size: 11px;
+    }
+    .area_Sair .button_sair{
+        width: 200px;
+        left: 10px;
+    }
+    .area_Sair .button_sair .fa{
+        font-size: 11px;
+        margin-right: 10px;
+    }
+    .area_Sair .button_sair .button_name{
+        font-size: 11px;
+    }
 }
-
-.menu-toggle span {
-    width: 100%;
-    height: 3px;
-    background-color: var(--cor-sidebar-escrita);
-    margin-bottom: 5px;
-    border-radius: 2px;
-}
-
-/* ______________Estilo Mobile_______________ */
-@media (max-width: 768px) {
+@media (max-width: 800px){ /*Tablet 800x1080*/
     .sidebar_adm {
-        transform: translateX(-100%);
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 250px;
+        transform: translateX(-100%) !important;
         transition: transform 0.3s ease;
         z-index: 1000;
     }
 
     .sidebar_adm.active {
-        transform: translateX(0);
+        transform: translateX(0) !important;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+    .nav_adm{
+        width: 180px;
+    }
+    .logo{
+        margin-top: 15px;
+        margin-bottom: 4px;
+    }
+    .logo img{
+        width: 100px;
+    }
+    .linhaGradiente{
+        width: 140px;
+        height: 1px;
+        margin-bottom: 23px;
+    }
+    .botoesMenu{
+        width: 130px;
+    }
+    .botoesMenu ul .nav-item{
+        margin-left: 0;
+        width: 120px;
+    }    
+    .botoesMenu ul .nav-item .nav-link .bx{
+        font-size: 14px;
+        margin-right: 10px;
+    }
+    .botoesMenu ul .nav-item .nav-link .fa{
+        font-size: 11px;
+        margin-right: 10px;
+    }
+    .botoesMenu .button_name{
+        font-weight: 600;
+        font-size: 11px;
+    }
+    .area_Sair .button_sair{
+        width: 150px;
+        left: 5px;
+    }
+    .area_Sair .button_sair .fa{
+        font-size: 11px;
+        margin-right: 10px;
+    }
+    .area_Sair .button_sair .button_name{
+        font-size: 11px;
+    }
+}
+@media (max-width: 768px){ /*Celular modo paisagem*/
+    .sidebar_adm {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 250px;
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+
+    .sidebar_adm.active {
+        transform: translateX(0) !important;
     }
 
     .menu-toggle {
         display: flex;
     }
 }
+@media (max-width: 576px){ /*Celular modo retrato*/
+    
+}
+
