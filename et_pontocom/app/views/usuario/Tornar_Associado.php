@@ -158,13 +158,14 @@
                 </div>
             </div>
         </div>
-            <div>
-                <img class="sej" src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/sej.png" alt="img">
-                <img class="caixa_salmão" src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/Group 1000003753.png" usemap="#image-map">
-                <map name="image-map">
-                    <area target="" alt="" title="" href="" coords="1206,339,936,234" shape="rect">
-                </map>
-            </div>
+    </section>
+    <section>
+            <img class="sej" src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/sej.png" alt="img">
+            <img class="caixa_salmão" src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/Group 1000003753.png" usemap="#image-map">
+            <map name="image-map">
+                <area target="" alt="" title="" href="" coords="1206,339,936,234" shape="rect">
+            </map>
+    </section>
         <?php
         echo createRodape();
         ?>

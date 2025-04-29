@@ -261,21 +261,22 @@ body {
 .caixa_salmão {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
   margin-top: 200px;
   margin-left:100px;
+  
 }
 .caixa_salmão img {
   max-width: 100%;
   height: auto;
 }
 .sej {
+  z-index: 5;
 display: flex;
 justify-content: left;
 align-items: left;
-margin-top: 730px;
+margin-top: -330px;
 margin-left: 1000px;
+position: absolute;
 }
 
 .associ{
