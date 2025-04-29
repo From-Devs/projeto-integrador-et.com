@@ -122,19 +122,16 @@
 @media (max-width: 1300px){ /*Computador Grande*/
   .carousel {
     width: 600px;
-    height: 300px;
   }
 
   .carousel-item {
     width: 125px;
-    height: 255px;
   }
 }
 
 @media (max-width: 1200px){ /*Computador Grande*/
   .carousel {
     width: 525px;
-    height: 300px;
   }
 
   .carousel-item {
@@ -155,13 +152,15 @@
 }
 
 @media (max-width: 768px){ /*Computador Grande*/
-  .carousel {
-    width: 550px;
-    height: 350px;
-  }
-
   .carousel-item {
     width: 125px;
-    height: 300px;
   }
+}
+
+@media (max-width: 576px){ /*Celular Vertical*/
+  .carousel {
+    transform: scale(0.8);
+    width: auto;
+  }
+
 }
