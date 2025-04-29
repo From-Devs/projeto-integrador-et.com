@@ -34,7 +34,7 @@
 </head>
 <body>
     <?php
-    //echo createHeader($login,$tipoUsuario); // função que cria o header
+    echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
 
     <div class="container">
@@ -74,60 +74,8 @@
     </div>
 
     <?php
-    //echo createRodape();
+    echo createRodape();
     ?>
-
-
-
-
-
-
-
-    <!--<div class="cardContent">
-        <div class="cardBackground">
-            <img class="backgroundImg" src="./img/imgAssoc.png" alt="">
-            <div class="informacao">
-                <div class="cardLogo">
-                        <img src="./img/Logo01.png" alt="">
-                    </div>
-
-                    <div class="cardInfo">
-                        <p>DIVULGUE NOSSOS PRODUTOS, E RECEBA COMISSÕES</p>
-                    </div>
-                    <div class="cardLine">
-                        <div class="line"></div>
-                    </div>
-            </div>
-        </div>
-        
-        <button class="btnAssoc">Associar-se</button>
-</div>-->
-
-    <!-- <div class="cont-card">
-        <div class="card">
-            <div class="contBlur">
-                <div class="cardBackground">
-                    <img src="./img/imgAssoc.png" alt="">
-                </div>
-
-                <div class="cardLogo">
-                    <img src="./img/Logo01.png" alt="">
-                </div>
-
-                <div class="cardInfo">
-                    <p>DIVULGUE NOSSOS PRODUTOS, E RECEBA COMISSÕES</p>
-                </div>
-
-                <div class="cardLine">
-                    <div class="line"></div>
-                </div>
-            </div>
-
-            <div class="cardButton">
-                <button>Associar-se</button>
-            </div>
-        </div>
-    </div> -->
 
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/script.js"></script>
