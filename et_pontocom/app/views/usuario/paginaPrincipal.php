@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/ondas/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/carousel/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/carouselPopUp/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/paginaPrincipal.css">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>

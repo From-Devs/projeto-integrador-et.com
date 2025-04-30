@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function(){
-   
+
     const items = document.querySelectorAll('.carousel-item');
     const prev = document.getElementById('prev');
     const next = document.getElementById('next');
     const Bolas = document.querySelectorAll('.Bola');
    const carousel = document.getElementById('carousel');
     const background = document.getElementById('carouselBackground');
+    const detalhes = this.documentElement.querySelector('.detalheProdutoCarousel')
 
     let current = 0;
     let Animacao = false;
@@ -48,9 +49,8 @@ document.addEventListener("DOMContentLoaded", function(){
                 Bola.style.background = '#AE665E';
             }
         }
-    });
+      });
     
-
       mudarCorDeFundo(current);
     }
 
@@ -89,5 +89,23 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     AtualizarCarousel();
- 
+
+    items.forEach((item) => {
+      item.addEventListener('click', function(){
+        if (item.classList.contains("active")) {
+          console.log("entroe")
+          
+            if (!detalhes.classList.contains("open")){
+              detalhes.classList.add("open")
+            }else{
+              detalhes.classList.remove("open")
+            }
+        };
+      });
+    });
+    document.addEventListener('click', function(event){
+      if (detalhes.classList.contains("open") && !detalhes.contains(event.target)){
+        detalhes.classList.remove("open")
+      }
+    })
 });
