@@ -5,13 +5,6 @@
             <div class='carousel-track' id='MoverCarrousel'>
                 <div class='carousel-item'>
                     <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png' />
-                    <div class='detalheProdutoCarousel'>
-
-                    </div>
-                    <div class='frameImagemCarousel'>
-
-                    </div>
-
                 </div>
                 <div class='carousel-item'>
                     <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/produto/bocarosa.png' />

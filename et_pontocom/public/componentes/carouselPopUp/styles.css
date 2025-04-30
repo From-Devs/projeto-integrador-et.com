@@ -1,0 +1,65 @@
+.detalheProdutoCarousel{
+    background-color: rgba(255, 255, 255,10%);
+    box-shadow: inset 0px 0px 25px 11px rgba(255, 255, 255,25%);
+    border-radius: 24px;
+    backdrop-filter: blur(100px);
+    width: 1365px;
+    height: 500px;
+    z-index: 700;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.frameImagemCarousel{
+    width: 420px;
+    height: 420px;
+    z-index: 701;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 50px;
+    background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%);
+    border-radius: 24px;
+    box-shadow: inset 0px 0px 30px 7px rgba(0, 0, 0, 0.40);
+}
+
+.CarouselProdutoText{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    width: 740px;
+    height: 410px;
+    padding: 45px 70px;
+}
+
+.carouselProdutoTitulo, .carouselProdutoPreco{
+    font-size: 48px;
+    height: min-content;
+}
+
+
+.carouselProdutoMarca{
+    font-size: 32px;
+}
+
+.carouselProdutoMaisDetalhes{
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    height: min-content;
+    padding-top: 22px;
+}
+
+.carouselProdutoName{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.carouselProdutoBottom{
+    display: flex;
+    justify-content: space-between;
+}
