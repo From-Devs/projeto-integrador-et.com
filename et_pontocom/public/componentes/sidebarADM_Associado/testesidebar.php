@@ -27,7 +27,7 @@
     <h1>DASHBOARDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</h1>
     
 
-    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
 </body>
 </html>
