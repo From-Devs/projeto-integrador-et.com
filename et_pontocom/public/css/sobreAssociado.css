@@ -4,8 +4,7 @@
     padding: 0px;
 }
 
-/*INICIAÇÂO DA ESTILIZAÇÃO*/
-
+/*INICIALIZAÇÃO DA ESTILIZAÇÃO*/
 body{
     font-family: 'Montserrat', sans-serif;
 }
@@ -130,7 +129,7 @@ body{
     *{
         margin: 0px;
     }
-    /*TEXT01*/
+    /*TITLE*/
     .titleIni h1{
         font-size: 25px;
     }
@@ -146,6 +145,8 @@ body{
         align-items: center;
         margin-top: 80px;
     }
+
+    /*TEXT01*/
 
     .text01{
         margin-left: 0px;
@@ -187,7 +188,6 @@ body{
 }
 
 /*RESPONSIVIDADE*/
-
 /*BOTÃO*/
 
 @media screen and (max-width: 1380px){
