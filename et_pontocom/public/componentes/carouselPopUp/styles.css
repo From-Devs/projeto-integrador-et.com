@@ -11,7 +11,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-81%, -50%);
-    transition: all 0.6s;
+    transition: all 0.3s;
     opacity: 0;
 }
 
@@ -38,9 +38,10 @@
     flex-direction: column;
     justify-content: space-between;
     color: white;
-    width: 740px;
-    height: 410px;
+    width: 895px;
+    height: 100%;
     padding: 45px 70px;
+    box-sizing: border-box;
 }
 
 .carouselProdutoTitulo, .carouselProdutoPreco{
@@ -59,6 +60,11 @@
     color: white;
     height: min-content;
     padding-top: 22px;
+    transition: all 0.4s;
+}
+
+.carouselProdutoMaisDetalhes:hover{
+    text-shadow: 0px 0px 4px white;
 }
 
 .carouselProdutoName{
@@ -70,4 +76,156 @@
 .carouselProdutoBottom{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.cor-0 { background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%); }
+.cor-1 { background-image: linear-gradient(to bottom, #C69065 0%, #B88D6B 50%, #EBC1B6 100%); }
+.cor-2 { background-image: linear-gradient(to bottom, #F2D5AF 0%, #CC9F9D 50%, #CE766C 100%); }
+
+@media (max-width: 1800px){ /*Computador Grande*/
+    .detalheProdutoCarousel{
+        width: 1190px;
+        height: 435.90px;
+        transform: translate(-80.5%, -50%);
+    }
+
+    .frameImagemCarousel{
+        height: 366.16px;
+        width: 366.16px;
+    }
+
+    .CarouselProdutoText{
+        width: 775px;
+        height: 100%;
+        padding: 45px 70px;
+    }
+
+    .carouselProdutoTitulo, .carouselProdutoPreco{
+        font-size: 44px;
+    }
+
+    .carouselProdutoMarca{
+        font-size: 30px;
+    }
+
+    .carouselProdutoMaisDetalhes{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1525px){ /*Computador Grande*/
+    .detalheProdutoCarousel{
+        width: 1000px;
+        height: 382px;
+        transform: translate(-79%, -50%);
+    }
+
+    .frameImagemCarousel{
+        height: 320px;
+        width: 320px;
+    }
+
+    .CarouselProdutoText{
+        width: 630px;
+        height: 100%;
+        padding: 31px 48.22px;
+    }
+
+    .carouselProdutoTitulo, .carouselProdutoPreco{
+        font-size: 40px;
+    }
+
+    .carouselProdutoMarca{
+        font-size: 30px;
+    }
+
+    .carouselProdutoMaisDetalhes{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1200px){ /*Computador Grande*/
+    .detalheProdutoCarousel{
+        width: 880px;
+        height: 382px;
+        transform: translate(-76%, -50%);
+    }
+
+    .frameImagemCarousel{
+        height: 320px;
+        width: 320px;
+    }
+
+    .CarouselProdutoText{
+        width: 530px;
+        height: 100%;
+        padding: 31px 48.22px;
+    }
+
+    .carouselProdutoTitulo, .carouselProdutoPreco{
+        font-size: 30px;
+    }
+
+    .carouselProdutoMarca{
+        font-size: 22px;
+    }
+
+    .carouselProdutoMaisDetalhes{
+        font-size: 14px;
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 1067px){ /*Computador Grande*/
+    .detalheProdutoCarousel{
+        width: 525px;
+        height: auto;
+        transform: translate(-50%, -36%);
+        display: flex;
+    }
+
+    .frameImagemCarousel{
+        height: 360px;
+        width: 360px;
+        right: none;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-72%);
+    }
+
+    .CarouselProdutoText{
+        width: 100%;
+        height: 100%;
+        padding: 28px 48px;
+        margin-top: 380px;
+    }
+
+    .carouselProdutoTitulo, .carouselProdutoPreco{
+        font-size: 30px;
+    }
+
+    .carouselProdutoMarca{
+
+    }
+
+    .carouselProdutoMaisDetalhes{
+        font-size: 14px;
+        padding-top: 10px;
+    }
+
+    .carouselProdutoName{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        height: 101px;
+    }
+}
+
+@media (max-width: 768px){ /*Computador Grande*/
+
+}
+
+@media (max-width: 576px){ /*Celular Vertical*/
+
 }

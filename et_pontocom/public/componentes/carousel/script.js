@@ -8,11 +8,17 @@ document.addEventListener("DOMContentLoaded", function(){
     const background = document.getElementById('carouselBackground');
     const detalhes = this.documentElement.querySelector('.detalheProdutoCarousel')
 
+    let detalhesTitulo = detalhes.childNodes[1].childNodes[1].childNodes[1];
+    let detalhesMarca = detalhes.childNodes[1].childNodes[1].childNodes[3];
+    let detalhesCor = detalhes.childNodes[3];
+
     let current = 0;
     let Animacao = false;
+    console.log(detalhes)
 
     function mudarCorDeFundo(index) {
       carousel.className = `carouselContainer cor-${index}`;
+      detalhesCor.className = `frameImagemCarousel cor-${index}`;
       background.style.animation = 'CarouselDegrade 0.8s ease'
       setTimeout(() => {background.className = `carouselBackground cor-${index}`},799)
       setTimeout(() => {background.style.animation = ''},800)
@@ -41,12 +47,21 @@ document.addEventListener("DOMContentLoaded", function(){
           if (current === 0) {
               // retorna a cor 1
               Bola.style.background = '#7A3241'; 
+              console.log("primeiro")
+              detalhesTitulo.innerHTML = "BATOM LÍQUIDO MATTIFY DAZZLE";
+              detalhesMarca.innerHTML = "HINODE";
             } else if (current === 1) {
               // retorna a cor 2
+              console.log("segundo")
               Bola.style.background = '#AE703F';
+              detalhesTitulo.innerHTML = "BASE MATE BOCA ROSA";
+              detalhesMarca.innerHTML = "PAYOT";
             } else {
               // retorna a cor 3
-                Bola.style.background = '#AE665E';
+              console.log("terceiro")
+              Bola.style.background = '#AE665E';
+              detalhesTitulo.innerHTML = "BODY SPLASH CUIDE-SE BEM DELEITE";
+              detalhesMarca.innerHTML = "O BOTICÁRIO";
             }
         }
       });
@@ -91,15 +106,16 @@ document.addEventListener("DOMContentLoaded", function(){
     AtualizarCarousel();
 
     items.forEach((item) => {
-      item.addEventListener('click', function(){
+      item.addEventListener('click', function(event){
         if (item.classList.contains("active")) {
+          event.stopPropagation();
           console.log("entroe")
           
-            if (!detalhes.classList.contains("open")){
-              detalhes.classList.add("open")
-            }else{
-              detalhes.classList.remove("open")
-            }
+          if (!detalhes.classList.contains("open")){
+            detalhes.classList.add("open")
+          }else{
+            detalhes.classList.remove("open")
+          }
         };
       });
     });
