@@ -109,3 +109,22 @@ a
     width: 40px;
     height: 40px;
 }
+
+.td-lista-associados{
+    display: flex; 
+    justify-content: center; 
+    height: 80px; 
+    padding: 0px;
+    margin: 3px;
+}
+
+.btn-lista-associados{
+    cursor: pointer;
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+}
