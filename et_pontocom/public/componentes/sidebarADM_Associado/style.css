@@ -84,15 +84,14 @@
 }
 
 .botoesMenu ul .nav-item{
-    margin-left: 20px;
-    padding: 18px 0 18px 20px;
-    background-color: var(--cor-sidebar-fundo);
     border-radius: 15px;
-    width: 210px;
-    list-style: none;
 }
 
 .botoesMenu ul .nav-item .nav-link{
+    padding: 18px 0 18px 20px;
+    border-radius: 15px;
+    width: 210px;
+    list-style: none;
     display: flex;
     flex-direction: row;
     align-items: center;
