@@ -14,6 +14,8 @@ body{
     justify-content: center;
 }
 
+/*TITLE*/
+
 .title-container{
     display: flex;
     margin-top: 150px;
@@ -35,6 +37,8 @@ body{
     font-size: 38px;
     font-weight: 350;
 }
+
+/*CONTAINER DE SCROOL*/
 
 .card-container{
     width: 100%;
@@ -58,7 +62,6 @@ body{
     border-radius: 5px;
 }
 
-/*ESTILIZAÇÃO*/
 /*COLUNA COM OS NOMES (PRODUTOS E PRECO)*/
 
 .cont-legend{
@@ -402,7 +405,7 @@ input[type="checkbox"] {
     margin-top: 100px;
 }
 
-/*RESPONSIVIDADE*/
+/*RESPONSIVIDADE GERAL*/
 
 /*01*/
 @media (max-width: 1480px){
@@ -410,18 +413,21 @@ input[type="checkbox"] {
         max-width: 1072px;
     }
 }
+
 /*02*/
 @media (max-width: 1080px){
     .card-container{
         max-width: 672px;
     }
 }
+
 /*03*/
 @media (max-width: 680px){
     .card-container{
         max-width: 400px;
     }
 }
+
 /*04*/
 @media (max-width: 410px){
     .card-container{
@@ -439,6 +445,7 @@ input[type="checkbox"] {
     }
 }
 
+/*RESPONSIVIDADE CARDS*/
 /*02*/
 @media (max-width: 1080px){
     /*card01*/
@@ -530,7 +537,7 @@ input[type="checkbox"] {
     }
 }
 
-/*02*/
+/*03*/
 @media (max-width: 680px){
     /*card01*/
     .card01{
@@ -650,6 +657,7 @@ input[type="checkbox"] {
     
 }
 
+/*04*/
 @media (max-width: 410px){
     .cards-legend{
         display: none;
