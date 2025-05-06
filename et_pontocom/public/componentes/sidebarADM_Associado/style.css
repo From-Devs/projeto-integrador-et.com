@@ -30,7 +30,7 @@
     position: fixed;
     width: 287px;
     min-height: 100%;
-    background-color: var(--cor-sidebar-fundo);
+    background-color: red;
 }
 
 .menu-toggle {
