@@ -23,14 +23,51 @@ header{
     top: 100px;
     left: 130px;
 }
-main{
+.fundo_1{
     background-color: #F0F0F0;
     height: 100%;
     width: 100%;
 }
-section .box{
-    padding-left: 147px;
+.box{
+    position: relative;
+    top: 71px;
     background-color: black;
-    height: 19px;
-    width: 19px;
+    left: 149px;
+    width: 1433px;
+    height: 784px;
+}
+.box_ds_1{
+    position: absolute;
+    background-color: #6ee6cc;
+    width: 790px;
+    height: 660px;
+    top: 105px;
+    right: 57px;
+    
+}
+.box_us_1{
+    position: absolute;
+    top: 23px;
+    left: 0;
+    background-color: #65ec53;
+    width: 470px;
+    height: 454px;
+}
+.box_us_p2{
+    position: relative;
+    top: 477px;
+    left: 0;
+    background-color: #914d00;
+    width: 470px;
+    height:  245px;
+}
+
+
+.box_d_1{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ec5353;
+    width: 154px;
+    height: 51px;
 }
