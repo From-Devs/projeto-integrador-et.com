@@ -156,7 +156,7 @@
 
 
 /*___________Tentando estilizar o popup___________*/
-.popUpDialog {
+/* .popUpDialog {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -185,7 +185,7 @@
 
 }
 
-
+ */
 
 /*_________________Caso a tela seja menor..._________________*/
 @media (max-width: 1000px) {
