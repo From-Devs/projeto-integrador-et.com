@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     let current = 0;
     let Animacao = false;
-    console.log(detalhes)
 
     function mudarCorDeFundo(index) {
       carousel.className = `carouselContainer cor-${index}`;
@@ -47,18 +46,15 @@ document.addEventListener("DOMContentLoaded", function(){
           if (current === 0) {
               // retorna a cor 1
               Bola.style.background = '#7A3241'; 
-              console.log("primeiro")
               detalhesTitulo.innerHTML = "BATOM LÍQUIDO MATTIFY DAZZLE";
               detalhesMarca.innerHTML = "HINODE";
             } else if (current === 1) {
               // retorna a cor 2
-              console.log("segundo")
               Bola.style.background = '#AE703F';
               detalhesTitulo.innerHTML = "BASE MATE BOCA ROSA";
               detalhesMarca.innerHTML = "PAYOT";
             } else {
               // retorna a cor 3
-              console.log("terceiro")
               Bola.style.background = '#AE665E';
               detalhesTitulo.innerHTML = "BODY SPLASH CUIDE-SE BEM DELEITE";
               detalhesMarca.innerHTML = "O BOTICÁRIO";
@@ -109,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function(){
       item.addEventListener('click', function(event){
         if (item.classList.contains("active")) {
           event.stopPropagation();
-          console.log("entroe")
           
           if (!detalhes.classList.contains("open")){
             detalhes.classList.add("open")
