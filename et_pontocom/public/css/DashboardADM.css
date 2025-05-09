@@ -191,7 +191,31 @@ a
 
     #container
     {
-        margin-left: 600px; /*vai ter que mudar isso depois provavelmente*/
+        margin-left: 200px; /*vai ter que mudar isso depois provavelmente*/
+    }
+
+    #iconUsuario
+    {
+        width: 350px;
+        height: 130px;
+    }
+
+    #textUser
+    {
+        font-size: 25px
+    }
+
+    #fotoUser
+    {
+        width: 100px;
+        height: 100px;
+    }
+
+    #titulo
+    {
+        justify-content: center;
+        margin-right: 1550px;
+        margin-top: 30px;
     }
 
     #tituloH1
@@ -201,7 +225,8 @@ a
 
     #geralInformacoes
     {
-        margin-right: 300px;
+        justify-content: right;
+        margin-right: 200px;
         gap: 50px;
     }
 
@@ -210,13 +235,138 @@ a
         font-size: 25px;
         gap: 0px;
         height: 250px;
-        width: 550px;
+        width: 600px;
     }
 
     #controlePizzas
     {
-        gap: 10px;
+        gap: 50px;
         justify-content: center;
+        margin-left: 120px;
+    }
+
+    #divPizzaEsquerda,#divPizzaDireita
+    {
+        width: 930px;
+        height: 600px;
+    }
+}
+
+@media (max-width: 1440px){
+    #container{
+        margin: 0;
+    }
+
+    #tituloH1
+    {
+        font-size: 25px;
+    }
+
+    #iconUsuario
+    {
+        width: 250px;
+        height: 90px;
+    }
+
+    #fotoUser{
+        height: 70px;
+        width: 70px;
+    }
+
+    #textUser
+    {
+        font-size: 20px;
+    }
+
+    #geralInformacoes
+    {
+        margin-right: 80px;
+    }
+
+    #valorVendas, #lucroLiquido, #vendas
+    {
+        width: 300px;
+        height: 100px;
+        font-size: 10px;
+    }
+
+    #imagemInforma{
+        height: 35px;
+        width: 35px;
+    }
+
+    #imagemInformaEstilizacao
+    {
+        height: 50px;
+    }
+
+    #controlePizzas
+    {
+        justify-content: right;
+        margin: 50px 80px 0px 0px;
+        gap: 100px;
+    }
+
+    #divPizzaEsquerda, #divPizzaDireita
+    {
+        width: 450px;
+        height: 450px;
+    }
+}
+
+
+@media (max-width: 1024px){
+    #iconUsuario
+    {
+        height: 80px;
+        width: 210px;
+    }
+
+    #titulo{
+        margin: 30px 230px 10px 0px;
+        
+        }
+
+    #fotoUser
+    {
+        height: 60px;
+        width: 60px;
+    }
+
+    #textUser
+    {
+        font-size: 15px;
+    }
+
+    #geralInformacoes
+    {
+        margin-right: 20px;
+        gap: 10px;
+    }
+
+    #valorVendas, #lucroLiquido, #vendas
+    {
+        height: 100px;
+        width: 220px;
+        gap: 10px;
+    }
+    
+    #controlePizzas
+    {
+        display: flex;
+        margin-right: 0px;
+        margin-left: 300px;
+        margin: 50px 0px 0px 310px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: right;
+        gap: 150px;
+        width: 700px;
+    }
+
+    #divPizzaDireita
+    {
+        margin-bottom: 50px;
     }
 
 }
