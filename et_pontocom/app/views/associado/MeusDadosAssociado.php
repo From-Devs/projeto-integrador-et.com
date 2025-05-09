@@ -42,7 +42,13 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
                         <p>nome sobrenome</p>
                     </div>
                 </div>
-                <div class="dados-secundarios"></div>
+                <div class="dados-secundarios">
+                    <div class="box_campo_de_dados"></div>
+                    <div class="box_campo_de_dados"></div>
+                    <div class="box_campo_de_dados"></div>
+                    <div class="box_campo_de_dados"></div>
+                    <div class="box_campo_de_dados"></div>
+                </div>
                 <div class="dados-topo">
                     <h1>Editar</h1>
                 </div>

@@ -128,6 +128,7 @@ header {
 
 /* TOPO DE DADOS */
 .dados-topo {
+    font-size: 12px;
     position: absolute;
     top: 0;
     right: 0;
@@ -136,7 +137,17 @@ header {
     height: 51px;
     background-color: #000000;
     text-align: center;
-    padding: 4px;
+    padding-top: 11px;
     color: #fff;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.box_campo_de_dados{
+    height: 102px;
+    width: 784px;
+    background:fuchsia;
+    margin: 3px;
+    margin-top: 8px;
+    margin-bottom:24px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
 }
