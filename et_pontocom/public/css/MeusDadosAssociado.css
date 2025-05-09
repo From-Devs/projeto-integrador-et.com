@@ -1,8 +1,9 @@
-/* Reset básico */
+/* RESET BÁSICO */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -10,7 +11,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Estrutura principal */
+/* CONTAINER PRINCIPAL */
 .container-principal {
     padding-left: 287px;
     width: 1920px;
@@ -18,6 +19,7 @@ body {
     background-color: rgb(243, 0, 0);
 }
 
+/* HEADER */
 header {
     background-color: #f8f8f8;
     height: 170px;
@@ -31,6 +33,7 @@ header {
     left: 130px;
 }
 
+/* ÁREA DE CONTEÚDO */
 .area-conteudo {
     background-color: #f0f0f0;
     width: 100%;
@@ -43,10 +46,10 @@ header {
     left: 149px;
     width: 1433px;
     height: 784px;
-    background-color: #000;
+    background-color: #06ff8b0e;
 }
 
-/* Blocos internos */
+/* BLOCO SECUNDÁRIO */
 .dados-secundarios {
     position: absolute;
     top: 105px;
@@ -56,28 +59,64 @@ header {
     background-color: #6ee6cc;
 }
 
+/* BLOCO DO USUÁRIO */
 .usuario-bloco-1 {
-    display: flex;
     position: absolute;
     top: 23px;
     left: 0;
     width: 470px;
     height: 454px;
     border-radius: 15px;
-    background-color: #65ec53;
+    background-color: #FDFDFD;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* TÍTULO E BOTÃO X ALINHADOS */
+.usuario_titulo {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
-.usuario_titulo{
-    height: 286px;
-    width:460px;
+
+.usuario_titulo h1 {
+    font-size: 35px;
+    color: #000;
+    margin: 4px;
 }
-.usuario_imagem_1 img{
+
+.x {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+}
+
+/* IMAGEM E NOME CENTRALIZADOS */
+.usuario_imagem_1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.usuario_imagem_1 img {
     height: 195px;
     width: 199px;
     border-radius: 50%;
     border: 3px solid #000;
+    margin: 5px;
 }
 
+.usuario_imagem_1 p {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #000;
+}
+
+/* OUTRO BLOCO EXEMPLO */
 .usuario-bloco-2 {
     position: relative;
     top: 477px;
@@ -87,6 +126,7 @@ header {
     background-color: #914d00;
 }
 
+/* TOPO DE DADOS */
 .dados-topo {
     position: absolute;
     top: 0;
@@ -94,5 +134,9 @@ header {
     border-radius: 12px;
     width: 154px;
     height: 51px;
-    background-color: #ec5353;
+    background-color: #000000;
+    text-align: center;
+    padding: 4px;
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

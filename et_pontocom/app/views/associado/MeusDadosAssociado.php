@@ -34,16 +34,18 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
             <div class="box-principal">
                 <div class="usuario-bloco-1">
                     <div class="usuario_titulo">
-                        <h1>Meus dados</h1>
+                        <h1>Pefil</h1>
+                        <div class="x">🖊</div>
                     </div>
                     <div class="usuario_imagem_1">
                         <img src="https://uploads.spiritfanfiction.com/historias/capas/202201/ben-10-com-alcool-23539545-270120222055.jpg" alt="">
                         <p>nome sobrenome</p>
                     </div>
-                    <div class="x">X</div>
                 </div>
                 <div class="dados-secundarios"></div>
-                <div class="dados-topo"></div>
+                <div class="dados-topo">
+                    <h1>Editar</h1>
+                </div>
                 <div class="usuario-bloco-2"></div>
             </div>
         </div>
