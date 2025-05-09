@@ -8,13 +8,15 @@ function createProdutoDestaque($nome = "KIT LANCÔME LASH IDÔLE", $marca = "LAN
             <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/produto/$imagem' alt='' class='produto'>
             <span class='luzProduto'></span>
         </div>
-        <div class='infoProdutoDestaque'>
-            <h1 class='nomeProduto'>$nome</h1>
-            <h2 class='marcaProduto'>$marca</h2>
-            <h1 class='precoProduto'>$preco</h1>
-            <div class='botoesProdutoDestaque'>
-                $botaoComprar
-                $botaoMaisDetalhes
+        <div class='wrapperInfoProdutoDestaque'>
+            <div class='infoProdutoDestaque'>
+                <h1 class='nomeProduto'>$nome</h1>
+                <h2 class='marcaProduto'>$marca</h2>
+                <h1 class='precoProduto'>$preco</h1>
+                <div class='botoesProdutoDestaque'>
+                    $botaoComprar
+                    $botaoMaisDetalhes
+                </div>
             </div>
         </div>
         <div class='ondasProdutoDestaque'>
