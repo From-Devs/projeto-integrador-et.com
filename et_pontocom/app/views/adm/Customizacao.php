@@ -33,7 +33,25 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     ?>
 
     <div class="customizacaoMain">
-        <div class="bloco"></div>
+        <h1 id="tituloCustomizacao">Página Inicial</h1>
+        <div class="containerCustomizacao">
+            <ul>
+                <li class="tituloSessao">Carousel</li>
+            </ul>
+            <div class="editarCarousel">
+                
+            </div>
+            <div class="bloco"></div>
+            <ul>
+                <li class="tituloSessao">Lançamentos</li>
+            </ul>
+            <ul>
+                <li class="tituloSessao">Produto em destaque</li>
+            </ul>
+            <ul>
+                <li class="tituloSessao">Visualização da Página Inicial</li>
+            </ul>
+        </div>
     </div>
     
     <script src="./../../../public/javascript/javascriptADM.js"></script>

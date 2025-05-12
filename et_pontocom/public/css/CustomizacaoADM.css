@@ -8,14 +8,31 @@
 
 body{
     display: flex;
+    background-color: #F8F8F8;
 }
 
 .customizacaoMain{
     display: flex;
     flex-direction: column;
     margin-left: 287px;
+    padding-left: 51px;
+    padding-top: 40px;
     height: 100vh;
-    overflow: hidden;
+}
+
+.containerCustomizacao{
+    margin-left: 30px;
+}
+
+#tituloCustomizacao{
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.tituloSessao{
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 34px;
 }
 
 .bloco{
