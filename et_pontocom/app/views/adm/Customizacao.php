@@ -35,13 +35,36 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <div class="customizacaoMain">
         <h1 id="tituloCustomizacao">Página Inicial</h1>
         <div class="containerCustomizacao">
-            <ul>
-                <li class="tituloSessao">Carousel</li>
-            </ul>
-            <div class="editarCarousel">
-                
+            <div class="sessaoCarousel">
+                <ul>
+                    <li class="tituloSessao">Carousel</li>
+                </ul>
+                <div class="editarCarousel">
+                    <div class="produtoInicial">
+                        <p>Inicial</p>
+                        <div class="bordaProdutoInicial"></div>
+                    </div>
+                    <div class="editarCarouselContainer">
+                        <div class="produtoContainer">
+                            <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
+                        </div>
+                        <div class="produtoContainer">
+                            <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
+                        </div>
+                        <div class="produtoContainer">
+                            <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
+                        </div>
+                    </div>
+                </div>
+    
+                <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "", "220px", "45px", "20px")?>
+
+                <ul>
+                    <li class="descricao">Clique em um produto para editar</li>
+                    <li class="descricao">Arraste os produtos para organizar a ordem de apresentação</li>
+                </ul>
             </div>
-            <div class="bloco"></div>
+            
             <ul>
                 <li class="tituloSessao">Lançamentos</li>
             </ul>
