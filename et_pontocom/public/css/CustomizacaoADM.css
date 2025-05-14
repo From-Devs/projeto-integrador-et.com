@@ -11,10 +11,38 @@ body{
     background-color: #F8F8F8;
 }
 
+.frameSlider{
+    width: 1400px;
+}
+
+.degradeDireita{
+    background-image: linear-gradient(to left, #F8F8F8 0%, rgb#F8F8F8 35%, rgba(255, 255, 255, 0) 100%);
+    height: 100%;
+    width: 64px;
+    position: absolute;
+    right: 0;
+    z-index: 500;
+}
+
+.degradeEsquerda{
+    background-image: linear-gradient(to right, #F8F8F8 0%, #F8F8F8 35%, rgba(255, 255, 255, 0) 100%);
+    height: 100%;
+    width: 64px;
+    position: absolute;
+    left: 0;
+    z-index: 500;
+}
+
 .descricao{
     color: #7C7C7C;
     font-size: 20px;
     margin-left: 50px;
+}
+
+.descricaoContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .customizacaoMain{
@@ -48,6 +76,7 @@ body{
     display: flex;
     gap: 50px;
     padding: 15px;
+    z-index: 1;
 }
 
 .produtoInicial{
@@ -55,6 +84,7 @@ body{
     flex-direction: column;
     align-items: center;
     position: absolute;
+    z-index: 0;
 }
 
 .produtoInicial p{
