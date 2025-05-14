@@ -9,28 +9,7 @@
 body{
     display: flex;
     background-color: #F8F8F8;
-}
-
-.frameSlider{
-    width: 1400px;
-}
-
-.degradeDireita{
-    background-image: linear-gradient(to left, #F8F8F8 0%, #F8F8F8 35%, rgba(255, 255, 255, 0) 100%);
-    height: 100%;
-    width: 64px;
-    position: absolute;
-    right: 0;
-    z-index: 500;
-}
-
-.degradeEsquerda{
-    background-image: linear-gradient(to right, #F8F8F8 0%, #F8F8F8 35%, rgba(255, 255, 255, 0) 100%);
-    height: 100%;
-    width: 64px;
-    position: absolute;
-    left: 0;
-    z-index: 500;
+    overflow-x: hidden;
 }
 
 .descricao{
@@ -48,10 +27,16 @@ body{
 .customizacaoMain{
     display: flex;
     flex-direction: column;
-    margin-left: 287px;
     padding-left: 51px;
-    padding-top: 40px;
+    width: 100%;
+}
+
+.main{
+    margin-left: 287px;
     height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .containerCustomizacao{
@@ -61,7 +46,7 @@ body{
     gap: 22px;
 }
 
-.sessaoCarousel{
+.sessao{
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -114,6 +99,7 @@ body{
 #tituloCustomizacao{
     font-size: 36px;
     margin-bottom: 30px;
+    padding-top: 40px;
 }
 
 .tituloSessao{
@@ -126,4 +112,54 @@ body{
 
 .imagemProduto{
     width: 100%;
+}
+
+.frameSlider{
+    display: flex;
+    width: min-content;
+    position: relative;
+    width: 82vw;
+}
+.frameProdutos{
+    display: flex;
+    z-index: 499;
+    overflow-x: hidden;
+}
+.degradeEsquerda{
+    width: 64px;
+    background-image: linear-gradient(to right, #F8F8F8 0%, #F8F8F8 35%, rgba(255, 255, 255, 0) 100%);
+    position: absolute;
+    left: 0;
+    z-index: 500;
+    height: 100%;
+}
+
+.degradeDireita{
+    width: 64px;
+    background-image: linear-gradient(to left, #F8F8F8 0%, #F8F8F8 35%, rgba(255, 255, 255, 0) 100%);
+    position: absolute;
+    right: 0;
+    z-index: 500;
+    height: 100%;
+}
+
+.containerProdutos{
+    display: flex;
+    gap: 17px;
+    padding: 25px 83px 25px 83px;
+}
+
+.wrapper{
+    position: relative;
+    top: -290px;
+    width: min-content;
+}
+
+.editProdutoDestaque{
+    width: 1248px;
+}
+
+.editProdutoDestaque h2{
+    font-weight: 400;
+    font-size: 24px;
 }
