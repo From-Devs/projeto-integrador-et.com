@@ -40,17 +40,19 @@
     position: fixed;
     top: 20px;
     left: 20px;
-    width: 30px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     z-index: 1001; /* Fica na frente de tudo */
+    background-color: var(--cor-sidebar-fundo);
+    border-radius: 10px;
 }
 
 .menu-toggle span {
-    width: 100%;
+    width: 25px;
     height: 3px;
     background-color: var(--cor-sidebar-escrita);
-    margin-bottom: 5px;
+    margin: 2px 3px;
     border-radius: 2px;
 }
 
@@ -127,7 +129,7 @@
 
 .botoesMenu .button_name{
     font-weight: 600;
-    font-size: 123px;
+    font-size: 13px;
 }
 
 
@@ -303,7 +305,7 @@
     }
 }
 @media (max-width: 800px){ /*Tablet 800x1000*/
-    /* .sidebar_adm {
+    .sidebar_adm {
         position: fixed;
         left: 0;
         top: 0;
@@ -313,7 +315,7 @@
     }
     .sidebar_adm.active {
         transform: translateX(0) !important;
-    }*/
+    }
 
     .menu-toggle {
         display: flex;
@@ -334,7 +336,7 @@
         gap: 10px;
     }    
     .area_Sair .button_sair{
-        width: 200px;
+        width: 225px;
         gap: 10px;
     }
     .area_Sair .button_sair .fa{
