@@ -187,100 +187,49 @@ a
 }
 
 /* RESPONSIVIDADE */
-@media (max-width: 2560px){
 
+@media (max-width: 2560px)
+{
     #container
     {
-        margin-left: 200px; /*vai ter que mudar isso depois provavelmente*/
+        margin: 0;
+    }
+
+    #geralInformacoes
+    {
+        justify-content: center;
+        gap: 50px;
+    }
+
+    #controlePizzas
+    {
+        margin: 50 0 0 0;
+        justify-content: center;
+        gap: 100px;
+    }
+
+
+}
+
+
+@media (max-width: 1024px)
+{
+    #container
+    {
+        margin: 0;
     }
 
     #iconUsuario
     {
         width: 350px;
-        height: 130px;
-    }
-
-    #textUser
-    {
-        font-size: 25px
-    }
-
-    #fotoUser
-    {
-        width: 100px;
-        height: 100px;
-    }
-
-    #titulo
-    {
-        justify-content: center;
-        margin-right: 1550px;
-        margin-top: 30px;
-    }
-
-    #tituloH1
-    {
-        font-size: 50px;
     }
 
     #geralInformacoes
     {
-        justify-content: right;
-        margin-right: 200px;
-        gap: 50px;
-    }
-
-    #valorVendas, #lucroLiquido, #vendas
-    {
-        font-size: 25px;
-        gap: 0px;
-        height: 250px;
-        width: 600px;
-    }
-
-    #controlePizzas
-    {
-        gap: 50px;
+        gap: 10px;
         justify-content: center;
-        margin-left: 120px;
-    }
-
-    #divPizzaEsquerda,#divPizzaDireita
-    {
-        width: 930px;
-        height: 600px;
-    }
-}
-
-@media (max-width: 1440px){
-    #container{
+        align-items: center;
         margin: 0;
-    }
-
-    #tituloH1
-    {
-        font-size: 25px;
-    }
-
-    #iconUsuario
-    {
-        width: 250px;
-        height: 90px;
-    }
-
-    #fotoUser{
-        height: 70px;
-        width: 70px;
-    }
-
-    #textUser
-    {
-        font-size: 20px;
-    }
-
-    #geralInformacoes
-    {
-        margin-right: 80px;
     }
 
     #valorVendas, #lucroLiquido, #vendas
@@ -290,83 +239,87 @@ a
         font-size: 10px;
     }
 
-    #imagemInforma{
-        height: 35px;
-        width: 35px;
-    }
-
     #imagemInformaEstilizacao
     {
-        height: 50px;
+        height: 60px;
     }
 
     #controlePizzas
     {
-        justify-content: right;
-        margin: 50px 80px 0px 0px;
+        display: flex;
+        flex-direction: column;
         gap: 100px;
+        margin: 50px 0px 0px 0px;
+        align-items: center;
     }
 
-    #divPizzaEsquerda, #divPizzaDireita
-    {
-        width: 450px;
-        height: 450px;
+    #divPizzaDireita{
+        margin-bottom: 50px;
+    }
+
+    #divPizzaEsquerda, #divPizzaDireita{
+        width: 550px;
     }
 }
 
+@media (max-width: 768px)
+{ 
+    #container
+    {
+        margin: 0px;
+    }
 
-@media (max-width: 1024px){
+    #controleIcon
+    {
+        margin: 0;
+        justify-content: right;
+    }
+
     #iconUsuario
     {
-        height: 80px;
-        width: 210px;
+        width: 300px;
     }
 
-    #titulo{
-        margin: 30px 230px 10px 0px;
-        
-        }
-
-    #fotoUser
+    #titulo
     {
-        height: 60px;
-        width: 60px;
-    }
-
-    #textUser
-    {
-        font-size: 15px;
-    }
-
-    #geralInformacoes
-    {
-        margin-right: 20px;
-        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     #valorVendas, #lucroLiquido, #vendas
     {
-        height: 100px;
-        width: 220px;
-        gap: 10px;
+        width: 450px;
+        font-size: 8px;
+        gap: 0;
     }
-    
+
+    #imagemInformaEstilizacao
+    {
+        width: 60px;
+    }
+
+    #geralInformacoes
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        gap: 30px;
+    }
+
     #controlePizzas
     {
         display: flex;
-        margin-right: 0px;
-        margin-left: 300px;
-        margin: 50px 0px 0px 310px;
         flex-direction: column;
+        gap: 100px;
+        margin: 50px 0px 0px 0px;
         align-items: center;
-        justify-content: right;
-        gap: 150px;
-        width: 700px;
     }
 
-    #divPizzaDireita
-    {
-        margin-bottom: 50px;
+    #divPizzaEsquerda, #divPizzaDireita{
+        width: 500px;
     }
 
 }
