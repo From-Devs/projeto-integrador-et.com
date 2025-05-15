@@ -317,3 +317,112 @@ position: absolute;
       background-position-x: 0;
   }
 }
+@media screen and (max-width: 430px) {
+  .carousel-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .carousel-container {
+    flex-direction: column;
+    margin-top: 50px;
+  }
+
+  .carousel-item {
+    width: 100px;
+    height: 100px;
+    margin: 0 10px;
+  }
+
+  .promo-content {
+    padding: 40px 20px;
+    margin: 0 auto;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .promo-content h2 {
+    font-size: 28px;
+  }
+
+  .promo-content p,
+  .azul {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .promo-image,
+  .substituir-imagem {
+    display: none;
+  }
+
+  .commission-table {
+    position: static;
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .cards-section {
+    height: auto;
+    padding: 20px;
+    margin-top: 100px;
+    background-size: cover;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    transform: none;
+    top: auto;
+    left: auto;
+    position: static;
+  }
+
+  .card {
+    width: 40%;
+    margin: 5px auto;
+    margin-top: -30px;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .caixa_salmão {
+    width: 90%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .caixa_salmão img {
+    width: 80%;
+    height: auto;
+  }
+
+  .sej {
+    width: 90%;
+    margin: 40px auto;
+    position: static;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sej img {
+    width: 80%;
+    height: auto;
+  }
+
+  .associ {
+    width: 90%;
+    margin: 20px auto;
+    position: static;
+    text-align: center;
+  }
+
+  .wave.solida {
+    display: none;
+  }
+}
