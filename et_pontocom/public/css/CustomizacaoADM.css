@@ -29,6 +29,8 @@ body{
     flex-direction: column;
     padding-left: 51px;
     width: 100%;
+    max-height: 1150px;
+    overflow-y: clip;
 }
 
 .main{
@@ -157,9 +159,105 @@ body{
 
 .editProdutoDestaque{
     width: 1248px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.editProdutoDestaque span{
+    display: flex;
+    width: 2px;
+    background-color: #D9D9D9;
+}
+
+.editProdutoDestaque .nomeProduto{
+    width: 490px;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 4px 10px;
+    font-size: 20px;
+    border-radius: 8px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .editProdutoDestaque h2{
     font-weight: 400;
     font-size: 24px;
+    padding-bottom: 10px;
+}
+
+.coresGrid{
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 23px;
+}
+
+.corWrapper h3{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.editCor{
+    display: flex;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 3px 7px 3px 5px;
+    gap: 10px;
+}
+
+.corShow{
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 40px;
+    height: 45px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.corShow::-webkit-color-swatch{
+    border: none;
+    border-radius: 3px;
+
+}
+
+.corShow::-moz-color-swatch{
+    border: none;
+    border-radius: 3px;
+}
+
+.textHex{
+    font-size: 14px;
+    margin-left: 111px;
+}
+
+.corHex{
+    background-color: white;
+    width: 145px;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 3px;
+    border: 0;
+    text-align: center;
+}
+
+.esquerda {
+    padding-right: 45px;
+}
+
+.direita{
+    padding-left: 45px;
+}
+
+.selectProduto{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#sessaoPI{
+    margin-top: 22px;
 }
