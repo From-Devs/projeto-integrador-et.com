@@ -34,10 +34,10 @@
     <h1 style="margin-left: 500px;">DASHBOARD</h1>
     <h1 style="margin-left: 500px;">DASHBOARD</h1>
     <h1 style="margin-left: 500px;">DASHBOARD</h1>
-    <h1 style="margin-left: 500px;">DASHBOARD</h1>
-    <h1 style="margin-left: 500px;">DASHBOARD</h1>
-    <h1 style="margin-left: 500px;">DASHBOARD</h1>
-    <h1 style="margin-left: 500px;">DASHBOARD</h1>
+    <h1 >DASHBOARD</h1>
+    <h1 style="margin-left: 100px;">DASHBOARD</h1>
+    <h1 style="margin-left: 200px;">DASHBOARD</h1>
+    <h1 style="margin-left: 300px;">DASHBOARD</h1>
     <h1 style="margin-left: 500px;">DASHBOARD</h1>
     <h1 style="margin-left: 500px;">DASHBOARD</h1>
     <h1 style="margin-left: 500px;">DASHBOARD</h1>

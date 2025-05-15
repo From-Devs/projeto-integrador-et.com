@@ -220,7 +220,7 @@
 
 
 /*_________________Caso a tela seja menor..._________________*/
-@media (max-width: 1200px) {
+ @media (max-width: 1280px) { /*Computador 1280x800*/
     .nav_adm{
         width: 250px;
     }
@@ -266,7 +266,7 @@
     }
 }
 
-@media (max-width: 1067px){ /*Computador*/
+@media (max-width: 1024px){ /*Computador1024x768 */
     .nav_adm{
         width: 230px;
     }
@@ -299,30 +299,47 @@
     .area_Sair .button_sair{
         width: 230px;
         gap: 12px;
+        position: fixed;
+        bottom: 7%;
+        left: 0;
     }
     .area_Sair .button_sair .fa{
         font-size: 13px;
     }
 }
-@media (max-width: 800px){ /*Tablet 800x1000*/
+@media (max-width: 800px){ /*Tablet 800x1280*/
     .sidebar_adm {
         position: fixed;
         left: 0;
         top: 0;
         height: 100%;
-        width: 250px;
+        width: 300px;
         transform: translateX(-100%) !important;
     }
     .sidebar_adm.active {
         transform: translateX(0) !important;
     }
-
+    .nav_adm{
+        width: 300px;
+        height: 100%;
+    }
     .menu-toggle {
         display: flex;
     } 
     .logo{
         margin-top: 70px;
         margin-bottom: 5px;
+    }
+    .logo img{
+        width: 220px;
+    }
+    .linhaGradiente{
+        width: 250px;
+        height: 1px;
+        margin-bottom: 20px;
+    }
+    .botoesMenu{
+        width: 210px;
     }
     .botoesMenu ul{
         display: flex;
@@ -331,39 +348,85 @@
         gap: 10px;
     }
     .botoesMenu ul .nav-item .nav-link{
-        width: 160px;
+        width: 210px;
         padding: 17px 15px;
         gap: 10px;
     }    
+    .botoesMenu ul .nav-item .nav-link .bx{
+        font-size: 20px;
+    }
+    .botoesMenu ul .nav-item .nav-link .fa{
+        font-size: 17px;
+    }
+    .botoesMenu .button_name{
+        font-weight: 600;
+        font-size: 16px;
+    }
     .area_Sair .button_sair{
-        width: 225px;
-        gap: 10px;
+        width: 300px;
+        gap: 12px;
     }
     .area_Sair .button_sair .fa{
-        font-size: 12px;
+        font-size: 14px;
+    }
+    .area_Sair .button_sair .button_name{
+        font-size: 16px;
     }
 }
-@media (max-width: 700px){ /*Celular modo paisagem*/
-    .sidebar_adm {
-        position: fixed;
-        left: 0;
-        top: 0;
+
+@media (max-width: 520px) and (min-width: 430px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+    .nav_adm{
+        width: 320px;
         height: 100%;
+    }
+    .logo{
+        margin-top: 60px;
+        margin-bottom: 5px;
+    }
+    .logo img{
+        width: 200px;
+    }
+    .linhaGradiente{
         width: 250px;
-        transform: translateX(-100%) !important;
-        transition: transform 0.3s ease;
-        z-index: 1000;
+        height: 1px;
+        margin-bottom: 30px;
     }
-
-    .sidebar_adm.active {
-        transform: translateX(0) !important;
+    .botoesMenu{
+        width: 210px;
     }
-
-    .menu-toggle {
+    .botoesMenu ul{
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
-}
-@media (max-width: 576px){ /*Celular modo retrato*/
-    
+    .botoesMenu ul .nav-item .nav-link{
+        width: 210px;
+        padding: 17px 15px;
+        gap: 10px;
+    }    
+    .botoesMenu ul .nav-item .nav-link .bx{
+        font-size: 18px;
+    }
+    .botoesMenu ul .nav-item .nav-link .fa{
+        font-size: 15px;
+    }
+    .botoesMenu .button_name{
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .area_Sair .button_sair{
+        width: 300px;
+        gap: 12px;
+        position: fixed;
+        bottom: 7%;
+        left: 0;
+    }
+    .area_Sair .button_sair .fa{
+        font-size: 15px;
+    }
+    .area_Sair .button_sair .button_name{
+        font-size: 16px;
+    }
 }
 
