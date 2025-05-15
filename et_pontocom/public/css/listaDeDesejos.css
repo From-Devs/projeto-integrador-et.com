@@ -568,7 +568,7 @@ input[type="checkbox"] {
         font-size: 14px;
     }
 
-    /*card01*/
+    /*card02*/
     .card02{
         display: grid;
         grid-template-columns: 85px auto auto auto 80px;
@@ -597,7 +597,7 @@ input[type="checkbox"] {
         font-size: 14px;
     }
 
-    /*card01*/
+    /*card03*/
     .card03{
         display: grid;
         grid-template-columns: 85px auto auto auto 80px;
@@ -626,7 +626,7 @@ input[type="checkbox"] {
         font-size: 14px;
     }
 
-    /*card01*/
+    /*card04*/
     .card04{
         display: grid;
         grid-template-columns: 85px auto auto auto 80px;
