@@ -25,7 +25,7 @@
 .esquerdo img{ /* logo do header */
     /* width: 160px; */
     height: 85px;
-    filter: drop-shadow(0px 1px 2px black);
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.466));
     cursor: pointer;
 }
 
@@ -267,7 +267,6 @@
     .esquerdo img{
         width: 120px;
         height: auto;
-        filter: drop-shadow(0px 0px 2px black);
     }
 
     .menu-toggle{

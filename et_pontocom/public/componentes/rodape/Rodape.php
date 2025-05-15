@@ -59,7 +59,7 @@ function createRodape(){
         </div>
 
         <div class="terceiraSecao">
-            <a>
+            <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/SobreNos.php">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/FromDevsLogo.png" id="LogoFromDevs">
             </a>
             <p class="Termos">
