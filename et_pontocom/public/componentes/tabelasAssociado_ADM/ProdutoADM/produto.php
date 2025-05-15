@@ -59,24 +59,20 @@
             <!--Estrutura do popUp de editar produto (terminar)-->
             <dialog class="dialog-editar">
                 <div class="header-editar">
-                    <div>
-                        Editar produto
-                    </div>
-                    <div>
-                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
-                    </div>
+                    <h1>Editar produto</h1>
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
                 </div>
-                <div class="campos-editar" style="display: grid; grid-template-rows: 1fr 1fr; grid-template-columns: 1fr 1fr;"><!--Criar classe estilizada-->
+                <div class="campos-editar">
                     <div>
-                        <div class="nome">
+                        <div class="campo">
                             <label>Nome:</label>
                             <input type="text">
                         </div>
-                        <div class="nome">
+                        <div class="campo">
                             <label>Marca:</label>
                             <input type="text">
                         </div>
-                        <div class="nome">
+                        <div class="campo">
                             <label>Categoria:</label>
                             <select id="ddlCategoria">
                                 <option value="teste">Teste</option>
@@ -84,33 +80,41 @@
                         </div>
                     </div>
                     <div>
-                        <div class="breve-descricao">
+                        <div class="campo campo-large">
                             <label>Breve descrição:</label>
-                            <input type="text">
+                            <textarea cols="30" rows="10"></textarea>
                         </div>
                     </div>
-                    <div>
+                    <div class="divisao-esquerda">
                         <div class="campos-esquerda">
-                            <div class="cdProduto">
+                            <div class="campo campo-small">
                                 <label>Código do Produto:</label>
                                 <input type="text">
                             </div>
-                            <div class="precoNormal">
+                            <div class="campo campo-small">
                                 <label>Preço:</label>
                                 <input type="text">
                             </div>
-                            <div class="precoPromocional">
+                            <div class="campo campo-small">
                                 <label>Preço Promocional:</label>
                                 <input type="text">
                             </div>
-                            <div class="quantidade">
+                            <div class="campo campo-small">
                                 <label>Quantidade:</label>
                                 <input type="text">
                             </div>
                         </div>
                         <div class="campos-direita">
                             <div class="imagens-produto">
-
+                                <div>
+                                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coffe.png" alt="img-produto">
+                                </div>
+                                <div>
+                                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coffe.png" alt="img-produto">
+                                </div>
+                                <div>
+                                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coffe.png" alt="img-produto">
+                                </div>
                             </div>
                             <div class="cores-produto">
                                 <input type="color">
@@ -118,11 +122,14 @@
                         </div>
                     </div>
                     <div>
-                        <div class="caracteristicas-completa">
+                        <div class="campo campo-large">
                             <label>Características Completa:</label>
-                            <input type="text">
+                            <textarea cols="30" rows="10"></textarea>
                         </div>
                     </div>
+                </div>
+                <div class="div-btn">
+                    <button class="btn-concluir-edicao">Concluír edição</button>
                 </div>
             </dialog>
 
@@ -293,3 +300,5 @@
     // }
 
 ?>
+
+<script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>

@@ -128,3 +128,132 @@ a
     gap: 5px;
     padding: 5px;
 }
+
+.dialog-editar{
+    border: none;
+    border-radius: 20px;
+    font-family: "Montserrat", sans-serif;
+    background-color: #f4f7ff;
+    padding: 10px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dialog-editar::backdrop{
+    background-color: rgba(121, 121, 121, 0.5);
+}
+
+.header-editar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px;
+    height: 60px; 
+}
+
+.header-editar h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 2rem;
+}
+
+.header-editar img{
+    width: 25px;
+    cursor: pointer;
+}
+
+.campos-editar{
+    display: grid; 
+    grid-template-rows: 1fr 1fr; grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.campo-small{
+    width: 400px;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label{
+    font-weight: 500;
+}
+
+.campo input, .campo select, .campo textarea, .imagens-produto{
+    width: 100%;
+    padding: 7px;
+    border-radius: 8px;
+    font-weight: 500;
+    resize: none;
+    border: none;
+    box-shadow: 2px 2px 3px 1px #0000007a;
+}
+
+.imagens-produto{
+    width: 250px;
+    height: 150px;
+    background-color: white;
+}
+
+.campo-large{
+    height: 100%;
+}
+
+.campo-large textarea{
+    width: 500px;
+    height: 100%;
+}
+
+.divisao-esquerda{
+    display: flex;
+    gap: 20px;
+}
+
+.campos-direita{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.imagens-produto{
+    border-radius: 10px;
+}
+
+.cores-produto input{
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.imagens-produto{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    gap: 5px;
+}
+
+.imagens-produto img{
+    width: 100%;
+}
+
+.div-btn{
+    place-self: end;
+}
+
+.btn-concluir-edicao{
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #00D3AD;
+    color: white;
+}
