@@ -48,3 +48,14 @@ document.addEventListener("DOMContentLoaded", function(){
         console.error('Botão ou sidebar não encontrados.');
     }
 });
+
+
+//___________________________Fechar a sidebar mobile ao clicar fora______________________
+document.addEventListener('click', function(e) {
+    const sidebar = document.querySelector('.sidebar_adm');
+    const toggle = document.querySelector('.menu-toggle');
+
+    if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
+        sidebar.classList.remove('active');
+    }
+});

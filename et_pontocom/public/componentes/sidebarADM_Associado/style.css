@@ -14,8 +14,13 @@
 
 /*_________________Básico da sidebar_________________*/
 .sidebar_adm{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
     display: flex;
     overflow: hidden;
+    overflow-y: auto;
     transform: none;
     transition: transform 0.3s ease;
     z-index: 1000;
@@ -186,7 +191,7 @@
 
 
 /*___________Tentando estilizar o popup___________*/
-/* .popUpDialog {
+.popUpDialog {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -215,7 +220,7 @@
 
 }
 
- */
+
 
 /*_________________Caso a tela seja menor..._________________*/
  @media (max-width: 1280px) { /*Computador 1280x800*/
@@ -312,8 +317,8 @@
         top: 0;
         height: 100%;
         width: 300px;
+        z-index: 1000;
         transform: translateX(-100%) !important;
-        transition: transform 0.3s ease-in-out;
     }
     .sidebar_adm.active {
         transform: translateX(0) !important;
@@ -361,24 +366,20 @@
         font-weight: 600;
         font-size: 16px;
     }
-    .area_Sair .button_sair{
+    .nav_adm .area_Sair .button_sair{
         width: 300px;
         gap: 12px;
     }
-    .area_Sair .button_sair .fa{
+    .nav_adm  .area_Sair .button_sair .fa{
         font-size: 14px;
     }
-    .area_Sair .button_sair .button_name{
+    .nav_adm  .area_Sair .button_sair .button_name{
         font-size: 16px;
     }
 }
 
 @media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
     .sidebar_adm {
-        position: fixed;
-        left: 0;
-        top: 0;
-        height: 100%;
         width: 280px;
         transform: translateX(-100%) !important;
     }
@@ -387,10 +388,7 @@
     }
     .nav_adm{
         width: 280px;
-        height: 100%;
-        /* height: 100vh;
         position: relative;
-        overflow: hidden; */
     }
     .logo{
         margin-top: 60px;
@@ -430,8 +428,6 @@
     }
     .area_Sair .button_sair{
         width: 100%;
-        position: relative; 
-        justify-content: center;
     }
     .area_Sair .button_sair .fa{
         font-size: 15px;
@@ -441,26 +437,14 @@
     }
 }
 
-@media (max-width: 420px){
-    .sidebar_adm {
+@media (max-width: 480) {
+    .nav_adm{
         width: 250px;
     }
-    .nav_adm {
-        width: 250px;
+    .logo{
+        margin-top: 3px;
     }
-    .logo img {
-        width: 170px;
-    }
-    .botoesMenu {
-        width: 190px;
-    }
-    .botoesMenu ul .nav-item .nav-link {
-        width: 190px;
-        padding: 15px 12px;
-        gap: 10px;
-    }
-    .area_Sair .button_sair {
-        width: 250px;
-        gap: 10px;
+    .botoesMenu ul{
+        gap: 2px;
     }
 }
