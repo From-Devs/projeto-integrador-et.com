@@ -186,7 +186,7 @@
 
 
 /*___________Tentando estilizar o popup___________*/
-.popUpDialog {
+/* .popUpDialog {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -198,9 +198,6 @@
     gap: 20px;
 }
 
-.popUp .icone-fechar{
-    display: none;
-}
 
 .popUp .texto-popUp{
     margin-bottom: 30px;
@@ -218,7 +215,7 @@
 
 }
 
-
+ */
 
 /*_________________Caso a tela seja menor..._________________*/
  @media (max-width: 1280px) { /*Computador 1280x800*/

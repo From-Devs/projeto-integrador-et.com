@@ -32,31 +32,31 @@ require_once __DIR__ . "/../botao/botao.php";
         if ($tipo_usuario == "Associado") {
             return "
                 <li class='nav-item " . ($paginaAtual == 'Dashboard.php' ? 'active' : '') . "'>
-                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/associado/Dashboard.php' class='nav-link'>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/associado/DashboardAssociado.php' class='nav-link'>
                         <span class='fa fa-house-chimney'></span>
                         <span class='button_name'>Dashboard</span>
                     </a>
                 </li>
                 <li class='nav-item " . ($paginaAtual == 'Produtos.php' ? 'active' : '') . "'>
-                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/associado/Produtos.php' class='nav-link'>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/associado/ProdutosAssociado.php' class='nav-link'>
                         <span class='bx bxs-package'></span>
                         <span class='button_name'>Produtos</span>
                     </a>
                 </li>
                 <li class='nav-item " . ($paginaAtual == 'Pedidos.php' ? 'active' : '') . "'>
-                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/associado/Pedidos.php' class='nav-link'>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/associado/PedidosAssociado.php' class='nav-link'>
                         <span class='bx bx-money-withdraw'></span>
                         <span class='button_name'>Pedidos</span>
                     </a>
                 </li>
                 <li class='nav-item " . ($paginaAtual == 'HistoricoVendas.php' ? 'active' : '') . "'>
-                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/associado/HistoricoVendas.php' class='nav-link'>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/associado/HistoricoVendasAssociado.php' class='nav-link'>
                         <span class='fa fa-clock'></span>
                         <span class='button_name'>Histórico de Vendas</span>
                     </a>
                 </li>
                 <li class='nav-item " . ($paginaAtual == 'Relatorios.php' ? 'active' : '') . "'>
-                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/associado/Relatorios.php' class='nav-link'>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/associado/RelatoriosAssociado.php' class='nav-link'>
                         <span class='bx bxs-receipt'></span>
                         <span class='button_name'>Relatórios</span>
                     </a>
