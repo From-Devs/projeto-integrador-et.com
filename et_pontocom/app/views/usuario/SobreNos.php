@@ -24,10 +24,10 @@
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/evandro.png","https://github.com/evandroocm","https://www.instagram.com/evandroocm/","https://www.linkedin.com/in/evandrocmarques/","Evandro Marques") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/guilherme.png","","","","Guilherme Bergamo") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/kerolin.png","","","","Kerolin Dos Santos") ?>
-        <?php echo fotoDev("./../../../public/imagens/fotoNossas/mateus.png","","","","Mateus Storti") ?>
+        <?php echo fotoDev("./../../../public/imagens/fotoNossas/mateus.png","https://github.com/Mah-Shuu","https://www.instagram.com/mah_shuu/","https://www.linkedin.com/in/mateus-storti-hellmann-0bba19331/","Mateus Storti") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/nicolas.png","https://github.com/nicolasmleloy","https://www.instagram.com/nicolas_eloy10","https://www.linkedin.com/in/nícolas-marcelo-lima-eloy-51a394280","Nicolas Eloy") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/nicolle.png","https://github.com/NicolleZaleski","https://www.instagram.com/nicolle.zaleski?igsh=ajB1dTJoZnI4azFj","https://www.linkedin.com/in/nicolle-zaleski-290578333/","Nicolle Zaleski") ?>
-        <?php echo fotoDev("./../../../public/imagens/fotoNossas/vinicius.png","https://github.com/Vini909","https://www.instagram.com/viniciuselionai?igsh=bzF4MmJtdmJ2NTdk","","Vinicius Elionai") ?>
+        <?php echo fotoDev("./../../../public/imagens/fotoNossas/vinicius.png","https://github.com/Vini909","https://www.instagram.com/viniciuselionai?igsh=bzF4MmJtdmJ2NTdk","https://www.linkedin.com/in/vinicius-elionai-92ab79361?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app","Vinicius Elionai") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/robert.png","","","","Robert Fernandes") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/marcos.png","","","","Marcos Paulo") ?>
     </div>

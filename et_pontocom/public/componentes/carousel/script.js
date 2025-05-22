@@ -1,22 +1,29 @@
 document.addEventListener("DOMContentLoaded", function(){
-   
+
     const items = document.querySelectorAll('.carousel-item');
     const prev = document.getElementById('prev');
     const next = document.getElementById('next');
     const Bolas = document.querySelectorAll('.Bola');
-    const carousel = document.getElementById('carousel');
+   const carousel = document.getElementById('carousel');
+    const background = document.getElementById('carouselBackground');
+    const detalhes = this.documentElement.querySelector('.detalheProdutoCarousel')
+
+    let detalhesTitulo = detalhes.childNodes[1].childNodes[1].childNodes[1];
+    let detalhesMarca = detalhes.childNodes[1].childNodes[1].childNodes[3];
+    let detalhesCor = detalhes.childNodes[3];
 
     let current = 0;
     let Animacao = false;
 
     function mudarCorDeFundo(index) {
       carousel.className = `carouselContainer cor-${index}`;
-    }
-    function mudarCorDaBola(index) {
-      Bola.className = `cor-${index}`;
+      detalhesCor.className = `frameImagemCarousel cor-${index}`;
+      background.style.animation = 'CarouselDegrade 0.8s ease'
+      setTimeout(() => {background.className = `carouselBackground cor-${index}`},799)
+      setTimeout(() => {background.style.animation = ''},800)
     }
 
-    function AtualizarCarroseuç() {
+    function AtualizarCarousel() {
       items.forEach((item, index) => {
         item.classList.remove('left', 'right', 'active');
 
@@ -31,8 +38,30 @@ document.addEventListener("DOMContentLoaded", function(){
 
       Bolas.forEach((Bola, index) => {
         Bola.classList.toggle('active-Bola', index === current);
+        // console.log(Bola.classList); // debugging mostra a list class
+        // retorna a cor patrão definido pelo usuario
+        Bola.style.background = '#fff';
+        // compara os index 
+        if (index === current) {
+          if (current === 0) {
+              // retorna a cor 1
+              Bola.style.background = '#7A3241'; 
+              detalhesTitulo.innerHTML = "BATOM LÍQUIDO MATTIFY DAZZLE";
+              detalhesMarca.innerHTML = "HINODE";
+            } else if (current === 1) {
+              // retorna a cor 2
+              Bola.style.background = '#AE703F';
+              detalhesTitulo.innerHTML = "BASE MATE BOCA ROSA";
+              detalhesMarca.innerHTML = "PAYOT";
+            } else {
+              // retorna a cor 3
+              Bola.style.background = '#AE665E';
+              detalhesTitulo.innerHTML = "BODY SPLASH CUIDE-SE BEM DELEITE";
+              detalhesMarca.innerHTML = "O BOTICÁRIO";
+            }
+        }
       });
-
+    
       mudarCorDeFundo(current);
     }
 
@@ -46,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function(){
         current = (current + 1) % items.length;
       }
 
-      AtualizarCarroseuç();
+      AtualizarCarousel();
 
       setTimeout(() => {
         Animacao = false;
@@ -57,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function(){
       if (Animacao || index === current) return;
       Animacao = true;
       current = index;
-      AtualizarCarroseuç();
+      AtualizarCarousel();
       setTimeout(() => {
         Animacao = false;
       }, 800);
@@ -70,6 +99,24 @@ document.addEventListener("DOMContentLoaded", function(){
       Bola.addEventListener('click', () => Deslizar(index));
     });
 
-    AtualizarCarroseuç();
- 
+    AtualizarCarousel();
+
+    items.forEach((item) => {
+      item.addEventListener('click', function(event){
+        if (item.classList.contains("active")) {
+          event.stopPropagation();
+          
+          if (!detalhes.classList.contains("open")){
+            detalhes.classList.add("open")
+          }else{
+            detalhes.classList.remove("open")
+          }
+        };
+      });
+    });
+    document.addEventListener('click', function(event){
+      if (detalhes.classList.contains("open") && !detalhes.contains(event.target)){
+        detalhes.classList.remove("open")
+      }
+    })
 });

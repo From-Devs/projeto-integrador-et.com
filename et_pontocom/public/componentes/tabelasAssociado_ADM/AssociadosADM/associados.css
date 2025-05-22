@@ -39,7 +39,7 @@ th {
 
 td 
 {
-    padding: 1.14%;
+    padding: 2%;
     font-size: 20px;
     font-weight: bold;
 }
@@ -62,21 +62,34 @@ tr
     display: none; 
 }
 
-#statusPago, #statusPendente
-{   
+/* parte dos botoes */
+
+.verticalizacao{
     display: flex;
-    color: white;
-    background-color: #14A065;
-    border-radius: 15px;
-    cursor: pointer;
-    width: 200px;
-    height: 50px;
-    align-items: center;
     justify-content: center;
+    gap: 15px;
 }
 
-#statusPendente
-{
-    background-color: #FF3131;
-    
+.validarButton, .cancelarButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+
+.validarButton:hover{
+    background-color: greenyellow;
+    cursor: pointer;
+
+
+}
+
+.cancelarButton:hover{
+    background-color: red;
+    cursor: pointer;
+
+
 }
