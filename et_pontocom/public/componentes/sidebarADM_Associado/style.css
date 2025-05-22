@@ -45,6 +45,7 @@
     cursor: pointer;
     z-index: 1001; /* Fica na frente de tudo */
     background-color: var(--cor-sidebar-fundo);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
 }
 
@@ -315,6 +316,7 @@
         height: 100%;
         width: 300px;
         transform: translateX(-100%) !important;
+        transition: transform 0.3s ease-in-out;
     }
     .sidebar_adm.active {
         transform: translateX(0) !important;
@@ -374,10 +376,24 @@
     }
 }
 
-@media (max-width: 520px) and (min-width: 430px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
-    .nav_adm{
-        width: 320px;
+@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+    .sidebar_adm {
+        position: fixed;
+        left: 0;
+        top: 0;
         height: 100%;
+        width: 280px;
+        transform: translateX(-100%) !important;
+    }
+    .sidebar_adm.active {
+        transform: translateX(0) !important;
+    }
+    .nav_adm{
+        width: 280px;
+        height: 100%;
+        /* height: 100vh;
+        position: relative;
+        overflow: hidden; */
     }
     .logo{
         margin-top: 60px;
@@ -416,11 +432,9 @@
         font-size: 16px;
     }
     .area_Sair .button_sair{
-        width: 300px;
-        gap: 12px;
-        position: fixed;
-        bottom: 7%;
-        left: 0;
+        width: 100%;
+        position: relative; 
+        justify-content: center;
     }
     .area_Sair .button_sair .fa{
         font-size: 15px;
@@ -430,3 +444,26 @@
     }
 }
 
+@media (max-width: 420px){
+    .sidebar_adm {
+        width: 250px;
+    }
+    .nav_adm {
+        width: 250px;
+    }
+    .logo img {
+        width: 170px;
+    }
+    .botoesMenu {
+        width: 190px;
+    }
+    .botoesMenu ul .nav-item .nav-link {
+        width: 190px;
+        padding: 15px 12px;
+        gap: 10px;
+    }
+    .area_Sair .button_sair {
+        width: 250px;
+        gap: 10px;
+    }
+}
