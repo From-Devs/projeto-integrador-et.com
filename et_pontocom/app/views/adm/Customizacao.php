@@ -42,39 +42,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             user-select: none;
         }
 
-        .topoPopUp{
-            width: 100%;
-            height: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .tituloPopUp{
-            font-size: 24px;
-            font-weight: 600;
-        }
-
-        #iconeFechar{
-            height: 25px;
-            width: 25px;
-            display: block;
-        }
-
-        .inputProduto{
-            width: 100%;
-            font-size: 20px;
-            padding: 7px;
-            border-radius: 8px;
-            border: solid 2px black;
-        }
-
-        .listaProdutos{
-            max-height: 570px;
-            width: 100%;
-            border: solid 2px black;
-            border-radius: 8px;
-        }
     </style>
 
 </head>
@@ -84,19 +51,92 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     ?>
 
     <dialog class='popUpDialog popUpSelectProduto'>
-        <div class='popUp' style='width: 956px; padding: 33px; background-color: white;'>
+        <div class='popUp' style='width: 956px; padding: 33px; background-color: #F8F8F8;'>
             <div class='topoPopUp'>
                 <h1 class="tituloPopUp">Lista de Produtos</h1>
                 <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
             </div>
-            
-            <input class="inputProduto" type="text" placeholder="Digite o nome do produto">
+
+            <div class='inputProdutoContainer'>
+                <input type='text' class='inputProduto' placeholder="Digite o nome do produto"></input>
+                <button><i class='bx bx-search lupaButton'></i></button>
+            </div>
 
             <div class="listaProdutos">
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
                 <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
             </div>
         </div>
     </dialog>
+
+    <dialog class='popUpDialog popUpEditProduto'>
+        <div class='popUp' style=' padding: 33px; background-color: #F8F8F8;'>
+            <div class='topoPopUp'>
+                <h1 class="tituloPopUp">Editar Produto</h1>
+                <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
+            </div>
+
+            <div class="wrapperPopUp">
+                <div class="produtoContainer" onclick="abrirPopUp('popUpEditProduto')">
+                    <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
+                </div>
+
+                <div class="editProdutoContainer">
+
+                    <div class="switchProduto">
+                        <h2>Produto:</h2>
+                        <div class="selectProduto">
+                            <div class="nomeProduto">
+                                <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
+                            </div>
+                            <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\")", "115px", "33px", "15px")?>
+                        </div>
+                    </div>
+
+                    <span></span>
+
+                    <div class="mainColorEdit">
+                        <h2>Cores:</h2>
+                        <div class="corWrapper">
+                            <h3>Cor de destaque</h3>
+                            <div class="corContainer">
+                                <p class="textHex">HEX</p>
+                                <div class="editCor">
+                                    <input type="color" class="corShow" value=""></input>
+                                    <input class="corHex" value="B4938A"></input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </dialog>
+
     <div class="main">
 
         <div class="customizacaoMain">
@@ -112,13 +152,13 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <div class="bordaProdutoInicial"></div>
                         </div>
                         <div class="editarCarouselContainer">
-                            <div class="produtoContainer">
+                            <div class="produtoContainer" onclick="abrirPopUp('popUpEditProduto')">
                                 <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
                             </div>
-                            <div class="produtoContainer">
+                            <div class="produtoContainer" onclick="abrirPopUp('popUpEditProduto')">
                                 <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
                             </div>
-                            <div class="produtoContainer">
+                            <div class="produtoContainer" onclick="abrirPopUp('popUpEditProduto')">
                                 <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
                             </div>
                         </div>
@@ -179,12 +219,14 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                     <div class="wrapper">
                         <div class="editProdutoDestaque">
                             <div class="esquerda">
-                                <h2>Produto:</h2>
-                                <div class="selectProduto">
-                                    <div class="nomeProduto">
-                                        <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
+                                <div class="switchProduto">
+                                    <h2>Produto:</h2>
+                                    <div class="selectProduto">
+                                        <div class="nomeProduto">
+                                            <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
+                                        </div>
+                                        <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\")", "115px", "33px", "15px")?>
                                     </div>
-                                    <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\")", "115px", "33px", "15px")?>
                                 </div>
                             </div>
                             <span></span>
@@ -196,7 +238,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
                                             <div class="editCor">
-                                                <input type="color" class="corShow"></input>
+                                                <input type="color" class="corShow" value=""></input>
                                                 <input class="corHex" value="B4938A"></input>
                                             </div>
                                         </div>
@@ -206,7 +248,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
                                             <div class="editCor">
-                                                <input type="color" class="corShow"></input>
+                                                <input type="color" class="corShow" value=""></input>
                                                 <input class="corHex" value="B4938A"></input>
                                             </div>
                                         </div>
@@ -216,7 +258,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
                                             <div class="editCor">
-                                                <input type="color" class="corShow"></input>
+                                                <input type="color" class="corShow" value=""></input>
                                                 <input class="corHex" value="B4938A"></input>
                                             </div>
                                         </div>
