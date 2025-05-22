@@ -6,7 +6,7 @@ require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 
 session_start();
-$tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
+$tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 ?>
 
 <!DOCTYPE html>
@@ -14,30 +14,34 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador - Dashboard</title>
-    <link rel="stylesheet" href="./../../../public/css/DashboardADM.css">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./../../../public/css/DashboardAssociado.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/Style.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
 </head>
 <body>
-    <div id="menuLateral">
-        <?php
-            echo createSidebarInterna($tipo_usuario);
-        ?>
-    </div>
+
+    <?php
+        echo createSidebarInterna($tipo_usuario);
+    ?>
 
     <!-- aqui acaba o lado esquerdo -->
     <div id="container">
-        <div id="controleIcon">
-            <div id="iconUsuario">
+    <div class="mainRelatorio">
+        <div class="controleIcon">
+            <div class="iconUsuario">
                 <img id="fotoUser" src="../../../public/imagens/imagensADM/userIMG.png" alt="userIMG">
-                <p id="textUser">ADM ET</p>
+                <div class="contentUser">
+                    <p id="textUser">Wellinton R.</p>
+                    <p id="cargoUser">Vendedor</p>
+                </div>
             </div>
         </div>
+    </div>
         <div id="titulo">
             <h1 id="tituloH1">Dashboard</h1>
         </div>
@@ -62,7 +66,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./../../../public/javascript/javascriptADM.js"></script>
+    <script src="./../../../public/javascript/DashboardAssociado.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
 </body>

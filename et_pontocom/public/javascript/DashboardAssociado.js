@@ -24,41 +24,24 @@ var myChartDireita = new Chart(ctxDireita, {
         'rgba(75, 192, 192, 1)',
         'rgba(153, 102, 255, 1)'
       ],
-      borderWidth: 2
+      borderWidth: 1
     }]
   },
   options: {
-    resoponsive: true,
-    maintainAspectRatio: false,
-    layout: {
-      padding: 40
-    },
     plugins: {
       legend: {
-        position: 'right', // Posiciona as legendas à direita
+        position: 'right', 
         labels: {
-            boxWidth: 20,
-            padding: 30,
-            font: {
-              size: (context) => {
-                const width = context.chart.width;
-                if (width >= 596) return 27;
-                if (width < 596) return 18;
-                return 12;
-            },
-          }
+          boxWidth: 20,
+          padding: 15
         }
       },
       title: {
         display: true,
-        text: 'Top 5 Regiões',
+        text: 'Regiões que mais compram',
         font: {
-          size: (context) => {
-            const width = context.chart.width;
-            if (width >= 596) return 40;
-            if (width < 596) return 18;
-            return 12;
-          }
+          size: 30, 
+          weight: 'bold',
         },
         padding: {
           top: 20,
@@ -95,37 +78,21 @@ var myChartEsquerda = new Chart(ctxEsquerda, {
     }]
   },
   options: {
-    resoponsive: true,
-    maintainAspectRatio: false,
-    layout: {
-      padding: 40
-    },
     plugins: {
       legend: {
-        position: 'right', 
+        position: 'right', // Posiciona as legendas à direita
         labels: {
-            boxWidth: 20,
-            padding: 30,
-            font: {
-              size: (context) => {
-                const width = context.chart.width;
-                if (width >= 596) return 27;
-                if (width < 596) return 20;
-                return 12;
-            },
-          }
+          boxWidth: 20,
+          padding: 15
         }
       },
       title: {
         display: true,
-        text: 'Top 5 Vendedores', 
+        text: 'Top 5 Vendedores', // Texto do título
         font: {
-          size: (context) => {
-            const width = context.chart.width;
-            if (width >= 596) return 40;
-            if (width < 596) return 18;
-            return 12;
-          }
+          size: 30, // Tamanho grande do título
+          weight: 'bold',
+          borderColor: '#FFFFFF',
         },
         padding: {
           top: 20,
@@ -135,9 +102,6 @@ var myChartEsquerda = new Chart(ctxEsquerda, {
     }
   }
 });
-
-
-
 
 document.addEventListener("DOMContentLoaded",function(){
   const menuBotoes = document.querySelectorAll(".nav-item");

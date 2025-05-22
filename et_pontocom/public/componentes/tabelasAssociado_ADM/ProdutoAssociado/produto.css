@@ -9,6 +9,15 @@
     overflow: hidden;
 }
 
+#container{
+    width: 100vw;
+    margin-left: 350px;
+}
+
+#titleRelatorios{
+    margin-top: 20px;
+}
+
 #tabelaVendas 
 {
     width: 100%;
