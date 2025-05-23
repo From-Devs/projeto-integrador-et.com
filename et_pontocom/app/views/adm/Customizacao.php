@@ -100,8 +100,12 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             </div>
 
             <div class="wrapperPopUp">
-                <div class="produtoContainer" onclick="abrirPopUp('popUpEditProduto')">
-                    <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
+                <div class="esquerdaEditProduto">
+                    <div class="produtoContainer cor-0" onclick="abrirPopUp('popUpEditProduto')">
+                        <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
+                    </div>
+    
+                    <?php echo botaoPersonalizadoOnClick("Salvar alterações","btn-black", "abrirPopUp(\"\")", "161px", "33px", "15px")?>
                 </div>
 
                 <div class="editProdutoContainer">
@@ -129,8 +133,63 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                     <input class="corHex" value="B4938A"></input>
                                 </div>
                             </div>
+                            <p class="restaurarPadrao">Restaurar Padrão</p>
                         </div>
                     </div>
+                    <div class="degradeEdit">
+                        <div class="degradeTop">
+                            <h3>Degrade</h3>
+                            <button class="swapDegrade"><i class="fa-solid fa-right-left"></i></button>
+                        </div>
+                        <div class="degradeBar">
+                            <div class="colorMarker markerOne">
+                                <div><p>1</p></div>
+                            </div>
+                            <div class="colorMarker markerTwo">
+                                <div><p>2</p></div>
+                            </div>
+                            <div class="colorMarker markerThree">
+                                <div><p>3</p></div>
+                            </div>
+                        </div>
+                        <div class="degardeColorEdit">
+                            <div class="corLi">
+                                <label id="labelCorDegrade1" for="corDegarde1">1 - </label>
+                                <div class="corContainer" id="corDegrade1">
+                                    <p class="textHex">HEX</p>
+                                    <div class="editCor">
+                                        <input type="color" class="corShow" value=""></input>
+                                        <input class="corHex" value="B4938A"></input>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="corLi">
+                                <label id="labelCorDegrade2" for="corDegarde2">2 - </label>
+                                <div class="corContainer" id="corDegrade2">
+                                    <div class="editCor">
+                                        <input type="color" class="corShow" value=""></input>
+                                        <input class="corHex" value="B4938A"></input>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <div class="corLi">
+                                <label id="labelCorDegrade3" for="corDegarde3">3 - </label>
+                                <div class="corContainer" id="corDegrade3">
+                                    <div class="editCor">
+                                        <input type="color" class="corShow" value=""></input>
+                                        <input class="corHex" value="B4938A"></input>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="restaurarPadrao">Restaurar Padrão</p>
+
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
 
@@ -152,14 +211,14 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <div class="bordaProdutoInicial"></div>
                         </div>
                         <div class="editarCarouselContainer">
-                            <div class="produtoContainer" onclick="abrirPopUp('popUpEditProduto')">
+                            <div class="produtoContainer cor-0" id="produto1" onclick="abrirPopUp('popUpEditProduto')">
                                 <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
                             </div>
-                            <div class="produtoContainer" onclick="abrirPopUp('popUpEditProduto')">
-                                <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
+                            <div class="produtoContainer cor-1" id="produto2" onclick="abrirPopUp('popUpEditProduto')">
+                                <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/bocarosa.png" alt="">
                             </div>
-                            <div class="produtoContainer" onclick="abrirPopUp('popUpEditProduto')">
-                                <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
+                            <div class="produtoContainer cor-2" id="produto3" onclick="abrirPopUp('popUpEditProduto')">
+                                <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/leite.png" alt="">
                             </div>
                         </div>
                     </div>

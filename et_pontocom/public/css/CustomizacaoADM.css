@@ -1,5 +1,9 @@
 @import url(styles.css);
 
+.cor-0 { background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%); }
+.cor-1 { background-image: linear-gradient(to bottom, #C69065 0%, #B88D6B 50%, #EBC1B6 100%); }
+.cor-2 { background-image: linear-gradient(to bottom, #F2D5AF 0%, #CC9F9D 50%, #CE766C 100%); }
+
 *{
     font-family: "Montserrat", sans-serif;
     margin: 0;
@@ -104,6 +108,7 @@ body{
     align-items: center;
     border-radius: 24px;
     cursor: pointer;
+    box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.4);
 }
 
 .produtoContainer.menor{
@@ -208,7 +213,13 @@ body{
     gap: 23px;
 }
 
-.corWrapper h3{
+.corWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.corWrapper h3, .degradeEdit h3{
     font-size: 16px;
     font-weight: 500;
 }
@@ -375,6 +386,7 @@ body{
 .wrapperPopUp{
     display: flex;
     gap: 50px;
+    align-items: center;
 }
 
 .wrapperPopUp span{
@@ -394,4 +406,138 @@ body{
 
 .editProdutoContainer .mainColorEdit{
     padding-top: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.restaurarPadrao{
+    color: #929292;
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.degradeEdit{
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+    gap: 10px;
+}
+
+.degradeTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.swapDegrade{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 29px;
+    height: 29px;
+    font-size: 17px;
+    padding: 6px;
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    border: none;
+    cursor: pointer;
+}
+
+.degradeBar{
+    width: 100%;
+    height: 23px;
+    background-image: linear-gradient(to right, #7A3241 0%, #39121D 50%, #150106 100%);
+    position: relative;
+    margin-bottom: 39px;
+}
+
+.colorMarker{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 29px;
+    height: 29px;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -39px;
+    
+}
+
+.colorMarker::after { /* pontinha de balão em cima do menu */
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #D9D9D9;
+}
+
+.colorMarker div{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 3px;
+    color: white;
+}
+
+.markerOne{
+    transform: none;
+    left: -13px;
+}
+
+.markerOne div{
+    background-color: #7A3241;
+}
+
+.markerTwo{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.markerTwo div{
+    background-color: #39121D;
+}
+
+.markerThree{
+    transform: none;
+    right: -13px;
+}
+
+.markerThree div{
+    background-color: #150106;
+}
+
+.degardeColorEdit{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.corLi{
+    display: flex;
+    align-items: center;
+}
+
+.corLi label{
+    width: 25px;
+}
+
+#labelCorDegrade1{
+    padding-top: 18px;
+}
+
+.esquerdaEditProduto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
