@@ -201,7 +201,7 @@ body{
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.switchProduto h2{
+.switchProduto h2, .direita h2{
     font-size: 24px;
     padding-bottom: 10px;
 }
@@ -216,7 +216,6 @@ body{
 .corWrapper{
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 .corWrapper h3, .degradeEdit h3{
@@ -413,6 +412,10 @@ body{
     gap: 10px;
 }
 
+.mainColorEdit .corWrapper{
+    gap: 10px;
+}
+
 .restaurarPadrao{
     color: #929292;
     text-decoration: underline;
@@ -573,7 +576,33 @@ body{
       conic-gradient(#0000 30%,#ffffff);
     -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 13px),#000 0);
     animation: l13 1s infinite linear;
-  }
+}
+
+.btn{
+    transition: transform none;
+}
+
+.overlayHover{
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height:100%;
+    background-image: linear-gradient(to bottom, rgba(123, 123, 123, 0.69) 0%, rgba(0, 0, 0, 0.69) 100%);
+    z-index: 11;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+
+.overlayHover .btn{
+    transition: visibility none;
+}
+
+.cardLancamento:hover .overlayHover{
+    visibility: visible;
+}
 
 @keyframes l13{ 
     100%{transform: rotate(1turn)}

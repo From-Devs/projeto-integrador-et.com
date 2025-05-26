@@ -355,5 +355,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacaoADM.js"></script>
 </body>
 </html> 
