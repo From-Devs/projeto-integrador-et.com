@@ -50,7 +50,17 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         echo createSidebarInterna($tipo_usuario);
     ?>
 
-    <dialog class='popUpDialog popUpSelectProduto'>
+    <dialog class='popUpDialog popUpUpdate'>
+        <div class='popUp' style='padding: 33px; background-color: rgba(255, 255, 255,10%); box-shadow: inset 0px 0px 25px 11px rgba(255, 255, 255,75%); color: white; '>
+            <div class="loading">
+                <div class="loader"></div>
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h1 class="loadingText">Carregando...</h1>
+        </div>
+    </dialog>
+
+<dialog class='popUpDialog popUpSelectProduto'>
         <div class='popUp' style='width: 956px; padding: 33px; background-color: #F8F8F8;'>
             <div class='topoPopUp'>
                 <h1 class="tituloPopUp">Lista de Produtos</h1>
@@ -223,7 +233,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         </div>
                     </div>
         
-                    <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "", "220px", "45px", "20px")?>
+                    <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
     
                     <ul class="descricaoContainer">
                         <li class="descricao">Clique em um produto para editar</li>
@@ -262,7 +272,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         <div class="customizacaoMain">
             <div class="containerCustomizacao">
                 <div class="sessao" id="sessaoLancamento">
-                    <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "", "220px", "45px", "20px")?>
+                    <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
                     <ul class="descricaoContainer">
                         <li class="descricao">Arraste sobre um produto e clique no botão “Editar” para editar</li>
                     </ul>
@@ -325,7 +335,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 </div>
                             </div>
                         </div>
-                        <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "", "220px", "45px", "20px")?>
+                        <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
                         
                         <div class="sessao" id="sessaoPI">
                             <ul>

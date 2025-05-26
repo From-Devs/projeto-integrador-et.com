@@ -314,13 +314,13 @@ body{
     width: 100%;
     border: solid 2px black;
     border-radius: 8px;
-
+    background-color: white;
 }
 
 .inputProduto{
     width: 100%;
     font-size: 20px;
-    padding: 7px;
+    padding: 7px 10px;
     border: none;
     border-radius: 8px;
 }
@@ -347,6 +347,7 @@ body{
     border: solid 2px black;
     border-radius: 8px;
     overflow-y: scroll;
+    background-color: white;
 }
 
 .itemLista{
@@ -354,6 +355,7 @@ body{
     padding: 2px 16px;
     border-bottom: solid 2px black;
     cursor: pointer;
+    background-color: white;
 }
 
 .itemLista:last-child{
@@ -541,3 +543,39 @@ body{
     align-items: center;
     gap: 10px;
 }
+
+.popUpUpdate{
+    backdrop-filter: blur(100px);
+    border-radius: 20px;
+}
+
+.loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading i{
+    font-size: 130px;
+    display: none;
+}
+
+.loadingText{
+    font-size: 30px;
+}
+
+.loader {
+    width: 130px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: 
+      radial-gradient(farthest-side,#ffffff 94%,#0000) top/12px 13px no-repeat,
+      conic-gradient(#0000 30%,#ffffff);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 13px),#000 0);
+    animation: l13 1s infinite linear;
+  }
+
+@keyframes l13{ 
+    100%{transform: rotate(1turn)}
+}
+
