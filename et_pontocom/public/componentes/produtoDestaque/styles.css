@@ -77,8 +77,6 @@
 
 .produtoDestaque .imagemProduto{
     display: flex;
-    justify-content: center;
-    align-items: center;
     position: absolute;
     top: 140px;
     left: 230px;
