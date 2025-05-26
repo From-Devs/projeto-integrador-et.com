@@ -274,6 +274,8 @@
         left: 50%;
         top: 0px;
         transform: scale(0.70);
+        align-items: center;
+        justify-content: center;
     }
 
     .ondaProdutoDestaque{
