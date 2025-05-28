@@ -583,13 +583,12 @@ body{
 }
 
 .overlayHover{
-    visibility: hidden;
     position: absolute;
     width: 100%;
     height:100%;
     background-image: linear-gradient(to bottom, rgba(123, 123, 123, 0.69) 0%, rgba(0, 0, 0, 0.69) 100%);
     z-index: 11;
-    display:flex;
+    display:none;
     justify-content: center;
     align-items: center;
     top: 0;
@@ -601,7 +600,7 @@ body{
 }
 
 .cardLancamento:hover .overlayHover{
-    visibility: visible;
+    display: flex;
 }
 
 @keyframes l13{ 
