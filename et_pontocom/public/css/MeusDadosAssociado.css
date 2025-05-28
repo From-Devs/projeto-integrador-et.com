@@ -7,17 +7,27 @@ header{
     padding-left: 365px;
     font-size: 30px;
     font-weight: bold;
-
+    
 }
 .area-conteudo{
     display: flex;
     width: 100%;
     height: 100vh;
     background: #E6E6E6;
-    justify-content: center;
-    align-items: center;
 }
-.titulo{}
-.box-principal{
+.usuario-bloco-1{
+    display: grid;
+    grid-template-columns:repeat(3,50px);
+    margin-left: 365px;
+    padding: 25px;
+    background-color: aqua;
+    height: 470px;
+    width: 434px;
+}
 
+.usuario_imagem_1 img{
+    height: 199px;
+    width: 195px;
+    border-radius: 50%;
+    border: 2px solid black;
 }
