@@ -8,16 +8,16 @@ body {
     font-weight: 400;
 }
 main {
+ margin: 0 auto;
+    max-width: 1200px;
     padding: 20px;
-    margin-left: 200px;
-    margin-right: 200px;
 }
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 
-    margin-right: 200px;
+    
 }
 th, td {
     padding: 20px;
@@ -184,6 +184,9 @@ td img {
     margin-left: 20px;
     margin-right: 10px;
     vertical-align: middle;
+
+    max-width: 100%;
+    height: auto;
 }
 .check {
     margin-right: 20px;
@@ -227,6 +230,7 @@ input[type="checkbox"]:checked::before {
     position: absolute; 
 }
 
+
 @media screen and (max-width: 430px) {
   main {
     margin: 0 10px;
@@ -241,22 +245,22 @@ input[type="checkbox"]:checked::before {
 
   table, .table1 {
     width: 100%;
-    display: block;
+    overflow-x: auto;
+    display: table;
     font-size: 13px;
   }
 
-  thead th:nth-child(2),
-  thead th:nth-child(3) {
-    display: none; /* Remove os dois <th> menos importantes */
+  thead {
+    background-color: #1C1C1C;
   }
 
   thead th {
-    font-size: 10px;         /* Fonte menor */
-    padding: 6px 4px;        /* Menos espaço interno */
-    background-color: #f0f0f0;
-    color: #333;
+    font-size: 12px;
+    padding: 8px;
+    background-color: #1C1C1C !important;
+    color: white !important;
     text-align: center;
-    word-break: break-word;  /* Quebra de linha se necessário */
+    word-break: break-word;
   }
 
   tbody tr {
@@ -265,6 +269,11 @@ input[type="checkbox"]:checked::before {
     border: 1px solid #ccc;
     margin-bottom: 10px;
     padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   }
 
   td {
@@ -331,5 +340,61 @@ input[type="checkbox"]:checked::before {
   input[type="checkbox"] {
     transform: scale(1.2);
     margin-right: 8px;
+  }
+}
+
+
+@media screen and (max-width: 430px) {
+  thead th:nth-child(2),
+  thead th:nth-child(3),
+  tbody td:nth-child(2),
+  tbody td:nth-child(3) {
+    display: none !important;
+  }
+
+  tbody tr {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  tbody td {
+    width: 100%;
+    flex: 1 1 100%;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  thead {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  thead th {
+    width: 100%;
+    display: table-cell;
+    text-align: left;
+  }
+
+  tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  tbody td {
+    display: table-cell;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+  }
+
+  thead th:nth-child(2),
+  thead th:nth-child(3),
+  tbody td:nth-child(2),
+  tbody td:nth-child(3) {
+    display: none !important;
   }
 }

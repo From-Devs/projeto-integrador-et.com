@@ -145,5 +145,26 @@
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const rows = document.querySelectorAll("tr");
+
+  rows.forEach(row => {
+    const qtyInput = row.querySelector(".quantity-input");
+    const priceSpan = row.querySelector(".unit-price");
+    const subtotalSpan = row.querySelector(".subtotal-value");
+
+    if (qtyInput && priceSpan && subtotalSpan) {
+      const price = parseFloat(priceSpan.dataset.price);
+      qtyInput.addEventListener("input", () => {
+        const qty = parseInt(qtyInput.value) || 0;
+        subtotalSpan.textContent = "R$ " + (price * qty).toFixed(2);
+      });
+    }
+  });
+});
+</script>
+
 </body>
 </html>
