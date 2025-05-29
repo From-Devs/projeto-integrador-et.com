@@ -23,17 +23,24 @@ body{
     overflow-x: hidden;
 }
 
-.descricao{
+.descricaoContainer, .popUpDescricaoContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.descricaoContainer .descricao{
     color: #7C7C7C;
     font-size: 20px;
     margin-left: 50px;
 }
 
-.descricaoContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.popUpDescricaoContainer .descricao{
+    color: #7C7C7C;
+    font-size: 15px;
+    margin-left: 20px;
 }
+
 
 .customizacaoMain{
     display: flex;
@@ -218,7 +225,7 @@ body{
     flex-direction: column;
 }
 
-.corWrapper h3, .degradeEdit h3{
+.corWrapper h3, .degradeEdit h3, .imagemWrapper h3{
     font-size: 16px;
     font-weight: 500;
 }
@@ -390,29 +397,25 @@ body{
     align-items: center;
 }
 
-.wrapperPopUp span{
+.wrapperPopUp span, .editProdutoLancamentoContainer span{
     display: flex;
     height: 2px;
     background-color: #D9D9D9;
 }
 
-.editProdutoContainer{
+.editProdutoContainer, .editProdutoLancamentoContainer{
     display: flex;
     flex-direction: column;
+    gap: 13px;
 }
 
-.editProdutoContainer .switchProduto{
-    padding-bottom: 13px;
-}
-
-.editProdutoContainer .mainColorEdit{
-    padding-top: 13px;
+.editProdutoContainer .mainColorEdit, .editProdutoLancamentoContainer .brilhoColorEdit{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.mainColorEdit .corWrapper{
+.mainColorEdit .corWrapper, .brilhoColorEdit .corWrapper{
     gap: 10px;
 }
 
@@ -598,6 +601,28 @@ body{
     width: 220px;
     height: 45px;
 }
+
+.popUpEditProdutoLancamento .lancamentoFuncional:first-child{ /* bug bizarro */
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.popUpEditProdutoLancamento .esquerda{
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+.popUpEditProdutoLancamento h2{
+    font-weight: 600;
+}
+
+.popUpEditLancamentoWrapper{
+    display: flex;
+}
+
+
 
 @keyframes l13{ 
     100%{transform: rotate(1turn)}

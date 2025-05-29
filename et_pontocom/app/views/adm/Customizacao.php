@@ -60,7 +60,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         </div>
     </dialog>
 
-<dialog class='popUpDialog popUpSelectProduto'>
+    <dialog class='popUpDialog popUpSelectProduto'>
         <div class='popUp' style='width: 956px; padding: 33px; background-color: #F8F8F8;'>
             <div class='topoPopUp'>
                 <h1 class="tituloPopUp">Lista de Produtos</h1>
@@ -205,6 +205,73 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 
         </div>
     </dialog>
+    <!-- width: 965px; height: 594px;   -->
+    <dialog class='popUpDialog popUpEditProdutoLancamento'>
+        <div class='popUp' style='padding: 33px; background-color: #F8F8F8;'>
+            <div class='topoPopUp'>
+                <h1 class="tituloPopUp">Editar Lançamento</h1>
+                <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
+            </div>
+
+            <div class="popUpEditLancamentoWrapper">
+
+                <div class="esquerda">
+                    <h2>Exemplo:</h2>
+                    <div class="bugBizarro">
+                        <?php
+                        echo createCardProdutoLancamento("", "","","","", "lancamentoFuncional");
+                        echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg", "lancamentoFuncional");
+                        ?>
+        
+                    </div>
+                </div>        
+               
+                <div class="editProdutoLancamentoContainer">
+    
+                    <div class="switchProduto">
+                        <h2>Produto:</h2>
+                        <div class="selectProduto">
+                            <div class="nomeProduto">
+                                <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
+                            </div>
+                            <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\")", "115px", "33px", "15px")?>
+                        </div>
+                    </div>
+    
+                    <span></span>
+    
+                    <div class="brilhoColorEdit">
+                        <h2>Cores:</h2>
+                        <div class="corWrapper">
+                            <h3>Cor do brilho</h3>
+                            <div class="corContainer">
+                                <p class="textHex">HEX</p>
+                                <div class="editCor">
+                                    <input type="color" class="corShow" value=""></input>
+                                    <input class="corHex" value="B4938A"></input>
+                                </div>
+                            </div>
+                            <p class="restaurarPadrao">Restaurar Padrão</p>
+                        </div>
+                    </div>
+
+                    <ul class="popUpDescricaoContainer">
+                        <li class="descricao">Clique em um produto para editar</li>
+                        <li class="descricao">Arraste os produtos para organizar a ordem de apresentação</li>
+                    </ul>
+
+                    <div class="lancamentoImagemEdit">
+                        <h2>Imagem:</h2>
+                        <div class="imagemWrapper">
+                            <h3>Imagens registradas</h3>
+                        </div>
+                    </div>
+                                
+                </div>
+            </div>
+
+        </div>
+    </dialog>
 
     <div class="main">
 
@@ -255,14 +322,14 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             <div class="frameProdutos">
                 <div class="containerProdutos" id="containerLancamentos">
                     <?php
-                    echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg");
-                    echo createCardProdutoLancamento("Avon", "Red Batom","R$ 2000,00","#D1061D","batom.png");
-                    echo createCardProdutoLancamento("Benefit", "BADgal Bang! Máscara de Cílios","R$ 3000,00","#D02369","bang.png");
-                    echo createCardProdutoLancamento("Avon", "Color Trend Delineador Líquido","R$ 1000,00","#F0CBDA","trend.webp");
-                    echo createCardProdutoLancamento("Mari Maria","Diamond Blender Esponja de Maquiagem","R$ 2000,00","#D79185","tri.jpeg");
-                    echo createCardProdutoLancamento("Simple Organic", "SOLUÇÃO RETINOL-LIKE","R$ 3000,00","#C9A176","simple.webp");
-                    echo createCardProdutoLancamento("Princess","Mini Chapinha Bivolt","R$ 2000,00","#745CA3","chapa.webp");
-                    echo createCardProdutoLancamento("O Boticário","L'eau De Lily Soleil Perfume Feminino","R$ 3000,00","#F4C83C","lily.jpg");
+                    echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg", "lancamentoCustom");
+                    echo createCardProdutoLancamento("Avon", "Red Batom","R$ 2000,00","#D1061D","batom.png", "lancamentoCustom");
+                    echo createCardProdutoLancamento("Benefit", "BADgal Bang! Máscara de Cílios","R$ 3000,00","#D02369","bang.png", "lancamentoCustom");
+                    echo createCardProdutoLancamento("Avon", "Color Trend Delineador Líquido","R$ 1000,00","#F0CBDA","trend.webp", "lancamentoCustom");
+                    echo createCardProdutoLancamento("Mari Maria","Diamond Blender Esponja de Maquiagem","R$ 2000,00","#D79185","tri.jpeg", "lancamentoCustom");
+                    echo createCardProdutoLancamento("Simple Organic", "SOLUÇÃO RETINOL-LIKE","R$ 3000,00","#C9A176","simple.webp", "lancamentoCustom");
+                    echo createCardProdutoLancamento("Princess","Mini Chapinha Bivolt","R$ 2000,00","#745CA3","chapa.webp", "lancamentoCustom");
+                    echo createCardProdutoLancamento("O Boticário","L'eau De Lily Soleil Perfume Feminino","R$ 3000,00","#F4C83C","lily.jpg", "lancamentoCustom");
                     ?>
                 </div>
             </div>
@@ -356,5 +423,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacaoADM.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardLancamento/script.js"></script>
 </body>
 </html> 

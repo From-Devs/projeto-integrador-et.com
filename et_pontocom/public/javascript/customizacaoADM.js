@@ -2,10 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    const cardProdutos = document.querySelectorAll('.cardLancamento');
-
-    console.log(cardProdutos)
-
+    const cardProdutos = document.querySelectorAll('.lancamentoCustom');
     
     cardProdutos.forEach(function(card){
         const overlayHover = document.createElement('div');
@@ -15,9 +12,16 @@ document.addEventListener("DOMContentLoaded", function(){
         botaoOverlay.className = "btn btn-white botaoOverlay";
         botaoOverlay.innerHTML = "Editar";
 
+        botaoOverlay.addEventListener("click", function(){
+            const dialog = document.getElementsByClassName("popUpEditProdutoLancamento")[0];
+            if (dialog) {
+                dialog.showModal();
+            }
+        })
+
         overlayHover.appendChild(botaoOverlay);
         card.append(overlayHover);
-
+        
         card.addEventListener("mouseenter", function(){
             overlayHover.style.opacity = "1";
         })
@@ -25,12 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
             overlayHover.style.opacity = "0";
         })
 
+
     })
-
-    const allBotaoOverlay = document.querySelectorAll('.botaoOverlay');
-
-    allBotaoOverlay.forEach(function(botao){
-        botao.addEventListener("click", abrirPopUp("popUpSelectProduto"))
-    })
-
+    
 });
