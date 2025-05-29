@@ -1,5 +1,10 @@
+body{
+    background: #E6E6E6;
+    overflow-x: hidden;
+}
+
 header{
-    width: 100%;
+    width: 1920px;
     height: 166px;
     background: #ffffff;
     color: #000;
@@ -7,27 +12,94 @@ header{
     padding-left: 365px;
     font-size: 30px;
     font-weight: bold;
-    
-}
-.area-conteudo{
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    background: #E6E6E6;
-}
-.usuario-bloco-1{
-    display: grid;
-    grid-template-columns:repeat(3,50px);
-    margin-left: 365px;
-    padding: 25px;
-    background-color: aqua;
-    height: 470px;
-    width: 434px;
 }
 
-.usuario_imagem_1 img{
-    height: 199px;
-    width: 195px;
+.area-conteudo{
+    display: flex;
+    width: 1920px;
+    height: 1080px;
+    background-color: #F0F0F0;
+}
+
+.CardPrincipal{
+    padding: 29px;
+    padding-top: 49px;
+    margin-left: 434px;
+    margin-top: 70px;
+    width: 470px;
+    height: 454px;
+    border-radius: 16px;
+    background-color: #FDFDFD;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.user-dados{
+    margin-top: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.CardPrincipal .img img{
+    width:  195px;
+    height: 195px;
     border-radius: 50%;
-    border: 2px solid black;
+    border: #000 solid 2px;
+}
+
+.user {
+    margin-top: 33px;
+    font-size: 19px;
+}
+
+.CardPrincipal h1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 35px;
+    font-family: sans-serif;
+    margin: 0;
+}
+.CardPrincipal .icon img{
+    height: 40px;
+    width: 42px;
+}
+.CardPrincipal .icon{
+    margin-top: -8px;
+    margin-right: -4px;
+}
+
+/* DO ELIEL */
+.CardFilho{
+    margin-left: 434px;
+    margin-top: 7px;
+    width: 470px;
+    height: 54px;
+    border-radius: 16px;
+    background-color: #FDFDFD;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.CardFilho  {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    padding-left: 23px;
+    padding-top: 14px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.CardFilho i {
+    font-size: 45px;
+}
+.h0{
+    margin-bottom: 9px;
+    align-items: center;
+    font-size: larger;
+}
+.CardDados{
+    margin-left: 434px;
+    height: 50px;
+    width: 100px;
+    background-color: red;
+}
+.none{
+    display: none;
 }
