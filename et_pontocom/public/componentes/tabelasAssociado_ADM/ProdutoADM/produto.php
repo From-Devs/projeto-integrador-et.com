@@ -60,7 +60,9 @@
             <dialog class="dialog-editar">
                 <div class="header-editar">
                     <h1>Editar produto</h1>
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
+                    <button class="btn-fechar" onclick='fecharPopUp("dialog-editar")'>
+                        <img class="img-fechar" src="/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
+                    </button>
                 </div>
                 <div class="campos-editar">
                     <div>
@@ -75,7 +77,10 @@
                         <div class="campo">
                             <label>Categoria:</label>
                             <select id="ddlCategoria">
-                                <option value="teste">Teste</option>
+                                <option value="teste">Teste1</option>
+                                <option value="teste">Teste2</option>
+                                <option value="teste">Teste3</option>
+                                <option value="teste">Teste4</option>
                             </select>
                         </div>
                     </div>
@@ -105,15 +110,34 @@
                             </div>
                         </div>
                         <div class="campos-direita">
-                            <div class="imagens-produto">
-                                <div>
-                                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coffe.png" alt="img-produto">
+                            <div class="galeria-produtos">
+                                <div class="item-produto">
+                                    <div class="imagem-produto-container">
+                                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coffe.png" alt="Produto" class="imagem-produto">
+
+                                    <label for="upload-produto" class="icone-editar-label">
+                                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/icone-edit.png" alt="Editar Produto" class="icone-editar">
+                                    </label>
+                                    <input type="file" id="upload-produto" class="input-file">
                                 </div>
-                                <div>
-                                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coffe.png" alt="img-produto">
                                 </div>
-                                <div>
-                                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coffe.png" alt="img-produto">
+                                <div class="item-produto">
+                                    <div class="imagem-produto-container">
+                                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coffe.png" alt="Produto" class="imagem-produto">
+                                        <label for="upload-produto" class="icone-editar-label">
+                                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/icone-edit.png" alt="Editar Produto" class="icone-editar">
+                                        </label>
+                                        <input type="file" id="upload-produto" class="input-file">
+                                    </div>
+                                </div>
+                                <div class="item-produto">
+                                    <div class="imagem-produto-container">
+                                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coffe.png" alt="Produto" class="imagem-produto">
+                                        <label for="upload-produto" class="icone-editar-label">
+                                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/icone-edit.png" alt="Editar Produto" class="icone-editar">
+                                        </label>
+                                        <input type="file" id="upload-produto" class="input-file">
+                                    </div>
                                 </div>
                             </div>
                             <div class="cores-produto">

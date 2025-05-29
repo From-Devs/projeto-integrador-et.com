@@ -16,3 +16,8 @@ document.querySelectorAll(".icone-fechar").forEach(botao => {
         }
     });
 });
+
+function fecharPopUp(id){
+    const dialog = document.getElementsByClassName(id)[0];
+    dialog.close();
+}
