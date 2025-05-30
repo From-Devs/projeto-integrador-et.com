@@ -207,6 +207,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     </dialog>
     <!-- width: 965px; height: 594px;   -->
     <dialog class='popUpDialog popUpEditProdutoLancamento'>
+        <div class='popUp' style='padding: 33px; background-color: #F8F8F8;'>
             <div class='topoPopUp'>
                 <h1 class="tituloPopUp">Editar Lançamento</h1>
                 <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
