@@ -207,7 +207,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     </dialog>
     <!-- width: 965px; height: 594px;   -->
     <dialog class='popUpDialog popUpEditProdutoLancamento'>
-        <div class='popUp' style='padding: 33px; background-color: #F8F8F8;'>
             <div class='topoPopUp'>
                 <h1 class="tituloPopUp">Editar Lançamento</h1>
                 <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
@@ -238,7 +237,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         </div>
                     </div>
     
-                    <span></span>
+                    <div class="linha"></div>
     
                     <div class="brilhoColorEdit">
                         <h2>Cores:</h2>
@@ -256,15 +255,24 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                     </div>
 
                     <ul class="popUpDescricaoContainer">
-                        <li class="descricao">Clique em um produto para editar</li>
-                        <li class="descricao">Arraste os produtos para organizar a ordem de apresentação</li>
+                        <li class="descricao">Arraste sobre o produto para verificar o efeito de brilho</li>
+                        <li class="descricao">Por padrão a cor de brilho selecionada será a cor de destaque registrada no produto</li>
                     </ul>
 
                     <div class="lancamentoImagemEdit">
                         <h2>Imagem:</h2>
                         <div class="imagemWrapper">
                             <h3>Imagens registradas</h3>
+
+                            <div class="imagemContainer">
+                                <div class="imagemItem"></div>
+                                <div class="imagemItem"></div>
+                                <div class="imagemItem"></div>
+                            </div>
                         </div>
+                        <ul class="popUpDescricaoContainer">
+                            <li class="descricao">Clique em Selecionar para trocar a imagem de apresentação do produto</li>
+                        </ul>
                     </div>
                                 
                 </div>
