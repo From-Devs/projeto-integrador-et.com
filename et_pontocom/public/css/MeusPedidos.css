@@ -131,6 +131,8 @@
 .card-produtoMP .cardcoloridoCam .card-info .info-caminho .verMais{
     border: none;
     background-color: transparent;
+    font-size: 15px;
+    text-decoration: underline;
 }
 
 
@@ -171,59 +173,76 @@
 
 /*______________Pop-up Meus Pedidos________________*/
 
-.conteudoMeusPedidos .popUpMP{
+.conteudoMeusPedidos .popupMP{
     border: none;
-    background: none;
+    background: transparent;
     animation: fadein 0.5s ease-in-out forwards;
     font-family: "Montserrat", sans-serif;
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    min-width: 80vw;
+    padding: 2rem;
+    border-radius: 10px;
+    overflow: auto;
 }
 
-.conteudoMeusPedidos .popUpMP::backdrop{
+.conteudoMeusPedidos .popupMP::backdrop{
     background-color: rgba(121, 121, 121, 0.5);
 }
 
-.conteudoMeusPedidos .popupMP-conteudo{
+.conteudoMeusPedidos .popupMP .popupMP-conteudo{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     padding: 15px;
     border-radius: 20px;
     border: none;
     box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
+    background-color: white;
     gap: 30px;
 }
 
-.conteudoMeusPedidos .popupMP-conteudo .fecharPopUpMP{
+.conteudoMeusPedidos .popupMP .popupMP-conteudo .popupMP-linhasuperior,
+.conteudoMeusPedidos .popupMP .popupMP-conteudo .popupMP-linhainferior{
+    align-items: center;
+    width: 60vw;
+    height: 1px;
+    background: linear-gradient(to right, rgb(255,255,255), rgba(0, 0, 0, 0.144), rgba(0, 0, 0, 0.76), rgb(0,0,0), rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.144), rgb(255,255,255));
+    margin: 60px;
+}
+
+.conteudoMeusPedidos .popupMP .popupMP-conteudo .fecharPopUpMP{
     display: flex;
     align-items: end;
     width: 100%;
     justify-content: end;
 }
 
-.conteudoMeusPedidos .popupMP-conteudo .fecharPopUpMP .icone-fechar{
+.conteudoMeusPedidos .popupMP .popupMP-conteudo .fecharPopUpMP .icone-fechar{
     width: 20px;
     height: 20px;
     cursor: pointer;
 }
 
-.conteudoMeusPedidos .popupMP-conteudo .popupMP-Produtos{
+
+
+.conteudoMeusPedidos .popupMP .popupMP-conteudo .popupMP-Produtos{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin: 15px 0;
 }
 
-.card-mini {
+.cardMini {
     width: 120px;
     transition: transform 0.3s;
   }
   
-  .card-mini:hover {
+  .cardMini:hover {
     transform: scale(1.2);
   }
   
