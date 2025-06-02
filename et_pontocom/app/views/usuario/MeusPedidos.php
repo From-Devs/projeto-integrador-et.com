@@ -57,19 +57,17 @@
         </section>
 
             <!-- PopUp mostrando todos os pedidos efetuados na compra -->
-        <div class="popUpMP" id="popUpMP">
-         <!--    <?php  
-            // echo PopUpConfirmar($id, $texto, $botao1 = "", $botao2 = "", $largura="auto", $corFundo="white", $corFonte="black", $tamanhoFonte="1.5rem")
-            ?>
-           <div class="conteudoPopUpMP">
-                <span class="fecharPopUpMP" onclick="fecharPopUp()">&times;</span>
-                <div class="popUpCardsMP" id="popUpCardsMP"></div>
-                <div class="detalhesPopUpMP">
-                    <span id="dataPedido" class="dataPedido"></span>
-                    <span id="totalPedido" class="totalPedido"></span>
+        <dialog class="popUpMP" id="popUpMP">
+            <div class="popupMP-conteudo">
+                <div class='fecharPopUpMP'>
+                    <img class='icone-fechar' src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
                 </div>
-            </div> 
-        </div> -->
+                <div class="popupMP-Produtos" id="popupMP-Produtos"></div>
+                <span class="popupMP-DataCompra" id="popupMP-DataCompra"></span>
+                <span class="popupMP-Total" id="popupMP-Total"></span>
+            </div>
+        </dialog>
+         
 
         <div class="linhaInferiorMP"></div>
     </div>
