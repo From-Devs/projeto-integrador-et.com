@@ -64,7 +64,9 @@ a
 
 /* estilizacao das informacoes principais */
 
-#tituloH1{
+#titulo
+{
+    display: flex;
     margin-bottom: 15px;
 }
 
@@ -184,4 +186,140 @@ a
     flex-direction: row-reverse;
 }
 
-/* ANIMACAO DOS DONUTS */
+/* RESPONSIVIDADE */
+
+@media (max-width: 2560px)
+{
+    #container
+    {
+        margin: 0;
+    }
+
+    #geralInformacoes
+    {
+        justify-content: center;
+        gap: 50px;
+    }
+
+    #controlePizzas
+    {
+        margin: 50 0 0 0;
+        justify-content: center;
+        gap: 100px;
+    }
+
+
+}
+
+
+@media (max-width: 1024px)
+{
+    #container
+    {
+        margin: 0;
+    }
+
+    #iconUsuario
+    {
+        width: 350px;
+    }
+
+    #geralInformacoes
+    {
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    #valorVendas, #lucroLiquido, #vendas
+    {
+        width: 300px;
+        height: 100px;
+        font-size: 10px;
+    }
+
+    #imagemInformaEstilizacao
+    {
+        height: 60px;
+    }
+
+    #controlePizzas
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+        margin: 50px 0px 0px 0px;
+        align-items: center;
+    }
+
+    #divPizzaDireita{
+        margin-bottom: 50px;
+    }
+
+    #divPizzaEsquerda, #divPizzaDireita{
+        width: 550px;
+    }
+}
+
+@media (max-width: 768px)
+{ 
+    #container
+    {
+        margin: 0px;
+    }
+
+    #controleIcon
+    {
+        margin: 0;
+        justify-content: right;
+    }
+
+    #iconUsuario
+    {
+        width: 300px;
+    }
+
+    #titulo
+    {
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #valorVendas, #lucroLiquido, #vendas
+    {
+        width: 450px;
+        font-size: 8px;
+        gap: 0;
+    }
+
+    #imagemInformaEstilizacao
+    {
+        width: 60px;
+    }
+
+    #geralInformacoes
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        gap: 30px;
+    }
+
+    #controlePizzas
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+        margin: 50px 0px 0px 0px;
+        align-items: center;
+    }
+
+    #divPizzaEsquerda, #divPizzaDireita{
+        width: 500px;
+    }
+
+}

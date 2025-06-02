@@ -1,11 +1,21 @@
-#tabelaVendas 
+#lista 
 {
     width: 97%;
     border-collapse: collapse;
     margin-top: 10px;
+    margin-bottom: 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     background-color: #fff;
     border-radius: 15px;
+    overflow: hidden;
+}
+
+#tabelaVendas 
+{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    table-layout: fixed;
 }
 
 #barraCima 
@@ -17,47 +27,70 @@
     padding: 10%;
 }
 
-th, td
+th, td 
 {
-    padding: 12px;
     text-align: center;
 }
 
-th{
+th {
     padding: 2%;
     font-size: 24px;
 }
 
-td
+
+td 
 {
+    padding: 2%;
     font-size: 20px;
+    font-weight: bold;
 }
 
-tr
+tr 
 {
-    border-bottom: 0.3px solid #DADADA;
+    border-bottom: 0.1px solid #DADADA;
 }
 
-#bordaEsquerda
+.tabela-body 
 {
-    border-top-left-radius: 10px;
+    max-height: 620px;
+    max-width: 100vw;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-
-#bordaDireita
+.tabela-body::-webkit-scrollbar 
 {
-    border-top-right-radius: 10px;
+    display: none; 
 }
 
-#statusPago, #statusPendente
-{   
-    color: white;
-    background-color: #14A065;
-    border-radius: 15px;
-    padding: 9.5%;
+/* parte dos botoes */
+
+.verticalizacao{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
-#statusPendente
-{
-    background-color: #FF3131;
+.validarButton, .cancelarButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+
+.validarButton:hover{
+    background-color: greenyellow;
+    cursor: pointer;
+
+
+}
+
+.cancelarButton:hover{
+    background-color: red;
+    cursor: pointer;
+
+
 }
