@@ -113,33 +113,50 @@
                             <div class="galeria-produtos">
                                 <div class="item-produto">
                                     <div class="imagem-produto-container">
-                                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coffe.png" alt="Produto" class="imagem-produto">
+                                        <div class="container-img">
+                                            <img src=""
+                                                alt="Produto" class="imagem-produto" id="img-produto1" onerror="this.style.display='none';">
+                                        </div>
 
-                                    <label for="upload-produto" class="icone-editar-label">
-                                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/icone-edit.png" alt="Editar Produto" class="icone-editar">
-                                    </label>
-                                    <input type="file" id="upload-produto" class="input-file">
-                                </div>
-                                </div>
-                                <div class="item-produto">
-                                    <div class="imagem-produto-container">
-                                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coffe.png" alt="Produto" class="imagem-produto">
-                                        <label for="upload-produto" class="icone-editar-label">
-                                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/icone-edit.png" alt="Editar Produto" class="icone-editar">
+                                        <label for="upload-produto1" class="icone-editar-label">
+                                            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/icone-edit.png"
+                                                alt="Editar Produto" class="icone-editar">
                                         </label>
-                                        <input type="file" id="upload-produto" class="input-file">
+                                        <input type="file" id="upload-produto1" class="input-file" data-img-id="img-produto1" accept="image/*">
                                     </div>
                                 </div>
+
                                 <div class="item-produto">
                                     <div class="imagem-produto-container">
-                                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coffe.png" alt="Produto" class="imagem-produto">
-                                        <label for="upload-produto" class="icone-editar-label">
-                                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/icone-edit.png" alt="Editar Produto" class="icone-editar">
+                                        <div class="container-img">
+                                            <img src=""
+                                                alt="Produto" class="imagem-produto" id="img-produto2" onerror="this.style.display='none';">
+                                        </div>
+
+                                        <label for="upload-produto2" class="icone-editar-label">
+                                            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/icone-edit.png"
+                                                alt="Editar Produto" class="icone-editar">
                                         </label>
-                                        <input type="file" id="upload-produto" class="input-file">
+                                        <input type="file" id="upload-produto2" class="input-file" data-img-id="img-produto2" accept="image/*">
+                                    </div>
+                                </div>
+
+                                <div class="item-produto">
+                                    <div class="imagem-produto-container">
+                                        <div class="container-img">
+                                            <img src=""
+                                                alt="Produto" class="imagem-produto" id="img-produto3" onerror="this.style.display='none';">
+                                        </div>
+
+                                        <label for="upload-produto3" class="icone-editar-label">
+                                            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/icone-edit.png"
+                                                alt="Editar Produto" class="icone-editar">
+                                        </label>
+                                        <input type="file" id="upload-produto3" class="input-file" data-img-id="img-produto3" accept="image/*">
                                     </div>
                                 </div>
                             </div>
+
                             <div class="cores-produto">
                                 <input type="color">
                             </div>
@@ -189,6 +206,7 @@
         </div>
         <?php
     }
+
     // function tabelaProduto(){
     //     return "<div id='lista'>
     //     <table id='tabelaVendas'>
@@ -324,5 +342,3 @@
     // }
 
 ?>
-
-<script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>

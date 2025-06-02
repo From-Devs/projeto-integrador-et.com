@@ -224,6 +224,13 @@ a {
     cursor: pointer;
 }
 
+.container-img {
+    height: 100px;
+    width: 100%;
+    padding: 5px;
+    background-color: #c2ccff;
+}
+
 .galeria-produtos {
     display: flex;
     gap: 10px;
