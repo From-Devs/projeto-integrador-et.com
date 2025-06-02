@@ -1,5 +1,4 @@
-#lista 
-{
+#lista {
     width: 97%;
     margin-top: 10px;
     margin-bottom: 0px;
@@ -7,76 +6,69 @@
     background-color: #fff;
     border-radius: 15px;
     overflow: hidden;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
 }
 
-#tabelaVendas 
-{
+#barraCima {
+    background-color: black;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#tabelaVendas {
     width: 100%;
     border-collapse: collapse;
     background-color: #fff;
     table-layout: fixed;
 }
 
-#barraCima 
-{
-    background-color: black;
-    color: white;
-    border-top-left-radius: 10px; 
-    border-top-right-radius: 10px; 
-    padding: 10%;
-}
-
-th, td 
-{
+th, td {
     text-align: center;
 }
 
 th {
-    padding: 2%;
+    padding: 10px;
     font-size: 24px;
 }
 
-
-td 
-{
-    padding: 1.14%;
+td {
+    padding: 10px;
     font-size: 20px;
     font-weight: bold;
 }
 
-tr 
-{
+tr {
     border-bottom: 0.1px solid #DADADA;
 }
 
-.tabela-body 
-{
-    max-height: 620px;
-    max-width: 100vw;
+.tabela-body {
+    flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-.tabela-body::-webkit-scrollbar 
-{
-    display: none; 
+.tabela-body::-webkit-scrollbar {
+    display: none;
 }
 
-#statusPago, #statusPendente
-{   
+#statusPago, #statusPendente {
     display: flex;
     color: white;
-    background-color: #14A065;
     border-radius: 15px;
     cursor: pointer;
-    width: 200px;
+    width: 100%;
     height: 50px;
     align-items: center;
     justify-content: center;
 }
 
-#statusPendente
-{
+#statusPago {
+    background-color: #14A065;
+}
+
+#statusPendente {
     background-color: #FF3131;
-    
 }
