@@ -77,8 +77,6 @@
 
 .produtoDestaque .imagemProduto{
     display: flex;
-    justify-content: center;
-    align-items: center;
     position: absolute;
     top: 140px;
     left: 230px;
@@ -276,6 +274,8 @@
         left: 50%;
         top: 0px;
         transform: scale(0.70);
+        align-items: center;
+        justify-content: center;
     }
 
     .ondaProdutoDestaque{
