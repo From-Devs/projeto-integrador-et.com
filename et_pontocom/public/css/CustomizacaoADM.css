@@ -415,6 +415,7 @@ body{
     text-decoration: underline;
     font-weight: 500;
     cursor: pointer;
+    width: max-content;
 }
 
 .degradeEdit{
@@ -631,11 +632,43 @@ body{
     width: 180px;
     height: 180px;
     border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagemItem .imagemItemWarning{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.imagemItemWarning p{
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.imagemItemWarning i{
+    font-size: 60px;
+}
+
+.imagemContainer .imagemSelecionada{
+    border: 5px dashed black;
+}
+
+.imagemContainer .imagemVazia{
+    background-color: #D2D2D2;
+}
+
+.imagemVazia .imagemItemWarning{
+    visibility: visible;
 }
 
 .editProdutoLancamentoContainer{
     overflow-y: scroll;
-    height: 520px;
+    height: 477px;
     scrollbar-color: rgb(0, 0, 0) rgba(255, 255, 255, 0);
     padding-left: 45px;
 }
@@ -646,8 +679,39 @@ body{
     gap: 14px;
 }
 
-
+.salvarAlteracoesLancamento{
+    font-size: 15px;
+    padding: 5px;
+    width: 161px;
+    height: 33px;
+    position: absolute;
+    right: 48px;
+    bottom: 33px;
+}
 
 @keyframes l13{ 
     100%{transform: rotate(1turn)}
+}
+
+@media (max-width: 1280px) {
+    .main{
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 1024px){
+    .main{
+        margin-left: 230px;
+    }
+}
+
+@media (max-width: 800px){
+    .main{
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+
+    .customizacaoMain{
+        padding: 0;
+    }
 }

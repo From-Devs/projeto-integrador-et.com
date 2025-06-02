@@ -140,7 +140,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <p class="textHex">HEX</p>
                                 <div class="editCor">
                                     <input type="color" class="corShow" value=""></input>
-                                    <input class="corHex" value="B4938A"></input>
+                                    <input class="corHex" value="#"></input>
                                 </div>
                             </div>
                             <p class="restaurarPadrao">Restaurar Padrão</p>
@@ -169,7 +169,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                     <p class="textHex">HEX</p>
                                     <div class="editCor">
                                         <input type="color" class="corShow" value=""></input>
-                                        <input class="corHex" value="B4938A"></input>
+                                        <input class="corHex" value="#"></input>
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +179,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <div class="corContainer" id="corDegrade2">
                                     <div class="editCor">
                                         <input type="color" class="corShow" value=""></input>
-                                        <input class="corHex" value="B4938A"></input>
+                                        <input class="corHex" value="#"></input>
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <div class="corContainer" id="corDegrade3">
                                     <div class="editCor">
                                         <input type="color" class="corShow" value=""></input>
-                                        <input class="corHex" value="B4938A"></input>
+                                        <input class="corHex" value="#"></input>
                                     </div>
                                 </div>
                             </div>
@@ -207,7 +207,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     </dialog>
     <!-- width: 965px; height: 594px;   -->
     <dialog class='popUpDialog popUpEditProdutoLancamento'>
-        <div class='popUp' style='padding: 33px; background-color: #F8F8F8;'>
+        <div class='popUp' style='padding: 33px; background-color: #F8F8F8; position: relative;'>
             <div class='topoPopUp'>
                 <h1 class="tituloPopUp">Editar Lançamento</h1>
                 <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
@@ -224,59 +224,80 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         ?>
         
                     </div>
-                </div>        
-               
-                <div class="editProdutoLancamentoContainer">
-    
-                    <div class="switchProduto">
-                        <h2>Produto:</h2>
-                        <div class="selectProduto">
-                            <div class="nomeProduto">
-                                <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
+                </div> 
+                
+                <div class="direita">
+                    <div class="editProdutoLancamentoContainer">
+        
+                        <div class="switchProduto">
+                            <h2>Produto:</h2>
+                            <div class="selectProduto">
+                                <div class="nomeProduto">
+                                    <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
+                                </div>
+                                <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\")", "115px", "33px", "15px")?>
                             </div>
-                            <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\")", "115px", "33px", "15px")?>
                         </div>
-                    </div>
+        
+                        <div class="linha"></div>
+        
+                        <div class="brilhoColorEdit">
+                            <h2>Cores:</h2>
+                            <div class="corWrapper">
+                                <h3>Cor do brilho</h3>
+                                <div class="corContainer">
+                                    <p class="textHex">HEX</p>
+                                    <div class="editCor">
+                                        <input type="color" class="corShow" value=""></input>
+                                        <input class="corHex" value="#"></input>
+                                    </div>
+                                </div>
+                                <p class="restaurarPadrao">Restaurar Padrão</p>
+                            </div>
+                        </div>
     
-                    <div class="linha"></div>
+                        <ul class="popUpDescricaoContainer">
+                            <li class="descricao">Arraste sobre o produto para verificar o efeito de brilho</li>
+                            <li class="descricao">Por padrão a cor de brilho selecionada será a cor de destaque registrada no produto</li>
+                        </ul>
     
-                    <div class="brilhoColorEdit">
-                        <h2>Cores:</h2>
-                        <div class="corWrapper">
-                            <h3>Cor do brilho</h3>
-                            <div class="corContainer">
-                                <p class="textHex">HEX</p>
-                                <div class="editCor">
-                                    <input type="color" class="corShow" value=""></input>
-                                    <input class="corHex" value="B4938A"></input>
+                        <div class="lancamentoImagemEdit">
+                            <h2>Imagem:</h2>
+                            <div class="imagemWrapper">
+                                <h3>Imagens registradas</h3>
+    
+                                <div class="imagemContainer">
+                                    <div class="imagemItem imagemSelecionada">
+                                        <div class="imagemItemWarning">
+                                            <i class="fa-solid fa-circle-minus"></i>
+                                            <p>Vazio</p>
+                                        </div>
+                                    </div>
+                                    <div class="imagemItem">
+                                    <div class="imagemItemWarning">
+                                            <i class="fa-solid fa-circle-minus"></i>
+                                            <p>Vazio</p>
+                                        </div>
+                                    </div>
+                                    <div class="imagemItem imagemVazia">
+                                    <div class="imagemItemWarning">
+                                            <i class="fa-solid fa-circle-minus"></i>
+                                            <p>Vazio</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <p class="restaurarPadrao">Restaurar Padrão</p>
+                            <ul class="popUpDescricaoContainer">
+                                <li class="descricao">Clique em Selecionar para trocar a imagem de apresentação do produto</li>
+                            </ul>
                         </div>
+                                    
                     </div>
 
-                    <ul class="popUpDescricaoContainer">
-                        <li class="descricao">Arraste sobre o produto para verificar o efeito de brilho</li>
-                        <li class="descricao">Por padrão a cor de brilho selecionada será a cor de destaque registrada no produto</li>
-                    </ul>
+                    <button class="btn btn-black salvarAlteracoesLancamento" onclick="abrirPopUp()">Salvar alterações</button>
 
-                    <div class="lancamentoImagemEdit">
-                        <h2>Imagem:</h2>
-                        <div class="imagemWrapper">
-                            <h3>Imagens registradas</h3>
-
-                            <div class="imagemContainer">
-                                <div class="imagemItem"></div>
-                                <div class="imagemItem"></div>
-                                <div class="imagemItem"></div>
-                            </div>
-                        </div>
-                        <ul class="popUpDescricaoContainer">
-                            <li class="descricao">Clique em Selecionar para trocar a imagem de apresentação do produto</li>
-                        </ul>
-                    </div>
-                                
                 </div>
+               
             </div>
 
         </div>
@@ -382,9 +403,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <h3>Cor 1</h3>
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
-                                            <div class="editCor">
-                                                <input type="color" class="corShow" value=""></input>
-                                                <input class="corHex" value="B4938A"></input>
+                                            <div class="editCor" id="produtoLancamentoEditCor1">
+                                                <input type="color" class="corShow" value="#b4938a"></input>
+                                                <input class="corHex" value="#b4938a"></input>
                                             </div>
                                         </div>
                                     </div>
@@ -392,9 +413,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <h3>Cor 2</h3>
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
-                                            <div class="editCor">
-                                                <input type="color" class="corShow" value=""></input>
-                                                <input class="corHex" value="B4938A"></input>
+                                            <div class="editCor" id="produtoLancamentoEditCor2">
+                                                <input type="color" class="corShow" value="#fee1d8"></input>
+                                                <input class="corHex" value="#fee1d8"></input>
                                             </div>
                                         </div>
                                     </div>
@@ -402,9 +423,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <h3>Cor sombra</h3>
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
-                                            <div class="editCor">
-                                                <input type="color" class="corShow" value=""></input>
-                                                <input class="corHex" value="B4938A"></input>
+                                            <div class="editCor" id="produtoLancamentoEditCorSombra">
+                                                <input type="color" class="corShow" value="#381507"></input>
+                                                <input class="corHex" value="#381507"></input>
                                             </div>
                                         </div>
                                     </div>
@@ -433,5 +454,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacaoADM.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardLancamento/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/editorCor.js"></script>
 </body>
 </html> 
