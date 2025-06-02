@@ -35,7 +35,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 
         <div class="area-conteudo">
             <div class="Conteudos">
-               
                 <div class="CardPrincipal">
                     <h1>
                         Perfil
@@ -70,9 +69,34 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
                     <i class='bx-fw bxl bx-facebook-square'></i>
                     <div class="h0">FaceBooK</div>
                 </div> 
-            <div class="CardDados">
-                
-            </div>
+                <!-- <for [para os dados] > -->
+
+                </div>
+                <div class="CardDados">
+                    <div class="bnt-Editar">
+                        <h1>Editar</h1>
+                    </div>
+                    <div class="CardPrimos">
+                        <p id="usertitulo">nome</p>
+                        <p id="UserDados">nomes</p>
+                    </div>
+                    <div class="CardPrimos">
+                        <p id="usertitulo">nome</p>
+                        <p id="UserDados">nomes</p>
+                    </div>
+                    <div class="CardPrimos">
+                        <p id="usertitulo">nome</p>
+                        <p id="UserDados">nomes</p>
+                    </div>
+                    <div class="CardPrimos">
+                        <p id="usertitulo">nome</p>
+                        <p id="UserDados">nomes</p>
+                    </div>
+                    <div class="CardPrimos">
+                        <p id="usertitulo">nome</p>
+                        <p id="UserDados">nomes</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
