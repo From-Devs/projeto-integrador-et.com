@@ -8,6 +8,21 @@
     height: 200px;
     width: 200px;
 }
+/* dados = div com todos os campos com excessão da foto */
+.dados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 50px;
+}
+/* Cadastro = parte branca no geral */
+.Cadastro {
+    display: flex;
+    width: 100%;
+    margin: 30px 0px 0px 100px;
+    align-items: center;
+    gap: 10px;
+}
 
 /* PARTE ESCURA */
 /* botão de voltar */
@@ -128,5 +143,88 @@ section .wave.wave1
     100%
     {
         background-position-x: 1000px;
+    }
+}
+@media (max-width: 1750px) {
+    .pagina {
+        flex-direction: column;
+        height: 100%;
+    }
+    .wave {
+        display: none;
+    }
+    .Decoracao {
+        width: 100%;
+        height: 80px;
+        margin: 0px;
+        padding: 0px 50px;
+    }
+    .dados {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-rows: 5fr;
+    }
+    .organização {
+        width: 100%;
+    }
+    section {
+        height: 80px;
+        width: 100%;
+    }
+    .embaixo {
+        margin-bottom: 10px;
+    }
+}
+@media (max-width: 1300px){
+    .dados {
+        grid-template-columns: 1fr;
+        grid-template-rows: 9fr;
+        -ms-grid-row-align: center;
+    }
+    .embaixo {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        -ms-grid-row-align: center;
+    }
+    .botoes {
+        width: 100%;
+    }
+    .Decoracao {
+        width: 100%;
+        margin: 0px;
+        padding: 0px 50px;
+    }
+    .caixa_texto {
+        margin-left: none;
+    }
+    form {
+        width: 720px;
+    }
+
+
+}
+@media (max-width: 1100px) {
+    .Decoracao {
+        width: 100%;
+    }
+}
+@media (max-width: 975px) {
+    form {
+        width: 490px;
+    }
+    .Cadastro {
+        margin: 50px;
+    }
+}
+@media (max-width: 450px) {
+    form {
+        width: 330px;
+    }
+    .Cadastro {
+        margin: 50px;
+    }
+    .caixa_texto {
+        width: 330px;
+        margin: 0px;
     }
 }

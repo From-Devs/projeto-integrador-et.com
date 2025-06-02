@@ -21,7 +21,7 @@
         <!-- Área preta -->
         <section>
             <div class="Voltar">
-                <a href="">
+                <a href="../usuario/sobreAssociado.php">
             <img src="../../../public/imagens/cadastassoc/BotaoVoltar.png" alt="">
             <p>voltar</p>
                 </a>
@@ -68,7 +68,7 @@
     
     </div>
     </div>
-    <?php $btt = botaoPersonalizadoRedirect("Voltar à Tela de início","btn-white","#");
+    <?php $btt = botaoPersonalizadoRedirect("Voltar à Tela de início","btn-white","et_pontocom/app/views/usuario/paginaPrincipal.php");
     echo PopUpComImagemETitulo("popup","img-pessoa.png","100px","Cadastro Enviado para Validação","Entraremos em contato via WhatsApp após validar",$btt);
     ?>
     <script src="../../../public/componentes/popup/script.js"></script>
