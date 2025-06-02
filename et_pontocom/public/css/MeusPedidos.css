@@ -123,10 +123,14 @@
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.644));                              /*Ver isso depois*/  
 }
 
-.card-produtoMP .cardcoloridoCam .card-info .informacoes-card{
+.card-produtoMP .cardcoloridoCam .card-info .info-caminho .informacoes-card{
     display: flex;
     flex-direction: column;
-    
+}
+
+.card-produtoMP .cardcoloridoCam .card-info .info-caminho .verMais{
+    border: none;
+    background-color: transparent;
 }
 
 
@@ -159,3 +163,67 @@
     background-color: black;
     box-shadow:0px 5px 8px 0.1px rgba(0, 0, 0, 0.301);
 }
+
+
+
+
+
+
+/*______________Pop-up Meus Pedidos________________*/
+
+.conteudoMeusPedidos .popUpMP{
+    border: none;
+    background: none;
+    animation: fadein 0.5s ease-in-out forwards;
+    font-family: "Montserrat", sans-serif;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.conteudoMeusPedidos .popUpMP::backdrop{
+    background-color: rgba(121, 121, 121, 0.5);
+}
+
+.conteudoMeusPedidos .popupMP-conteudo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
+    gap: 30px;
+}
+
+.conteudoMeusPedidos .popupMP-conteudo .fecharPopUpMP{
+    display: flex;
+    align-items: end;
+    width: 100%;
+    justify-content: end;
+}
+
+.conteudoMeusPedidos .popupMP-conteudo .fecharPopUpMP .icone-fechar{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.conteudoMeusPedidos .popupMP-conteudo .popupMP-Produtos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.card-mini {
+    width: 120px;
+    transition: transform 0.3s;
+  }
+  
+  .card-mini:hover {
+    transform: scale(1.2);
+  }
+  
