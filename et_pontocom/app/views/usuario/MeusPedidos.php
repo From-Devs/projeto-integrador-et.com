@@ -57,14 +57,20 @@
         </section>
 
             <!-- PopUp mostrando todos os pedidos efetuados na compra -->
-        <dialog class="popUpMP" id="popUpMP">
+        <dialog class="popupMP" id="popupMP">
             <div class="popupMP-conteudo">
+                <div class="popupMP-linhasuperior"></div>
                 <div class='fecharPopUpMP'>
                     <img class='icone-fechar' src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
                 </div>
-                <div class="popupMP-Produtos" id="popupMP-Produtos"></div>
-                <span class="popupMP-DataCompra" id="popupMP-DataCompra"></span>
-                <span class="popupMP-Total" id="popupMP-Total"></span>
+                <div class="popupMP-main">
+                    <div class="popupMP-Produtos" id="popupMP-Produtos"></div>
+                </div>
+                <div class="popupMP-inferior">
+                    <span class="popupMP-DataCompra" id="popupMP-DataCompra"></span>
+                    <span class="popupMP-Total" id="popupMP-Total"></span>
+                </div>
+                <div class="popupMP-linhainferior"></div>
             </div>
         </dialog>
          
