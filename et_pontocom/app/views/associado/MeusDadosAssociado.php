@@ -89,8 +89,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
                         <p id="UserDados">nomes</p>
                     </div>
                     <div class="CardPrimos">
-                        <p id="usertitulo">nome</p>
-                        <p id="UserDados">nomes</p>
+                        <p id="usertitulo">Telefone</p>
+                        <p id="UserDados">(67)9949-3544</p>
+                        <hr>
                     </div>
                     <div class="CardPrimos">
                         <p id="usertitulo">nome</p>
