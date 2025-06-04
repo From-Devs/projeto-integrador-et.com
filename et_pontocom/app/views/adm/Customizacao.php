@@ -139,8 +139,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <div class="corContainer">
                                 <p class="textHex">HEX</p>
                                 <div class="editCor">
-                                    <input type="color" class="corShow" value=""></input>
-                                    <input class="corHex" value="#"></input>
+                                    <input type="color" class="corShow" value="#651629"></input>
+                                    <input class="corHex" value="#651629"></input>
                                 </div>
                             </div>
                             <p class="restaurarPadrao">Restaurar Padrão</p>
@@ -168,8 +168,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <div class="corContainer">
                                     <p class="textHex">HEX</p>
                                     <div class="editCor" id="corDegrade1">
-                                        <input type="color" class="corShow" value=""></input>
-                                        <input class="corHex" value="#"></input>
+                                        <input type="color" class="corShow" value="#7a3241"></input>
+                                        <input class="corHex" value="#7a3241"></input>
                                     </div>
                                 </div>
                             </div>
@@ -178,8 +178,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <label id="labelCorDegrade2" for="corDegarde2">2 - </label>
                                 <div class="corContainer">
                                     <div class="editCor" id="corDegrade2">
-                                        <input type="color" class="corShow" value=""></input>
-                                        <input class="corHex" value="#"></input>
+                                        <input type="color" class="corShow" value="#39121d"></input>
+                                        <input class="corHex" value="#39121d"></input>
                                     </div>
                                 </div>
                             </div>
@@ -189,8 +189,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <label id="labelCorDegrade3" for="corDegarde3">3 - </label>
                                 <div class="corContainer">
                                     <div class="editCor" id="corDegrade3">
-                                        <input type="color" class="corShow" value=""></input>
-                                        <input class="corHex" value="#"></input>
+                                        <input type="color" class="corShow" value="#150106"></input>
+                                        <input class="corHex" value="#150106"></input>
                                     </div>
                                 </div>
                             </div>
@@ -248,8 +248,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <div class="corContainer">
                                     <p class="textHex">HEX</p>
                                     <div class="editCor" id="corBrilhoLancamento">
-                                        <input type="color" class="corShow" value=""></input>
-                                        <input class="corHex" value="#"></input>
+                                        <input type="color" class="corShow" value="#e1b48c"></input>
+                                        <input class="corHex" value="#e1b48c"></input>
                                     </div>
                                 </div>
                                 <p class="restaurarPadrao">Restaurar Padrão</p>
@@ -438,7 +438,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <ul>
                                 <li class="tituloSessao">Visualização da Página Inicial</li>
                             </ul>
-                            <?php echo botaoPersonalizadoRedirect("Visualizar","btn-black", "", "220px", "45px", "20px")?>
+                            <?php echo botaoPersonalizadoRedirect("Visualizar","btn-black", "/et_pontocom/app/views/adm/paginaPrincipalVisualizacao.php", "220px", "45px", "20px")?>
                             
                         </div>
                     </div>

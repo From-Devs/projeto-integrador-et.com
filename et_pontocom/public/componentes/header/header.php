@@ -109,7 +109,34 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
         </header>
         ";
     }
+}
 
+function createHeaderCustomizacao($tipo){
+    if($tipo == 0){
+        return "
+            <header class='headerUsuario' id='headerUsuario'>
+                
+                <div class='esquerdo'>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/adm/Customizacao.php' class='botaoVoltarHeaderCustomizacao'>
+                        <i class='fas fa-chevron-left'></i>
+                        <p>Voltar</p>
+                    </a>
+                </div>
+            </header>
+            ";
+    }else{
+        return "
+            <header class='headerUsuario' id='headerCarousel'>
+                
+                <div class='esquerdo'>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/adm/Customizacao.php' class='botaoVoltarHeaderCustomizacao'>
+                        <i class='fas fa-chevron-left'></i>
+                        <p>Voltar</p>
+                    </a>
+                </div>
+            </header>
+            ";
+    }
 }
 ?>
 

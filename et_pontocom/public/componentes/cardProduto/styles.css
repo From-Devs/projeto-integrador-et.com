@@ -123,6 +123,7 @@
     transition: bottom 0.6s ease;
     user-select: none;
     pointer-events: none;
+    text-align: center;
 }
 
 .cardProduto:hover .contentDeBaixo {
