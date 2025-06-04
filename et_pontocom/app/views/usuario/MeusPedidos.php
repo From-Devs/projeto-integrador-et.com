@@ -59,8 +59,8 @@
             <!-- PopUp mostrando todos os pedidos efetuados na compra -->
         <dialog class="popupMP" id="popupMP">
             <div class="popupMP-conteudo">
-                <div class="popupMP-linhasuperior"></div>
-                <div class='fecharPopUpMP'>
+                <div class="popupMP-superior">
+                    <div class="popupMP-linhasuperior"></div>
                     <img class='icone-fechar' src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
                 </div>
                 <div class="popupMP-main">

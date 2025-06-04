@@ -21,7 +21,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                             <span class="titulo">${produto.nome} ${produto.marca} ${produto.tamanho}</span>
                             <span class="titulo">${produto.categoria}</span>
                         </div>
-                        <button class="verMais">Ver Mais</button>
+                        <button class="verMais" style="font-size: 13px;">Ver Mais</button>
                     </div>
                </div>
            </div>
@@ -46,11 +46,25 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
             miniCard.classList.add("cardMini");
 
             miniCard.innerHTML = `
-                <img src="${p.imagem}" height="110px">
-                <div class="cardMini-infos">
-                    <span class="cardMini-Titulo">${p.nome} ${p.marca}</span>
-                    <span class="cardMini-Preco">R$${parseFloat(p.preco).toFixed(2)}</span>
+                <div class="card-recolhido">
+                    <img class="cardMini-imagem" src="${p.imagem}" height="110px">
+                    <div class="cardMini-infos">
+                        <span class="cardMini-Titulo">${p.marca} ${p.nome}</span>
+                        <span class="cardMini-Preco">R$${parseFloat(p.preco).toFixed(2)}</span>
+                    </div>
                 </div>
+                <div class="card-expandido">
+                    <span class="card-titulo">Descrição</span>
+                    <div class="card-linhasuperior"></div>
+                    <img class="cardMini-imagem" src="${p.imagem}" height="130px">
+                    <div class="card-linhainferior"></div>
+                    <div class="detalhes-info">
+                        <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
+                        <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
+                        <span class="detalhes-preco">Preço: ${p.preco}</span>
+                    </div>
+                    <button class="detalhes-botao">Comprar Novamente</button>
+                </div
             `;
 
             totalCompra += parseFloat(p.preco);
@@ -58,7 +72,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
         });
 
         document.getElementById("popupMP-DataCompra").innerText = "Data da compra: " + produto.dataCompra;
-        document.getElementById("popupMP-Total").innerText = "Total da compara: R$" +  totalCompra;
+        document.getElementById("popupMP-Total").innerText = "Total: R$" +  totalCompra;
 
         //mostrar popup
         document.getElementById("popupMP").showModal();
