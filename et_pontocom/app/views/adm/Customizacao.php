@@ -111,7 +111,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 
             <div class="wrapperPopUp">
                 <div class="esquerdaEditProduto">
-                    <div class="produtoContainer cor-0" onclick="abrirPopUp('popUpEditProduto')">
+                    <div class="produtoContainer cor-0" id="wrapperEditProdutoImg">
                         <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
                     </div>
     
@@ -149,25 +149,25 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                     <div class="degradeEdit">
                         <div class="degradeTop">
                             <h3>Degrade</h3>
-                            <button class="swapDegrade"><i class="fa-solid fa-right-left"></i></button>
+                            <button class="swapDegrade" id="swapDegrade"><i class="fa-solid fa-right-left"></i></button>
                         </div>
-                        <div class="degradeBar">
-                            <div class="colorMarker markerOne">
+                        <div class="degradeBar" id="degradeBar">
+                            <div class="colorMarker markerOne" id="markerOne">
                                 <div><p>1</p></div>
                             </div>
-                            <div class="colorMarker markerTwo">
+                            <div class="colorMarker markerTwo" id="markerTwo">
                                 <div><p>2</p></div>
                             </div>
-                            <div class="colorMarker markerThree">
+                            <div class="colorMarker markerThree" id="markerThree">
                                 <div><p>3</p></div>
                             </div>
                         </div>
                         <div class="degardeColorEdit">
                             <div class="corLi">
                                 <label id="labelCorDegrade1" for="corDegarde1">1 - </label>
-                                <div class="corContainer" id="corDegrade1">
+                                <div class="corContainer">
                                     <p class="textHex">HEX</p>
-                                    <div class="editCor">
+                                    <div class="editCor" id="corDegrade1">
                                         <input type="color" class="corShow" value=""></input>
                                         <input class="corHex" value="#"></input>
                                     </div>
@@ -176,8 +176,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             
                             <div class="corLi">
                                 <label id="labelCorDegrade2" for="corDegarde2">2 - </label>
-                                <div class="corContainer" id="corDegrade2">
-                                    <div class="editCor">
+                                <div class="corContainer">
+                                    <div class="editCor" id="corDegrade2">
                                         <input type="color" class="corShow" value=""></input>
                                         <input class="corHex" value="#"></input>
                                     </div>
@@ -187,8 +187,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 
                             <div class="corLi">
                                 <label id="labelCorDegrade3" for="corDegarde3">3 - </label>
-                                <div class="corContainer" id="corDegrade3">
-                                    <div class="editCor">
+                                <div class="corContainer">
+                                    <div class="editCor" id="corDegrade3">
                                         <input type="color" class="corShow" value=""></input>
                                         <input class="corHex" value="#"></input>
                                     </div>
@@ -247,7 +247,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <h3>Cor do brilho</h3>
                                 <div class="corContainer">
                                     <p class="textHex">HEX</p>
-                                    <div class="editCor">
+                                    <div class="editCor" id="corBrilhoLancamento">
                                         <input type="color" class="corShow" value=""></input>
                                         <input class="corHex" value="#"></input>
                                     </div>
@@ -455,5 +455,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacaoADM.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardLancamento/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/editorCor.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/trocarCorProdutoDestaque.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/trocarCorDegradeCarousel.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/trocarCorLancamento.js"></script>
 </body>
 </html> 
