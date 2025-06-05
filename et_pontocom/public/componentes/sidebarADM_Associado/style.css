@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url(../../css/styles.css);
+@import url(../popup/popUp.php);
+@import url(../botao/styles.css);
+
+/*_________________Geral_________________*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", serif;
+}
+
+
+/*_________________Básico da sidebar_________________*/
+.sidebar_adm{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    overflow: hidden;
+    overflow-y: auto;
+    transform: none;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.nav_adm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    float: left;
+    position: fixed;
+    width: 287px;
+    height: 100%;
+    background-color: var(--cor-sidebar-fundo);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1001; /* Fica na frente de tudo */
+    background-color: var(--cor-sidebar-fundo);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+.menu-toggle span {
+    width: 23px;
+    height: 3px;
+    background-color: var(--cor-sidebar-escrita);
+    margin: 2px 3px;
+    border-radius: 2px;
+}
+
+
+/*_________________Logo e Linha com Gradiente_________________*/
+.logo{
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
+
+.logo img{
+    width: 200px;
+    height: auto;
+}
+
+.linhaGradiente{
+    width: 240px;
+    height: 2px;
+    background: linear-gradient(to right, rgba(232,232,231,0),rgba(232,232,231, 0.185),rgba(232, 232, 231, 0.74), rgba(232,232,231, 0.185),rgba(232,232,231,0));
+    margin-bottom: 35px;
+}
+
+
+/*_________________Botões principais da sidebar_________________*/
+.botoesMenu{
+    width: 210px;
+}
+
+.botoesMenu ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.botoesMenu ul .nav-item{
+    border-radius: 15px;
+}
+
+.botoesMenu ul .nav-item .nav-link{
+    padding: 18px 0 18px 20px;
+    border-radius: 15px;
+    width: 200px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    gap: 15px;
+    color: var(--cor-sidebar-escrita);
+}
+
+.botoesMenu ul .nav-item .nav-link .bx{
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: var(--cor-sidebar-escrita);
+    color: var(--cor-sidebar-fundo);
+    align-items: center;
+}
+
+.botoesMenu ul .nav-item .nav-link .fa{
+    font-size: 13px;
+    border-radius: 8px;
+    padding: 6px;
+    background-color: var(--cor-sidebar-escrita);
+    color: var(--cor-sidebar-fundo);
+    align-items: center;
+}
+
+.botoesMenu ul .nav-item .nav-link .fa-users{
+    padding: 6px 5px;
+}
+
+.botoesMenu .button_name{
+    font-weight: 600;
+    font-size: 13px;
+}
+
+
+/*_________________Ao clicar em algum botão do menu...animação com JavaScript_________________*/
+.botoesMenu .nav-item.active{
+    background-color: var(--cor-sidebar-escrita);
+}
+
+.botoesMenu .nav-item.active .nav-link{
+    color: var(--cor-sidebar-fundo);
+}
+
+.botoesMenu .nav-item.active .nav-link .bx, .botoesMenu .nav-item.active .nav-link .fa{
+    background-color: var(--cor-sidebar-fundo);
+    color: var(--cor-sidebar-escrita);
+}
+
+.botoesMenu .nav-item.active .nav-link .button_name{
+    font-weight: 600;
+}
+
+
+
+
+/*_________________Botão de sair_________________*/
+.area_Sair .button_sair{
+    width: 287px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: fixed;
+    bottom: 7%;
+    left: 0;
+    gap: 15px;
+}
+
+.area_Sair .button_sair .fa{
+    font-size: 15px;
+    border-radius: 8px;
+    padding: 5px;
+    color: var(--cor-sidebar-fundo);
+    background-color: var(--cor-sidebar-escrita);
+}
+
+.area_Sair .button_sair .button_name{
+    color: var(--cor-sidebar-escrita);
+    font-weight: 600;
+    font-size: 13px;
+    font-family: "Montserrat",serif;
+}
+
+
+/*___________Tentando estilizar o popup___________*/
+.popUpDialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popUp{
+    display: flex;
+    gap: 20px;
+}
+
+
+.popUp .texto-popUp{
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.popUp .botoes-popUp{
+    display: flex;
+    align-items: center;
+    width: 400px;
+    justify-content: end;
+    gap: 30px;
+    border-radius: 20%;
+    background-color: white;
+
+}
+
+
+
+/*_________________Caso a tela seja menor..._________________*/
+ @media (max-width: 1280px) { /*Computador 1280x800*/
+    .nav_adm{
+        width: 250px;
+    }
+    .logo{
+        margin-top: 18px;
+        margin-bottom: 5px;
+    }
+    .logo img{
+        width: 170px;
+    }
+    .linhaGradiente{
+        width: 210px;
+        height: 1px;
+        margin-bottom: 25px;
+    }
+    .botoesMenu{
+        width: 170px;
+    }
+    .botoesMenu ul .nav-item .nav-link{
+        width: 170px;
+        padding: 15px 19px;
+        gap: 13px;
+    }    
+    .botoesMenu ul .nav-item .nav-link .bx{
+        font-size: 15px;
+    }
+    .botoesMenu ul .nav-item .nav-link .fa{
+        font-size: 12px;
+    }
+    .botoesMenu .button_name{
+        font-weight: 600;
+        font-size: 12px;
+    }
+    .area_Sair .button_sair{
+        width: 250px;
+        gap: 13px;
+    }
+    .area_Sair .button_sair .fa{
+        font-size: 14px;
+    }
+    .area_Sair .button_sair .button_name{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1024px){ /*Computador1024x768 */
+    .nav_adm{
+        width: 230px;
+    }
+    .logo{
+        margin-top: 15px;
+        margin-bottom: 3px;
+    }
+    .logo img{
+        width: 150px;
+    }
+    .linhaGradiente{
+        width: 190px;
+        height: 1px;
+        margin-bottom: 20px;
+    }
+    .botoesMenu{
+        width: 150px;
+    }
+    .botoesMenu ul .nav-item .nav-link{
+        width: 150px;
+        padding: 12px 16px;
+        gap: 12px;
+    }    
+    .botoesMenu ul .nav-item .nav-link .bx{
+        font-size: 14px;
+    }
+    .botoesMenu ul .nav-item .nav-link .fa{
+        font-size: 12px;
+    }
+    .area_Sair .button_sair{
+        width: 230px;
+        gap: 12px;
+        position: fixed;
+        bottom: 7%;
+        left: 0;
+    }
+    .area_Sair .button_sair .fa{
+        font-size: 13px;
+    }
+}
+@media (max-width: 800px){ /*Tablet 800x1280*/
+    .sidebar_adm {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 300px;
+        z-index: 1000;
+        transform: translateX(-100%) !important;
+    }
+    .sidebar_adm.active {
+        transform: translateX(0) !important;
+    }
+    .nav_adm{
+        width: 300px;
+        height: 100%;
+    }
+    .menu-toggle {
+        display: flex;
+    } 
+    .logo{
+        margin-top: 70px;
+        margin-bottom: 5px;
+    }
+    .logo img{
+        width: 220px;
+    }
+    .linhaGradiente{
+        width: 250px;
+        height: 1px;
+        margin-bottom: 20px;
+    }
+    .botoesMenu{
+        width: 210px;
+    }
+    .botoesMenu ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .botoesMenu ul .nav-item .nav-link{
+        width: 210px;
+        padding: 17px 15px;
+        gap: 10px;
+    }    
+    .botoesMenu ul .nav-item .nav-link .bx{
+        font-size: 20px;
+    }
+    .botoesMenu ul .nav-item .nav-link .fa{
+        font-size: 17px;
+    }
+    .botoesMenu .button_name{
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .nav_adm .area_Sair .button_sair{
+        width: 300px;
+        gap: 12px;
+    }
+    .nav_adm  .area_Sair .button_sair .fa{
+        font-size: 14px;
+    }
+    .nav_adm  .area_Sair .button_sair .button_name{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+    .sidebar_adm {
+        width: 280px;
+        transform: translateX(-100%) !important;
+    }
+    .sidebar_adm.active {
+        transform: translateX(0) !important;
+    }
+    .nav_adm{
+        width: 280px;
+        position: relative;
+    }
+    .logo{
+        margin-top: 60px;
+        margin-bottom: 5px;
+    }
+    .logo img{
+        width: 200px;
+    }
+    .linhaGradiente{
+        width: 250px;
+        height: 1px;
+        margin-bottom: 30px;
+    }
+    .botoesMenu{
+        width: 210px;
+    }
+    .botoesMenu ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .botoesMenu ul .nav-item .nav-link{
+        width: 210px;
+        padding: 17px 15px;
+        gap: 10px;
+    }    
+    .botoesMenu ul .nav-item .nav-link .bx{
+        font-size: 18px;
+    }
+    .botoesMenu ul .nav-item .nav-link .fa{
+        font-size: 15px;
+    }
+    .botoesMenu .button_name{
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .area_Sair .button_sair{
+        width: 100%;
+    }
+    .area_Sair .button_sair .fa{
+        font-size: 15px;
+    }
+    .area_Sair .button_sair .button_name{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480) {
+    .nav_adm{
+        width: 250px;
+    }
+    .logo{
+        margin-top: 3px;
+    }
+    .botoesMenu ul{
+        gap: 2px;
+    }
+}

@@ -1,0 +1,96 @@
+#lista 
+{
+    width: 97%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+#tabelaVendas 
+{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    table-layout: fixed;
+}
+
+#barraCima 
+{
+    background-color: black;
+    color: white;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+    padding: 10%;
+}
+
+th, td 
+{
+    text-align: center;
+}
+
+th {
+    padding: 2%;
+    font-size: 24px;
+}
+
+
+td 
+{
+    padding: 2%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+tr 
+{
+    border-bottom: 0.1px solid #DADADA;
+}
+
+.tabela-body 
+{
+    max-height: 620px;
+    max-width: 100vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.tabela-body::-webkit-scrollbar 
+{
+    display: none; 
+}
+
+/* parte dos botoes */
+
+.verticalizacao{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.validarButton, .cancelarButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+
+.validarButton:hover{
+    background-color: greenyellow;
+    cursor: pointer;
+
+
+}
+
+.cancelarButton:hover{
+    background-color: red;
+    cursor: pointer;
+
+
+}

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
     
-    const card = document.querySelectorAll(".cardLancamento");
+    const card = document.querySelectorAll(".lancamentoFuncional");
 
     card.forEach(item => {
         let cor = item.childNodes[5],

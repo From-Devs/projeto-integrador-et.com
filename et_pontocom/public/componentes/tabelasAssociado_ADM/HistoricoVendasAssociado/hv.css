@@ -1,0 +1,98 @@
+#lista 
+{
+    width: 97%;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+#tabelaVendas 
+{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+#barraCima 
+{
+    background-color: black;
+    color: white;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+    padding: 10%;
+}
+
+th, td 
+{
+    padding: 1px;
+    text-align: center;
+}
+
+th {
+    padding: 2%;
+    font-size: 24px;
+}
+
+#th2
+{
+    padding-left: 8.3%;
+}
+
+#th3
+{
+    padding-left: 8%;
+}
+
+td 
+{
+    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-right: 13px;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    right: 30px;
+}
+
+tr 
+{
+    border-bottom: 0.1px solid #DADADA;
+    
+
+}
+
+.idProduto
+{
+    
+    padding-left: 4%;
+
+}
+
+#precoassoc 
+{
+    color: #5DA400; 
+}
+
+#bordaEsquerda 
+{
+    border-top-left-radius: 10px;
+}
+
+#bordaDireita 
+{
+    border-top-right-radius: 10px;
+}
+
+.tabela-body 
+{
+    max-height: 620px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.tabela-body::-webkit-scrollbar 
+{
+    display: none; 
+}

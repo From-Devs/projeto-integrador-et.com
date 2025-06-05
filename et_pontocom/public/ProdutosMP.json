@@ -1,0 +1,147 @@
+{
+    "produtos" : [
+        {
+            "id":  1,
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/amor-amor-perfume-feminino.png",
+            "nome": "AMOR AMOR",
+            "marca": "Cacharel",
+            "tamanho": "100ml",
+            "categoria": "Perfume",
+            "preço": 405.30,
+            "dataCompra": "08/04/2026",
+            "corFundo": "linear-gradient(to right, rgb(206, 21, 21), rgb(247, 53, 53), rgb(255, 88, 88), rgb(250, 200, 200),rgb(255, 255, 255));"
+        },
+        {
+            "id":  2,
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/base-liquida-matte-vult.png",
+            "nome": "Base Líquida Efeito Matte",
+            "marca": "Vult",
+            "tamanho": "26ml",
+            "categoria": "Maquiagem",
+            "preço": 23.87,
+            "dataCompra": "06/03/2026",
+            "corFundo": "linear-gradient(to right, rgb(197, 153, 114), rgb(231,187,148), rgb(241, 204, 171), rgb(240, 219, 201),rgb(255, 255, 255));"
+        },
+        {
+            "id":  3,
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/bodysplash-cuide-se-bem.png",
+            "nome": "Body Splash Desodorante Colônia Cuide-se Bem Nuvem",
+            "marca": "O Boticário",
+            "tamanho": "200ml",
+            "categoria": "Body Splash",
+            "preço": 84.90,
+            "dataCompra": "01/02/2026",
+            "corFundo": "linear-gradient(to right, rgb(139, 198, 206), rgb(176, 237, 247), rgb(205, 245, 250), rgb(211, 241, 245),rgb(255, 255, 255));"
+        },
+        {
+            "id":  4,
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/bt-ovni.png",
+            "nome": "BT OVNI Batom Sombra 3x1 Galaxy",
+            "marca": "Bruna Tavares",
+            "tamanho": "",
+            "categoria": "Maquiagem",
+            "preço": 45.68,
+            "dataCompra": "26/01/2026",
+            "corFundo": "linear-gradient(to right, rgba(28, 30, 37, 0.712), rgb(217,234,37), rgb(221, 235, 67), rgb(226, 235, 126), rgb(247, 250, 223), rgb(255, 255, 255),rgb(255, 255, 255));"
+        },
+        {
+            "id":  5,
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/bt-velvet-blackberry.png",
+            "nome": "BT Velvet 2x1 Blackberry",
+            "marca": "Bruna Tavares",
+            "tamanho": "6ml",
+            "categoria": "Maquiagem",
+            "preço": 35.89,
+            "dataCompra": "20/12/2025",
+            "corFundo": "linear-gradient(to right, rgb(58, 9, 13), rgb(112, 37, 42), rgb(179, 110, 116), rgb(209, 176, 179),rgb(255, 255, 255));"
+        },
+        {
+            "id":  6,
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/epidrat-mantecorp-facial.png",
+            "nome": "Epidrat Calm Hidratante",
+            "marca": "Mantecorp",
+            "tamanho": "50ml",
+            "categoria": "SkinCare",
+            "preço": 66.60,
+            "dataCompra": "18/11/2025",
+            "corFundo": "linear-gradient(to right, rgb(81,74,108), rgb(149, 140, 185), rgb(163, 156, 189), rgb(221, 217, 236),rgb(255, 255, 255));"
+        },
+        {
+            "id":  7,
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/esponja-mari-maria.png",
+            "nome": "Esponja Flat Blende",
+            "marca": "Mari Maria Makeup",
+            "tamanho": "Grande",
+            "categoria": "Acessórios",
+            "preço": 35.90,
+            "dataCompra": "16/11/2025",
+            "corFundo": "linear-gradient(to right, rgb(241, 93, 10), rgb(243, 130, 64), rgb(248, 180, 140), rgb(248, 211, 189),rgb(255, 255, 255));"
+        },
+        {
+            "id":  8,
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/hidratante-nivea.png",
+            "nome": "Creme Hidratante Milk - Pele Seca a Extrasseca",
+            "marca": "Nivea",
+            "tamanho": "400ml",
+            "categoria": "Corporal",
+            "preço": 20.99,
+            "dataCompra": "14/10/2025",
+            "corFundo": "linear-gradient(to right, rgb(15, 44, 122), rgb(70, 100, 182), rgb(117, 138, 194), rgb(212, 221, 245),rgb(255, 255, 255));"
+        },
+        {
+            "id":  9,
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/Malbec_Colonia.png",
+            "nome": "Malbec Tradicional",
+            "marca": "O Boticário",
+            "tamanho": "100ml",
+            "categoria": "Perfume",
+            "preço": 169.00,
+            "dataCompra": "10/09/2025",
+            "corFundo": "linear-gradient(to right, rgb(65, 16, 16), rgb(102, 56, 48), rgb(122, 92, 85), rgb(192, 168, 164),rgb(255, 255, 255));"
+        },
+        {
+            "id":  10,
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/pincel-marimaria.png",
+            "nome": "Pincel Angular Para Base",
+            "marca": "Mari Maria Makeup",
+            "tamanho": "",
+            "categoria": "Acessórios",
+            "preço": 95.90,
+            "dataCompra": "10/08/2025",
+            "corFundo": "linear-gradient(to right, rgb(187, 49, 1), rgb(232, 104, 63), rgb(235, 149, 120), rgb(236, 200, 187),rgb(255, 255, 255));"
+        },
+        {
+            "id":  11,
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/renew-avon.png",
+            "nome": "Creme Renew Reversalist Dia Vitalidade 30+",
+            "marca": "Avon",
+            "tamanho": "50g",
+            "categoria": "SkinCare",
+            "preço": 75.90,
+            "dataCompra": "09/07/2025",
+            "corFundo": "linear-gradient(to right, rgb(143, 43, 41), rgb(182, 78, 76), rgb(196, 117, 116), rgb(207, 166, 166),rgb(255, 255, 255));"
+        },
+        {
+            "id":  12,
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/superstay-ink-vinyl.png",
+            "nome": "Superstay Vinyl Ink Liquid Lipstick",
+            "marca": "Maybelline",
+            "tamanho": "",
+            "categoria": "Maquiagem",
+            "preço": 99.51,
+            "dataCompra": "03/07/2025",
+            "corFundo": "linear-gradient(to right, rgb(160, 1, 27), rgb(199, 43, 69), rgb(211, 112, 128), rgb(228, 183, 191),rgb(255, 255, 255));"
+        },
+        {
+            "id":  13,
+            "imagem": "/projeto-integrador-et.com/et_pontocom/public/imagens/ProdutosMP/truss_net_masc.png",
+            "nome": "Net Mask Máscara Capilar",
+            "marca": "Truss",
+            "tamanho": "550g",
+            "categoria": "Cabelo",
+            "preço": 269.99,
+            "dataCompra": "29/06/2025",
+            "corFundo": "linear-gradient(to right, rgb(0, 150, 177), rgb(66, 203, 228), rgb(141, 221, 235), rgb(201, 234, 240),rgb(255, 255, 255));"
+        }
+    ]
+}
