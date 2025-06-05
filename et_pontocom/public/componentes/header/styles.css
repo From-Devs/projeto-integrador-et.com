@@ -9,22 +9,23 @@
     height: 95px;
     padding-bottom: 9px;
     z-index: 998;
+    /* box-sizing: border-box; */
 }
 
 .esquerdo{ /* parte da esquerda do header, onde fica as três barrinhas e a logo */
     background-image: linear-gradient(177deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%);
     display: flex;
     height: 100%;
-    width: 50%;
+    width: 50vw;
     align-items: center;
     gap: 26px;
-    padding-left: 38px;
+
 }
 
 .esquerdo img{ /* logo do header */
     /* width: 160px; */
     height: 85px;
-    filter: drop-shadow(0px 1px 2px black);
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.466));
     cursor: pointer;
 }
 
@@ -34,6 +35,7 @@
     gap: 9px;
     cursor: pointer;
     filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.466));
+    padding-left: 38px;
 }
 
 .menu-toggle .bar { /* Tag das barrinhas individuais*/
@@ -45,10 +47,9 @@
 }
 
 .direito{ /*parte da direita do header, onde fica os icones*/
-    width: 50%;
+    width: 50vw;
     height: 100%;
     background-image: linear-gradient(183deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%);
-    padding-right: 38px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -57,16 +58,17 @@
 .direito .botoes{ /* Div onde os icones estão agrupados */
     display: flex;
     gap: 26px;
+    padding-right: 38px;
 }
 
 .direito .botoes img{ /* Icones individualmente */
-    filter: drop-shadow(0px 1px 3px black);
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.466));
     width: 48px;
     height: 48px;
     cursor: pointer;
 }
 
-.pesquisa{ /* Barrinha de pesquisa (inicialmente escondida) */
+.pesquisaHeader{ /* Barrinha de pesquisa (inicialmente escondida) */
     height: 45px;
     position: absolute;
     display: flex;
@@ -74,24 +76,24 @@
     left: 50%;
     background-color: white;
     border-radius: 100px;
-    filter: drop-shadow(0px 4px 3px rgba(0, 0, 0, 0.455));
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.466));
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
 }
 
-.pesquisa.open{ /* Barrinha de pesquisa quando está na tela */
+.pesquisaHeader.open{ /* Barrinha de pesquisa quando está na tela */
     opacity: 1;
     transform: translate(-50%,-55%);
     visibility: visible;
 }
 
-.pesquisa.closed{ /* Barrinha de pesquisa quando está escondida */
+.pesquisaHeader.closed{ /* Barrinha de pesquisa quando está escondida */
     opacity: 0;
     transform: translate(-50%,-250%);
     visibility: hidden;
 }
 
-.pesquisa input{ /* input da barrinha de pesquisa (onde dá pra escrever) */
+.pesquisaHeader input{ /* input da barrinha de pesquisa (onde dá pra escrever) */
     width: 580px;
     padding: 14px;
     border: 0;
@@ -101,11 +103,11 @@
     font-family: "Montserrat", sans-serif;
 }
 
-#inputHeader:focus{ /* serve para quando vc clicar no input, não aparecer uma borda preta */
+.inputHeader:focus{ /* serve para quando vc clicar no input, não aparecer uma borda preta */
     outline: 0;
 }
 
-.pesquisa button{ /* botão ao lado do input, onde está a lupinha */
+.pesquisaHeader button{ /* botão ao lado do input, onde está a lupinha */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,20 +118,20 @@
     padding-left: 10px;
 }
 
-.pesquisa i{ /* lupinha no botão do input */
+.pesquisaHeader i{ /* lupinha no botão do input */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.pesquisa i::before{ /* lupinha no botão do input também, n lembro qual é a diferença */
+.pesquisaHeader i::before{ /* lupinha no botão do input também, n lembro qual é a diferença */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 36px;
 }
 
-#menuConta{ /* Menu que abre quando clica no icone de perfil (canto superior direito) */
+.menuConta{ /* Menu que abre quando clica no icone de perfil (canto superior direito) */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,7 +147,7 @@
     animation: slide-in 0.3s;
 }
 
-#menuConta::after { /* pontinha de balão em cima do menu */
+.menuConta::after { /* pontinha de balão em cima do menu */
     content: '';
     position: absolute;
     top: -10px;
@@ -174,6 +176,29 @@
     background-color: rgb(200, 200, 200);
 }
 
+#headerCarousel{
+    background-image: none;
+    position: absolute;
+    top: 0;
+    z-index: 1003;
+}
+
+#headerCarousel .pesquisaHeader{
+    z-index: 1002;
+}
+
+#headerCarousel .esquerdo{
+    background-image: none;
+}
+
+#headerCarousel .direito{
+    background-image: none;
+}
+
+#headerCarousel .esquerdo img{
+    display: none;
+}
+
 @keyframes slide-in{ /* animação de quando abre o menu do perfil */
     0% {
         -webkit-transform: translateY(10px);
@@ -191,33 +216,39 @@
 /* Todo o código acima é para telas q tenham comprimento acima de 1400px */
 
 @media (max-width: 1400px){ /*Computador Grande*/
-    .pesquisa input{
+    .pesquisaHeader input{
         width: 400px;
     }
 }
 
 @media (max-width: 1200px){ /*Computador*/
-    .pesquisa.open{
+    .pesquisaHeader.open{
         transform: translate(-65%,-55%);
     }
-    .pesquisa.closed{
+    .pesquisaHeader.closed{
         transform: translate(-65%,-250%);
     }
-    .pesquisa input{
+    .pesquisaHeader input{
         width: 270px;
     }
 }
 
+@media (max-width: 1067px){ /*Computador*/
+    #headerCarousel .esquerdo img{
+        display: block;
+    }
+}
+
 @media (max-width: 992px){ /*Tablet*/
-    #menuConta{
+    .menuConta{
         right: 16px;
         bottom: -115px;
     }
 
-    .pesquisa.open{
+    .pesquisaHeader.open{
         transform: translate(-65%,-60%);
     }
-    .pesquisa input{
+    .pesquisaHeader input{
         width: 200px;
         padding-top: 12px;
         padding-bottom: 12px;
@@ -231,33 +262,31 @@
         width: 50%;
         align-items: center;
         gap: 10px;
-        padding-left: 28px;
     }
 
     .esquerdo img{
         width: 120px;
-        filter: drop-shadow(0px 0px 2px black);
+        height: auto;
     }
 
     .menu-toggle{
         transform: scale(0.9);
+        padding-left: 28px;
     }
 
     .direito{
         background-image: linear-gradient(186deg, black 0%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
-        padding-right: 28px;
     }
     
     .direito .botoes{
         display: flex;
         gap: 24px;
+        padding-right: 28px;
     }
     
-    .direito i{
-        filter: drop-shadow(0px 1px 3px black);
-        font-weight: 100;
-        color: white;
-        font-size: 40px;
+    .direito .botoes img{ /* Icones individualmente */
+        width: 40px;
+        height: 40px;
     }
 
 }
@@ -277,25 +306,31 @@
 
     .headerUsuario.pesquisaOpen{
         padding-bottom: 70px;
-        background-image: linear-gradient(to bottom, black 0%, rgb(22, 22, 22) 30%, rgb(124, 124, 124) 75%, rgba(0, 0, 0, 0) 100%);
+        background-image: linear-gradient(to bottom, black 0%, rgb(22, 22, 22) 30%, rgba(0, 0, 0, 0.555) 75%, rgba(0, 0, 0, 0) 100%);
     }
 
-    .pesquisa.open{
+    .pesquisaHeader.open{
         transform: translate(-50%,5%);
     }
     
-    .pesquisa.closed{
+    .pesquisaHeader.closed{
         transform: translate(-50%,-250%);
     }
 
-    .pesquisa input{
-        width: 300px;
+    .pesquisaHeader input{
+        width: 450px;
         padding-top: 12px;
         padding-bottom: 12px;
     }
 }
 
 @media (max-width: 576px){ /*Celular Vertical*/
+    .pesquisaHeader input{
+        width: 300px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
     .esquerdo{
         background-image: linear-gradient(169deg, black 0%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
     }

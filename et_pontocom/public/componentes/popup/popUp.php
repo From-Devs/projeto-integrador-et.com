@@ -28,7 +28,7 @@ function PopUpComImagemETitulo($id, $caminhoImagem, $tamanhoImagem, $titulo, $su
                 <img class='icone-fechar' src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
             </div>
             <div class='img-popUp' style='width: $tamanhoImagem'>
-                <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/$caminhoImagem' alt='img-popUp'>
+                <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/$caminhoImagem' alt='img-popUp'>
             </div>
             <div>
                 <h2 style='font-size: $tamanhoTitulo; color: $corFonte; text-align: center;'>$titulo</h2>
