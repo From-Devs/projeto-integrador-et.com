@@ -18,7 +18,7 @@
     border: none;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     font-size: 18px;
-    background: url(../lupa.png)no-repeat;
+    background: url(../../public/imagens/HistoricoDeVendasAssociado/lupa.png)no-repeat;
     background-size: 40px 40px; 
     background-position: 675px center;
 }
@@ -67,7 +67,11 @@
     font-size: 12px;
 }
 
-@media (max-width: 1550px) {
+@media (max-width: 1280px) {
+
+    #container{
+        margin-left: 300px;
+    }
 
     .idProduto{
         right: 13px;
@@ -75,9 +79,304 @@
     }
 
     td {
-        font-size: 5px;
+        right: 20px;
+        font-size: 17px;
+    }
 
+    th{
+        font-size: 20px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+    
+    #vendasmais {
+        margin-top: 20px;
+        font-size: 15px;
+    }
+    
+    #inputPesquisar {
+    display: flex;
+    width: 550px;
+    height: 50px;
+    border-radius: 15px;
+    padding-left: 10px;
+    border: none;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    font-size: 15px;
+    background: url(../../public/imagens/HistoricoDeVendasAssociado/lupa.png)no-repeat;
+    background-size: 30px 30px; 
+    background-position: 495px center;
+}
+
+    #lista {
+    width: 94%;
+    margin-top: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    }
+
+    #controleIcon {
+    
+    display: flex;
+    flex-direction: row-reverse;
+    }
+
+    #iconUsuario
+    {
+        width: 230px;
+        height: 75px;
+        display: flex;
+        background-color: black;
+        color: white;
+        align-items: center;
+        overflow: hidden;
+        gap: 10px;
+        margin-top:  20px;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        border-top-left-radius: 100px;
+        border-bottom-left-radius: 100px;
+    }
+
+    #fotoUser
+    {
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        margin-left: 25px;
+        width: 62px;
+        height: 62px;
+    }
+
+    #textUser{
+        font-size: 14px;
+    }
+
+    #textUser2{
+        font-size: 11px;
+    }
+
+
+}
+
+@media (max-width: 1024px) {
+
+    #container{
+        margin-left: 270px;
+    }
+
+    #lista {
+        width: 95%;
+        margin-top: 14px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        }
+
+    td {
+        right: 20px;
+        font-size: 14px;
+    }
+
+    #vendasmais {
+        margin-top: 20px;
+        font-size: 12px;
+    }
+
+    #inputPesquisar {
+        display: flex;
+        width: 440px;
+        height: 50px;
+        border-radius: 15px;
+        padding-left: 10px;
+        border: none;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        font-size: 13px;
+        background: url(../../public/imagens/HistoricoDeVendasAssociado/lupa.png)no-repeat;
+        background-size: 20px 20px; 
+        background-position: 400px center;
+    }
+    
+    th{
+        font-size: 17px;
+        padding-top: 20px;
+        padding-bottom: 22px;
+    }    
+
+    #controleIcon {
+    
+    display: flex;
+    flex-direction: row-reverse;
+    }
+    
+    #iconUsuario
+    {
+        width: 217px;
+        height: 72px;
+        display: flex;
+        background-color: black;
+        color: white;
+        align-items: center;
+        overflow: hidden;
+        gap: 10px;
+        margin-top:  20px;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        border-top-left-radius: 100px;
+        border-bottom-left-radius: 100px;
+    }
+    
+    #fotoUser
+    {
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        margin-left: 25px;
+        width: 60px;
+        height: 60px;
+    }
+    
+    #textUser{
+        font-size: 13px;
+    }
+    
+    #textUser2{
+        font-size: 10px;
+    }
+    
+
+}
+
+@media (max-width: 800px) {
+
+    #container{
+        margin-left: 40px;
+    }
+
+    th{
+        font-size: 14px;
+    }
+
+    #th2{
+        width: 250px;
+        padding-left: 30px;
+
+    }
+
+    #th3{
+        width: 200px;
+        padding-left: 29px;
+    }
+
+    #th5{
+        width: 100px;
     }
 
 }
 
+@media (max-width: 520px) {
+
+    td {
+        right: 20px;
+        font-size: 9px;
+        position: static;
+        padding-right: 20px;
+    }
+
+    th{
+        font-size: 10px;
+        padding: 0px;
+    }
+
+    #pesquisar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 420px;
+        margin-left: 14px;
+    }
+
+    #inputPesquisar {
+        display: flex;
+        width: 390px;
+        height: 45px;
+        margin-top: 15px;
+        border-radius: 15px;
+        border: none;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        font-size: 13px;
+        background: url(../../public/imagens/HistoricoDeVendasAssociado/lupa.png)no-repeat;
+        background-size: 20px 20px; 
+        background-position: 360px center;
+    }
+
+    #tabelaVendas{
+        width: 456px;
+    }
+
+    #bordaEsquerda{
+        width: 38px;
+    }
+
+    .idProduto{
+        padding-left: 3.7%;
+    }
+
+    #th2{
+        padding-left: 0px;
+        width: 150px;
+    }
+
+    #th3{
+        padding-left: 0px;
+        width: 130px;
+    }
+
+    #th4{
+        width: 65px;
+        padding-right: 5px;
+    }
+
+    #th5{
+        width: 60px;
+    }
+
+    tr{
+        height: 40px;
+    }
+
+    #lista{
+        width: 450.3px;
+    }
+
+    #tabela-body{
+        width: 456px;
+    }
+
+    #fotoUser{
+        width: 53px;
+        height: 53px;
+        margin-left: 15px;
+    }
+
+    #iconUsuario{
+        width: 170px;
+        height: 65px;
+        margin-top: 17px;
+    }
+
+    #vendasmais{
+        font-size: 11px;
+        margin-left: 7px;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+
+    #container{
+        margin-left: 17px;
+        width: 480px;
+    }
+
+}
