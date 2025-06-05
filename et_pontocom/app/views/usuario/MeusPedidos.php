@@ -61,7 +61,8 @@
             <div class="popupMP-conteudo">
                 <div class="popupMP-superior">
                     <div class="popupMP-linhasuperior"></div>
-                    <img class='icone-fechar' src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
+                    <button class='bx bx-x'></button>
+                    <!-- <img class='icone-fechar' src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'> -->
                 </div>
                 <div class="popupMP-main">
                     <div class="popupMP-Produtos" id="popupMP-Produtos"></div>

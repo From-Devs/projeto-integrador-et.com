@@ -133,6 +133,7 @@
     background-color: transparent;
     font-size: 15px;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .card-produtoMP .cardcoloridoCam .card-info .info-caminho .verMais:focus{
@@ -228,9 +229,10 @@
     margin-left:6vw;
 }
     
-.popupMP-superior .icone-fechar{
-    width: 20px;
-    height: 20px;
+.popupMP-superior .bx-x{
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
     margin-left: 5vw;
 
