@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="editarCarousel">
+            <div class="produtoInicial">
+                <p>Inicial</p>
+                <div class="bordaProdutoInicial"></div>
+            </div>
+            <div class="editarCarouselContainer">
+                <div class="produtoContainer cor-0" id="produto1" onclick="abrirPopUp('popUpEditProduto')">
+                    <img class="imagemProduto" src="/et_pontocom/public/imagens/produto/hinode.png" alt="">
+                </div>
+                <div class="produtoContainer cor-1" id="produto2" onclick="abrirPopUp('popUpEditProduto')">
+                    <img class="imagemProduto" src="/et_pontocom/public/imagens/produto/bocarosa.png" alt="">
+                </div>
+                <div class="produtoContainer cor-2" id="produto3" onclick="abrirPopUp('popUpEditProduto')">
+                    <img class="imagemProduto" src="/et_pontocom/public/imagens/produto/leite.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
+</body>
+</html>

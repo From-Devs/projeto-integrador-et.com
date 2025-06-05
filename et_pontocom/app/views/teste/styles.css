@@ -1,0 +1,69 @@
+@import url(styles.css);
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+.cor-0 { background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%); }
+.cor-1 { background-image: linear-gradient(to bottom, #C69065 0%, #B88D6B 50%, #EBC1B6 100%); }
+.cor-2 { background-image: linear-gradient(to bottom, #F2D5AF 0%, #CC9F9D 50%, #CE766C 100%); }
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.editarCarousel{
+    display: flex;
+}
+
+.produtoInicial{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    z-index: 0;
+}
+
+.produtoInicial p{
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.bordaProdutoInicial{
+    border-radius: 32px;
+    width: 288px;
+    height: 288px;
+    border: solid 2px black;
+    border-style: inset;
+}
+
+.editarCarouselContainer{
+    margin-top: 37px;
+    display: flex;
+    gap: 50px;
+    padding: 15px;
+    z-index: 1;
+}
+
+.produtoContainer{
+    width: 258px;
+    height: 258px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.4);
+}
+
+.imagemProduto{
+    width: 100%;
+}
