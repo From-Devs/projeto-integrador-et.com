@@ -13,7 +13,6 @@ html, body {
     background-color: #fff;
     border-radius: 15px;
     overflow: hidden;
-    height: 450px;
     display: flex;
     flex-direction: column;
 }
@@ -71,4 +70,14 @@ tr {
 .img-popUp img {
     background-color: green;
     border-radius: 50%;
+}
+
+.acoes-tabela {
+    display: flex;
+    justify-content: space-around;
+}
+
+.excluir img, .editar img {
+    cursor: pointer;
+    width: 30px;
 }
