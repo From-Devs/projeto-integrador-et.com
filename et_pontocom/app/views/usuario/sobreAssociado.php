@@ -67,7 +67,9 @@
         <div class="card">
             <div class="card-box">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/sobreAssociado/imgCard01.png" alt="">
-                <button>Associar-se</button>
+                <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/CadastroAssociado.php">
+                    <button>Associar-se</button>
+                </a>
             </div>
         </div>
     </div>

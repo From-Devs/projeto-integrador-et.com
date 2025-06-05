@@ -9,8 +9,8 @@
     require __DIR__ . "/../../../public/componentes/carousel/carousel.php";
 
     session_start();
-    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
-    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
+    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 
 

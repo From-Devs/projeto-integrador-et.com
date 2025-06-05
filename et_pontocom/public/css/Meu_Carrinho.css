@@ -1,0 +1,488 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  font-weight: 400;
+}
+main {
+margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+
+  
+}
+th, td {
+  padding: 20px;
+  text-align: left;
+  border: none;
+}
+th {
+  background-color: #1C1C1C;
+  color: white;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.radius {
+  border-top-left-radius: 10px;
+}
+.radius2 {
+  border-top-right-radius: 10px;
+}
+td {
+  border: 2px solid #a8a8aa;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+tbody tr:hover {
+  background-color: #ddd;
+}
+tfoot {
+  background-color: #ffffff;
+  font-weight: bold;
+}
+.total-value {
+  text-align: left;
+  color: #949494;
+}
+.frete {
+  margin-top: 20px;
+}
+.frete label {
+  margin-right: 10px;
+}
+.frete input {
+  padding: 5px;
+  margin-right: 10px;
+}
+.frete button {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.frete button:hover {
+  background-color: #45a049;
+}
+.Meio {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  border-bottom: 1px solid #a8a8aa;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  margin-top: 200px;
+}
+.frete-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.total-label, .total-value {
+  font-weight: normal;
+  margin-right: auto;
+  text-align: left;
+}
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0 auto;
+  gap: 20px;
+  padding-left: 0;
+  margin-top: 20px;
+}
+.button-container button {
+  padding: 10px 10px;
+  font-size: 13px;
+  width: 200px;
+  height: 33px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  border: none;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.button-container button:hover {
+  background-color: #3C3C3C;
+}
+.produto-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.produto-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.produto-item table {
+  margin: 0;
+}
+.redondo {
+  padding: 10px;
+  gap: 20px;
+  border: none;
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+.cor1 {
+  width: 100px;
+  height: auto;
+  background-color: #000000;
+  border-radius: 10px;
+  margin-right: 0px;
+  box-shadow: inset 0 32px 64px #a2a2a2;
+}
+.table1 {
+  width: 75%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+}
+.quantity-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.quantity-btn {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+.quantity-input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 30px;
+}
+td img {
+  margin-left: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+
+  max-width: 100%;
+  height: auto;
+}
+.check {
+  margin-right: 20px;
+  margin-left: -30px;
+}
+.produto-nome {
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  transform: scale(1.5);
+  margin-right: 10px;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  transform: scale(1.5);
+  margin-right: 10px;
+  vertical-align: middle;
+  appearance: none;
+  background-color: #A6A6A6;
+  border: 2px solid #A6A6A6;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+input[type="checkbox"]:checked {
+  background-color: #A6A6A6;
+  border: 2px solid #A6A6A6;
+  color: white; 
+}
+input[type="checkbox"]:checked::before {
+  content: '✔';
+  font-size: 16px; 
+  color: rgb(0, 0, 0); 
+  position: absolute; 
+}
+
+
+@media screen and (max-width: 430px) {
+main {
+  margin: 0 10px;
+  padding: 10px;
+}
+
+.Meio {
+  width: 100%;
+  font-size: 18px;
+  margin-top: 100px;
+}
+
+table, .table1 {
+  width: 100%;
+  overflow-x: auto;
+  display: table;
+  font-size: 13px;
+}
+
+thead {
+  background-color: #1C1C1C;
+}
+
+thead th {
+  font-size: 12px;
+  padding: 8px;
+  background-color: #1C1C1C !important;
+  color: white !important;
+  text-align: center;
+  word-break: break-word;
+}
+
+tbody tr {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+td {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border: none;
+}
+
+.cor1 {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.produto-nome {
+  font-size: 14px;
+  margin-left: 5px;
+  flex: 1;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.quantity-btn {
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+}
+
+.quantity-input {
+  width: 36px;
+  height: 24px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.button-container {
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+  margin-top: 20px;
+}
+
+.button-container button {
+  width: 100%;
+  font-size: 14px;
+  padding: 12px;
+}
+
+.redondo {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.total-value {
+  font-size: 16px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 8px;
+}
+}
+
+
+@media screen and (max-width: 430px) {
+thead th:nth-child(2),
+thead th:nth-child(3),
+tbody td:nth-child(2),
+tbody td:nth-child(3) {
+  display: none !important;
+}
+
+tbody tr {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+tbody td {
+  width: 100%;
+  flex: 1 1 100%;
+  text-align: left;
+}
+}
+
+@media screen and (max-width: 430px) {
+thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+thead th {
+  width: 100%;
+  display: table-cell;
+  text-align: left;
+}
+
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+tbody td {
+  display: table-cell;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+}
+
+thead th:nth-child(2),
+thead th:nth-child(3),
+tbody td:nth-child(2),
+tbody td:nth-child(3) {
+  display: none !important;
+}
+}
+
+
+/* Estilo do overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+/* Estilo do pop-up */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.popup p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.popup-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  min-width: 120px;
+}
+
+.popup-buttons button:first-child {
+  background-color: #ccc;
+  color: #000;
+}
+
+.popup-buttons button:last-child {
+  background-color: #25d366;
+  color: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsividade para pop-up */
+@media screen and (max-width: 430px) {
+  .popup {
+      width: 90%;
+      padding: 20px;
+  }
+
+  .popup p {
+      font-size: 14px;
+  }
+
+  .popup-buttons {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .popup-buttons button {
+      width: 100%;
+      font-size: 14px;
+  }
+}
