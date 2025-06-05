@@ -104,8 +104,8 @@
         </tfoot>
       </table class="table1">
       <div class="button-container">
-        <button type="submit" formaction="realizar_pedido.php">Realizar Pedido</button>
-        <button type="submit" formaction="excluir_pedido.php">Excluir Pedido</button>
+        <button type="button" onclick="abrirPopup()">Realizar Pedido</button>
+        <button type="button">Excluir Pedido</button>
       </div>
     </form>
   </main>
@@ -164,6 +164,43 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+</script>
+
+
+<!-- Fundo escurecido e modal -->
+<div id="overlay" class="overlay hidden"></div>
+
+<div id="popup" class="popup hidden">
+    <p>Vamos continuar o atendimento pelo WhatsApp<br><small>(Sobre as informações de pagamento e entrega)</small></p>
+    <div class="popup-buttons">
+        <button onclick="fecharPopup()">Cancelar</button>
+        <button onclick="confirmarCompra()">Continuar</button>
+    </div>
+</div>
+
+<div id="popupConfirmado" class="popup hidden">
+    <p>✅ Compra confirmada com sucesso!</p>
+    <div class="popup-buttons">
+        <button onclick="fecharPopup()">Fechar</button>
+    </div>
+</div>
+
+<script>
+function abrirPopup() {
+    document.getElementById('overlay').classList.remove('hidden');
+    document.getElementById('popup').classList.remove('hidden');
+}
+
+function fecharPopup() {
+    document.getElementById('overlay').classList.add('hidden');
+    document.getElementById('popup').classList.add('hidden');
+    document.getElementById('popupConfirmado').classList.add('hidden');
+}
+
+function confirmarCompra() {
+    document.getElementById('popup').classList.add('hidden');
+    document.getElementById('popupConfirmado').classList.remove('hidden');
+}
 </script>
 
 </body>
