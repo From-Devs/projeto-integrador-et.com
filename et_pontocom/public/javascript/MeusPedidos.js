@@ -89,3 +89,16 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
 });
 
 
+
+
+///////////fechar popup
+document.querySelectorAll(".icone-fechar").forEach(botao => {
+    botao.addEventListener("click", () => {
+        const dialog = botao.closest("dialog");
+        if (dialog) {
+            dialog.close();
+        }
+    });
+});
+
+
