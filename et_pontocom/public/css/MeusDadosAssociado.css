@@ -1,7 +1,7 @@
 body{
     background: #E6E6E6;
     overflow-x: hidden;
-    /* overflow-y: hidden; */
+    overflow-y: hidden;
 }
 
 header{
@@ -127,19 +127,10 @@ header{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     
 }
-hr {
-    justify-self: center;
-    width: 300px;
-}
 
 .CardPrimos #UserDados{
-    padding: 3px;
     margin-top: 20px;
     text-align: center;
-}
-.CardPrimos #usertitulo{
-    font-size: 21px;
-    font-weight: bold;
 }
 .none{
     display: none;
