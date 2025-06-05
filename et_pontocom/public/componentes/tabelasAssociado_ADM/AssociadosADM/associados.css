@@ -1,6 +1,7 @@
 #lista 
 {
     width: 97%;
+    border-collapse: collapse;
     margin-top: 10px;
     margin-bottom: 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
