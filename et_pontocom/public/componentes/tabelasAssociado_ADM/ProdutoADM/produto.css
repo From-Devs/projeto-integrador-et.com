@@ -1,4 +1,4 @@
-html, body {
+/* html, body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -13,7 +13,6 @@ html, body {
     background-color: #fff;
     border-radius: 15px;
     overflow: hidden;
-    height: 450px;
     display: flex;
     flex-direction: column;
 }
@@ -62,4 +61,4 @@ tr {
 
 .tabela-body::-webkit-scrollbar {
     display: none;
-}
+} */
