@@ -12,7 +12,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
            <span class="data-compra">Data de compra ${produto.dataCompra}</span>
            <div class="cardcoloridoCam">
                <div class="linhaverticalcard"></div>
-               <div class="card-info" style='background: ${produto.corFundo}'>
+               <div class="card-info" style='background: linear-gradient(to right, ${produto.corFundo1}, ${produto.corFundo2}, ${produto.corFundo3} 43%, ${produto.corFundo4} 83%)'>
                     <div class="card-imagem">
                         <img src= "${produto.imagem}" alt="${produto.nome}">
                     </div>
@@ -21,7 +21,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                             <span class="titulo">${produto.nome} ${produto.marca} ${produto.tamanho}</span>
                             <span class="titulo">${produto.categoria}</span>
                         </div>
-                        <button class="verMais" style="font-size: 13px;">Ver Mais</button>
+                        <button class="verMais" style="font-size: 13px; border: none;">Ver Mais</button>
                     </div>
                </div>
            </div>
@@ -54,14 +54,14 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                     </div>
                 </div>
                 <div class="card-expandido">
-                    <span class="card-titulo">Descrição</span>
+                    <span class="card-titulo">DESCRIÇÃ0</span>
                     <div class="card-linhasuperior"></div>
                     <img class="cardMini-imagem" src="${p.imagem}" height="130px">
                     <div class="card-linhainferior"></div>
                     <div class="detalhes-info">
                         <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
                         <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
-                        <span class="detalhes-preco">Preço: ${p.preco}</span>
+                        <span class="detalhes-preco">Preço: ${p.preco.toFixed(2)}</span>
                     </div>
                     <button class="detalhes-botao">Comprar Novamente</button>
                 </div
@@ -72,7 +72,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
         });
 
         document.getElementById("popupMP-DataCompra").innerText = "Data da compra: " + produto.dataCompra;
-        document.getElementById("popupMP-Total").innerText = "Total: R$" +  totalCompra;
+        document.getElementById("popupMP-Total").innerText = "Total: R$" +  totalCompra.toFixed(2);
 
         //mostrar popup
         document.getElementById("popupMP").showModal();

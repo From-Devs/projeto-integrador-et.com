@@ -135,6 +135,11 @@
     text-decoration: underline;
 }
 
+.card-produtoMP .cardcoloridoCam .card-info .info-caminho .verMais:focus{
+    outline: none;
+    border: none;
+}
+
 
         /*Encerrou o card*/
 
@@ -231,21 +236,47 @@
 
 }
 
-.popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 15px 0;
+.popupMP .popupMP-conteudo .popupMP-main{
+    padding-bottom: 150px;
 }
 
+.popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
+    width: 60vw;
+    max-height: 60vh;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    overflow-y: auto;
+    border: none;
+}
+
+.popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos:focus{
+    outline: none;
+    border: none;
+}
+
+.popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos::-webkit-scrollbar{
+    width: 5px;                                                  /*scroll da área de produtos a caminho*/
+}
+
+.popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, 0.363);                                   /*style do scroll*/
+    border-radius: 10px;
+}
+
+                    /*-------área card-------*/
+
 .popupMP-main .popupMP-Produtos .cardMini {
-    position: relative;
-    width: 340px;
+    width: 320px;
     border-radius: 20px;
     border: none;
     box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
     transition: height 0.3s ease;
     overflow: visible;
+    position: relative;
     z-index: 0;
 }
 
@@ -255,7 +286,7 @@
     justify-content: center;
     align-items: center;
     padding: 12px 12px 12px 0;
-
+    margin-left: 0;
     height: 160px;
     cursor: pointer;
 }
@@ -265,6 +296,7 @@
     flex-direction: column;
     justify-content: center;
     text-align: left;
+    font-size: 16px;
 }
 
 .popupMP-main .popupMP-Produtos .cardMini .card-expandido{
@@ -276,7 +308,6 @@
     width: 100%;
     height: 380px;
     border-radius: 20px;
-    padding: 12px;
     animation: fadein 0.3s ease-in-out;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -290,9 +321,54 @@
     display: none;
 }
 .popupMP-main .popupMP-Produtos .cardMini:hover .card-expandido{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     opacity: 1;
+    margin-top: -20px;
 }
+
+.cardMini:hover .card-expandido .card-titulo{
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+.cardMini:hover .card-expandido .card-linhasuperior,
+.cardMini:hover .card-expandido .card-linhainferior{
+    width: 260px;
+    height: 1px;
+    background-color: rgb(0, 0, 0);
+}
+
+.cardMini:hover .card-expandido .detalhes-info{
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.cardMini:hover .card-expandido .detalhes-info .detalhes-titulo{
+    font-size: 14px;
+}
+
+.cardMini:hover .card-expandido .detalhes-info .detalhes-categoria{
+    font-size: 12px;
+}
+
+.cardMini:hover .card-expandido .detalhes-info .detalhes-preco{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.cardMini:hover .card-expandido .detalhes-botao{
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(202, 202, 202)
+}
+
 
 .popupMP .popupMP-conteudo .popupMP-inferior{
     display: flex;
