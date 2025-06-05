@@ -37,7 +37,7 @@
     <h2>Torne-se um(a) associado(a) ET!</h2>
     <p>Seja bem-vindo ao programa de marketing de associados da nossa empresa ETCOM. O Programa de Associados ETCOM ajuda vendedores, editores e blogueiros a monetizarem seus sites.</p>
     <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/sobreAssociado.php" class="azul">Saiba-mais...</a>
-    <a href="#" class="join-now">Associar-se</a>
+    <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/CadastroAssociado.php" class="join-now">Associar-se</a>
   </div>
   <div>
     <img  class="promo-image" src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/moça.png" alt="Promo Image">
@@ -163,7 +163,7 @@
             <img class="sej" src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/sej.png" alt="img">
             <img class="caixa_salmão" src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/Group 1000003753.png" usemap="#image-map">
             <map name="image-map">
-                <area target="" alt="" title="" href="" coords="1206,339,936,234" shape="rect">
+                <area target="" alt="" title="" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/CadastroAssociado.php" coords="1206,339,936,234" shape="rect">
             </map>
     </section>
         <?php
