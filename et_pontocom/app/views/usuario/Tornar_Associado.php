@@ -36,7 +36,7 @@
   <div class="promo-content">
     <h2>Torne-se um(a) associado(a) ET!</h2>
     <p>Seja bem-vindo ao programa de marketing de associados da nossa empresa ETCOM. O Programa de Associados ETCOM ajuda vendedores, editores e blogueiros a monetizarem seus sites.</p>
-    <a href="#" class="azul">Saiba-mais...</a>
+    <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/sobreAssociado.php" class="azul">Saiba-mais...</a>
     <a href="#" class="join-now">Associar-se</a>
   </div>
   <div>

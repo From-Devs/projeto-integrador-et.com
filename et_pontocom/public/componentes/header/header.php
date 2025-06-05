@@ -62,7 +62,7 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
                 <div class='botoes'>
                     <img class='lupaHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/lupa.png' alt=''>
                     <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/listaDeDesejos.php'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/coracao.png' alt=''></a>
-                    <a href='#'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/carrinho.png' alt=''></a>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/Meu_Carrinho.php'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/carrinho.png' alt=''></a>
                     <img class='perfilHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/perfil.png' alt=''>
                 </div>
                 <div class='menuConta'>
@@ -98,7 +98,7 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
                 <div class='botoes'>
                     <img class='lupaHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/lupa.png' alt=''>
                     <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/listaDeDesejos.php'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/coracao.png' alt=''></a>
-                    <a href='#'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/carrinho.png' alt=''></a>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/Meu_Carrinho.php'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/carrinho.png' alt=''></a>
                     <img class='perfilHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/perfil.png' alt=''>
                 </div>
                 <div class='menuConta'>
