@@ -57,19 +57,25 @@
         </section>
 
             <!-- PopUp mostrando todos os pedidos efetuados na compra -->
-        <div class="popUpMP" id="popUpMP">
-         <!--    <?php  
-            // echo PopUpConfirmar($id, $texto, $botao1 = "", $botao2 = "", $largura="auto", $corFundo="white", $corFonte="black", $tamanhoFonte="1.5rem")
-            ?>
-           <div class="conteudoPopUpMP">
-                <span class="fecharPopUpMP" onclick="fecharPopUp()">&times;</span>
-                <div class="popUpCardsMP" id="popUpCardsMP"></div>
-                <div class="detalhesPopUpMP">
-                    <span id="dataPedido" class="dataPedido"></span>
-                    <span id="totalPedido" class="totalPedido"></span>
+        <dialog class="popupMP" id="popupMP">
+            <div class="popupMP-conteudo">
+                <div class="popupMP-superior">
+                    <div class="popupMP-linhasuperior"></div>
+                    <div class='icone-fechar'>
+                        <button class='bx bx-x'></button>
+                    </div>
                 </div>
-            </div> 
-        </div> -->
+                <div class="popupMP-main">
+                    <div class="popupMP-Produtos" id="popupMP-Produtos"></div>
+                </div>
+                <div class="popupMP-inferior">
+                    <span class="popupMP-DataCompra" id="popupMP-DataCompra"></span>
+                    <span class="popupMP-Total" id="popupMP-Total"></span>
+                </div>
+                <div class="popupMP-linhainferior"></div>
+            </div>
+        </dialog>
+         
 
         <div class="linhaInferiorMP"></div>
     </div>
