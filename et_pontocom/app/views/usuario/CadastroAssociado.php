@@ -22,10 +22,12 @@
     <div class="Decoracao">
         <!-- Área preta -->
         <section>
-            <button id="voltarSair" onclick="history.back()">
-                <i class='fas fa-chevron-left'></i>
-                <p id="voltar" href="./paginaPrincipal.php">Voltar</p>          
-            </button> 
+            <div class="Voltar">
+                <a href="../usuario/sobreAssociado.php">
+            <img src="../../../public/imagens/cadastassoc/BotaoVoltar.png" alt="">
+            <p>voltar</p>
+                </a>
+            </div>
             <div class="wave wave1"></div>
         </section>
     </div>
@@ -69,7 +71,7 @@
     </div>
     </div>
     <?php $btt = botaoPersonalizadoRedirect("Voltar à Tela de início","btn-white","et_pontocom/app/views/usuario/paginaPrincipal.php");
-    echo PopUpComImagemETitulo("popup","img-pessoa.png","100px","Cadastro Enviado para Validação","Entraremos em contato via WhatsApp após validar",$btt);
+    echo PopUpComImagemETitulo("popup","popUp_Botoes/img-pessoa.png","100px","Cadastro Enviado para Validação","Entraremos em contato via WhatsApp após validar",$btt);
     ?>
     <script src="../../../public/componentes/popup/script.js"></script>
 </body>

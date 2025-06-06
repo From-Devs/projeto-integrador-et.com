@@ -69,17 +69,8 @@
     transition: 0.3s ease-in-out;
     pointer-events: none;
 }
-/* dados = div com todos os campos com excessão da foto */
-.dados {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-}
-/* Cadastro = parte branca no geral */
-.Cadastro {
-    display: flex;
-    width: 100%;
-    margin: 30px 0px 0px 100px;
-    align-items: center;
-    gap: 10px;
+@media (max-width: 1300px){
+    .organizacao {
+        width: 100%;
+    }
 }
