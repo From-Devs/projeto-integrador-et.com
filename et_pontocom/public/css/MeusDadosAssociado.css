@@ -1,14 +1,18 @@
-body{
+body {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
     background: #E6E6E6;
     overflow-x: hidden;
-    /* overflow-y: hidden; */
-    margin-left: 0;
-    padding: 0;
+    overflow-y: auto; /* permite scroll vertical */
+    display: flex;
+    flex-direction: column;
 }
 
 header{
     width: 100%;
-    height: 100%;
+    height: 170PX;
     background: #ffffff;
     color: #000;
     padding-top: 75px;
@@ -16,11 +20,12 @@ header{
     font-size: 30px;
     font-weight: bold;
 }
-.area-conteudo{
-    display: flex;
-    width: 1920px;
-    height: 1080px;
+.area-conteudo {
+    width: 100vw;
     background-color: #F0F0F0;
+    margin: 0 auto; /* centraliza horizontalmente */
+    display: flex;
+    min-height: calc(100vh - 170px); /* para garantir ocupação mínima */
 }
 .CardPrincipal{
     padding: 29px;
@@ -142,9 +147,6 @@ hr {
     font-size: 21px;
     font-weight: bold;
 }
-.none{
-    display: none;
-}
 /* modificaçao/editar */
 .moficasao {
     width: 1476px;
@@ -184,8 +186,6 @@ hr {
     border-radius: 8px;
     background-color: #F6F6F6;
     box-shadow: #0000003d 0px 3px 8px;
-    text-align: center;
-    align-self: center;
 }
 .Cardtexticones{
     width: 566px;
@@ -193,6 +193,16 @@ hr {
     border-radius: 8px;
     background-color: #F6F6F6;
     box-shadow: #0000003d 0px 3px 8px;
+}
+.Cardtexticones i {
+    padding: 40px;
+    margin-top: 19px;
+    margin-left: 10px;
+    font-size: 45px;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
 }
 .Cardtext p{
     padding-top: 15px;
@@ -214,5 +224,8 @@ hr {
     font-size: 30px;
 }
 
-/* ultima tela de hoje o sono ganho acho que vou desmaia */
+.none {
+    display: none;
+}
 
+/* ultima tela de hoje o sono ganho acho que vou desmaia */

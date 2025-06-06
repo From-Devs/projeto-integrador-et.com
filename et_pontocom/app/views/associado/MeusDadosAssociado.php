@@ -23,7 +23,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <?= createSidebarInterna(tipo_usuario: $tipo_usuario); ?>
@@ -35,7 +35,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 
         <div class="area-conteudo">
 
-            <div class="edisao">
+            <div class="edisao none">
                 <div class="moficasao">
                     <div class="pt1">
                         <div class="titulo"></div>
@@ -77,10 +77,11 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
                     </div>
                 </div>
             </div>
+            </div>
 
             <!-- perfi dados do usuario -->
-            <div class="perfil-Meus-dados none">
-                <div class="moficasao ">
+            <div class="perfil-Meus-dados">
+                <div class="moficasao none">
                     <div class="perfil-dados">
                         <p>Perfil</h1>
                         <div class="foto">
@@ -91,24 +92,25 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
                     <div class="card-perfil">
                         <div class="form-group">
                             <div class="titulo-form"><p>Nome</p></div>
-                            <div class="Cardtext"></div>
+                            <div class="Cardtext"><p>felipe</p></div>
                         </div>
                         <div class="form-group">
                             <div class="titulo-form"><p>Gmail</p></div>
-                            <div class="Cardtext"><p>dsfhdsgjhfdsjkdgkjsgkf</p></div>
+                            <div class="Cardtext"><p>felipeNento@Gmail.com</p></div>
                         </div>
                         <div class="form-group">
                             <div class="titulo-form"><p>CPF</p></div>
-                            <div class="Cardtext"><p>e9w890r8w90r809w</p></div>
+                            <div class="Cardtext"><p>980-678-657-23</p></div>
                         </div>
                         <!-- // icones pls pode por chat aquele que voce ja tinha feito -->
                         <div class="form-group">
                             <div class="titulo-form"><p>icone</p></div>
                             <div class="Cardtexticones">
-                                <i class="bi bi-instagram"></i>
-                                <i class="bi bi-facebook"></i>
-                                <i class="bi bi-whatsapp"></i>
-                                <i class="bi bi-linkedin"></i>
+                                <i class='bx-fw bxl bx-facebook-square'></i>
+                                <i class='bx-fw bxl bx-facebook-square'></i>
+                                <i class='bx-fw bxl bx-facebook-square'></i>
+                                <i class='bx-fw bxl bx-facebook-square'></i>
+                                <i class='bx-fw bxl bx-facebook-square'></i>
                             </div>
                         </div>
                     </div>
@@ -117,7 +119,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
             </div>
 
             <!-- meus Dados pricipal -->
-            <div class="Conteudos none">
+            <div class="Conteudos">
                 <div class="CardPrincipal">
                     <h1>Perfil
                         <div class="icon">
@@ -140,7 +142,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
                     </div>
                 <?php endfor; ?>
             </div>
-            <div class="CardDados none">
+            <div class="CardDados">
                 <div class="bnt-Editar">
                     <h1>Editar</h1>
                 </div>
@@ -163,5 +165,48 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
             </div>
         </div>
     </div><!--fim Principal -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleciona os botões pelas classes e estruturas existentes
+    const btnEditar = document.querySelector('.bnt-Editar'); // Botão Editar (div com h1)
+    const btnPerfil = document.querySelector('.CardPrincipal h1'); // Botão Perfil (h1 dentro do CardPrincipal)
+    const btnFecharPerfil = document.querySelector('.perfil-Meus-dados .x'); // Botão X para fechar perfil
+
+    // Áreas de conteúdo
+    const areaMeusDados = document.querySelector('.Conteudos');
+    const areaPerfil = document.querySelector('.perfil-Meus-dados');
+    const areaEdicao = document.querySelector('.edisao');
+
+    // Função para esconder todas as áreas
+    function esconderTodas() {
+        areaMeusDados.classList.add('none');
+        areaPerfil.classList.add('none');
+        areaEdicao.classList.add('none');
+    }
+
+    // Clicar em "Perfil" (título no CardPrincipal)
+    btnPerfil.addEventListener('click', () => {
+        esconderTodas();
+        areaPerfil.classList.remove('none');
+    });
+
+    // Clicar em "Editar"
+    btnEditar.addEventListener('click', () => {
+        esconderTodas();
+        areaEdicao.classList.remove('none');
+    });
+
+    // Clicar em "X" no perfil
+    btnFecharPerfil.addEventListener('click', () => {
+        esconderTodas();
+        areaMeusDados.classList.remove('none');
+    });
+
+    // Mostrar a tela "Meus Dados" por padrão
+    esconderTodas();
+    areaMeusDados.classList.remove('none');
+});
+</script>
+
 </body>
 </html>
