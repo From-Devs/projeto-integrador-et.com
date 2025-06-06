@@ -2,11 +2,12 @@
 {
     margin: 0;
     padding: 0;
-    font-family: "Inter", serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 #container{
     display: flex;
+    height: 100vh;
 }
 
 /* PARTE BRANCA (ESQUERDA) */
@@ -19,13 +20,11 @@
     flex-direction: column;
     background-color: white;
     width: 100%; 
-    height: 100%; 
 }
 
 #bemVindo
 {   
-    margin-top: 155px;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
     font-size: 50px;
     font-weight: bolder;
 }
@@ -42,10 +41,13 @@ hr
 
 #esqueciSenha
 {   
-    margin: 10px 0px 10px 230px;
+    width: 100%;
     color: black;
     text-decoration: none;
     font-weight: bolder;
+    text-align: end;
+    margin-top: 20px;
+    font-size: 18px;
 }
 
 #botaoEntrar
@@ -59,14 +61,15 @@ hr
     border-radius: 12px;
     margin-top: 40px;
     cursor: pointer;
-    transition: transform 0.1s ease-in-out; /* Suaviza o aumento */
+    transition: transform 0.2s ease-in-out; /* Suaviza o aumento */
 
 }
 
 #cadastro
 {
     display: flex;
-    margin-top: 50px;
+    margin-top: 20px;
+    font-size: 18px;
 }
 
 #cadastroClique
@@ -79,37 +82,55 @@ hr
 
 #voltarSair
 {
+    position: fixed;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 120px 800px 0px 0px;
+    top: 32px;
+    font-size: 20px;
+    left: 42px;
+    gap: 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    padding: 8px;
 }
 
 #voltar
-{
+{   
+    font-weight: 600;
     text-decoration: none;
     color: black;
-    
 }
 
 /* PARTE PRETA (DIREITA) */
 
 #fotoET
 {
-    margin: 200px;
+    margin-left: 64px;
+    height: 490px;
 }
 
 
 /* PARTE DA ANIMACAO DOS INPUTS */
 
-form
-{
-    width: 100%;
-    max-width: 350px;
-    padding: 2%;
+.formContainer{
+    display: flex;
+    flex-direction: column;
 }
 
-.email-input, .senha-input
+form
+{
+    width: 460px;
+    box-sizing: border-box;
+}
+
+.email-input
+{
+    position: relative;
+    font-weight: bolder;
+}
+
+.senha-input
 {
     position: relative;
     margin-top: 60px;
@@ -123,7 +144,9 @@ form
     left: 0;
     color: black;
     cursor: text;
-    transition: 0.5s ease-in-out;
+    transition: 0.2s ease-in-out;
+    font-size: 20px;
+    pointer-events: none;
 }
 
 .input
@@ -133,9 +156,10 @@ form
     border: 0;
     border-bottom: 2px solid black;
     outline: 0;
-    font-size: 15px;
+    font-size: 20px;
     color: black;
     transition: 0.5s ease-in-out;
+    box-sizing: border-box;
 }
 
 .input:focus,
@@ -147,47 +171,46 @@ form
 .input:focus ~ label,
 .input:valid ~ label
 {
-    transform: translateY(-24px);
-    font-size: 15px;
+    transform: translateY(-28px);
+    font-size: 16px;
     color: black;
 }
 
 /* PARTE DA ANIMACAO DO BOTAO */
+
+#botaoEntrar:hover{
+    transform: scale(1.05);
+}
 
 
 /* PARTE DA ANIMACAO DA ONDA */
 
 section
 {   
+    display: flex;
     position: relative;
-    width: 100%;
+    width: 110%;
     height: 100vh;
     background-color: black;
     overflow: hidden;
+    justify-content: center;
+    align-items: center;
 
 }
 
 section .wave
 {
     position: fixed;
-    top: 45%;
-    left: 2%;
+    left: -2%;
     width: 100%;
-    height: 100px;
-    background: url(/projeto-integrador-et.com/et_pontocom/public/imagens/icones/wave.png);
-    background-size: 1000px 100px;
-    transform: rotate(90deg) scaleX(-1);
-}
-
-section .wave.wave1
-{
-    top: 0;
+    height: 120px;
+    background: url(../imagens/ondas/ondaSolida.png);
+    background-size: 1000px 120px;
+    transform: rotate(90deg) /*scaleX(-1)*/;
     animation: animacao 10s linear infinite;
     z-index: 1000;
     opacity: 1;
     animation-delay: 0s;
-
-
 }
 
 @keyframes animacao

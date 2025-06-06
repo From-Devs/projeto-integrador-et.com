@@ -2,19 +2,28 @@
 {
     margin: 0;
     padding: 0;
-    font-family: "Inter", serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
 }
 
 /* Configuranção do componetes*/
-body {
-    background-color: #ffffff;
+
+.container{
     display: flex;
-    height: 950px;
+}
+
+.parteBranca{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo{
-    width: 100px;
+    position: fixed;
+    bottom: 32px;
+    left: 32px;
     height: 100px;
 }
 
@@ -22,9 +31,7 @@ body {
     text-align: left;
 }
 
-.container {
-    width: 70%;
-    margin: 100px 160px 100px 40px;
+.containerForm {
     padding: 20px;
 }
 
@@ -39,7 +46,7 @@ form{
 .id{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr ;
     row-gap: 30px; 
     column-gap: 270px;
     width: 100%;
@@ -69,13 +76,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .campo-campo-container input {
-    width: 450px;
+    width: 460px;
     padding: 5px;
     font-size: 20px;
     border: none;
     border-bottom: 2px solid black;
     outline: none;
     background: transparent;
+    box-sizing: border-box;
+    font-weight: 400;
 }
 
 .campo-campo-container input[type="date"]:not(:valid) {
@@ -87,16 +96,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     left: 0px;
     top: 10px;
     font-size: 20px;
-    
     color: rgb(0, 0, 0);
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
     pointer-events: none;
 }
 
 .campo-campo-container input:focus + label,
 .campo-campo-container input:valid + label {
     top: -15px;
-    font-size: 14px;
+    font-size: 16px;
     color: black;
 }
 
@@ -115,11 +123,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .low {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 0px;
-    column-gap: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .checkbox {
@@ -127,28 +135,35 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     text-align: left;
     padding: 0%;
     height: 20px;
-    margin: 20px 0px 0px 0px;
+    margin-top: 20px;
+    align-items: center;
+    gap: 8px;
 }
 
 .checkbox input[type=checkbox] {
-    width: 15px;
-    height: 15px;
-    margin: 0px;
+    width: 22px;
+    height: 22px;
+    margin-bottom: 4px;
 }
 
 .termos {
     height: 25px;
 }
 
-button {
+.botaoConfirmar {
     background-color: black;
     color: white;
-    width: 200px;
+    width: 420px;
     height: 60px;
-    font-size: 30px; 
+    font-size: 20px;
+    font-weight: bolder;
     border-radius: 12px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+}
+
+.botaoConfirmar:hover {
+    transform: scale(1.05);
 }
 
 
@@ -160,26 +175,31 @@ button {
 /*Botão Voltar*/
 
 
-.voltarSair {
+#voltarSair{
+    position: fixed;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 120px 800px 0px 0px;
-    
+    top: 32px;
+    font-size: 20px;
+    left: 42px;
+    gap: 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    padding: 8px;
 }
 
-#voltar{
+#voltar{   
+    font-weight: 600;
     text-decoration: none;
     color: black;
 }
-
-
 
 /*Ondas*/
 section
 {   
     position: relative;
-    width: 100%;
+    width: 20%;
     height: 100vh;
     background-color: black;
     overflow: hidden;
@@ -189,11 +209,10 @@ section
 section .wave
 {
     position: fixed;
-    top: 45%;
     left: 32%;
     width: 100%;
     height: 100px;
-    background: url(/projeto-integrador-et.com/et_pontocom/public/imagens/icones/wave.png);
+    background: url(../imagens/ondas/ondaSolida.png);
     background-size: 1000px 100px;
     transform: rotate(90deg) scaleX(-1);
 }
@@ -247,19 +266,16 @@ section .wave.wave1
         align-items: center;
     }
 
-    .button {
+    .botaoConfirmar {
         margin-top: 20px;
+        width: 100%;
+        font-size: 24px;
+        height: 50px;
     }
 
     .voltarSair {
         margin: 40px auto 0;
         justify-content: flex-start;
-    }
-
-    button {
-        width: 100%;
-        font-size: 24px;
-        height: 50px;
     }
 
 }
