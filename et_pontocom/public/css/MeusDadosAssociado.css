@@ -1,148 +1,231 @@
-* {
+body {
+    width: 100vw;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    height: 100%;
-    overflow: hidden;
-}
-
-main {
-    height: 100vh;
-    background-color: #ECECEC;
-    margin-left: 287px;
-}
-
-.main_header .perfil {
+    background: #E6E6E6;
+    overflow-x: hidden;
+    overflow-y: auto; /* permite scroll vertical */
     display: flex;
-    justify-content: flex-end;
-    background-color: black;
-    color: azure;
-    position: absolute;
-    right: 0;
-    width: 200px;
-    height: 103px;
-    top: 42px;
-    border-top-left-radius: 200px;
-    border-bottom-left-radius: 200px;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
+    flex-direction: column;
 }
 
-.main_header {
-    height: 200px;
-    background-color: #F8F8F8;
+header{
+    width: 100%;
+    height: 170PX;
+    background: #ffffff;
+    color: #000;
+    padding-top: 75px;
+    padding-left: 365px;
+    font-size: 30px;
+    font-weight: bold;
 }
-
-.main_header h1 {
-    font-size: 26px;
-    padding-top: 92px;
-    padding-left: 60px;
-}
-
-.main_fundo {
-    height: 100vh;
+.area-conteudo {
+    width: 100vw;
+    background-color: #F0F0F0;
+    margin: 0 auto; /* centraliza horizontalmente */
     display: flex;
+    min-height: calc(100vh - 170px); /* para garantir ocupação mínima */
+}
+.CardPrincipal{
+    padding: 29px;
+    padding-top: 49px;
+    margin-left: 434px;
+    margin-top: 70px;
+    width: 470px;
+    height: 454px;
+    border-radius: 16px;
+    background-color: #FDFDFD;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.user-dados{
+    margin-top: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
-
-.quadrado {
-    display: flex;
-    justify-content: space-between;
-    box-shadow: black 3px 0 0 10;
-    height: 760px;
-    border-radius: 20px;
-    width: 1434px;
-    padding-right: -75px;
-    position: relative;
-    bottom: 40px;
-    background-color: rgb(245, 241, 241);
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
+.CardPrincipal .img img{
+    width:  195px;
+    height: 195px;
+    border-radius: 50%;
+    border: #000 solid 2px;
 }
 
-.hidde {
+.user {
+    margin-top: 33px;
+    font-size: 19px;
+}
+
+.CardPrincipal h1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 35px;
+    font-family: sans-serif;
+    margin: 0;
+}
+.CardPrincipal .icon img{
+    height: 40px;
+    width: 42px;
+}
+.CardPrincipal .icon{
+    margin-top: -8px;
+    margin-right: -4px;
+}
+
+/* DO ELIEL */
+.CardFilho{
+    margin-left: 434px;
+    margin-top: 7px;
+    width: 470px;
+    height: 54px;
+    border-radius: 16px;
+    background-color: #FDFDFD;
+    box-shadow: #0000003d 0px 3px 8px;
+}
+.CardFilho  {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    padding-left: 23px;
+    padding-top: 14px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.CardFilho i {
+    font-size: 45px;
+}
+.h0{
+    margin-bottom: 9px;
+    align-items: center;
+    font-size: larger;
+}
+.CardDados{
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+    width: 100%;
+    margin: 50px;
+    gap: 32px;
+}
+.bnt-Editar{
+    justify-content: center;
+    align-items: center;
+    color: #F0F0F0;
+    font-size: small;
+    margin-bottom: 30px;
+    display: flex;
+    align-self: end;
+    width: 154px;
+    height: 51px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+.CardPrimos{
+    padding: 15px;
+    margin-left: 70px;
+    height: 102px;
+    width: 784px;
+    border-radius: 15px;
+    background-color: #FEFEFE;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+}
+hr {
+    justify-self: center;
+    width: 300px;
+}
+
+.CardPrimos #UserDados{
+    padding: 3px;
+    margin-top: 20px;
+    text-align: center;
+}
+.CardPrimos #usertitulo{
+    font-size: 21px;
+    font-weight: bold;
+}
+/* modificaçao/editar */
+.moficasao {
+    width: 1476px;
+    height: 841px;
+    border-radius: 15px;
+    margin-left: 410px;
+    background-color: #FDFDFD;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+.perfil-dados{
+    width: 500px;
+    height: 100%;
+    display: flex;
+}
+.perfil-dados p {
+    margin: 20px;
+    font-size: 34px;
+    font-weight: bold;
+}
+.perfil-dados .foto img{
+    margin-top: 45px;
+    width: 458px;
+    height: 458px;
+    border-radius:50%;
+}
+.card-perfil{
+    margin-top: 85px;
+    width: 480px;
+    height: 100%;
+}
+
+.Cardtext{
+    width: 566px;
+    height: 47px;
+    border-radius: 8px;
+    background-color: #F6F6F6;
+    box-shadow: #0000003d 0px 3px 8px;
+}
+.Cardtexticones{
+    width: 566px;
+    height: 95px;
+    border-radius: 8px;
+    background-color: #F6F6F6;
+    box-shadow: #0000003d 0px 3px 8px;
+}
+.Cardtexticones i {
+    padding: 40px;
+    margin-top: 19px;
+    margin-left: 10px;
+    font-size: 45px;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.Cardtext p{
+    padding-top: 15px;
+    font-size: 15px;
+}
+.titulo-form{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.x{
+    width: 30px;
+    height: 100%;
+}
+.x {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.none {
     display: none;
 }
 
-.user-img {
-    display: flex;
-    width: 550px;
-    height: 550px;
-    margin: 25px;
-    user-select: none;
-}
-
-.user-img h1 {
-    font-size: 30px;
-    margin-left: 10px;
-    color: #000;
-}
-
-.user-img img {
-    margin-top: 40px;
-    width: 437px;
-    height: 430px;
-    border-radius: 51%;
-    border: 2px black solid;
-}
-
-.user-dados {
-    margin-top: 40px;
-    height: 500px;
-    width: 450px;
-}
-
-.user-Letra h1 {
-    margin-top: 10px;
-    font-size: 24px;
-    margin-top: 20px;
-}
-
-.user_Box {
-    margin-top: 20px;
-    font-size: 18px;
-    text-align: center;
-    height: 58px;
-    width: 100%;
-    border-radius: 8px;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
-    background-color: #F6F6F6;
-}
-
-.icones {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    font-size: 40px;
-    text-align: center;
-    height: 70px;
-    width: 100%;
-    border-radius: 8px;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.555));
-    background-color: #F6F6F6;
-}
-
-.Texto {
-    padding-top: 12px;
-}
-
-.icone {
-    padding-top: 15px;
-}
-
-.menor {
-    height: 47px;
-    width: 100%;
-}
-
-.exit {
-    font-size: 40px;
-}
-/* user pefil principal */
-#quadrado-perfil{
-    height: 470px;
-    width: 454px;
-    background-color: red;
-}
+/* ultima tela de hoje o sono ganho acho que vou desmaia */
