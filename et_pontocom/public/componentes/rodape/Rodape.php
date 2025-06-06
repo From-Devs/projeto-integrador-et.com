@@ -48,10 +48,10 @@ function createRodape($tipo = 0){
                             Torne-se um Associado
                         </h1>
                         <div class="ColunsLine">
-                            <a href="" class="CategoriaLink">
+                            <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/sobreAssociado.php" class="CategoriaLink">
                                 Sobre
                             </a>
-                            <a href="" class="CategoriaLink">
+                            <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Tornar_Associado.php" class="CategoriaLink">
                                 Tornar-se Agora
                             </a>
                         </div>
