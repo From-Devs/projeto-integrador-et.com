@@ -9,7 +9,7 @@
                 </div>
                 <div class="carouselProdutoBottom">
                     <p class="carouselProdutoPreco">R$ 00.00</p>
-                    <a class="carouselProdutoMaisDetalhes" href="">CLIQUE PARA VER MAIS DETALHES</a>
+                    <a class="carouselProdutoMaisDetalhes" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php">CLIQUE PARA VER MAIS DETALHES</a>
                 </div>
             </div>
             <div class="frameImagemCarousel"></div>
