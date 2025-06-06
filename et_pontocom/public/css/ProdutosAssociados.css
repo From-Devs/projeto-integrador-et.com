@@ -330,10 +330,6 @@ html, body {
     flex-direction: column;
 }
 
-#container {
-    overflow-y: auto;
-}
-
 #tabelaVendas {
     width: 100%;
     border-collapse: collapse;
@@ -370,10 +366,10 @@ tr {
 }
 
 .tabela-body {
+    max-height: 620px;
     max-width: 100vw;
-    height: 100%;
-    overflow-x: hidden;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .tabela-body::-webkit-scrollbar {

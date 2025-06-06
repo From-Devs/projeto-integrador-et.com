@@ -28,29 +28,33 @@
 
 <body>
 
-    <?php
-        echo createSidebarInterna($tipo_usuario);
-    ?>
+    <div>
+        <?php
+            echo createSidebarInterna($tipo_usuario);
+        ?>
+    </div>
 
     <!-- aqui acaba o container esquerda -->
     <div id="container">
-        <div id="controleIcon">
-            <div id="iconUsuario">
-                <img id="fotoUser" src="../../../public/imagens/imagensADM/userIMG.png" alt="userIMG">
-                <p id="textUser">ADM ET</p>
+        <div class="container-filtroEIcon">
+            <div id="controleIcon">
+                <div id="iconUsuario">
+                    <img id="fotoUser" src="../../../public/imagens/imagensADM/userIMG.png" alt="userIMG">
+                    <p id="textUser">ADM ET</p>
+                </div>
             </div>
-        </div>
-        <div id="divPesquisarEFiltro">
-            <div id="pesquisar">
-                <form action="">
-                    <input id="inputPesquisar" type="text" placeholder="Pesquisar Pedido...">
-                </form>
-            </div>
-            <div id="filtro">
-                <button id="botaoFiltragem">
-                    <p>Filtros</p>
-                    <img id="imagemFiltro" src="../../../public/imagens/imagensADM/filtro.png" alt="filtro">
-                </button>
+            <div id="divPesquisarEFiltro">
+                <div id="pesquisar">
+                    <form action="">
+                        <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
+                    </form>
+                </div>
+                <div id="filtro">
+                    <button id="botaoFiltragem">
+                        <p>Filtros</p>
+                        <img id="imagemFiltro" src="../../../public/imagens/imagensADM/filtro.png" alt="filtro">
+                    </button>
+                </div>
             </div>
         </div>
         <div id="titulo">
