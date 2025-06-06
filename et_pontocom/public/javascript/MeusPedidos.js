@@ -71,7 +71,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                             <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
                             <span class="detalhes-preco">Preço: R$${p.preco.toFixed(2)}</span>
                         </div>
-                        <button class="detalhes-botao">Comprar Novamente</button>
+                        <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Meu_Carrinho.php" class="detalhes-botao">Comprar Novamente</a>
                     </div>
                 `;
 
