@@ -26,7 +26,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
 </head>
 <body>
-    <?= createSidebarInterna($tipo_usuario); ?>
+    <?= createSidebarInterna(tipo_usuario: $tipo_usuario); ?>
 
     <div class="container-principal">
         <header>
@@ -34,41 +34,89 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
         </header>
 
         <div class="area-conteudo">
-            <div class="moficasao">
-                <div class="perfil-dados">
-                    <p>Perfil</h1>
-                    <div class="foto">
-                        <img src="https://preview.redd.it/which-meme-image-of-joker-is-going-to-be-turned-into-a-v0-qgt2ljdpsbzc1.jpg?width=640&crop=smart&auto=webp&s=58b0fbeed2d91a608cf2507d5575f7dd8ea65e19" alt="Perfil">                    
-                    </div>    
-                </div>    
 
-                <div class="card-perfil">
-                    <div class="form-group">
-                        <div class="titulo-form"><p>Nome</p></div>
-                        <div class="Cardtext"></div>
+            <div class="edisao">
+                <div class="moficasao">
+                    <div class="pt1">
+                        <div class="titulo"></div>
+                        <div class="cards">
+                            <div class="card-edit">
+                                <h1>drgdgrdgdr</h1>
+                                <input type="text">
+                            </div>
+                        <div class="cards">
+                            <div class="card-edit">
+                                <h1>rdgdgdg</h1>
+                                <input type="text">
+                            </div>
+                            <div class="card-edit">
+                                <h1>rdgdrgdgrf</h1>
+                                <input type="text">
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <div class="titulo-form"><p>Gmail</p></div>
-                        <div class="Cardtext"><p>dsfhdsgjhfdsjkdgkjsgkf</p></div>
-                    </div>
-                    <div class="form-group">
-                        <div class="titulo-form"><p>CPF</p></div>
-                        <div class="Cardtext"><p>e9w890r8w90r809w</p></div>
-                    </div>
-                    <!-- // icones pls pode por chat aquele que voce ja tinha feito -->
-                    <div class="form-group">
-                        <div class="titulo-form"><p>icone</p></div>
-                        <div class="Cardtexticones">
-                            <i class="bi bi-instagram"></i>
-                            <i class="bi bi-facebook"></i>
-                            <i class="bi bi-whatsapp"></i>
-                            <i class="bi bi-linkedin"></i>
+                    <div class="linha"></div>
+                    <div class="pt2">
+                        <div class="cards">
+                            <div class="card-edit">
+                                <h1>srdgedrg</h1>
+                                <input type="text">
+                            </div>
+                            <div class="card-edit">
+                                <h1>rdgdgdrg</h1>
+                                <input type="text">
+                            </div>
+                            <div class="log">
+                                <img src="" alt="log">
+                            </div>
+                            <div class="buttons">
+                                <button type="button" id="can">cancelar</button>
+                                <button type="button" id="con">comfirma</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="x">X</div>
-            </div>    
-            
+            </div>
+
+            <!-- perfi dados do usuario -->
+            <div class="perfil-Meus-dados none">
+                <div class="moficasao ">
+                    <div class="perfil-dados">
+                        <p>Perfil</h1>
+                        <div class="foto">
+                            <img src="https://preview.redd.it/which-meme-image-of-joker-is-going-to-be-turned-into-a-v0-qgt2ljdpsbzc1.jpg?width=640&crop=smart&auto=webp&s=58b0fbeed2d91a608cf2507d5575f7dd8ea65e19" alt="Perfil">                    
+                        </div>    
+                    </div>    
+
+                    <div class="card-perfil">
+                        <div class="form-group">
+                            <div class="titulo-form"><p>Nome</p></div>
+                            <div class="Cardtext"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="titulo-form"><p>Gmail</p></div>
+                            <div class="Cardtext"><p>dsfhdsgjhfdsjkdgkjsgkf</p></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="titulo-form"><p>CPF</p></div>
+                            <div class="Cardtext"><p>e9w890r8w90r809w</p></div>
+                        </div>
+                        <!-- // icones pls pode por chat aquele que voce ja tinha feito -->
+                        <div class="form-group">
+                            <div class="titulo-form"><p>icone</p></div>
+                            <div class="Cardtexticones">
+                                <i class="bi bi-instagram"></i>
+                                <i class="bi bi-facebook"></i>
+                                <i class="bi bi-whatsapp"></i>
+                                <i class="bi bi-linkedin"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x">X</div>
+                </div>    
+            </div>
+
+            <!-- meus Dados pricipal -->
             <div class="Conteudos none">
                 <div class="CardPrincipal">
                     <h1>Perfil
