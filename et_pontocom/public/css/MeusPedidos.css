@@ -43,7 +43,18 @@
 
 
 
-/*_________Área de pedidos a caminho________*/
+
+
+
+
+
+
+
+
+
+
+
+/*_________________________________ÁREA DE PEDIDOS A CAMINHO_____________________________*/
 .conteudoMeusPedidos .pedidoCaminhoMP{
     display: flex;
     flex-direction: column;
@@ -54,8 +65,6 @@
     font-size: 38px;
     font-weight: 600;
 }
-
-        /*Nessa área é o que será acrescentado pelo javascript*/
 
 .pedidoCaminhoMP #produtosCaminho{
     margin-top: 7px;
@@ -140,10 +149,247 @@
     outline: none;
     border: none;
 }
-        /*Encerrou o card*/
+
+    /*______________Pop-up Meus Pedidos________________*/
+
+    .conteudoMeusPedidos .popupMP{
+        border: none;
+        background: transparent;
+        animation: fadein 0.5s ease-in-out forwards;
+        font-family: "Montserrat", sans-serif;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 80vw;
+        height: 90vw;
+        padding: 2rem;
+        border-radius: 10px;
+        overflow: auto;
+    }
+
+    .conteudoMeusPedidos .popupMP::backdrop{
+        background-color: rgba(121, 121, 121, 0.5);
+    }
+
+    .popupMP .popupMP-conteudo{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        height: 90vh;
+        padding: 15px;
+        border-radius: 20px;
+        border: none;
+        box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
+        background-color: white;
+    }
+
+    .popupMP .popupMP-conteudo .popupMP-superior{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: fixed;
+        top: 100px;
+    }
+
+    .popupMP-superior .popupMP-linhasuperior{
+        align-items: center;
+        min-width: 60vw;
+        height: 1px;
+        background: linear-gradient(to right, rgb(255,255,255), rgba(0, 0, 0, 0.144), rgba(0, 0, 0, 0.76), rgb(0,0,0), rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.144), rgb(255,255,255));
+        margin-left:6vw;
+    }
+        
+    .popupMP-superior .bx-x{
+        font-size: 30px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        margin-left: 2vw;
+
+    }
+
+    .popupMP .popupMP-conteudo .popupMP-main{
+        padding-bottom: 150px;
+    }
+
+    .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
+        width: 60vw;
+        max-height: 60vh;
+        margin-top: 100px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        overflow-y: auto;
+        border: none;
+    }
+
+    .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos:focus{
+        outline: none;
+        border: none;
+    }
+
+    .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos::-webkit-scrollbar{
+        width: 5px;                                                  /*scroll da área de produtos a caminho*/
+    }
+
+    .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos::-webkit-scrollbar-thumb{
+        background-color: rgba(0, 0, 0, 0.363);                                   /*style do scroll*/
+        border-radius: 10px;
+    }
+
+                        /*-------área mini card-------*/
+        .popupMP-main .popupMP-Produtos .cardMini {
+            width: 320px;
+            border-radius: 20px;
+            border: none;
+            box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
+            transition: height 0.3s ease;
+            overflow: visible;
+            position: relative;
+            z-index: 0;
+        }
+
+        .popupMP-main .popupMP-Produtos .cardMini .card-recolhido{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 12px 12px 0;
+            margin-left: 0;
+            height: 160px;
+            cursor: pointer;
+        }
+
+        .popupMP-main .popupMP-Produtos .cardMini .card-recolhido .cardMini-infos{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        .popupMP-main .popupMP-Produtos .cardMini .card-expandido{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            height: 380px;
+            border-radius: 20px;
+            animation: fadein 0.3s ease-in-out;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .popupMP-main .popupMP-Produtos .cardMini:hover{
+            height: 380px;
+            z-index: 20;
+        }
+
+        .popupMP-main .popupMP-Produtos .cardMini:hover .card-recolhido{
+            display: none;
+        }
+
+        .popupMP-main .popupMP-Produtos .cardMini:hover .card-expandido{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            opacity: 1;
+            margin-top: -20px;
+        }
+
+        .cardMini:hover .card-expandido .card-titulo{
+            font-size: 16px;
+            margin-top: 40px;
+        }
+
+        .cardMini:hover .card-expandido .card-linhasuperior,
+        .cardMini:hover .card-expandido .card-linhainferior{
+            width: 260px;
+            height: 1px;
+            background-color: rgb(0, 0, 0);
+        }
+
+        .cardMini:hover .card-expandido .detalhes-info{
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .cardMini:hover .card-expandido .detalhes-info .detalhes-titulo{
+            font-size: 14px;
+        }
+
+        .cardMini:hover .card-expandido .detalhes-info .detalhes-categoria{
+            font-size: 12px;
+        }
+
+        .cardMini:hover .card-expandido .detalhes-info .detalhes-preco{
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .cardMini:hover .card-expandido .detalhes-botao{
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: none;
+            background-color: rgb(202, 202, 202);
+            font-size: 13px;
+            text-decoration: none;
+            color: black;
+        }
+                    /*-------fora mini card-------*/
+
+    .popupMP .popupMP-conteudo .popupMP-inferior{
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        bottom: 160px;
+        gap: 50vw;
+    }
+
+    .popupMP-inferior .popupMP-DataCompra{
+        font-size: 13px;
+    }
+
+    .popupMP-inferior .popupMP-Total{
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .popupMP .popupMP-conteudo .popupMP-linhainferior{
+        align-items: center;
+        min-width: 60vw;
+        height: 1px;
+        background: linear-gradient(to right, rgb(255,255,255), rgba(0, 0, 0, 0.144), rgba(0, 0, 0, 0.76), rgb(0,0,0), rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.144), rgb(255,255,255));
+        bottom: 120px;
+        position: fixed;
+    }
 
 
-/*_________Área de pedidos entregues________*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*_________________________________ÁREA DE PEDIDOS ENTREGUES_______________________________*/
 .conteudoMeusPedidos .pedidosEntreguesMP{
     display: flex;
     flex-direction: column;
@@ -155,8 +401,6 @@
     font-weight: 600;
 }
 
-        /*Nessa área é o que será acrescentado pelo javascript*/
-
 .pedidosEntreguesMP #produtosEntregues{
     margin-top: 7px;
     width: 155vh;
@@ -166,6 +410,15 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(48vh,1fr));
     gap: 40px;
+}
+
+.pedidosEntreguesMP #produtosEntregues::-webkit-scrollbar{
+    width: 5px;                                                  /*scroll da área de produtos a caminho*/
+}
+
+.pedidosEntreguesMP #produtosEntregues::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, 0.363);                                   /*style do scroll*/
+    border-radius: 10px;
 }
 
 
@@ -187,226 +440,3 @@
 
 
 
-/*______________Pop-up Meus Pedidos________________*/
-
-.conteudoMeusPedidos .popupMP{
-    border: none;
-    background: transparent;
-    animation: fadein 0.5s ease-in-out forwards;
-    font-family: "Montserrat", sans-serif;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 80vw;
-    height: 90vw;
-    padding: 2rem;
-    border-radius: 10px;
-    overflow: auto;
-}
-
-.conteudoMeusPedidos .popupMP::backdrop{
-    background-color: rgba(121, 121, 121, 0.5);
-}
-
-.popupMP .popupMP-conteudo{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    height: 90vh;
-    padding: 15px;
-    border-radius: 20px;
-    border: none;
-    box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
-    background-color: white;
-}
-
-.popupMP .popupMP-conteudo .popupMP-superior{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: fixed;
-    top: 100px;
-}
-
-.popupMP-superior .popupMP-linhasuperior{
-    align-items: center;
-    min-width: 60vw;
-    height: 1px;
-    background: linear-gradient(to right, rgb(255,255,255), rgba(0, 0, 0, 0.144), rgba(0, 0, 0, 0.76), rgb(0,0,0), rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.144), rgb(255,255,255));
-    margin-left:6vw;
-}
-    
-.popupMP-superior .bx-x{
-    font-size: 30px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    margin-left: 2vw;
-
-}
-
-.popupMP .popupMP-conteudo .popupMP-main{
-    padding-bottom: 150px;
-}
-
-.popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
-    width: 60vw;
-    max-height: 60vh;
-    margin-top: 100px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    overflow-y: auto;
-    border: none;
-}
-
-.popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos:focus{
-    outline: none;
-    border: none;
-}
-
-.popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos::-webkit-scrollbar{
-    width: 5px;                                                  /*scroll da área de produtos a caminho*/
-}
-
-.popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos::-webkit-scrollbar-thumb{
-    background-color: rgba(0, 0, 0, 0.363);                                   /*style do scroll*/
-    border-radius: 10px;
-}
-
-                    /*-------área card-------*/
-
-.popupMP-main .popupMP-Produtos .cardMini {
-    width: 320px;
-    border-radius: 20px;
-    border: none;
-    box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
-    transition: height 0.3s ease;
-    overflow: visible;
-    position: relative;
-    z-index: 0;
-}
-
-.popupMP-main .popupMP-Produtos .cardMini .card-recolhido{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 12px 12px 0;
-    margin-left: 0;
-    height: 160px;
-    cursor: pointer;
-}
-
-.popupMP-main .popupMP-Produtos .cardMini .card-recolhido .cardMini-infos{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    font-size: 16px;
-}
-
-.popupMP-main .popupMP-Produtos .cardMini .card-expandido{
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width: 100%;
-    height: 380px;
-    border-radius: 20px;
-    animation: fadein 0.3s ease-in-out;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.popupMP-main .popupMP-Produtos .cardMini:hover{
-    height: 380px;
-    z-index: 20;
-}
-.popupMP-main .popupMP-Produtos .cardMini:hover .card-recolhido{
-    display: none;
-}
-.popupMP-main .popupMP-Produtos .cardMini:hover .card-expandido{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    opacity: 1;
-    margin-top: -20px;
-}
-
-.cardMini:hover .card-expandido .card-titulo{
-    font-size: 16px;
-    margin-top: 40px;
-}
-
-.cardMini:hover .card-expandido .card-linhasuperior,
-.cardMini:hover .card-expandido .card-linhainferior{
-    width: 260px;
-    height: 1px;
-    background-color: rgb(0, 0, 0);
-}
-
-.cardMini:hover .card-expandido .detalhes-info{
-    width: 260px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-.cardMini:hover .card-expandido .detalhes-info .detalhes-titulo{
-    font-size: 14px;
-}
-
-.cardMini:hover .card-expandido .detalhes-info .detalhes-categoria{
-    font-size: 12px;
-}
-
-.cardMini:hover .card-expandido .detalhes-info .detalhes-preco{
-    font-size: 12px;
-    margin-bottom: 10px;
-}
-
-.cardMini:hover .card-expandido .detalhes-botao{
-    padding: 10px 15px;
-    border-radius: 20px;
-    border: none;
-    background-color: rgb(202, 202, 202);
-    font-size: 13px;
-    text-decoration: none;
-    color: black;
-}
-
-
-.popupMP .popupMP-conteudo .popupMP-inferior{
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    bottom: 160px;
-    gap: 50vw;
-}
-
-.popupMP-inferior .popupMP-DataCompra{
-    font-size: 13px;
-}
-
-.popupMP-inferior .popupMP-Total{
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.popupMP .popupMP-conteudo .popupMP-linhainferior{
-    align-items: center;
-    min-width: 60vw;
-    height: 1px;
-    background: linear-gradient(to right, rgb(255,255,255), rgba(0, 0, 0, 0.144), rgba(0, 0, 0, 0.76), rgb(0,0,0), rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.144), rgb(255,255,255));
-    bottom: 120px;
-    position: fixed;
-}

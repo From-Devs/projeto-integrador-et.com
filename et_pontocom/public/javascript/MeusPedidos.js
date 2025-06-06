@@ -4,56 +4,52 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
 .then(data => {     
                             //Produtos a caminho
     const container = document.getElementById('produtosCaminho');
+    const produtosPorData = {};
 
-        const produtosPorData = {};
+    data.produtos.forEach(produto => {
+        if (!produtosPorData[produto.dataCompra]) {
+            produtosPorData[produto.dataCompra] = [];
+        }
+        produtosPorData[produto.dataCompra].push(produto);
+    });
 
-data.produtos.forEach(produto => {
-    if (!produtosPorData[produto.dataCompra]) {
-        produtosPorData[produto.dataCompra] = [];
-    }
-    produtosPorData[produto.dataCompra].push(produto);
-});
+    Object.entries(produtosPorData).forEach(([dataCompra, produtos]) => {
+        const produto = produtos[0]; // pegar qualquer produto dessa data para exibir no card
 
-// Criar um card por data de compra
-Object.entries(produtosPorData).forEach(([dataCompra, produtos]) => {
-    const produto = produtos[0];
         const card = document.createElement('div');
         card.classList.add("card-produtoMP");
 
         card.innerHTML = `
-            <span class="data-compra">Data de compra ${produto.dataCompra}</span>
+            <span class="data-compra">Data de compra ${dataCompra}</span>
             <div class="cardcoloridoCam">
                 <div class="linhaverticalcard"></div>
                 <div class="card-info" style='background: linear-gradient(to right, ${produto.corFundo1}, ${produto.corFundo2}, ${produto.corFundo3} 43%, ${produto.corFundo4} 83%)'>
-                        <div class="card-imagem">
-                            <img src= "${produto.imagem}" alt="${produto.nome}">
+                    <div class="card-imagem">
+                        <img src= "${produto.imagem}" alt="${produto.nome}">
+                    </div>
+                    <div class="info-caminho">
+                        <div class="informacoes-card">
+                            <span class="titulo">${produto.nome} ${produto.marca} ${produto.tamanho}</span>
+                            <span class="titulo">${produto.categoria}</span>
                         </div>
-                        <div class="info-caminho">
-                            <div class="informacoes-card">
-                                <span class="titulo">${produto.nome} ${produto.marca} ${produto.tamanho}</span>
-                                <span class="titulo">${produto.categoria}</span>
-                            </div>
-                            <button class="verMais" style="font-size: 13px; border: none;">Ver Mais</button>
-                        </div>
+                        <button class="verMais" style="font-size: 13px; border: none;">Ver Mais</button>
+                    </div>
                 </div>
             </div>
         `;
+
         container.appendChild(card);
 
-        ///////////Abrir pop-up ao clicar em "Ver Mais"
+        /////////// Abrir pop-up ao clicar em "Ver Mais"
         const verMaisBtn = card.querySelector(".verMais");
 
         verMaisBtn.addEventListener("click", () => {
-            const produtosMesmoDia = data.produtos.filter(p => p.dataCompra === produto.dataCompra);
-        
-        
-
             const popupProdutos = document.getElementById("popupMP-Produtos");
-            popupProdutos.innerHTML = ""     ////limpando produtos anteriores
+            popupProdutos.innerHTML = ""; // limpar popup anterior
 
             let totalCompra = 0;
 
-            produtosMesmoDia.forEach(p => {
+            produtos.forEach(p => {
                 const miniCard = document.createElement("div");
                 miniCard.classList.add("cardMini");
 
@@ -66,30 +62,30 @@ Object.entries(produtosPorData).forEach(([dataCompra, produtos]) => {
                         </div>
                     </div>
                     <div class="card-expandido">
-                        <span class="card-titulo">DESCRIÇÃ0</span>
+                        <span class="card-titulo">DESCRIÇÃO</span>
                         <div class="card-linhasuperior"></div>
                         <img class="cardMini-imagem" src="${p.imagem}" height="130px">
                         <div class="card-linhainferior"></div>
                         <div class="detalhes-info">
                             <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
                             <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
-                            <span class="detalhes-preco">Preço: ${p.preco.toFixed(2)}</span>
+                            <span class="detalhes-preco">Preço: R$${p.preco.toFixed(2)}</span>
                         </div>
-                        <a class="detalhes-botao" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Meu_Carrinho.php">Comprar Novamente</a>
-                    </div
+                        <button class="detalhes-botao">Comprar Novamente</button>
+                    </div>
                 `;
 
                 totalCompra += parseFloat(p.preco);
                 popupProdutos.appendChild(miniCard);
             });
 
-            document.getElementById("popupMP-DataCompra").innerText = "Data da compra: " + produto.dataCompra;
-            document.getElementById("popupMP-Total").innerText = "Total: R$" +  totalCompra.toFixed(2);
+            document.getElementById("popupMP-DataCompra").innerText = "Data da compra: " + dataCompra;
+            document.getElementById("popupMP-Total").innerText = "Total: R$" + totalCompra.toFixed(2);
 
-            //mostrar popup
             document.getElementById("popupMP").showModal();
         });
     });
+
 
 
                             //////Produtos entregues
