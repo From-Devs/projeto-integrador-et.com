@@ -86,31 +86,31 @@
     border-radius: 10px;
 }
 
-#produtosCaminho .card-produtoMP{
+#produtosCaminho .cards-produtoCaminho{
     /* background-color: rgb(5, 116, 116); */
     display: flex;
     flex-direction: column;
     height: 26vh;
 }
 
-.card-produtoMP .data-compra{
+.cards-produtoCaminho .data-compra{
     font-size: 15px;
 }
 
-.card-produtoMP .cardcoloridoCam{
+.cards-produtoCaminho .cardcoloridoCam{
     margin-top: 10px;
     display: flex;
     flex-direction: row;
     gap: 15px;
 }
 
-.card-produtoMP .cardcoloridoCam .linhaverticalcard{
+.cards-produtoCaminho .cardcoloridoCam .linhaverticalcard{
     width: 1px;
     height: 23vh;
     background-color: rgba(0, 0, 0, 0.507);
 }
 
-.card-produtoMP .cardcoloridoCam .card-info{
+.cards-produtoCaminho .cardcoloridoCam .card-info{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -121,23 +121,23 @@
     box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.301);
 }
 
-.card-produtoMP .cardcoloridoCam .card-info .card-imagem{
+.cards-produtoCaminho .cardcoloridoCam .card-info .card-imagem{
     display: flex;
     align-items: center;                                                        /* Ver isso depois */
 }
 
-.card-produtoMP .cardcoloridoCam .card-info .card-imagem img{
+.cards-produtoCaminho .cardcoloridoCam .card-info .card-imagem img{
     height: 120px;
     width: auto;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.644));                              /*Ver isso depois*/  
 }
 
-.card-produtoMP .cardcoloridoCam .card-info .info-caminho .informacoes-card{
+.cards-produtoCaminho .cardcoloridoCam .card-info .info-caminho .informacoes-card{
     display: flex;
     flex-direction: column;
 }
 
-.card-produtoMP .cardcoloridoCam .card-info .info-caminho .verMais{
+.cards-produtoCaminho .cardcoloridoCam .card-info .info-caminho .verMais{
     border: none;
     background-color: transparent;
     font-size: 15px;
@@ -145,7 +145,7 @@
     cursor: pointer;
 }
 
-.card-produtoMP .cardcoloridoCam .card-info .info-caminho .verMais:focus{
+.cards-produtoCaminho .cardcoloridoCam .card-info .info-caminho .verMais:focus{
     outline: none;
     border: none;
 }
@@ -404,7 +404,7 @@
 .pedidosEntreguesMP #produtosEntregues{
     margin-top: 7px;
     width: 155vh;
-    max-height: 60vh;
+    max-height: 50vh;
     padding-right: 6px;
     overflow-y: auto;
     display: grid;
@@ -421,7 +421,12 @@
     border-radius: 10px;
 }
 
-
+#produtosEntregues .cards-produtosEntregues{
+    background-color: rgb(5, 116, 116);
+    display: flex;
+    flex-direction: column;
+    height: 26vh;
+}
 
 
 

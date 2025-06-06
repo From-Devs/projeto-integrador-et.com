@@ -51,7 +51,7 @@
 
             <!-- Parte de Pedidos que foram entregues -->
         <section class="pedidosEntreguesMP">
-            <h2 class="tituloEntregueMP">Entregue</h2>
+            <h2 class="tituloEntregueMP">Finalizado</h2>
             <div id="produtosEntregues"></div> <!-- Parte do JavaScript -->
 
         </section>

@@ -17,7 +17,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
         const produto = produtos[0]; // pegar qualquer produto dessa data para exibir no card
 
         const card = document.createElement('div');
-        card.classList.add("card-produtoMP");
+        card.classList.add("cards-produtoCaminho");
 
         card.innerHTML = `
             <span class="data-compra">Data de compra ${dataCompra}</span>
@@ -95,7 +95,22 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
             card.classList.add('cards-produtosEntregues');
 
             card.innerHTML = `
-
+                <span class="data-compra">Data de compra ${dataCompra}</span>
+                <div class="cardcoloridoCam">
+                    <div class="linhaverticalcard"></div>
+                    <div class="card-info" style='background: linear-gradient(to right, ${produto.corFundo1}, ${produto.corFundo2}, ${produto.corFundo3} 43%, ${produto.corFundo4} 83%)'>
+                        <div class="card-imagem">
+                            <img src= "${produto.imagem}" alt="${produto.nome}">
+                        </div>
+                        <div class="info-caminho">
+                            <div class="informacoes-card">
+                                <span class="titulo">${produto.nome} ${produto.marca} ${produto.tamanho}</span>
+                                <span class="titulo">${produto.categoria}</span>
+                            </div>
+                            <button class="verMais" style="font-size: 13px; border: none;">Ver Mais</button>
+                        </div>
+                    </div>
+                </div>
             `
         })
 
