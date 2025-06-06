@@ -3,7 +3,7 @@
 @import url(../../css/styles.css);
 
 /*_________________Básico da sidebar_________________*/
-.sidebar_adm{
+.sidebar{
     display: flex;
     font-size: 20px;
     left: -390px;
@@ -15,7 +15,11 @@
     transition: left 0.5s cubic-bezier(.37,0,.31,1); /* Animação de entrada */
 }
 
-.sidebar_adm.mostrar {
+.sidebar a{
+    text-decoration: none;
+}
+
+.sidebar.mostrar {
     left: 0; /* Move o menu para a tela */
 }
 

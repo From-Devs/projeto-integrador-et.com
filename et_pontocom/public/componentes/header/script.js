@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
         const perfil = item.childNodes[5].childNodes[1].childNodes[7];
         const menuConta = item.childNodes[5].childNodes[3];
         const botaoMenu = item.childNodes[1].childNodes[1];
-        const menu = document.getElementById('sidebar_adm');
+        const menu = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
 
         menuConta.style.display = "none"; // tive que colocar isso no script pq no CSS não estava funcionando

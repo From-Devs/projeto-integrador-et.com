@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(){
         if (index === current) {
           if (current === 0) {
               // retorna a cor 1
-              Bola.style.background = '#7A3241'; 
+              Bola.style.background = '#651629'; 
               detalhesTitulo.innerHTML = "BATOM LÍQUIDO MATTIFY DAZZLE";
               detalhesMarca.innerHTML = "HINODE";
             } else if (current === 1) {

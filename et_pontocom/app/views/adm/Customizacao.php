@@ -60,7 +60,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         </div>
     </dialog>
 
-<dialog class='popUpDialog popUpSelectProduto'>
+    <dialog class='popUpDialog popUpSelectProduto'>
         <div class='popUp' style='width: 956px; padding: 33px; background-color: #F8F8F8;'>
             <div class='topoPopUp'>
                 <h1 class="tituloPopUp">Lista de Produtos</h1>
@@ -111,7 +111,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 
             <div class="wrapperPopUp">
                 <div class="esquerdaEditProduto">
-                    <div class="produtoContainer cor-0" onclick="abrirPopUp('popUpEditProduto')">
+                    <div class="produtoContainer cor-0" id="wrapperEditProdutoImg">
                         <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
                     </div>
     
@@ -139,8 +139,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <div class="corContainer">
                                 <p class="textHex">HEX</p>
                                 <div class="editCor">
-                                    <input type="color" class="corShow" value=""></input>
-                                    <input class="corHex" value="B4938A"></input>
+                                    <input type="color" class="corShow" value="#651629"></input>
+                                    <input class="corHex" value="#651629"></input>
                                 </div>
                             </div>
                             <p class="restaurarPadrao">Restaurar Padrão</p>
@@ -149,37 +149,37 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                     <div class="degradeEdit">
                         <div class="degradeTop">
                             <h3>Degrade</h3>
-                            <button class="swapDegrade"><i class="fa-solid fa-right-left"></i></button>
+                            <button class="swapDegrade" id="swapDegrade"><i class="fa-solid fa-right-left"></i></button>
                         </div>
-                        <div class="degradeBar">
-                            <div class="colorMarker markerOne">
+                        <div class="degradeBar" id="degradeBar">
+                            <div class="colorMarker markerOne" id="markerOne">
                                 <div><p>1</p></div>
                             </div>
-                            <div class="colorMarker markerTwo">
+                            <div class="colorMarker markerTwo" id="markerTwo">
                                 <div><p>2</p></div>
                             </div>
-                            <div class="colorMarker markerThree">
+                            <div class="colorMarker markerThree" id="markerThree">
                                 <div><p>3</p></div>
                             </div>
                         </div>
                         <div class="degardeColorEdit">
                             <div class="corLi">
                                 <label id="labelCorDegrade1" for="corDegarde1">1 - </label>
-                                <div class="corContainer" id="corDegrade1">
+                                <div class="corContainer">
                                     <p class="textHex">HEX</p>
-                                    <div class="editCor">
-                                        <input type="color" class="corShow" value=""></input>
-                                        <input class="corHex" value="B4938A"></input>
+                                    <div class="editCor" id="corDegrade1">
+                                        <input type="color" class="corShow" value="#7a3241"></input>
+                                        <input class="corHex" value="#7a3241"></input>
                                     </div>
                                 </div>
                             </div>
                             
                             <div class="corLi">
                                 <label id="labelCorDegrade2" for="corDegarde2">2 - </label>
-                                <div class="corContainer" id="corDegrade2">
-                                    <div class="editCor">
-                                        <input type="color" class="corShow" value=""></input>
-                                        <input class="corHex" value="B4938A"></input>
+                                <div class="corContainer">
+                                    <div class="editCor" id="corDegrade2">
+                                        <input type="color" class="corShow" value="#39121d"></input>
+                                        <input class="corHex" value="#39121d"></input>
                                     </div>
                                 </div>
                             </div>
@@ -187,10 +187,10 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 
                             <div class="corLi">
                                 <label id="labelCorDegrade3" for="corDegarde3">3 - </label>
-                                <div class="corContainer" id="corDegrade3">
-                                    <div class="editCor">
-                                        <input type="color" class="corShow" value=""></input>
-                                        <input class="corHex" value="B4938A"></input>
+                                <div class="corContainer">
+                                    <div class="editCor" id="corDegrade3">
+                                        <input type="color" class="corShow" value="#150106"></input>
+                                        <input class="corHex" value="#150106"></input>
                                     </div>
                                 </div>
                             </div>
@@ -201,6 +201,103 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                     </div>
                     
                 </div>
+            </div>
+
+        </div>
+    </dialog>
+    <!-- width: 965px; height: 594px;   -->
+    <dialog class='popUpDialog popUpEditProdutoLancamento'>
+        <div class='popUp' style='padding: 33px; background-color: #F8F8F8; position: relative;'>
+            <div class='topoPopUp'>
+                <h1 class="tituloPopUp">Editar Lançamento</h1>
+                <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
+            </div>
+
+            <div class="popUpEditLancamentoWrapper">
+
+                <div class="esquerda">
+                    <h2>Exemplo:</h2>
+                    <div class="bugBizarro">
+                        <?php
+                        echo createCardProdutoLancamento("", "","","","", "lancamentoFuncional");
+                        echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg", "lancamentoFuncional");
+                        ?>
+        
+                    </div>
+                </div> 
+                
+                <div class="direita">
+                    <div class="editProdutoLancamentoContainer">
+        
+                        <div class="switchProduto">
+                            <h2>Produto:</h2>
+                            <div class="selectProduto">
+                                <div class="nomeProduto">
+                                    <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
+                                </div>
+                                <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\")", "115px", "33px", "15px")?>
+                            </div>
+                        </div>
+        
+                        <div class="linha"></div>
+        
+                        <div class="brilhoColorEdit">
+                            <h2>Cores:</h2>
+                            <div class="corWrapper">
+                                <h3>Cor do brilho</h3>
+                                <div class="corContainer">
+                                    <p class="textHex">HEX</p>
+                                    <div class="editCor" id="corBrilhoLancamento">
+                                        <input type="color" class="corShow" value="#e1b48c"></input>
+                                        <input class="corHex" value="#e1b48c"></input>
+                                    </div>
+                                </div>
+                                <p class="restaurarPadrao">Restaurar Padrão</p>
+                            </div>
+                        </div>
+    
+                        <ul class="popUpDescricaoContainer">
+                            <li class="descricao">Arraste sobre o produto para verificar o efeito de brilho</li>
+                            <li class="descricao">Por padrão a cor de brilho selecionada será a cor de destaque registrada no produto</li>
+                        </ul>
+    
+                        <div class="lancamentoImagemEdit">
+                            <h2>Imagem:</h2>
+                            <div class="imagemWrapper">
+                                <h3>Imagens registradas</h3>
+    
+                                <div class="imagemContainer">
+                                    <div class="imagemItem imagemSelecionada">
+                                        <div class="imagemItemWarning">
+                                            <i class="fa-solid fa-circle-minus"></i>
+                                            <p>Vazio</p>
+                                        </div>
+                                    </div>
+                                    <div class="imagemItem">
+                                    <div class="imagemItemWarning">
+                                            <i class="fa-solid fa-circle-minus"></i>
+                                            <p>Vazio</p>
+                                        </div>
+                                    </div>
+                                    <div class="imagemItem imagemVazia">
+                                    <div class="imagemItemWarning">
+                                            <i class="fa-solid fa-circle-minus"></i>
+                                            <p>Vazio</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="popUpDescricaoContainer">
+                                <li class="descricao">Clique em Selecionar para trocar a imagem de apresentação do produto</li>
+                            </ul>
+                        </div>
+                                    
+                    </div>
+
+                    <button class="btn btn-black salvarAlteracoesLancamento" onclick="abrirPopUp()">Salvar alterações</button>
+
+                </div>
+               
             </div>
 
         </div>
@@ -255,14 +352,14 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             <div class="frameProdutos">
                 <div class="containerProdutos" id="containerLancamentos">
                     <?php
-                    echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg");
-                    echo createCardProdutoLancamento("Avon", "Red Batom","R$ 2000,00","#D1061D","batom.png");
-                    echo createCardProdutoLancamento("Benefit", "BADgal Bang! Máscara de Cílios","R$ 3000,00","#D02369","bang.png");
-                    echo createCardProdutoLancamento("Avon", "Color Trend Delineador Líquido","R$ 1000,00","#F0CBDA","trend.webp");
-                    echo createCardProdutoLancamento("Mari Maria","Diamond Blender Esponja de Maquiagem","R$ 2000,00","#D79185","tri.jpeg");
-                    echo createCardProdutoLancamento("Simple Organic", "SOLUÇÃO RETINOL-LIKE","R$ 3000,00","#C9A176","simple.webp");
-                    echo createCardProdutoLancamento("Princess","Mini Chapinha Bivolt","R$ 2000,00","#745CA3","chapa.webp");
-                    echo createCardProdutoLancamento("O Boticário","L'eau De Lily Soleil Perfume Feminino","R$ 3000,00","#F4C83C","lily.jpg");
+                    echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg", "lancamentoCustom");
+                    echo createCardProdutoLancamento("Avon", "Red Batom","R$ 2000,00","#D1061D","batom.png", "lancamentoCustom");
+                    echo createCardProdutoLancamento("Benefit", "BADgal Bang! Máscara de Cílios","R$ 3000,00","#D02369","bang.png", "lancamentoCustom");
+                    echo createCardProdutoLancamento("Avon", "Color Trend Delineador Líquido","R$ 1000,00","#F0CBDA","trend.webp", "lancamentoCustom");
+                    echo createCardProdutoLancamento("Mari Maria","Diamond Blender Esponja de Maquiagem","R$ 2000,00","#D79185","tri.jpeg", "lancamentoCustom");
+                    echo createCardProdutoLancamento("Simple Organic", "SOLUÇÃO RETINOL-LIKE","R$ 3000,00","#C9A176","simple.webp", "lancamentoCustom");
+                    echo createCardProdutoLancamento("Princess","Mini Chapinha Bivolt","R$ 2000,00","#745CA3","chapa.webp", "lancamentoCustom");
+                    echo createCardProdutoLancamento("O Boticário","L'eau De Lily Soleil Perfume Feminino","R$ 3000,00","#F4C83C","lily.jpg", "lancamentoCustom");
                     ?>
                 </div>
             </div>
@@ -306,9 +403,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <h3>Cor 1</h3>
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
-                                            <div class="editCor">
-                                                <input type="color" class="corShow" value=""></input>
-                                                <input class="corHex" value="B4938A"></input>
+                                            <div class="editCor" id="produtoLancamentoEditCor1">
+                                                <input type="color" class="corShow" value="#b4938a"></input>
+                                                <input class="corHex" value="#b4938a"></input>
                                             </div>
                                         </div>
                                     </div>
@@ -316,9 +413,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <h3>Cor 2</h3>
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
-                                            <div class="editCor">
-                                                <input type="color" class="corShow" value=""></input>
-                                                <input class="corHex" value="B4938A"></input>
+                                            <div class="editCor" id="produtoLancamentoEditCor2">
+                                                <input type="color" class="corShow" value="#fee1d8"></input>
+                                                <input class="corHex" value="#fee1d8"></input>
                                             </div>
                                         </div>
                                     </div>
@@ -326,9 +423,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <h3>Cor sombra</h3>
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
-                                            <div class="editCor">
-                                                <input type="color" class="corShow" value=""></input>
-                                                <input class="corHex" value="B4938A"></input>
+                                            <div class="editCor" id="produtoLancamentoEditCorSombra">
+                                                <input type="color" class="corShow" value="#381507"></input>
+                                                <input class="corHex" value="#381507"></input>
                                             </div>
                                         </div>
                                     </div>
@@ -341,7 +438,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <ul>
                                 <li class="tituloSessao">Visualização da Página Inicial</li>
                             </ul>
-                            <?php echo botaoPersonalizadoRedirect("Visualizar","btn-black", "", "220px", "45px", "20px")?>
+                            <?php echo botaoPersonalizadoRedirect("Visualizar","btn-black", "/et_pontocom/app/views/adm/paginaPrincipalVisualizacao.php", "220px", "45px", "20px")?>
                             
                         </div>
                     </div>
@@ -355,5 +452,11 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacaoADM.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardLancamento/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/editorCor.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/trocarCorProdutoDestaque.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/trocarCorDegradeCarousel.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/trocarCorLancamento.js"></script>
 </body>
 </html> 

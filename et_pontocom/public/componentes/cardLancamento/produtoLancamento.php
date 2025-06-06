@@ -1,10 +1,10 @@
 <?php
 
-function createCardProdutoLancamento($marca = "Indefinido", $nome = "Indefinido",$preco = "R$ 000,00",$cor = "#000000", $imagem = ""){
+function createCardProdutoLancamento($marca = "Indefinido", $nome = "Indefinido",$preco = "R$ 000,00",$cor = "#000000", $imagem = "", $classeExtra = ""){
     $titulo = $marca . " - " . $nome;
 
     return "
-    <article class='cardLancamento' id='cardLancamento'>
+    <article class='cardLancamento $classeExtra' id='cardLancamento'>
         <img class='imgCardLancamento' id='imgCardLancamento' src='/projeto-integrador-et.com/et_pontocom/public/imagens/produto/$imagem' alt=''>
         <div class='baixo' id='baixo'>
             <span class='textoCardLancamento' id='textoCardLancamento'>$titulo</span>
