@@ -1,6 +1,6 @@
 <?php 
 
-function createCardProduto($marca, $nomeProduto, $preco, $imagemProduto, $emDesconto = false, $precoOriginal = '', $corPrincipal = "#000000", $corDegrade1 = "#000000", $corDegrade2 = "#666666"){
+function createCardProduto($marca = "Marca", $nomeProduto = "Nome do Produto", $preco = "R$00,00", $imagemProduto = "", $emDesconto = false, $precoOriginal = '', $corPrincipal = "#000000", $corDegrade1 = "#000000", $corDegrade2 = "#666666"){
 
     if($emDesconto){
         $classe = 'cardProduto desconto';
@@ -24,7 +24,7 @@ function createCardProduto($marca, $nomeProduto, $preco, $imagemProduto, $emDesc
             <i class='buraquinho'></i>
         </div>
 
-        <img class='imagemMaldita' src='/projeto-integrador-et.com/et_pontocom/public/imagens/produto/$imagemProduto' alt='Imagem'>
+        <img class='imagemMaldita' src='/projeto-integrador-et.com/et_pontocom/public/imagens/produto/$imagemProduto' alt=''>
 
         <div class= 'contentDeBaixo'>
             <hr class= 'linha'>

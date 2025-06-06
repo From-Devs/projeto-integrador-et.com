@@ -8,10 +8,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../public/css/CadastroAssociado.css">
-    <link rel="stylesheet" href="../../../public/componentes/cadastassociado/styles.css">
-    <link rel="stylesheet" href="../../../public/componentes/popup/styles.css">
-    <link rel="stylesheet" href="../../../public/componentes/botao/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/CadastroAssociado.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cadastassociado/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <title>Cadastro Associado</title>
 </head>
@@ -21,7 +23,7 @@
         <!-- Área preta -->
         <section>
             <div class="Voltar">
-                <a href="">
+                <a href="../usuario/sobreAssociado.php">
             <img src="../../../public/imagens/cadastassoc/BotaoVoltar.png" alt="">
             <p>voltar</p>
                 </a>
@@ -33,7 +35,7 @@
         <!-- Área branca -->
     <form action="" method="post" id="form">
         <div class="Foto">
-            <img src="../../../public/imagens/cadastassoc/AdicionarFotoCadstr.png" alt="Insira sua foto">
+            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/cadastassoc/AdicionarFotoCadstr.png" alt="Insira sua foto">
         </div>
         
             <div class="dados">
@@ -67,8 +69,8 @@
     
     </div>
     </div>
-    <?php $btt = botaoPersonalizadoRedirect("Voltar à Tela de início","btn-white","#");
-    echo PopUpComImagemETitulo("popup","img-pessoa.png","100px","Cadastro Enviado para Validação","Entraremos em contato via WhatsApp após validar",$btt);
+    <?php $btt = botaoPersonalizadoRedirect("Voltar à Tela de início","btn-white","et_pontocom/app/views/usuario/paginaPrincipal.php");
+    echo PopUpComImagemETitulo("popup","popUp_Botoes/img-pessoa.png","100px","Cadastro Enviado para Validação","Entraremos em contato via WhatsApp após validar",$btt);
     ?>
     <script src="../../../public/componentes/popup/script.js"></script>
 </body>

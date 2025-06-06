@@ -38,18 +38,28 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                 <p id="textUser">ADM ET</p>
             </div>
         </div>
-        <div id="divPesquisarEFiltro">
+        <div id="divPesquisarEEscolher">
             <div id="pesquisar">
                 <form action="">
                     <input id="inputPesquisar" type="text" placeholder="Pesquisar por Associado...">
                 </form>
+            </div>
+            <div id="Escolher">
+                <button id="botaoAssociados">
+                    <p>Associados</p>
+                </button>
+            </div>
+            <div id="Solicitações">
+                <button id="botaoSolicitacao">
+                    <p>Solicitações</p>
+                </button>
             </div>
         </div>
         <div id="titulo">
             <h1 id="tituloH1">Associados</h1>
         </div>
         <?php 
-            echo associadosTabela()
+            echo associadosTabela('solicitacao')
         ?>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>

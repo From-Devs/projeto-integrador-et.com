@@ -1,18 +1,18 @@
 <?php
 function typeSidebar($tipoUsuario){
     if($tipoUsuario == "Associado"){
-        return '<li class="config"><a href="#" class="config_link">Área de Administração</a></li>';
+        return '<a href="/projeto-integrador-et.com/et_pontocom/app/views/associado/DashboardAssociado.php"><li class="config"><p class="config_link">Área de Administração</p></li></a>';
     }else{
-        return '<li class="config"><a href="#" class="config_link">Associados</a></li>';
+        return '<a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Tornar_Associado.php"><li class="config"><p class="config_link">Associados</p></li></a>';
     };
 }
 
 function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para versão oficial.
     return '
     <div id="overlay" class="overlay"></div>
-    <div class="sidebar_adm" id="sidebar_adm">
+    <div class="sidebar" id="sidebar">
         <div class="nav_adm">
-            <a href="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" class="logo">
+            <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/paginaPrincipal.php" class="logo">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca2.png" alt="">
             </a>
             <div class="botoes_sidebar">
@@ -110,10 +110,10 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                     <p class="categoria_nome">Ajuda e Configurações</p>
                     <ul>
                         <li class="config"><a href="#" class="config_link">Minha Conta</a></li>
-                        <li class="config"><a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/meusPedidos.php" class="config_link">Meus Pedidos</a></li>
+                        <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/meusPedidos.php"><li class="config"><p class="config_link">Meus Pedidos</p></li></a>
                         ' . typeSidebar($tipoUsuario) . '
-                        <li class="config"><a href="" class="config_link">Termos de Uso e Privacidade</a></li>
-                    </ul>
+                        <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/TermoDeUso.php"><li class="config"><p class="config_link">Termos de Uso e Privacidade</p></li></a>
+                    </ul> 
                 </div>
             </div>
         </div>

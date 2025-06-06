@@ -6,8 +6,11 @@
     require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
+    require __DIR__ . "/../../../public/componentes/filtroCategoria/filtroCategoria.php";
+    $telaAtual = $_GET["tela"] ?? "Perfume";
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "associado";
     $login = false;
+
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +24,8 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/produtoDestaque/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/filtroCategoria/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cardLancamento/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/ondas/styles.css">
@@ -45,14 +50,26 @@
             ?>
             </div>
     </div>
+    
     <div class="Produtos">
-        <div class="PartedeCima">
-            <button class="filtro">
-            <img src="../../../public/imagens/PaginaCategoria/Filtro.png" alt="filtro">    
-            <b><h3 class="nomeFiltro">Filtros</h3></b></button>
-            <h3>Produtos</h3>
-        <!-- Fazer os itens do popup e depois tentar fazer se tornar realmente um popup -->
+        <div class="filtroSeparado">
+            <button class="filtro-botao" type="button" onclick="toggleFiltro()">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/componentes/filtroCategoria/filtroimg.png" alt="Ícone de filtro">Filtros
+            </button>
+            
+            <div id="form-filtro" class="filtro-box">
+            <div class="form">
+                <?php 
+                renderSomenteSubcategorias($categoriasPorTela, $telaAtual);
+                ?>
+            </div>
+            </div>
         </div>
+        <div class="aVenda">
+        <div class="PartedeCima">
+            <h3>Produtos</h3>
+        </div>
+        
         <div class="PartedeBaixo">
             <?php 
             echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
@@ -76,6 +93,7 @@
             echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
             ?>
         </div>
+        </div>
     </div>
     <?php
     echo createRodape();
@@ -86,5 +104,6 @@
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/produtoDestaque/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/filtroCategoria/script.js"></script>
 </body>
 </html>

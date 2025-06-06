@@ -1,9 +1,13 @@
 .carousel {
     position: relative;
     width: 800px;
-    height: 400px;
+    height: 420px;
     perspective: 1200px;
     overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
   }
 
   .carouselContainer{
@@ -21,7 +25,6 @@
     justify-content: center;
     align-items: center;
 }
-
 
   .carousel-track {
     position: relative;
@@ -51,7 +54,8 @@
   .carousel-item.active {
     transform: translate(-50%, -50%) scale(1.2);
     opacity: 1;
-    z-index: 3;
+    z-index: 700;
+    cursor: pointer;
   }
 
   .carousel-item.left {
@@ -70,6 +74,8 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    position: relative;
+    padding-top: 20px;
   }
 
   .Seta-btn {
@@ -97,8 +103,12 @@
     transition: background-color 0.3s, transform 0.3s;
   }
   .Bola.active-Bola {
-    
     transform: scale(1.3);
+  }
+
+  .carousel-item.active img{
+    z-index: 702;
+    position: relative;
   }
 
   .cor-0 { background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%); }
@@ -106,10 +116,15 @@
   .cor-2 { background-image: linear-gradient(to bottom, #F2D5AF 0%, #CC9F9D 50%, #CE766C 100%); }
 
   @media (max-width: 1800px){ /*Computador Grande*/
+    .carousel {
+      height: 310px;
+    }
+
     .carousel-item {
       width: 150px;
       height: 255px;
     }
+
 }
 
 @media (max-width: 1525px){ /*Computador Grande*/
@@ -117,24 +132,26 @@
     width: 700px;
     height: 300px;
   }
+
+  .bottom-controls {
+    padding-top: 0px;
+    padding-top: 50px;
+  }
 }
 
 @media (max-width: 1300px){ /*Computador Grande*/
   .carousel {
     width: 600px;
-    height: 300px;
   }
 
   .carousel-item {
     width: 125px;
-    height: 255px;
   }
 }
 
 @media (max-width: 1200px){ /*Computador Grande*/
   .carousel {
     width: 525px;
-    height: 300px;
   }
 
   .carousel-item {
@@ -155,13 +172,15 @@
 }
 
 @media (max-width: 768px){ /*Computador Grande*/
-  .carousel {
-    width: 550px;
-    height: 350px;
-  }
-
   .carousel-item {
     width: 125px;
-    height: 300px;
   }
+}
+
+@media (max-width: 576px){ /*Celular Vertical*/
+  .carousel {
+    transform: scale(0.8);
+    width: auto;
+  }
+
 }

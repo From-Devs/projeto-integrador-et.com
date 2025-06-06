@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", serif;
+}
+
+:root{
+    --black-color: #141414;
+    --white-color: #ececec;
+}
+
+/* parte do icone do usuario */
+
+.controleIcon{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.iconUsuario{
+    width: 300px;
+    height: 100px;
+    display: flex;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+    margin-top: 40px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+
+    & contentUser{
+        display: flex;
+    }
+}
+
+.contentUser #textUser, #cargoUser{
+    font-size: 20px;
+    gap: 5px;
+}
+
+#fotoUser{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    margin-left: 22px;
+    width: 74px;
+    height: 74px;
+}
+
+/* parte dos cards */
+.cardsRelatorios{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 347px;
+    margin-top: 30px;
+    gap: 50px;
+}
+
+.cardRelatorio{
+    width: 450px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    border-radius: 20px;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.cardRelatorio:hover{
+    scale: 1.08;
+}
+
+.cardRelatorio #textCard{
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.cardRelatorio .iconCard{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white-color);
+    border-radius: 10px;
+}   
+
+.popUp .botoes-popUp{
+    background-color: transparent;
+}
+
+.btn-relatorio{
+    display: flex;
+    font-size: 20px;
+    width: 100%;
+    height: 60px;
+    border-radius: 64px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #282828;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.icone-fechar{
+    cursor: pointer;
+}

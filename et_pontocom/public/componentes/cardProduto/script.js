@@ -15,8 +15,10 @@ document.addEventListener("DOMContentLoaded", function(){
             
         const balao = item.childNodes[3].childNodes[1],
               coracao = item.childNodes[3].childNodes[3],
-              botaoComprar = item.childNodes[7].childNodes[10],
+              botaoComprar = item.querySelector(".botaoComprarCardProduto"),
               botaoAnimacao = item.childNodes[7].childNodes[12];
+
+        console.log(botaoComprar)
 
 
         item.style.background = "linear-gradient(35deg, "+ cores[1] +" 30%, "+ cores[2] +" 100%)";
@@ -46,6 +48,9 @@ document.addEventListener("DOMContentLoaded", function(){
             botaoComprar.className = "botaoComprarCardProduto";
             botaoAnimacao.style.animationName = "";
         });
+        botaoComprar.addEventListener('click', function(){
+            window.location.href = '/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php'
+        })
 
     });
  

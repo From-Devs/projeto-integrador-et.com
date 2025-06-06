@@ -5,11 +5,19 @@
 
 body{
     font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
 }
 
 .container{
     display: flex;
     justify-content: center;
+}
+
+.sliderContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title-container{

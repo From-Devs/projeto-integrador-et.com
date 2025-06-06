@@ -1,11 +1,17 @@
 document.addEventListener("DOMContentLoaded", function(){
     
-    const card = document.querySelectorAll(".cardLancamento");
+    const card = document.querySelectorAll(".lancamentoFuncional");
 
     card.forEach(item => {
         let cor = item.childNodes[5],
             style = window.getComputedStyle(cor),
             corValor = style.getPropertyValue('color');
+
+        const botaoMaisDetalhes = item.querySelector('.botaoMaisDetalhesCardLancamento')
+
+        botaoMaisDetalhes.addEventListener('click', function(){
+            window.location.href = '/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php'
+        })
 
         item.addEventListener("mouseenter", function(){
             item.classList.add("open");

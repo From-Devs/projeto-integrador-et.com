@@ -43,7 +43,7 @@
         <div id="divPesquisarEFiltro">
             <div id="pesquisar">
                 <form action="">
-                    <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
+                    <input id="inputPesquisar" type="text" placeholder="Pesquisar Pedido...">
                 </form>
             </div>
             <div id="filtro">

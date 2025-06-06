@@ -27,8 +27,8 @@ require __DIR__ . '/../sidebar/sidebarHeader.php'; // import do componente da si
 function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
                                             // $login (sujeito a mudança): é o estado de login do usuário, true pra logado e false para deslogado
     if ($login == false){                   // $tipoUsuario (sujeito a mudança): é o tipo de conta, associado ou usuario (veja como funciona na teste.php)
-        $botao1 = botaoPersonalizadoRedirect('Cadastrar-se', 'btn-white', '', '155px', '44px', '16px');           
-        $botao2 = botaoPersonalizadoRedirect('Entrar', 'btn-white', '', '155px', '44px', '16px');
+        $botao1 = botaoPersonalizadoRedirect('Cadastrar-se', 'btn-white', 'et_pontocom/app/views/usuario/CadastroUsuario.php', '155px', '44px', '16px');           
+        $botao2 = botaoPersonalizadoRedirect('Entrar', 'btn-white', 'et_pontocom/app/views/usuario/Login.php', '155px', '44px', '16px');
     }else{
         $botao1 = botaoPersonalizadoRedirect('Minha Conta', 'btn-white', '', '155px', '44px', '16px');
         $botao2 = botaoPersonalizadoRedirect('Sair', 'btn-white', '', '155px', '44px', '16px');
@@ -62,7 +62,7 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
                 <div class='botoes'>
                     <img class='lupaHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/lupa.png' alt=''>
                     <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/listaDeDesejos.php'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/coracao.png' alt=''></a>
-                    <a href='#'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/carrinho.png' alt=''></a>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/Meu_Carrinho.php'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/carrinho.png' alt=''></a>
                     <img class='perfilHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/perfil.png' alt=''>
                 </div>
                 <div class='menuConta'>
@@ -98,7 +98,7 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
                 <div class='botoes'>
                     <img class='lupaHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/lupa.png' alt=''>
                     <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/listaDeDesejos.php'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/coracao.png' alt=''></a>
-                    <a href='#'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/carrinho.png' alt=''></a>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/usuario/Meu_Carrinho.php'><img src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/carrinho.png' alt=''></a>
                     <img class='perfilHeader' src='/projeto-integrador-et.com/et_pontocom/public/imagens/header/perfil.png' alt=''>
                 </div>
                 <div class='menuConta'>
@@ -109,7 +109,34 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
         </header>
         ";
     }
+}
 
+function createHeaderCustomizacao($tipo){
+    if($tipo == 0){
+        return "
+            <header class='headerUsuario' id='headerUsuario'>
+                
+                <div class='esquerdo'>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/adm/Customizacao.php' class='botaoVoltarHeaderCustomizacao'>
+                        <i class='fas fa-chevron-left'></i>
+                        <p>Voltar</p>
+                    </a>
+                </div>
+            </header>
+            ";
+    }else{
+        return "
+            <header class='headerUsuario' id='headerCarousel'>
+                
+                <div class='esquerdo'>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/adm/Customizacao.php' class='botaoVoltarHeaderCustomizacao'>
+                        <i class='fas fa-chevron-left'></i>
+                        <p>Voltar</p>
+                    </a>
+                </div>
+            </header>
+            ";
+    }
 }
 ?>
 
