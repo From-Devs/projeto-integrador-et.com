@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cadastassociado/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <title>Cadastro Associado</title>
 </head>
@@ -20,12 +22,10 @@
     <div class="Decoracao">
         <!-- Área preta -->
         <section>
-            <div class="Voltar">
-                <a href="">
-            <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/cadastassoc/BotaoVoltar.png" alt="">
-            <p>voltar</p>
-                </a>
-            </div>
+            <button id="voltarSair" onclick="history.back()">
+                <i class='fas fa-chevron-left'></i>
+                <p id="voltar" href="./paginaPrincipal.php">Voltar</p>          
+            </button> 
             <div class="wave wave1"></div>
         </section>
     </div>

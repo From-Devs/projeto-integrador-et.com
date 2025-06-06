@@ -27,8 +27,8 @@ require __DIR__ . '/../sidebar/sidebarHeader.php'; // import do componente da si
 function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
                                             // $login (sujeito a mudança): é o estado de login do usuário, true pra logado e false para deslogado
     if ($login == false){                   // $tipoUsuario (sujeito a mudança): é o tipo de conta, associado ou usuario (veja como funciona na teste.php)
-        $botao1 = botaoPersonalizadoRedirect('Cadastrar-se', 'btn-white', '', '155px', '44px', '16px');           
-        $botao2 = botaoPersonalizadoRedirect('Entrar', 'btn-white', '', '155px', '44px', '16px');
+        $botao1 = botaoPersonalizadoRedirect('Cadastrar-se', 'btn-white', 'et_pontocom/app/views/usuario/CadastroUsuario.php', '155px', '44px', '16px');           
+        $botao2 = botaoPersonalizadoRedirect('Entrar', 'btn-white', 'et_pontocom/app/views/usuario/Login.php', '155px', '44px', '16px');
     }else{
         $botao1 = botaoPersonalizadoRedirect('Minha Conta', 'btn-white', '', '155px', '44px', '16px');
         $botao2 = botaoPersonalizadoRedirect('Sair', 'btn-white', '', '155px', '44px', '16px');

@@ -2,6 +2,7 @@
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require __DIR__ . "/../../../public/componentes/ondas/onda.php";
     
     
     session_start();
@@ -19,6 +20,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/header/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/ondas/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -29,52 +31,46 @@
 
 </head>
 <body>
-<?php
+    <?php
     echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
     <section class="promo-section">
-  <div class="promo-content">
-    <h2>Torne-se um(a) associado(a) ET!</h2>
-    <p>Seja bem-vindo ao programa de marketing de associados da nossa empresa ETCOM. O Programa de Associados ETCOM ajuda vendedores, editores e blogueiros a monetizarem seus sites.</p>
-    <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/sobreAssociado.php" class="azul">Saiba-mais...</a>
-    <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/CadastroAssociado.php" class="join-now">Associar-se</a>
-  </div>
-  <div>
-    <img  class="promo-image" src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/moça.png" alt="Promo Image">
-  </div>
-<?php
-    function createOnda($tipo){
-        if ($tipo == 1){
-            return "<div class='wave solida'></div>";
-        }
-    }
-?>
-    <div>
+
+        <div class="promo-content">
+            <div class="promoContentText">
+                <h2>Torne-se um(a) associado(a) ET!</h2>
+                <p>Seja bem-vindo ao programa de marketing de associados da nossa empresa ETCOM. O Programa de Associados ETCOM ajuda vendedores, editores e blogueiros a monetizarem seus sites.</p>
+            </div>
+            <div class="botoesContainer">
+                <?php
+                echo botaoPersonalizadoRedirect("Saiba Mais", "btn-white", "et_pontocom/app/views/usuario/sobreAssociado.php", "240px", "60px", "25px");
+                ?>
+                <?php
+                echo botaoPersonalizadoRedirect("Associar-se", "btn-white", "et_pontocom/app/views/usuario/CadastroAssociado.php", "240px", "60px", "25px");
+                ?>
+            </div>
+        </div>
+        <div class="karla">
+            <img  class="promo-image" src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/moça.png" alt="Promo Image">
+            <div class="blurNomeKarla">
+                <h1 class="nomeKarla">Karla</h1>
+                <h2 class="cargoKarla">Associada ET</h2>
+                <div class="blur"></div>
+            </div>
+        </div>
+
         <?php
         echo createOnda(1); // Adiciona a onda sólida
         ?>
-    </div>
 
-</section>
-    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/karla.nome.png" alt="Texto substituído" class="substituir-imagem">
+    </section>
+    
     <div class="carousel-container">
     <section class="associ">
         <h2>Associados:</h2>
     </section>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/manoel-gomes (1) 4.png" class="d-block w-100" alt="Marcos">
-                    <div class="name">Marcos</div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/png-transparent-man-standing-while-wearing-blue-dress-shirt-man-man-people-candle-canon-thumbnail (2) 2.png" class="d-block w-100" alt="Jose">
-                    <div class="name">Jose</div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/manoel-gomes (1) 4.png" class="d-block w-100" alt="Manoel">
-                    <div class="name">Manoel</div>
-                </div>
                 <div class="carousel-item">
                     <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/DeWatermark.ai_1721330090347 (1) 2.png" class="d-block w-100" alt="Karla">
                     <div class="name">Karla</div>
@@ -122,6 +118,18 @@
                 <div class="carousel-item">
                     <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/png-transparent-man-standing-while-wearing-blue-dress-shirt-man-man-people-candle-canon-thumbnail (2) 2.png" class="d-block w-100" alt="Lucas">
                     <div class="name">Lucas</div>
+                </div>
+                <div class="carousel-item active">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/images (2) 2.png" class="d-block w-100" alt="Marcos">
+                    <div class="name">Marcos</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/png-transparent-man-standing-while-wearing-blue-dress-shirt-man-man-people-candle-canon-thumbnail (2) 2.png" class="d-block w-100" alt="Jose">
+                    <div class="name">Jose</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/manoel-gomes (1) 4.png" class="d-block w-100" alt="Manoel">
+                    <div class="name">Manoel</div>
                 </div>
             </div>
         </div>
@@ -158,9 +166,9 @@
                 </div>
             </div>
         </div>
+        <img class="sej" src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/sej.png" alt="img">
     </section>
-    <section>
-            <img class="sej" src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/sej.png" alt="img">
+    <section class="final">
             <img class="caixa_salmão" src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/Group 1000003753.png" usemap="#image-map">
             <map name="image-map">
                 <area target="" alt="" title="" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/CadastroAssociado.php" coords="1206,339,936,234" shape="rect">

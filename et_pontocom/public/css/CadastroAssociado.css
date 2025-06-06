@@ -11,15 +11,28 @@
 
 /* PARTE ESCURA */
 /* botão de voltar */
-.Voltar a {
-    color: white;
-    text-decoration: none;
+#voltarSair{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 32px;
+    font-size: 20px;
+    left: 42px;
+    gap: 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    padding: 8px;
 }
-.Voltar{
-    height: 45px;
-    width: 45px;
-    margin-left: 30px;
-    margin-top: 8px;
+
+#voltarSair i{
+    color: white;
+}
+
+#voltar{   
+    font-weight: 600;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
 }
 /* Tela inteira */
 .pagina {

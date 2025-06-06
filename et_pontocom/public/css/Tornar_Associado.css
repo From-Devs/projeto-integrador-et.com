@@ -4,12 +4,9 @@
 }
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #F9F9F9;
 }
 
-
 .carousel-title {
-  
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -31,17 +28,17 @@ body {
   flex-direction: row;
   width: 200%;
   margin-top: 100px;
+  animation: scroll 8s linear infinite;
 }
 .carousel-item {
   flex: 0 0 auto;
   width: 150px;
-  height: 150px;
-  
   margin: 0 40px;
+  text-align: center;
 }
 .carousel-item img {
-  width: 100%;
-  height: 100%;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -51,16 +48,14 @@ body {
   font-weight: bold;
 }
 @keyframes scroll {
-  from{
-      transform: translate(10%);
+  0%
+  {
+    transform: translate(11%);
   }
-  to{
-      transform: translate(0%);
+  100%
+  {
+    transform: translate(-5.63%);
   }
-}
-.carousel-inner {
-  animation: scroll 5s linear infinite;
-
 }
 
 .promo-section {
@@ -68,35 +63,34 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
-  padding-bottom: 60px;
-  background-color: #000000;
-  
+  background-image: linear-gradient(to bottom, #000000 57%, #666666 100%);
   overflow: hidden; /* Adicionado para garantir que as ondas não saiam da seção */
+  height: 92vh;
 }
 .promo-content {
-  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
   background-color: transparent;
-  padding: 150px;
-  padding-top: 200px;
   border-radius: 10px;
-  margin-left: -200px;
+  left: 200px;
   color: #ffffff;
   text-align: center;
   z-index: 1;
-  margin-top: -100px;
+  gap: 20px;
 }
 
 .promo-content h2 {
-  font-size: 50px;
+  font-size: 56px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .promo-content p {
-  font-size: 30px;
+  font-size: 24px;
   margin-bottom: 20px;
-  max-width: 70%;
+  width: 780px;
   margin: 0 auto;
   text-align: center;
   color: #C6C6C6;
@@ -111,62 +105,81 @@ body {
   max-width: 70%;
 }
 
-.promo-content .learn-more,
-.promo-content .join-now {
-  display: block;
-  padding: 10px 20px;
-  margin-right: 10px;
-  text-decoration: none;
-  color: #5C87D9;
-  background-color: #000000;
-  border-radius: 5px;
-  margin: 10px auto;
+.botoesContainer{
+  display: flex;
+  gap: 30px;
 }
 
-.promo-content .join-now {
-  background-color: #ffffff;
-  color: #37ADD2;
-  width: 150px;
-}
-.promo-image {
+.karla{
   position: absolute;
-  width: 30%;
+  bottom: 82px;
+  right: 200px;
+  z-index: 901;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.promo-image {
+  width: 710px;
   height: auto; /* Ajuste a altura para permitir que a imagem se mova */
   z-index: 901;
   object-fit: cover;
-  border-radius: 10px;
-  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.377));
-  margin-top: -240px; /* Ajuste conforme necessário */
-  margin-left: -400px;
+  filter: drop-shadow(0 0 120px rgba(255, 255, 255, 0.4));
 }
 
-.substituir-imagem {
+.blurNomeKarla {
   position: absolute;
-  display: block;
-  margin-left: 1200px;
-  top: 570px; /* Ajusta a margem superior para mover a imagem mais para baixo */
-  width: 30%; /* Ajusta a largura da imagem conforme necessário */
-  height: auto; /* Mantém a proporção da imagem */
-  object-fit: cover; /* Ajusta a imagem para cobrir a área */
-  border-radius: 10px; /* Adiciona bordas arredondadas */
-  z-index: 902; /* Garante que a imagem fique acima de outros elementos */
+  bottom: -80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 116px;
+  width: 500px;
+  z-index: 902;
+}
+
+.blurNomeKarla .blur{
+  position: absolute;
+  background-color: white;
+  bottom: 10px;
+  width: 400px;
+  height: 100%;
+  z-index: 901;
+  filter: blur(20px);
+  border-radius: 50px;
+}
+
+.nomeKarla{
+  margin-top: 20px;
+  font-size: 40px;
+  font-weight: 700;
+  z-index: 903;
+}
+
+.cargoKarla{
+  font-size: 25px;
+  font-weight: bold;
+  color: #978E8E;
+  z-index: 903;
 }
 
 .commission-table {
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;
-  margin: 20px 0;
   text-align: left;
   position: absolute;
-  margin-top: 287px;
+  margin-top: 220px;
+  margin-left: 23px;
   z-index: 2;
 }
 .commission-table h2 {
   color:#000000;;
-  font-size: 30px;
-  font-weight: 200;
-  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 10px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
 }
 .commission-table p {
@@ -174,20 +187,22 @@ body {
   color: #AA8E8E;
 }
 .cards-section {
+  box-sizing: border-box;
   position: relative;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;
   margin: 0px;
+  width: 100%;
   
-  max-width: 1918px;
-  max-height: 760px;
+  /* max-width: 1918px; */
+  /* max-height: 760px; */
   background-image: url('/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/Rectangle.png');
   background-size: cover;
   background-position: center;
   height: 800px;
   z-index: 1;
-  margin-top: 200px;
+  margin-top: 100px;
   margin-left: -1px;
 }
 .cards-container {
@@ -258,12 +273,17 @@ body {
 .card5:hover {
   filter: drop-shadow(0 0 15px #ff0059);
 }
+
+.final{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .caixa_salmão {
   display: flex;
   justify-content: center;
-  margin-top: 200px;
-  margin-left:100px;
-  
+  margin-top: 200px;  
 }
 .caixa_salmão img {
   max-width: 100%;
@@ -271,12 +291,12 @@ body {
 }
 .sej {
   z-index: 5;
-display: flex;
-justify-content: left;
-align-items: left;
-margin-top: -330px;
-margin-left: 1000px;
-position: absolute;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  right: 100px;
+  bottom: 0;
+  position: absolute;
 }
 
 .associ{
@@ -293,7 +313,7 @@ position: absolute;
   font-size: 30px;
   margin-bottom: 20px;
 }
-.wave.solida{
+/* .wave.solida{
   position: absolute;
   bottom: -100px;
   margin-left: -1890px;
@@ -305,7 +325,7 @@ position: absolute;
   animation: animacaoOnda 8s linear infinite;
   animation-delay: 0s;
   opacity: 0.99;
-}
+} */
 @keyframes animacaoOnda
 {
   0%
