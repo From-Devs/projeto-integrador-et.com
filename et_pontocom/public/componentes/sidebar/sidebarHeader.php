@@ -1,7 +1,7 @@
 <?php
 function typeSidebar($tipoUsuario){
     if($tipoUsuario == "Associado"){
-        return '<li class="config"><a href="#" class="config_link">Área de Administração</a></li>';
+        return '<a href="/projeto-integrador-et.com/et_pontocom/app/views/associado/DashboardAssociado.php"><li class="config"><p class="config_link">Área de Administração</p></li></a>';
     }else{
         return '<a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Tornar_Associado.php"><li class="config"><p class="config_link">Associados</p></li></a>';
     };
