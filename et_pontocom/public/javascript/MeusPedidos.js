@@ -75,7 +75,7 @@ Object.entries(produtosPorData).forEach(([dataCompra, produtos]) => {
                             <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
                             <span class="detalhes-preco">Preço: ${p.preco.toFixed(2)}</span>
                         </div>
-                        <button class="detalhes-botao">Comprar Novamente</button>
+                        <a class="detalhes-botao" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Meu_Carrinho.php">Comprar Novamente</a>
                     </div
                 `;
 
