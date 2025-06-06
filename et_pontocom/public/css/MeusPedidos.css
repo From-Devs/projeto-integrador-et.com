@@ -380,6 +380,8 @@
     border: none;
     background-color: rgb(202, 202, 202);
     font-size: 13px;
+    text-decoration: none;
+    color: black;
 }
 
 
