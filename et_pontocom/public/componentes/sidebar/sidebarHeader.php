@@ -109,7 +109,7 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                 <div class="botoes_config">
                     <p class="categoria_nome">Ajuda e Configurações</p>
                     <ul>
-                        <li class="config"><a href="#" class="config_link">Minha Conta</a></li>
+                        <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/minhaConta.php"><li class="config"><p class="config_link">Minha Conta</p></li></a>
                         <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/meusPedidos.php"><li class="config"><p class="config_link">Meus Pedidos</p></li></a>
                         ' . typeSidebar($tipoUsuario) . '
                         <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/TermoDeUso.php"><li class="config"><p class="config_link">Termos de Uso e Privacidade</p></li></a>

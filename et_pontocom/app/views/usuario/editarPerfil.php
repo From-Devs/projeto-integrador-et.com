@@ -1,7 +1,12 @@
 <?php
+    require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
+    require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
+    require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
-
-
+    session_start();
+    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
+    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
 
 <!DOCTYPE html>
@@ -9,14 +14,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/header/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/styles.css">
+
     <link rel="stylesheet" href="../../../public/css/editarPerfil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Editar Perfil</title>
 </head>
 <body>
+    <?php
+    echo createHeader($login,$tipoUsuario); // função que cria o header
+    ?>
     <header>
-        <a href="minhaConta.php" class="back-button"><i class="fas fa-arrow-left"></i></a>
+        <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/minhaConta.php" class="back-button"><i class="fas fa-arrow-left"></i></a>
         <h1>EDITAR PERFIL</h1>
     </header>
 
@@ -53,7 +67,13 @@
             </div>
         </div>
     </section>
+    <?php
+    echo createRodape();
+    ?>
 
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/script.js"></script>
 
 </body>
 </html>
