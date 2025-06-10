@@ -1,3 +1,9 @@
+<?php
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -21,7 +27,7 @@
                 </div>
 
                 <div class="edit-profile">
-                    <a id="edit-profile" href="../layouts/editarPerfil.html">Editar perfil</a>
+                    <a id="edit-profile" href="../layouts/editarPerfil.php">Editar perfil</a>
                     <i class='bx bx-edit-alt'></i>
                 </div>
 
@@ -41,7 +47,7 @@
             </div>
 
             <div class="opcoes-conta">
-                <a href="../layouts/dadosCadastrais.html">
+                <a href="../layouts/dadosCadastrais.php">
                     <div class="option-card">
                         <div class="icon">
                             <i class="fas fa-user-shield"></i>

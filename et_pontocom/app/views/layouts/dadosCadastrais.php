@@ -1,3 +1,9 @@
+<?php
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,7 +16,7 @@
 </head>
 <body>
     <header>
-        <a href="minhaConta.html" class="back-button"><i class="fas fa-arrow-left"></i></a>
+        <a href="minhaConta.php" class="back-button"><i class="fas fa-arrow-left"></i></a>
         <h1>DADOS CADASTRAIS</h1>
     </header>
     
@@ -25,7 +31,7 @@
             </div>
 
             <div class="edit-profile">
-                <a id="edit-profile" href="../layouts/editarPerfil.html">Editar perfil</a>
+                <a id="edit-profile" href="../layouts/editarPerfil.php">Editar perfil</a>
                 <i class='bx bx-edit-alt'></i>
             </div>
 

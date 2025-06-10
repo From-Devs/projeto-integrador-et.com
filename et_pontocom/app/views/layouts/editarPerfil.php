@@ -1,3 +1,9 @@
+<?php
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,7 +16,7 @@
 </head>
 <body>
     <header>
-        <a href="minhaConta.html" class="back-button"><i class="fas fa-arrow-left"></i></a>
+        <a href="minhaConta.php" class="back-button"><i class="fas fa-arrow-left"></i></a>
         <h1>EDITAR PERFIL</h1>
     </header>
 
