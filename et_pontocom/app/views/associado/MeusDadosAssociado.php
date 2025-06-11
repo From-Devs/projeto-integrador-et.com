@@ -167,44 +167,24 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
     </div><!--fim Principal -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Seleciona os botões pelas classes e estruturas existentes
-    const btnEditar = document.querySelector('.bnt-Editar'); // Botão Editar (div com h1)
-    const btnPerfil = document.querySelector('.CardPrincipal h1'); // Botão Perfil (h1 dentro do CardPrincipal)
-    const btnFecharPerfil = document.querySelector('.perfil-Meus-dados .x'); // Botão X para fechar perfil
-
-    // Áreas de conteúdo
-    const areaMeusDados = document.querySelector('.Conteudos');
-    const areaPerfil = document.querySelector('.perfil-Meus-dados');
-    const areaEdicao = document.querySelector('.edisao');
-
-    // Função para esconder todas as áreas
-    function esconderTodas() {
-        areaMeusDados.classList.add('none');
-        areaPerfil.classList.add('none');
-        areaEdicao.classList.add('none');
+    const EditarBtn = document.getElementsByClassName("bnt-Editar") 
+    const EditarIcn = document.getElementsByClassName("icon")
+    const MeusDadosc1 = document.getElementsByClassName("CardDados")
+    const MeusDadosc2 = document.getElementsByClassName("Conteudos")
+    function esconder(){
+        MeusDadosc1[0].classList.add("none");
+        MeusDadosc2[0].classList.add("none");
     }
 
-    // Clicar em "Perfil" (título no CardPrincipal)
-    btnPerfil.addEventListener('click', () => {
-        esconderTodas();
-        areaPerfil.classList.remove('none');
+    EditarBtn[0].addEventListener('click',()=>{
+        esconder()
+
+    });
+    EditarIcn[0].addEventListener('click',()=>{
+        esconder()
+
     });
 
-    // Clicar em "Editar"
-    btnEditar.addEventListener('click', () => {
-        esconderTodas();
-        areaEdicao.classList.remove('none');
-    });
-
-    // Clicar em "X" no perfil
-    btnFecharPerfil.addEventListener('click', () => {
-        esconderTodas();
-        areaMeusDados.classList.remove('none');
-    });
-
-    // Mostrar a tela "Meus Dados" por padrão
-    esconderTodas();
-    areaMeusDados.classList.remove('none');
 });
 </script>
 
