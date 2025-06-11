@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-body {
+*{
+    padding: 0;
+    margin: 0;
     font-family: "Montserrat", sans-serif;
+}
+
+body {
     margin: 0;
     padding: 0;
     background: #f8f8f8;
@@ -13,9 +18,10 @@ body {
     cursor: pointer;
 }
 
-h1 {
+.tituloMinhaConta {
     margin-top: 131px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .line-out{
@@ -26,6 +32,14 @@ h1 {
     background-color: black;
     width: 1350px;
     height: 1px;
+}
+
+.content p {
+    margin: 15px 0px;
+}
+
+.option-card p{
+    margin: 16px 0px;
 }
 
 .conta-container {

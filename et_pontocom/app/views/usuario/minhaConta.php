@@ -31,7 +31,7 @@
     echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
     <main>
-        <h1>MINHA CONTA</h1>
+        <h1 class="tituloMinhaConta">MINHA CONTA</h1>
         <div class="line-out">
             <div class="line"></div>
         </div>

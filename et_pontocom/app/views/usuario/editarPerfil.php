@@ -27,11 +27,11 @@
 </head>
 <body>
     <?php
-    echo createHeader($login,$tipoUsuario); // função que cria o header
+    echo createHeader($login,$tipoUsuario); // função que cria o header 
     ?>
     <header>
         <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/minhaConta.php" class="back-button"><i class="fas fa-arrow-left"></i></a>
-        <h1>EDITAR PERFIL</h1>
+        <h1 class="editarPerfilTitulo">EDITAR PERFIL</h1>
     </header>
 
     <div class="line-out">
@@ -61,9 +61,9 @@
             <div class="options">
                 <h3>OPÇÕES</h3>
                 <label for="username">Mudar nome de usuário</label>
-                <input type="text" id="username" placeholder="Digite aqui">
+                <input type="text" id="username" name="username" placeholder="Digite aqui">
                 <label for="email">Mudar email de cadastro</label>
-                <input type="email" id="email" placeholder="Digite aqui">
+                <input type="email" id="email" name="email" placeholder="Digite aqui">
             </div>
         </div>
     </section>

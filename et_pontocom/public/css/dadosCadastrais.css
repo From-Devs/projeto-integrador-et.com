@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-body {
-    font-family: "Montserrat", sans-serif;
+*{
     margin: 0;
     padding: 0;
-    background: #f8f8f8;
+    font-family: "Montserrat", sans-serif;
 }
+body {
+    background: #f8f8f8;
+} 
 
 .back-button {
     position: absolute;
@@ -21,13 +23,17 @@ body {
     cursor: pointer;
 }
 
-h1 {
+.dadosCadastraisTitulo {
     margin-top: 131px;
     padding-left: 100px;
     text-align: center;
     border-bottom: 2ps solid black;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
     width: 90%;
+}
+
+.content p {
+    margin: 15px 0px;
 }
 
 .line-out{
@@ -143,7 +149,7 @@ label {
     margin-bottom: 8px;
 }
 
-input, select {
+.inputDadosCadastrais, select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 16px;

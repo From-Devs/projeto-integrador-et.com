@@ -31,7 +31,7 @@
     ?>
     <header>
         <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/minhaConta.php" class="back-button"><i class="fas fa-arrow-left"></i></a>
-        <h1>DADOS CADASTRAIS</h1>
+        <h1 class="dadosCadastraisTitulo">DADOS CADASTRAIS</h1>
     </header>
     
     <div class="line-out">
@@ -69,19 +69,19 @@
         <div class="form-container">
             <div class="form-group">
                 <label>Nome Completo</label>
-                <input type="text">
+                <input class="inputDadosCadastrais" type="text">
             </div>
             <div class="form-group">
                 <label>Data de Nascimento</label>
-                <input type="date">
+                <input class="inputDadosCadastrais" type="date">
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="email">
+                <input class="inputDadosCadastrais" type="email">
             </div>
             <div class="form-group">
                 <label>CPF</label>
-                <input type="number">
+                <input class="inputDadosCadastrais" type="number">
             </div>
             <div class="form-group">
                 <label>Telefone</label>
@@ -155,16 +155,16 @@
                     <option>(98)</option>
                     <option>(99)</option>
                 </select>
-                <input type="tel">
+                <input class="inputDadosCadastrais" type="tel">
             </div>
             </div>
             <div class="form-group">
                 <label>Senha</label>
-                <input type="password">
+                <input class="inputDadosCadastrais" type="password">
             </div>
             <div class="form-group">
                 <label>Nome Social</label>
-                <input type="text">
+                <input class="inputDadosCadastrais" type="text">
             </div>
         </div>
     </section>
