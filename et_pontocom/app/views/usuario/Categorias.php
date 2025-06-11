@@ -42,13 +42,16 @@
     echo createHeader($login,$tipo_usuario); // função que cria o header
     ?>
     <div class="Topo">
-        <h1 class="Titulo">Perfumes</h1>
-            <div class="onda">
-            <?php
-                echo createOnda(1);
-                echo createOnda(0);
-            ?>
-            </div>
+        <div class="tituloWrapper">
+            <h1 class="Titulo">Perfumes</h1>
+        </div>
+
+            <!-- <div class="onda"> -->
+        <?php
+            echo createOnda(1);
+            echo createOnda(0);
+        ?>
+            <!-- </div> -->
     </div>
     
     <div class="Produtos">
