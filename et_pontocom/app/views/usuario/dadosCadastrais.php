@@ -1,6 +1,5 @@
 <?php
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
-    require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
     session_start();
@@ -168,9 +167,6 @@
             </div>
         </div>
     </section>
-    <?php
-    echo createRodape();
-    ?>
 
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/script.js"></script>
