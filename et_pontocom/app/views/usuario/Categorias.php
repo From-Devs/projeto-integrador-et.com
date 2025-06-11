@@ -7,7 +7,7 @@
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
     require __DIR__ . "/../../../public/componentes/filtroCategoria/filtroCategoria.php";
-    $telaAtual = $_GET["tela"] ?? "Perfume";
+    $telaAtual = $_GET["tela"] ?? "Maquiagem";
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "associado";
     $login = false;
 
