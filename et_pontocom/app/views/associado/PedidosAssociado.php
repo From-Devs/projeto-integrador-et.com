@@ -74,7 +74,7 @@
 
 
 
-            echo tabelaPedidos($pedidos);
+            echo tabelaPedidosAssociado($pedidos);
         ?>
     </div>
     

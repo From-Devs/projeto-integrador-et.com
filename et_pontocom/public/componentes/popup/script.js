@@ -2,9 +2,14 @@ const closeButton = document.getElementsByClassName("icone-fechar")[0];
 
 
 function abrirPopUp(id){
-    const dialog = document.getElementsByClassName(id)[0];
-    if (dialog) {
-        dialog.showModal();
+    const dialogClass = document.getElementsByClassName(id)[0];
+    const dialogId = document.getElementById(id);
+    if (dialogClass) {
+        dialogClass.showModal();
+    }
+
+    if(dialogId){
+      dialogId.showModal();
     }
 }
 
@@ -18,8 +23,15 @@ document.querySelectorAll(".icone-fechar").forEach(botao => {
 });
 
 function fecharPopUp(id){
-    const dialog = document.getElementsByClassName(id)[0];
-    dialog.close();
+    const dialogClass = document.getElementsByClassName(id)[0];
+    const dialogId = document.getElementById(id);
+
+
+    if(dialogClass)
+      dialogClass.close();
+
+    if(dialogId)
+      dialogId.close();
 }
 
 document.querySelectorAll('.input-file').forEach(input => {

@@ -60,9 +60,10 @@
         <div id="titulo">
             <h1 id="tituloH1">Pedidos</h1>
         </div>
+
         <?php
             $pedidos = [
-                ['nomeCliente' => 'Guilherme Nantes', 'nomeProduto' => 'Hidratante Natura +8', 'preco' => 44.99, 'data' => '20/06/2024', 'status' => 'Pago'],
+                ['nomeCliente' => 'Guilherme Nantes', 'nomeProduto' => 'Hidratante Natura', 'preco' => 44.99, 'data' => '20/06/2024', 'status' => 'Pago'],
                 ['nomeCliente' => 'João Pedro', 'nomeProduto' => 'Base Líquida', 'preco' => 666.99, 'data' => '30/03/2024', 'status' => 'Pago'],
                 ['nomeCliente' => 'Daniel Fagundes', 'nomeProduto' => 'Body Splash', 'preco' => 42.91, 'data' => '19/08/2024', 'status' => 'Pago'],
                 ['nomeCliente' => 'Henrico Queiroz', 'nomeProduto' => 'Colônia Coffe Woman', 'preco' => 39.99, 'data' => '17/08/2024', 'status' => 'Pendente'],
@@ -76,9 +77,116 @@
                 ['nomeCliente' => 'Natalia Barros', 'nomeProduto' => 'Hidratante Corporal', 'preco' => 29.99, 'data' => '12/07/2024', 'status' => 'Pendente']
                 ];
 
+                $detalhesPedidos = [
+                    [
+                        'idProduto' => 101,
+                        'nomeProduto' => 'Camisa Polo',
+                        'associado' => 'João Silva',
+                        'preco' => 49.90,
+                        'quantidade' => 2
+                    ],
+                    [
+                        'idProduto' => 102,
+                        'nomeProduto' => 'Caneca Personalizada',
+                        'associado' => 'Maria Souza',
+                        'preco' => 25.00,
+                        'quantidade' => 1
+                    ],
+                    [
+                        'idProduto' => 103,
+                        'nomeProduto' => 'Chaveiro de Couro',
+                        'associado' => 'Lucas Rocha',
+                        'preco' => 15.50,
+                        'quantidade' => 3
+                    ],
+                    [
+                        'idProduto' => 103,
+                        'nomeProduto' => 'Chaveiro de Couro',
+                        'associado' => 'Lucas Rocha',
+                        'preco' => 15.50,
+                        'quantidade' => 3
+                    ],
+                    [
+                        'idProduto' => 103,
+                        'nomeProduto' => 'Chaveiro de Couro',
+                        'associado' => 'Lucas Rocha',
+                        'preco' => 15.50,
+                        'quantidade' => 3
+                    ],
+                    [
+                        'idProduto' => 103,
+                        'nomeProduto' => 'Chaveiro de Couro',
+                        'associado' => 'Lucas Rocha',
+                        'preco' => 15.50,
+                        'quantidade' => 3
+                    ],
+                    [
+                        'idProduto' => 103,
+                        'nomeProduto' => 'Chaveiro de Couro',
+                        'associado' => 'Lucas Rocha',
+                        'preco' => 15.50,
+                        'quantidade' => 3
+                    ],
+                    [
+                        'idProduto' => 103,
+                        'nomeProduto' => 'Chaveiro de Couro',
+                        'associado' => 'Lucas Rocha',
+                        'preco' => 15.50,
+                        'quantidade' => 3
+                    ],
+                    [
+                        'idProduto' => 103,
+                        'nomeProduto' => 'Chaveiro de Couro',
+                        'associado' => 'Lucas Rocha',
+                        'preco' => 15.50,
+                        'quantidade' => 3
+                    ]
+                ];
 
+                $infoPagamentos = [
+                    [
+                        'associado' => 'João Silva',
+                        'telefone' => '(11) 91234-5678',
+                        'valor' => 99.80
+                    ],
+                    [
+                        'associado' => 'Maria Souza',
+                        'telefone' => '(11) 99876-5432',
+                        'valor' => 25.00
+                    ],
+                    [
+                        'associado' => 'Lucas Rocha',
+                        'telefone' => '(11) 98765-4321',
+                        'valor' => 46.50
+                    ],
+                    [
+                        'associado' => 'Lucas Rocha',
+                        'telefone' => '(11) 98765-4321',
+                        'valor' => 46.50
+                    ],
+                    [
+                        'associado' => 'Lucas Rocha',
+                        'telefone' => '(11) 98765-4321',
+                        'valor' => 46.50
+                    ],
+                    [
+                        'associado' => 'Lucas Rocha',
+                        'telefone' => '(11) 98765-4321',
+                        'valor' => 46.50
+                    ],
+                    [
+                        'associado' => 'Lucas Rocha',
+                        'telefone' => '(11) 98765-4321',
+                        'valor' => 46.50
+                    ],
+                    [
+                        'associado' => 'Lucas Rocha',
+                        'telefone' => '(11) 98765-4321',
+                        'valor' => 46.50
+                    ]
+                ];
 
-            echo tabelaPedidos($pedidos);
+            echo tabelaPedidosADM($pedidos, $detalhesPedidos, $infoPagamentos);
         ?>
     </div>
 
