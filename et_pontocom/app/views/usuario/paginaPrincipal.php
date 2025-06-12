@@ -7,6 +7,7 @@
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
     require __DIR__ . "/../../../public/componentes/carousel/carousel.php";
+    require __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
     session_start();
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
@@ -34,6 +35,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/ondas/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/carousel/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/carouselPopUp/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/paginaPrincipal.css">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -45,6 +47,8 @@
     <?php
     echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
+
+    <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
 
     <div class="carouselContainer" id="carousel">
         
@@ -214,6 +218,6 @@
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/produtoDestaque/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/carousel/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
-    <!-- <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/paginaPrincipalCategorias.js"></script> -->
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
 </body>
 </html>

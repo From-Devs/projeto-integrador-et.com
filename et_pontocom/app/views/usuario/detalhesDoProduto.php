@@ -55,7 +55,7 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
                 <div class="titulo-produto">
                     <div class="titulo">
                         <h3>Lorem ipsum dolor sit amet consectetur adipisicing</h3>
-                        <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "120px", "Adicionado aos favoritos!", "", "", "", "200px")?>
+                        <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
                         <abbr class="abbr-favoritos" title="Adicionar aos favoritos" onclick="abrirPopUp('popUpFavorito')">
                             <button class="imgCoracao">
                                 <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coracao-detalhes-produto.png' alt='Coração'>
