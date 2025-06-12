@@ -48,10 +48,21 @@ body{
 
 /* PARTE DOS PRODUTOS */
 .Produtos {
+    padding: 0px 64px;
+    box-sizing: border-box;
+    width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-top: 64px;
-    gap: 10px;
+}
+
+.filtro-botao{
+    font-size: 24px;
+}
+
+.filtro-botao, .form{
+    width: 100%;
 }
 
 .aVenda {
@@ -65,19 +76,19 @@ body{
     margin-top: 25px;
 }
 
-.PartedeCima {
-    margin: 10px 40px 0px 0px;
-    height: 50px;
+.PartedeCima { 
+    padding: 20px 0px;
     display: flex;
     align-items: center;
-    flex-direction: row;
-    gap: 150px;
+}
+
+.PartedeCima h3{
+    font-weight: 400;
+    font-size: 36px;
 }
 
 .PartedeBaixo {
-    margin: 0px 40px;
     display: grid;
-    /* gap: 25px; */
     row-gap: 40px;
     column-gap: 25px;
     grid-template-rows: 1fr 1fr 1fr 1fr;
