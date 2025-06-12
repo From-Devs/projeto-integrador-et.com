@@ -63,130 +63,141 @@
 
         <?php
             $pedidos = [
-                ['nomeCliente' => 'Guilherme Nantes', 'nomeProduto' => 'Hidratante Natura', 'preco' => 44.99, 'data' => '20/06/2024', 'status' => 'Pago'],
-                ['nomeCliente' => 'João Pedro', 'nomeProduto' => 'Base Líquida', 'preco' => 666.99, 'data' => '30/03/2024', 'status' => 'Pago'],
-                ['nomeCliente' => 'Daniel Fagundes', 'nomeProduto' => 'Body Splash', 'preco' => 42.91, 'data' => '19/08/2024', 'status' => 'Pago'],
-                ['nomeCliente' => 'Henrico Queiroz', 'nomeProduto' => 'Colônia Coffe Woman', 'preco' => 39.99, 'data' => '17/08/2024', 'status' => 'Pendente'],
-                ['nomeCliente' => 'Cecíliano Ferraz', 'nomeProduto' => 'Kit Skincare Completo', 'preco' => 120.00, 'data' => '22/01/2024', 'status' => 'Pendente'],
-                ['nomeCliente' => 'Felipe Sales', 'nomeProduto' => 'Césio Líquido', 'preco' => 23.50, 'data' => '12/08/2024', 'status' => 'Pago'],
-                ['nomeCliente' => 'Bruna Lima', 'nomeProduto' => 'Máscara Capilar', 'preco' => 34.90, 'data' => '10/04/2024', 'status' => 'Pago'],
-                ['nomeCliente' => 'Renata Souza', 'nomeProduto' => 'Sabonete Esfoliante', 'preco' => 19.90, 'data' => '05/05/2024', 'status' => 'Pendente'],
-                ['nomeCliente' => 'Lucas Martins', 'nomeProduto' => 'Shampoo Revitalizante', 'preco' => 27.45, 'data' => '14/06/2024', 'status' => 'Pago'],
-                ['nomeCliente' => 'Carla Dias', 'nomeProduto' => 'Perfume Femme Nuit', 'preco' => 89.90, 'data' => '28/02/2024', 'status' => 'Pendente'],
-                ['nomeCliente' => 'Thiago Ramos', 'nomeProduto' => 'Kit Barbear', 'preco' => 58.00, 'data' => '03/03/2024', 'status' => 'Pago'],
-                ['nomeCliente' => 'Natalia Barros', 'nomeProduto' => 'Hidratante Corporal', 'preco' => 29.99, 'data' => '12/07/2024', 'status' => 'Pendente']
-                ];
-
-                $detalhesPedidos = [
-                    [
-                        'idProduto' => 101,
-                        'nomeProduto' => 'Camisa Polo',
-                        'associado' => 'João Silva',
-                        'preco' => 49.90,
-                        'quantidade' => 2
+                [
+                    'nomeCliente' => 'Ana Beatriz',
+                    'preco' => 120.00,
+                    'data' => '2025-06-10',
+                    'status' => 'Pago',
+                    'detalhesPedido' => [
+                        ['idProduto' => 1, 'nomeProduto' => 'Creme Facial Hidratante', 'associado' => 'Luciana', 'preco' => 40.00, 'quantidade' => 1],
+                        ['idProduto' => 2, 'nomeProduto' => 'Sérum Vitamina C', 'associado' => 'Luciana', 'preco' => 80.00, 'quantidade' => 1],
                     ],
-                    [
-                        'idProduto' => 102,
-                        'nomeProduto' => 'Caneca Personalizada',
-                        'associado' => 'Maria Souza',
-                        'preco' => 25.00,
-                        'quantidade' => 1
-                    ],
-                    [
-                        'idProduto' => 103,
-                        'nomeProduto' => 'Chaveiro de Couro',
-                        'associado' => 'Lucas Rocha',
-                        'preco' => 15.50,
-                        'quantidade' => 3
-                    ],
-                    [
-                        'idProduto' => 103,
-                        'nomeProduto' => 'Chaveiro de Couro',
-                        'associado' => 'Lucas Rocha',
-                        'preco' => 15.50,
-                        'quantidade' => 3
-                    ],
-                    [
-                        'idProduto' => 103,
-                        'nomeProduto' => 'Chaveiro de Couro',
-                        'associado' => 'Lucas Rocha',
-                        'preco' => 15.50,
-                        'quantidade' => 3
-                    ],
-                    [
-                        'idProduto' => 103,
-                        'nomeProduto' => 'Chaveiro de Couro',
-                        'associado' => 'Lucas Rocha',
-                        'preco' => 15.50,
-                        'quantidade' => 3
-                    ],
-                    [
-                        'idProduto' => 103,
-                        'nomeProduto' => 'Chaveiro de Couro',
-                        'associado' => 'Lucas Rocha',
-                        'preco' => 15.50,
-                        'quantidade' => 3
-                    ],
-                    [
-                        'idProduto' => 103,
-                        'nomeProduto' => 'Chaveiro de Couro',
-                        'associado' => 'Lucas Rocha',
-                        'preco' => 15.50,
-                        'quantidade' => 3
-                    ],
-                    [
-                        'idProduto' => 103,
-                        'nomeProduto' => 'Chaveiro de Couro',
-                        'associado' => 'Lucas Rocha',
-                        'preco' => 15.50,
-                        'quantidade' => 3
+                    'infoPagamentos' => [
+                        ['associado' => 'Luciana', 'telefone' => '(11) 98888-1234', 'valor' => 120.00]
                     ]
-                ];
-
-                $infoPagamentos = [
-                    [
-                        'associado' => 'João Silva',
-                        'telefone' => '(11) 91234-5678',
-                        'valor' => 99.80
+                ],
+                [
+                    'nomeCliente' => 'Bruno Silva',
+                    'preco' => 195.50,
+                    'data' => '2025-06-11',
+                    'status' => 'Pendente',
+                    'detalhesPedido' => [
+                        ['idProduto' => 3, 'nomeProduto' => 'Perfume Amadeirado', 'associado' => 'Carlos', 'preco' => 150.00, 'quantidade' => 1],
+                        ['idProduto' => 4, 'nomeProduto' => 'Sabonete Artesanal', 'associado' => 'Carlos', 'preco' => 45.50, 'quantidade' => 1],
                     ],
-                    [
-                        'associado' => 'Maria Souza',
-                        'telefone' => '(11) 99876-5432',
-                        'valor' => 25.00
-                    ],
-                    [
-                        'associado' => 'Lucas Rocha',
-                        'telefone' => '(11) 98765-4321',
-                        'valor' => 46.50
-                    ],
-                    [
-                        'associado' => 'Lucas Rocha',
-                        'telefone' => '(11) 98765-4321',
-                        'valor' => 46.50
-                    ],
-                    [
-                        'associado' => 'Lucas Rocha',
-                        'telefone' => '(11) 98765-4321',
-                        'valor' => 46.50
-                    ],
-                    [
-                        'associado' => 'Lucas Rocha',
-                        'telefone' => '(11) 98765-4321',
-                        'valor' => 46.50
-                    ],
-                    [
-                        'associado' => 'Lucas Rocha',
-                        'telefone' => '(11) 98765-4321',
-                        'valor' => 46.50
-                    ],
-                    [
-                        'associado' => 'Lucas Rocha',
-                        'telefone' => '(11) 98765-4321',
-                        'valor' => 46.50
+                    'infoPagamentos' => [
+                        ['associado' => 'Carlos', 'telefone' => '(21) 97777-4321', 'valor' => 195.50]
                     ]
-                ];
+                ],
+                [
+                    'nomeCliente' => 'Carla Mendes',
+                    'preco' => 260.00,
+                    'data' => '2025-06-12',
+                    'status' => 'Pago',
+                    'detalhesPedido' => [
+                        ['idProduto' => 5, 'nomeProduto' => 'Kit Skincare Completo', 'associado' => 'Juliana', 'preco' => 200.00, 'quantidade' => 1],
+                        ['idProduto' => 6, 'nomeProduto' => 'Máscara de Argila', 'associado' => 'Juliana', 'preco' => 60.00, 'quantidade' => 1],
+                    ],
+                    'infoPagamentos' => [
+                        ['associado' => 'Juliana', 'telefone' => '(31) 96666-9988', 'valor' => 260.00]
+                    ]
+                ],
+                [
+                    'nomeCliente' => 'Diego Rocha',
+                    'preco' => 89.90,
+                    'data' => '2025-06-12',
+                    'status' => 'Pendente',
+                    'detalhesPedido' => [
+                        ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],
+                        ['idProduto' => 8, 'nomeProduto' => 'Creme para Mãos', 'associado' => 'Renata', 'preco' => 44.90, 'quantidade' => 1],
+                    ],
+                    'infoPagamentos' => [
+                        ['associado' => 'Renata', 'telefone' => '(51) 95555-3344', 'valor' => 89.90]
+                    ]
+                    ],
+                [
+                    'nomeCliente' => 'Diego Rocha',
+                    'preco' => 89.90,
+                    'data' => '2025-06-12',
+                    'status' => 'Pendente',
+                    'detalhesPedido' => [
+                        ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],
+                        ['idProduto' => 8, 'nomeProduto' => 'Creme para Mãos', 'associado' => 'Renata', 'preco' => 44.90, 'quantidade' => 1],
+                    ],
+                    'infoPagamentos' => [
+                        ['associado' => 'Renata', 'telefone' => '(51) 95555-3344', 'valor' => 89.90]
+                    ]
+                    ],
+                [
+                    'nomeCliente' => 'Diego Rocha',
+                    'preco' => 89.90,
+                    'data' => '2025-06-12',
+                    'status' => 'Pendente',
+                    'detalhesPedido' => [
+                        ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],
+                        ['idProduto' => 8, 'nomeProduto' => 'Creme para Mãos', 'associado' => 'Renata', 'preco' => 44.90, 'quantidade' => 1],
+                    ],
+                    'infoPagamentos' => [
+                        ['associado' => 'Renata', 'telefone' => '(51) 95555-3344', 'valor' => 89.90]
+                    ]
+                    ],
+                [
+                    'nomeCliente' => 'Diego Rocha',
+                    'preco' => 89.90,
+                    'data' => '2025-06-12',
+                    'status' => 'Pendente',
+                    'detalhesPedido' => [
+                        ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],
+                        ['idProduto' => 8, 'nomeProduto' => 'Creme para Mãos', 'associado' => 'Renata', 'preco' => 44.90, 'quantidade' => 1],
+                    ],
+                    'infoPagamentos' => [
+                        ['associado' => 'Renata', 'telefone' => '(51) 95555-3344', 'valor' => 89.90]
+                    ]
+                    ],
+                [
+                    'nomeCliente' => 'Diego Rocha',
+                    'preco' => 89.90,
+                    'data' => '2025-06-12',
+                    'status' => 'Pendente',
+                    'detalhesPedido' => [
+                        ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],
+                        ['idProduto' => 8, 'nomeProduto' => 'Creme para Mãos', 'associado' => 'Renata', 'preco' => 44.90, 'quantidade' => 1],
+                    ],
+                    'infoPagamentos' => [
+                        ['associado' => 'Renata', 'telefone' => '(51) 95555-3344', 'valor' => 89.90]
+                    ]
+                    ],
+                [
+                    'nomeCliente' => 'Diego Rocha',
+                    'preco' => 89.90,
+                    'data' => '2025-06-12',
+                    'status' => 'Pendente',
+                    'detalhesPedido' => [
+                        ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],
+                        ['idProduto' => 8, 'nomeProduto' => 'Creme para Mãos', 'associado' => 'Renata', 'preco' => 44.90, 'quantidade' => 1],
+                    ],
+                    'infoPagamentos' => [
+                        ['associado' => 'Renata', 'telefone' => '(51) 95555-3344', 'valor' => 89.90]
+                    ]
+                    ],
+                [
+                    'nomeCliente' => 'Diego Rocha',
+                    'preco' => 89.90,
+                    'data' => '2025-06-12',
+                    'status' => 'Pendente',
+                    'detalhesPedido' => [
+                        ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],
+                        ['idProduto' => 8, 'nomeProduto' => 'Creme para Mãos', 'associado' => 'Renata', 'preco' => 44.90, 'quantidade' => 1],
+                    ],
+                    'infoPagamentos' => [
+                        ['associado' => 'Renata', 'telefone' => '(51) 95555-3344', 'valor' => 89.90]
+                    ]
+                    ],
+            ];
 
-            echo tabelaPedidosADM($pedidos, $detalhesPedidos, $infoPagamentos);
+
+
+            echo tabelaPedidosADM($pedidos);
         ?>
     </div>
 

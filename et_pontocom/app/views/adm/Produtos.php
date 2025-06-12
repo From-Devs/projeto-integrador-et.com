@@ -54,7 +54,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             </div>
         </div>
         <div>
-            <h1 id="tituloH1">Produtos</h1>
+            <div>
+                <h1 id="tituloH1">Produtos</h1>
+            </div>
             <?php
                 $produtos = [
                     ['nome' => 'Hidratante', 'sku' => 'S5D56GE'],

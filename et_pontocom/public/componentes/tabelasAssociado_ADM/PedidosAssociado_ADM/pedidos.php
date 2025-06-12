@@ -67,8 +67,8 @@ function tabelaTotaisAssociado($infoPagamentos) {
     return $html;
 }
 
-function resumoFinal($pedidos) {
-    $subtotal = array_sum(array_column($pedidos, 'preco'));
+function resumoFinal($detalhesPedidos) {
+    $subtotal = array_sum(array_column($detalhesPedidos, 'preco'));
 
     $html = '<div class="resumo-final" style="margin-top: 1em;">
         <table>
@@ -93,7 +93,7 @@ function resumoFinal($pedidos) {
 }
 
 
-function tabelaPedidosADM($pedidos, $detalhesPedidos, $infoPagamentos) {
+function tabelaPedidosADM($pedidos) {
     $tabela = "<div id='lista'>
         <table id='tabelaVendas'>
             <thead id='barraCima'>
@@ -128,22 +128,22 @@ function tabelaPedidosADM($pedidos, $detalhesPedidos, $infoPagamentos) {
                     <div class="dadosHeader">
                         <h3>Data do Pedido: <?php
                         echo $pedido['data']?></h3>
-                        <h3>Pedidos Totais: 16</h3>
+                        <h3>Pedidos Totais: <?php echo count($pedido['detalhesPedido'])?></h3>
                     </div>
                 </div>
             </div>
             <div id="componenteTabelaProdutos">
-                <?php echo detalhesPedidos($detalhesPedidos); ?>
+                <?php echo detalhesPedidos($pedido['detalhesPedido']); ?>
             </div>
 
             
             <div class="containerBaixo">
                 <div id="componenteTotaisAssociados">
                     <h3>Total a pagar:</h3>
-                    <?php echo tabelaTotaisAssociado($infoPagamentos); ?>
+                    <?php echo tabelaTotaisAssociado($pedido['infoPagamentos']); ?>
                 </div>
                 <div id="componenteResumoFinal">
-                    <?php echo resumoFinal($pedidos); ?>
+                    <?php echo resumoFinal($pedido['detalhesPedido']); ?>
                 </div>
             </div>
         </dialog>

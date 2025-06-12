@@ -36,6 +36,7 @@ a {
 #controleIcon {
     display: flex;
     flex-direction: row-reverse;
+    align-items: center;
 }
 
 #iconUsuario {
@@ -47,7 +48,6 @@ a {
     align-items: center;
     overflow: hidden;
     gap: 10px;
-    margin-top: 20px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
@@ -94,4 +94,12 @@ a {
     border: none;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     font-size: 18px;
+}
+
+.container-filtroEIcon {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
 }

@@ -18,7 +18,6 @@ a {
 #container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     width: 100vw;
     margin-left: 350px;
 }
@@ -67,7 +66,6 @@ a {
     justify-content: end;
     align-items: center;
     gap: 20px;
-    margin: 20px;
 }
 
 /* pesquisa */
@@ -285,7 +283,7 @@ a {
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    background-color: #00D3AD;
+    background-color: #3449B6;
     color: white;
 }
 
@@ -309,6 +307,7 @@ a {
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
+    margin-top: 10px;
 }
 
 html, body {
@@ -389,6 +388,10 @@ tr {
 .excluir img, .editar img {
     cursor: pointer;
     width: 30px;
+}
+
+#titleRelatorios {
+    margin-top: 20px;
 }
 
 @media (max-width: 800px) {

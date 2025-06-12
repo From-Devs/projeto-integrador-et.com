@@ -32,27 +32,29 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     
     <!-- aqui acaba o container esquerda -->
     <div id="container">
-        <div id="controleIcon">
-            <div id="iconUsuario">
-                <img id="fotoUser" src="../../../public/imagens/imagensADM/userIMG.png" alt="userIMG">
-                <p id="textUser">ADM ET</p>
+        <div class="container-filtroEIcon">
+            <div id="controleIcon">
+                <div id="iconUsuario">
+                    <img id="fotoUser" src="../../../public/imagens/imagensADM/userIMG.png" alt="userIMG">
+                    <p id="textUser">ADM ET</p>
+                </div>
             </div>
-        </div>
-        <div id="divPesquisarEEscolher">
-            <div id="pesquisar">
-                <form action="">
-                    <input id="inputPesquisar" type="text" placeholder="Pesquisar por Associado...">
-                </form>
-            </div>
-            <div id="Escolher">
-                <button id="botaoAssociados">
-                    <p>Associados</p>
-                </button>
-            </div>
-            <div id="Solicitações">
-                <button id="botaoSolicitacao">
-                    <p>Solicitações</p>
-                </button>
+            <div id="divPesquisarEEscolher">
+                <div id="pesquisar">
+                    <form action="">
+                        <input id="inputPesquisar" type="text" placeholder="Pesquisar por Associado...">
+                    </form>
+                </div>
+                <div id="Escolher">
+                    <button id="botaoAssociados">
+                        <p>Associados</p>
+                    </button>
+                </div>
+                <div id="Solicitações">
+                    <button id="botaoSolicitacao">
+                        <p>Solicitações</p>
+                    </button>
+                </div>
             </div>
         </div>
         <div id="titulo">

@@ -3,6 +3,7 @@
 require_once __DIR__ . "/./../../../public/componentes/popup/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
 include __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/ProdutoADM/produto.php";
+include __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
 
 session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
@@ -30,7 +31,8 @@ session_start();
             ?>
     </div>
     <div id="container">
-        <div class="container-filtroEIcon">
+        <?php echo filtro(["Teste1", "Teste2", "Testeee3"])?>
+        <!-- <div class="container-filtroEIcon">
             <div id="controleIcon">
                 <div id="iconUsuario">
                     <img id="fotoUser" src="../../../public/imagens/imagensADM/userIMG.png" alt="userIMG">
@@ -50,8 +52,10 @@ session_start();
                     </button>
                 </div>
             </div>
-        </div>
+        </div> -->
     
+
+
     <!--cards relatorios-->
         <div>
             <h1 id="titleRelatorios">Produtos</h1>

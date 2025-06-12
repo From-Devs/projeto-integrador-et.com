@@ -1,25 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat", serif;
 }
 
-:root{
+:root {
     --black-color: #141414;
     --white-color: #ececec;
 }
 
 /* parte do icone do usuario */
 
-.controleIcon{
+.controleIcon {
     display: flex;
     flex-direction: row-reverse;
 }
 
-.iconUsuario{
+.iconUsuario {
     width: 300px;
     height: 100px;
     display: flex;
@@ -33,17 +33,17 @@
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
 
-    & contentUser{
+    & contentUser {
         display: flex;
     }
 }
 
-.contentUser #textUser, #cargoUser{
+.contentUser #textUser, #cargoUser {
     font-size: 20px;
     gap: 5px;
 }
 
-#fotoUser{
+#fotoUser {
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
     margin-left: 22px;
@@ -52,7 +52,7 @@
 }
 
 /* parte dos cards */
-.cardsRelatorios{
+.cardsRelatorios {
     display: flex;
     flex-wrap: wrap;
     margin-left: 347px;
@@ -60,7 +60,7 @@
     gap: 50px;
 }
 
-.cardRelatorio{
+.cardRelatorio {
     width: 450px;
     height: 120px;
     display: flex;
@@ -74,16 +74,16 @@
     transition: 0.5s ease-in-out;
 }
 
-.cardRelatorio:hover{
+.cardRelatorio:hover {
     scale: 1.08;
 }
 
-.cardRelatorio #textCard{
+.cardRelatorio #textCard {
     font-size: 26px;
     font-weight: bold;
 }
 
-.cardRelatorio .iconCard{
+.cardRelatorio .iconCard {
     width: 80px;
     height: 80px;
     display: flex;
@@ -91,13 +91,13 @@
     justify-content: center;
     background-color: var(--white-color);
     border-radius: 10px;
-}   
+}
 
-.popUp .botoes-popUp{
+.popUp .botoes-popUp {
     background-color: transparent;
 }
 
-.btn-relatorio{
+.btn-relatorio {
     display: flex;
     font-size: 20px;
     width: 100%;
@@ -109,8 +109,9 @@
     background-color: #282828;
     color: var(--white-color);
     cursor: pointer;
+    padding: 5px;
 }
 
-.icone-fechar{
+.icone-fechar {
     cursor: pointer;
 }
