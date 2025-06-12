@@ -48,12 +48,12 @@ body{
 
 /* PARTE DOS PRODUTOS */
 .Produtos {
-    padding: 0px 64px;
+    gap: 24px;
     box-sizing: border-box;
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 64px;
 }
 
