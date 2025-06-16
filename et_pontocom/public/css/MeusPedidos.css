@@ -256,22 +256,37 @@
 
         .popupMP-main .popupMP-Produtos .cardMini .card-recolhido{
             display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            padding: 12px 12px 12px 0;
-            margin-left: 0;
+            flex-direction: column;
+
             height: 160px;
             cursor: pointer;
+            gap: 0;
         }
 
-        .popupMP-main .popupMP-Produtos .cardMini .card-recolhido .cardMini-infos{
+        .popupMP-main .popupMP-Produtos .cardMini .card-recolhido .cardMini-Quantidade{
+            font-size: 14px;
+            color: gray;
+            text-align: right;
+            margin: 20px 20px 0 0;
+            height: 14px;
+        }
+
+        .popupMP-main .popupMP-Produtos .cardMini .card-recolhido .cardMini-conteudo{
+            display: flex;
+            flex-direction: row;
+            align-items: center;   
+            margin-right: 20px;
+        }
+
+        .popupMP-main .popupMP-Produtos .cardMini .card-recolhido .cardMini-conteudo .cardMini-infos{
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: left;
             font-size: 16px;
         }
+
+
 
         .popupMP-main .popupMP-Produtos .cardMini .card-expandido{
             display: none;
@@ -329,12 +344,14 @@
             font-size: 14px;
         }
 
-        .cardMini:hover .card-expandido .detalhes-info .detalhes-categoria{
+        .cardMini:hover .card-expandido .detalhes-info .detalhes-categoria,
+        .cardMini:hover .card-expandido .detalhes-info .detalhes-quantidade{
             font-size: 12px;
         }
 
-        .cardMini:hover .card-expandido .detalhes-info .detalhes-preco{
-            font-size: 12px;
+        .cardMini:hover .card-expandido .detalhes-info .detalhes-precoTotal{
+            font-size: 14px;
+            font-weight: 500;
             margin-bottom: 10px;
         }
 
@@ -393,7 +410,7 @@
 .conteudoMeusPedidos .pedidosEntreguesMP{
     display: flex;
     flex-direction: column;
-    width: 155vh;
+    width: 154vh;
 }
 
 .pedidosEntreguesMP .tituloEntregueMP{
@@ -403,13 +420,16 @@
 
 .pedidosEntreguesMP #produtosEntregues{
     margin-top: 7px;
-    width: 155vh;
+    width: 154vh;
     max-height: 50vh;
     padding-right: 6px;
     overflow-y: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(48vh,1fr));
     gap: 40px;
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: inset 0px 0px 10px 0px rgba(71, 71, 71, 0.541);
+    background-color: white;
 }
 
 .pedidosEntreguesMP #produtosEntregues::-webkit-scrollbar{
@@ -421,12 +441,172 @@
     border-radius: 10px;
 }
 
-#produtosEntregues .cards-produtosEntregues{
-    background-color: rgb(5, 116, 116);
+.pedidosEntreguesMP #produtosEntregues .grupo-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 154vh;
+
+}
+
+#produtosEntregues .grupo-data .data-entrega{
+    font-size: 15px;
+}
+
+#produtosEntregues .grupo-data .carousel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    width: 154vh;
+}
+
+.grupo-data .carousel .carousel-container{
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.grupo-data .carousel .carousel-container .cardProduto-entregue{
+    flex-shrink: 0;
+    width: 155vh;
+}
+
+.grupo-data .carousel .carousel-container .cardProduto-entregue .cardMini{
+    flex-shrink: 0;
+    width: 320px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
+    transition: height 0.3s ease;
+    overflow: visible;
+    position: relative;
+    z-index: 0;
+}
+
+.cardProduto-entregue .cardMini .card-recolhido{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 12px 12px 0;
+    margin-left: 0;
+    height: 160px;
+    cursor: pointer;
+}
+
+.cardProduto-entregue .cardMini .card-recolhido .cardMini-imagem{
+    height: 110px;
+    width: auto;
+}
+
+.cardProduto-entregue .cardMini .card-recolhido .cardMini-infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    font-size: 16px;
+}
+
+.cardProduto-entregue .cardMini .card-expandido{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 380px;
+    border-radius: 20px;
+    animation: fadein 0.3s ease-in-out;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cardProduto-entregue .cardMini:hover{
+    height: 380px;
+    z-index: 20;
+}
+
+.cardProduto-entregue .cardMini:hover .card-recolhido{
+    display: none;
+}
+
+.cardProduto-entregue .cardMini:hover .card-expandido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    opacity: 1;
+    margin-top: -20px;
+}
+
+.cardMini:hover .card-expandido .card-titulo{
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+.cardMini:hover .card-expandido .card-linhasuperior,
+.cardMini:hover .card-expandido .card-linhainferior{
+    width: 260px;
+    height: 1px;
+    background-color: rgb(0, 0, 0);
+}
+
+.cardMini:hover .card-expandido .cardMini-imagem{
+    height: 130px;
+    width: auto;
+}
+
+.cardMini:hover .card-expandido .detalhes-info{
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.cardMini:hover .card-expandido .detalhes-info .detalhes-titulo{
+    font-size: 14px;
+}
+
+.cardMini:hover .card-expandido .detalhes-info .detalhes-categoria{
+    font-size: 12px;
+}
+
+.cardMini:hover .card-expandido .detalhes-info .detalhes-preco{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.cardMini:hover .card-expandido .detalhes-botao{
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(202, 202, 202);
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+}
+
+#produtosEntregues .grupo-data .carousel .btn-voltar,
+#produtosEntregues .grupo-data .carousel .btn-prox{
+    background-color: #e90909;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* #produtosEntregues .cards-produtosEntregues{
+    background-color: rgb(76, 189, 54);
     display: flex;
     flex-direction: column;
     height: 26vh;
-}
+} */
 
 
 
