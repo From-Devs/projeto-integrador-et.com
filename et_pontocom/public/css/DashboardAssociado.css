@@ -47,7 +47,7 @@ a
 
 
 /*_________________Logo e Linha com Gradiente_________________*/
-/* .logo{
+.logo{
     margin-top: 25px;
     margin-bottom: 8px;
 }
@@ -55,8 +55,7 @@ a
 .logo img{
     width: 200px;
     height: auto;
-
-} */
+}
 
 .linhaGradiente{
     width: 240px;
@@ -67,13 +66,20 @@ a
 
 
 /*_________________Botões principais da sidebar_________________*/
-/* .botoesMenu{
+.botoesMenu{
     width: 230px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.botoesMenu ul .nav-item{
+    padding: 18px 0 18px 20px;
+    background-color: var(--cor-sidebar-fundo);
+    border-radius: 15px;
+    width: 210px;
+    list-style: none;
+}
 
 .botoesMenu ul .nav-item .nav-link{
     display: flex;
@@ -87,6 +93,7 @@ a
     font-size: 16px;
     border-radius: 8px;
     padding: 5px;
+    margin-right: 15px;
     background-color: var(--cor-sidebar-escrita);
     color: var(--cor-sidebar-fundo);
     align-items: center;
@@ -108,12 +115,7 @@ a
 
 .botoesMenu .button_name{
     font-weight: 600;
-} */
-
-/* Foi removido porque já existe, então não precisa de outro CSS.
-Entendo que foi criado para permitir mais personalização dos detalhes, mas nesse caso é redundante.
-
-— Guilherme (Dark Lord) */
+}
 
 
 /*_________________Ao clicar em algum botão do menu...animação com JavaScript_________________*/
