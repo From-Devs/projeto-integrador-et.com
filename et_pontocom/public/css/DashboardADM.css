@@ -2,7 +2,8 @@
 
 *
 {
-    font-weight: bold;
+    margin: 0;
+    padding: 0;
     font-family: "Montserrat", sans-serif;
 }
 
@@ -22,44 +23,14 @@ a
 
 /* PARTE DA DIREITA CONTAINER GERAL */
 
-#container
+#main
 {
-    width: 100vw;
     height: 100vh;
-    margin-left: 350px;
+    margin-left: 287px;
 }
 
-/* estilizacao da parte do icone do usuario */
-
-#controleIcon
-{
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-#iconUsuario
-{
-    width: 250px;
-    height: 80px;
-    display: flex;
-    background-color: black;
-    color: white;
-    align-items: center;
-    overflow: hidden;
-    gap: 10px;
-    margin-top: 20px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
-}
-
-#fotoUser
-{
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    margin-left: 30px;
-    width: 70px;
-    height: 70px;
+#container{
+    margin-left: 60px;
 }
 
 /* estilizacao das informacoes principais */
@@ -190,10 +161,6 @@ a
 
 @media (max-width: 2560px)
 {
-    #container
-    {
-        margin: 0;
-    }
 
     #geralInformacoes
     {
@@ -205,7 +172,7 @@ a
     {
         margin: 50 0 0 0;
         justify-content: center;
-        gap: 100px;
+        gap: 65px;
     }
 
 
@@ -214,7 +181,7 @@ a
 
 @media (max-width: 1024px)
 {
-    #container
+    #main
     {
         margin: 0;
     }
@@ -264,7 +231,7 @@ a
 
 @media (max-width: 768px)
 { 
-    #container
+    #main
     {
         margin: 0px;
     }
