@@ -3,10 +3,11 @@ const containers = document.querySelectorAll(".produtoContainer")
 
 function dragStart(e) {
     selected = this;
+    e.dataTransfer.setDragImage(selected, 129, 129)
     parentOfFill = selected.parentNode;
     this.className += " hold";
     setTimeout(() => {
-    return (this.style.visibility = "hidden");
+    return (this.style.opacity = "0.6");
     }, 0);
 }
 
@@ -35,18 +36,17 @@ function dragLeave() {
 
 function dragDrop() {
     this.className = "produtoContainer";
-    selected.style.visibility = "visible";
+    selected.style.opacity = "1";
     if (doesExist) {
         parentOfFill.append(swapElement);
     }
-    parentOfFill.children[1].value = "";
     this.append(selected);
 }
 
 function dragEnd() {
     this.className = "imagemProdutoWrapper";
-    if (selected.style.visibility === "hidden") {
-        selected.style.visibility = "visible";
+    if (selected.style.opacity === "0.6") {
+        selected.style.opacity = "1";
     }
 }
 
