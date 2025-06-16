@@ -1,8 +1,8 @@
 @import url(styles.css);
 
-/* .cor-0 { background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%); }
-.cor-1 { background-image: linear-gradient(to bottom, #C69065 0%, #B88D6B 50%, #EBC1B6 100%); }
-.cor-2 { background-image: linear-gradient(to bottom, #F2D5AF 0%, #CC9F9D 50%, #CE766C 100%); } */
+#cor-0 { background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%); }
+#cor-1 { background-image: linear-gradient(to bottom, #C69065 0%, #B88D6B 50%, #EBC1B6 100%); }
+#cor-2 { background-image: linear-gradient(to bottom, #F2D5AF 0%, #CC9F9D 50%, #CE766C 100%); }
 
 *{
     font-family: "Montserrat", sans-serif;
@@ -83,6 +83,7 @@ body{
 .editarCarouselContainer{
     margin-top: 37px;
     display: flex;
+    align-items: center;
     gap: 50px;
     padding: 15px;
     z-index: 1;
@@ -113,13 +114,18 @@ body{
 .produtoContainer{
     width: 258px;
     height: 258px;
-    background-color: black;
+    /* background-color: black; */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 24px;
     cursor: pointer;
-    box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.4);
+    box-sizing: content-box;
+    transition: transform 0.3s;
+}
+
+.produtoContainer:has(> .imagemProdutoWrapper.hold){
+    background-color: black;
 }
 
 .produtoContainer.menor{
@@ -687,6 +693,18 @@ body{
     position: absolute;
     right: 48px;
     bottom: 33px;
+}
+
+.imagemProdutoWrapper{
+    width: 258px;
+    height: 258px;
+    border-radius: 24px;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.4);
+}
+
+.hovered{
+    transform: scale(1.02);
 }
 
 @keyframes l13{ 

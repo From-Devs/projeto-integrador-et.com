@@ -308,27 +308,33 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         <div class="customizacaoMain">
             <h1 id="tituloCustomizacao">Página Inicial</h1>
             <div class="containerCustomizacao">
-                <div class="sessao" id="sessaoCarousel">
-                    <ul>
-                        <li class="tituloSessao">Carousel</li>
-                    </ul>
-                    <div class="editarCarousel">
-                        <div class="produtoInicial">
-                            <p>Inicial</p>
-                            <div class="bordaProdutoInicial"></div>
-                        </div>
-                        <div class="editarCarouselContainer">
-                            <div class="produtoContainer cor-0" id="produto1" onclick="abrirPopUp('popUpEditProduto')">
+            <div class="sessao" id="sessaoCarousel">
+                <ul>
+                    <li class="tituloSessao">Carousel</li>
+                </ul>
+                <div class="editarCarousel">
+                    <div class="produtoInicial">
+                        <p>Inicial</p>
+                        <div class="bordaProdutoInicial"></div>
+                    </div>
+                    <div class="editarCarouselContainer">
+                        <div class="produtoContainer" id="produto1" onclick="abrirPopUp('popUpEditProduto')">
+                            <div class="imagemProdutoWrapper" id="cor-0">
                                 <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
                             </div>
-                            <div class="produtoContainer cor-1" id="produto2" onclick="abrirPopUp('popUpEditProduto')">
+                        </div>
+                        <div class="produtoContainer" id="produto2" onclick="abrirPopUp('popUpEditProduto')">
+                            <div class="imagemProdutoWrapper" id="cor-1">
                                 <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/bocarosa.png" alt="">
                             </div>
-                            <div class="produtoContainer cor-2" id="produto3" onclick="abrirPopUp('popUpEditProduto')">
+                        </div>
+                        <div class="produtoContainer" id="produto3" onclick="abrirPopUp('popUpEditProduto')">
+                            <div class="imagemProdutoWrapper" id="cor-2">
                                 <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/leite.png" alt="">
                             </div>
                         </div>
                     </div>
+                </div>
         
                     <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
     
@@ -447,8 +453,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         </div>
     </div>
     
-    
-    <script src="./../../../public/javascript/javascriptADM.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
@@ -458,5 +462,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/trocarCorProdutoDestaque.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/trocarCorDegradeCarousel.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/trocarCorLancamento.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/dragEDrop.js"></script>
 </body>
 </html> 
