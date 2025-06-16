@@ -441,36 +441,6 @@
     border-radius: 10px;
 }
 
-.pedidosEntreguesMP #produtosEntregues .grupo-data{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 154vh;
-
-}
-
-#produtosEntregues .grupo-data .data-entrega{
-    font-size: 15px;
-}
-
-#produtosEntregues .grupo-data .carousel{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    position: relative;
-    width: 154vh;
-}
-
-.grupo-data .carousel .carousel-container{
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    gap: 10px;
-    padding-bottom: 10px;
-    width: 100%;
-}
-
 .grupo-data .carousel .carousel-container .cardProduto-entregue{
     flex-shrink: 0;
     width: 155vh;

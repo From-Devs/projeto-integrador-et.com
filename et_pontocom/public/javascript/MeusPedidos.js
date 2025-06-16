@@ -136,7 +136,6 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
 
     });
 
-
                     ///Produtos entregues
     const container2 = document.getElementById('produtosEntregues');
     const produtosPorData2 = {};
@@ -148,8 +147,16 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
         produtosPorData2[produto2.dataEntrega].push(produto2);
     });
 
+
     Object.entries(produtosPorData2).forEach(([dataEntrega, produtos]) => {
+        const produto2 = produtos[0];
+
+        const card2 = document.createElement('div');
+        card2.classList.add('cardProduto-entregue');
+
+        card2.innerHTML = `
         
+        `;
     });
 
 
