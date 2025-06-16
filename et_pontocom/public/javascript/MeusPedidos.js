@@ -52,30 +52,69 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
             produtos.forEach(p => {
                 const miniCard = document.createElement("div");
                 miniCard.classList.add("cardMini");
+                const precoTotal = p.preco * p.quantidade;
 
-                miniCard.innerHTML = `
-                    <div class="card-recolhido">
-                        <img class="cardMini-imagem" src="${p.imagem}" height="110px">
-                        <div class="cardMini-infos">
-                            <span class="cardMini-Titulo">${p.marca} ${p.nome}</span>
-                            <span class="cardMini-Preco">R$${parseFloat(p.preco).toFixed(2)}</span>
+                if(p.quantidade == 1){
+                    miniCard.innerHTML = `
+                        <div class="card-recolhido">
+                            <span class="cardMini-Quantidade">${p.quantidade}x</span>
+                            <div class="cardMini-conteudo">
+                                <img class="cardMini-imagem" src="${p.imagem}" height="100px">
+                                <div class="cardMini-infos">
+                                    <span class="cardMini-Titulo">${p.marca} ${p.nome}</span>
+                                    
+                                    <div class="preco-total">
+                                        <span class="cardMini-PrecoTotal">R$${parseFloat(precoTotal).toFixed(2)}</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-expandido">
-                        <span class="card-titulo">DESCRIÇÃO</span>
-                        <div class="card-linhasuperior"></div>
-                        <img class="cardMini-imagem" src="${p.imagem}" height="130px">
-                        <div class="card-linhainferior"></div>
-                        <div class="detalhes-info">
-                            <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
-                            <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
-                            <span class="detalhes-preco">Preço: R$${p.preco.toFixed(2)}</span>
+                        <div class="card-expandido">
+                            <span class="card-titulo">DESCRIÇÃO</span>
+                            <div class="card-linhasuperior"></div>
+                            <img class="cardMini-imagem" src="${p.imagem}" height="130px">
+                            <div class="card-linhainferior"></div>
+                            <div class="detalhes-info">
+                                <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
+                                <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
+                                <span class="detalhes-preco" style="margin-bottom: 10px; font-size:12px; font-weight:500;">Preço: R$${p.preco.toFixed(2)}</span>
+                            </div>
+                            <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php" class="detalhes-botao">Comprar Novamente</a>
                         </div>
-                        <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Meu_Carrinho.php" class="detalhes-botao">Comprar Novamente</a>
-                    </div>
-                `;
+                    `;
+                } else if(p.quantidade != 1){
+                    miniCard.innerHTML = `
+                        <div class="card-recolhido">
+                            <span class="cardMini-Quantidade">${p.quantidade}x</span>
+                            <div class="cardMini-conteudo">
+                                <img class="cardMini-imagem" src="${p.imagem}" height="100px">
+                                <div class="cardMini-infos">
+                                    <span class="cardMini-Titulo">${p.marca} ${p.nome}</span>
+                                    
+                                    <div class="preco-total">
+                                        <span class="cardMini-PrecoTotal">R$${parseFloat(precoTotal).toFixed(2)}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-expandido">
+                            <span class="card-titulo">DESCRIÇÃO</span>
+                            <div class="card-linhasuperior"></div>
+                            <img class="cardMini-imagem" src="${p.imagem}" height="130px">
+                            <div class="card-linhainferior"></div>
+                            <div class="detalhes-info">
+                                <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
+                                <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
+                                <span class="detalhes-preco" style="margin-bottom: 0px; font-size: 12px;">Preço Unitário: R$${p.preco.toFixed(2)}</span>
+                                <span class="detalhes-quantidade">Quantidade: ${p.quantidade} produtos</span>
+                                <span class="detalhes-precoTotal">Preço Total: R$${(precoTotal).toFixed(2)}</span>
+                            </div>
+                            <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php" class="detalhes-botao">Comprar Novamente</a>
+                        </div>
+                    `;
+                }
 
-                totalCompra += parseFloat(p.preco);
+                totalCompra += parseFloat(precoTotal);
                 popupProdutos.appendChild(miniCard);
             });
 
@@ -84,56 +123,37 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
 
             document.getElementById("popupMP").showModal();
         });
+
+        /////fechar popup
+        document.querySelectorAll(".icone-fechar").forEach(botao => {
+            botao.addEventListener("click", () => {
+                const dialog = botao.closest("dialog");
+                if (dialog) {
+                    dialog.close();
+                }
+            });
+        });
+
     });
 
 
+                    ///Produtos entregues
+    const container2 = document.getElementById('produtosEntregues');
+    const produtosPorData2 = {};
 
-                            //////Produtos entregues
-    const container_2 = document.getElementById('produtosEntregues');
-        data.produtos.forEach(produto => {
-            const card = document.createElement('div');
-            card.classList.add('cards-produtosEntregues');
-
-            card.innerHTML = `
-                <span class="data-compra">Data de compra ${dataCompra}</span>
-                <div class="cardcoloridoCam">
-                    <div class="linhaverticalcard"></div>
-                    <div class="card-info" style='background: linear-gradient(to right, ${produto.corFundo1}, ${produto.corFundo2}, ${produto.corFundo3} 43%, ${produto.corFundo4} 83%)'>
-                        <div class="card-imagem">
-                            <img src= "${produto.imagem}" alt="${produto.nome}">
-                        </div>
-                        <div class="info-caminho">
-                            <div class="informacoes-card">
-                                <span class="titulo">${produto.nome} ${produto.marca} ${produto.tamanho}</span>
-                                <span class="titulo">${produto.categoria}</span>
-                            </div>
-                            <button class="verMais" style="font-size: 13px; border: none;">Ver Mais</button>
-                        </div>
-                    </div>
-                </div>
-            `
-        })
-
-
-})
-.catch(error => {
-   console.log("Erro ao carregar produto:", error);
-});
-
-
-  
-
-
-
-
-/////fechar popup
-document.querySelectorAll(".icone-fechar").forEach(botao => {
-    botao.addEventListener("click", () => {
-        const dialog = botao.closest("dialog");
-        if (dialog) {
-            dialog.close();
+    data.produtos.forEach(produto2 => {
+        if (!produtosPorData2[produto2.dataEntrega]) {
+            produtosPorData2[produto2.dataEntrega] = [];
         }
+        produtosPorData2[produto2.dataEntrega].push(produto2);
     });
+
+    Object.entries(produtosPorData2).forEach(([dataEntrega, produtos]) => {
+        
+    });
+
+
+
 });
 
 
