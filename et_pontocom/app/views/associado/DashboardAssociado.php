@@ -8,7 +8,6 @@ require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,11 +23,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
 </head>
 <body>
-
     <?php
         echo createSidebarInterna($tipo_usuario);
     ?>
-
     <!-- aqui acaba o lado esquerdo -->
     <div id="container">
     <div class="mainRelatorio">
