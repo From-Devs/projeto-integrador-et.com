@@ -229,3 +229,36 @@ hr {
 }
 
 /* ultima tela de hoje o sono ganho acho que vou desmaia */
+
+.dados{
+    display: flex;
+    flex-direction: column;
+    height: 92%;
+    width: 100%;
+    margin: 25px;
+    background-color: royalblue;
+}
+.cards-editar{
+    height: 57px;
+    width: 566px;
+    background-color: red;
+    margin-bottom: 16px;
+}
+.cards-editarG{
+    height: 66px;
+    width: 566px;
+    background-color: red;
+    margin-bottom: 16px;
+}
+.cards-data{
+    display: flex;
+    height: 57px;
+    width: 566px;
+    background-color: yellow;
+}
+.line{
+    width: 3px;
+    height: 92%;
+    background-color: #000;
+    margin: 30px;
+}

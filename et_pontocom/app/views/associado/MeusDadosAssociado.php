@@ -37,51 +37,31 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 
             <div class="edisao none">
                 <div class="moficasao">
-                    <div class="pt1">
-                        <div class="titulo"></div>
-                        <div class="cards">
-                            <div class="card-edit">
-                                <h1>drgdgrdgdr</h1>
-                                <input type="text">
-                            </div>
-                        <div class="cards">
-                            <div class="card-edit">
-                                <h1>rdgdgdg</h1>
-                                <input type="text">
-                            </div>
-                            <div class="card-edit">
-                                <h1>rdgdrgdgrf</h1>
-                                <input type="text">
-                            </div>
+                    <div class="dados">
+                        <div class="tituloedtitar"></div>
+                        <div id="titulos-editar"></div>
+                        <div class="cards-editar"></div>
+                        <div id="titulos-editar"></div>
+                        <div class="cards-editar"></div>
+                        <div id="titulos-editar"></div>
+                        <div class="cards-editarG"></div>
+                        <div id="titulos-editar"></div>
+                        <div class="cards-data">
+                            <div class="cards-editarP"></div>
+                            <div class="cards-editarP"></div>
+                            <div class="cards-editarP"></div>
                         </div>
                     </div>
-                    <div class="linha"></div>
-                    <div class="pt2">
-                        <div class="cards">
-                            <div class="card-edit">
-                                <h1>srdgedrg</h1>
-                                <input type="text">
-                            </div>
-                            <div class="card-edit">
-                                <h1>rdgdgdrg</h1>
-                                <input type="text">
-                            </div>
-                            <div class="log">
-                                <img src="" alt="log">
-                            </div>
-                            <div class="buttons">
-                                <button type="button" id="can">cancelar</button>
-                                <button type="button" id="con">comfirma</button>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="line"></div>
+                    <div class="dados">
+                        a
+                    </div> 
                 </div>
-            </div>
             </div>
 
             <!-- perfi dados do usuario -->
-            <div class="perfil-Meus-dados">
-                <div class="moficasao none">
+            <div class="perfil-Meus-dados none">
+                <div class="moficasao">
                     <div class="perfil-dados">
                         <p>Perfil</h1>
                         <div class="foto">
@@ -169,22 +149,31 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 document.addEventListener('DOMContentLoaded', () => {
     const EditarBtn = document.getElementsByClassName("bnt-Editar") 
     const EditarIcn = document.getElementsByClassName("icon")
+    // tela principal 
     const MeusDadosc1 = document.getElementsByClassName("CardDados")
     const MeusDadosc2 = document.getElementsByClassName("Conteudos")
+    // vializar perfil
+    const Perfildado1 = document.getElementsByClassName("perfil-Meus-dados")
+    // editar perfil 
+    const Editardado1 = document.getElementsByClassName("edisao")
+
+
     function esconder(){
         MeusDadosc1[0].classList.add("none");
         MeusDadosc2[0].classList.add("none");
     }
-
     EditarBtn[0].addEventListener('click',()=>{
         esconder()
-
+        Editardado1[0].classList.remove("none");
+        console.log(Perfildado1)
     });
     EditarIcn[0].addEventListener('click',()=>{
         esconder()
-
+        Perfildado1[0].classList.remove("none")/
+        console.log(Perfildado1)
     });
-
+    
+    console.log(Perfildado1)
 });
 </script>
 
