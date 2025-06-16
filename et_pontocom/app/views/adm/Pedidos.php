@@ -5,6 +5,7 @@
     require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
     require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
     require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
+    include __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
 
     session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/FiltrosADMeAssociados/filtros.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
@@ -43,19 +45,20 @@
                     <p id="textUser">ADM ET</p>
                 </div>
             </div>
-            <div id="divPesquisarEFiltro">
+            <?php echo filtro(["ID", "Preço", "Data"])?>
+            <!-- <div id="divPesquisarEFiltro">
                 <div id="pesquisar">
                     <form action="">
                         <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
                     </form>
                 </div>
                 <div id="filtro">
-                    <button id="botaoFiltragem">
+                    <button id="botaoOrdenar">
                         <p>Filtros</p>
                         <img id="imagemFiltro" src="../../../public/imagens/imagensADM/filtro.png" alt="filtro">
                     </button>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div id="titulo">
             <h1 id="tituloH1">Pedidos</h1>
@@ -66,7 +69,7 @@
                 [
                     'nomeCliente' => 'Ana Beatriz',
                     'preco' => 120.00,
-                    'data' => '2025-06-10',
+                    'data' => '10/06/2025',
                     'status' => 'Pago',
                     'detalhesPedido' => [
                         ['idProduto' => 1, 'nomeProduto' => 'Creme Facial Hidratante', 'associado' => 'Luciana', 'preco' => 40.00, 'quantidade' => 1],
@@ -79,7 +82,7 @@
                 [
                     'nomeCliente' => 'Bruno Silva',
                     'preco' => 195.50,
-                    'data' => '2025-06-11',
+                    'data' => '11/06/2025',
                     'status' => 'Pendente',
                     'detalhesPedido' => [
                         ['idProduto' => 3, 'nomeProduto' => 'Perfume Amadeirado', 'associado' => 'Carlos', 'preco' => 150.00, 'quantidade' => 1],
@@ -92,7 +95,7 @@
                 [
                     'nomeCliente' => 'Carla Mendes',
                     'preco' => 260.00,
-                    'data' => '2025-06-12',
+                    'data' => '12/06/2025',
                     'status' => 'Pago',
                     'detalhesPedido' => [
                         ['idProduto' => 5, 'nomeProduto' => 'Kit Skincare Completo', 'associado' => 'Juliana', 'preco' => 200.00, 'quantidade' => 1],
@@ -105,7 +108,7 @@
                 [
                     'nomeCliente' => 'Diego Rocha',
                     'preco' => 89.90,
-                    'data' => '2025-06-12',
+                    'data' => '20/06/2025',
                     'status' => 'Pendente',
                     'detalhesPedido' => [
                         ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],
@@ -118,7 +121,7 @@
                 [
                     'nomeCliente' => 'Diego Rocha',
                     'preco' => 89.90,
-                    'data' => '2025-06-12',
+                    'data' => '23/06/2025',
                     'status' => 'Pendente',
                     'detalhesPedido' => [
                         ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],
@@ -131,7 +134,7 @@
                 [
                     'nomeCliente' => 'Diego Rocha',
                     'preco' => 89.90,
-                    'data' => '2025-06-12',
+                    'data' => '21/06/2025',
                     'status' => 'Pendente',
                     'detalhesPedido' => [
                         ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],
@@ -144,7 +147,7 @@
                 [
                     'nomeCliente' => 'Diego Rocha',
                     'preco' => 89.90,
-                    'data' => '2025-06-12',
+                    'data' => '25/06/2025',
                     'status' => 'Pendente',
                     'detalhesPedido' => [
                         ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],
@@ -157,7 +160,7 @@
                 [
                     'nomeCliente' => 'Diego Rocha',
                     'preco' => 89.90,
-                    'data' => '2025-06-12',
+                    'data' => '06/06/2025',
                     'status' => 'Pendente',
                     'detalhesPedido' => [
                         ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],
@@ -170,7 +173,7 @@
                 [
                     'nomeCliente' => 'Diego Rocha',
                     'preco' => 89.90,
-                    'data' => '2025-06-12',
+                    'data' => '15/06/2025',
                     'status' => 'Pendente',
                     'detalhesPedido' => [
                         ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],
@@ -183,7 +186,7 @@
                 [
                     'nomeCliente' => 'Diego Rocha',
                     'preco' => 89.90,
-                    'data' => '2025-06-12',
+                    'data' => '29/06/2025',
                     'status' => 'Pendente',
                     'detalhesPedido' => [
                         ['idProduto' => 7, 'nomeProduto' => 'Óleo Corporal Natural', 'associado' => 'Renata', 'preco' => 45.00, 'quantidade' => 1],

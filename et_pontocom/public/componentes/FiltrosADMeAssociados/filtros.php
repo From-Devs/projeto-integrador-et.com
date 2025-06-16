@@ -2,13 +2,6 @@
 
 function filtro($opcoesSelect){
     $html = '
-    <div class="container-filtroEIcon">
-        <div id="controleIcon">
-            <div id="iconUsuario">
-                <img id="fotoUser" src="../../../public/imagens/imagensADM/userIMG.png" alt="userIMG">
-                <p id="textUser">ADM ET</p>
-            </div>
-        </div>
         <div id="divPesquisarEFiltro">
             <div id="pesquisar">
                 <form action="">
@@ -16,7 +9,8 @@ function filtro($opcoesSelect){
                 </form>
             </div>
             <div id="filtro">
-                <select id="botaoFiltragem">';
+                <select id="botaoOrdenar">
+                <option value="" selected disabled hidden>Filtro</option>';
                 
     foreach ($opcoesSelect as $opcao) {
         $html .= '<option value="' . htmlspecialchars($opcao) . '">' . htmlspecialchars($opcao) . '</option>';
@@ -25,8 +19,7 @@ function filtro($opcoesSelect){
     $html .= '
                 </select>
             </div>
-        </div>
-    </div>';
+        </div>';
 
     return $html;
 }

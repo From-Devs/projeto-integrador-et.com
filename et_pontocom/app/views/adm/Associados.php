@@ -61,9 +61,10 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             <h1 id="tituloH1">Associados</h1>
         </div>
         <?php 
-            echo associadosTabela('solicitacao')
+            echo associadosTabela('solicitacao', [['id' => 1, 'nome' => 'Teste', 'email' => 'nicolasteste@gmail.com', 'cidade' => 'Campo Grande - MS'], ['id' => 2, 'nome' => 'Teste', 'email' => 'nicolasteste@gmail.com', 'cidade' => 'Campo Grande - MS'], ['id' => 3, 'nome' => 'Teste', 'email' => 'nicolasteste@gmail.com', 'cidade' => 'Campo Grande - MS'], ['id' => 4, 'nome' => 'Teste', 'email' => 'nicolasteste@gmail.com', 'cidade' => 'Campo Grande - MS'],])
         ?>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/Associados.js"></script>
 </body>
 </html>

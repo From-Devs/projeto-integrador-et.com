@@ -1,6 +1,6 @@
 <?php
 
-    function associadosTabela($nome){
+    function associadosTabela($nome, $listaAssociados){
         if($nome == 'associado'){
             return "<div id='lista'>
             <table id='tabelaVendas'>
@@ -163,265 +163,42 @@
             </div>
         </div>";
         }elseif($nome == 'solicitacao'){
-            return "<div id='lista'>
-            <table id='tabelaVendas'>
-                <thead id='barraCima'>
+            ?>
+            <div id="lista">
+            <table id="tabelaVendas">
+                <thead id="barraCima">
                     <tr>
-                        <th id='th1' scope='col'>#</th>
-                        <th id='th2' scope='col'>Nome</th>
-                        <th id='th3' scope='col'>E-mail</th>
-                        <th id='th4' scope='col'>Cidade</th>
-                        <th id='th5' scope='col'>Validar</th>
+                        <th id="th1" scope="col">#</th>
+                        <th id="th2" scope="col">Nome</th>
+                        <th id="th3" scope="col">E-mail</th>
+                        <th id="th4" scope="col">Cidade</th>
+                        <th id="th5" scope="col">Validar</th>
                     </tr>
                 </thead>
             </table>
-            <div class='tabela-body'>
-                <table id='tabelaVendas'>
+            <div class="tabela-body">
+                <table id="tabelaVendas">
                     <tbody>
-                            <tr>
-                            <td>1</td>
-                            <td>Eduardo Serafim</td>
-                            <td>eduardoserafiim05@gmail.com</td>
-                            <td>Campo Grande</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
+                    <?php foreach ($listaAssociados as $associado): ?> 
                         <tr>
-                            <td>2</td>
-                            <td>Maria Oliveira</td>
-                            <td>maria.oliveira@gmail.com</td>
-                            <td>São Paulo</td>
+                            <td><?php echo $associado['id']?></td>
+                            <td><?php echo $associado['nome']?></td>
+                            <td><?php echo $associado['email']?></td>
+                            <td><?php echo $associado['cidade']?></td>
                             <td>
                             <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
+                                <button class='validarButton' onclick="preencheValidar(<?php echo $associado['id']?>)"><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
+                                <button class='cancelarButton'onclick="preencheCancelar(<?php echo $associado['id']?>)"><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
                             </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>João Santos</td>
-                            <td>joao.santos@email.com</td>
-                            <td>Rio de Janeiro</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Ana Costa</td>
-                            <td>ana.costa@hotmail.com</td>
-                            <td>Belo Horizonte</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Lucas Pereira</td>
-                            <td>lucaspereira@gmail.com</td>
-                            <td>Curitiba</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Fernanda Silva</td>
-                            <td>fernanda.silva@outlook.com</td>
-                            <td>Porto Alegre</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Carlos Souza</td>
-                            <td>carlos.souza@gmail.com</td>
-                            <td>Recife</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Patrícia Rocha</td>
-                            <td>patricia.rocha@yahoo.com</td>
-                            <td>Salvador</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>Felipe Almeida</td>
-                            <td>felipe.almeida@gmail.com</td>
-                            <td>Fortaleza</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>Mariana Martins</td>
-                            <td>mariana.martins@outlook.com</td>
-                            <td>Brasília</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>Renato Lima</td>
-                            <td>renato.lima@gmail.com</td>
-                            <td>Manaus</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>Carla Martins</td>
-                            <td>carla.martins@yahoo.com</td>
-                            <td>Belém</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>13</td>
-                            <td>Gabriel Costa</td>
-                            <td>gabriel.costa@gmail.com</td>
-                            <td>Florianópolis</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>14</td>
-                            <td>Juliana Pereira</td>
-                            <td>juliana.pereira@outlook.com</td>
-                            <td>Vitória</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>15</td>
-                            <td>Ricardo Oliveira</td>
-                            <td>ricardo.oliveira@email.com</td>
-                            <td>Natal</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>16</td>
-                            <td>Juliana Souza</td>
-                            <td>juliana.souza@gmail.com</td>
-                            <td>São Luís</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>17</td>
-                            <td>Vitor Costa</td>
-                            <td>vitor.costa@gmail.com</td>
-                            <td>Campinas</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>18</td>
-                            <td>Simone Almeida</td>
-                            <td>simone.almeida@outlook.com</td>
-                            <td>Joinville</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>19</td>
-                            <td>Felipe Rocha</td>
-                            <td>felipe.rocha@gmail.com</td>
-                            <td>Aracaju</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>20</td>
-                            <td>Isabela Pereira</td>
-                            <td>isabela.pereira@email.com</td>
-                            <td>São José dos Campos</td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton'><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
-                            </div>
-                            </td>
-                        </tr>
+                    <?php endforeach?>
+                        
                     </tbody>
                 </table>
             </div>
-        </div>";
+        </div>
+        <?php
     }else{
         echo "Você precisa informar a função qual é o tipo de tabela.";
     }

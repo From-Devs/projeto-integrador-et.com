@@ -77,7 +77,7 @@ a {
 
 /* filtragem */
 
-#botaoFiltragem {
+#botaoOrdenar {
     display: flex;
     border: none;
     justify-content: center;

@@ -58,45 +58,6 @@ a {
     height: 70px;
 }
 
-/* filtragem e pesquisa */
-
-#divPesquisarEFiltro {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: end;
-    align-items: center;
-    gap: 20px;
-}
-
-/* pesquisa */
-
-#inputPesquisar {
-    width: 500px;
-    height: 55px;
-    border-radius: 15px;
-    padding-left: 10px;
-    border: none;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-    font-size: 18px;
-}
-
-/* filtragem */
-
-#botaoFiltragem {
-    display: flex;
-    border: none;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    background-color: #3449B6;
-    color: white;
-    border-radius: 15px;
-    width: 205px;
-    height: 55px;
-    font-size: 18px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-}
-
 #imagemFiltro {
     width: 40px;
     height: 40px;
@@ -405,14 +366,6 @@ tr {
 
     #divPesquisarEFiltro {
         justify-content: center;
-    }
-
-    #inputPesquisar {
-        width: 100%;
-    }
-
-    #botaoFiltragem {
-        width: 150px;
     }
 
     #imagemFiltro {

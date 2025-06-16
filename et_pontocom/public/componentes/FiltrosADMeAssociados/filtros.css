@@ -1,0 +1,53 @@
+﻿#divPesquisarEFiltro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+}
+
+#inputPesquisar {
+    width: 500px;
+    height: 55px;
+    border-radius: 15px;
+    padding-left: 10px;
+    border: none;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+}
+
+#botaoOrdenar {
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #3449B6;
+    color: white;
+    border-radius: 15px;
+    width: 205px;
+    height: 55px;
+    font-size: 18px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    cursor: pointer;
+    background-image: url("../../imagens/imagensADM/filtro.png");
+    background-repeat: no-repeat;
+    background-size: 35px;
+    background-position-x: 150px;
+    background-position-y: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-align: left;
+    padding: 10px;
+}
+
+@media (max-width: 800px) {
+    #inputPesquisar {
+        width: 100%;
+    }
+
+    #botaoOrdenar {
+        width: 150px;
+    }
+}
