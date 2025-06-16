@@ -12,7 +12,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatórios</title>
+    <title id="titleRelatorioAssociado">Relatórios</title>
     <link rel="stylesheet" href="./../../../public/componentes/popup/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
@@ -39,7 +39,9 @@ session_start();
     </div>
     
     <!--cards relatorios-->
-    <h1 id="titleRelatorios">Relatórios</h1>
+    <div id="titulo">
+        <h1 id="tituloH1">Relatórios</h1>
+    </div>
     <div class="cardsRelatorios">
         <?php echo PopUpConfirmar("relatorioReceitas", "Relatório de Receitas", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "500px", "gray", "white")?>
         <div class="cardRelatorio" onclick="abrirPopUp('relatorioReceitas')">

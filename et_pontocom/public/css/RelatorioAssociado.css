@@ -51,6 +51,14 @@
     height: 74px;
 }
 
+#titleRelatorioAssociado {
+    margin-left: 347px;
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--black-color);
+}
+
 /* parte dos cards */
 .cardsRelatorios{
     display: flex;
