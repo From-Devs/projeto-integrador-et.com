@@ -35,39 +35,43 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     ?>
 
     <!-- aqui acaba o container esquerdo -->
-    <div id="container">
-        <div id="divPesquisarEFiltro">
-            <div id="pesquisar">
-                <form action="">
-                    <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
-                </form>
+    <div class="main">
+        <div id="container">
+            <div id="divPesquisarEFiltro">
+                <div id="pesquisar">
+                    <form action="">
+                        <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
+                    </form>
+                </div>
+                <div id="filtro">
+                    <button id="botaoFiltragem">
+                        <p>Filtros</p>
+                        <img id="imagemFiltro" src="../../../public/imagens/imagensADM/filtro.png" alt="filtro">
+                    </button>
+                </div>
             </div>
-            <div id="filtro">
-                <button id="botaoFiltragem">
-                    <p>Filtros</p>
-                    <img id="imagemFiltro" src="../../../public/imagens/imagensADM/filtro.png" alt="filtro">
-                </button>
+            <div class="listaContainer">
+                <div id="titulo">
+                    <h1 id="tituloH1">Produtos</h1>
+                </div>
+                <?php 
+                    $produtos = [
+                        ['nome' => 'Hidratante', 'sku' => 'S5D56GE'],
+                        ['nome' => 'Shampoo Anticaspa', 'sku' => 'A1B2C3D'],
+                        ['nome' => 'Condicionador Suave', 'sku' => 'E4F5G6H'],
+                        ['nome' => 'Sabonete Neutro', 'sku' => 'I7J8K9L'],
+                        ['nome' => 'Protetor Solar FPS 50', 'sku' => 'M1N2O3P'],
+                        ['nome' => 'Creme Facial Noturno', 'sku' => 'Q4R5S6T'],
+                        ['nome' => 'Gel Antisséptico', 'sku' => 'U7V8W9X'],
+                        ['nome' => 'Desodorante Spray', 'sku' => 'Y1Z2A3B'],
+                        ['nome' => 'Loção Pós-Barba', 'sku' => 'C4D5E6F'],
+                        ['nome' => 'Máscara Capilar', 'sku' => 'G7H8I9J']
+                    ];
+        
+                    tabelaProdutoAdm($produtos);
+                ?>
             </div>
         </div>
-        <div id="titulo">
-            <h1 id="tituloH1">Produtos</h1>
-        </div>
-        <?php 
-            $produtos = [
-                ['nome' => 'Hidratante', 'sku' => 'S5D56GE'],
-                ['nome' => 'Shampoo Anticaspa', 'sku' => 'A1B2C3D'],
-                ['nome' => 'Condicionador Suave', 'sku' => 'E4F5G6H'],
-                ['nome' => 'Sabonete Neutro', 'sku' => 'I7J8K9L'],
-                ['nome' => 'Protetor Solar FPS 50', 'sku' => 'M1N2O3P'],
-                ['nome' => 'Creme Facial Noturno', 'sku' => 'Q4R5S6T'],
-                ['nome' => 'Gel Antisséptico', 'sku' => 'U7V8W9X'],
-                ['nome' => 'Desodorante Spray', 'sku' => 'Y1Z2A3B'],
-                ['nome' => 'Loção Pós-Barba', 'sku' => 'C4D5E6F'],
-                ['nome' => 'Máscara Capilar', 'sku' => 'G7H8I9J']
-            ];
-
-            tabelaProdutoAdm($produtos);
-        ?>
     </div>
    
     <script src="./../../../public/javascript/javascriptADM.js"></script>

@@ -30,7 +30,10 @@ a
 }
 
 #container{
-    margin-left: 60px;
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 60px;
+    padding-top: 120px;
 }
 
 /* estilizacao das informacoes principais */
@@ -45,7 +48,6 @@ a
 {
     display: flex;
     justify-content: space-between;
-    margin-right: 50px;
 }
 
 #valorVendas, #lucroLiquido, #vendas
@@ -114,10 +116,11 @@ a
 
 #controlePizzas
 {
+    width: 100%;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
-    margin-right: 50px;
 }
 
 #divPizzaEsquerda, #divPizzaDireita
@@ -126,7 +129,7 @@ a
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 750px;
+    width: 100%;
     height: 470px;
     border: #0000004D 2px solid;
     border-radius: 15px;
@@ -164,7 +167,6 @@ a
 
     #geralInformacoes
     {
-        justify-content: center;
         gap: 50px;
     }
 

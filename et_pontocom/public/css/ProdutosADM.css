@@ -21,10 +21,19 @@ a
 
 /* PARTE DA DIREITA CONTAINER GERAL */
 
+.main{
+    margin-left: 287px;
+}
+
 #container
 {
-    width: 100vw;
-    margin-left: 350px;
+    gap: 15px;
+    padding-left: 60px;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
 /* filtragem e pesquisa */
@@ -32,7 +41,7 @@ a
 #divPesquisarEFiltro
 {
     display: flex;
-    gap: 250px;
+    gap: 20px;
 }
 
 /* pesquisa */
@@ -44,7 +53,7 @@ a
     border-radius: 15px;
     padding-left: 10px;
     border: none;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     font-size: 18px;
 }
 

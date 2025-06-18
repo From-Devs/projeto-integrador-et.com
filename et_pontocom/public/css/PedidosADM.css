@@ -23,12 +23,21 @@ a
 
 /* PARTE DA DIREITA CONTAINER GERAL */
 
+.main{
+    margin-left: 287px;
+}
+
 #container
 {
-    width: 100vw;
-    height: 100vh;
-    margin-left: 350px;
+    gap: 15px;
+    padding-left: 60px;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
 }
+
 
 /* filtragem e pesquisa */
 

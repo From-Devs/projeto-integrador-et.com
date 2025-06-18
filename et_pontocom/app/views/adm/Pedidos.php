@@ -37,26 +37,28 @@
     ?>
 
     <!-- aqui acaba o container esquerda -->
-    <div id="container">
-        <div id="divPesquisarEFiltro">
-            <div id="pesquisar">
-                <form action="">
-                    <input id="inputPesquisar" type="text" placeholder="Pesquisar Pedido...">
-                </form>
+    <div class="main">
+        <div id="container">
+            <div id="divPesquisarEFiltro">
+                <div id="pesquisar">
+                    <form action="">
+                        <input id="inputPesquisar" type="text" placeholder="Pesquisar Pedido...">
+                    </form>
+                </div>
+                <div id="filtro">
+                    <button id="botaoFiltragem">
+                        <p>Filtros</p>
+                        <img id="imagemFiltro" src="../../../public/imagens/imagensADM/filtro.png" alt="filtro">
+                    </button>
+                </div>
             </div>
-            <div id="filtro">
-                <button id="botaoFiltragem">
-                    <p>Filtros</p>
-                    <img id="imagemFiltro" src="../../../public/imagens/imagensADM/filtro.png" alt="filtro">
-                </button>
+            <div id="titulo">
+                <h1 id="tituloH1">Pedidos</h1>
             </div>
+            <?php
+                echo tabelaPedidos();
+            ?>
         </div>
-        <div id="titulo">
-            <h1 id="tituloH1">Pedidos</h1>
-        </div>
-        <?php
-            echo tabelaPedidos();
-        ?>
     </div>
 
     <script src="./../../../public/javascript/javascriptADM.js"></script>
