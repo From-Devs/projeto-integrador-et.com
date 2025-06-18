@@ -1,4 +1,6 @@
 <?php
+    require_once __DIR__."/../../popup/popUp.php";
+    require_once __DIR__."/../../botao/botao.php";
 
     function associadosTabela($nome, $listaAssociados){
         if($nome == 'associado'){
@@ -163,6 +165,16 @@
             </div>
         </div>";
         }elseif($nome == 'solicitacao'){
+            $btnSimValidar = botaoPersonalizadoOnClick("Sim", "btn-black", "preencheValidar(this)", "80px", "35px");
+
+            $btnSimCancelar = botaoPersonalizadoOnClick("Sim", "btn-black", "preencheCancelar()", "80px", "35px");
+
+            $btnNao = botaoPersonalizadoOnClick("Não", "btn-white", "fecharPopUp()", "80px", "35px");
+
+            echo PopUpConfirmar("popUpConfirmar", "Deseja realmente VALIDAR esse associado?", $btnSimValidar, $btnNao);
+
+            echo PopUpConfirmar("popUpCancelar", "Deseja realmente NÃO VALIDAR esse associado?", $btnSimCancelar, $btnNao);
+
             ?>
             <div id="lista">
             <table id="tabelaVendas">
@@ -187,8 +199,12 @@
                             <td><?php echo $associado['cidade']?></td>
                             <td>
                             <div class='verticalizacao'>
-                                <button class='validarButton' onclick="preencheValidar(<?php echo $associado['id']?>)"><img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'></button>
-                                <button class='cancelarButton'onclick="preencheCancelar(<?php echo $associado['id']?>)"><img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'></button>
+                                <button class='validarButton' onclick="botaoClicado = this; abrirPopUp('popUpConfirmar')">
+                                <img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'>
+                                </button>
+                                <button class='cancelarButton' onclick="botaoClicado = this; abrirPopUp('popUpCancelar')">
+                                    <img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'>
+                                </button>
                             </div>
                             </td>
                         </tr>

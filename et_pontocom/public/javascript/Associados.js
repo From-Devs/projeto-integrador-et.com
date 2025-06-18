@@ -1,31 +1,33 @@
-﻿// var validarButton = document.getElementsByClassName("validarButton")[0];
-// var cancelarButton = document.getElementsByClassName("cancelarButton")[0];
+﻿let botaoClicado = null;
 
-// validarButton.addEventListener("click", () => {
-//     console.log(validarButton);
-//     validarButton.classList.add("marcarValido");
-//     cancelarButton.classList.remove("marcarCancelar");
-// })
+function preencheValidar() {
+    if (!botaoClicado) return;  
 
-// cancelarButton.addEventListener("click", () => {
-//     cancelarButton.classList.add("marcarCancelar");
-//     validarButton.classList.remove("marcarValido");
-// })
-
-function preencheValidar(id){
-    const validarButton = document.getElementsByClassName("validarButton")[id - 1];
-    const cancelarButton = document.getElementsByClassName("cancelarButton")[id - 1];
+    const parent = botaoClicado.closest('.verticalizacao');
+    const validarButton = parent.querySelector('.validarButton');
+    const cancelarButton = parent.querySelector('.cancelarButton');
 
     validarButton.classList.add("marcarValido");
     cancelarButton.classList.remove("marcarCancelar");
+
+    botaoClicado = null;
+
+    const popUp = document.getElementsByClassName("popUpConfirmar")[0];
+    popUp.close();
 }
 
-function preencheCancelar(id){
-    const validarButton = document.getElementsByClassName("validarButton")[id - 1];
-    const cancelarButton = document.getElementsByClassName("cancelarButton")[id - 1];
+function preencheCancelar() {
+    if (!botaoClicado) return;
 
-    console.log(validarButton)
+    const parent = botaoClicado.closest('.verticalizacao');
+    const validarButton = parent.querySelector('.validarButton');
+    const cancelarButton = parent.querySelector('.cancelarButton');
 
     cancelarButton.classList.add("marcarCancelar");
     validarButton.classList.remove("marcarValido");
+
+    botaoClicado = null;
+
+    const popUp = document.getElementsByClassName("popUpCancelar")[0];
+    popUp.close();
 }

@@ -61,7 +61,16 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             <h1 id="tituloH1">Associados</h1>
         </div>
         <?php 
-            echo associadosTabela('solicitacao', [['id' => 1, 'nome' => 'Teste', 'email' => 'nicolasteste@gmail.com', 'cidade' => 'Campo Grande - MS'], ['id' => 2, 'nome' => 'Teste', 'email' => 'nicolasteste@gmail.com', 'cidade' => 'Campo Grande - MS'], ['id' => 3, 'nome' => 'Teste', 'email' => 'nicolasteste@gmail.com', 'cidade' => 'Campo Grande - MS'], ['id' => 4, 'nome' => 'Teste', 'email' => 'nicolasteste@gmail.com', 'cidade' => 'Campo Grande - MS'],])
+            echo associadosTabela('solicitacao', [
+                ['id' => 10, 'nome' => 'Maria Oliveira',   'email' => 'maria.oliveira@gmail.com',   'cidade' => 'São Paulo - SP'],
+                ['id' => 11, 'nome' => 'João Mendes',      'email' => 'joao.mendes@yahoo.com',      'cidade' => 'Belo Horizonte - MG'],
+                ['id' => 12, 'nome' => 'Ana Costa',        'email' => 'ana.costa@outlook.com',      'cidade' => 'Fortaleza - CE'],
+                ['id' => 13, 'nome' => 'Carlos Pereira',   'email' => 'carlos.p@gmail.com',         'cidade' => 'Curitiba - PR'],
+                ['id' => 14, 'nome' => 'Fernanda Lima',    'email' => 'fernanda.lima@uol.com.br',   'cidade' => 'Rio de Janeiro - RJ'],
+                ['id' => 15, 'nome' => 'Roberto Souza',    'email' => 'roberto.souza@hotmail.com',  'cidade' => 'Salvador - BA'],
+                ['id' => 16, 'nome' => 'Luciana Rocha',    'email' => 'luciana.r@gmail.com',        'cidade' => 'Manaus - AM'],
+                ['id' => 17, 'nome' => 'Pedro Henrique',   'email' => 'pedro.h@gmail.com',          'cidade' => 'Porto Alegre - RS'],
+            ]);
         ?>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
