@@ -257,28 +257,35 @@
         .popupMP-main .popupMP-Produtos .cardMini .card-recolhido{
             display: flex;
             flex-direction: column;
-
             height: 160px;
             cursor: pointer;
             gap: 0;
         }
 
-        .popupMP-main .popupMP-Produtos .cardMini .card-recolhido .cardMini-Quantidade{
+        .cardMini .card-recolhido .cardMini-Superior{
+            /* width: 280px;
+            height: 14px; */
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .cardMini .card-recolhido .cardMini-Superior .cardMini-Quantidade{
             font-size: 14px;
             color: gray;
             text-align: right;
-            margin: 20px 20px 0 0;
+            margin: 20px 20px 0 0; 
             height: 14px;
         }
 
-        .popupMP-main .popupMP-Produtos .cardMini .card-recolhido .cardMini-conteudo{
+        .cardMini .card-recolhido .cardMini-conteudo{
             display: flex;
             flex-direction: row;
             align-items: center;   
             margin-right: 20px;
         }
 
-        .popupMP-main .popupMP-Produtos .cardMini .card-recolhido .cardMini-conteudo .cardMini-infos{
+        .cardMini .card-recolhido .cardMini-conteudo .cardMini-infos{
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -286,9 +293,7 @@
             font-size: 16px;
         }
 
-
-
-        .popupMP-main .popupMP-Produtos .cardMini .card-expandido{
+        .cardMini .card-expandido{
             display: none;
             position: absolute;
             top: 0;

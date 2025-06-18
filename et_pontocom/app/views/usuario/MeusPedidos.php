@@ -45,7 +45,7 @@
 
             <!-- Parte de Pedidos que estão a caminho -->
         <section class="pedidoCaminhoMP">
-            <h2 class="tituloCaminhoMP">A Caminho</h2>
+            <h2 class="tituloCaminhoMP">Em Andamento</h2>
             <div id="produtosCaminho"></div> <!-- Parte do JavaScript-->
         </section>
 

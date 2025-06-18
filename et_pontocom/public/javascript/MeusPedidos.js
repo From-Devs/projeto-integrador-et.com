@@ -3,15 +3,22 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
 .then(response => response.json())
 .then(data => {     
                             //Produtos a caminho
-    const container = document.getElementById('produtosCaminho');
-    const produtosPorData = {};
 
-    data.produtos.forEach(produto => {
+    const produtosAtivos = data.produtos.filter(prod => 
+        prod.status === "Preparando" || prod.status === "A Caminho"   //Filtra por status
+    );
+    
+
+    const produtosPorData = {};                                 //Seleciona por data
+    produtosAtivos.forEach(produto => {
         if (!produtosPorData[produto.dataCompra]) {
             produtosPorData[produto.dataCompra] = [];
         }
         produtosPorData[produto.dataCompra].push(produto);
     });
+
+    const container = document.getElementById('produtosCaminho');
+
 
     Object.entries(produtosPorData).forEach(([dataCompra, produtos]) => {
         const produto = produtos[0]; // pegar qualquer produto dessa data para exibir no card
@@ -20,7 +27,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
         card.classList.add("cards-produtoCaminho");
 
         card.innerHTML = `
-            <span class="data-compra">Data de compra ${dataCompra}</span>
+            <span class="data-compra">Data de compra: ${dataCompra}</span>
             <div class="cardcoloridoCam">
                 <div class="linhaverticalcard"></div>
                 <div class="card-info" style='background: linear-gradient(to right, ${produto.corFundo1}, ${produto.corFundo2}, ${produto.corFundo3} 43%, ${produto.corFundo4} 83%)'>
@@ -57,7 +64,10 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                 if(p.quantidade == 1){
                     miniCard.innerHTML = `
                         <div class="card-recolhido">
-                            <span class="cardMini-Quantidade">${p.quantidade}x</span>
+                            <div class-"cardMini-Superior"> 
+                                <span class="cardMini-Status" style="color: red;">${p.status}</span>
+                                <span class="cardMini-Quantidade">${p.quantidade}x</span>
+                            </div>
                             <div class="cardMini-conteudo">
                                 <img class="cardMini-imagem" src="${p.imagem}" height="100px">
                                 <div class="cardMini-infos">
@@ -77,6 +87,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                             <div class="detalhes-info">
                                 <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
                                 <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
+                                <span class="detalhes-status">${p.status}</span>
                                 <span class="detalhes-preco" style="margin-bottom: 10px; font-size:12px; font-weight:500;">Preço: R$${p.preco.toFixed(2)}</span>
                             </div>
                             <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php" class="detalhes-botao">Comprar Novamente</a>
@@ -85,7 +96,10 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                 } else if(p.quantidade != 1){
                     miniCard.innerHTML = `
                         <div class="card-recolhido">
-                            <span class="cardMini-Quantidade">${p.quantidade}x</span>
+                            <div class-"cardMini-Superior"> 
+                                <span class="cardMini-Status" style="color: red;">${p.status}</span>
+                                <span class="cardMini-Quantidade">${p.quantidade}x</span>
+                            </div>
                             <div class="cardMini-conteudo">
                                 <img class="cardMini-imagem" src="${p.imagem}" height="100px">
                                 <div class="cardMini-infos">
@@ -107,6 +121,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                                 <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
                                 <span class="detalhes-preco" style="margin-bottom: 0px; font-size: 12px;">Preço Unitário: R$${p.preco.toFixed(2)}</span>
                                 <span class="detalhes-quantidade">Quantidade: ${p.quantidade} produtos</span>
+                                <span class="detalhes-status">${p.status}</span>
                                 <span class="detalhes-precoTotal">Preço Total: R$${(precoTotal).toFixed(2)}</span>
                             </div>
                             <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php" class="detalhes-botao">Comprar Novamente</a>
@@ -136,31 +151,52 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
 
     });
 
-                    ///Produtos entregues
-    const container2 = document.getElementById('produtosEntregues');
-    const produtosPorData2 = {};
 
-    data.produtos.forEach(produto2 => {
+
+                    ///Produtos entregues
+
+    const produtosFinalizados = data.produtos.filter(prod => 
+        prod.status === "Concluído"                                   
+    );
+    
+    const produtosPorData2 = {};
+    produtosFinalizados.forEach(produto2 => {
         if (!produtosPorData2[produto2.dataEntrega]) {
             produtosPorData2[produto2.dataEntrega] = [];
         }
         produtosPorData2[produto2.dataEntrega].push(produto2);
     });
 
+    const container2 = document.getElementById('produtosEntregues');
+    
 
     Object.entries(produtosPorData2).forEach(([dataEntrega, produtos]) => {
         const produto2 = produtos[0];
 
-        const card2 = document.createElement('div');
-        card2.classList.add('cardProduto-entregue');
+        const card2 = document.createElement("div");
+        card2.classList.add("cardProduto-entregue");
 
         card2.innerHTML = `
-        
+            <span class="data-entrega">Data de entrega: ${dataEntrega}</span>
+            <div class="cardcoloridoFin">
+                <span class="card-status"> Concluído
+                <div class="card-info2 style='background: linear-gradient(to right, ${produto2.corFundo1}, ${produto2.corFundo2}, ${produto2.corFundo3} 43%, ${produto2.corFundo4} 83%)">
+                <div class="card-imagem2">
+                        <img src= "${produto2.imagem}" alt="${produto2.nome}">
+                    </div>
+                    <div class="info-caminho">
+                        <div class="informacoes-card">
+                            <span class="titulo">${produto2.nome} ${produto2.marca} ${produto2.tamanho}</span>
+                            <span class="titulo">${produto2.categoria}</span>
+                        </div>
+                        <button class="verMais" style="font-size: 13px; border: none;">Ver Mais</button>
+                    </div>
+                </div>
+            </div>
         `;
     });
 
-
-
-});
+})
+.catch(err => console.log("Erro ao carregar produtos:", err));
 
 
