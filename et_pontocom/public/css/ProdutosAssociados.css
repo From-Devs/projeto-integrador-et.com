@@ -29,12 +29,12 @@ a {
 
 }
 
-#controleIcon {
+/* #controleIcon {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
-}
+} */
 
 #iconUsuario {
     width: 250px;
@@ -263,14 +263,6 @@ a {
     display: inline-block;
 }
 
-.container-filtroEIcon {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-}
-
 html, body {
     height: 100%;
     margin: 0;
@@ -358,10 +350,6 @@ tr {
 @media (max-width: 800px) {
     #container {
         margin: 0px;
-    }
-
-    .container-filtroEIcon {
-        justify-content: end;
     }
 
     #divPesquisarEFiltro {
