@@ -32,33 +32,39 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <?php
         echo createSidebarInterna($tipo_usuario);
         echo createContaAssociadoADM();
-    ?>
+    ?> 
     
     <!-- aqui acaba o container esquerda -->
-    <div id="container">
-        <div id="divPesquisarEEscolher">
-            <div id="pesquisar">
-                <form action="">
-                    <input id="inputPesquisar" type="text" placeholder="Pesquisar por Associado...">
-                </form>
+    <div class="main">
+        <div id="container">
+            <div id="divPesquisarEEscolher">
+                <div id="pesquisar">
+                    <form action="">
+                        <input id="inputPesquisar" type="text" placeholder="Pesquisar por Associado...">
+                    </form>
+                </div>
+                <div id="Escolher">
+                    <button id="botaoAssociados">
+                        <p>Associados</p>
+                    </button>
+                </div>
+                <div id="Solicitações">
+                    <button id="botaoSolicitacao">
+                        <p>Solicitações</p>
+                    </button>
+                </div>
             </div>
-            <div id="Escolher">
-                <button id="botaoAssociados">
-                    <p>Associados</p>
-                </button>
-            </div>
-            <div id="Solicitações">
-                <button id="botaoSolicitacao">
-                    <p>Solicitações</p>
-                </button>
+            <div class="listaContainer">
+                <div id="titulo">
+                    <h1 id="tituloH1">Associados</h1>
+                </div>
+                <?php 
+                    echo associadosTabela('solicitacao')
+                ?>
             </div>
         </div>
-        <div id="titulo">
-            <h1 id="tituloH1">Associados</h1>
-        </div>
-        <?php 
-            echo associadosTabela('solicitacao')
-        ?>
+    </div>
+
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
 </body>

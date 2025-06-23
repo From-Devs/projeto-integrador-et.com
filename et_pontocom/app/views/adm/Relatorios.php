@@ -34,17 +34,19 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     ?>
 
     <!-- aqui acaba a sidebar esquerda -->
-    <div id="container">
-        <div id="titulo">
-            <h1 id="tituloH1">Relátorios</h1>
+    <div class="main">
+        <div id="container">
+            <div id="titulo">
+                <h1 id="tituloH1">Relátorios</h1>
+            </div>
+            <div id="geralInformacoes">
+                <!-- $nomeDiv,$icone, $titulo, $alt=''-->
+                <?php dadosInforRelatorios('receita','../../../public/imagens/imagensADM/graficoRelatorios.png','Relátorio de Receitas','','grafico') ?>
+                <?php dadosInforRelatorios('produto','../../../public/imagens/imagensADM/folhaRelatorios.png','Receita por Produto','folha') ?>
+                <?php dadosInforRelatorios('abandonadas','../../../public/imagens/imagensADM/sadFaceRelatorios.png','Vendas Abandonadas','sadFace') ?>
+            </div>
+    
         </div>
-        <div id="geralInformacoes">
-            <!-- $nomeDiv,$icone, $titulo, $alt=''-->
-            <?php dadosInforRelatorios('receita','../../../public/imagens/imagensADM/graficoRelatorios.png','Relátorio de Receitas','','grafico') ?>
-            <?php dadosInforRelatorios('produto','../../../public/imagens/imagensADM/folhaRelatorios.png','Receita por Produto','folha') ?>
-            <?php dadosInforRelatorios('abandonadas','../../../public/imagens/imagensADM/sadFaceRelatorios.png','Vendas Abandonadas','sadFace') ?>
-        </div>
-
     </div>
 
     <script src="./../../../public/javascript/javascriptADM.js"></script>

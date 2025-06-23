@@ -52,12 +52,14 @@
                     </button>
                 </div>
             </div>
+            <div class="listaContainer">
             <div id="titulo">
                 <h1 id="tituloH1">Pedidos</h1>
             </div>
             <?php
                 echo tabelaPedidos();
             ?>
+            </div>
         </div>
     </div>
 

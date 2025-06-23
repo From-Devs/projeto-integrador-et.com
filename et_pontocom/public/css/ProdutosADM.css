@@ -12,6 +12,7 @@ body
     display: flex;
     margin: 0%;
     padding: 0%;
+    background-color: #F8F8F8;
 }
 
 a
@@ -34,6 +35,10 @@ a
     padding-top: 50px;
     display: flex;
     flex-direction: column;
+}
+
+.logo{
+    padding-bottom: 4px;
 }
 
 /* filtragem e pesquisa */
@@ -72,7 +77,7 @@ a
     width: 205px;
     height: 55px;
     font-size: 18px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 #imagemFiltro
@@ -227,4 +232,54 @@ a
     cursor: pointer;
     background-color: #00D3AD;
     color: white;
+}
+
+#tituloH1{
+    font-size: 36px;
+}
+
+@media (max-width: 1280px) {
+    .main{
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 1024px){
+    .main{
+        margin-left: 230px;
+    }
+}
+
+@media (max-width: 800px){
+    .main{
+        margin-left: 0;
+    }
+
+    #container{
+        padding-left: 0;
+        padding-top: 0;
+        align-items: center;
+    }
+    #titulo{
+        width: fit-content;
+    }
+
+    .listaContainer{
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+    }
+    #divPesquisarEFiltro{
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 200px;
+    }
+
+    #inputPesquisar{
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+
 }

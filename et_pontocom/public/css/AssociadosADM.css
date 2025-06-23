@@ -14,6 +14,7 @@ body
     padding: 0%;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    background-color: #F8F8F8;
 }
 
 a
@@ -21,18 +22,21 @@ a
     text-decoration: none;
 }
 
-/* PARTE DA DIREITA CONTAINER GERAL */
-
-#tituloH1
-{
-    margin-top: 20px;
-}
+/* PARTE DA DIREITA CONTAINER GERAL */ 
 
 #container
 {
-    width: 100vw;
-    height: 100vh;
-    margin-left: 350px;
+    gap: 15px;
+    padding-left: 60px;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main{
+    margin-left: 287px;
 }
 
 /* filtragem e pesquisa */
@@ -40,7 +44,7 @@ a
 #divPesquisarEEscolher
 {
     display: flex;
-    gap: 50px;
+    gap: 20px;
 }
 
 #botaoAssociados, #botaoSolicitacao
@@ -56,7 +60,7 @@ a
     width: 205px;
     height: 55px;
     font-size: 18px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -69,6 +73,14 @@ a
     border-radius: 15px;
     padding-left: 10px;
     border: none;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     font-size: 18px;
+}
+
+#lista{
+    margin-top: 15px;
+}
+
+#tituloH1{
+    font-size: 36px;
 }

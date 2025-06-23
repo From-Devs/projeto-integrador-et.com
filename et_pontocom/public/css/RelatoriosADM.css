@@ -13,6 +13,7 @@ body
     padding: 0%;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    background-color: #F8F8F8;
 }
 
 a
@@ -24,15 +25,24 @@ a
 
 #container
 {
-    width: 100vw;
-    height: 100vh;
-    margin-left: 350px;
+    gap: 15px;
+    padding-left: 60px;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main{
+    margin-left: 287px;
 }
 
 /* botoesPrincipais */
 
 #geralInformacoes
 {
+    width: 1450px;
     display: flex;
     justify-content: space-between;
     margin-right: 50px;
@@ -80,4 +90,8 @@ a
     align-items: center;
     background-color: white;
     margin-right: 30px;
+}
+
+#tituloH1{
+    font-size: 36px;
 }

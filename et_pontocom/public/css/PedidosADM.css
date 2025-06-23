@@ -14,6 +14,7 @@ body
     padding: 0%;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    background-color: #F8F8F8;
 }
 
 a
@@ -44,7 +45,7 @@ a
 #divPesquisarEFiltro
 {
     display: flex;
-    gap: 250px;
+    gap: 20px;
 }
 
 /* pesquisa */
@@ -56,7 +57,7 @@ a
     border-radius: 15px;
     padding-left: 10px;
     border: none;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     font-size: 18px;
 }
 
@@ -75,11 +76,19 @@ a
     width: 205px;
     height: 55px;
     font-size: 18px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 #imagemFiltro
 {
     width: 40px;
     height: 40px;
+}
+
+#lista{
+    margin-top: 15px;
+}
+
+#tituloH1{
+    font-size: 36px;
 }

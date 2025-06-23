@@ -437,12 +437,9 @@
     }
 }
 
-@media (max-width: 480) {
+@media (max-width: 480px) {
     .nav_adm{
         width: 250px;
-    }
-    .logo{
-        margin-top: 3px;
     }
     .botoesMenu ul{
         gap: 2px;

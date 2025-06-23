@@ -14,6 +14,7 @@ body
     padding: 0%;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    background-color: #F8F8F8;
 }
 
 a
@@ -42,6 +43,10 @@ a
 {
     display: flex;
     margin-bottom: 15px;
+}
+
+#tituloH1{
+    font-size: 36px;
 }
 
 #geralInformacoes
@@ -121,6 +126,7 @@ a
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
+    font-family: "Montserrat", sans-serif;
 }
 
 #divPizzaEsquerda, #divPizzaDireita
@@ -131,20 +137,23 @@ a
     justify-content: center;
     width: 100%;
     height: 470px;
-    border: #0000004D 2px solid;
     border-radius: 15px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    font-family: "Montserrat", sans-serif;
 }
 
 #divControladoraTexto
 {
     display: flex;
+    font-family: "Montserrat", sans-serif;
     align-items: flex-start
 }
 
 #tituloPizza
 {
     margin: 15px 0px 0px 20px;
+    font-family: "Montserrat", sans-serif;
 }
 
 #selecionador
@@ -180,12 +189,19 @@ a
 
 }
 
+@media (max-width: 1280px) {
+    #main
+    {
+        margin-left: 250px;
+    }
+}
+
 
 @media (max-width: 1024px)
 {
     #main
     {
-        margin: 0;
+        margin-left: 230px;
     }
 
     #iconUsuario
@@ -231,10 +247,21 @@ a
     }
 }
 
-@media (max-width: 768px)
-{ 
+@media (max-width: 800px)
+{
+
+    #container{
+        box-sizing: border-box;
+        width: 100%;
+        padding-left: 0;
+        padding-top: 0;
+    }
+
     #main
     {
+        width: 100%;
+        display: flex;
+        justify-content: center;
         margin: 0px;
     }
 
@@ -251,14 +278,14 @@ a
 
     #titulo
     {
-        justify-content: center;
-        margin-top: 20px;
+        margin-left: 80px;
+        margin-top: 18px;
         margin-bottom: 20px;
     }
 
     #valorVendas, #lucroLiquido, #vendas
     {
-        width: 450px;
+        width: 80%;
         font-size: 8px;
         gap: 0;
     }
@@ -282,13 +309,24 @@ a
     {
         display: flex;
         flex-direction: column;
-        gap: 100px;
+        gap: 50px;
         margin: 50px 0px 0px 0px;
         align-items: center;
     }
 
     #divPizzaEsquerda, #divPizzaDireita{
-        width: 500px;
+        width: 80%;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     }
 
+}
+
+@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+    #tituloH1{
+        font-size: 30px;
+    }
+
+    #titulo{
+        margin-top: 24px;
+    }
 }
