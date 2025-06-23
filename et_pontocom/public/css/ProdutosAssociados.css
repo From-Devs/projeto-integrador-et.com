@@ -3,17 +3,22 @@
     font-family: "Montserrat", sans-serif;
 }
 
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
 body {
     display: flex;
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
 }
 
 a {
     text-decoration: none;
 }
-
-/* PARTE DA DIREITA CONTAINER GERAL */
 
 #container {
     display: flex;
@@ -21,20 +26,6 @@ a {
     width: 100vw;
     margin-left: 350px;
 }
-
-/* estilizacao da parte do icone do usuario */
-
-#tituloH1 {
-    margin-top: 20px;
-
-}
-
-/* #controleIcon {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: center;
-} */
 
 #iconUsuario {
     width: 250px;
@@ -58,16 +49,11 @@ a {
     height: 70px;
 }
 
-#imagemFiltro {
-    width: 40px;
-    height: 40px;
-}
-
 .td-lista-associados {
     display: flex;
     justify-content: center;
     height: 80px;
-    padding: 0px;
+    padding: 0;
     margin: 3px;
 }
 
@@ -91,7 +77,7 @@ a {
     border-radius: 20px;
     font-family: "Montserrat", sans-serif;
     background-color: #f4f7ff;
-    box-shadow: 0px 0px 10px 1px #272727;
+    box-shadow: 0 0 10px 1px #272727;
     padding: 10px;
     position: fixed;
     left: 50%;
@@ -137,11 +123,6 @@ a {
     width: 400px;
 }
 
-.btn-fechar {
-    background-color: transparent;
-    border: none;
-}
-
 .campo {
     display: flex;
     flex-direction: column;
@@ -152,7 +133,9 @@ a {
     font-weight: 500;
 }
 
-.campo input, .campo select, .campo textarea {
+.campo input,
+.campo select,
+.campo textarea {
     width: 100%;
     padding: 7px;
     border-radius: 8px;
@@ -169,6 +152,11 @@ a {
 .campo-large textarea {
     width: 500px;
     height: 100%;
+}
+
+.btn-fechar {
+    background-color: transparent;
+    border: none;
 }
 
 .divisao-esquerda {
@@ -234,6 +222,11 @@ a {
     cursor: pointer;
 }
 
+.icone-editar-label {
+    cursor: pointer;
+    display: inline-block;
+}
+
 .div-btn {
     place-self: end;
 }
@@ -252,28 +245,14 @@ a {
     display: none;
 }
 
-.icone-editar {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-.icone-editar-label {
-    cursor: pointer;
-    display: inline-block;
-}
-
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
+#titleRelatorios {
+    margin-top: 20px;
 }
 
 #lista {
     width: 97%;
     margin-top: 10px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     background-color: #fff;
     border-radius: 15px;
@@ -306,7 +285,6 @@ th {
     font-size: 24px;
 }
 
-
 td {
     padding: 2%;
     font-size: 20px;
@@ -338,26 +316,105 @@ tr {
     justify-content: space-around;
 }
 
-.excluir img, .editar img {
+.excluir img,
+.editar img {
     cursor: pointer;
     width: 30px;
 }
 
-#titleRelatorios {
-    margin-top: 20px;
+
+@media (max-width: 1024px) {
+    #container {
+        margin-left: 250px;
+    }
+
+    .tabela-body {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    #tabelaVendas {
+        min-width: 700px;
+    }
+
+    th, td {
+        font-size: 18px;
+        padding: 8px;
+    }
+
+    .btn-lista-associados {
+        font-size: 14px;
+    }
+
+    .acoes-tabela img {
+        width: 24px;
+    }
+
+    .td-lista-associados {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 940px) {
+    #tabelaVendas {
+        min-width: 500px;
+    }
 }
 
 @media (max-width: 800px) {
     #container {
-        margin: 0px;
+        margin-left: 3px;
     }
 
-    #divPesquisarEFiltro {
-        justify-content: center;
+    #tabelaVendas {
+        min-width: 600px;
     }
 
-    #imagemFiltro {
-        width: 20px;
-        height: 20px;
+    th, td {
+        font-size: 16px;
+    }
+
+    .btn-concluir-edicao {
+        width: 100%;
+    }
+
+    .galeria-produtos {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .campos-editar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .divisao-esquerda {
+        flex-direction: column;
+    }
+
+    .campo-small,
+    .campo-large textarea {
+        width: 100% !important;
+    }
+
+    .imagem-produto-container {
+        height: auto;
+    }
+}
+
+@media (max-width: 400px) {
+    dialog.dialog-editar {
+        width: 95vw;
+        padding: 15px;
+    }
+
+    dialog.dialog-editar .campos-editar {
+        font-size: 14px;
+    }
+
+    dialog.dialog-editar .div-btn button.btn-concluir-edicao {
+        width: 100%;
     }
 }

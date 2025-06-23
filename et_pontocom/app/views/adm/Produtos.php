@@ -32,7 +32,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         echo createSidebarInterna($tipo_usuario);
     ?>
 
-    <!-- aqui acaba o container esquerdo -->
     <div id="container">
         <div class="container-filtroEIcon">
             <div id="controleIcon">

@@ -58,32 +58,6 @@
 }
 
 @media (max-width: 1350px) {
-
-    #container {
-        margin-left: 320px;
-    }
-
-    .idProduto {
-        right: 13px;
-
-    }
-
-    td {
-        right: 20px;
-        font-size: 17px;
-    }
-
-    th {
-        font-size: 20px;
-        padding-top: 24px;
-        padding-bottom: 24px;
-    }
-
-    #vendasmais {
-        margin-top: 20px;
-        font-size: 15px;
-    }
-
     .container-filtroEIcon {
         display: block;
     }
@@ -108,15 +82,6 @@
         background: url(../../public/imagens/HistoricoDeVendasAssociado/lupa.png)no-repeat;
         background-size: 30px 30px;
         background-position: 495px center;
-    }
-
-    #lista {
-        width: 94%;
-        margin-top: 12px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        border-radius: 15px;
-        overflow: hidden;
     }
 
     #controleIcon {
@@ -171,35 +136,6 @@
         background-position: 495px center;
     }
 
-    #container {
-        margin-left: 300px;
-    }
-
-    #lista {
-        width: 95%;
-        margin-top: 14px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        border-radius: 15px;
-        overflow: hidden;
-    }
-
-    td {
-        right: 20px;
-        font-size: 14px;
-    }
-
-    #vendasmais {
-        margin-top: 20px;
-        font-size: 12px;
-    }
-
-    th {
-        font-size: 17px;
-        padding-top: 20px;
-        padding-bottom: 22px;
-    }
-
     #fotoUser {
         border-top-left-radius: 50%;
         border-bottom-left-radius: 50%;
@@ -229,49 +165,6 @@
         font-size: 14px;
         background-size: 25px;
         background-position-x: 80px;
-    }
-
-    #container {
-        margin-left: 30px;
-    }
-
-    th {
-        font-size: 14px;
-    }
-
-    #th2 {
-        width: 250px;
-        padding-left: 30px;
-
-    }
-
-    #th3 {
-        width: 200px;
-        padding-left: 29px;
-    }
-
-    #th5 {
-        width: 100px;
-    }
-
-    th {
-        font-size: 20px;
-        padding-top: 24px;
-        padding-bottom: 24px;
-    }
-
-    #vendasmais {
-        margin-top: 20px;
-        font-size: 15px;
-    }
-
-    #lista {
-        width: 94%;
-        margin-top: 12px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        border-radius: 15px;
-        overflow: hidden;
     }
 
     #fotoUser {
@@ -308,61 +201,6 @@
         height: 40px;
     }
 
-    td {
-        right: 20px;
-        font-size: 9px;
-        position: static;
-        padding-right: 20px;
-    }
-
-    th {
-        font-size: 10px;
-        padding: 0px;
-    }
-
-    #tabelaVendas {
-        width: 456px;
-    }
-
-    #bordaEsquerda {
-        width: 38px;
-    }
-
-    .idProduto {
-        padding-left: 3.7%;
-    }
-
-    #th2 {
-        padding-left: 0px;
-        width: 150px;
-    }
-
-    #th3 {
-        padding-left: 0px;
-        width: 130px;
-    }
-
-    #th4 {
-        width: 65px;
-        padding-right: 5px;
-    }
-
-    #th5 {
-        width: 60px;
-    }
-
-    tr {
-        height: 40px;
-    }
-
-    #lista {
-        width: 450.3px;
-    }
-
-    #tabela-body {
-        width: 456px;
-    }
-
     #fotoUser {
         width: 53px;
         height: 53px;
@@ -373,11 +211,4 @@
         width: 170px;
         height: 65px;
     }
-
-    #vendasmais {
-        font-size: 11px;
-        margin-left: 7px;
-    }
-
-
 }
