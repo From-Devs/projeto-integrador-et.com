@@ -241,24 +241,64 @@ hr {
 .cards-editar{
     height: 57px;
     width: 566px;
-    background-color: red;
+    background-color: rgb(0, 255, 0);
     margin-bottom: 16px;
+    margin: 15px;
 }
 .cards-editarG{
     height: 66px;
     width: 566px;
     background-color: red;
     margin-bottom: 16px;
-}
-.cards-data{
-    display: flex;
-    height: 57px;
-    width: 566px;
-    background-color: yellow;
+    margin: 15px;
 }
 .line{
     width: 3px;
     height: 92%;
     background-color: #000;
     margin: 30px;
+}
+
+.cards-data {
+    display: flex;
+    flex-direction: column;
+    max-width: 566px;
+    width: 100%;
+    padding: 16px;
+    margin: 15px;
+    border-radius: 16px;
+}
+
+.cards-data label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.select-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.select-group select {
+    flex: 1;
+    min-width: 120px;
+    padding: 1.2rem 1rem;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.select-group select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+}
+  
+#T-editar p{
+    margin-left: 45px;
+    font-size: larger;
 }
