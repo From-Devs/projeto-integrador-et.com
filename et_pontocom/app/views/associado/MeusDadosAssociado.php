@@ -39,55 +39,74 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
                 <div class="moficasao">
                     <div class="dados">
                         <h1>Meus dados</h1>
+                        <div id="card-editar-mg">
 
-                        <div id="T-editar"><p>Nome Nome</p></div>
-                        <div class="cards-editar"></div>
-                        <div id="T-editar"><p>Nome Nome</p></div>
-                        <div class="cards-editar"></div>
-                        <div id="T-editar"><p>Nome Nome</p></div>
-                        <div class="cards-editarG"></div>
-                        <div id="T-editar"><p>Data de nacimanto</p></div>
-
-                        <div class="cards-data">
-                            <div class="select-group">
-                                <select id="dia" name="dia">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>31</option>
-                                </select>
-
-                                <select id="mes" name="mes">
-                                <option>Janeiro</option>
-                                <option>Fevereiro</option>
-                                <option>Março</option>
-                                <option>Abril</option>
-                                <option>Maio</option>
-                                <option>Junho</option>
-                                <option>Julho</option>
-                                <option>Agosto</option>
-                                <option>Setembro</option>
-                                <option>Outubro</option>
-                                <option>Novembro</option>
-                                <option>Dezembro</option>
-                                </select>
-
-                                <select id="ano" name="ano">
-                                <option>2005</option>
-                                <option>2004</option>
-                                <option>2003</option>
-                                <option>2002</option>
-                                <!-- ... até 1900 -->
-                                <option>1900</option>
-                                </select>
+                            <div id="T-editar"><p>Nome Nome</p></div>
+                            <div class="cards-editar"></div>
+                            <div id="T-editar"><p>Sobrenome</p></div>
+                            <div class="cards-editar PAD"></div>
+                            <div id="T-editar"><p>Gmail</p></div>
+                            <div class="cards-editarG"></div>
+                            <div id="T-editar"><p>Data de nacimanto</p></div>
+                            
+                            <div class="cards-data">
+                                <div class="select-group">
+                                    <select id="dia" name="dia">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>31</option>
+                                    </select>
+                                    
+                                    <select id="mes" name="mes">
+                                        <option>Janeiro</option>
+                                        <option>Fevereiro</option>
+                                        <option>Março</option>
+                                        <option>Abril</option>
+                                        <option>Maio</option>
+                                        <option>Junho</option>
+                                        <option>Julho</option>
+                                        <option>Agosto</option>
+                                        <option>Setembro</option>
+                                        <option>Outubro</option>
+                                        <option>Novembro</option>
+                                        <option>Dezembro</option>
+                                    </select>
+                                    
+                                    <select id="ano" name="ano">
+                                        <option>2005</option>
+                                        <option>2004</option>
+                                        <option>2003</option>
+                                        <option>2002</option>
+                                        <!-- ... até 1900 -->
+                                        <option>1900</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="line"></div>
                     <div class="dados">
-                        a
+                    <p class="exit">X</p>
+                        <div id="card-editar-mg">
+                            <div id="T-editar"><p>Nome Nome</p></div>
+                            <div class="cards-editar PAM"></div>
+                            <div id="T-editar"><p>Sobrenome</p></div>
+                            <div class="cards-editar PAM"></div>
+                            <div class="imagem-log">
+                                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoPreta1.png" alt="logo">
+                            </div>
+                            <div class="buttons">
+                                <div class="btn-card certo">
+                                    <input type="button" value="✔ Confirmar">
+                                </div>
+                                <div class="btn-card errado">
+                                    <input type="button" value="🚫 Cancelar">
+                                </div>
+                            </div>
+                        </div>
                     </div> 
                 </div>
             </div>
