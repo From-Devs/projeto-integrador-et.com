@@ -44,8 +44,9 @@ td
     font-weight: bold;
 }
 
-tr 
+#tabelaVendas tbody tr 
 {
+    height: 80px;
     border-bottom: 0.1px solid #DADADA;
 }
 
