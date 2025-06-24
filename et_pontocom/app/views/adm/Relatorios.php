@@ -37,11 +37,11 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <div class="main">
         <div id="container">
             <div id="titulo">
-                <h1 id="tituloH1">Relátorios</h1>
+                <h1 id="tituloH1">Relatórios</h1>
             </div>
             <div id="geralInformacoes">
                 <!-- $nomeDiv,$icone, $titulo, $alt=''-->
-                <?php dadosInforRelatorios('receita','../../../public/imagens/imagensADM/graficoRelatorios.png','Relátorio de Receitas','','grafico') ?>
+                <?php dadosInforRelatorios('receita','../../../public/imagens/imagensADM/graficoRelatorios.png','Relatório de Receitas','','grafico') ?>
                 <?php dadosInforRelatorios('produto','../../../public/imagens/imagensADM/folhaRelatorios.png','Receita por Produto','folha') ?>
                 <?php dadosInforRelatorios('abandonadas','../../../public/imagens/imagensADM/sadFaceRelatorios.png','Vendas Abandonadas','sadFace') ?>
             </div>

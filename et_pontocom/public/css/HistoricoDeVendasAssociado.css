@@ -31,42 +31,6 @@
     margin-top: 20px;
 }
 
-#controleIcon
-{
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-#iconUsuario
-{
-    width: 250px;
-    height: 80px;
-    display: flex;
-    background-color: black;
-    color: white;
-    align-items: center;
-    overflow: hidden;
-    gap: 10px;
-    margin-top:  20px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
-}
-
-#fotoUser
-{
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    margin-left: 30px;
-    width: 70px;
-    height: 70px;
-}
-
-
-#textUser2{
-    font-size: 12px;
-}
-
 @media (max-width: 1280px) {
 
     #container{

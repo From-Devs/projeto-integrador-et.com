@@ -3,6 +3,7 @@
 require_once __DIR__ . "/./../../../public/componentes/popup/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
 include __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/ProdutoADM/produto.php";
+require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
 
 session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
@@ -22,6 +23,8 @@ session_start();
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/tabelasAssociado_ADM/ProdutoAssociado/produto.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/tabelasAssociado_ADM/ProdutoADM/produto.css">
     <link rel="stylesheet" href="./../../../public/css/ProdutosADM.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/contaADM_Associado/styles.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -29,14 +32,9 @@ session_start();
 <body>
     <?php
         echo createSidebarInterna($tipo_usuario);
+        echo createContaAssociadoADM("Associado");
         ?>
     <div id="container">
-    <div id="controleIcon">
-            <div id="iconUsuario">
-                <img id="fotoUser" src="../../../public/imagens/imagensADM/userIMG.png" alt="userIMG">
-                <p id="textUser">ADM ET</p>
-            </div>
-        </div>
         <div id="divPesquisarEFiltro">
             <div id="pesquisar">
                 <form action="">

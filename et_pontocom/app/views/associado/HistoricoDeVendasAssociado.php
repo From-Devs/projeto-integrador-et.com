@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
 require_once __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/HistoricoVendasAssociado/hv.php";
+require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
 
 
     session_start();
@@ -17,24 +18,18 @@ require_once __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/Histor
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/contaADM_Associado/styles.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
 </head>
 <body>
     <?php
         echo createSidebarInterna($tipo_usuario);
+        echo createContaAssociadoADM("Associado");
     ?>
     
     <div id="container">   
-        <div id="controleIcon">
-            <div id="iconUsuario">
-                <img id="fotoUser" src="../../../public/imagens/imagensADM/userIMG.png" alt="userIMG">
-                <div id="texts">
-                    <p id="textUser">Wellinton R.</p>
-                    <p id="textUser2">Vendedor ET</p>
-                </div>
-            </div>
-        </div> 
         <div id="pesquisar">
                 <form action="">
                     <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto... ">
