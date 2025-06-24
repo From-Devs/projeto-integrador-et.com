@@ -44,15 +44,15 @@
         </div>
 
             <!-- Parte de Pedidos que estão a caminho -->
-        <section class="pedidoCaminhoMP">
-            <h2 class="tituloCaminhoMP">Em Andamento</h2>
-            <div id="produtosCaminho"></div> <!-- Parte do JavaScript-->
+        <section class="pedidoAndamentoMP">
+            <h2 class="tituloAndamentoMP">Em Andamento</h2>
+            <div id="produtosAndamento"></div> <!-- Parte do JavaScript-->
         </section>
 
             <!-- Parte de Pedidos que foram entregues -->
-        <section class="pedidosEntreguesMP">
-            <h2 class="tituloEntregueMP">Finalizado</h2>
-            <div id="produtosEntregues"></div> <!-- Parte do JavaScript -->
+        <section class="pedidosFinalizadosMP">
+            <h2 class="tituloFinalizadoMP">Finalizado</h2>
+            <div id="produtosFinalizados"></div> <!-- Parte do JavaScript -->
 
         </section>
 
@@ -75,6 +75,28 @@
                 <div class="popupMP-linhainferior"></div>
             </div>
         </dialog>
+
+        
+        <dialog class="popupMPFinalizado" id="popupMPFinalizado">
+            <div class="popupMP-conteudo">
+                <div class="popupMP-superior">
+                    <div class="popupMP-linhasuperior"></div>
+                    <div class='icone-fechar'>
+                        <button class='bx bx-x'></button>
+                    </div>
+                </div>
+                <div class="popupMP-main">
+                    <span class="popupMP-DataEntrega" id="popupMP-DataEntrega"></span>
+                </div>
+                <div class="popupMP-inferior">
+                    <div class="popupMP-Produtos" id="popupMP-Produtos"></div>
+                </div>
+                
+                <div class="popupMP-linhainferior"></div>
+            </div>
+        </dialog>
+
+
          
 
         <div class="linhaInferiorMP"></div>

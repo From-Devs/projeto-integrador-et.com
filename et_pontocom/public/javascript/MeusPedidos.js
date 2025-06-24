@@ -7,7 +7,10 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
     const produtosAtivos = data.produtos.filter(prod => 
         prod.status === "Preparando" || prod.status === "A Caminho"   //Filtra por status
     );
-    
+
+    const produtosFinalizados = data.produtos.filter(prod => 
+        prod.status === "Concluído"                                   
+    );
 
     const produtosPorData = {};                                 //Seleciona por data
     produtosAtivos.forEach(produto => {
@@ -17,14 +20,14 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
         produtosPorData[produto.dataCompra].push(produto);
     });
 
-    const container = document.getElementById('produtosCaminho');
+    const container = document.getElementById('produtosAndamento');
 
 
     Object.entries(produtosPorData).forEach(([dataCompra, produtos]) => {
         const produto = produtos[0]; // pegar qualquer produto dessa data para exibir no card
 
         const card = document.createElement('div');
-        card.classList.add("cards-produtoCaminho");
+        card.classList.add("cards-produtoAndamento");
 
         card.innerHTML = `
             <span class="data-compra">Data de compra: ${dataCompra}</span>
@@ -86,8 +89,8 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                             <div class="card-linhainferior" style="margin-bottom: 15px;"></div>
                             <div class="detalhes-info" style="gap: 10px;">
                                 <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
-                                <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
                                 <span class="detalhes-status">Status: <span style="color: red;">${p.status}</span></span>
+                                <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
                                 <span class="detalhes-preco" style="margin-bottom: 20px; font-size:12px; font-weight:500;">Preço: R$ ${p.preco.toFixed(2)}</span>
                             </div>
                             <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php" class="detalhes-botao">Comprar Novamente</a>
@@ -118,9 +121,9 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                             <div class="card-linhainferior" style="margin-bottom: 10px;"></div>
                             <div class="detalhes-info" style="gap: 5px;">
                                 <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
+                                <span class="detalhes-status">Status: <span style="color: red;">${p.status}</span></span>
                                 <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
                                 <span class="detalhes-quantidade">Quantidade: ${p.quantidade} produtos</span>
-                                <span class="detalhes-status">Status: <span style="color: red;">${p.status}</span></span>
                                 <span class="detalhes-preco" style="margin-bottom: 0px; font-size: 12px;">Preço Unitário: R$ ${p.preco.toFixed(2)}</span>
                                 <span class="detalhes-precoTotal" style="margin-bottom: 10px;">Preço Total: R$ ${(precoTotal).toFixed(2)}</span>
                             </div>
@@ -155,48 +158,51 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
 
                     ///Produtos entregues
 
-    const produtosFinalizados = data.produtos.filter(prod => 
-        prod.status === "Concluído"                                   
-    );
     
-    const produtosPorData2 = {};
+    
+    
     produtosFinalizados.forEach(produto2 => {
-        if (!produtosPorData2[produto2.dataEntrega]) {
-            produtosPorData2[produto2.dataEntrega] = [];
+        if (!produtosPorData[produto2.dataEntrega]) {
+            produtosPorData[produto2.dataEntrega] = [];
         }
-        produtosPorData2[produto2.dataEntrega].push(produto2);
+        produtosPorData[produto2.dataEntrega].push(produto2);
     });
 
-    const container2 = document.getElementById('produtosEntregues');
+    const container2 = document.getElementById('produtosFinalizados');
     
 
-    Object.entries(produtosPorData2).forEach(([dataEntrega, produtos]) => {
+    Object.entries(produtosPorData).forEach(([dataEntrega, produtos]) => {
         const produto2 = produtos[0];
 
         const card2 = document.createElement("div");
-        card2.classList.add("cardProduto-entregue");
+        card2.classList.add("cardProduto-finalizado");
 
         card2.innerHTML = `
-            <span class="data-entrega">Data de entrega: ${dataEntrega}</span>
             <div class="cardcoloridoFin">
-                <span class="card-status"> Concluído
-                <div class="card-info2 style='background: linear-gradient(to right, ${produto2.corFundo1}, ${produto2.corFundo2}, ${produto2.corFundo3} 43%, ${produto2.corFundo4} 83%)">
-                <div class="card-imagem2">
-                        <img src= "${produto2.imagem}" alt="${produto2.nome}">
-                    </div>
-                    <div class="info-caminho">
-                        <div class="informacoes-card">
-                            <span class="titulo">${produto2.nome} ${produto2.marca} ${produto2.tamanho}</span>
-                            <span class="titulo">${produto2.categoria}</span>
+                <div class="card-info2" style="background: linear-gradient(to right, ${produto2.corFundo1}, ${produto2.corFundo2}, ${produto2.corFundo3} 43%, ${produto2.corFundo4} 83%)">
+                    <span class="data-entrega">Data de entrega: ${dataEntrega}</span>
+                    <div class="cardcolestrutura">
+                        <div class="card-imagem2">
+                            <img src= "${produto2.imagem}" alt="${produto2.nome}">
                         </div>
-                        <button class="verMais" style="font-size: 13px; border: none;">Ver Mais</button>
+                        <div class="info-finalizado">
+                            <div class="informacoes-card">
+                                <span class="titulo">${produto2.nome} ${produto2.marca} ${produto2.tamanho}</span>
+                                <span class="titulo">${produto2.categoria}</span>
+                            </div>
+                            <button class="verMais2" style="font-size: 13px; border: none;">Mais Informações</button>
+                        </div>
                     </div>
                 </div>
             </div>
         `;
+
+        container2.appendChild(card2);
     });
 
 })
+
+
 .catch(err => console.log("Erro ao carregar produtos:", err));
 
 

@@ -55,18 +55,18 @@
 
 
 /*_________________________________ÁREA DE PEDIDOS A CAMINHO_____________________________*/
-.conteudoMeusPedidos .pedidoCaminhoMP{
+.conteudoMeusPedidos .pedidoAndamentoMP{
     display: flex;
     flex-direction: column;
     width: 155vh;
 }
 
-.pedidoCaminhoMP .tituloCaminhoMP{
+.pedidoAndamentoMP .tituloAndamentoMP{
     font-size: 38px;
     font-weight: 600;
 }
 
-.pedidoCaminhoMP #produtosCaminho{
+.pedidoAndamentoMP #produtosAndamento{
     margin-top: 7px;
     width: 155vh;
     max-height: 50vh;
@@ -77,40 +77,39 @@
     gap: 40px;
 }
 
-.pedidoCaminhoMP #produtosCaminho::-webkit-scrollbar{
+.pedidoAndamentoMP #produtosAndamento::-webkit-scrollbar{
     width: 5px;                                                  /*scroll da área de produtos a caminho*/
 }
 
-#produtosCaminho::-webkit-scrollbar-thumb{
+#produtosAndamento::-webkit-scrollbar-thumb{
     background-color: rgba(0, 0, 0, 0.363);                                   /*style do scroll*/
     border-radius: 10px;
 }
 
-#produtosCaminho .cards-produtoCaminho{
-    /* background-color: rgb(5, 116, 116); */
+#produtosAndamento .cards-produtoAndamento{
     display: flex;
     flex-direction: column;
     height: 26vh;
 }
 
-.cards-produtoCaminho .data-compra{
+.cards-produtoAndamento .data-compra{
     font-size: 15px;
 }
 
-.cards-produtoCaminho .cardcoloridoCam{
+.cards-produtoAndamento .cardcoloridoCam{
     margin-top: 10px;
     display: flex;
     flex-direction: row;
     gap: 15px;
 }
 
-.cards-produtoCaminho .cardcoloridoCam .linhaverticalcard{
+.cards-produtoAndamento .cardcoloridoCam .linhaverticalcard{
     width: 1px;
     height: 23vh;
     background-color: rgba(0, 0, 0, 0.507);
 }
 
-.cards-produtoCaminho .cardcoloridoCam .card-info{
+.cards-produtoAndamento .cardcoloridoCam .card-info{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -121,23 +120,23 @@
     box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.301);
 }
 
-.cards-produtoCaminho .cardcoloridoCam .card-info .card-imagem{
+.cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem{
     display: flex;
     align-items: center;                                                        /* Ver isso depois */
 }
 
-.cards-produtoCaminho .cardcoloridoCam .card-info .card-imagem img{
+.cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
     height: 120px;
     width: auto;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.644));                              /*Ver isso depois*/  
 }
 
-.cards-produtoCaminho .cardcoloridoCam .card-info .info-caminho .informacoes-card{
+.cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .informacoes-card{
     display: flex;
     flex-direction: column;
 }
 
-.cards-produtoCaminho .cardcoloridoCam .card-info .info-caminho .verMais{
+.cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
     border: none;
     background-color: transparent;
     font-size: 15px;
@@ -145,7 +144,7 @@
     cursor: pointer;
 }
 
-.cards-produtoCaminho .cardcoloridoCam .card-info .info-caminho .verMais:focus{
+.cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais:focus{
     outline: none;
     border: none;
 }
@@ -308,7 +307,6 @@
             left: 0;
             z-index: 10;
             width: 100%;
-            /* max-height: 410px; */
             border-radius: 20px;
             animation: fadein 0.3s ease-in-out;
             opacity: 0;
@@ -419,20 +417,21 @@
 
 
 /*_________________________________ÁREA DE PEDIDOS ENTREGUES_______________________________*/
-.conteudoMeusPedidos .pedidosEntreguesMP{
+.conteudoMeusPedidos .pedidosFinalizadosMP{
     display: flex;
     flex-direction: column;
-    width: 154vh;
+    width: 155vh;
 }
 
-.pedidosEntreguesMP .tituloEntregueMP{
+.pedidosFinalizadosMP .tituloFinalizadoMP{
     font-size: 38px;
     font-weight: 600;
 }
 
-.pedidosEntreguesMP #produtosEntregues{
-    margin-top: 7px;
-    width: 154vh;
+.pedidosFinalizadosMP #produtosFinalizados{
+    margin-top: 15px;
+    margin-right: 200px;
+    width: 152vh;
     max-height: 50vh;
     padding-right: 6px;
     overflow-y: auto;
@@ -444,152 +443,80 @@
     background-color: white;
 }
 
-.pedidosEntreguesMP #produtosEntregues::-webkit-scrollbar{
+.pedidosFinalizadosMP #produtosFinalizados::-webkit-scrollbar{
     width: 5px;                                                  /*scroll da área de produtos a caminho*/
 }
 
-.pedidosEntreguesMP #produtosEntregues::-webkit-scrollbar-thumb{
+.pedidosFinalizadosMP #produtosFinalizados::-webkit-scrollbar-thumb{
     background-color: rgba(0, 0, 0, 0.363);                                   /*style do scroll*/
     border-radius: 10px;
 }
 
-.grupo-data .carousel .carousel-container .cardProduto-entregue{
-    flex-shrink: 0;
-    width: 155vh;
+#produtosFinalizados .cardProduto-finalizado{
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
 }
 
-.grupo-data .carousel .carousel-container .cardProduto-entregue .cardMini{
-    flex-shrink: 0;
-    width: 320px;
-    border-radius: 20px;
-    border: none;
-    box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
-    transition: height 0.3s ease;
-    overflow: visible;
-    position: relative;
-    z-index: 0;
+.cardProduto-finalizado .cardcoloridoFin{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.cardProduto-entregue .cardMini .card-recolhido{
+.cardProduto-finalizado .cardcoloridoFin .card-info2{
+    display: flex;
+    flex-direction: column;
+    height: 23vh;
+    width: 46vh;
+    border-radius: 30px;
+    padding-right: 40px;
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.301);
+}
+
+.cardcoloridoFin .card-info2 .data-entrega{
+    font-size: 15px;
+    font-weight: 600;
+    text-align: right;
+    margin: 15px 0 20px 0;
+}
+
+.cardcoloridoFin .card-info2 .cardcolestrutura{
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
-    padding: 12px 12px 12px 0;
-    margin-left: 0;
-    height: 160px;
+}
+
+
+.cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2{
+    display: flex;
+    align-items: center; 
+}
+
+.cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img{
+    height: 120px;
+    width: auto;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.644));
+}
+
+.cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card{
+    display: flex;
+    flex-direction: column;
+}
+
+.cardcoloridoFin .card-info2  .cardcolestrutura.verMais2{
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    text-decoration: underline;
     cursor: pointer;
 }
-
-.cardProduto-entregue .cardMini .card-recolhido .cardMini-imagem{
-    height: 110px;
-    width: auto;
-}
-
-.cardProduto-entregue .cardMini .card-recolhido .cardMini-infos{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    font-size: 16px;
-}
-
-.cardProduto-entregue .cardMini .card-expandido{
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width: 100%;
-    height: 380px;
-    border-radius: 20px;
-    animation: fadein 0.3s ease-in-out;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.cardProduto-entregue .cardMini:hover{
-    height: 380px;
-    z-index: 20;
-}
-
-.cardProduto-entregue .cardMini:hover .card-recolhido{
-    display: none;
-}
-
-.cardProduto-entregue .cardMini:hover .card-expandido{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    opacity: 1;
-    margin-top: -20px;
-}
-
-.cardMini:hover .card-expandido .card-titulo{
-    font-size: 16px;
-    margin-top: 40px;
-}
-
-.cardMini:hover .card-expandido .card-linhasuperior,
-.cardMini:hover .card-expandido .card-linhainferior{
-    width: 260px;
-    height: 1px;
-    background-color: rgb(0, 0, 0);
-}
-
-.cardMini:hover .card-expandido .cardMini-imagem{
-    height: 130px;
-    width: auto;
-}
-
-.cardMini:hover .card-expandido .detalhes-info{
-    width: 260px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-.cardMini:hover .card-expandido .detalhes-info .detalhes-titulo{
-    font-size: 14px;
-}
-
-.cardMini:hover .card-expandido .detalhes-info .detalhes-categoria{
-    font-size: 12px;
-}
-
-.cardMini:hover .card-expandido .detalhes-info .detalhes-preco{
-    font-size: 12px;
-    margin-bottom: 10px;
-}
-
-.cardMini:hover .card-expandido .detalhes-botao{
-    padding: 10px 15px;
-    border-radius: 20px;
+    
+.cardcoloridoFin .card-info2 .cardcolestrutura .verMais2:focus{
+    outline: none;
     border: none;
-    background-color: rgb(202, 202, 202);
-    font-size: 13px;
-    text-decoration: none;
-    color: black;
 }
-
-#produtosEntregues .grupo-data .carousel .btn-voltar,
-#produtosEntregues .grupo-data .carousel .btn-prox{
-    background-color: #e90909;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-}
-
-/* #produtosEntregues .cards-produtosEntregues{
-    background-color: rgb(76, 189, 54);
-    display: flex;
-    flex-direction: column;
-    height: 26vh;
-} */
-
 
 
 
