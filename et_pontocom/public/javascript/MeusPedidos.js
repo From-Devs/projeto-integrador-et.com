@@ -64,8 +64,8 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                 if(p.quantidade == 1){
                     miniCard.innerHTML = `
                         <div class="card-recolhido">
-                            <div class-"cardMini-Superior"> 
-                                <span class="cardMini-Status" style="color: red;">${p.status}</span>
+                            <div class="cardMini-Superior"> 
+                                <span class="cardMini-Status">${p.status}</span>
                                 <span class="cardMini-Quantidade">${p.quantidade}x</span>
                             </div>
                             <div class="cardMini-conteudo">
@@ -74,30 +74,30 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                                     <span class="cardMini-Titulo">${p.marca} ${p.nome}</span>
                                     
                                     <div class="preco-total">
-                                        <span class="cardMini-PrecoTotal">R$${parseFloat(precoTotal).toFixed(2)}</span>
+                                        <span class="cardMini-PrecoTotal">R$ ${parseFloat(precoTotal).toFixed(2)}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-expandido">
+                        <div class="card-expandido" style="height: 390px; align-items: center;">
                             <span class="card-titulo">DESCRIÇÃO</span>
-                            <div class="card-linhasuperior"></div>
+                            <div class="card-linhasuperior" style="margin-top: 10px;"></div>
                             <img class="cardMini-imagem" src="${p.imagem}" height="130px">
-                            <div class="card-linhainferior"></div>
-                            <div class="detalhes-info">
+                            <div class="card-linhainferior" style="margin-bottom: 15px;"></div>
+                            <div class="detalhes-info" style="gap: 10px;">
                                 <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
                                 <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
-                                <span class="detalhes-status">${p.status}</span>
-                                <span class="detalhes-preco" style="margin-bottom: 10px; font-size:12px; font-weight:500;">Preço: R$${p.preco.toFixed(2)}</span>
+                                <span class="detalhes-status">Status: <span style="color: red;">${p.status}</span></span>
+                                <span class="detalhes-preco" style="margin-bottom: 20px; font-size:12px; font-weight:500;">Preço: R$ ${p.preco.toFixed(2)}</span>
                             </div>
                             <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php" class="detalhes-botao">Comprar Novamente</a>
                         </div>
                     `;
-                } else if(p.quantidade != 1){
+                } else if(p.quantidade >= 1){
                     miniCard.innerHTML = `
                         <div class="card-recolhido">
-                            <div class-"cardMini-Superior"> 
-                                <span class="cardMini-Status" style="color: red;">${p.status}</span>
+                            <div class="cardMini-Superior"> 
+                                <span class="cardMini-Status">${p.status}</span>
                                 <span class="cardMini-Quantidade">${p.quantidade}x</span>
                             </div>
                             <div class="cardMini-conteudo">
@@ -106,23 +106,23 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                                     <span class="cardMini-Titulo">${p.marca} ${p.nome}</span>
                                     
                                     <div class="preco-total">
-                                        <span class="cardMini-PrecoTotal">R$${parseFloat(precoTotal).toFixed(2)}</span>
+                                        <span class="cardMini-PrecoTotal">R$ ${parseFloat(precoTotal).toFixed(2)}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-expandido">
+                        <div class="card-expandido" style="height: 420px;">
                             <span class="card-titulo">DESCRIÇÃO</span>
-                            <div class="card-linhasuperior"></div>
+                            <div class="card-linhasuperior" style="margin-top: 5px;"></div>
                             <img class="cardMini-imagem" src="${p.imagem}" height="130px">
-                            <div class="card-linhainferior"></div>
-                            <div class="detalhes-info">
+                            <div class="card-linhainferior" style="margin-bottom: 10px;"></div>
+                            <div class="detalhes-info" style="gap: 5px;">
                                 <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
                                 <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
-                                <span class="detalhes-preco" style="margin-bottom: 0px; font-size: 12px;">Preço Unitário: R$${p.preco.toFixed(2)}</span>
                                 <span class="detalhes-quantidade">Quantidade: ${p.quantidade} produtos</span>
-                                <span class="detalhes-status">${p.status}</span>
-                                <span class="detalhes-precoTotal">Preço Total: R$${(precoTotal).toFixed(2)}</span>
+                                <span class="detalhes-status">Status: <span style="color: red;">${p.status}</span></span>
+                                <span class="detalhes-preco" style="margin-bottom: 0px; font-size: 12px;">Preço Unitário: R$ ${p.preco.toFixed(2)}</span>
+                                <span class="detalhes-precoTotal" style="margin-bottom: 10px;">Preço Total: R$ ${(precoTotal).toFixed(2)}</span>
                             </div>
                             <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php" class="detalhes-botao">Comprar Novamente</a>
                         </div>
