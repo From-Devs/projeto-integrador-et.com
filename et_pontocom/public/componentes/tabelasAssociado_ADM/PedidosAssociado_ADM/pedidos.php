@@ -98,7 +98,7 @@ function tabelaPedidosADM($pedidos) {
         <table id='tabelaVendas'>
             <thead id='barraCima'>
                 <tr>
-                    <th id='bordaEsquerda' scope='col'>#</th>
+                    <th id='bordaEsquerda' scope='col'>ID</th>
                     <th id='th2' scope='col'>Nome Cliente</th>
                     <th id='th4' scope='col'>Preço</th>
                     <th id='th5' scope='col'>Data</th>
@@ -177,7 +177,7 @@ function tabelaPedidosAssociado($pedidos) {
         <table id='tabelaVendas'>
             <thead id='barraCima'>
                 <tr>
-                    <th id='bordaEsquerda' scope='col'>#</th>
+                    <th id='bordaEsquerda' scope='col'>ID</th>
                     <th id='th2' scope='col'>Nome Cliente</th>
                     <th id='th3' scope='col'>Preço</th>
                     <th id='th4' scope='col'>Data</th>

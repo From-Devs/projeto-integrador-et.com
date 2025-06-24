@@ -21,8 +21,9 @@ a {
 /* PARTE DA DIREITA CONTAINER GERAL */
 
 #container {
+    display: flex;
+    flex-direction: column;
     width: 100vw;
-    height: 100vh;
     margin-left: 350px;
 }
 
@@ -157,6 +158,7 @@ td {
     padding: 2%;
     font-size: 20px;
     font-weight: bold;
+    overflow-wrap: break-word;
 }
 
 tr {

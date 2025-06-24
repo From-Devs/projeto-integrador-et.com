@@ -38,6 +38,7 @@ td {
     padding: 2%;
     font-size: 20px;
     font-weight: bold;
+    overflow-wrap: break-word;
 }
 
 tr {

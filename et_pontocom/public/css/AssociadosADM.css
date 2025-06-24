@@ -66,6 +66,7 @@ a {
 #divPesquisarEEscolher {
     display: flex;
     gap: 50px;
+    margin-top: 20px;
 }
 
 #botaoAssociados, #botaoSolicitacao {
@@ -77,10 +78,11 @@ a {
     background-color: #3449B6;
     color: white;
     border-radius: 15px;
-    width: 205px;
+    width: 100%;
     height: 55px;
     font-size: 18px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
 
@@ -102,4 +104,295 @@ a {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+}
+
+td {
+    overflow-wrap: break-word;
+}
+
+#botoesAssociados {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+#Solicitações, #Escolher {
+    width: 200px;
+}
+
+@media (max-width: 1600px) {
+    #container {
+        margin-left: 300px;
+    }
+
+    th, td {
+        font-size: 1.2rem;
+    }
+
+    .validarButton img, .cancelarButton img {
+        width: 30px;
+    }
+
+    .container-filtroEIcon {
+        display: block;
+    }
+
+    #divPesquisarEFiltro {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        flex-wrap: nowrap;
+        margin-top: 10px;
+    }
+
+    #inputPesquisar {
+        display: flex;
+        width: 550px;
+        height: 50px;
+        border-radius: 15px;
+        padding-left: 10px;
+        border: none;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        font-size: 15px;
+        background: url(../../public/imagens/HistoricoDeVendasAssociado/lupa.png)no-repeat;
+        background-size: 30px 30px;
+        background-position: 495px center;
+    }
+
+    #controleIcon {
+        justify-content: end;
+    }
+
+    #iconUsuario {
+        width: 230px;
+        height: 75px;
+        display: flex;
+        background-color: black;
+        color: white;
+        align-items: center;
+        overflow: hidden;
+        gap: 10px;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        border-top-left-radius: 100px;
+        border-bottom-left-radius: 100px;
+    }
+
+    #fotoUser {
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        margin-left: 25px;
+        width: 62px;
+        height: 62px;
+    }
+
+    #textUser {
+        font-size: 14px;
+    }
+
+    #textUser2 {
+        font-size: 11px;
+    }
+
+    #Solicitações, #Escolher {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 1350px) {
+    #inputPesquisar {
+        width: 300px;
+        height: 50px;
+        padding-left: 10px;
+        border: none;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        font-size: 15px;
+        background: url(../../public/imagens/HistoricoDeVendasAssociado/lupa.png)no-repeat;
+        background-size: 30px 30px;
+        background-position: 495px center;
+    }
+
+    #fotoUser {
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        margin-left: 25px;
+        width: 60px;
+        height: 60px;
+    }
+
+    #textUser {
+        font-size: 13px;
+    }
+
+    #textUser2 {
+        font-size: 10px;
+    }
+
+    #divPesquisarEEscolher {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 1020px) {
+    #inputPesquisar {
+        width: 300px;
+    }
+
+    #botaoAssociados, #botaoSolicitacao {
+        width: 100%;
+        font-size: 14px;
+        background-size: 25px;
+        background-position-x: 80px;
+    }
+
+    #fotoUser {
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        margin-left: 25px;
+        width: 62px;
+        height: 62px;
+    }
+
+    #textUser {
+        font-size: 14px;
+    }
+
+    #textUser2 {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 800px) {
+    #container {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 520px) {
+    #divPesquisarEEscolher {
+        flex-wrap: wrap;
+    }
+
+    th, td {
+        font-size: 0.8rem;
+    }
+
+    .validarButton img, .cancelarButton img {
+        width: 20px;
+    }
+
+    #pesquisar {
+        width: 90%;
+    }
+
+    #botoesAssociados {
+        width: 90%;
+        justify-content: space-between;
+    }
+
+    #inputPesquisar {
+        width: 100%;
+        height: 40px;
+    }
+
+    #divPesquisarEFiltro {
+        gap: 5px;
+    }
+
+    #botaoAssociados, #botaoSolicitacao {
+        width: 100%;
+        height: 40px;
+    }
+
+    #fotoUser {
+        width: 53px;
+        height: 53px;
+        margin-left: 15px;
+    }
+
+    #iconUsuario {
+        width: 170px;
+        height: 65px;
+    }
+}
+
+@media (max-width: 1024px) {
+    #container {
+        margin-left: 250px;
+    }
+
+    .tabela-body {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    #tabelaVendas {
+        min-width: 700px;
+    }
+
+    th, td {
+        font-size: 18px;
+        padding: 8px;
+    }
+
+    .btn-lista-associados {
+        font-size: 14px;
+    }
+
+    .acoes-tabela img {
+        width: 24px;
+    }
+
+    .td-lista-associados {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 940px) {
+    #tabelaVendas {
+        min-width: 500px;
+    }
+}
+
+@media (max-width: 800px) {
+    #container {
+        margin-left: 3px;
+    }
+
+    #tabelaVendas {
+        min-width: 600px;
+    }
+
+    th, td {
+        font-size: 16px;
+    }
+
+    .btn-concluir-edicao {
+        width: 100%;
+    }
+
+    .galeria-produtos {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .campos-editar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .divisao-esquerda {
+        flex-direction: column;
+    }
+
+    .campo-small,
+    .campo-large textarea {
+        width: 100% !important;
+    }
+
+    .imagem-produto-container {
+        height: auto;
+    }
 }
