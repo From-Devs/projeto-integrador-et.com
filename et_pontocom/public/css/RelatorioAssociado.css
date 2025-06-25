@@ -12,48 +12,6 @@
     --white-color: #ececec;
 }
 
-/* parte dos cards */
-.cardsRelatorios{
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 347px;
-    margin-top: 30px;
-    gap: 50px;
-}
-
-.cardRelatorio{
-    width: 450px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 22px;
-    border-radius: 20px;
-    background-color: var(--black-color);
-    color: var(--white-color);
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
-}
-
-.cardRelatorio:hover{
-    scale: 1.08;
-}
-
-.cardRelatorio #textCard{
-    font-size: 26px;
-    font-weight: bold;
-}
-
-.cardRelatorio .iconCard{
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--white-color);
-    border-radius: 10px;
-}   
-
 .popUp .botoes-popUp{
     background-color: transparent;
 }
