@@ -8,10 +8,6 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
         prod.status === "Preparando" || prod.status === "A Caminho"   //Filtra por status
     );
 
-    const produtosFinalizados = data.produtos.filter(prod => 
-        prod.status === "Concluído"                                   
-    );
-
     const produtosPorData = {};                                 //Seleciona por data
     produtosAtivos.forEach(produto => {
         if (!produtosPorData[produto.dataCompra]) {
@@ -158,20 +154,24 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
 
                     ///Produtos entregues
 
-    
+    const produtosFinalizados = data.produtos.filter(prod => 
+        prod.status === "Concluído"                                   
+    );
+
+    const produtosPorData2 = {};  
     
     
     produtosFinalizados.forEach(produto2 => {
-        if (!produtosPorData[produto2.dataEntrega]) {
-            produtosPorData[produto2.dataEntrega] = [];
+        if (!produtosPorData2[produto2.dataEntrega]) {
+            produtosPorData2[produto2.dataEntrega] = [];
         }
-        produtosPorData[produto2.dataEntrega].push(produto2);
+        produtosPorData2[produto2.dataEntrega].push(produto2);
     });
 
     const container2 = document.getElementById('produtosFinalizados');
     
 
-    Object.entries(produtosPorData).forEach(([dataEntrega, produtos]) => {
+    Object.entries(produtosPorData2).forEach(([dataEntrega, produtos]) => {
         const produto2 = produtos[0];
 
         const card2 = document.createElement("div");
@@ -190,7 +190,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                                 <span class="titulo">${produto2.nome} ${produto2.marca} ${produto2.tamanho}</span>
                                 <span class="titulo">${produto2.categoria}</span>
                             </div>
-                            <button class="verMais2" style="font-size: 13px; border: none;">Mais Informações</button>
+                            <button class="maisInfo" style="font-size: 13px; border: none;">Mais Informações</button>
                         </div>
                     </div>
                 </div>
@@ -198,7 +198,25 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
         `;
 
         container2.appendChild(card2);
-    });
+
+        // const maisInfoBtn = card2.querySelector(".maisInfo");
+
+        // maisInfoBtn.addEventListener("click", () => {
+        //     const popupProdutosFi = document.getElementById("popupMP-Produtos");
+        //     popupProdutosFi.innerHTML = ""; // limpar popup anterior
+
+        //     let totalCompra = 0;
+
+        //     produtos.forEach(p => {
+        //         const miniCard = document.createElement("div");
+        //         miniCard.classList.add("cardMini");
+        //         const precoTotal = p.preco * p.quantidade;
+
+        //     })
+
+        // });
+
+    })
 
 })
 
