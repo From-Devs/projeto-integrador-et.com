@@ -188,22 +188,25 @@ hr {
     box-shadow: #0000003d 0px 3px 8px;
 }
 .Cardtexticones{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     width: 566px;
     height: 95px;
     border-radius: 8px;
     background-color: #F6F6F6;
-    box-shadow: #0000003d 0px 3px 8px;
+    box-shadow: #0000003d 0px 3px 8px;  
+    font-size: 37px;
 }
-.Cardtexticones i {
-    padding: 40px;
-    margin-top: 19px;
-    margin-left: 10px;
-    font-size: 45px;
-    height: 50px;
-    width: 50px;
-    justify-content: center;
-    align-items: center;
+.Cardtexticones i{
+    position: relative;
+    padding: 5px;
+    margin: 10px;
 }
+.Cardtexticones .bx-plus{
+  margin-left: auto;
+}
+
 .Cardtext p{
     text-align: center;
     padding-top: 15px;
@@ -216,13 +219,9 @@ hr {
     margin-bottom: 15px;
 }
 
-.x{
-    width: 30px;
-    height: 100%;
-}
-.x {
-    font-weight: bold;
-    font-size: 30px;
+.x i{
+  padding: 20px;
+  font-size: 34px;
 }
 
 .none {
@@ -266,7 +265,20 @@ hr {
   .cards-editarG {
     height: 58px;
   }  
-  
+  .cards-editar,
+  .cards-editarG {
+    border: none;
+    outline: none;
+    padding-left: 15px;
+    font-size: 20px;
+    color: #333;
+  }
+
+  .cards-editar::placeholder,
+  .cards-editarG::placeholder {
+    color: #999;
+  }
+
   /* Modificadores */
   .PAD {
     margin-bottom: 48px;
@@ -377,7 +389,9 @@ hr {
     display: flex;
     justify-content: end;
   }
-  /* ia */
+  .exit i{
+    font-size: 34px;
+  }
   /**
  * RESPONSIVO PARA "Meus Dados"
  */

@@ -42,11 +42,11 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
                         <div id="card-editar-mg">
 
                             <div id="T-editar"><p>Nome Nome</p></div>
-                            <div class="cards-editar"></div>
+                            <input class="cards-editar" type="text"></input>
                             <div id="T-editar"><p>Sobrenome</p></div>
-                            <div class="cards-editar PAD"></div>
+                            <input class="cards-editar PAD" type="text"></input>
                             <div id="T-editar"><p>Gmail</p></div>
-                            <div class="cards-editarG"></div>
+                            <input class="cards-editarG" type="text"></input>
                             <div id="T-editar"><p>Data de nacimanto</p></div>
                             
                             <div class="cards-data">
@@ -89,12 +89,14 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
                     </div>
                     <div class="line"></div>
                     <div class="dados">
-                    <p class="exit">X</p>
+                    <div class="exit">
+                        <i class='bx  bx-x'  ></i> 
+                    </div>
                         <div id="card-editar-mg">
                             <div id="T-editar"><p>Nome Nome</p></div>
-                            <div class="cards-editar PAM"></div>
+                            <input class="cards-editar PAM" type="text"></input>
                             <div id="T-editar"><p>Sobrenome</p></div>
-                            <div class="cards-editar PAM"></div>
+                            <input class="cards-editar PAM" type="text"></input>
                             <div class="imagem-log">
                                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoPreta1.png" alt="logo">
                             </div>
@@ -143,10 +145,11 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
                                 <i class='bx-fw bxl bx-facebook-square'></i>
                                 <i class='bx-fw bxl bx-facebook-square'></i>
                                 <i class='bx-fw bxl bx-facebook-square'></i>
+                                <i class='bx bx-plus'></i>
                             </div>
                         </div>
                     </div>
-                    <div class="x">X</div>
+                    <div class="x"><i class='bx  bx-x'  ></i></div>
                 </div>    
             </div>
 
@@ -201,6 +204,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 document.addEventListener('DOMContentLoaded', () => {
     const EditarBtn = document.getElementsByClassName("bnt-Editar") 
     const EditarIcn = document.getElementsByClassName("icon")
+    const IconeExit1 = document.getElementsByClassName("exit");
+    const IconeExit2 = document.getElementsByClassName("x");
+    
     // tela principal 
     const MeusDadosc1 = document.getElementsByClassName("CardDados")
     const MeusDadosc2 = document.getElementsByClassName("Conteudos")
@@ -210,6 +216,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const Editardado1 = document.getElementsByClassName("edisao")
 
 
+
+    function mostrar(){
+        MeusDadosc1[0].classList.remove("none");
+        MeusDadosc2[0].classList.remove("none");
+    }
     function esconder(){
         MeusDadosc1[0].classList.add("none");
         MeusDadosc2[0].classList.add("none");
@@ -221,11 +232,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     EditarIcn[0].addEventListener('click',()=>{
         esconder()
-        Perfildado1[0].classList.remove("none")/
+        Perfildado1[0].classList.remove("none");
         console.log(Perfildado1)
     });
-    
-    console.log(Perfildado1)
+    IconeExit1[0].addEventListener('click',() =>{
+        mostrar()
+        Editardado1[0].classList.add("none");
+        console.log(Perfildado1)
+    })
+    IconeExit2[0].addEventListener('click',() =>{
+        mostrar()
+        Perfildado1[0].classList.add("none");
+        console.log(Perfildado1)
+    })
+
 });
 </script>
 
