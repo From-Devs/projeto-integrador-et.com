@@ -199,22 +199,56 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
 
         container2.appendChild(card2);
 
-        // const maisInfoBtn = card2.querySelector(".maisInfo");
+        //Abrir popup ao apertar no botão
+        const maisInfoBtn = card2.querySelector(".maisInfo");
 
-        // maisInfoBtn.addEventListener("click", () => {
-        //     const popupProdutosFi = document.getElementById("popupMP-Produtos");
-        //     popupProdutosFi.innerHTML = ""; // limpar popup anterior
+        maisInfoBtn.addEventListener("click", () => {
+            const popupProdutosFi = document.getElementById("popupMP-ProdutosFi");
+            popupProdutosFi.innerHTML = ""; // limpar popup anterior
 
-        //     let totalCompra = 0;
+            produtos.forEach(pro => {
+                const cardpopup = document.createElement("div");
+                cardpopup.classList.add("cardpopup");
+                const precoTotal2 = pro.preco * pro.quantidade;
 
-        //     produtos.forEach(p => {
-        //         const miniCard = document.createElement("div");
-        //         miniCard.classList.add("cardMini");
-        //         const precoTotal = p.preco * p.quantidade;
 
-        //     })
+                cardpopup.innerHTML = `
+                    <div class="card-recolhido">
+                        <div class="cardpopup-Superior"> 
+                            <span class="cardpopup-Status">${pro.status}</span>
+                            <span class="cardpopup-Quantidade">${pro.quantidade}x</span>
+                        </div>
+                        <div class="cardpopup-conteudo">
+                            <img class="cardpopup-imagem" src="${pro.imagem}" height="100px">
+                            <div class="cardpopup-infos">
+                                <span class="cardpopup-Titulo">${pro.marca} ${pro.nome}</span>
+                                
+                                <div class="preco-total">
+                                    <span class="cardpopup-PrecoTotal">R$ ${parseFloat(precoTotal2).toFixed(2)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-expandido" style="height: 390px; align-items: center;">
+                        <span class="card-titulo">DESCRIÇÃO</span>
+                        <div class="detalhes-envio" style="gap: 10px;">
+                            <span class="detalhes-status">Status: <span style="color: red;">${pro.status}</span></span>
+                        </div>
+                        <div class="card-linhasuperior" style="margin-top: 10px;"></div>
+                        <img class="cardpopup-imagem" src="${pro.imagem}" height="130px">
+                        <div class="card-linhainferior" style="margin-bottom: 15px;"></div>
+                        <div class="detalhes-info" style="gap: 10px;">
+                            <span class="detalhes-titulo">${pro.marca} ${pro.nome}</span>
+                            <span class="detalhes-categoria">Categoria: ${pro.categoria}</span>
+                            <span class="detalhes-preco" style="margin-bottom: 20px; font-size:12px; font-weight:500;">Preço: R$ ${pro.preco.toFixed(2)}</span>
+                        </div>
+                        <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php" class="detalhes-botao">Comprar Novamente</a>
+                    </div>
+                
+                `;
+            })
 
-        // });
+        });
 
     })
 
