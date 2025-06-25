@@ -74,6 +74,14 @@ tr {
     cursor: pointer;
 }
 
+.validarButton:hover {
+    background-color: rgb(200, 255, 180);
+}
+
+.cancelarButton:hover {
+    background-color: rgb(255, 180, 180);
+}
+
 
 .marcarValido {
     background-color: greenyellow;

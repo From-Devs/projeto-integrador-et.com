@@ -29,6 +29,10 @@
     border: none;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     font-size: 18px;
+    font-size: 15px;
+    background: url(/projeto-integrador-et.com/et_pontocom/public/imagens/HistoricoDeVendasAssociado/lupa.png)no-repeat;
+    background-size: 30px;
+    background-position: right center;
 }
 
 #botaoOrdenar {
@@ -57,6 +61,15 @@
     padding: 10px;
 }
 
+#botaoOrdenar:hover {
+    background-color: #3449b6d1;
+}
+
+#botaoOrdenar option {
+    background-color: rgb(110, 110, 110);
+    color: white;
+}
+
 @media (max-width: 1350px) {
     .container-filtroEIcon {
         display: block;
@@ -71,17 +84,7 @@
     }
 
     #inputPesquisar {
-        display: flex;
         width: 550px;
-        height: 50px;
-        border-radius: 15px;
-        padding-left: 10px;
-        border: none;
-        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-        font-size: 15px;
-        background: url(../../public/imagens/HistoricoDeVendasAssociado/lupa.png)no-repeat;
-        background-size: 30px 30px;
-        background-position: 495px center;
     }
 
     #controleIcon {
@@ -123,17 +126,7 @@
 
 @media (max-width: 1140px) {
     #inputPesquisar {
-        display: flex;
         width: 300px;
-        height: 50px;
-        border-radius: 15px;
-        padding-left: 10px;
-        border: none;
-        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-        font-size: 15px;
-        background: url(../../public/imagens/HistoricoDeVendasAssociado/lupa.png)no-repeat;
-        background-size: 30px 30px;
-        background-position: 495px center;
     }
 
     #fotoUser {
@@ -158,6 +151,7 @@
 @media (max-width: 800px) {
     #inputPesquisar {
         width: 300px;
+        background-size: 28px;
     }
 
     #botaoOrdenar {
@@ -190,6 +184,7 @@
     #inputPesquisar {
         width: 200px;
         height: 40px;
+        background-size: 25px;
     }
 
     #divPesquisarEFiltro {

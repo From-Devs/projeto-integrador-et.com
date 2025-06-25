@@ -40,7 +40,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                     <p id="textUser">ADM ET</p>
                 </div>
             </div>
-            <?php echo filtro(["ID", "Produto"])?>
+            <?php echo filtro(["Produto", "SKU"])?>
             <!-- <div id="divPesquisarEFiltro">
                 <div id="pesquisar">
                     <form action="">

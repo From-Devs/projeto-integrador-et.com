@@ -85,6 +85,11 @@ a {
     cursor: pointer;
 }
 
+#botaoAssociados:hover, #botaoSolicitacao:hover {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+}
 
 /* pesquisa */
 
