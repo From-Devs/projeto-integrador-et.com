@@ -204,49 +204,58 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
 
         maisInfoBtn.addEventListener("click", () => {
             const popupProdutosFi = document.getElementById("popupMP-ProdutosFi");
-            popupProdutosFi.innerHTML = ""; // limpar popup anterior
+            popupProdutosFi.innerHTML = ""; 
 
-            produtos.forEach(pro => {
+            produtos.forEach(p => {
                 const cardpopup = document.createElement("div");
                 cardpopup.classList.add("cardpopup");
-                const precoTotal2 = pro.preco * pro.quantidade;
+                const precoTotal2 = p.preco * p.quantidade;
 
 
                 cardpopup.innerHTML = `
                     <div class="card-recolhido">
                         <div class="cardpopup-Superior"> 
-                            <span class="cardpopup-Status">${pro.status}</span>
-                            <span class="cardpopup-Quantidade">${pro.quantidade}x</span>
+                            <span class="cardpopup-Status">${p.status}</span>
+                            <span class="cardpopup-Quantidade">${p.quantidade}x</span>
                         </div>
                         <div class="cardpopup-conteudo">
-                            <img class="cardpopup-imagem" src="${pro.imagem}" height="100px">
+                            <img class="cardpopup-imagem" src="${p.imagem}" style="height:100px;">
                             <div class="cardpopup-infos">
-                                <span class="cardpopup-Titulo">${pro.marca} ${pro.nome}</span>
-                                
+                                <span class="cardpopup-Titulo">${p.marca} ${p.nome}</span>
                                 <div class="preco-total">
                                     <span class="cardpopup-PrecoTotal">R$ ${parseFloat(precoTotal2).toFixed(2)}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-expandido" style="height: 390px; align-items: center;">
-                        <span class="card-titulo">DESCRIÇÃO</span>
-                        <div class="detalhes-envio" style="gap: 10px;">
-                            <span class="detalhes-status">Status: <span style="color: red;">${pro.status}</span></span>
+                    <div class="card-expandido" style="height: 560px; align-items: center;">
+                        <span class="card-titulo">DETALHES DO PEDIDO</span>
+                        <div class="detalhes-envio" style="gap: 5px;">
+                            <span class="detalhes-status">Status: <span style="color: green;">${p.status}</span></span>
+                            <span class="detalhes-dataCompra">Data de Compra: <span style="font-weight: 500;">${p.dataCompra}</span></span>
+                            <span class="detalhes-dataEntrega">Data de Entrega: <span style="font-weight: 500;">${p.dataEntrega}</span></span>
+                            <span class="detalhes-endereco">Foi entregue às ${p.horarioEntrega} no endereço <span style="font-weight: 500; ">${p.rua} ${p.numero}</span>, bairro ${p.bairro}. ${p.cidade}, ${p.estado}.</span>
                         </div>
-                        <div class="card-linhasuperior" style="margin-top: 10px;"></div>
-                        <img class="cardpopup-imagem" src="${pro.imagem}" height="130px">
-                        <div class="card-linhainferior" style="margin-bottom: 15px;"></div>
-                        <div class="detalhes-info" style="gap: 10px;">
-                            <span class="detalhes-titulo">${pro.marca} ${pro.nome}</span>
-                            <span class="detalhes-categoria">Categoria: ${pro.categoria}</span>
-                            <span class="detalhes-preco" style="margin-bottom: 20px; font-size:12px; font-weight:500;">Preço: R$ ${pro.preco.toFixed(2)}</span>
+                        <span class="card-titulo2" style="margin-top: 12px;">DESCRIÇÃO DO PRODUTO</span>
+                        <div class="card-linhasuperior" style="margin-top: 6px;"></div>
+                        <img class="cardpopup-imagem" src="${p.imagem}" height="120px">
+                        <div class="card-linhainferior" style="margin-bottom: 10px;"></div>
+                        <div class="detalhes-info" style="gap: 5px;">
+                            <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
+                            <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
+                            <span class="detalhes-quantidade">Quantidade: ${p.quantidade} produtos</span>
+                            <span class="detalhes-preco" style="margin-bottom: 0px; font-size: 12px;">Preço Unitário: R$ ${p.preco.toFixed(2)}</span>
+                            <span class="detalhes-precoTotal" style="margin-bottom: 10px;">Preço Total: R$ ${(precoTotal2).toFixed(2)}</span>
                         </div>
-                        <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php" class="detalhes-botao">Comprar Novamente</a>
+                        <a class="comprarNvmtBtn" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php">Comprar Novamente</a>
                     </div>
                 
                 `;
-            })
+
+                popupProdutosFi.appendChild(cardpopup);
+            });
+
+            document.getElementById("popupMPFinalizado").showModal();
 
         });
 

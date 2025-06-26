@@ -78,7 +78,7 @@
 
         
         <dialog class="popupMPFinalizado" id="popupMPFinalizado">
-            <div class="popupMP-conteudo">
+            <div class="popupMP-conteudoFi">
                 <div class="popupMP-superior">
                     <div class="popupMP-linhasuperior"></div>
                     <div class='icone-fechar'>
