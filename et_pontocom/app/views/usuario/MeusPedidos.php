@@ -85,7 +85,7 @@
                         <button class='bx bx-x'></button>
                     </div>
                 </div>
-                <div class="popupMP-main">
+                <div class="popupMP-data">
                     <span class="popupMP-DataEntrega" id="popupMP-DataEntrega"></span>
                 </div>
                 <div class="popupMP-inferior">

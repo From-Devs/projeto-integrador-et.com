@@ -69,7 +69,7 @@
 .pedidoAndamentoMP #produtosAndamento{
     margin-top: 7px;
     width: 155vh;
-    max-height: 50vh;
+    height: 55vh;
     padding-right: 6px;
     overflow-y: auto;
     display: grid;
@@ -193,7 +193,7 @@
         top: 100px;
     }
 
-    .popupMP-superior .popupMP-linhasuperior{
+    .popupMP-conteudo .popupMP-superior .popupMP-linhasuperior{
         align-items: center;
         min-width: 60vw;
         height: 1px;
@@ -201,7 +201,7 @@
         margin-left:6vw;
     }
         
-    .popupMP-superior .bx-x{
+    .popupMP-conteudo .popupMP-superior .bx-x{
         font-size: 30px;
         background-color: transparent;
         border: none;
@@ -430,14 +430,12 @@
 
 .pedidosFinalizadosMP #produtosFinalizados{
     width: 153vh;
-    height: 50vh;
+    height: 55vh;
     margin-top: 15px;
     margin-right: 200px;
     padding: 13px 5px 30px 15px;
     display: grid;
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(45vh,2fr));
+    grid-template-columns: repeat(auto-fill, minmax(45vh,1fr));
     overflow-y: auto;
     gap: 20px;
     border-radius: 30px;
@@ -458,11 +456,12 @@
 #produtosFinalizados .cardProduto-finalizado{
     display: flex;
     flex-direction: column;
-    height: 23vh;
+    height: 25vh;
 }
 
 .cardProduto-finalizado .cardcoloridoFin{
     margin-top: 10px;
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -472,7 +471,7 @@
     display: flex;
     flex-direction: column;
     height: 23vh;
-    width: 45vh;
+    width: 43vh;
     border-radius: 30px;
     padding-right: 30px;
     box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.511);
@@ -490,7 +489,6 @@
     flex-direction: row;
     align-items: center;
 }
-
 
 .cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2{
     display: flex;
@@ -534,7 +532,7 @@
         top: 50%;
         transform: translate(-50%, -50%);
         width: 80vw;
-        height: 90vw;
+        height: 110vw;
         padding: 2rem;
         border-radius: 10px;
         overflow: auto;
@@ -566,7 +564,7 @@
         top: 100px;
     }
 
-    .popupMPFinalizado-superior .popupMP-linhasuperior{
+    .popupMPFinalizado .popupMP-superior .popupMP-linhasuperior{
         align-items: center;
         min-width: 60vw;
         height: 1px;
@@ -574,28 +572,25 @@
         margin-left:6vw;
     }
         
-    .popupMPFinalizado-superior .bx-x{
+    .popupMPFinalizado .popupMP-superior .bx-x{
         font-size: 30px;
         background-color: transparent;
         border: none;
         cursor: pointer;
         margin-left: 2vw;
-
     }
 
-    .popupMPFinalizado .popupMP-conteudoFi .popupMP-main{
+    .popupMPFinalizado .popupMP-conteudoFi .popupMP-data{
         display: flex;
-        text-align: left;
-        margin-top: 60px;
-        font-size: 13px;
-    }
-
-    .popupMPFinalizado .popupMP-conteudoFi .popupMP-inferior{
-        padding-bottom: 150px;
+        position: fixed;
+        top: 130px;
+        left: 90px;
+        font-size: 16px;
+        color: black;
     }
 
     .popupMP-conteudoFi .popupMP-inferior .popupMP-ProdutosFi{
-        width: 60vw;
+        width: 78vw;
         max-height: 60vh;
         margin-top: 100px;
         display: flex;
@@ -633,11 +628,10 @@
                 /*-------área mini card-------*/
         .popupMP-inferior .popupMP-ProdutosFi .cardpopup {
             width: 370px;
-            height: 160px;
             border-radius: 20px;
             border: none;
             box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
-            transition: height 0.3s ease;
+            transition: height 0.3s ease-in-out;
             overflow: visible;
             position: relative;
             z-index: 0;

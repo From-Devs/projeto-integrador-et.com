@@ -255,6 +255,8 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                 popupProdutosFi.appendChild(cardpopup);
             });
 
+            document.getElementById("popupMP-DataEntrega").innerText = "Data da entrega: " + dataEntrega;
+
             document.getElementById("popupMPFinalizado").showModal();
 
         });
