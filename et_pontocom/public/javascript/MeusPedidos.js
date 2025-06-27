@@ -228,7 +228,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                             </div>
                         </div>
                     </div>
-                    <div class="card-expandido" style="height: 560px; align-items: center;">
+                    <div class="card-expandido" style="height: 540px; align-items: center;">
                         <span class="card-titulo">DETALHES DO PEDIDO</span>
                         <div class="detalhes-envio" style="gap: 5px;">
                             <span class="detalhes-status">Status: <span style="color: green;">${p.status}</span></span>
