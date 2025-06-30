@@ -24,6 +24,7 @@ session_start();
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/contaADM_Associado/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/FiltrosADMeAssociados/filtros.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/PedidosAssociado.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -37,9 +38,9 @@ session_start();
 
     <div class="main">
         <div id="container">
-            <div class="container-filtroEIcon">
+           
                 <?php echo filtro(["ID", "Preço", "Data"])?>
-            </div>
+            
             <div id="titulo">
                 <h1 id="tituloH1">Pedidos</h1>
             </div>
