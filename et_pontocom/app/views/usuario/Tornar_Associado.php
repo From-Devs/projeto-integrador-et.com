@@ -35,7 +35,8 @@
     echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
     <section class="promo-section">
-
+        <div class="filtroDegrade"></div>
+        
         <div class="promo-content">
             <div class="promoContentText">
                 <h2>Torne-se um(a) associado(a) ET!</h2>
@@ -50,6 +51,7 @@
                 ?>
             </div>
         </div>
+
         <div class="karla">
             <img  class="promo-image" src="/projeto-integrador-et.com/et_pontocom/public/imagens/TornarAssociado/moça.png" alt="Promo Image">
             <div class="blurNomeKarla">

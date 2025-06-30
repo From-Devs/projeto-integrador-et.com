@@ -14,6 +14,7 @@ body
     padding: 0%;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    background-color: #F8F8F8;
 }
 
 a
@@ -21,52 +22,21 @@ a
     text-decoration: none;
 }
 
-/* PARTE DA DIREITA CONTAINER GERAL */
-
-#tituloH1
-{
-    margin-top: 20px;
-}
+/* PARTE DA DIREITA CONTAINER GERAL */ 
 
 #container
 {
-    width: 100vw;
-    height: 100vh;
-    margin-left: 350px;
-}
-
-/* estilizacao da parte do icone do usuario */
-
-
-#controleIcon
-{
+    gap: 15px;
+    padding-left: 60px;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 50px;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
 }
 
-#iconUsuario
-{
-    width: 250px;
-    height: 80px;
-    display: flex;
-    background-color: black;
-    color: white;
-    align-items: center;
-    overflow: hidden;
-    gap: 10px;
-    margin-top: 20px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
-}
-
-#fotoUser
-{
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    margin-left: 30px;
-    width: 70px;
-    height: 70px;
+.main{
+    margin-left: 287px;
 }
 
 /* filtragem e pesquisa */
@@ -74,7 +44,7 @@ a
 #divPesquisarEEscolher
 {
     display: flex;
-    gap: 50px;
+    gap: 20px;
 }
 
 #botaoAssociados, #botaoSolicitacao
@@ -90,7 +60,7 @@ a
     width: 205px;
     height: 55px;
     font-size: 18px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -103,6 +73,122 @@ a
     border-radius: 15px;
     padding-left: 10px;
     border: none;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     font-size: 18px;
+}
+
+#lista{
+    margin-top: 15px;
+}
+
+#tituloH1{
+    font-size: 36px;
+}
+
+@media (max-width: 1280px) {
+    .main{
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 1024px){
+    .main{
+        margin-left: 230px;
+    }
+}
+
+@media (max-width: 800px){
+    .main{
+        margin-left: 0;
+    }
+
+    #container{
+        padding-left: 0;
+        padding-top: 0;
+        align-items: center;
+    }
+    #titulo{
+        width: 100%;
+    }
+
+    .listaContainer{
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        align-items: center;
+        margin: 0 15px;
+    }
+
+    #lista{
+        width: 100%;
+    }
+    #divPesquisarEEscolher{
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 160px;
+        margin-top: 15px;
+    }
+
+    #pesquisar{
+        width: 100%;
+    }
+
+    #inputPesquisar{
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    #botaoFiltragem{
+        height: 50px;
+        width: 50px;
+    }
+
+    #botaoFiltragem p{
+        display: none;
+    }
+
+    #imagemFiltro{
+        width: 32px;
+        height: 32px;
+    }
+
+    th{
+        font-size: 16px;
+    }
+
+    td{
+        font-size: 14px;
+    }
+
+    #botaoAssociados, #botaoSolicitacao {
+        position: absolute;
+        width: auto;
+        padding: 10px 20px;
+        height: auto;
+    }
+
+    #botaoAssociados{
+        right: 182px;
+        top: 80px;
+    }
+
+    #botaoSolicitacao{
+        top: 80px;
+        right: 15px;
+    }
+
+    #th1{
+        width: 60px;
+    }
+
+    td:first-child{
+        width: 60px;
+    }
+}
+
+@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+    #divPesquisarEEscolher{
+        padding-right: 140px;
+    }
 }

@@ -54,8 +54,7 @@
                 <?php echo Campos("Confirmar Senha", "password")?>
             </div>
             <div class="embaixo">
-                <!-- input grande -->
-                <input type="text" placeholder="Digite algo sobre seu produto :)" class="caixa_texto">
+                <!-- input grande -->                <input type="text" placeholder="Digite algo sobre seu produto :)" class="caixa_texto">
                 <div class="botoes">
                     <div class="privacidade">
                         <!-- políticas de privacidade -->

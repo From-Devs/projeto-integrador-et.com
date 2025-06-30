@@ -13,6 +13,7 @@ body
     padding: 0%;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    background-color: #F8F8F8;
 }
 
 a
@@ -24,55 +25,24 @@ a
 
 #container
 {
-    width: 100vw;
-    height: 100vh;
-    margin-left: 350px;
-}
-
-/* estilizacao da parte do icone do usuario */
-
-#tituloH1
-{
-    margin-bottom: 15px;
-}
-
-
-#controleIcon
-{
+    gap: 15px;
+    padding-left: 60px;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 120px;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
 }
 
-#iconUsuario
-{
-    width: 250px;
-    height: 80px;
-    display: flex;
-    background-color: black;
-    color: white;
-    align-items: center;
-    overflow: hidden;
-    gap: 10px;
-    margin-top: 20px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
-}
-
-#fotoUser
-{
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    margin-left: 30px;
-    width: 70px;
-    height: 70px;
+.main{
+    margin-left: 287px;
 }
 
 /* botoesPrincipais */
 
-
 #geralInformacoes
 {
+    width: 1450px;
     display: flex;
     justify-content: space-between;
     margin-right: 50px;
@@ -120,4 +90,52 @@ a
     align-items: center;
     background-color: white;
     margin-right: 30px;
+}
+
+#tituloH1{
+    font-size: 36px;
+}
+
+@media (max-width: 1280px) {
+    .main{
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 1024px){
+    .main{
+        margin-left: 230px;
+    }
+}
+
+@media (max-width: 800px){
+    .main{
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #container{
+        width: 100%;
+        padding-left: 0;
+        padding-top: 0;
+    }
+    #titulo{
+        display: flex;
+        margin-left: 80px;
+        margin-top: 18px;
+        margin-bottom: 20px;
+    }
+
+    #geralInformacoes{
+        flex-direction: column;
+        width: auto;
+        margin-right: 0;
+        align-items: center;
+        gap: 20px;
+    }
+
+}
+
+@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+
 }

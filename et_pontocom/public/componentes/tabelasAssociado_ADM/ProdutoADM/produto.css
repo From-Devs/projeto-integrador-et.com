@@ -1,7 +1,7 @@
 #lista 
 {
     width: 97%;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     background-color: #fff;
@@ -44,8 +44,9 @@ td
     font-weight: bold;
 }
 
-tr 
+#tabelaVendas tbody tr 
 {
+    height: 80px;
     border-bottom: 0.1px solid #DADADA;
 }
 

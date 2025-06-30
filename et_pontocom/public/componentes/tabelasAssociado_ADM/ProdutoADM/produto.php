@@ -19,7 +19,7 @@
                 <table id="tabelaVendas">
                     <tbody>
                         <?php foreach ($produtos as $produto): ?>
-                            <tr style="height: 80px;">
+                            <tr>
                                 <td><?= htmlspecialchars($produto['nome']) ?></td>
                                 <td class="td-lista-associados">
                                     <button onclick="window.location.href = '/projeto-integrador-et.com/et_pontocom/app/views/adm/Associados.php'" class="btn-lista-associados">

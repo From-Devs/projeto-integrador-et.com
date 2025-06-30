@@ -40,6 +40,8 @@ document.addEventListener("DOMContentLoaded", function(){
             balao.style.display = "none";
         });
 
+        coracao.onclick = function() {abrirPopUp("popUpFavorito")};
+
         botaoComprar.addEventListener("mouseenter", function(){
             botaoComprar.className = "botaoComprarCardProduto open";
             botaoAnimacao.style.animationName = "botaoFantasma";

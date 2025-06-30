@@ -4,6 +4,7 @@ include __DIR__ . "/../../../public/componentes/telaADM/componenteADM.php";
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
+require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
 
 session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
@@ -18,7 +19,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <link rel="stylesheet" href="./../../../public/css/DashboardADM.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/Style.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/contaADM_Associado/styles.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
@@ -27,36 +30,33 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <div id="menuLateral">
         <?php
             echo createSidebarInterna($tipo_usuario);
+            echo createContaAssociadoADM();
         ?>
     </div>
 
     <!-- aqui acaba o lado esquerdo -->
-    <div id="container">
-        <div id="controleIcon">
-            <div id="iconUsuario">
-                <img id="fotoUser" src="../../../public/imagens/imagensADM/userIMG.png" alt="userIMG">
-                <p id="textUser">ADM ET</p>
+    <div id="main">
+        <div id="container">
+            <div id="titulo">
+                <h1 id="tituloH1">Dashboard</h1>
             </div>
-        </div>
-        <div id="titulo">
-            <h1 id="tituloH1">Dashboard</h1>
-        </div>
-        <div id="geralInformacoes">
-            <!-- $nomeDiv,$icone, $titulo, $valor, $alt=''-->
-            <?php dadosInfor('valorVendas','./../../../public/imagens/imagensADM/walletDashboard.png','Valor Vendas','R$ 1.500,00','wallet') ?>
-            <?php dadosInfor('lucroLiquido','./../../../public/imagens/imagensADM/cifraoDashboard.png','Lucro Líquido','R$ 569,00','cifrao') ?>
-            <?php dadosInfor('vendas','./../../../public/imagens/imagensADM/graficoDashboard.png','Vendas','233','grafico') ?>
-        </div>
-        <div id="controlePizzas">
-            <div id="divPizzaEsquerda">
-                <div id="divControladoraTexto">
-                    <?php pizzas('Vendedores') ?>
+            <div id="geralInformacoes">
+                <!-- $nomeDiv,$icone, $titulo, $valor, $alt=''-->
+                <?php dadosInfor('valorVendas','./../../../public/imagens/imagensADM/walletDashboard.png','Valor Vendas','R$ 1.500,00','wallet') ?>
+                <?php dadosInfor('lucroLiquido','./../../../public/imagens/imagensADM/cifraoDashboard.png','Lucro Líquido','R$ 569,00','cifrao') ?>
+                <?php dadosInfor('vendas','./../../../public/imagens/imagensADM/graficoDashboard.png','Vendas','233','grafico') ?>
+            </div>
+            <div id="controlePizzas">
+                <div id="divPizzaEsquerda">
+                    <div id="divControladoraTexto">
+                        <?php pizzas('Vendedores') ?>
+                    </div>
+                    <canvas id="myChartEsquerda"></canvas>
                 </div>
-                <canvas id="myChartEsquerda"></canvas>
-            </div>
-            <div id="divPizzaDireita">
-                <?php pizzas('Regioes') ?>
-                <canvas id="myChartDireita"></canvas>
+                <div id="divPizzaDireita">
+                    <?php pizzas('Regioes') ?>
+                    <canvas id="myChartDireita"></canvas>
+                </div>
             </div>
         </div>
     </div>

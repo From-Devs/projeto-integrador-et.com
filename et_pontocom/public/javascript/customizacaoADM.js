@@ -28,8 +28,6 @@ document.addEventListener("DOMContentLoaded", function(){
         card.addEventListener("mouseleave", function(){
             overlayHover.style.opacity = "0";
         })
-
-
     })
     
 });
