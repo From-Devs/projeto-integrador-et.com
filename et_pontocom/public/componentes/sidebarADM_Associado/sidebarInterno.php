@@ -49,8 +49,8 @@ require_once __DIR__ . "/../botao/botao.php";
                         <span class='button_name'>Pedidos</span>
                     </a>
                 </li>
-                <li class='nav-item " . ($paginaAtual == 'HistoricoVendasAssociado.php' ? 'active' : '') . "'>
-                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/associado/HistoricoVendasAssociado.php' class='nav-link'>
+                <li class='nav-item " . ($paginaAtual == 'HistoricoDeVendasAssociado.php' ? 'active' : '') . "'>
+                    <a href='/projeto-integrador-et.com/et_pontocom/app/views/associado/HistoricoDeVendasAssociado.php' class='nav-link'>
                         <span class='fa fa-clock'></span>
                         <span class='button_name'>Histórico de Vendas</span>
                     </a>
