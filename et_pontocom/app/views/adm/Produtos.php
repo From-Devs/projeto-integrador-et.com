@@ -6,6 +6,7 @@ require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sideba
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
+require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
 
 session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
@@ -22,6 +23,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/contaADM_Associado/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/FiltrosADMeAssociados/filtros.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -37,7 +39,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <!-- aqui acaba o container esquerdo -->
     <div class="main">
         <div id="container">
-            <div id="divPesquisarEFiltro">
+            <!-- <div id="divPesquisarEFiltro">
                 <div id="pesquisar">
                     <form action="">
                         <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
@@ -49,7 +51,10 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         <img id="imagemFiltro" src="../../../public/imagens/imagensADM/filtro.png" alt="filtro">
                     </button>
                 </div>
-            </div>
+            </div> -->
+
+            <?php echo filtro(["ID", "Preço", "Data"])?>
+
             <div class="listaContainer">
                 <div id="titulo">
                     <h1 id="tituloH1">Produtos</h1>

@@ -9,30 +9,19 @@
 #divPesquisarEFiltro {
     display: flex;
     flex-wrap: wrap;
-    justify-content: end;
     align-items: center;
     gap: 20px;
 }
 
-#controleIcon {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: center;
-}
-
-#inputPesquisar {
+#inputPesquisar
+{
     width: 500px;
     height: 55px;
     border-radius: 15px;
     padding-left: 10px;
     border: none;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     font-size: 18px;
-    font-size: 15px;
-    background: url(/projeto-integrador-et.com/et_pontocom/public/imagens/HistoricoDeVendasAssociado/lupa.png)no-repeat;
-    background-size: 30px;
-    background-position: right center;
 }
 
 #botaoOrdenar {
@@ -46,7 +35,7 @@
     width: 205px;
     height: 55px;
     font-size: 18px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     text-align: center;
     cursor: pointer;
     background-image: url("/projeto-integrador-et.com/et_pontocom/public/imagens/imagensADM/filtro.png");
@@ -91,60 +80,12 @@
         justify-content: end;
     }
 
-    #iconUsuario {
-        width: 230px;
-        height: 75px;
-        display: flex;
-        background-color: black;
-        color: white;
-        align-items: center;
-        overflow: hidden;
-        gap: 10px;
-        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-        border-top-left-radius: 100px;
-        border-bottom-left-radius: 100px;
-    }
-
-    #fotoUser {
-        border-top-left-radius: 50%;
-        border-bottom-left-radius: 50%;
-        margin-left: 25px;
-        width: 62px;
-        height: 62px;
-    }
-
-    #textUser {
-        font-size: 14px;
-    }
-
-    #textUser2 {
-        font-size: 11px;
-    }
-
-
 }
 
 @media (max-width: 1140px) {
     #inputPesquisar {
         width: 300px;
     }
-
-    #fotoUser {
-        border-top-left-radius: 50%;
-        border-bottom-left-radius: 50%;
-        margin-left: 25px;
-        width: 60px;
-        height: 60px;
-    }
-
-    #textUser {
-        font-size: 13px;
-    }
-
-    #textUser2 {
-        font-size: 10px;
-    }
-
 
 }
 
@@ -160,23 +101,6 @@
         background-size: 25px;
         background-position-x: 80px;
     }
-
-    #fotoUser {
-        border-top-left-radius: 50%;
-        border-bottom-left-radius: 50%;
-        margin-left: 25px;
-        width: 62px;
-        height: 62px;
-    }
-
-    #textUser {
-        font-size: 14px;
-    }
-
-    #textUser2 {
-        font-size: 11px;
-    }
-
 
 }
 
@@ -196,14 +120,4 @@
         height: 40px;
     }
 
-    #fotoUser {
-        width: 53px;
-        height: 53px;
-        margin-left: 15px;
-    }
-
-    #iconUsuario {
-        width: 170px;
-        height: 65px;
-    }
 }
