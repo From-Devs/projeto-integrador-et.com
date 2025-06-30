@@ -6,6 +6,7 @@ function filtro($opcoesSelect){
             <div id="pesquisar">
                 <form action="">
                     <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
+                    <button><i class="bx bx-search lupaPesquisarInput"></i></button>
                 </form>
             </div>
             <div id="filtro">
