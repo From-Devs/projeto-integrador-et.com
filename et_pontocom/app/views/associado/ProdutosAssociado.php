@@ -4,6 +4,7 @@ require_once __DIR__ . "/./../../../public/componentes/popup/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
 include __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/ProdutoADM/produto.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
+include __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
 
 session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
@@ -18,11 +19,9 @@ session_start();
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/tabelasAssociado_ADM/ProdutoAssociado/produto.css">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/tabelasAssociado_ADM/ProdutoADM/produto.css">
-    <link rel="stylesheet" href="./../../../public/css/ProdutosADM.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/ProdutosAssociados.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/FiltrosADMeAssociados/filtros.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/contaADM_Associado/styles.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -35,25 +34,13 @@ session_start();
     
     <div class="main">
         <div id="container">
-            <div id="divPesquisarEFiltro">
-                <div id="pesquisar">
-                    <form action="">
-                        <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
-                    </form>
-                </div>
-                <div id="filtro">
-                    <button id="botaoFiltragem">
-                        <p>Filtros</p>
-                        <img id="imagemFiltro" src="../../../public/imagens/imagensADM/filtro.png" alt="filtro">
-                    </button>
-                </div>
+            <div class="container-filtroEIcon">
+                <?php echo filtro(["ID", "Estoque", "Pedidos"])?>
             </div>
         
             <!--cards relatorios-->
-            <div class="listaContainer">
-                <div id="titulo">
-                    <h1 id="tituloH1">Produtos</h1>
-                </div>
+            <div>
+                <h1 id="titleRelatorios">Produtos</h1>
                 <?php
                     $produtos = [
                         ['id' => 1, 'nome' => 'Hidratante', 'estoque' => 26, 'custo' => 12.00, 'preco' => 29.90, 'pedidos' => 1243, 'sku' => 'S5D56GE'],
@@ -80,5 +67,6 @@ session_start();
         
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/tabelasAssociado_ADM/ProdutoADM/script.js"></script>
 </body>
 </html>

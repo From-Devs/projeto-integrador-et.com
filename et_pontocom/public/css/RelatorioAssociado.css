@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat", serif;
 }
 
-:root{
+:root {
     --black-color: #141414;
     --white-color: #ececec;
 }
@@ -16,7 +16,7 @@
     background-color: transparent;
 }
 
-.btn-relatorio{
+.btn-relatorio {
     display: flex;
     font-size: 20px;
     width: 100%;
@@ -28,8 +28,9 @@
     background-color: #282828;
     color: var(--white-color);
     cursor: pointer;
+    padding: 5px;
 }
 
-.icone-fechar{
+.icone-fechar {
     cursor: pointer;
 }
