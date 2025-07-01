@@ -47,6 +47,141 @@ a
     font-size: 36px;
 }
 
+.tresPontos {
+    background: transparent;
+    border: none;
+}
+
+.tresPontos img {
+    cursor: pointer;
+}
+
+.modalDetalhesDoPedido table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    table-layout: fixed;
+    border-radius: 20px;
+    overflow: scroll;
+}
+
+.modalDetalhesDoPedido th,
+.modalDetalhesDoPedido td {
+    text-align: center;
+    padding: 10px;
+}
+
+.modalDetalhesDoPedido th {
+    font-size: 22px;
+    background-color: black;
+    color: white;
+}
+
+.modalDetalhesDoPedido td {
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 0.1px solid #DADADA;
+}
+
+.tabela-produtos, .tabela-totais-associado {
+    width: 100%;
+    height: 220px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.resumo-final {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.modalDetalhesDoPedido {
+    width: 1200px;
+    padding: 10px;
+    border: none;
+    animation: fadein 0.5s ease-in-out forwards;
+    font-family: "Montserrat", sans-serif;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.modalDetalhesDoPedido::backdrop {
+    background-color: rgba(121, 121, 121, 0.5);
+}
+
+.containerHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3px;
+}
+
+.containerFechar {
+    align-self: self-end;
+}
+
+.btn-fechar {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.dadosHeader {
+    display: flex;
+    gap: 20px;
+    font-weight: 500;
+}
+
+.headerDetalhes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerBaixo {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#componenteTabelaProdutos {
+    width: 100%;
+}
+
+#componenteTotaisAssociados {
+    display: flex;
+    flex-direction: column;
+}
+
+.scroll-tbody {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.scroll-tbody table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-produtos table th,
+.scroll-tbody table td {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+.tabela-body::-webkit-scrollbar {
+    display: none;
+}
+
 @media (max-width: 1280px) {
     .main{
         margin-left: 250px;
