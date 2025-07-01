@@ -14,6 +14,7 @@ body
     padding: 0%;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    background-color: #F8F8F8;
 }
 
 a
@@ -23,92 +24,85 @@ a
 
 /* PARTE DA DIREITA CONTAINER GERAL */
 
+.main{
+    margin-left: 287px;
+}
+
 #container
 {
-    width: 100vw;
-    height: 100vh;
-    margin-left: 350px;
-}
-
-/* estilizacao da parte do icone do usuario */
-
-#tituloH1
-{
-    margin-top: 20px;
-}
-
-#controleIcon
-{
+    gap: 15px;
+    padding-left: 60px;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 50px;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
 }
 
-#iconUsuario
-{
-    width: 250px;
-    height: 80px;
-    display: flex;
-    background-color: black;
-    color: white;
-    align-items: center;
-    overflow: hidden;
-    gap: 10px;
-    margin-top: 0px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
+#lista{
+    margin-top: 15px;
 }
 
-#fotoUser
-{
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    margin-left: 30px;
-    width: 70px;
-    height: 70px;
+#tituloH1{
+    font-size: 36px;
 }
 
-/* filtragem e pesquisa */
-
-#divPesquisarEFiltro
-{
-    display: flex;
-    gap: 250px;
+@media (max-width: 1280px) {
+    .main{
+        margin-left: 250px;
+    }
 }
 
-/* pesquisa */
-
-#inputPesquisar
-{
-    width: 500px;
-    height: 55px;
-    border-radius: 15px;
-    padding-left: 10px;
-    border: none;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-    font-size: 18px;
+@media (max-width: 1024px){
+    .main{
+        margin-left: 230px;
+    }
 }
 
-/* filtragem */
+@media (max-width: 800px){
+    .main{
+        margin-left: 0;
+    }
 
-#botaoFiltragem
-{
-    display: flex;
-    border: none;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    background-color: #3449B6;
-    color: white;
-    border-radius: 15px;
-    width: 205px;
-    height: 55px;
-    font-size: 18px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-}
+    #container{
+        padding-left: 0;
+        padding-top: 0;
+        align-items: center;
+    }
+    #titulo{
+        width: 100%;
+    }
 
-#imagemFiltro
-{
-    width: 40px;
-    height: 40px;
+    .listaContainer{
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        align-items: center;
+        margin: 0 15px;
+    }
+
+    #lista{
+        width: 100%;
+    }
+
+    th{
+        font-size: 16px;
+    }
+
+    td{
+        font-size: 14px;
+    }
+
+    #statusPago, #statusPendente {
+        width: auto;
+        font-size: 14px;
+    }
+
+    #bordaEsquerda{
+        width: 60px;
+    }
+
+    td:first-child{
+        width: 60px;
+    }
 }

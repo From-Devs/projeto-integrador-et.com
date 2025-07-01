@@ -1,9 +1,10 @@
 <?php 
 
-include __DIR__ . "/../../../public/componentes/telaADM/componenteADM.php";
+require __DIR__ . "/../../../public/componentes/componentesADM_Associado/componentesADM_Associado.php";
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
+require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
 
 session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
@@ -19,6 +20,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/contaADM_Associado/styles.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
@@ -27,21 +30,11 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 
     <?php
         echo createSidebarInterna($tipo_usuario);
+        echo createContaAssociadoADM("Associado");
     ?>
 
     <!-- aqui acaba o lado esquerdo -->
     <div id="container">
-    <div class="mainRelatorio">
-        <div class="controleIcon">
-            <div class="iconUsuario">
-                <img id="fotoUser" src="../../../public/imagens/imagensADM/userIMG.png" alt="userIMG">
-                <div class="contentUser">
-                    <p id="textUser">Wellinton R.</p>
-                    <p id="cargoUser">Vendedor</p>
-                </div>
-            </div>
-        </div>
-    </div>
         <div id="titulo">
             <h1 id="tituloH1">Dashboard</h1>
         </div>

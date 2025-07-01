@@ -1,7 +1,7 @@
 <?php
 function createProdutoDestaque($nome = "KIT LANCÔME LASH IDÔLE", $marca = "LANCÔME", $preco = "R$ 00.00", $imagem = "idole.png", $corDegrade1 = "rgb(180, 147, 138)", $corDegrade2 = "rgb(254, 225, 216)", $corSombra = "rgb(56, 21, 7)"){
     $botaoComprar = botaoPersonalizadoRedirect('Comprar', 'btn-black', '', '262px', '67px', '20px');
-    $botaoMaisDetalhes = botaoPersonalizadoRedirect('Ver Detalhes', 'btn-white', '', '262px', '67px', '20px');
+    $botaoMaisDetalhes = botaoPersonalizadoRedirect('Ver Detalhes', 'btn-white', 'et_pontocom/app/views/usuario/detalhesDoProduto.php', '262px', '67px', '20px');
     return "
     <div class='produtoDestaque'>
         <div class='imagemProduto'>

@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url(../../css/styles.css);
 
+*{
+    padding: 0;
+    margin: 0;
+}
+
 /*_________________Básico da sidebar_________________*/
 .sidebar{
     display: flex;
@@ -141,7 +146,7 @@
 .botoes_categoria ul .categoria .submenu li .submenu_link{
     text-decoration: none;
     font-weight: 600;
-    padding: 10px 20px;
+    padding: 0px 20px;
     color: var(--cor-sidebar-escrita);
 }
 

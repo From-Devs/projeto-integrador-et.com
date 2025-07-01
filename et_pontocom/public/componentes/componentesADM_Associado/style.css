@@ -1,0 +1,41 @@
+.cardsRelatorios{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 347px;
+    margin-top: 30px;
+    gap: 50px;
+}
+
+.cardRelatorio{
+    width: 450px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    border-radius: 20px;
+    background-color: #141414;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3)
+}
+
+.cardRelatorio:hover{
+    scale: 1.03;
+}
+
+.cardRelatorio .textCard{
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.cardRelatorio .iconCard{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+}   

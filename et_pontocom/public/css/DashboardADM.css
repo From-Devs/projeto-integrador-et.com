@@ -2,7 +2,8 @@
 
 *
 {
-    font-weight: bold;
+    margin: 0;
+    padding: 0;
     font-family: "Montserrat", sans-serif;
 }
 
@@ -13,6 +14,7 @@ body
     padding: 0%;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    background-color: #F8F8F8;
 }
 
 a
@@ -22,44 +24,17 @@ a
 
 /* PARTE DA DIREITA CONTAINER GERAL */
 
-#container
+#main
 {
-    width: 100vw;
     height: 100vh;
-    margin-left: 350px;
+    margin-left: 287px;
 }
 
-/* estilizacao da parte do icone do usuario */
-
-#controleIcon
-{
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-#iconUsuario
-{
-    width: 250px;
-    height: 80px;
-    display: flex;
-    background-color: black;
-    color: white;
-    align-items: center;
-    overflow: hidden;
-    gap: 10px;
-    margin-top: 20px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
-}
-
-#fotoUser
-{
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    margin-left: 30px;
-    width: 70px;
-    height: 70px;
+#container{
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 60px;
+    padding-top: 120px;
 }
 
 /* estilizacao das informacoes principais */
@@ -70,11 +45,14 @@ a
     margin-bottom: 15px;
 }
 
+#tituloH1{
+    font-size: 36px;
+}
+
 #geralInformacoes
 {
     display: flex;
     justify-content: space-between;
-    margin-right: 50px;
 }
 
 #valorVendas, #lucroLiquido, #vendas
@@ -143,10 +121,12 @@ a
 
 #controlePizzas
 {
+    width: 100%;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
-    margin-right: 50px;
+    font-family: "Montserrat", sans-serif;
 }
 
 #divPizzaEsquerda, #divPizzaDireita
@@ -155,22 +135,25 @@ a
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 750px;
+    width: 100%;
     height: 470px;
-    border: #0000004D 2px solid;
     border-radius: 15px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    font-family: "Montserrat", sans-serif;
 }
 
 #divControladoraTexto
 {
     display: flex;
+    font-family: "Montserrat", sans-serif;
     align-items: flex-start
 }
 
 #tituloPizza
 {
     margin: 15px 0px 0px 20px;
+    font-family: "Montserrat", sans-serif;
 }
 
 #selecionador
@@ -190,14 +173,9 @@ a
 
 @media (max-width: 2560px)
 {
-    #container
-    {
-        margin: 0;
-    }
 
     #geralInformacoes
     {
-        justify-content: center;
         gap: 50px;
     }
 
@@ -205,18 +183,25 @@ a
     {
         margin: 50 0 0 0;
         justify-content: center;
-        gap: 100px;
+        gap: 65px;
     }
 
 
 }
 
+@media (max-width: 1280px) {
+    #main
+    {
+        margin-left: 250px;
+    }
+}
+
 
 @media (max-width: 1024px)
 {
-    #container
+    #main
     {
-        margin: 0;
+        margin-left: 230px;
     }
 
     #iconUsuario
@@ -262,10 +247,21 @@ a
     }
 }
 
-@media (max-width: 768px)
-{ 
-    #container
+@media (max-width: 800px)
+{
+
+    #container{
+        box-sizing: border-box;
+        width: 100%;
+        padding-left: 0;
+        padding-top: 0;
+    }
+
+    #main
     {
+        width: 100%;
+        display: flex;
+        justify-content: center;
         margin: 0px;
     }
 
@@ -282,14 +278,14 @@ a
 
     #titulo
     {
-        justify-content: center;
-        margin-top: 20px;
+        margin-left: 80px;
+        margin-top: 18px;
         margin-bottom: 20px;
     }
 
     #valorVendas, #lucroLiquido, #vendas
     {
-        width: 450px;
+        width: 80%;
         font-size: 8px;
         gap: 0;
     }
@@ -313,13 +309,24 @@ a
     {
         display: flex;
         flex-direction: column;
-        gap: 100px;
+        gap: 50px;
         margin: 50px 0px 0px 0px;
         align-items: center;
     }
 
     #divPizzaEsquerda, #divPizzaDireita{
-        width: 500px;
+        width: 80%;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     }
 
+}
+
+@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+    #tituloH1{
+        font-size: 30px;
+    }
+
+    #titulo{
+        margin-top: 24px;
+    }
 }

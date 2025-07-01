@@ -1,11 +1,11 @@
 <?php 
 
-include __DIR__ . "/../../../public/componentes/telaADM/componenteADM.php";
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php";
 require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
+require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
 
 session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
@@ -24,30 +24,18 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cardLancamento/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/CustomizacaoADM.css">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/produtoDestaque/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/produtoDestaque/styleCustom.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/contaADM_Associado/styles.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
 
-    <style>
-        .produtoDestaque{
-            scale: 0.65;
-            width: 1920px;
-            margin-top: 0;
-            left: -336px;
-            top: -150px;
-            overflow: hidden;
-            pointer-events: none;
-            user-select: none;
-        }
-
-    </style>
-
 </head>
 <body>
     <?php
         echo createSidebarInterna($tipo_usuario);
+        echo createContaAssociadoADM();
     ?>
 
     <dialog class='popUpDialog popUpUpdate'>
@@ -308,27 +296,33 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         <div class="customizacaoMain">
             <h1 id="tituloCustomizacao">Página Inicial</h1>
             <div class="containerCustomizacao">
-                <div class="sessao" id="sessaoCarousel">
-                    <ul>
-                        <li class="tituloSessao">Carousel</li>
-                    </ul>
-                    <div class="editarCarousel">
-                        <div class="produtoInicial">
-                            <p>Inicial</p>
-                            <div class="bordaProdutoInicial"></div>
-                        </div>
-                        <div class="editarCarouselContainer">
-                            <div class="produtoContainer cor-0" id="produto1" onclick="abrirPopUp('popUpEditProduto')">
+            <div class="sessao" id="sessaoCarousel">
+                <ul>
+                    <li class="tituloSessao">Carousel</li>
+                </ul>
+                <div class="editarCarousel">
+                    <div class="produtoInicial">
+                        <p>Inicial</p>
+                        <div class="bordaProdutoInicial"></div>
+                    </div>
+                    <div class="editarCarouselContainer">
+                        <div class="produtoContainer" id="produto1" onclick="abrirPopUp('popUpEditProduto')">
+                            <div class="imagemProdutoWrapper" id="cor-0">
                                 <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/hinode.png" alt="">
                             </div>
-                            <div class="produtoContainer cor-1" id="produto2" onclick="abrirPopUp('popUpEditProduto')">
+                        </div>
+                        <div class="produtoContainer" id="produto2" onclick="abrirPopUp('popUpEditProduto')">
+                            <div class="imagemProdutoWrapper" id="cor-1">
                                 <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/bocarosa.png" alt="">
                             </div>
-                            <div class="produtoContainer cor-2" id="produto3" onclick="abrirPopUp('popUpEditProduto')">
+                        </div>
+                        <div class="produtoContainer" id="produto3" onclick="abrirPopUp('popUpEditProduto')">
+                            <div class="imagemProdutoWrapper" id="cor-2">
                                 <img class="imagemProduto" src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/leite.png" alt="">
                             </div>
                         </div>
                     </div>
+                </div>
         
                     <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
     
@@ -447,8 +441,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         </div>
     </div>
     
-    
-    <script src="./../../../public/javascript/javascriptADM.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
@@ -458,5 +450,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/trocarCorProdutoDestaque.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/trocarCorDegradeCarousel.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/trocarCorLancamento.js"></script>
+    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/customizacao/dragEDrop.js"></script>
 </body>
 </html> 

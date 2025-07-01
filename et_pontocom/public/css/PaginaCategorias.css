@@ -3,65 +3,109 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 /* PARTE INICIAL */
 .Topo {
+    position: relative;
     background-image: url(../imagens/PaginaCategoria/PerfumeFundo.png);
-    height: 833px;
+    height: 500px;
     background-size: cover;
     width: 100%;
-    
+    overflow: hidden;
 }
+
+.tituloWrapper{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.45);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .Titulo {
-    height: 970px;
     color: white;
     font-size: 150px;
+    padding-bottom: 120px;
     font-weight: lighter;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    filter: drop-shadow(0px 0px 4px black);
+    user-select: none;
 }
+
 .Titulo img {
     position: absolute;
     z-index: 3;
 }
+
 /* PARTE DOS PRODUTOS */
 .Produtos {
+    gap: 24px;
+    box-sizing: border-box;
+    width: 100%;
     display: flex;
-    margin-left: 50px;
     flex-direction: row;
+    justify-content: center;
+    margin-top: 64px;
 }
+
+.filtro-botao{
+    font-size: 24px;
+}
+
+.filtro-botao, .form{
+    width: 100%;
+}
+
 .aVenda {
     display: flex;
     flex-direction: column;
-    margin: 0px 0px 0px 75px;
+    /* margin: 0px 0px 0px 75px; */
 }
+
 .filtroSeparado {
     width: 285px;
-    margin-top: 90px;
+    margin-top: 25px;
 }
-.PartedeCima {
-    margin: 10px 40px 0px 30px;
-    height: 50px;
+
+.PartedeCima { 
+    padding: 20px 0px;
     display: flex;
     align-items: center;
-    flex-direction: row;
-    gap: 150px;
 }
+
+.PartedeCima h3{
+    font-weight: 400;
+    font-size: 36px;
+}
+
 .PartedeBaixo {
-    margin: 0px 40px;
     display: grid;
-    gap: 15px;
+    row-gap: 40px;
+    column-gap: 25px;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
+
 /* ONDA (só uma partezinha) */
 .wave.solida {
-    width: 100%
+    width: 100%;
+    bottom: -100px;
 }
+
 .wave.fantasma {
-    width: 100%
+    width: 100%;
+    bottom: -100px;
 }
+
 @media (max-width: 1750px) {
     .PartedeBaixo {
         grid-template-columns: 1fr 1fr 1fr;

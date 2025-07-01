@@ -7,6 +7,7 @@
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
     require __DIR__ . "/../../../public/componentes/carousel/carousel.php";
+    require __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
     session_start();
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
@@ -34,6 +35,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/ondas/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/carousel/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/carouselPopUp/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/paginaPrincipal.css">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -45,6 +47,8 @@
     <?php
     echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
+
+    <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
 
     <div class="carouselContainer" id="carousel">
         
@@ -73,42 +77,42 @@
     <div class="degradeParaHeader"></div>
 
     <div class="linkCategorias">
-        <a class="botaoCategoria botao1" href="">            
+        <a class="botaoCategoria botao1" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Categorias.php">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/batom.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/batomHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Maquiagem</p>            
         </a>
-        <a class="botaoCategoria botao2" href="">            
+        <a class="botaoCategoria botao2" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Categorias.php">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/perfume.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/perfumeHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Perfumes</p>            
         </a>
-        <a class="botaoCategoria botao3" href="">            
+        <a class="botaoCategoria botao3" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Categorias.php">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/skin.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/skinHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Skin Care</p>            
         </a>
-        <a class="botaoCategoria botao4" href="">            
+        <a class="botaoCategoria botao4" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Categorias.php">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/cabelo.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/cabeloHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Cabelo</p>            
         </a>
-        <a class="botaoCategoria botao5" href="">            
+        <a class="botaoCategoria botao5" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Categorias.php">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/eletronico.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/eletronicoHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Eletrônicos</p>            
         </a>
-        <a class="botaoCategoria botao6" href="">            
+        <a class="botaoCategoria botao6" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Categorias.php">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/corporal.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/botoesCategorias/corporalHover.png" alt="" class="iconeCategoriaHover">
@@ -214,6 +218,6 @@
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/produtoDestaque/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/carousel/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
-    <!-- <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/paginaPrincipalCategorias.js"></script> -->
+    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
 </body>
 </html>
