@@ -63,7 +63,7 @@
 
 @media (max-width: 1280px) { /*Computador 1280x800*/
     .componenteConta{
-        width: 240px;
+        width: 230px;
         height: 80px;
         top: 30px;
     }
@@ -99,6 +99,10 @@
 @media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
     .componenteConta{
         padding-right: 20px;
+    }
+
+    .textContaContainer{
+        display: none;
     }
 }
 

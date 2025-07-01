@@ -39,19 +39,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <!-- aqui acaba o container esquerdo -->
     <div class="main">
         <div id="container">
-            <!-- <div id="divPesquisarEFiltro">
-                <div id="pesquisar">
-                    <form action="">
-                        <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
-                    </form>
-                </div>
-                <div id="filtro">
-                    <button id="botaoFiltragem">
-                        <p>Filtros</p>
-                        <img id="imagemFiltro" src="../../../public/imagens/imagensADM/filtro.png" alt="filtro">
-                    </button>
-                </div>
-            </div> -->
 
             <?php echo filtro(["ID", "Preço", "Data"])?>
 

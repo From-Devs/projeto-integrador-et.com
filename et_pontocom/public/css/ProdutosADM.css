@@ -41,30 +41,6 @@ a
     padding-bottom: 4px;
 }
 
-/* filtragem */
-
-#botaoFiltragem
-{
-    display: flex;
-    border: none;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    background-color: #3449B6;
-    color: white;
-    border-radius: 15px;
-    width: 205px;
-    height: 55px;
-    font-size: 18px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-#imagemFiltro
-{
-    width: 40px;
-    height: 40px;
-}
-
 .td-lista-associados{
     display: flex; 
     justify-content: center; 
@@ -227,6 +203,10 @@ a
     .main{
         margin-left: 230px;
     }
+
+    #container{
+        padding-left: 35px;
+    }
 }
 
 @media (max-width: 800px){
@@ -254,35 +234,9 @@ a
     #lista{
         width: 100%;
     }
-    #divPesquisarEFiltro{
-        width: 100%;
-        padding-left: 80px;
-        padding-right: 200px;
-        margin-top: 15px;
-    }
 
     #pesquisar{
         width: 100%;
-    }
-
-    #inputPesquisar{
-        width: 100%;
-        height: 50px;
-        font-size: 16px;
-    }
-
-    #botaoFiltragem{
-        height: 50px;
-        width: 50px;
-    }
-
-    #botaoFiltragem p{
-        display: none;
-    }
-
-    #imagemFiltro{
-        width: 32px;
-        height: 32px;
     }
 
     th{
