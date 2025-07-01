@@ -41,12 +41,6 @@ a
 
 /* filtragem e pesquisa */
 
-#divPesquisarEEscolher
-{
-    display: flex;
-    gap: 20px;
-}
-
 #botaoAssociados, #botaoSolicitacao
 {
     display: flex;
@@ -61,20 +55,6 @@ a
     height: 55px;
     font-size: 18px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-
-/* pesquisa */
-
-#inputPesquisar
-{
-    width: 500px;
-    height: 55px;
-    border-radius: 15px;
-    padding-left: 10px;
-    border: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    font-size: 18px;
 }
 
 #lista{
@@ -95,8 +75,12 @@ a
     .main{
         margin-left: 230px;
     }
-}
 
+    #container{
+        padding-left: 35px;
+    }
+}
+ 
 @media (max-width: 800px){
     .main{
         margin-left: 0;
