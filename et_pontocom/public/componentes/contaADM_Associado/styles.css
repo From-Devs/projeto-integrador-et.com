@@ -49,7 +49,7 @@
     transform: translateX(110%);
 }
 
-@media (max-width: 1280px) { /*Computador 1280x800*/
+@media (max-width: 1420px) { /*Computador 1280x800*/
     .componenteConta{
         width: 260px;
         height: 90px;
@@ -61,7 +61,7 @@
     }
 }
 
-@media (max-width: 1024px){ /*Computador1024x768 */
+@media (max-width: 1280px) { /*Computador 1280x800*/
     .componenteConta{
         width: 240px;
         height: 80px;

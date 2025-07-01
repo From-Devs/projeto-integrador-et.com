@@ -5,15 +5,52 @@
     gap: 20px;
 }
 
-#inputPesquisar
-{
+.divTextInput{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
     width: 500px;
     height: 55px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    background-color: white;
+}
+
+.divTextInput button{ /* botão ao lado do input, onde está a lupinha */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 0;
+    background-color: #ffffff00;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.divTextInput i{ /* lupinha no botão do input */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divTextInput i::before{ /* lupinha no botão do input também, n lembro qual é a diferença */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+}
+
+#inputPesquisar {
+    width: 100%;
+    height: 100%;
     border-radius: 15px;
     padding-left: 10px;
     border: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     font-size: 18px;
+}
+
+#inputPesquisar:focus{ /* serve para quando vc clicar no input, não aparecer uma borda preta */
+    outline: 0;
 }
 
 #botaoOrdenar {
@@ -24,7 +61,7 @@
     background-color: #3449B6;
     color: white;
     border-radius: 15px;
-    width: 205px;
+    width: 200px;
     height: 55px;
     font-size: 18px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -49,6 +86,21 @@
 #botaoOrdenar option {
     background-color: rgb(110, 110, 110);
     color: white;
+}
+
+@media (max-width: 1600px) {
+    #inputPesquisar {
+        font-size: 16px
+    }
+
+    .divTextInput{
+        width: 390px;
+        height: 50px;
+    }
+
+    #botaoOrdenar{
+        height: 50px;
+    }
 }
 
 @media (max-width: 1350px) {

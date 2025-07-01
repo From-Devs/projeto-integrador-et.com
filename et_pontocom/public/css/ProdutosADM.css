@@ -41,27 +41,6 @@ a
     padding-bottom: 4px;
 }
 
-/* filtragem e pesquisa */
-
-#divPesquisarEFiltro
-{
-    display: flex;
-    gap: 20px;
-}
-
-/* pesquisa */
-
-#inputPesquisar
-{
-    width: 500px;
-    height: 55px;
-    border-radius: 15px;
-    padding-left: 10px;
-    border: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    font-size: 18px;
-}
-
 /* filtragem */
 
 #botaoFiltragem
