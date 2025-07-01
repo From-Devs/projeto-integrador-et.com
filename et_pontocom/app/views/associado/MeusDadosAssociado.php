@@ -1,10 +1,13 @@
 <?php
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
+require_once __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/HistoricoVendasAssociado/hv.php";
+require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
+require __DIR__ . "/../../../public/componentes/componentesADM_Associado/componentesADM_Associado.php";
 
 session_start();
-$tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
+$tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 ?>
 
 <!DOCTYPE html>
@@ -21,13 +24,17 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
     <link rel="stylesheet" href="../../../public/css/MeusDadosAssociado.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/contaADM_Associado/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <?= createSidebarInterna(tipo_usuario: $tipo_usuario); ?>
 
+    <?php
+        echo createSidebarInterna($tipo_usuario);
+        echo createContaAssociadoADM("Associado");
+    ?>
     <div class="container-principal">
         <header>
             <div class="titulo">Meus dados</div>
