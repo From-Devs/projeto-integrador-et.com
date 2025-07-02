@@ -39,7 +39,7 @@ session_start();
             <div id="titulo">
                 <h1 id="tituloH1">Relatórios</h1>
             </div>
-            <div class="cardsRelatorios">
+            <div id="geralInformacoes">
                 <?php echo PopUpConfirmar("relatorioReceitas", "Relatório de Receitas", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "500px", "gray", "white")?>
                 <?php dadosInforRelatorios('receita','../../../public/imagens/associado/iconeRelatorioReceitas.png','Relatório de Receitas','relatorioReceitas','grafico') ?>
                 <?php echo PopUpConfirmar("relatorioProduto", "Relatório de Receitas por Produto", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "", "gray", "white")?>
