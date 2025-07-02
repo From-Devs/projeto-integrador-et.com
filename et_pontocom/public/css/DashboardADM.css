@@ -204,6 +204,10 @@ a
         margin-left: 230px;
     }
 
+    #container{
+        padding-left: 35px;
+    }
+
     #iconUsuario
     {
         width: 350px;

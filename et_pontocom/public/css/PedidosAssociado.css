@@ -41,10 +41,6 @@ a {
 
 /* estilizacao da parte do icone do usuario */
 
-#lista{
-    margin-top: 15px;
-}
-
 #tituloH1{
     font-size: 36px;
 }
@@ -71,7 +67,7 @@ html, body {
 
 #lista {
     width: 97%;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     background-color: #fff;
@@ -138,6 +134,10 @@ tr {
         margin-left: 230px;
     }
 
+    #container{
+        padding-left: 35px;
+    }
+
     .tabela-body {
         overflow-x: auto;
         max-width: 100%;
@@ -182,6 +182,22 @@ tr {
         padding-left: 0;
         padding-top: 0;
         align-items: center;
+    }
+
+    #titulo{
+        width: 100%;
+    }
+
+    #lista{
+        width: 100%;
+    }
+
+    .listaContainer{
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        align-items: center;
+        margin: 0 15px;
     }
 
     #tabelaVendas {

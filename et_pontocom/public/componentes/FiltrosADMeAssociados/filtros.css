@@ -138,6 +138,10 @@
     #divPesquisarEFiltro, #botoesAssociados {
         gap: 14px;
     }
+
+    #divPesquisarEFiltro{
+        margin-bottom: 5px;
+    }
 }
 
 @media (max-width: 1350px) {
@@ -229,6 +233,7 @@
         padding-left: 80px;
         padding-right: 85px;
         margin-top: 15px;
+        margin-bottom: 0;
     }
 
     #botaoOrdenar {
