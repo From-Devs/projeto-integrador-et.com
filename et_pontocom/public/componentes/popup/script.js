@@ -2,9 +2,14 @@ const closeButton = document.getElementsByClassName("icone-fechar")[0];
 
 
 function abrirPopUp(id){
-    const dialog = document.getElementsByClassName(id)[0];
-    if (dialog) {
-        dialog.showModal();
+    const dialogClass = document.getElementsByClassName(id)[0];
+    const dialogId = document.getElementById(id);
+    if (dialogClass) {
+        dialogClass.showModal();
+    }
+
+    if(dialogId){
+      dialogId.showModal();
     }
 }
 
@@ -16,3 +21,34 @@ document.querySelectorAll(".icone-fechar").forEach(botao => {
         }
     });
 });
+
+function fecharPopUp(id){
+    const dialogClass = document.getElementsByClassName(id)[0];
+    const dialogId = document.getElementById(id);
+
+
+    if(dialogClass)
+      dialogClass.close();
+
+    if(dialogId)
+      dialogId.close();
+}
+
+document.querySelectorAll('.input-file').forEach(input => {
+    input.addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      const imgId = input.getAttribute('data-img-id');
+      const img = document.getElementById(imgId);
+
+      if (img) {
+        if (file) {
+          const url = URL.createObjectURL(file);
+          img.src = url;
+          img.style.display = 'block';
+        } else {
+          img.src = '';
+          img.style.display = 'none';
+        }
+      }
+    });
+  });
