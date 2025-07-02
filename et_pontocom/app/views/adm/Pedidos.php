@@ -1,6 +1,5 @@
 <?php 
 
-    include __DIR__ . "/../../../public/componentes/componentesADM_Associado/componentesADM_Associado.php";
     include __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/PedidosAssociado_ADM/pedidos.php";
     require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
     require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";

@@ -65,7 +65,7 @@ a
     padding: 10px;
     height: 150px;
     width: 450px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 #lucroLiquido
@@ -277,7 +277,7 @@ a
     }
 
     #titulo
-    {
+    { 
         margin-left: 80px;
         margin-top: 18px;
         margin-bottom: 20px;

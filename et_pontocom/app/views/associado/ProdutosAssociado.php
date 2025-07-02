@@ -16,13 +16,12 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/ProdutosAssociado.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/tabelasAssociado_ADM/ProdutoAssociado/produto.css">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/tabelasAssociado_ADM/ProdutoADM/produto.css">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/ProdutosADM.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/contaADM_Associado/styles.css"> 
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/AssociadoGeral.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/FiltrosADMeAssociados/filtros.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">

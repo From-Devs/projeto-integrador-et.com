@@ -227,7 +227,7 @@
     #divPesquisarEFiltro {
         width: 100%;
         padding-left: 80px;
-        padding-right: 182px;
+        padding-right: 85px;
         margin-top: 15px;
     }
 
@@ -247,13 +247,4 @@
         top: 80px;
         right: 15px;
     }
-}
-
-@media (max-width: 520px) {
-
-    #divPesquisarEFiltro {
-        gap: 5px;
-        padding-right: 90px;
-    }
-
 }
