@@ -54,9 +54,7 @@
 
 .fecharPopUp{
     display: flex;
-    align-items: end;
-    width: 100%;
-    justify-content: end;
+    align-self: self-end;
     background: transparent;
     cursor: pointer;
     border: none;

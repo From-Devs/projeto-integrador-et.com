@@ -124,9 +124,9 @@ require_once __DIR__ . "/../botao/botao.php";
                             </ul>
                         </div>
                         <div class='area_Sair'>
-                            <div class='button_sair' id='button_sair' style='margin-top: 280px;'>
-                                <span class='fa fa-arrow-right-from-bracket' onclick=\"abrirPopUp('popupSair')\"></span>
-                                <span class='button_name' onclick=\"abrirPopUp('popupSair')\">Voltar a tela inicial</span>
+                            <div class='button_sair' id='button_sair' style='margin-top: 280px;' onclick=\"abrirPopUp('popupSair')\">
+                                <span class='fa fa-arrow-right-from-bracket'></span>
+                                <span class='button_name'>Voltar a tela inicial</span>
                             </div> 
                             "
                                 . PopUpConfirmar('popupSair','Confirmar?',$btnSim,$btnNao,'500px','white','black','30px') . 

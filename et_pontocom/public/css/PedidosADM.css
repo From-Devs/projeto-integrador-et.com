@@ -24,6 +24,10 @@ a
 
 /* PARTE DA DIREITA CONTAINER GERAL */
 
+.logo{
+    padding-bottom: 4px;
+}
+
 .main{
     margin-left: 287px;
 }
