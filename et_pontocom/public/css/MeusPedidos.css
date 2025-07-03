@@ -428,7 +428,7 @@
     width: 1450px;
 }
 
-.pedidosFinalizadosMP .tituloFinalizadoMP{
+.pedidosFinalizadosMP .tituloFinalizadoMP{          /*coloquei na responsividade*/
     font-size: 38px;
     font-weight: 600;
 }
@@ -816,6 +816,7 @@
     .areaSuperiorMP .linhaSuperiorTituloMP{
         width: 1160px;
     }
+
     /*Parte de pedidos em andamento*/
     .conteudoMeusPedidos .pedidoAndamentoMP{
         width: 1220px;
@@ -868,6 +869,7 @@
     .conteudoMeusPedidos .pedidoAndamentoMP{
         width: 1040px;
     }
+    .pedidosFinalizadosMP .tituloFinalizadoMP,
     .pedidoAndamentoMP .tituloAndamentoMP{
         font-size: 33px;
         font-weight: 600;
@@ -911,6 +913,7 @@
     .conteudoMeusPedidos .pedidoAndamentoMP{
         width: 890px;
     }
+    .pedidosFinalizadosMP .tituloFinalizadoMP,
     .pedidoAndamentoMP .tituloAndamentoMP{
         font-size: 30px;
         font-weight: 500;
@@ -955,6 +958,7 @@
     .conteudoMeusPedidos .pedidoAndamentoMP{
         width: 790px;
     }
+    .pedidosFinalizadosMP .tituloFinalizadoMP,
     .pedidoAndamentoMP .tituloAndamentoMP{
         font-size: 28px;
     }
@@ -1002,6 +1006,7 @@
     .conteudoMeusPedidos .pedidoAndamentoMP{
         width: 700px;
     }
+    .pedidosFinalizadosMP .tituloFinalizadoMP,
     .pedidoAndamentoMP .tituloAndamentoMP{
         font-size: 26px;
     }
@@ -1039,9 +1044,6 @@
     /*Parte dos cards em Andamento*/
     .conteudoMeusPedidos .pedidoAndamentoMP{
         width: 470px;
-    }
-    .pedidoAndamentoMP .tituloAndamentoMP{
-        font-size: 26px;
     }
     .pedidoAndamentoMP #produtosAndamento{
         width: 470px;
