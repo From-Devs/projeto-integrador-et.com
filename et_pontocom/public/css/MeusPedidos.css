@@ -70,7 +70,7 @@
 .pedidoAndamentoMP #produtosAndamento{
     margin-top: 7px;
     width: 100%;
-    height: 620px;
+    max-height: 620px;
     overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
@@ -136,12 +136,13 @@
 .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .informacoes-card{
     display: flex;
     flex-direction: column;
+    font-size: 15px;
 }
 
 .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
     border: none;
     background-color: transparent;
-    font-size: 15px;
+    font-size: 14px;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -508,6 +509,7 @@
 .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card{
     display: flex;
     flex-direction: column;
+    font-size: 15px;
 }
 
 .cardcoloridoFin .card-info2  .cardcolestrutura .maisInfo{
@@ -800,8 +802,11 @@
 
 /*_____________________________RESPONSIVIDADE___________________________*/
 
-@media (max-width: 1550px){
+@media (max-width: 1525px){
     /*Parte superior do titulo e linha*/
+    .conteudoMeusPedidos{
+        gap: 80px;
+    }
     .conteudoMeusPedidos .areaSuperiorMP{
         gap: 20px;
     }
@@ -817,7 +822,7 @@
     }
     .pedidoAndamentoMP #produtosAndamento{
         width: 1220px;
-        height: 550px;
+        max-height: 550px;
         grid-template-columns: repeat(auto-fill, minmax(380px,1fr));  
         gap: 20px; 
         padding-right: 0px;
@@ -845,6 +850,9 @@
 
 @media (max-width: 1300px){
     /*Parte superior do titulo e linha*/
+    .conteudoMeusPedidos{
+        gap: 65px;
+    }
     .conteudoMeusPedidos .areaSuperiorMP{
         gap: 10px;
     }
@@ -861,11 +869,12 @@
         width: 1040px;
     }
     .pedidoAndamentoMP .tituloAndamentoMP{
-        font-size: 38px;
+        font-size: 33px;
         font-weight: 600;
     }
     .pedidoAndamentoMP #produtosAndamento{
         width: 1040px;
+        max-height: 450px;
         grid-template-columns: repeat(auto-fill, minmax(300px,1fr));   
         gap: 15px;
     }
@@ -878,91 +887,231 @@
     .cards-produtoAndamento .cardcoloridoCam .card-info{
         width: 295px;
     }
-    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .informacoes-card{
-        font-size: 14px;
-    }
     .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
         height: 100px;
     }
-    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
-        font-size: 15px;
-    } 
-
 }
 
 @media (max-width: 1150px){
     /*Parte superior do titulo e linha*/
-    /* .conteudoMeusPedidos .areaSuperiorMP{
-        gap: 10px;
+    .conteudoMeusPedidos{
+        gap: 55px;
+    }
+    .conteudoMeusPedidos .areaSuperiorMP{
+        gap: 8px;
     }
     .areaSuperiorMP .tituloPrincipalMP{
-        font-size: 38px;
+        font-size: 35px;
     }
     .areaSuperiorMP .linhaSuperiorTituloMP{
-        width: 1000px;
-        height: 2px;
-    } */
+        width: 880px;              
+    }
 
     /*Parte dos cards em Andamento*/
-    /* .conteudoMeusPedidos .pedidoAndamentoMP{
-        width: 1040px;
+    .conteudoMeusPedidos .pedidoAndamentoMP{
+        width: 890px;
     }
     .pedidoAndamentoMP .tituloAndamentoMP{
-        font-size: 38px;
-        font-weight: 600;
+        font-size: 30px;
+        font-weight: 500;
     }
     .pedidoAndamentoMP #produtosAndamento{
-        width: 1040px;
-        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));   
-        gap: 15px;
+        width: 890px;
+        grid-template-columns: repeat(auto-fill, minmax(400px,1fr));   
+        gap: 20px;
     }
     #produtosAndamento .cards-produtoAndamento{
-        height: 190px;   
+        height: 195px;   
     }
     .cards-produtoAndamento .data-compra{
         font-size: 14px;
     }
     .cards-produtoAndamento .cardcoloridoCam{
-        margin-top: 8px;
+        gap: 12px;              
+    }
+    .cards-produtoAndamento .cardcoloridoCam .linhaverticalcard{
+        height: 167px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info{
+        height: 167px;
+        width: 385px;
+        padding-right: 20px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
+        height: 110px;
+    }
+}
+
+@media (max-width: 1000px){
+    /*Parte superior do titulo e linha*/
+    .areaSuperiorMP .tituloPrincipalMP{
+        font-size: 33px;
+    }
+    .areaSuperiorMP .linhaSuperiorTituloMP{
+        width: 780px;              
+    }
+
+    /*Parte dos cards em Andamento*/
+    .conteudoMeusPedidos .pedidoAndamentoMP{
+        width: 790px;
+    }
+    .pedidoAndamentoMP .tituloAndamentoMP{
+        font-size: 28px;
+    }
+    .pedidoAndamentoMP #produtosAndamento{
+        width: 790px;
+        max-height: 470px;
+        grid-template-columns: repeat(auto-fill, minmax(335px,1fr));   
+    }
+    #produtosAndamento .cards-produtoAndamento{
+        height: 200px;   
+    }
+    .cards-produtoAndamento .cardcoloridoCam{
         gap: 10px;              
     }
     .cards-produtoAndamento .cardcoloridoCam .linhaverticalcard{
-        height: 172px;
+        height: 170px;
     }
     .cards-produtoAndamento .cardcoloridoCam .card-info{
-        height: 172px;
-        width: 295px;
-        border-radius: 30px;
+        height: 170px;
+        width: 340px;
         padding-right: 20px;
-    } */
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
+        height: 100px;
+        
+    }
 }
 
-@media (max-width: 1024px){
-    /* .conteudoMeusPedidos .areaSuperiorMP{
-        gap: 10px;
-    }
+@media (max-width: 992px){
     .areaSuperiorMP .tituloPrincipalMP{
-        font-size: 32px;
+        margin-top: 110px;
     }
-    .areaSuperiorMP .linhaSuperiorTituloMP{
-        width: 75vh;
-    } */
 }
 
-@media (max-width: 800px){
-    /* .conteudoMeusPedidos .areaSuperiorMP{
-        gap: 8px;
-    }
+@media (max-width: 900px){
+    /*Parte superior do titulo e linha*/
     .areaSuperiorMP .tituloPrincipalMP{
         font-size: 30px;
     }
     .areaSuperiorMP .linhaSuperiorTituloMP{
-        width: 55vh;
-    } */
+        width: 670px;              
+    }
+
+    /*Parte dos cards em Andamento*/
+    .conteudoMeusPedidos .pedidoAndamentoMP{
+        width: 700px;
+    }
+    .pedidoAndamentoMP .tituloAndamentoMP{
+        font-size: 26px;
+    }
+    .pedidoAndamentoMP #produtosAndamento{
+        width: 700px;
+        max-height: 510px;
+        grid-template-columns: repeat(auto-fill, minmax(310px,1fr));  
+    }
+    .cards-produtoAndamento .data-compra{
+        font-size: 13px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info{
+        width: 310px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
+        height: 100px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .informacoes-card{
+        font-size: 14px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
+        font-size: 13px;
+    }
 }
 
-@media (max-width: 600px){
-    /* .areaSuperiorMP .linhaSuperiorTituloMP{
-        width: 45vh;
-    } */
+@media (max-width: 768px){
+    /*Parte superior do titulo e linha*/
+    .areaSuperiorMP .tituloPrincipalMP{
+        font-size: 35px;
+    }
+    .areaSuperiorMP .linhaSuperiorTituloMP{
+        width: 478px;              
+    }
+
+    /*Parte dos cards em Andamento*/
+    .conteudoMeusPedidos .pedidoAndamentoMP{
+        width: 470px;
+    }
+    .pedidoAndamentoMP .tituloAndamentoMP{
+        font-size: 26px;
+    }
+    .pedidoAndamentoMP #produtosAndamento{
+        width: 470px;
+        max-height: 480px;
+        grid-template-columns: repeat(auto-fill, minmax(400px,1fr));   
+    }
+    #produtosAndamento .cards-produtoAndamento{
+        height: 230px;   
+    }
+    .cards-produtoAndamento .data-compra{
+        font-size: 14px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam{
+        gap: 15px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .linhaverticalcard{
+        height: 180px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info{
+        width: 415px;
+        height: 190px;
+        padding-right: 20px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
+        height: 120px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .informacoes-card{
+        font-size: 16px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
+        font-size: 14px;
+    }
 } 
+
+@media (max-width: 576px){
+    /*Parte superior do titulo e linha*/
+    .conteudoMeusPedidos{
+        gap: 40px;
+    }
+    .areaSuperiorMP .linhaSuperiorTituloMP{
+        width: 380px;              
+    }
+
+    /*Parte dos cards em Andamento*/
+    .conteudoMeusPedidos .pedidoAndamentoMP{
+        width: 370px;
+    }
+    .pedidoAndamentoMP #produtosAndamento{
+        width: 370px;
+        max-height: 450px;
+        grid-template-columns: repeat(auto-fill, minmax(350px,1fr));   
+    }
+    #produtosAndamento .cards-produtoAndamento{
+        height: 210px;   
+    }
+    .cards-produtoAndamento .cardcoloridoCam .linhaverticalcard{
+        height: 170px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info{
+        width: 350px;
+        height: 170px;
+        padding-right: 20px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
+        height: 110px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .informacoes-card{
+        font-size: 15px;
+    }
+    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
+        font-size: 13px;
+    }
+}
