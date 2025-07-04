@@ -190,7 +190,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                                 <span class="titulo">${produto2.nome} ${produto2.marca} ${produto2.tamanho}</span>
                                 <span class="titulo">${produto2.categoria}</span>
                             </div>
-                            <button class="maisInfo" style="font-size: 13px; border: none;">Mais Informações</button>
+                            <button class="maisInfo">Mais Informações</button>
                         </div>
                     </div>
                 </div>

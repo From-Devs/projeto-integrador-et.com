@@ -435,10 +435,9 @@
 
 .pedidosFinalizadosMP #produtosFinalizados{
     width: 97%;
-    height: 540px;
+    max-height: 540px;
     margin-top: 15px;
-    margin-left: 5px;
-    padding: 15px 15px 20px 15px;
+    padding: 15px 20px 20px 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
     overflow-y: auto;
@@ -515,7 +514,7 @@
 .cardcoloridoFin .card-info2  .cardcolestrutura .maisInfo{
     border: none;
     background-color: transparent;
-    font-size: 15px;
+    font-size: 14px;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -823,11 +822,10 @@
     }
     .pedidoAndamentoMP #produtosAndamento{
         width: 1220px;
-        max-height: 550px;
-        grid-template-columns: repeat(auto-fill, minmax(380px,1fr));  
+        max-height: 550px; 
         gap: 20px; 
-        padding-right: 0px;
     }
+    #produtosFinalizados .cardProduto-finalizado,
     #produtosAndamento .cards-produtoAndamento{
         height: 210px;           
     }
@@ -843,8 +841,25 @@
         width: 360px;
         padding-right: 12px;
     }
+    .cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img,
     .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
         height: 100px;
+    }
+
+    /*Parte de pedidos finalizados*/
+    .conteudoMeusPedidos .pedidosFinalizadosMP{
+        width: 1225px;
+    }
+    .pedidosFinalizadosMP #produtosFinalizados{
+        width: 1201px;
+        max-height: 470px;
+        padding: 20px 10px 20px 10px;
+        gap: 2px;
+    }
+    .cardProduto-finalizado .cardcoloridoFin .card-info2{
+        height: 190px;
+        width: 360px;
+        padding-right: 22px;
     }
 }
 
@@ -889,8 +904,31 @@
     .cards-produtoAndamento .cardcoloridoCam .card-info{
         width: 295px;
     }
-    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
-        height: 100px;
+
+    /*Parte de pedidos finalizados*/
+    .conteudoMeusPedidos .pedidosFinalizadosMP{
+        width: 1045px;
+    }
+    .pedidosFinalizadosMP #produtosFinalizados{
+        width: 1026px;
+        max-height: 430px;
+        padding: 20px 5px 20px 11px;
+        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    }
+    #produtosFinalizados .cardProduto-finalizado{
+        height: 200px;
+    }
+    .cardProduto-finalizado .cardcoloridoFin .card-info2{
+        height: 180px;
+        width: 300px;
+        padding-right: 20px;
+    }
+    .cardcoloridoFin .card-info2 .data-entrega{
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card{
+        font-size: 15px;
     }
 }
 
@@ -943,6 +981,34 @@
     .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
         height: 110px;
     }
+
+    /*Parte de pedidos finalizados*/
+    .conteudoMeusPedidos .pedidosFinalizadosMP{
+        width: 895px;
+    }
+    .pedidosFinalizadosMP #produtosFinalizados{
+        width: 873px;
+        max-height: 470px;
+        padding: 20px 10px 20px 8px;
+        grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
+    }
+    #produtosFinalizados .cardProduto-finalizado{
+        height: 230px;
+    }
+    .cardProduto-finalizado .cardcoloridoFin .card-info2{
+        height: 210px;
+        width: 395px;
+        padding-right: 25px;
+    }
+    .cardcoloridoFin .card-info2 .data-entrega{
+        font-size: 15px;
+    }
+    .cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img{
+        height: 120px;
+    }
+    .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card{
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 1000px){
@@ -967,6 +1033,7 @@
         max-height: 470px;
         grid-template-columns: repeat(auto-fill, minmax(335px,1fr));   
     }
+    #produtosFinalizados .cardProduto-finalizado,
     #produtosAndamento .cards-produtoAndamento{
         height: 200px;   
     }
@@ -981,9 +1048,32 @@
         width: 340px;
         padding-right: 20px;
     }
+    .cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img,
     .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
         height: 100px;
-        
+    }
+
+    /*Parte de pedidos finalizados*/
+    .conteudoMeusPedidos .pedidosFinalizadosMP{
+        width: 795px;
+    }
+    .pedidosFinalizadosMP #produtosFinalizados{
+        width: 776px;
+        max-height: 440px;
+        padding: 20px 1px 20px 2px;
+        grid-template-columns: repeat(auto-fill, minmax(335px,1fr));
+    }
+    .cardProduto-finalizado .cardcoloridoFin .card-info2{
+        height: 180px;
+        width: 340px;
+        padding-right: 20px;
+    }
+    .cardcoloridoFin .card-info2 .data-entrega{
+        font-size: 14px;
+        margin-bottom: 13px;
+    }
+    .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card{
+        font-size: 15px;
     }
 }
 
@@ -1021,14 +1111,40 @@
     .cards-produtoAndamento .cardcoloridoCam .card-info{
         width: 310px;
     }
+    .cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img,
     .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
         height: 100px;
     }
+    .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card,
     .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .informacoes-card{
         font-size: 14px;
     }
+    .cardcoloridoFin .card-info2  .cardcolestrutura .maisInfo,
     .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
         font-size: 13px;
+    }
+
+    /*Parte de pedidos finalizados*/
+    .conteudoMeusPedidos .pedidosFinalizadosMP{
+        width: 705px;
+    }
+    .pedidosFinalizadosMP #produtosFinalizados{
+        width: 687px;
+        max-height: 400px;
+        padding: 14px 9px 20px 7px;
+        grid-template-columns: repeat(auto-fill, minmax(310px,1fr));
+    }
+    #produtosFinalizados .cardProduto-finalizado{
+        height: 190px;
+    }
+    .cardProduto-finalizado .cardcoloridoFin .card-info2{
+        height: 175px;
+        width: 305px;
+        padding-right: 20px;
+    }
+    .cardcoloridoFin .card-info2 .data-entrega{
+        font-size: 13px;
+        margin: 12px 0 15px 0;
     }
 }
 
@@ -1047,11 +1163,12 @@
     }
     .pedidoAndamentoMP #produtosAndamento{
         width: 470px;
-        max-height: 480px;
+        max-height: 510px;
         grid-template-columns: repeat(auto-fill, minmax(400px,1fr));   
     }
+    #produtosFinalizados .cardProduto-finalizado,
     #produtosAndamento .cards-produtoAndamento{
-        height: 230px;   
+        height: 220px;   
     }
     .cards-produtoAndamento .data-compra{
         font-size: 14px;
@@ -1060,21 +1177,44 @@
         gap: 15px;
     }
     .cards-produtoAndamento .cardcoloridoCam .linhaverticalcard{
-        height: 180px;
+        height: 190px;
     }
     .cards-produtoAndamento .cardcoloridoCam .card-info{
         width: 415px;
         height: 190px;
         padding-right: 20px;
     }
+    .cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img,
     .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
         height: 120px;
     }
+    .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card,
     .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .informacoes-card{
         font-size: 16px;
     }
+    .cardcoloridoFin .card-info2  .cardcolestrutura .maisInfo,
     .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
         font-size: 14px;
+    }
+
+    /*Parte de pedidos finalizados*/
+    .conteudoMeusPedidos .pedidosFinalizadosMP{
+        width: 475px;
+    }
+    .pedidosFinalizadosMP #produtosFinalizados{
+        width: 454px;
+        max-height: 470px;
+        padding: 14px 11px 20px 7px;
+        grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
+    }
+    .cardProduto-finalizado .cardcoloridoFin .card-info2{
+        height: 200px;
+        width: 415px;
+        padding-right: 25px;
+    }
+    .cardcoloridoFin .card-info2 .data-entrega{
+        font-size: 15px;
+        margin: 15px 0 15px 0;
     }
 } 
 
@@ -1093,9 +1233,10 @@
     }
     .pedidoAndamentoMP #produtosAndamento{
         width: 370px;
-        max-height: 450px;
+        max-height: 490px;
         grid-template-columns: repeat(auto-fill, minmax(350px,1fr));   
     }
+    #produtosFinalizados .cardProduto-finalizado,
     #produtosAndamento .cards-produtoAndamento{
         height: 210px;   
     }
@@ -1107,13 +1248,36 @@
         height: 170px;
         padding-right: 20px;
     }
+    .cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img,
     .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
         height: 110px;
     }
+    .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card,
     .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .informacoes-card{
         font-size: 15px;
     }
+    .cardcoloridoFin .card-info2  .cardcolestrutura .maisInfo,
     .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
         font-size: 13px;
+    }
+
+    /*Parte de pedidos finalizados*/
+    .conteudoMeusPedidos .pedidosFinalizadosMP{
+        width: 375px;
+    }
+    .pedidosFinalizadosMP #produtosFinalizados{
+        width: 362px;
+        max-height: 430px;
+        padding: 14px 10px 20px 2px;
+        grid-template-columns: repeat(auto-fill, minmax(330px,1fr));
+    }
+    .cardProduto-finalizado .cardcoloridoFin .card-info2{
+        height: 190px;
+        width: 330px;
+        padding-right: 20px;
+    }
+    .cardcoloridoFin .card-info2 .data-entrega{
+        font-size: 14px;
+        margin: 15px 0 12px 0;
     }
 }
