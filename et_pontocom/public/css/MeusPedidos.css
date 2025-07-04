@@ -816,7 +816,7 @@
         width: 1160px;
     }
 
-    /*Parte de pedidos em andamento*/
+    /*Parte de cards*/
     .conteudoMeusPedidos .pedidoAndamentoMP{
         width: 1220px;
     }
@@ -846,7 +846,6 @@
         height: 100px;
     }
 
-    /*Parte de pedidos finalizados*/
     .conteudoMeusPedidos .pedidosFinalizadosMP{
         width: 1225px;
     }
@@ -860,6 +859,12 @@
         height: 190px;
         width: 360px;
         padding-right: 22px;
+    }
+
+    /*Pop-up Andamento*/
+    .conteudoMeusPedidos .popupMP{
+        width: 1350px;
+        height: 900px;
     }
 }
 
@@ -880,7 +885,7 @@
         height: 2px;
     }
 
-    /*Parte dos cards em Andamento*/
+    /*Parte dos cards*/
     .conteudoMeusPedidos .pedidoAndamentoMP{
         width: 1040px;
     }
@@ -905,7 +910,6 @@
         width: 295px;
     }
 
-    /*Parte de pedidos finalizados*/
     .conteudoMeusPedidos .pedidosFinalizadosMP{
         width: 1045px;
     }
@@ -947,7 +951,7 @@
         width: 880px;              
     }
 
-    /*Parte dos cards em Andamento*/
+    /*Parte dos cards*/
     .conteudoMeusPedidos .pedidoAndamentoMP{
         width: 890px;
     }
@@ -982,7 +986,6 @@
         height: 110px;
     }
 
-    /*Parte de pedidos finalizados*/
     .conteudoMeusPedidos .pedidosFinalizadosMP{
         width: 895px;
     }
@@ -1020,7 +1023,7 @@
         width: 780px;              
     }
 
-    /*Parte dos cards em Andamento*/
+    /*Parte dos cards*/
     .conteudoMeusPedidos .pedidoAndamentoMP{
         width: 790px;
     }
@@ -1053,7 +1056,6 @@
         height: 100px;
     }
 
-    /*Parte de pedidos finalizados*/
     .conteudoMeusPedidos .pedidosFinalizadosMP{
         width: 795px;
     }
@@ -1092,7 +1094,7 @@
         width: 670px;              
     }
 
-    /*Parte dos cards em Andamento*/
+    /*Parte dos cards*/
     .conteudoMeusPedidos .pedidoAndamentoMP{
         width: 700px;
     }
@@ -1124,7 +1126,6 @@
         font-size: 13px;
     }
 
-    /*Parte de pedidos finalizados*/
     .conteudoMeusPedidos .pedidosFinalizadosMP{
         width: 705px;
     }
@@ -1157,7 +1158,7 @@
         width: 478px;              
     }
 
-    /*Parte dos cards em Andamento*/
+    /*Parte dos cards*/
     .conteudoMeusPedidos .pedidoAndamentoMP{
         width: 470px;
     }
@@ -1197,7 +1198,6 @@
         font-size: 14px;
     }
 
-    /*Parte de pedidos finalizados*/
     .conteudoMeusPedidos .pedidosFinalizadosMP{
         width: 475px;
     }
@@ -1227,7 +1227,7 @@
         width: 380px;              
     }
 
-    /*Parte dos cards em Andamento*/
+    /*Parte dos cards*/
     .conteudoMeusPedidos .pedidoAndamentoMP{
         width: 370px;
     }
@@ -1261,7 +1261,6 @@
         font-size: 13px;
     }
 
-    /*Parte de pedidos finalizados*/
     .conteudoMeusPedidos .pedidosFinalizadosMP{
         width: 375px;
     }
