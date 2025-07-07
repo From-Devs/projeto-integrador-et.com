@@ -155,7 +155,7 @@
     <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Ofertas Imperdíveis</p>
-            <a href="#">Ver Mais</a>
+            <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Categorias.php">Ver Mais</a>
         </div>
         <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
@@ -182,7 +182,7 @@
     <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Mais Vendidos</p>
-            <a href="#">Ver Mais</a>
+            <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/Categorias.php">Ver Mais</a>
         </div>
         <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>

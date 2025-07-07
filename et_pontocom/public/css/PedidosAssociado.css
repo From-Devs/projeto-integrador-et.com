@@ -4,12 +4,14 @@
 * {
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
+    margin: 0;
 }
 
 body {
     display: flex;
-    margin: 0%;
-    padding: 0%;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    background-color: #F8F8F8;
 }
 
 a {
@@ -18,7 +20,16 @@ a {
 
 /* PARTE DA DIREITA CONTAINER GERAL */
 
-#container{
+.logo{
+    padding-bottom: 4px;
+}
+
+.main{
+    margin-left: 287px;
+}
+
+#container
+{
     gap: 15px;
     padding-left: 60px;
     box-sizing: border-box;
@@ -28,14 +39,10 @@ a {
     flex-direction: column;
 }
 
-.main{
-    margin-left: 287px;
-}
-
 /* estilizacao da parte do icone do usuario */
 
-#tituloH1 {
-    margin-top: 20px;
+#tituloH1{
+    font-size: 36px;
 }
 
 #imagemFiltro {
@@ -60,7 +67,7 @@ html, body {
 
 #lista {
     width: 97%;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     background-color: #fff;
@@ -127,6 +134,10 @@ tr {
         margin-left: 230px;
     }
 
+    #container{
+        padding-left: 35px;
+    }
+
     .tabela-body {
         overflow-x: auto;
         max-width: 100%;
@@ -171,6 +182,22 @@ tr {
         padding-left: 0;
         padding-top: 0;
         align-items: center;
+    }
+
+    #titulo{
+        width: 100%;
+    }
+
+    #lista{
+        width: 100%;
+    }
+
+    .listaContainer{
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        align-items: center;
+        margin: 0 15px;
     }
 
     #tabelaVendas {

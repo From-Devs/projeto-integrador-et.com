@@ -1,6 +1,5 @@
 <?php 
 
-    include __DIR__ . "/../../../public/componentes/componentesADM_Associado/componentesADM_Associado.php";
     include __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/PedidosAssociado_ADM/pedidos.php";
     require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
     require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
@@ -42,7 +41,7 @@
     <div class="main">
         <div id="container">
 
-            <?php echo filtro(["ID", "Preço", "Data"])?>
+            <?php echo filtro("filtro",["ID", "Preço", "Data"])?>
 
             <div class="listaContainer">
                 <div id="titulo">
@@ -188,7 +187,6 @@
         </div>
     </div>
 
-    <script src="./../../../public/javascript/javascriptADM.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
 </body>

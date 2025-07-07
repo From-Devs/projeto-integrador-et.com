@@ -7,12 +7,84 @@
     font-family: "Montserrat", serif;
 }
 
-:root{
-    --black-color: #141414;
-    --white-color: #ececec;
+body
+{
+    display: flex;
+    margin: 0%;
+    padding: 0%;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    background-color: #F8F8F8;
 }
 
-.popUp .botoes-popUp{
+a
+{
+    text-decoration: none;
+}
+
+/* CONTAINER DIREITA */
+
+#container
+{
+    gap: 15px;
+    padding-left: 60px;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main{
+    margin-left: 287px;
+}
+
+/* botoesPrincipais */
+
+#geralInformacoes
+{
+    width: 1450px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+    flex-wrap: wrap;
+}
+
+#textoTituloInform
+{
+    margin-left: 5px;
+    color: white;
+}
+
+#textoInformacao
+{
+    margin-left: 10px;
+    width: 100%;
+}
+
+#imagemInforma
+{
+    width: 40px;
+    height: 40px;
+}
+
+#imagemInformaEstilizacao
+{
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    width: 80px;
+    border-radius: 15px;
+    align-items: center;
+    background-color: white;
+    margin-right: 30px;
+}
+
+#tituloH1{
+    font-size: 36px;
+}
+
+.main .popUp .botoes-popUp{
     background-color: transparent;
 }
 
@@ -26,10 +98,58 @@
     justify-content: center;
     gap: 10px;
     background-color: #282828;
-    color: var(--white-color);
+    color: white;
     cursor: pointer;
 }
 
 .icone-fechar{
     cursor: pointer;
+}
+
+@media (max-width: 1280px) {
+    .main{
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 1024px){
+    .main{
+        margin-left: 230px;
+    }
+
+    #container{
+        padding-left: 35px;
+    }
+}
+
+@media (max-width: 800px){
+    .main{
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #container{
+        width: 100%;
+        padding-left: 0;
+        padding-top: 0;
+    }
+    #titulo{
+        display: flex;
+        margin-left: 80px;
+        margin-top: 18px;
+        margin-bottom: 20px;
+    }
+
+    #geralInformacoes{
+        flex-direction: column;
+        width: auto;
+        margin-right: 0;
+        align-items: center;
+        gap: 20px;
+    }
+
+}
+
+@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+
 }

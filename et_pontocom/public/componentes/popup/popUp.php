@@ -5,9 +5,9 @@ function PopUpConfirmar($id, $texto, $botao1 = "", $botao2 = "", $largura="auto"
     return "
     <dialog class='$id popUpDialog'>
     <div class='popUp' style='width: $largura; background-color: $corFundo;'>
-            <div class='fecharPopUp'>
+            <button class='fecharPopUp' onclick=\"fecharPopUp('$id')\">
                 <img class='icone-fechar' src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
-            </div>
+            </button>
             <div>
                 <p class='texto-popUp' style='font-size: $tamanhoFonte; color: $corFonte'>$texto</p>
             </div>
@@ -24,9 +24,9 @@ function PopUpComImagemETitulo($id, $caminhoImagem, $tamanhoImagem, $titulo, $su
     return "
     <dialog class='$id popUpDialog'>
         <div class='popUp' style='width: $largura; background-color: $corFundo;'>
-            <div class='fecharPopUp'>
+            <button class='fecharPopUp' onclick=\"fecharPopUp('$id')\">
                 <img class='icone-fechar' src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
-            </div>
+            </button>
             <div class='img-popUp' style='width: $tamanhoImagem'>
                 <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/$caminhoImagem' alt='img-popUp'>
             </div>

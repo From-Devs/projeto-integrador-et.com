@@ -116,6 +116,10 @@ a
     .main{
         margin-left: 230px;
     }
+
+    #container{
+        padding-left: 35px;
+    }
 }
 
 @media (max-width: 800px){

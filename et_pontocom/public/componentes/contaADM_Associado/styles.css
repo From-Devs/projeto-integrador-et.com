@@ -83,7 +83,7 @@
     .componenteConta{
         top: 10px;
         width: fit-content;
-        padding-right: 40px;
+        padding-right: 20px;
         height: 60px;
         filter: none;
         box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.4);
@@ -94,18 +94,8 @@
         height: 40px;
         margin-left: 15px;
     }
-}
-
-@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
-    .componenteConta{
-        padding-right: 20px;
-    }
 
     .textContaContainer{
         display: none;
     }
-}
-
-@media (max-width: 480px) {
-
 }

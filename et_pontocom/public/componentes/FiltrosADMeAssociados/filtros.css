@@ -88,6 +88,33 @@
     color: white;
 }
 
+/* ----------------------------------------------- */
+
+#botaoAssociados, #botaoSolicitacao {
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: #3449B6;
+    color: white;
+    border-radius: 15px;
+    width: 200px;
+    height: 55px;
+    font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#botaoAssociados:hover, #botaoSolicitacao:hover {
+    background-color: #3449b6d1;
+}
+
+#botoesAssociados{
+    display: flex;
+    gap: 20px;
+}
+
 @media (max-width: 1600px) {
     #inputPesquisar {
         font-size: 16px
@@ -102,13 +129,23 @@
         height: 50px;
     }
 
-    #divPesquisarEFiltro {
+    #botaoAssociados, #botaoSolicitacao {
+        width: 160px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    #divPesquisarEFiltro, #botoesAssociados {
         gap: 14px;
+    }
+
+    #divPesquisarEFiltro{
+        margin-bottom: 5px;
     }
 }
 
 @media (max-width: 1350px) {
-    #divPesquisarEFiltro {
+    #divPesquisarEFiltro, #botoesAssociados {
         gap: 12px;
     }
 
@@ -120,6 +157,12 @@
         display: flex;
         align-items: center;
         flex-wrap: nowrap;
+    }
+
+    #botaoAssociados, #botaoSolicitacao {
+        width: 150px;
+        height: 50px;
+        font-size: 16px;
     }
 
     .divTextInput{
@@ -146,21 +189,51 @@
         background-size: 24px;
         background-position-x: 110px;
     }
+
+    #botaoAssociados, #botaoSolicitacao {
+        position: absolute;
+        width: auto;
+        padding: 10px 20px;
+        height: 44px;
+        font-size: 18px;
+    }
+
+    #botaoAssociados{
+        right: 192px;
+        top: 120px;
+    }
+
+    #botaoSolicitacao{
+        top: 120px;
+        right: 25px;
+    }
 }
 
 @media (max-width: 1024px){
     .divTextInput{
-        width: 300px;
+        width: 100%;
+    }
+
+    #pesquisar{
+        width: 100%;
+        box-sizing: content-box;
+        padding-right: 245px;
     }
 }
 
 @media (max-width: 800px) {
 
+    #pesquisar{
+        box-sizing: initial;
+        padding-right: 0;
+    }
+
     #divPesquisarEFiltro {
         width: 100%;
         padding-left: 80px;
-        padding-right: 182px;
+        padding-right: 85px;
         margin-top: 15px;
+        margin-bottom: 0;
     }
 
     #botaoOrdenar {
@@ -169,13 +242,14 @@
         background-size: 24px;
         background-position-x: 110px;
     }
-}
 
-@media (max-width: 520px) {
-
-    #divPesquisarEFiltro {
-        gap: 5px;
-        padding-right: 90px;
+    #botaoAssociados{
+        right: 182px;
+        top: 80px;
     }
 
+    #botaoSolicitacao{
+        top: 80px;
+        right: 15px;
+    }
 }

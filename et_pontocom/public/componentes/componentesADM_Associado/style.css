@@ -13,12 +13,13 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 22px;
-    border-radius: 20px;
+    border-radius: 14px;
     background-color: #141414;
     color: #ffffff;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3)
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
 }
 
 .cardRelatorio:hover{

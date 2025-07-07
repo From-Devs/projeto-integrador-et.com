@@ -1,6 +1,5 @@
 <?php 
 
-include __DIR__ . "/../../../public/componentes/componentesADM_Associado/componentesADM_Associado.php";
 include __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/ProdutoADM/produto.php";
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
@@ -18,7 +17,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador - Produtos</title>
-    <link rel="stylesheet" href="./../../../public/css/ProdutosADM.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/ProdutosADM.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
@@ -40,7 +39,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <div class="main">
         <div id="container">
 
-            <?php echo filtro(["ID", "Preço", "Data"])?>
+            <?php echo filtro("filtro",["ID", "Preço", "Data"])?>
 
             <div class="listaContainer">
                 <div id="titulo">

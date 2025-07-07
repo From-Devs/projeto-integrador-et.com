@@ -256,3 +256,9 @@ a
     }
 
 }
+
+@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+    #divPesquisarEFiltro{
+        padding-right: 180px;
+    }
+}
