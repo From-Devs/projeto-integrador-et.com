@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ . "/../../../public/componentes/header/header.php";
-require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
-require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
-require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
-require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
+require_once __DIR__ . "../../../../public/componentes/header/header.php";
+require_once __DIR__ . "../../../../public/componentes/popup/popUp.php";
+require_once __DIR__ . "../../../../public/componentes/botao/botao.php";
+require_once __DIR__ . "../../../../public/componentes/cardProduto/cardProduto.php";
+require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
 
 ?>
 
@@ -17,14 +17,11 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/header/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/styles.css">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/detalhesDoProduto.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/styles.css">
-
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/detalhesDoProduto.css">
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Detalhes do produto</title>
     
 </head>
@@ -55,7 +52,7 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
                 <div class="titulo-produto">
                     <div class="titulo">
                         <h3>Lorem ipsum dolor sit amet consectetur adipisicing</h3>
-                        <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
+                        <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "120px", "Adicionado aos favoritos!", "", "", "", "300px")?>
                         <abbr class="abbr-favoritos" title="Adicionar aos favoritos" onclick="abrirPopUp('popUpFavorito')">
                             <button class="imgCoracao">
                                 <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coracao-detalhes-produto.png' alt='Coração'>
@@ -63,7 +60,7 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
                         </abbr>
                     </div>
                     <div class="sub-titulo-produto">
-                        <span class="preco-produto">R$39,90 |</span>
+                        <span class="preco-produto">R$39,90</span>
                         <abbr title="Avaliações" class="avaliacao-descricao">
                             <a href="#all-avaliacoes">
                                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
@@ -76,6 +73,7 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
                     <div class="descricao">
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores illum iste hic, eius quae natus nobis eveniet voluptates qui facere modi? Explicabo, ad velit. Consequatur placeat possimus dolore accusantium iure.
                         Perspiciatis esse aut voluptas quia ex repudiandae consequuntur iste quasi, recusandae deserunt odit eos voluptatibus dicta nulla quos voluptates rerum sit! Dolorum voluptate odio quaerat explicabo praesentium obcaecati dolor natus!</p>
+                        <span>Disponível no estoque <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/img-confirmar.png" alt="img-correto"></span>
                     </div>
                     <div class="botoes-detalhes">
                         <div class="btn-juntos">
@@ -86,7 +84,7 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
                             </div>
                             <?php
                             echo PopUpComImagemETitulo("AddCarrinho", "/produto/img-carrinho.png", "80px", "Adicionado ao carrinho!");
-
+                            
                             echo botaoPersonalizadoOnClick("Adicionar ao carrinho", "btn-black", "abrirPopUp(\"AddCarrinho\")", "100%", "100%");
                             ?>
                         </div>
@@ -97,16 +95,24 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
                 </div>
             </div>
         </div>
+
+        <div class="btn-ir-descricao">
+            <button onclick="document.querySelector('.description-box').scrollIntoView({ behavior: 'smooth' });">
+                Ver mais detalhes do produto ↓
+            </button>
+        </div>
     </div>
 
     <div class="description-box">
-        <h2>DESCRIÇÃO</h2>
-        <p>Marca: Mary Kay<br>
-            Linha: At Play®<br>
-            Volume: 29ml<br>
-            Tipo de Produto: Base Líquida Matte<br>
-        </p>
-
+        <div class="description-header">
+            <h2>DESCRIÇÃO</h2>
+            <p>Marca: Mary Kay<br>
+                Linha: At Play®<br>
+                Volume: 29ml<br>
+                Tipo de Produto: Base Líquida Matte<br>
+            </p>
+        </div>
+        
             <h3>Características: </h3>
             <ul>
                 <li>Acabamento Matte: Proporciona um acabamento opaco, ideal para peles mistas a oleosas ou para quem prefere um visual sem brilho.</li>
@@ -139,7 +145,7 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
                     <option value="maisRecentes">Mais recentes</option>
                     <option value="maisAntigas">Mais antigas</option>
                 </select>
-                    <!-- <button class="btn-ordenar" onclick="abrirFiltro()">Ordenar por: <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/setaBaixo.png" alt="seta-baixo"></button>
+                <!-- <button class="btn-ordenar" onclick="abrirFiltro()">Ordenar por: <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/setaBaixo.png" alt="seta-baixo"></button>
                     <div class="" hidden>
                         <div class="item-filtro mais-relevantes">
                             <span>Mais relevantes</span>
@@ -190,7 +196,7 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
                     <div class="pergunta-avaliacao">
                         <span>Esta avaliação foi útil?</span>
                         <div class="btns-pergunta">
-                        <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
+                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
                             echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
                             ?>
                         </div>
@@ -205,12 +211,12 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
                         <span>03/08/2024</span>
                     </div>
                     <div class="descricao-avaliacao">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?</p>
                     </div>
                     <div class="pergunta-avaliacao">
                         <span>Esta avaliação foi útil?</span>
                         <div class="btns-pergunta">
-                        <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
+                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
                             echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
                             ?>
                         </div>
@@ -230,7 +236,7 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
                     <div class="pergunta-avaliacao">
                         <span>Esta avaliação foi útil?</span>
                         <div class="btns-pergunta">
-                        <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
+                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
                             echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
                             ?>
                         </div>
@@ -245,11 +251,12 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
             <h3 class="titulo-produtos-similares">Produtos similares</h3>
             <div class="produtos-similares">
                 <?php
-                echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
-                ?>
+                 echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$30,00", "vult.png", "", "", "#E4B186", "#E4B186", "#E4B186", "");
+                 echo createCardProduto("O Boticário", "Body Splash
+                 Biscoito ou Bolacha", "R$30,00", "biscoito.png", "", "", "#31BADA", "#31BADA", "#31BADA", "");
+                 echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$30,00", "milk.png", "", "", "#133285", "#133285", "#133285", "");
+                 echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", "", "R$30,00", "#77523A", "#77523A", "#77523A", "");
+                 ?>
             </div>
         </div>
     </div>
@@ -258,10 +265,10 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     echo createRodape(); 
     ?>
 
-    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
-    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
-    <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/detalhesDoProduto.js"></script>
-    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/script.js"></script>
-    <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/script.js"></script>
+<script src="/projeto-integrador-et.com/et_pontocom/public/componentes/header/script.js"></script>
+<script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
+<script src="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto/detalhesDoProduto.js"></script>
+<script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/script.js"></script>
+<script src="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/script.js"></script>
 </body>
 </html>
