@@ -22,14 +22,14 @@
     <div class="Decoracao">
         <!-- Área preta -->
         <section>
-            <div class="Voltar">
-                <a href="../usuario/sobreAssociado.php">
-            <img src="../../../public/imagens/cadastassoc/BotaoVoltar.png" alt="">
-            <p>voltar</p>
-                </a>
-            </div>
+            <button id="voltarSair" onclick="history.back()">
+                <i class='fas fa-chevron-left'></i>
+                <p id="voltar" href="./paginaPrincipal.php">Voltar</p>          
+            </button> 
             <div class="wave wave1"></div>
         </section>
+
+        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoBranca1.png" alt="logo" class="logo">
     </div>
     <div class="Cadastro">
         <!-- Área branca -->
@@ -56,10 +56,9 @@
             <div class="embaixo">
                 <!-- input grande -->                <input type="text" placeholder="Digite algo sobre seu produto :)" class="caixa_texto">
                 <div class="botoes">
-                    <div class="privacidade">
-                        <!-- políticas de privacidade -->
-                    <input type="checkbox" name="termos" class="checkbox">
-                    <p><a href="">Termos de uso </a> e <a href="">política de privacidade</a></p>
+                    <div class="checkbox">
+                        <input type="checkbox" name="termos" id="termos"> 
+                        <label class="termos" for="termos"> Concordo com os <a href="./TermoDeUso.php">Termos de Uso e Privacidade</a></label>
                     </div>
                     
                     <button type="button" onclick="abrirPopUp('popup')"><b>Confirmar</b></button>
