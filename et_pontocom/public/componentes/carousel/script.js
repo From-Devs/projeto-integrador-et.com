@@ -14,6 +14,37 @@ document.addEventListener("DOMContentLoaded", function(){
 
     let current = 0;
     let Animacao = false;
+    let animacaoInterval = null; 
+
+    function executarAnimacao() {
+      if (Animacao || detalhes.classList.contains("open")) return;
+      Animacao = true;
+      animacaoInterval = setInterval(() => {
+        if (detalhes.classList.contains("open")) {
+          clearInterval(animacaoInterval);
+          Animacao = false;
+          return;
+        }
+
+        if (current >= 2) {
+          clearInterval(animacaoInterval);
+          current = 0;
+          AtualizarCarousel(); 
+          Animacao = false;
+          return;
+        }
+    
+        console.log("Índice atual:", current);
+        AtualizarCarousel();
+        current += 1;
+    
+      }, 4000);
+    }
+    
+  setInterval(() => {
+    executarAnimacao();
+  }, 10);
+
 
     function mudarCorDeFundo(index) {
       carousel.className = `carouselContainer cor-${index}`;
