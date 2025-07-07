@@ -127,6 +127,11 @@ body{
     transition: transform 0.3s;
 }
 
+#wrapperEditProdutoImg{
+    user-select: none;
+    pointer-events: none;
+}
+
 .produtoContainer:has(> .imagemProdutoWrapper.hold){
     background-color: black;
 }
@@ -326,6 +331,7 @@ body{
     height: 25px;
     width: 25px;
     display: block;
+    cursor: pointer;
 }
 
 .inputProdutoContainer{

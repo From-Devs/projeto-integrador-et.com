@@ -1,6 +1,6 @@
 <?php 
 
-include __DIR__ . "/../../../public/componentes/telaADM/componenteADM.php";
+include __DIR__ . "/../../../public/componentes/componentesADM_Associado/componentesADM_Associado.php";
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
@@ -27,12 +27,10 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
 </head>
 <body>
-    <div id="menuLateral">
-        <?php
-            echo createSidebarInterna($tipo_usuario);
-            echo createContaAssociadoADM();
-        ?>
-    </div>
+    <?php
+        echo createSidebarInterna($tipo_usuario);
+        echo createContaAssociadoADM();
+    ?>
 
     <!-- aqui acaba o lado esquerdo -->
     <div id="main">

@@ -1,6 +1,6 @@
 <?php 
 
-include __DIR__ . "/../../../public/componentes/telaADM/componenteADM.php";
+require __DIR__ . "/../../../public/componentes/componentesADM_Associado/componentesADM_Associado.php";
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
@@ -20,6 +20,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/componentesADM_Associado/style.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/contaADM_Associado/styles.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -33,17 +34,18 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         echo createContaAssociadoADM();
     ?>
 
-    <!-- aqui acaba a sidebar esquerda -->
     <div class="main">
         <div id="container">
             <div id="titulo">
-                <h1 id="tituloH1">Relátorios</h1>
+                <h1 id="tituloH1">Relatórios</h1>
             </div>
             <div id="geralInformacoes">
-                <!-- $nomeDiv,$icone, $titulo, $alt=''-->
-                <?php dadosInforRelatorios('receita','../../../public/imagens/imagensADM/graficoRelatorios.png','Relátorio de Receitas','','grafico') ?>
-                <?php dadosInforRelatorios('produto','../../../public/imagens/imagensADM/folhaRelatorios.png','Receita por Produto','folha') ?>
-                <?php dadosInforRelatorios('abandonadas','../../../public/imagens/imagensADM/sadFaceRelatorios.png','Vendas Abandonadas','sadFace') ?>
+                <?php echo PopUpConfirmar("relatorioReceitas", "Relatório de Receitas", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "500px", "gray", "white")?>
+                <?php dadosInforRelatorios('receita','../../../public/imagens/associado/iconeRelatorioReceitas.png','Relatório de Receitas','relatorioReceitas','grafico') ?>
+                <?php echo PopUpConfirmar("relatorioProduto", "Relatório de Receitas por Produto", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "", "gray", "white")?>
+                <?php dadosInforRelatorios('produto','../../../public/imagens/associado/iconeReceitaProduto.png','Receita por Produto','relatorioProduto','folha') ?>
+                <?php echo PopUpConfirmar("relatorioVendas", "Relatório de Vendas Abandonadas", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "", "gray", "white")?>
+                <?php dadosInforRelatorios('abandonadas','../../../public/imagens/associado/iconeVendasAbandonadas.png','Vendas Abandonadas','relatorioVendas','sadFace') ?>
             </div>
     
         </div>

@@ -92,6 +92,7 @@
     flex-direction: column;
     align-items: center;
     gap: 4px;
+    list-style-type: none;
 }
 
 .botoesMenu ul .nav-item{
@@ -112,12 +113,22 @@
 }
 
 .botoesMenu ul .nav-item .nav-link .bx{
+    display: flex;
     font-size: 16px;
     border-radius: 8px;
     padding: 5px;
     background-color: var(--cor-sidebar-escrita);
     color: var(--cor-sidebar-fundo);
     align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.botoesMenu ul .nav-item .nav-link .bx::before{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .botoesMenu ul .nav-item .nav-link .fa{
@@ -172,6 +183,7 @@
     bottom: 7%;
     left: 0;
     gap: 15px;
+    cursor: pointer;
 }
 
 .area_Sair .button_sair .fa{
