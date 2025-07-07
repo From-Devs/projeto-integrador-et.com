@@ -25,10 +25,10 @@
                 </form>
                 <a id='esqueciSenha' href="">Esqueceu a senha?</a>
             </div>
-            <button id="botaoEntrar">Entrar</button>
+            <button id="botaoEntrar" onclick="redirecionar()" >Entrar</button>
             <div id="cadastro">
                 <p>Novo na ET?</p>
-                <a id="cadastroClique" href="./CadastroUsuario.php">Cadastre-se</a>
+                <a id="cadastroClique" href="CadastroUsuario.php">Cadastre-se</a>
             </div>
             <button id="voltarSair" onclick="history.back()">
                 <i class='fas fa-chevron-left'></i>
@@ -42,6 +42,12 @@
             </div>
         </section>
     </div>
+
+<script> 
+    function redirecionar() {
+        window.location.href = "paginaPrincipal.php";
+    }
+</script>
 </body>
 </html>
 
