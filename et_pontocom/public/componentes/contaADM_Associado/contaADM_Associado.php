@@ -13,7 +13,7 @@ function createContaAssociadoADM($tipo = "ADM"){
         ";
     }else{
         return "
-        <div class='componenteConta'>
+        <a class='componenteConta' href='/projeto-integrador-et.com/et_pontocom/app/views/associado/MeusDadosAssociado.php'>
             <div class='fotoUserWrapper'>
                 <img id='fotoUser' src='/projeto-integrador-et.com/et_pontocom/public/imagens/imagensADM/image.png' alt='userIMG'>
             </div>
@@ -21,7 +21,7 @@ function createContaAssociadoADM($tipo = "ADM"){
                 <p id='textUser'>Wellinton R.</p>
                 <p id='textCargo'>Associado ET</p>
             </div>
-        </div>
+        </a>
         ";
     }
 }
