@@ -184,7 +184,6 @@ body {
 }
 
 .commission-table {
-  padding: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;
   text-align: left;
@@ -318,7 +317,7 @@ body {
 }
 
 .associ{
-  margin-right: 1700px;
+  margin-right: 1650px;
   text-align: left;
   position: absolute;
   margin-top: -200px;
