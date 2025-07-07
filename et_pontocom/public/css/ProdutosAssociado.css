@@ -72,6 +72,12 @@ a
     transform: translate(-50%, -50%);
 }
 
+.fecharPopUp{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
 .dialog-editar::backdrop{
     background-color: rgba(121, 121, 121, 0.5);
 }
@@ -91,11 +97,6 @@ a
     transform: translateX(-50%);
     margin: 0;
     font-size: 2rem;
-}
-
-.header-editar img{
-    width: 25px;
-    cursor: pointer;
 }
 
 .campos-editar{
