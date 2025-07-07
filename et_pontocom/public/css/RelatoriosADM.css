@@ -44,10 +44,12 @@ a
 
 #geralInformacoes
 {
-    width: 1450px;
-    display: flex;
+    width: 100%;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
     justify-content: space-between;
-    margin-right: 50px;
+    grid-auto-flow: row;
+    gap: 16px;
 }
 
 #textoTituloInform
@@ -106,9 +108,19 @@ a
     cursor: pointer;
 }
 
+@media (max-width: 1750px) {
+    #geralInformacoes{
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 1280px) {
     .main{
         margin-left: 250px;
+    }
+
+    #geralInformacoes{
+        grid-template: repeat(4, 1fr) / repeat(1, 1fr);
     }
 }
 
@@ -141,6 +153,7 @@ a
     }
 
     #geralInformacoes{
+        display: flex;
         flex-direction: column;
         width: auto;
         margin-right: 0;
