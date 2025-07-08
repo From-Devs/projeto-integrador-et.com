@@ -14,36 +14,58 @@ document.addEventListener("DOMContentLoaded", function(){
 
     let current = 0;
     let Animacao = false;
-    let animacaoInterval = null; 
+    let animacaoInterval = null;
 
-    function executarAnimacao() {
-      if (Animacao || detalhes.classList.contains("open")) return;
-      Animacao = true;
-      animacaoInterval = setInterval(() => {
-        if (detalhes.classList.contains("open")) {
-          clearInterval(animacaoInterval);
-          Animacao = false;
-          return;
-        }
+    // let inputTimer = 0;
+    // let becomingInactive = false;
 
-        if (current >= 2) {
-          clearInterval(animacaoInterval);
-          current = 0;
-          AtualizarCarousel(); 
-          Animacao = false;
-          return;
-        }
+    // function inactiveCarousel(){
+    //   becomingInactive = true;
+    //   let incativeInterval = setInterval(function(){
+    //     inputTimer+=1;
+    //     console.log(inputTimer);
+    //     if (inputTimer==8 && !detalhes.classList.contains("open")){
+    //       becomingInactive = false
+    //       clearInterval(incativeInterval)
+    //       console.log("parou")
+    //     }
+    //   }, 1000);
+    // }
+
+    // setInterval(() => {
+    //   if (inputTimer == 0 && becomingInactive == false){
+    //     inactiveCarousel();
+    //   }
+    // },1100);
+
+  //   function executarAnimacao() {
+  //     if (Animacao || detalhes.classList.contains("open")) return;
+  //     Animacao = true;
+  //     animacaoInterval = setInterval(() => {
+  //       if (detalhes.classList.contains("open")) {
+  //         clearInterval(animacaoInterval);
+  //         Animacao = false;
+  //         return;
+  //       }
+
+  //       if (current >= 2) {
+  //         clearInterval(animacaoInterval);
+  //         current = 0;
+  //         AtualizarCarousel(); 
+  //         Animacao = false;
+  //         return;
+  //       }
     
-        console.log("Índice atual:", current);
-        AtualizarCarousel();
-        current += 1;
+  //       console.log("Índice atual:", current);
+  //       AtualizarCarousel();
+  //       current += 1;
     
-      }, 4000);
-    }
+  //     }, 4000);
+  //   }
     
-  setInterval(() => {
-    executarAnimacao();
-  }, 10);
+  // setInterval(() => {
+  //   executarAnimacao();
+  // }, 10);
 
 
     function mudarCorDeFundo(index) {
@@ -55,6 +77,8 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     function AtualizarCarousel() {
+      inputTimer = 0;
+
       items.forEach((item, index) => {
         item.classList.remove('left', 'right', 'active');
 
