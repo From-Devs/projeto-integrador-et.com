@@ -5,7 +5,7 @@
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
     session_start();
-    // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
+    $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipo_usuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
@@ -32,7 +32,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>listaDeDesejos</title>
 </head>
 <body>
 
@@ -45,6 +45,19 @@
         </div>
         <center><div class="line"></div></center>
     </div>
+
+    <div class="cont-legend">
+        <div class="cards-legend">
+            <div class="produto">
+                <p><strong>Produto</strong></p>
+            </div>
+
+            <div class="preco">
+                <p><strong>Preço</strong></p>
+            </div>
+        </div>
+    </div>
+   
 
     <div class="container">
         <div class="card-container">
@@ -132,6 +145,50 @@
                 </div>
 
                 <div class="cardCheck04">
+                    <input type="checkbox">
+                </div>
+            </div>
+
+            <div class="card01">
+                <div class="cardImg01">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/prod01.png" alt="">
+                </div>
+
+                <div class="cardPreco01">
+                    <p><strong>R$50,00</strong></p>
+                </div>
+
+                <div class="cardInfo01">
+                    <p>Nivea  HIDRATANTE CORPORAL MILK</p>
+                </div>
+
+                <div class="cardDate01">
+                    <p><strong>Adicionado 11/03/25</strong></p>
+                </div>
+
+                <div class="cardCheck01">
+                    <input type="checkbox">
+                </div>
+            </div>
+
+            <div class="card02">
+                <div class="cardImg02">
+                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/prod02.png" alt="">
+                </div>
+
+                <div class="cardPreco02">
+                    <p><strong>R$50,00</strong></p>
+                </div>
+
+                <div class="cardInfo02">
+                    <p>Nivea  HIDRATANTE CORPORAL MILK</p>
+                </div>
+
+                <div class="cardDate02">
+                    <p><strong>Adicionado 11/03/25</strong></p>
+                </div>
+
+                <div class="cardCheck02">
                     <input type="checkbox">
                 </div>
             </div>
