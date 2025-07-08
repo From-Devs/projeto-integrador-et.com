@@ -60,148 +60,170 @@
    
 
     <div class="container">
+        <div class="degradeTopo"></div>
+        <div class="degradeBaixo"></div>
         <div class="card-container">
-            <div class="card01">
-                <div class="cardImg01">
+            <div class="cardDesejos card01">
+                <div class="cardImg">
                     <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/prod01.png" alt="">
                 </div>
 
-                <div class="cardPreco01">
+                <div class="cardPreco">
                     <p><strong>R$50,00</strong></p>
                 </div>
 
-                <div class="cardInfo01">
+                <div class="cardInfo">
                     <p>Nivea  HIDRATANTE CORPORAL MILK</p>
                 </div>
 
-                <div class="cardDate01">
+                <div class="cardDate">
                     <p><strong>Adicionado 11/03/25</strong></p>
                 </div>
 
-                <div class="cardCheck01">
-                    <input type="checkbox">
+                <div class="cardButtons">
+                    <button class="buttonDesejos" id="buttonDetalhes">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                    <button class="buttonDesejos" id="buttonLixeira">
+                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/lixeira.png" alt="">
+                    </button>
                 </div>
             </div>
 
-            <div class="card02">
-                <div class="cardImg02">
+            <div class="cardDesejos card02">
+                <div class="cardImg">
                     <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/prod02.png" alt="">
                 </div>
 
-                <div class="cardPreco02">
+                <div class="cardPreco">
                     <p><strong>R$50,00</strong></p>
                 </div>
 
-                <div class="cardInfo02">
+                <div class="cardInfo">
                     <p>Nivea  HIDRATANTE CORPORAL MILK</p>
                 </div>
 
-                <div class="cardDate02">
+                <div class="cardDate">
                     <p><strong>Adicionado 11/03/25</strong></p>
                 </div>
 
-                <div class="cardCheck02">
-                    <input type="checkbox">
+                <div class="cardButtons">
+                    <button class="buttonDesejos" id="buttonDetalhes">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                    <button class="buttonDesejos" id="buttonLixeira">
+                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/lixeira.png" alt="">
+                    </button>
                 </div>
             </div>
 
-            <div class="card03">
-                <div class="cardImg03">
+            <div class="cardDesejos card03">
+                <div class="cardImg">
                     <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/prod03.png" alt="">
                 </div>
 
-                <div class="cardPreco03">
+                <div class="cardPreco">
                     <p><strong>R$50,00</strong></p>
                 </div>
 
-                <div class="cardInfo03">
+                <div class="cardInfo">
                     <p>Nivea  HIDRATANTE CORPORAL MILK</p>
                 </div>
 
-                <div class="cardDate03">
+                <div class="cardDate">
                     <p><strong>Adicionado 11/03/25</strong></p>
                 </div>
 
-                <div class="cardCheck03">
-                    <input type="checkbox">
+                <div class="cardButtons">
+                    <button class="buttonDesejos" id="buttonDetalhes">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                    <button class="buttonDesejos" id="buttonLixeira">
+                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/lixeira.png" alt="">
+                    </button>
                 </div>
             </div>
 
-            <div class="card04">
-                <div class="cardImg04">
+            <div class="cardDesejos card04">
+                <div class="cardImg">
                     <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/prod04.png" alt="">
                 </div>
 
-                <div class="cardPreco04">
+                <div class="cardPreco">
                     <p><strong>R$50,00</strong></p>
                 </div>
 
-                <div class="cardInfo04">
+                <div class="cardInfo">
                     <p>Nivea  HIDRATANTE CORPORAL MILK</p>
                 </div>
 
-                <div class="cardDate04">
+                <div class="cardDate">
                     <p><strong>Adicionado 11/03/25</strong></p>
                 </div>
 
-                <div class="cardCheck04">
-                    <input type="checkbox">
+                <div class="cardButtons">
+                    <button class="buttonDesejos" id="buttonDetalhes">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                    <button class="buttonDesejos" id="buttonLixeira">
+                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/lixeira.png" alt="">
+                    </button>
                 </div>
             </div>
 
-            <div class="card01">
-                <div class="cardImg01">
+            <div class="cardDesejos card01">
+                <div class="cardImg">
                     <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/prod01.png" alt="">
                 </div>
 
-                <div class="cardPreco01">
+                <div class="cardPreco">
                     <p><strong>R$50,00</strong></p>
                 </div>
 
-                <div class="cardInfo01">
+                <div class="cardInfo">
                     <p>Nivea  HIDRATANTE CORPORAL MILK</p>
                 </div>
 
-                <div class="cardDate01">
+                <div class="cardDate">
                     <p><strong>Adicionado 11/03/25</strong></p>
                 </div>
 
-                <div class="cardCheck01">
-                    <input type="checkbox">
+                <div class="cardButtons">
+                    <button class="buttonDesejos" id="buttonDetalhes">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                    <button class="buttonDesejos" id="buttonLixeira">
+                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/lixeira.png" alt="">
+                    </button>
                 </div>
             </div>
 
-            <div class="card02">
-                <div class="cardImg02">
+            <div class="cardDesejos card02">
+                <div class="cardImg">
                     <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/prod02.png" alt="">
                 </div>
 
-                <div class="cardPreco02">
+                <div class="cardPreco">
                     <p><strong>R$50,00</strong></p>
                 </div>
 
-                <div class="cardInfo02">
+                <div class="cardInfo">
                     <p>Nivea  HIDRATANTE CORPORAL MILK</p>
                 </div>
 
-                <div class="cardDate02">
+                <div class="cardDate">
                     <p><strong>Adicionado 11/03/25</strong></p>
                 </div>
 
-                <div class="cardCheck02">
-                    <input type="checkbox">
+                <div class="cardButtons">
+                    <button class="buttonDesejos" id="buttonDetalhes">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                    <button class="buttonDesejos" id="buttonLixeira">
+                        <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/produtoAssociado/lixeira.png" alt="">
+                    </button>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="button-container">
-        <div class="button01">
-            <button type="submit"><img src="/projeto-integrador-et.com/et_pontocom/public/imagens/listaDeDesejos/imgButton.png" alt=""><p>Adicionar ao carrinho</p></button>
-        </div>
-
-        <div class="button02">
-            <button type="submit"><p>Excluir</p></button>
         </div>
     </div>
 
@@ -214,7 +236,7 @@
                 <a href="#">Ver Mais</a>
             </div>
             <div class="frameSlider">
-                <i class="fa-solid fa-chevron-left setaEsquerda" id="esquerda"></i>
+                <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
                 <div class="degradeEsquerda"></div>
                 <div class="frameProdutos">
                     <div class="containerProdutos">
@@ -231,7 +253,7 @@
                     </div>
                 </div>
                 <div class="degradeDireita"></div>
-                <i class="fa-solid fa-chevron-right setaDireita" id="direita"></i>
+                <i class="fa-solid fa-chevron-right setaSlider setaDireita" id="direita"></i>
             </div>
         </div>
     </div>

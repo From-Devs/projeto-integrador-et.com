@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 body {
   font-family: 'Montserrat', sans-serif;
@@ -8,9 +9,9 @@ body {
   font-weight: 400;
 }
 main {
-margin: 0 auto;
+  margin: 0 auto;
   max-width: 1200px;
-  padding: 20px;
+
 }
 table {
   width: 100%;
@@ -21,9 +22,10 @@ table {
 }
 th, td {
   padding: 20px;
-  text-align: left;
+  /* text-align: left; */
   border: none;
 }
+
 th {
   background-color: #1C1C1C;
   color: white;
@@ -46,7 +48,7 @@ tbody tr:nth-child(even) {
   background-color: #ffffff;
 }
 tbody tr:hover {
-  background-color: #ddd;
+  /* background-color: #ddd; */
 }
 tfoot {
   background-color: #ffffff;
@@ -78,13 +80,15 @@ tfoot {
 }
 .Meio {
   display: block;
-  width: 300px;
+  width: 50%;
   margin: 0 auto;
   text-align: center;
-  border-bottom: 1px solid #a8a8aa;
-  padding-bottom: 5px;
-  margin-bottom: 20px;
-  margin-top: 200px;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 8px;
+  margin-bottom: 50px;
+  margin-top: 150px;
+  font-size: 38px;
+  font-weight: 300;
 }
 .frete-container {
   display: flex;
@@ -106,10 +110,10 @@ tfoot {
   margin-top: 20px;
 }
 .button-container button {
-  padding: 10px 10px;
-  font-size: 13px;
-  width: 200px;
-  height: 33px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  width: auto;
+  height: auto;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   border: none;
@@ -117,9 +121,11 @@ tfoot {
   color: white;
   cursor: pointer;
   border-radius: 10px;
+  transition: all 0.3s;
 }
 .button-container button:hover {
-  background-color: #3C3C3C;
+  background-color: rgb(76, 76, 76);
+  transform: scale(1.05);
 }
 .produto-container {
   display: flex;
@@ -140,6 +146,9 @@ tfoot {
   border: none;
   background-color: #F5F5F5;
   border-radius: 10px;
+  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.4));
+  margin-left: 10px;
+  font-size: 1rem;
 }
 .cor1 {
   width: 100px;
@@ -148,6 +157,9 @@ tfoot {
   border-radius: 10px;
   margin-right: 0px;
   box-shadow: inset 0 32px 64px #a2a2a2;
+}
+.cor2{
+  text-align: center;
 }
 .table1 {
   width: 75%;
@@ -159,10 +171,12 @@ tfoot {
 .quantity-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 5px;
 }
 .quantity-btn {
-  background-color: #f0f0f0;
+  background-color: #1c1c1c;
+  color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 30px;
@@ -180,6 +194,18 @@ tfoot {
   border-radius: 5px;
   height: 30px;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 td img {
   margin-left: 20px;
   margin-right: 10px;
@@ -190,7 +216,7 @@ td img {
 }
 .check {
   margin-right: 20px;
-  margin-left: -30px;
+  /* margin-left: -30px; */
 }
 .produto-nome {
   vertical-align: middle;
@@ -200,34 +226,33 @@ td img {
 input[type="checkbox"] {
   width: 20px;
   height: 20px;
-  transform: scale(1.5);
-  margin-right: 10px;
-}
-
-input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
+  text-align: center;
   transform: scale(1.5);
   margin-right: 10px;
   vertical-align: middle;
   appearance: none;
   background-color: #A6A6A6;
-  border: 2px solid #A6A6A6;
+  /* border: 2px solid #A6A6A6; */
   border-radius: 5px;
   cursor: pointer;
   display: inline-block;
   position: relative;
+  box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
 input[type="checkbox"]:checked {
   background-color: #A6A6A6;
-  border: 2px solid #A6A6A6;
+  /* border: 2px solid #A6A6A6; */
   color: white; 
 }
 input[type="checkbox"]:checked::before {
-  content: '✔';
-  font-size: 16px; 
-  color: rgb(0, 0, 0); 
-  position: absolute; 
+  content: url("../imagens/check.png");
+  width: 16px;
+  height: 16px;
+  align-self: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 

@@ -13,6 +13,23 @@ body{
 .container{
     display: flex;
     justify-content: center;
+    position: relative;
+}
+
+.degradeTopo, .degradeBaixo{
+    position: absolute;
+    height: 20px;
+    width: 100%;
+}
+
+.degradeTopo{
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
+    top: 0;
+}
+
+.degradeBaixo{
+    background-image: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
+    bottom: 0;
 }
 
 .sliderContainer{
@@ -31,7 +48,7 @@ body{
 
 .line{
     width: 50%;
-    border-bottom: black 3px solid;
+    border-bottom: black 2px solid;
 }
 
 .title{
@@ -41,7 +58,7 @@ body{
 
 .title h1{
     font-size: 38px;
-    font-weight: 350;
+    font-weight: 300;
 }
 
 /*CONTAINER DE SCROOL*/
@@ -53,9 +70,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 40px;
-    margin-top: 15px;
     overflow: auto;
-    mask-image: linear-gradient(to bottom, white 90%, transparent 100%);
 }
 
 .card-container::-webkit-scrollbar{
@@ -73,7 +88,7 @@ body{
 .cont-legend{
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .cards-legend{
@@ -81,7 +96,7 @@ body{
     width: 1475px;
     grid-template-columns: 100px 100px;
     font-size: 18px;
-    gap: 130px;
+    gap: 120px;
 }
 
 .produto{
@@ -100,7 +115,7 @@ body{
         width: 1072px;
         grid-template-columns: 100px 100px;
         font-size: 18px;
-        gap: 80px;
+        gap: 70px;
     }
 
 }
@@ -111,11 +126,15 @@ body{
         width: 672px;
         grid-template-columns: 50px 50px;
         font-size: 16px;
-        gap: 60px;
+        gap: 55px;
     }
 }   
 
 @media (max-width: 680px){
+    .cont-legend{
+        padding-left: 10px;
+        justify-content: flex-start;
+    }
     .cards-legend{
         display: grid;
         width: 400px;
@@ -128,7 +147,15 @@ body{
 /*ESTILIZAÇÃO DOS CARDS*/
 /*CARD 01*/
 
-.card01{
+.cardDesejos:first-child{
+    margin-top: 20px;
+}
+
+.cardDesejos:last-child{
+    margin-bottom: 20px;
+}
+
+.cardDesejos{
     display: grid;
     grid-template-columns: 150px auto auto auto auto;
     height: 122.19px;
@@ -138,201 +165,82 @@ body{
     border-radius: 35px;
 }
 
-.cardImg01 img{
+.cardImg img{
     width: 125px;
 }
 
-.cardImg01{
+.cardImg{
     display: flex;
     justify-content: center;
 }
 
-.cardPreco01{
+.cardPreco{
     margin: auto;
     display: flex;
     justify-content: center;
 }
 
-.cardInfo01{
+.cardInfo{
     margin: auto;
     display: flex;
     justify-content: left;
     font-size: 15px;
+    overflow-wrap: break-word;
+    text-wrap: wrap;
 }
 
-.cardDate01{
+.cardInfo p{
+    overflow-wrap: break-word;
+    text-wrap: wrap;
+}
+
+.cardDate{
     display: flex;
     justify-content: center;
     margin: auto;
     font-size: 17px;
-}
-
-input[type="checkbox"] {
-    width: 18px;  /* Largura do checkbox */
-    height: 18px; /* Altura do checkbox */
-}
-
-.cardCheck01{
-    display: flex;
-    justify-content: center;
-    margin: auto;
 }
 
 /*CARD 02*/
 
 .card02{
-    display: grid;
-    grid-template-columns: 150px auto auto auto auto;
-    height: 122.19px;
     background: linear-gradient(to right, #D29065, #E1B598, #EED6C6, #FFFFFF);
-    border-radius: 10px;
-    box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
-    border-radius: 35px;
-}
-
-.cardImg02 img{
-    width: 125px;
-}
-
-.cardImg02{
-    display: flex;
-    justify-content: center;
-}
-
-.cardPreco02{
-    margin: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.cardInfo02{
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    font-size: 15px;
-}
-
-.cardDate02{
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    font-size: 17px;
-}
-
-input[type="checkbox"] {
-    width: 18px;  /* Largura do checkbox */
-    height: 18px; /* Altura do checkbox */
-}
-
-.cardCheck02{
-    display: flex;
-    justify-content: center;
-    margin: auto;
 }
 
 /*CARD 03*/
 
 .card03{
-    display: grid;
-    grid-template-columns: 150px auto auto auto auto;
-    height: 122.19px;
     background: linear-gradient(to right, #31BADA, #B9643A, #FFFFFF);
-    border-radius: 10px;
-    box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
-    border-radius: 35px;
-}
-
-.cardImg03 img{
-    width: 125px;
-}
-
-.cardImg03{
-    display: flex;
-    justify-content: center;
-}
-
-.cardPreco03{
-    margin: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.cardInfo03{
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    font-size: 15px;
-}
-
-.cardDate03{
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    font-size: 17px;
-}
-
-input[type="checkbox"] {
-    width: 18px;  /* Largura do checkbox */
-    height: 18px; /* Altura do checkbox */
-}
-
-.cardCheck03{
-    display: flex;
-    justify-content: center;
-    margin: auto;
 }
 
 /*CARD 04*/
 
 .card04{
-    display: grid;
-    grid-template-columns: 150px auto auto auto auto;
-    height: 122.19px;
     background: linear-gradient(to right, #D29065, #FFFFFF);
-    border-radius: 10px;
-    box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
-    border-radius: 35px;
 }
 
-.cardImg04 img{
-    width: 125px;
-}
-
-.cardImg04{
-    display: flex;
-    justify-content: center;
-}
-
-.cardPreco04{
-    margin: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.cardInfo04{
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    font-size: 15px;
-}
-
-.cardDate04{
+.cardButtons{
     display: flex;
     justify-content: center;
     margin: auto;
-    font-size: 17px;
+    gap: 12px;
 }
 
-input[type="checkbox"] {
-    width: 18px;  /* Largura do checkbox */
-    height: 18px; /* Altura do checkbox */
+.cardButtons .buttonDesejos{
+    background: transparent;
+    border: none;
+    width: 45px;
+    height: 45px;
+    font-size: 34px;
+    cursor: pointer;
 }
 
-.cardCheck04{
-    display: flex;
-    justify-content: center;
-    margin: auto;
+.cardButtons .buttonDesejos img{
+    width: 45px;
+    height: 45px;
 }
+
+
 
 /*BUTTONS*/
 
@@ -430,7 +338,7 @@ input[type="checkbox"] {
 /*03*/
 @media (max-width: 680px){
     .card-container{
-        max-width: 400px;
+        padding: 0 10px;
     }
 }
 
@@ -455,383 +363,106 @@ input[type="checkbox"] {
 /*02*/
 @media (max-width: 1080px){
     /*card01*/
-    .card01{
+    .cardDesejos{
         display: grid;
-        grid-template-columns: 95px auto auto auto 80px;
-        background: linear-gradient(to right, #3F7FD9, #81ABE6, #C0D5F3, #FFFFFF);
+        grid-template-columns: 95px auto auto auto auto;
         border-radius: 10px;
         box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
         border-radius: 35px;
     }
 
-    .cardPreco01{
+    .cardPreco{
         font-size: 13px;
     }
     
-    .cardInfo01{
+    .cardInfo{
         font-size: 12px;
     }
     
-    .cardDate01{
+    .cardDate{
         font-size: 14px;
     }
 
-    /*card02*/
-    .card02{
-        display: grid;
-        grid-template-columns: 95px auto auto auto 80px;
-        background: linear-gradient(to right, #D29065, #E1B598, #EED6C6, #FFFFFF);
-        border-radius: 10px;
-        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
-        border-radius: 35px;
-    }
-
-    .cardPreco02{
-        font-size: 13px;
-    }
-    
-    .cardInfo02{
-        font-size: 12px;
-    }
-    
-    .cardDate02{
-        font-size: 14px;
-    }
-
-    /*card03*/
-    .card03{
-        display: grid;
-        grid-template-columns: 95px auto auto auto 80px;
-        background: linear-gradient(to right, #31BADA, #B9643A, #FFFFFF);
-        border-radius: 10px;
-        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
-        border-radius: 35px;
-    }
-
-    .cardPreco03{
-        font-size: 13px;
-    }
-    
-    .cardInfo03{
-        font-size: 12px;
-    }
-    
-    .cardDate03{
-        font-size: 14px;
-    }
-
-    /*card04*/
-    .card04{
-        display: grid;
-        grid-template-columns: 95px auto auto auto 80px;
-        background: linear-gradient(to right, #D29065, #FFFFFF);
-        border-radius: 10px;
-        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
-        border-radius: 35px;
-    }
-
-    .cardPreco04{
-        font-size: 13px;
-    }
-    
-    .cardInfo04{
-        font-size: 12px;
-    }
-    
-    .cardDate04{
-        font-size: 14px;
-    }
 }
 
 /*03*/
 @media (max-width: 680px){
     /*card01*/
-    .card01{
+    .cardDesejos{
         display: grid;
-        grid-template-columns: 85px auto auto auto 80px;
-        background: linear-gradient(to right, #3F7FD9, #81ABE6, #C0D5F3, #FFFFFF);
+        grid-template-columns: 85px auto auto auto auto;
         border-radius: 10px;
         box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
         border-radius: 35px;
         align-items: center;
     }
 
-    .cardImg01 img{
+    .cardImg img{
         width: 100px;
         height: 100px;
     }
     
-    .cardPreco01{
+    .cardPreco{
         font-size: 13px;
     }
         
-    .cardInfo01{
+    .cardInfo{
         font-size: 12px;
         padding: 10px;
     }
         
-    .cardDate01{
-        font-size: 14px;
-    }
-
-    /*card02*/
-    .card02{
-        display: grid;
-        grid-template-columns: 85px auto auto auto 80px;
-        background: linear-gradient(to right, #D29065, #E1B598, #EED6C6, #FFFFFF);
-        border-radius: 10px;
-        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
-        border-radius: 35px;
-        align-items: center;
-    }
-
-    .cardImg02 img{
-        width: 100px;
-        height: 100px;
-    }
-    
-    .cardPreco02{
-        font-size: 13px;
-    }
-        
-    .cardInfo02{
-        font-size: 12px;
-        padding: 10px;
-    }
-        
-    .cardDate02{
-        font-size: 14px;
-    }
-
-    /*card03*/
-    .card03{
-        display: grid;
-        grid-template-columns: 85px auto auto auto 80px;
-        background: linear-gradient(to right, #31BADA, #B9643A, #FFFFFF);
-        border-radius: 10px;
-        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
-        border-radius: 35px;
-        align-items: center;
-    }
-
-    .cardImg03 img{
-        width: 100px;
-        height: 100px;
-    }
-    
-    .cardPreco03{
-        font-size: 13px;
-    }
-        
-    .cardInfo03{
-        font-size: 12px;
-        padding: 10px;
-    }
-        
-    .cardDate03{
-        font-size: 14px;
-    }
-
-    /*card04*/
-    .card04{
-        display: grid;
-        grid-template-columns: 85px auto auto auto 80px;
-        background: linear-gradient(to right, #D29065, #FFFFFF);
-        border-radius: 10px;
-        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
-        border-radius: 35px;
-        align-items: center;
-    }
-
-    .cardImg04 img{
-        width: 100px;
-        height: 100px;
-    }
-    
-    .cardPreco04{
-        font-size: 13px;
-    }
-        
-    .cardInfo04{
-        font-size: 12px;
-        padding: 10px;
-    }
-        
-    .cardDate04{
+    .cardDate{
         font-size: 14px;
     }
     
 }
 
 /*04*/
-@media (max-width: 410px){
+@media (max-width: 580px){
     .cards-legend{
         display: none;
     }
 
-    .card01{
+    .cardDesejos{
         display: flex;
         height: auto;
         flex-direction: column;
-        background: linear-gradient(to right, #3F7FD9, #81ABE6, #C0D5F3, #FFFFFF);
         border-radius: 10px;
         box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
         border-radius: 35px;
         align-items: center;
     }
 
-    .cardImg01 img{
+    .cardImg img{
         width: 90px;
         height: 90px;
     }
     
-    .cardPreco01{
+    .cardPreco{
         font-size: 13px;
         position: relative;
         bottom: 10px;
     }
         
-    .cardInfo01{
+    .cardInfo{
         position: relative;
         font-size: 12px;
         bottom: 12px;
     }
         
-    .cardDate01{
+    .cardDate{
         position: relative;
         font-size: 14px;
         bottom: 15px;
     }
 
-    .cardCheck01{
+    .cardCheck{
         display: flex;
         position: relative;
         bottom: 8px;
         justify-content: center;
     }
 
-    .card02{
-        display: flex;
-        height: auto;
-        flex-direction: column;
-        background: linear-gradient(to right, #D29065, #E1B598, #EED6C6, #FFFFFF);
-        border-radius: 10px;
-        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
-        border-radius: 35px;
-        align-items: center;
-    }
-
-    .cardImg02 img{
-        width: 90px;
-        height: 90px;
-    }
-    
-    .cardPreco02{
-        font-size: 13px;
-        position: relative;
-        bottom: 10px;
-    }
-        
-    .cardInfo02{
-        position: relative;
-        font-size: 12px;
-        bottom: 12px;
-    }
-        
-    .cardDate02{
-        position: relative;
-        font-size: 14px;
-        bottom: 15px;
-    }
-
-    .cardCheck02{
-        display: flex;
-        position: relative;
-        bottom: 8px;
-        justify-content: center;
-    }
-
-    .card03{
-        display: flex;
-        height: auto;
-        flex-direction: column;
-        background: linear-gradient(to right, #31BADA, #B9643A, #FFFFFF);
-        border-radius: 10px;
-        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
-        border-radius: 35px;
-        align-items: center;
-    }
-
-    .cardImg03 img{
-        width: 90px;
-        height: 90px;
-    }
-    
-    .cardPreco03{
-        font-size: 13px;
-        position: relative;
-        bottom: 10px;
-    }
-        
-    .cardInfo03{
-        position: relative;
-        font-size: 12px;
-        bottom: 12px;
-    }
-        
-    .cardDate03{
-        position: relative;
-        font-size: 14px;
-        bottom: 15px;
-    }
-
-    .cardCheck03{
-        display: flex;
-        position: relative;
-        bottom: 8px;
-        justify-content: center;
-    }
-
-    .card04{
-        display: flex;
-        height: auto;
-        flex-direction: column;
-        background: linear-gradient(to right, #D29065, #FFFFFF);
-        border-radius: 10px;
-        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
-        border-radius: 35px;
-        align-items: center;
-    }
-
-    .cardImg04 img{
-        width: 90px;
-        height: 90px;
-    }
-    
-    .cardPreco04{
-        font-size: 13px;
-        position: relative;
-        bottom: 10px;
-    }
-        
-    .cardInfo04{
-        position: relative;
-        font-size: 12px;
-        bottom: 12px;
-    }
-        
-    .cardDate04{
-        position: relative;
-        font-size: 14px;
-        bottom: 15px;
-    }
-
-    .cardCheck04{
-        display: flex;
-        position: relative;
-        bottom: 8px;
-        justify-content: center;
-    }
 }
 
 
