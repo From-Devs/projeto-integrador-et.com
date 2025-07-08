@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const prev = document.getElementById('prev');
     const next = document.getElementById('next');
     const Bolas = document.querySelectorAll('.Bola');
-   const carousel = document.getElementById('carousel');
+    const carousel = document.getElementById('carousel');
     const background = document.getElementById('carouselBackground');
     const detalhes = this.documentElement.querySelector('.detalheProdutoCarousel')
 
@@ -14,59 +14,52 @@ document.addEventListener("DOMContentLoaded", function(){
 
     let current = 0;
     let Animacao = false;
-    let animacaoInterval = null;
 
-    // let inputTimer = 0;
-    // let becomingInactive = false;
+	const inactivityTimeout = 8000; // 8 segundos (tempo q o usuario precisa ficar inativo)
+	const autoSlideInterval = 6000; // 6 segundos (slide de um produto pro outro)
+	let autoSlideTimer = null;
+	let inactivityTimer = null;
+	let isPopupOpen = false;
 
-    // function inactiveCarousel(){
-    //   becomingInactive = true;
-    //   let incativeInterval = setInterval(function(){
-    //     inputTimer+=1;
-    //     console.log(inputTimer);
-    //     if (inputTimer==8 && !detalhes.classList.contains("open")){
-    //       becomingInactive = false
-    //       clearInterval(incativeInterval)
-    //       console.log("parou")
-    //     }
-    //   }, 1000);
-    // }
+	startAutoSlide();
+	resetInactivityTimer();
+	AtualizarCarousel();
 
-    // setInterval(() => {
-    //   if (inputTimer == 0 && becomingInactive == false){
-    //     inactiveCarousel();
-    //   }
-    // },1100);
-
-  //   function executarAnimacao() {
-  //     if (Animacao || detalhes.classList.contains("open")) return;
-  //     Animacao = true;
-  //     animacaoInterval = setInterval(() => {
-  //       if (detalhes.classList.contains("open")) {
-  //         clearInterval(animacaoInterval);
-  //         Animacao = false;
-  //         return;
-  //       }
-
-  //       if (current >= 2) {
-  //         clearInterval(animacaoInterval);
-  //         current = 0;
-  //         AtualizarCarousel(); 
-  //         Animacao = false;
-  //         return;
-  //       }
-    
-  //       console.log("Índice atual:", current);
-  //       AtualizarCarousel();
-  //       current += 1;
-    
-  //     }, 4000);
-  //   }
-    
-  // setInterval(() => {
-  //   executarAnimacao();
-  // }, 10);
-
+	// Controle de tempo
+	function resetTimers() {
+		clearTimeout(inactivityTimer);
+		clearInterval(autoSlideTimer);
+		
+		if (!isPopupOpen) {
+			startAutoSlide();
+			resetInactivityTimer();
+		}
+	}
+	
+	// Temporizador de inatividade
+	function resetInactivityTimer() {
+		inactivityTimer = setTimeout(() => {
+			startAutoSlide();
+		}, inactivityTimeout);
+	}
+	
+	// Iniciar slide automático
+	function startAutoSlide() {
+		if (autoSlideTimer) clearInterval(autoSlideTimer);
+		autoSlideTimer = setInterval(() => {
+			if (!isPopupOpen && !Animacao) {
+				Direcao('next');
+			}
+		}, autoSlideInterval);
+	}
+	
+	// Parar slide automático
+	function stopAutoSlide() {
+		clearInterval(autoSlideTimer);
+		autoSlideTimer = null;
+		clearTimeout(inactivityTimer);
+		inactivityTimer = null;
+	}
 
     function mudarCorDeFundo(index) {
       carousel.className = `carouselContainer cor-${index}`;
@@ -77,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     function AtualizarCarousel() {
-      inputTimer = 0;
 
       items.forEach((item, index) => {
         item.classList.remove('left', 'right', 'active');
@@ -101,18 +93,12 @@ document.addEventListener("DOMContentLoaded", function(){
           if (current === 0) {
               // retorna a cor 1
               Bola.style.background = '#651629'; 
-              detalhesTitulo.innerHTML = "BATOM LÍQUIDO MATTIFY DAZZLE";
-              detalhesMarca.innerHTML = "HINODE";
             } else if (current === 1) {
               // retorna a cor 2
               Bola.style.background = '#AE703F';
-              detalhesTitulo.innerHTML = "BASE MATE BOCA ROSA";
-              detalhesMarca.innerHTML = "PAYOT";
             } else {
               // retorna a cor 3
               Bola.style.background = '#AE665E';
-              detalhesTitulo.innerHTML = "BODY SPLASH CUIDE-SE BEM DELEITE";
-              detalhesMarca.innerHTML = "O BOTICÁRIO";
             }
         }
       });
@@ -121,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     function Direcao(direction) {
-      if (Animacao) return;
+      if (Animacao || isPopupOpen) return;
       Animacao = true;
 
       if (direction === 'prev') {
@@ -131,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function(){
       }
 
       AtualizarCarousel();
+	  resetTimers();
 
       setTimeout(() => {
         Animacao = false;
@@ -138,40 +125,72 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     function Deslizar(index) {
-      if (Animacao || index === current) return;
+      if (Animacao || index === current || isPopupOpen) return;
       Animacao = true;
       current = index;
       AtualizarCarousel();
+	  resetTimers();
       setTimeout(() => {
         Animacao = false;
       }, 800);
     }
 
-    prev.addEventListener('click', () => Direcao('prev'));
-    next.addEventListener('click', () => Direcao('next'));
+	function openPopup(){
+		if (Animacao) return;
+
+		if (current === 0) {
+			detalhesTitulo.innerHTML = "BATOM LÍQUIDO MATTIFY DAZZLE";
+			detalhesMarca.innerHTML = "HINODE";
+		} else if (current === 1) {
+			detalhesTitulo.innerHTML = "BASE MATE BOCA ROSA";
+			detalhesMarca.innerHTML = "PAYOT";
+		} else {
+			detalhesTitulo.innerHTML = "BODY SPLASH CUIDE-SE BEM DELEITE";
+			detalhesMarca.innerHTML = "O BOTICÁRIO";
+		}
+
+		detalhes.classList.add("open")
+		isPopupOpen = true;
+		stopAutoSlide();
+	}
+
+	function closePopup(){
+		detalhes.classList.remove("open")
+		isPopupOpen = false;
+		resetTimers();
+	}
+
+    prev.addEventListener('click', () => {
+		Direcao('prev');
+		resetTimers();
+	});
+    next.addEventListener('click', () => {
+		Direcao('next');
+		resetTimers();
+	});
 
     Bolas.forEach((Bola, index) => {
-      Bola.addEventListener('click', () => Deslizar(index));
+      Bola.addEventListener('click', () => {
+		Deslizar(index);
+		resetTimers();
+	  });
     });
-
-    AtualizarCarousel();
 
     items.forEach((item) => {
       item.addEventListener('click', function(event){
         if (item.classList.contains("active")) {
-          event.stopPropagation();
-          
-          if (!detalhes.classList.contains("open")){
-            detalhes.classList.add("open")
-          }else{
-            detalhes.classList.remove("open")
-          }
+        	event.stopPropagation();
+        	if (!isPopupOpen){
+				openPopup();
+			}else{
+				closePopup();
+			}
         };
       });
     });
     document.addEventListener('click', function(event){
       if (detalhes.classList.contains("open") && !detalhes.contains(event.target)){
-        detalhes.classList.remove("open")
+        closePopup();
       }
     })
 });
