@@ -429,6 +429,13 @@ option {
     font-size: 1.5rem;
 }
 
+.sliderContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0);
