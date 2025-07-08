@@ -34,7 +34,7 @@
     echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
   <main>
-    <h1 class="Meio">Meu Carrinho</h1>
+    <h1 class="Meio">MEU CARRINHO</h1>
     <form method="post" action="">
       <table>
         <thead>
@@ -73,7 +73,7 @@
               <td></td>
               <td></td>
               <td class='cor2'>R$ {$produto[1]}</td>
-              <td>
+              <td class='quantityColumn'>
                 <div class='quantity-container'>
                   <button type='button' class='quantity-btn' onclick='decrementQuantity($index)'>-</button>
                   <input type='number' name='quantidade[$index]' value='{$produto[2]}' min='1' class='quantity-input'>
