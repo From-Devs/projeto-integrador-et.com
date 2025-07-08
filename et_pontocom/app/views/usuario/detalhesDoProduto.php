@@ -92,7 +92,7 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
                             ?>
                         </div>
                         <div>
-                            <?php echo botaoPersonalizadoRedirect("Comprar agora", "btn-white", "#", "100%", "40px")?>
+                            <?php echo botaoPersonalizadoRedirect("Comprar agora", "btn-white", "et_pontocom/app/views/usuario/Meu_Carrinho.php", "100%", "40px")?>
                         </div>
                     </div>
                 </div>
