@@ -18,16 +18,23 @@ function preencheValidar() {
 
 function preencheCancelar() {
     if (!botaoClicado) return;
+    
+    const textareaPopUp = document.querySelector(".textarea-popUp textarea");
 
-    const parent = botaoClicado.closest('.verticalizacao');
-    const validarButton = parent.querySelector('.validarButton');
-    const cancelarButton = parent.querySelector('.cancelarButton');
+    if (textareaPopUp.value.trim() === "") {
+        textareaPopUp.style.border = "1px solid red";
+    } else {
+        const parent = botaoClicado.closest('.verticalizacao');
+        const validarButton = parent.querySelector('.validarButton');
+        const cancelarButton = parent.querySelector('.cancelarButton');
 
-    cancelarButton.classList.add("marcarCancelar");
-    validarButton.classList.remove("marcarValido");
+        cancelarButton.classList.add("marcarCancelar");
+        validarButton.classList.remove("marcarValido");
 
-    botaoClicado = null;
+        const popUp = document.getElementsByClassName("popUpCancelar")[0];
+        popUp.close();
 
-    const popUp = document.getElementsByClassName("popUpCancelar")[0];
-    popUp.close();
+        textareaPopUp.value = "";
+        botaoClicado = null;
+    }
 }

@@ -1,14 +1,12 @@
 @import url(styles.css);
 @import url(./../componentes/tabelasAssociado_ADM/AssociadosADM/associados.css);
 
-*
-{
+* {
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
 }
 
-body
-{
+body {
     display: flex;
     margin: 0%;
     padding: 0%;
@@ -17,19 +15,17 @@ body
     background-color: #F8F8F8;
 }
 
-a
-{
+a {
     text-decoration: none;
 }
 
-/* PARTE DA DIREITA CONTAINER GERAL */ 
+/* PARTE DA DIREITA CONTAINER GERAL */
 
-.logo{
+.logo {
     padding-bottom: 4px;
 }
 
-#container
-{
+#container {
     gap: 15px;
     padding-left: 60px;
     box-sizing: border-box;
@@ -39,14 +35,13 @@ a
     flex-direction: column;
 }
 
-.main{
+.main {
     margin-left: 287px;
 }
 
 /* filtragem e pesquisa */
 
-#botaoAssociados, #botaoSolicitacao
-{
+#botaoAssociados, #botaoSolicitacao {
     display: flex;
     border: none;
     justify-content: center;
@@ -61,45 +56,55 @@ a
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-#lista{
+#lista {
     margin-top: 15px;
 }
 
-#tituloH1{
+#tituloH1 {
     font-size: 36px;
 }
 
+.textarea-popUp textarea {
+    width: 400px;
+    height: 150px;
+    padding: 5px;
+    border-radius: 10px;
+    resize: none;
+    font-weight: 500;
+}
+
 @media (max-width: 1280px) {
-    .main{
+    .main {
         margin-left: 250px;
     }
 }
 
-@media (max-width: 1024px){
-    .main{
+@media (max-width: 1024px) {
+    .main {
         margin-left: 230px;
     }
 
-    #container{
+    #container {
         padding-left: 35px;
     }
 }
- 
-@media (max-width: 800px){
-    .main{
+
+@media (max-width: 800px) {
+    .main {
         margin-left: 0;
     }
 
-    #container{
+    #container {
         padding-left: 0;
         padding-top: 0;
         align-items: center;
     }
-    #titulo{
+
+    #titulo {
         width: 100%;
     }
 
-    .listaContainer{
+    .listaContainer {
         display: flex;
         flex-direction: column;
         width: fit-content;
@@ -107,45 +112,46 @@ a
         margin: 0 15px;
     }
 
-    #lista{
+    #lista {
         width: 100%;
     }
-    #divPesquisarEEscolher{
+
+    #divPesquisarEEscolher {
         width: 100%;
         padding-left: 80px;
         padding-right: 160px;
         margin-top: 15px;
     }
 
-    #pesquisar{
+    #pesquisar {
         width: 100%;
     }
 
-    #inputPesquisar{
+    #inputPesquisar {
         width: 100%;
         height: 50px;
         font-size: 16px;
     }
 
-    #botaoFiltragem{
+    #botaoFiltragem {
         height: 50px;
         width: 50px;
     }
 
-    #botaoFiltragem p{
+    #botaoFiltragem p {
         display: none;
     }
 
-    #imagemFiltro{
+    #imagemFiltro {
         width: 32px;
         height: 32px;
     }
 
-    th{
+    th {
         font-size: 16px;
     }
 
-    td{
+    td {
         font-size: 14px;
     }
 
@@ -156,27 +162,29 @@ a
         height: auto;
     }
 
-    #botaoAssociados{
+    #botaoAssociados {
         right: 182px;
         top: 80px;
     }
 
-    #botaoSolicitacao{
+    #botaoSolicitacao {
         top: 80px;
         right: 15px;
     }
 
-    #th1{
+    #th1 {
         width: 60px;
     }
 
-    td:first-child{
+    td:first-child {
         width: 60px;
     }
 }
 
-@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
-    #divPesquisarEEscolher{
+@media (max-width: 520px) {
+
+    /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+    #divPesquisarEEscolher {
         padding-right: 140px;
     }
 }

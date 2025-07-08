@@ -36,15 +36,21 @@
             </div>
         <?php
         }elseif($nome == 'solicitacao'){
-            $btnSimValidar = botaoPersonalizadoOnClick("Sim", "btn-black", "preencheValidar(this)", "80px", "35px");
+            $btnSimValidar = botaoPersonalizadoOnClick("Sim", "btn-black", "preencheValidar(this)", "100px", "35px");
 
-            $btnSimCancelar = botaoPersonalizadoOnClick("Sim", "btn-black", "preencheCancelar()", "80px", "35px");
+            $btnSimCancelar = botaoPersonalizadoOnClick(
+                "Confirmar",
+                "btn-black",
+                "preencheCancelar()",
+                "100px",
+                "35px"
+            );
 
-            $btnNao = botaoPersonalizadoOnClick("Não", "btn-white", "fecharPopUp()", "80px", "35px");
+            $btnNao = botaoPersonalizadoOnClick("Cancelar", "btn-white", "fecharPopUp()", "100px", "35px");
 
             echo PopUpConfirmar("popUpConfirmar", "Deseja realmente VALIDAR esse associado?", $btnSimValidar, $btnNao);
 
-            echo PopUpConfirmar("popUpCancelar", "Deseja realmente NÃO VALIDAR esse associado?", $btnSimCancelar, $btnNao);
+            echo PopUpComInput("popUpCancelar", "Deseja realmente NÃO VALIDAR esse associado?", "Motivo...", $btnSimCancelar, $btnNao);
 
             ?>
             <div id="lista">
@@ -78,6 +84,7 @@
                                 </button>
                             </div>
                             </td>
+                            <th class="motivo-header" style="display: none;"></th>
                         </tr>
                     <?php endforeach?>
                         
