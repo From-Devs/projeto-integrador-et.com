@@ -6,6 +6,7 @@ html,body {
     background: #E6E6E6;
     overflow-x: hidden;
     overflow-y: auto; /* permite scroll vertical */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -13,7 +14,7 @@ html,body {
 header{
     width: 100%;
     height: 170PX;
-    background: #ffffff;
+    background: #f8f8f8;
     color: #000;
     padding-top: 75px;
     padding-left: 365px;
@@ -31,15 +32,15 @@ header{
     padding: 29px;
     padding-top: 49px;
     margin-left: 434px;
-    margin-top: 70px;
-    width: 470px;
-    height: 454px;
+    margin-top: 40px;
+    width: 444px;
+    height: 405px;
     border-radius: 16px;
     background-color: #FDFDFD;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .user-dados{
-    margin-top: 65px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,8 +79,8 @@ header{
 .CardFilho{
     margin-left: 434px;
     margin-top: 7px;
-    width: 470px;
-    height: 54px;
+    width: 445px;
+    height: 48px;
     border-radius: 16px;
     background-color: #FDFDFD;
     box-shadow: #0000003d 0px 3px 8px;
@@ -89,7 +90,7 @@ header{
     align-items: center;
     padding: 4px;
     padding-left: 23px;
-    padding-top: 14px;
+    padding-top: 11px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .CardFilho i {
@@ -105,15 +106,15 @@ header{
     flex-direction: column;
     height: 800px;
     width: 100%;
-    margin: 50px;
-    gap: 32px;
+    margin: 33px;
+    gap: 25px;
 }
 .bnt-Editar{
     justify-content: center;
     align-items: center;
     color: #F0F0F0;
     font-size: small;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     display: flex;
     align-self: end;
     width: 154px;
@@ -126,7 +127,7 @@ header{
 .CardPrimos{
     padding: 15px;
     margin-left: 70px;
-    height: 102px;
+    height: 92px;
     width: 784px;
     border-radius: 15px;
     background-color: #FEFEFE;
@@ -137,7 +138,6 @@ hr {
     justify-self: center;
     width: 300px;
 }
-
 .CardPrimos #UserDados{
     padding: 3px;
     margin-top: 20px;
@@ -149,9 +149,10 @@ hr {
 }
 /* modificaçao/editar */
 .moficasao {
-    width: 1450px;
-    height: 841px;
+    width: 1390px;
+    height: 735px;
     border-radius: 15px;
+    margin-top: 10px;
     margin-left: 410px;
     background-color: #FDFDFD;
     display: flex;
