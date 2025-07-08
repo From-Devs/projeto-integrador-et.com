@@ -181,10 +181,10 @@ document.addEventListener("DOMContentLoaded", function(){
         if (item.classList.contains("active")) {
         	event.stopPropagation();
         	if (!isPopupOpen){
-				openPopup();
-			}else{
-				closePopup();
-			}
+            openPopup();
+          }else{
+            closePopup();
+          }
         };
       });
     });
