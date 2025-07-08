@@ -1,7 +1,7 @@
 /////// Função para exibir os cards dos produtos a caminho
 fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
-.then(response => response.json())
-.then(data => {     
+  .then(response => response.json())
+  .then(data => {     
                             //Produtos a caminho
 
     const produtosAtivos = data.produtos.filter(prod => 
@@ -68,7 +68,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                                 <span class="cardMini-Quantidade">${p.quantidade}x</span>
                             </div>
                             <div class="cardMini-conteudo">
-                                <img class="cardMini-imagem" src="${p.imagem}" height="100px">
+                                <img class="cardMini-imagem" src="${p.imagem}">
                                 <div class="cardMini-infos">
                                     <span class="cardMini-Titulo">${p.marca} ${p.nome}</span>
                                     
@@ -78,11 +78,11 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                                 </div>
                             </div>
                         </div>
-                        <div class="card-expandido" style="height: 390px; align-items: center;">
+                        <div class="card-expandido">
                             <span class="card-titulo">DESCRIÇÃO</span>
-                            <div class="card-linhasuperior" style="margin-top: 10px;"></div>
+                            <div class="card-linhasuperior"></div>
                             <img class="cardMini-imagem" src="${p.imagem}" height="130px">
-                            <div class="card-linhainferior" style="margin-bottom: 15px;"></div>
+                            <div class="card-linhainferior"></div>
                             <div class="detalhes-info" style="gap: 10px;">
                                 <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
                                 <span class="detalhes-status">Status: <span style="color: red;">${p.status}</span></span>
@@ -112,16 +112,16 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                         </div>
                         <div class="card-expandido" style="height: 420px;">
                             <span class="card-titulo">DESCRIÇÃO</span>
-                            <div class="card-linhasuperior" style="margin-top: 5px;"></div>
+                            <div class="card-linhasuperior"></div>
                             <img class="cardMini-imagem" src="${p.imagem}" height="130px">
-                            <div class="card-linhainferior" style="margin-bottom: 10px;"></div>
+                            <div class="card-linhainferior""></div>
                             <div class="detalhes-info" style="gap: 5px;">
                                 <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
                                 <span class="detalhes-status">Status: <span style="color: red;">${p.status}</span></span>
                                 <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
                                 <span class="detalhes-quantidade">Quantidade: ${p.quantidade} produtos</span>
                                 <span class="detalhes-preco" style="margin-bottom: 0px; font-size: 12px;">Preço Unitário: R$ ${p.preco.toFixed(2)}</span>
-                                <span class="detalhes-precoTotal" style="margin-bottom: 10px;">Preço Total: R$ ${(precoTotal).toFixed(2)}</span>
+                                <span class="detalhes-precoTotal">Preço Total: R$ ${(precoTotal).toFixed(2)}</span>
                             </div>
                             <a href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php" class="detalhes-botao">Comprar Novamente</a>
                         </div>
@@ -219,7 +219,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                             <span class="cardpopup-Quantidade">${p.quantidade}x</span>
                         </div>
                         <div class="cardpopup-conteudo">
-                            <img class="cardpopup-imagem" src="${p.imagem}" style="height:100px;">
+                            <img class="cardpopup-imagem" src="${p.imagem}">
                             <div class="cardpopup-infos">
                                 <span class="cardpopup-Titulo">${p.marca} ${p.nome}</span>
                                 <div class="preco-total">
@@ -228,7 +228,7 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                             </div>
                         </div>
                     </div>
-                    <div class="card-expandido" style="height: 540px; align-items: center;">
+                    <div class="card-expandido">
                         <span class="card-titulo">DETALHES DO PEDIDO</span>
                         <div class="detalhes-envio" style="gap: 5px;">
                             <span class="detalhes-status">Status: <span style="color: green;">${p.status}</span></span>
@@ -236,23 +236,31 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
                             <span class="detalhes-dataEntrega">Data de Entrega: <span style="font-weight: 500;">${p.dataEntrega}</span></span>
                             <span class="detalhes-endereco">Foi entregue às ${p.horarioEntrega} no endereço <span style="font-weight: 500; ">${p.rua} ${p.numero}</span>, bairro ${p.bairro}. ${p.cidade}, ${p.estado}.</span>
                         </div>
-                        <span class="card-titulo2" style="margin-top: 12px;">DESCRIÇÃO DO PRODUTO</span>
-                        <div class="card-linhasuperior" style="margin-top: 6px;"></div>
-                        <img class="cardpopup-imagem" src="${p.imagem}" height="120px">
-                        <div class="card-linhainferior" style="margin-bottom: 10px;"></div>
+                        <span class="card-titulo2">DESCRIÇÃO DO PRODUTO</span>
+                        <div class="card-linhasuperior"></div>
+                        <img class="cardpopup-imagem" src="${p.imagem}">
+                        <div class="card-linhainferior"></div>
                         <div class="detalhes-info" style="gap: 5px;">
                             <span class="detalhes-titulo">${p.marca} ${p.nome}</span>
                             <span class="detalhes-categoria">Categoria: ${p.categoria}</span>
                             <span class="detalhes-quantidade">Quantidade: ${p.quantidade} produtos</span>
-                            <span class="detalhes-preco" style="margin-bottom: 0px; font-size: 12px;">Preço Unitário: R$ ${p.preco.toFixed(2)}</span>
-                            <span class="detalhes-precoTotal" style="margin-bottom: 10px;">Preço Total: R$ ${(precoTotal2).toFixed(2)}</span>
+                            <span class="detalhes-preco">Preço Unitário: R$ ${p.preco.toFixed(2)}</span>
+                            <span class="detalhes-precoTotal">Preço Total: R$ ${(precoTotal2).toFixed(2)}</span>
                         </div>
-                        <a class="comprarNvmtBtn" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php">Comprar Novamente</a>
+                        <div class="detalhes-botoes">
+                            <a class="comprarNvmtBtn" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php">Comprar Novamente</a>
+                            <button class="avaliarBtn">Avaliar</button>
+                        </div>
                     </div>
                 
                 `;
 
                 popupProdutosFi.appendChild(cardpopup);
+
+                const btnAvaliar = cardpopup.querySelector(".avaliarBtn");
+                btnAvaliar.addEventListener("click", () => {
+                    abrirPopupAvaliacao(p.imagem, p.nome, p.marca);
+                });
             });
 
             document.getElementById("popupMP-DataEntrega").innerText = "Data da entrega: " + dataEntrega;
@@ -263,9 +271,60 @@ fetch("/projeto-integrador-et.com/et_pontocom/public/ProdutosMP.json")
 
     })
 
-})
-
+  })
 
 .catch(err => console.log("Erro ao carregar produtos:", err));
 
+
+
+
+/*________________________________________Parte de abrir o pop-up de avaliação___________________________*/
+
+let avaliacaoSelecionada = 0;
+
+function abrirPopupAvaliacao(imagemProduto, nomeProduto, marcaProduto) {
+    const dialog = document.getElementById("popupAvaliarProduto");
+  
+    // Preenche os dados do produto
+    document.getElementById("popupAva-imagemProduto").src = imagemProduto;
+    document.getElementById("popupAva-imagemProduto").alt = nomeProduto;
+    document.getElementById("popupAva-nomeProduto").innerText = marcaProduto + " " + nomeProduto;
+  
+    if (!dialog.open) dialog.showModal();
+  }
+
+function atualizarEstrelas(valor) {
+  const estrelas = document.querySelectorAll("#popupAvaliarProduto .estrela");
+  estrelas.forEach((estrela, index) => {
+    estrela.classList.toggle("selecionada", index < valor);
+  });
+}
+
+document.querySelectorAll("#popupAvaliarProduto .estrela").forEach((estrela, index) => {
+  estrela.addEventListener("click", () => {
+    const valor = index + 1;
+    if (avaliacaoSelecionada === valor) {
+      avaliacaoSelecionada = 0;
+    } else {
+      avaliacaoSelecionada = valor;
+    }
+    atualizarEstrelas(avaliacaoSelecionada);
+  });
+});
+
+function enviarAvaliacao() {
+  const texto = document.getElementById("popupAva-textoAvaliacao").value;
+
+  if (avaliacaoSelecionada === 0) {
+    alert("Por favor, selecione pelo menos 1 estrela.");
+    return;
+  }
+
+  console.log("Avaliação enviada:");
+  console.log("Estrelas:", avaliacaoSelecionada);
+  console.log("Texto:", texto);
+
+  alert("Avaliação enviada com sucesso!");
+  fecharPopupAvaliacao();
+}
 

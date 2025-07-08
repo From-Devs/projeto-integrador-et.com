@@ -96,6 +96,32 @@
             </div>
         </dialog>
 
+        <dialog class="popupAvaliarProduto" id="popupAvaliarProduto">
+            <div class="popupAva-conteudo">
+                <span class="popupAva-titulo">Avaliação de Produto</span>
+                <div class="produto-info-avaliacao">
+                    <a class="produto-ir" href="/projeto-integrador-et.com/et_pontocom/app/views/usuario/detalhesDoProduto.php">
+                        <img class="popupAva-imagemProduto" id="popupAva-imagemProduto" src="" alt="Imagem do produto" />
+                        <span class="popupAva-nomeProduto" id="popupAva-nomeProduto"></span>
+                    </a>
+                </div>
+                <div class="popupAva-main">
+                    <div class="avaliando">
+                        <span class="popupAva-titulo">Avalie este produto</span>
+                        <div class="estrelas">
+                            <button class="estrela" data-avaliacao="1">&#9733;</button>
+                            <button class="estrela" data-avaliacao="2">&#9733;</button>
+                            <button class="estrela" data-avaliacao="3">&#9733;</button>
+                            <button class="estrela" data-avaliacao="4">&#9733;</button>
+                            <button class="estrela" data-avaliacao="5">&#9733;</button>
+                        </div>
+                    </div>
+                    <textarea class="popupAva-textoAvaliacao" id="popupAva-textoAvaliacao" placeholder="Escreva aqui sua avaliação..."></textarea>
+                    <button class="enviarAvaliacaoBtn" onclick="enviarAvaliacao()">Enviar Avaliação</button>
+                </div>
+            </div>
+        </dialog>
+
 
          
 

@@ -163,8 +163,7 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 1550px;
-        height: 1000px;
+        width: 1450px;
         padding: 2rem;
         border-radius: 10px;
         overflow: auto;
@@ -180,7 +179,7 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        height: 855px;
+        height: 820px;
         padding: 15px;
         border-radius: 20px;
         border: none;
@@ -194,8 +193,8 @@
         justify-content: center;
         align-items: center;
         position: fixed;
-        top: 100px;
-        width: 100%;
+        top: 85px;
+        width: 1450px;
     }
 
     .popupMP-conteudo .popupMP-superior .popupMP-linhasuperior{
@@ -211,7 +210,7 @@
         background-color: transparent;
         border: none;
         cursor: pointer;
-        margin-left: 80px;
+        margin-left: 30px;
 
     }
 
@@ -222,7 +221,7 @@
     .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
         width: 1150px;
         height: 600px;
-        margin-top: 100px;
+        margin-top: 60px;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -297,6 +296,10 @@
             margin-right: 20px;
         }
 
+        .cardMini .card-recolhido .cardMini-conteudo .cardMini-imagem{
+            height: 100px;
+        }
+
         .cardMini .card-recolhido .cardMini-conteudo .cardMini-infos{
             display: flex;
             flex-direction: column;
@@ -307,7 +310,9 @@
 
         .cardMini .card-expandido{
             display: none;
+            align-items: center;
             position: absolute;
+            height: 390px;
             top: 0;
             left: 0;
             z-index: 10;
@@ -341,11 +346,17 @@
             margin-top: 40px;
         }
 
-        .cardMini:hover .card-expandido .card-linhasuperior,
+        .cardMini:hover .card-expandido .card-linhasuperior{
+            width: 260px;
+            height: 1px;
+            background-color: rgb(0, 0, 0);
+            margin-top: 10px;
+        }
         .cardMini:hover .card-expandido .card-linhainferior{
             width: 260px;
             height: 1px;
             background-color: rgb(0, 0, 0);
+            margin-bottom: 15px;
         }
         .cardMini:hover .card-expandido .detalhes-info{
             width: 260px;
@@ -368,6 +379,7 @@
         .cardMini:hover .card-expandido .detalhes-info .detalhes-precoTotal{
             font-size: 12px;
             font-weight: 500;
+            margin-bottom: 10px;
         }
 
         .cardMini:hover .card-expandido .detalhes-botao{
@@ -385,8 +397,8 @@
         display: flex;
         flex-direction: row;
         position: fixed;
-        bottom: 160px;
-        gap: 1050px;
+        bottom: 140px;
+        gap: 1000px;
     }
 
     .popupMP-inferior .popupMP-DataCompra{
@@ -403,7 +415,7 @@
         width: 1200px;
         height: 1px;
         background: linear-gradient(to right, rgb(255,255,255), rgba(0, 0, 0, 0.144), rgba(0, 0, 0, 0.76), rgb(0,0,0), rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.144), rgb(255,255,255));
-        bottom: 120px;
+        bottom: 100px;
         position: fixed;
     }
 
@@ -537,7 +549,6 @@
         top: 50%;
         transform: translate(-50%, -50%);
         width: 1550px;
-        height: 1000px;
         padding: 2rem;
         border-radius: 10px;
         overflow: auto;
@@ -568,10 +579,10 @@
         align-items: center;
         position: fixed;
         top: 100px;
-        width: 100%;
+        width: 1550px;
     }
 
-    .popupMPFinalizado .popupMP-superior .popupMP-linhasuperior{
+    .popupMPFinalizado .popupMP-conteudoFi .popupMP-superior .popupMP-linhasuperior{
         width: 1200px;
         height: 1px;
         background: linear-gradient(to right, rgb(255, 255, 255), rgba(0, 0, 0, 0.144), rgba(0, 0, 0, 0.76), rgb(0,0,0), rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.144), rgb(255, 255, 255));
@@ -579,7 +590,7 @@
         margin-top: 10px;
     }
         
-    .popupMPFinalizado .popupMP-superior .bx-x{
+    .popupMPFinalizado .popupMP-conteudoFi .popupMP-superior .bx-x{
         font-size: 30px;
         background-color: transparent;
         border: none;
@@ -683,6 +694,10 @@
             margin-right: 20px;
         }
 
+        .cardpopup .card-recolhido .cardpopup-conteudo .cardpopup-imagem{
+            height:100px;
+        }
+
         .cardpopup .card-recolhido .cardpopup-conteudo .cardpopup-infos{
             display: flex;
             flex-direction: column;
@@ -693,11 +708,13 @@
 
         .cardpopup .card-expandido{
             display: none;
+            align-items: center;
             position: absolute;
             top: 0;
             left: 0;
             z-index: 10;
             width: 100%;
+            height: 540px;
             border-radius: 20px;
             animation: fadein 0.3s ease-in-out;
             z-index: 10;
@@ -751,11 +768,26 @@
             text-align: justify;
         }
 
-        .cardpopup:hover .card-expandido .card-linhasuperior,
+        .cardpopup:hover .card-expandido .card-titulo2{
+            margin-top: 12px;
+        }
+
+        .cardpopup:hover .card-expandido .card-linhasuperior{
+            width: 310px;
+            height: 1px;
+            background-color: rgb(0, 0, 0);
+            margin-top: 6px;
+        }
+
+        .cardpopup:hover .card-expandido .cardpopup-imagem{
+            height: 120px;
+        }
+
         .cardpopup:hover .card-expandido .card-linhainferior{
             width: 310px;
             height: 1px;
             background-color: rgb(0, 0, 0);
+            margin-bottom: 10px;
         }
 
 
@@ -765,6 +797,7 @@
 
         .cardpopup:hover .card-expandido .detalhes-info .detalhes-categoria,
         .cardpopup:hover .card-expandido .detalhes-info .detalhes-quantidade,
+        .cardpopup:hover .card-expandido .detalhes-info .detalhes-preco,
         .cardpopup:hover .card-expandido .detalhes-info .detalhes-status{
             font-size: 12px;
         }
@@ -772,16 +805,31 @@
         .cardpopup:hover .card-expandido .detalhes-info .detalhes-precoTotal{
             font-size: 12px;
             font-weight: 500;
+            margin-bottom: 10px;
         }
 
-        .cardpopup:hover .card-expandido .comprarNvmtBtn{
-            padding: 10px 15px;
+        .cardpopup:hover .card-expandido .detalhes-botoes{
+            width: 310px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .cardpopup:hover .card-expandido .detalhes-botoes .avaliarBtn,
+        .cardpopup:hover .card-expandido .detalhes-botoes .comprarNvmtBtn{
+            padding: 9px 14px;
             border-radius: 20px;
-            border: none;
+            border: 2px solid rgb(202, 202, 202);
             background-color: rgb(202, 202, 202);
             font-size: 13px;
             text-decoration: none;
             color: black;
+        }
+
+        .cardpopup:hover .card-expandido .detalhes-botoes .avaliarBtn:hover,
+        .cardpopup:hover .card-expandido .detalhes-botoes .comprarNvmtBtn:hover{
+            background-color: rgb(255, 255, 255);
         }
                     /*-------fora mini card-------*/
                 
@@ -796,6 +844,95 @@
 
 
 
+
+
+
+/*                  Parte de avaliação                  */
+.conteudoMeusPedidos .popupAvaliarProduto {
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    animation: fadein 0.5s ease-in-out forwards;
+    font-family: "Montserrat", sans-serif;
+    position: fixed;
+    overflow: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 570px;
+    height: 350px;
+    padding: 2rem;
+    box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
+    background-color: white;
+}
+
+.conteudoMeusPedidos .popupAvaliarProduto::backdrop{
+    background-color: rgba(121, 121, 121, 0.5);
+}
+
+.popupAvaliarProduto .popupAva-conteudo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popupAvaliarProduto .popupAva-conteudo .popupAva-titulo{
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.popupAvaliarProduto .popupAva-conteudo .produto-info-avaliacao .produto-ir{
+    width: 550px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    height: 50px;
+    text-decoration: none;
+}
+
+.popupAvaliarProduto .popupAva-conteudo .produto-info-avaliacao .produto-ir .popupAva-imagemProduto{
+    height: 50px;
+    width: auto;
+    border: 1px solid rgb(133, 133, 133);
+    padding: 1px;
+}
+
+.popupAvaliarProduto .popupAva-conteudo .produto-info-avaliacao .produto-ir .popupAva-nomeProduto{
+    font-size: 17px;
+    color: black;
+}
+
+.popupAvaliarProduto .popupAva-conteudo .popupAva-main{
+    margin-top: 40px;
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.popupAvaliarProduto .popupAva-conteudo .popupAva-main .avaliando{
+    display: flex;
+    flex-direction: row;
+}
+
+.popupAvaliarProduto .popupAva-conteudo .popupAva-main .avaliando .popupAva-titulo{
+    font-size: 17px;
+}
+
+.popupAvaliarProduto .popupAva-conteudo .popupAva-main .avaliando .estrelas .estrela{
+    cursor: pointer;
+    transition: color 0.2s;
+    color: rgb(166, 166, 166);
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+}
+
+.popupAvaliarProduto .popupAva-conteudo .popupAva-main .avaliando .estrelas .estrela.selecionada{
+    color: rgb(255, 187, 0);
+}
 
 
 
@@ -863,8 +1000,45 @@
 
     /*Pop-up Andamento*/
     .conteudoMeusPedidos .popupMP{
-        width: 1350px;
-        height: 900px;
+        width: 1165px;
+    }
+    .popupMP .popupMP-conteudo{
+        height: 770px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-superior{
+        width: 1165px;
+        top: 80px;
+    }
+    .popupMP-conteudo .popupMP-superior .popupMP-linhasuperior{
+        width: 900px;
+    }
+    .popupMP-conteudo .popupMP-superior .bx-x{
+        margin-left: 30px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
+        width: 920px;
+        height: 600px;
+        margin-top: 90px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-inferior{
+        gap: 730px;
+        bottom: 110px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-linhainferior{
+        width: 900px;
+        bottom: 90px;
+    }
+    .cardMini .card-recolhido .cardMini-Superior,
+    .popupMP-main .popupMP-Produtos .cardMini{
+        width: 290px;
+    }
+    .cardMini .card-recolhido .cardMini-conteudo .cardMini-infos{
+        font-size: 15px;
+    }
+    .cardMini:hover .card-expandido .detalhes-info,
+    .cardMini:hover .card-expandido .card-linhasuperior,
+    .cardMini:hover .card-expandido .card-linhainferior{
+        width: 230px;
     }
 }
 
@@ -933,6 +1107,51 @@
     }
     .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card{
         font-size: 15px;
+    }
+   
+    /*Pop-up Andamento*/
+    .conteudoMeusPedidos .popupMP{
+        width: 1020px;
+    }
+    .popupMP .popupMP-conteudo{
+        height: 720px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-superior{
+        width: 1020px;
+        top: 75px;
+    }
+    .popupMP-conteudo .popupMP-superior .popupMP-linhasuperior{
+        width: 800px;
+    }
+    .popupMP-conteudo .popupMP-superior .bx-x{
+        margin-left: 20px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
+        width: 820px;
+        height: 570px;
+        margin-top: 100px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-inferior{
+        gap: 600px;
+        bottom: 100px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-linhainferior{
+        width: 800px;
+    }
+    .cardMini .card-recolhido .cardMini-Superior,
+    .popupMP-main .popupMP-Produtos .cardMini{
+        width: 330px;
+    }
+    .cardMini .card-recolhido .cardMini-conteudo .cardMini-infos{
+        font-size: 16px;
+    }
+    .cardMini:hover .card-expandido .detalhes-info,
+    .cardMini:hover .card-expandido .card-linhasuperior,
+    .cardMini:hover .card-expandido .card-linhainferior{
+        width: 270px;
+    }
+    .popupMP-inferior .popupMP-Total{
+        font-size: 14px;
     }
 }
 
@@ -1012,6 +1231,41 @@
     .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card{
         font-size: 16px;
     }
+
+    /*Pop-up Andamento*/
+    .conteudoMeusPedidos .popupMP{
+        width: 870px;
+    }
+    .popupMP .popupMP-conteudo{
+        height: 670px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-superior{
+        width: 870px;
+        top: 70px;
+    }
+    .popupMP-conteudo .popupMP-superior .popupMP-linhasuperior{
+        width: 710px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
+        width: 710px;
+        height: 500px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-inferior{
+        gap: 450px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-linhainferior{
+        width: 710px;
+        bottom: 85px;
+    }
+    .cardMini .card-recolhido .cardMini-Superior,
+    .popupMP-main .popupMP-Produtos .cardMini{
+        width: 320px;
+    }
+    .cardMini:hover .card-expandido .detalhes-info,
+    .cardMini:hover .card-expandido .card-linhasuperior,
+    .cardMini:hover .card-expandido .card-linhainferior{
+        width: 260px;
+    }
 }
 
 @media (max-width: 1000px){
@@ -1077,7 +1331,87 @@
     .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card{
         font-size: 15px;
     }
+
+    /*Pop-up Andamento*/
+    .conteudoMeusPedidos .popupMP{
+        width: 770px;
+    }
+    .popupMP .popupMP-conteudo{
+        height: 570px;              /*pensando*/
+    }
+    .popupMP .popupMP-conteudo .popupMP-superior{
+        width: 770px;
+        top: 65px;
+    }
+    .popupMP-conteudo .popupMP-superior .popupMP-linhasuperior{
+        width: 610px;
+    }
+    /* .popupMP-conteudo .popupMP-superior .bx-x{
+        margin-left: 20px;
+    } */
+    .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
+        width: 610px;
+        height: 430px;
+        margin-top: 80px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-inferior{
+        gap: 400px;
+        bottom: 95px;
+    }
+    .popupMP .popupMP-conteudo .popupMP-linhainferior{
+        width: 610px;
+        bottom: 80px;
+    }
+    .popupMP-inferior .popupMP-Total{
+        font-size: 14px;
+    }
 }
+    .popupMP-main .popupMP-Produtos .cardMini{
+        width: 280px;
+    }
+    .popupMP-main .popupMP-Produtos .cardMini .card-recolhido{
+        height: 140px;
+    }
+    .cardMini .card-recolhido .cardMini-Superior{
+        width: 280px;
+        margin-bottom: 5px;
+    }
+    .cardMini .card-recolhido .cardMini-Superior .cardMini-Status,
+    .cardMini .card-recolhido .cardMini-Superior .cardMini-Quantidade{
+        font-size: 13px;
+        height: 13px;
+    }
+    .cardMini .card-recolhido .cardMini-conteudo .cardMini-imagem{
+        height: 90px;
+    }
+    .cardMini .card-recolhido .cardMini-conteudo .cardMini-infos{
+        font-size: 15px;
+    }
+    .popupMP-main .popupMP-Produtos .cardMini:hover{
+        height: 400px;
+    }
+    .cardMini:hover .card-expandido .card-titulo{
+        margin-top: 30px;
+    }
+    .cardMini:hover .card-expandido .detalhes-info{
+        width: 220px;
+        gap: 4px;
+    }
+    .cardMini:hover .card-expandido .card-linhasuperior{
+        width: 220px;
+        margin-top: 5px;
+    }
+    .cardMini:hover .card-expandido .card-linhainferior{
+        width: 220px;
+        margin-bottom: 5px;
+    }
+    .cardMini:hover .card-expandido .detalhes-info .detalhes-precoTotal{
+        margin-bottom: 0px;
+    }
+    .cardMini:hover .card-expandido .detalhes-botao{
+        padding: 7px 12px;
+        font-size: 12px;
+    }
 
 @media (max-width: 992px){
     .areaSuperiorMP .tituloPrincipalMP{
