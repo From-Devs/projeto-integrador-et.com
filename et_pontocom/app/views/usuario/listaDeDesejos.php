@@ -39,6 +39,7 @@
     <?php
     echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
+
     <div class="title-container">
         <div class="title">
             <h1>MINHA LISTA DE DESEJOS</h1>
@@ -57,7 +58,6 @@
             </div>
         </div>
     </div>
-   
 
     <div class="container">
         <div class="card-container">
