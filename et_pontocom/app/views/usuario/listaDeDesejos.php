@@ -81,7 +81,7 @@
                 </div>
 
                 <div class="cardButtons">
-                    <button class="buttonDesejos" id="buttonDetalhes">
+                    <button class="buttonDesejos" id="buttonDetalhes" onclick="redirecionarDetalhesDoProduto()">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </button>
                     <button class="buttonDesejos" id="buttonLixeira">
@@ -108,7 +108,7 @@
                 </div>
 
                 <div class="cardButtons">
-                    <button class="buttonDesejos" id="buttonDetalhes">
+                    <button class="buttonDesejos" id="buttonDetalhes" onclick="redirecionarDetalhesDoProduto()">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </button>
                     <button class="buttonDesejos" id="buttonLixeira">
@@ -135,7 +135,7 @@
                 </div>
 
                 <div class="cardButtons">
-                    <button class="buttonDesejos" id="buttonDetalhes">
+                    <button class="buttonDesejos" id="buttonDetalhes" onclick="redirecionarDetalhesDoProduto()">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </button>
                     <button class="buttonDesejos" id="buttonLixeira">
@@ -162,7 +162,7 @@
                 </div>
 
                 <div class="cardButtons">
-                    <button class="buttonDesejos" id="buttonDetalhes">
+                    <button class="buttonDesejos" id="buttonDetalhes" onclick="redirecionarDetalhesDoProduto()">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </button>
                     <button class="buttonDesejos" id="buttonLixeira">
@@ -189,7 +189,7 @@
                 </div>
 
                 <div class="cardButtons">
-                    <button class="buttonDesejos" id="buttonDetalhes">
+                    <button class="buttonDesejos" id="buttonDetalhes" onclick="redirecionarDetalhesDoProduto()">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </button>
                     <button class="buttonDesejos" id="buttonLixeira">
@@ -216,7 +216,7 @@
                 </div>
 
                 <div class="cardButtons">
-                    <button class="buttonDesejos" id="buttonDetalhes">
+                    <button class="buttonDesejos" id="buttonDetalhes" onclick="redirecionarDetalhesDoProduto()">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </button>
                     <button class="buttonDesejos" id="buttonLixeira">
@@ -267,6 +267,12 @@
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/script.js"></script>
     <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
+
+    <script> 
+    function redirecionarDetalhesDoProduto() {
+        window.location.href = "detalhesDoProduto.php";
+    }
+    </script>
     
     
 </body>
