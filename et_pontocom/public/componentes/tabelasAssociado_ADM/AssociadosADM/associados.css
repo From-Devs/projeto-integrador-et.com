@@ -90,3 +90,26 @@ tr {
 .marcarCancelar {
     background-color: red;
 }
+
+.motivo button {
+    background: transparent;
+    border: none;
+}
+
+.motivo button img {
+    width: 30px;
+    cursor: pointer;
+}
+
+.motivo button img:hover {
+    transform: scale(1.3);
+    transition: 0.5s;
+}
+
+.texto-popUp {
+    display: block;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
