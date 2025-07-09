@@ -73,6 +73,7 @@ header{
 .CardPrincipal .icon{
     margin-top: -8px;
     margin-right: -4px;
+    cursor: pointer;
 }
 
 /* DO ELIEL */
@@ -122,8 +123,14 @@ header{
     background-color: rgb(0, 0, 0);
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
+    cursor: pointer;
+    transition: all 0.3s;
 }
+.bnt-Editar:hover{
+    transform: scale(1.05);
+    background-color: rgb(76, 76, 76);
+}
+
 .CardPrimos{
     padding: 15px;
     margin-left: 70px;
@@ -223,6 +230,7 @@ hr {
 .x i{
   padding: 20px;
   font-size: 34px;
+  cursor: pointer;
 }
 
 .none {
@@ -392,6 +400,7 @@ hr {
   }
   .exit i{
     font-size: 34px;
+    cursor: pointer;
   }
   /**
  * RESPONSIVO PARA "Meus Dados"
