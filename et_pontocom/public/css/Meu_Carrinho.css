@@ -47,9 +47,7 @@ td {
 tbody tr:nth-child(even) {
   background-color: #ffffff;
 }
-tbody tr:hover {
-  /* background-color: #ddd; */
-}
+
 tfoot {
   background-color: #ffffff;
   font-weight: bold;
