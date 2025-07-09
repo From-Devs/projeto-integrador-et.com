@@ -1,10 +1,8 @@
 /* VALORES DEFAULT */
-
-*
-{
+* {
 	margin: 0;
 	padding: 0;
-	font-family: "Inter", serif;
+	font-family: "Montserrat", serif;
 }
 
 /* ANIMACAO BACKGROUND  */
@@ -13,8 +11,9 @@ body
 {
 	margin: 0;
 	padding: 0;
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background: linear-gradient(-45deg, #410dce, #7801c2, #06a8ff, #17a5f1);
 	background-size: 400% 400%;
+	background-attachment: fixed;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
 }
@@ -39,31 +38,36 @@ a
 	color: white;
 }
 
-/* PARTE DO AVISO  */
-
-#aviso
+/* TITULO DA PAGINA */
+.devs
 {
-	display: flex;
-	align-items: center;
-}
-
-#avisoH1
-{
-	display: flex;
-	align-items: center;
+	text-align: center;
+	font-size: 50px;
 	color: white;
-	font-size: 26px;
-	font: bolder;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+/* TITULO DA PAGINA RESPONSIVO */
+@media (max-width: 768px) {
+	.devs {
+		font-size: 30px;
+	}
+}
+/* TITULO DA PAGINA RESPONSIVO */
+@media (max-width: 480px) {
+	.devs {
+		font-size: 24px;
+	}
+}
+/* TITULO DA PAGINA RESPONSIVO */
+@media (max-width: 320px) {
+	.devs {
+		font-size: 20px;
+	}
 }
 
-#pointerAviso
-{
-	width: 30px;
-	height: 30px;
-}
 
 /* CONTAINER PARA ORGANIZAR AS FOTOS */
-
 .container
 {
 	display: flex;
@@ -73,7 +77,6 @@ a
 	padding: 2% 10% 2% 10%;
 	gap: 50px;
 }
-
 
 /* #DIVISAO E SEPARACAO QUE ENVOLVE AS IMAGENS E OS BOTOES */
 
@@ -170,13 +173,13 @@ a
 
 @property --myColor1 {
 	syntax: '<color>';
-	initial-value: #EC01A4;
+	initial-value: #3001ec;
 	inherits: false;
   }
   
   @property --myColor2 {
 	syntax: '<color>';
-	initial-value: #7D00A5;
+	initial-value: #5b00a5;
 	inherits: false;
   }
   @property --myColor3 {
@@ -186,7 +189,6 @@ a
   }
 
 /* HOVERS GERAIS */
-
 .image-container:hover .overlay 
 {	
 	opacity: 1;
@@ -209,6 +211,6 @@ a
 
 #divisaoLinkagem:hover {
 	--myColor1: #000000;
-	--myColor2: #7D00A5;
-	--myColor3:#EC01A4;
+	--myColor2: #5b00a5;
+	--myColor3:#3001ec;
 }
