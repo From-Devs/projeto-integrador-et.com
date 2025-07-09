@@ -91,7 +91,11 @@
             <td class="total-value" id="subtotal">R$ <?php echo $subtotal; ?></td>
           </tr>
           <tr>
-            <td class='cor3' colspan="2"><label for="cep">Frete: </label><input class="redondo" type="text" id="cep" name="cep" placeholder="Digite seu CEP" oninput="calcularTotal()"></td>
+            <td class='cor3' colspan="2">
+              <label for="cep">Frete: </label>
+              <input class="redondo" type="text" id="cep" name="cep" placeholder="Digite seu CEP" oninput="calcularTotal()">
+              <button type="button" class="botaoCalcular">Calcular</button>
+            </td>
             <td></td>
             <td></td>
             <td></td>

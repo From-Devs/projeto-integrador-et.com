@@ -19,9 +19,11 @@ body {
 }
 
 .tituloMinhaConta {
-    margin-top: 131px;
+    margin-top: 150px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
+    font-size: 38px;
+    font-weight: 300;
 }
 
 .line-out{

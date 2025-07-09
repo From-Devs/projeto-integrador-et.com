@@ -109,7 +109,12 @@ tfoot {
   padding-left: 0;
   margin-top: 20px;
 }
-.button-container button {
+
+.botaoCalcular{
+  margin-left: 10px;
+}
+
+.button-container button, .botaoCalcular {
   padding: 10px 24px;
   font-size: 1rem;
   width: auto;
@@ -123,7 +128,7 @@ tfoot {
   border-radius: 10px;
   transition: all 0.3s;
 }
-.button-container button:hover {
+.button-container button:hover, .botaoCalcular:hover {
   background-color: rgb(76, 76, 76);
   transform: scale(1.05);
 }
