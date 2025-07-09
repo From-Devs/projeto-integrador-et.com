@@ -905,7 +905,7 @@
 }
 
 .popupAvaliarProduto .popupAva-conteudo .popupAva-main{
-    margin-top: 40px;
+    margin-top: 30px;
     width: 550px;
     display: flex;
     flex-direction: column;
@@ -915,10 +915,14 @@
 .popupAvaliarProduto .popupAva-conteudo .popupAva-main .avaliando{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    height: 30px;
 }
 
 .popupAvaliarProduto .popupAva-conteudo .popupAva-main .avaliando .popupAva-titulo{
     font-size: 17px;
+    margin-right: 25px;
+    padding-top: 15px;
 }
 
 .popupAvaliarProduto .popupAva-conteudo .popupAva-main .avaliando .estrelas .estrela{
@@ -928,10 +932,41 @@
     background-color: transparent;
     border: none;
     font-size: 30px;
+    padding-bottom: 9px;
 }
 
 .popupAvaliarProduto .popupAva-conteudo .popupAva-main .avaliando .estrelas .estrela.selecionada{
     color: rgb(255, 187, 0);
+}
+
+.popupAvaliarProduto .popupAva-conteudo .popupAva-main .partefinal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.popupAvaliarProduto .popupAva-conteudo .popupAva-main .partefinal .popupAva-textoAvaliacao{
+    margin-top: 15px;
+    height: 100px;
+    padding: 10px;
+}
+
+.popupAvaliarProduto .popupAva-conteudo .popupAva-main .partefinal .botoesfinal{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.popupAvaliarProduto .popupAva-conteudo .popupAva-main .partefinal .botoesfinal .cancelarAvaliacaoBtn,
+.popupAvaliarProduto .popupAva-conteudo .popupAva-main .partefinal .botoesfinal .enviarAvaliacaoBtn{
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 2px solid rgb(202, 202, 202);
+    background-color: rgb(202, 202, 202);
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
 }
 
 
@@ -1043,7 +1078,7 @@
 }
 
 
-@media (max-width: 1300px){
+@media (max-width: 1380px){
     /*Parte superior do titulo e linha*/
     .conteudoMeusPedidos{
         gap: 65px;
@@ -1110,34 +1145,51 @@
     }
    
     /*Pop-up Andamento*/
+    .conteudoMeusPedidos .popupMPFinalizado,
     .conteudoMeusPedidos .popupMP{
         width: 1020px;
     }
+    .popupMPFinalizado .popupMP-conteudoFi,
     .popupMP .popupMP-conteudo{
-        height: 720px;
+        max-height: 640px;
     }
+    .popupMPFinalizado .popupMP-conteudoFi .popupMP-superior,
     .popupMP .popupMP-conteudo .popupMP-superior{
         width: 1020px;
         top: 75px;
     }
+    .popupMPFinalizado .popupMP-conteudoFi .popupMP-superior .popupMP-linhasuperior,
     .popupMP-conteudo .popupMP-superior .popupMP-linhasuperior{
         width: 800px;
     }
+    .popupMPFinalizado .popupMP-conteudoFi .popupMP-superior .bx-x,
     .popupMP-conteudo .popupMP-superior .bx-x{
         margin-left: 20px;
     }
+    .popupMPFinalizado .popupMP-conteudoFi .popupMP-data{
+        top: 100px;
+    }
+    .popupMP-conteudoFi .popupMP-inferior .popupMP-ProdutosFi{
+        width: 820px;
+        height: 460px;
+        margin-top: 20px;
+    }
     .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
         width: 820px;
-        height: 570px;
+        height: 460px;
         margin-top: 100px;
     }
     .popupMP .popupMP-conteudo .popupMP-inferior{
         gap: 600px;
-        bottom: 100px;
+        bottom: 8px;
     }
+    .popupMPFinalizado .popupMP-conteudoFi .popupMP-linhainferior,
     .popupMP .popupMP-conteudo .popupMP-linhainferior{
         width: 800px;
+        bottom: 80px;
     }
+    .cardpopup .card-recolhido .cardpopup-Superior,
+    .popupMP-inferior .popupMP-ProdutosFi .cardpopup,
     .cardMini .card-recolhido .cardMini-Superior,
     .popupMP-main .popupMP-Produtos .cardMini{
         width: 330px;
@@ -1145,6 +1197,7 @@
     .cardMini .card-recolhido .cardMini-conteudo .cardMini-infos{
         font-size: 16px;
     }
+    .cardpopup .card-recolhido .cardpopup-conteudo .cardpopup-infos
     .cardMini:hover .card-expandido .detalhes-info,
     .cardMini:hover .card-expandido .card-linhasuperior,
     .cardMini:hover .card-expandido .card-linhainferior{
@@ -1153,6 +1206,8 @@
     .popupMP-inferior .popupMP-Total{
         font-size: 14px;
     }
+
+    
 }
 
 @media (max-width: 1150px){
@@ -1237,7 +1292,7 @@
         width: 870px;
     }
     .popupMP .popupMP-conteudo{
-        height: 670px;
+        height: 570px;
     }
     .popupMP .popupMP-conteudo .popupMP-superior{
         width: 870px;
@@ -1248,7 +1303,7 @@
     }
     .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
         width: 710px;
-        height: 500px;
+        height: 400px;
     }
     .popupMP .popupMP-conteudo .popupMP-inferior{
         gap: 450px;

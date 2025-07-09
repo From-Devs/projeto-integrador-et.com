@@ -328,3 +328,10 @@ function enviarAvaliacao() {
   fecharPopupAvaliacao();
 }
 
+function fecharAvaliacao() {
+  const dialog = document.getElementById("popupAvaliarProduto");
+  if (dialog && dialog.open) {
+    dialog.close();
+  }
+}
+

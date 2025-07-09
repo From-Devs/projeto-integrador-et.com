@@ -116,8 +116,12 @@
                             <button class="estrela" data-avaliacao="5">&#9733;</button>
                         </div>
                     </div>
-                    <textarea class="popupAva-textoAvaliacao" id="popupAva-textoAvaliacao" placeholder="Escreva aqui sua avaliação..."></textarea>
-                    <button class="enviarAvaliacaoBtn" onclick="enviarAvaliacao()">Enviar Avaliação</button>
+                    <div class="partefinal">
+                        <textarea class="popupAva-textoAvaliacao" id="popupAva-textoAvaliacao" placeholder="Escreva aqui sua avaliação..."></textarea>
+                        <div class="botoesfinal">
+                            <button class="enviarAvaliacaoBtn" onclick="enviarAvaliacao()">Enviar Avaliação</button>
+                            <button class="cancelarAvaliacaoBtn" onclick="fecharAvaliacao()">Fechar</button>
+                    </div>
                 </div>
             </div>
         </dialog>
