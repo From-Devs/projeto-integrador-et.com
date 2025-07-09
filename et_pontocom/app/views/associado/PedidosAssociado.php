@@ -37,7 +37,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
     <div class="main">
         <div id="container">
            
-            <?php echo filtro(["ID", "Preço", "Data"])?>
+            <?php echo filtro("Filtro", ["ID", "Preço", "Data"])?>
             
             <div class="listaContainer">
                 <div id="titulo">
