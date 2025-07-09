@@ -224,12 +224,9 @@
 .popUp .botoes-popUp{
     display: flex;
     align-items: center;
-    width: 400px;
     justify-content: end;
     gap: 30px;
     border-radius: 20%;
-    background-color: white;
-
 }
 
 

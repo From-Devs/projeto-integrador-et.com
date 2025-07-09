@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <!-- Fundo escurecido e modal -->
-<div id="overlay" class="overlay hidden"></div>
+<div id="overlayPopUp" class="overlayPopUp hidden"></div>
 
 <div id="popup" class="popup hidden">
     <p>Vamos continuar o atendimento pelo WhatsApp<br><small>(Sobre as informações de pagamento e entrega)</small></p>
@@ -191,12 +191,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script>
 function abrirPopup() {
-    document.getElementById('overlay').classList.remove('hidden');
+    document.getElementById('overlayPopUp').classList.remove('hidden');
     document.getElementById('popup').classList.remove('hidden');
 }
 
 function fecharPopup() {
-    document.getElementById('overlay').classList.add('hidden');
+    document.getElementById('overlayPopUp').classList.add('hidden');
     document.getElementById('popup').classList.add('hidden');
     document.getElementById('popupConfirmado').classList.add('hidden');
 }
@@ -205,6 +205,15 @@ function confirmarCompra() {
     document.getElementById('popup').classList.add('hidden');
     document.getElementById('popupConfirmado').classList.remove('hidden');
 }
+
+// Fechar Sidebar ao clicar fora dela
+
+document.getElementById('overlayPopUp').addEventListener('click', function () {
+    document.getElementById('overlayPopUp').classList.add('hidden');
+    document.getElementById('popup').classList.add('hidden');
+    document.getElementById('popupConfirmado').classList.add('hidden');
+});
+
 </script>
 
 </body>

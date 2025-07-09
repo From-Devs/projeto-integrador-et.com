@@ -72,11 +72,11 @@ a
     transform: translate(-50%, -50%);
 }
 
-.fecharPopUp{
+/* .fecharPopUp{
     position: absolute;
     top: 20px;
     right: 20px;
-}
+} */
 
 .dialog-editar::backdrop{
     background-color: rgba(121, 121, 121, 0.5);
