@@ -72,6 +72,12 @@ a
     transform: translate(-50%, -50%);
 }
 
+/* .fecharPopUp{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+} */
+
 .dialog-editar::backdrop{
     background-color: rgba(121, 121, 121, 0.5);
 }
@@ -91,11 +97,6 @@ a
     transform: translateX(-50%);
     margin: 0;
     font-size: 2rem;
-}
-
-.header-editar img{
-    width: 25px;
-    cursor: pointer;
 }
 
 .campos-editar{
@@ -197,6 +198,14 @@ a
     .main{
         margin-left: 250px;
     }
+
+    #barraCima th {
+        font-size: 20px;
+    }
+
+    td {
+        font-size: 17px;
+    }
 }
 
 @media (max-width: 1024px){
@@ -206,6 +215,14 @@ a
 
     #container{
         padding-left: 35px;
+    }
+
+    #barraCima th {
+        font-size: 17px;
+    }
+
+    td {
+        font-size: 14px;
     }
 }
 
@@ -235,10 +252,6 @@ a
         width: 100%;
     }
 
-    #pesquisar{
-        width: 100%;
-    }
-
     th{
         font-size: 16px;
     }
@@ -257,8 +270,18 @@ a
 
 }
 
-@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
-    #divPesquisarEFiltro{
-        padding-right: 180px;
+@media (max-width: 520px) {
+    #barraCima th {
+        font-size: 10px;
+        padding: 8px 4px;
+    }
+
+    td {
+        font-size: 10px;
+        padding: 8px 4px;
+    }
+
+    tr {
+        height: 40px;
     }
 }

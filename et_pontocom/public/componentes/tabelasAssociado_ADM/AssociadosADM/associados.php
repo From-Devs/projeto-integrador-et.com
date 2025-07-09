@@ -34,18 +34,9 @@
                     </table>
                 </div>
             </div>
-        <?php
+            <?php
         }elseif($nome == 'solicitacao'){
-            $btnSimValidar = botaoPersonalizadoOnClick("Sim", "btn-black", "preencheValidar(this)", "80px", "35px");
-
-            $btnSimCancelar = botaoPersonalizadoOnClick("Sim", "btn-black", "preencheCancelar()", "80px", "35px");
-
-            $btnNao = botaoPersonalizadoOnClick("Não", "btn-white", "fecharPopUp()", "80px", "35px");
-
-            echo PopUpConfirmar("popUpConfirmar", "Deseja realmente VALIDAR esse associado?", $btnSimValidar, $btnNao);
-
-            echo PopUpConfirmar("popUpCancelar", "Deseja realmente NÃO VALIDAR esse associado?", $btnSimCancelar, $btnNao);
-
+            echo PopUpConfirmar("popUpMotivo", "", null, null, null, "white", "red", "1.2rem");
             ?>
             <div id="lista">
             <table id="tabelaVendas">
@@ -56,13 +47,30 @@
                         <th id="th3" scope="col">E-mail</th>
                         <th id="th4" scope="col">Cidade</th>
                         <th id="th5" scope="col">Validar</th>
+                        <th class="motivo-header" style="display: none;"></th>
                     </tr>
                 </thead>
             </table>
             <div class="tabela-body">
                 <table id="tabelaVendas">
                     <tbody>
-                    <?php foreach ($listaAssociados as $associado): ?> 
+                    <?php foreach ($listaAssociados as $associado): 
+                        $btnSimValidar = botaoPersonalizadoOnClick("Sim", "btn-black", "preencheValidar()", "100px", "35px");
+
+                        $btnNao = botaoPersonalizadoOnClick("Cancelar", "btn-white", "fecharPopUp()", "100px", "35px");
+
+                        echo PopUpConfirmar("popUpConfirmar", "Deseja realmente VALIDAR esse associado?", $btnSimValidar, $btnNao);
+
+                        
+                        $btnSimCancelar = botaoPersonalizadoOnClick(
+                            "Confirmar",
+                            "btn-black",
+                            'preencheCancelar()',
+                            "100px",
+                            "35px"
+                        );
+                        echo PopUpComInput("popUpCancelar", "Deseja realmente NÃO VALIDAR esse associado?", "Motivo...", $btnSimCancelar, $btnNao);
+                        ?> 
                         <tr>
                             <td><?php echo $associado['id']?></td>
                             <td><?php echo $associado['nome']?></td>
@@ -78,6 +86,12 @@
                                 </button>
                             </div>
                             </td>
+                            <td class="motivo" style="display: none;" data-motivo="">
+                                <button onclick="abrirMotivo(this)">
+                                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/associado/chat-icone.png" alt="chat-icone">
+                                </button>
+                            </td>
+
                         </tr>
                     <?php endforeach?>
                         

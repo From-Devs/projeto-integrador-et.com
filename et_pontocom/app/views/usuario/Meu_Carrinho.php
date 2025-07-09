@@ -34,7 +34,7 @@
     echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
   <main>
-    <h1 class="Meio">Meu Carrinho</h1>
+    <h1 class="Meio">MEU CARRINHO</h1>
     <form method="post" action="">
       <table>
         <thead>
@@ -73,7 +73,7 @@
               <td></td>
               <td></td>
               <td class='cor2'>R$ {$produto[1]}</td>
-              <td>
+              <td class='quantityColumn'>
                 <div class='quantity-container'>
                   <button type='button' class='quantity-btn' onclick='decrementQuantity($index)'>-</button>
                   <input type='number' name='quantidade[$index]' value='{$produto[2]}' min='1' class='quantity-input'>
@@ -91,7 +91,11 @@
             <td class="total-value" id="subtotal">R$ <?php echo $subtotal; ?></td>
           </tr>
           <tr>
-            <td class='cor3' colspan="2"><label for="cep">Frete: </label><input class="redondo" type="text" id="cep" name="cep" placeholder="Digite seu CEP" oninput="calcularTotal()"></td>
+            <td class='cor3' colspan="2">
+              <label for="cep">Frete: </label>
+              <input class="redondo" type="text" id="cep" name="cep" placeholder="Digite seu CEP" oninput="calcularTotal()">
+              <button type="button" class="botaoCalcular">Calcular</button>
+            </td>
             <td></td>
             <td></td>
             <td></td>
@@ -168,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <!-- Fundo escurecido e modal -->
-<div id="overlay" class="overlay hidden"></div>
+<div id="overlayPopUp" class="overlayPopUp hidden"></div>
 
 <div id="popup" class="popup hidden">
     <p>Vamos continuar o atendimento pelo WhatsApp<br><small>(Sobre as informações de pagamento e entrega)</small></p>
@@ -187,12 +191,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script>
 function abrirPopup() {
-    document.getElementById('overlay').classList.remove('hidden');
+    document.getElementById('overlayPopUp').classList.remove('hidden');
     document.getElementById('popup').classList.remove('hidden');
 }
 
 function fecharPopup() {
-    document.getElementById('overlay').classList.add('hidden');
+    document.getElementById('overlayPopUp').classList.add('hidden');
     document.getElementById('popup').classList.add('hidden');
     document.getElementById('popupConfirmado').classList.add('hidden');
 }
@@ -201,6 +205,15 @@ function confirmarCompra() {
     document.getElementById('popup').classList.add('hidden');
     document.getElementById('popupConfirmado').classList.remove('hidden');
 }
+
+// Fechar Sidebar ao clicar fora dela
+
+document.getElementById('overlayPopUp').addEventListener('click', function () {
+    document.getElementById('overlayPopUp').classList.add('hidden');
+    document.getElementById('popup').classList.add('hidden');
+    document.getElementById('popupConfirmado').classList.add('hidden');
+});
+
 </script>
 
 </body>

@@ -1,7 +1,10 @@
 <?php
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
+require_once __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/HistoricoVendasAssociado/hv.php";
+require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
+require __DIR__ . "/../../../public/componentes/componentesADM_Associado/componentesADM_Associado.php";
 
 session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
@@ -21,13 +24,17 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
     <link rel="stylesheet" href="../../../public/css/MeusDadosAssociado.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/contaADM_Associado/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <?= createSidebarInterna(tipo_usuario: $tipo_usuario); ?>
 
+    <?php
+        echo createSidebarInterna($tipo_usuario);
+        echo createContaAssociadoADM("Associado");
+    ?>
     <div class="container-principal">
         <header>
             <div class="titulo">Meus dados</div>
@@ -37,51 +44,85 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 
             <div class="edisao none">
                 <div class="moficasao">
-                    <div class="pt1">
-                        <div class="titulo"></div>
-                        <div class="cards">
-                            <div class="card-edit">
-                                <h1>drgdgrdgdr</h1>
-                                <input type="text">
-                            </div>
-                        <div class="cards">
-                            <div class="card-edit">
-                                <h1>rdgdgdg</h1>
-                                <input type="text">
-                            </div>
-                            <div class="card-edit">
-                                <h1>rdgdrgdgrf</h1>
-                                <input type="text">
+                    <div class="dados">
+                        <h1>Meus dados</h1>
+                        <div id="card-editar-mg">
+
+                            <div id="T-editar"><p>Nome Nome</p></div>
+                            <input class="cards-editar" type="text"></input>
+                            <div id="T-editar"><p>Sobrenome</p></div>
+                            <input class="cards-editar PAD" type="text"></input>
+                            <div id="T-editar"><p>Gmail</p></div>
+                            <input class="cards-editarG" type="text"></input>
+                            <div id="T-editar"><p>Data de nacimanto</p></div>
+                            
+                            <div class="cards-data">
+                                <div class="select-group">
+                                    <select id="dia" name="dia">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>31</option>
+                                    </select>
+                                    
+                                    <select id="mes" name="mes">
+                                        <option>Janeiro</option>
+                                        <option>Fevereiro</option>
+                                        <option>Março</option>
+                                        <option>Abril</option>
+                                        <option>Maio</option>
+                                        <option>Junho</option>
+                                        <option>Julho</option>
+                                        <option>Agosto</option>
+                                        <option>Setembro</option>
+                                        <option>Outubro</option>
+                                        <option>Novembro</option>
+                                        <option>Dezembro</option>
+                                    </select>
+                                    
+                                    <select id="ano" name="ano">
+                                        <option>2005</option>
+                                        <option>2004</option>
+                                        <option>2003</option>
+                                        <option>2002</option>
+                                        <!-- ... até 1900 -->
+                                        <option>1900</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="linha"></div>
-                    <div class="pt2">
-                        <div class="cards">
-                            <div class="card-edit">
-                                <h1>srdgedrg</h1>
-                                <input type="text">
-                            </div>
-                            <div class="card-edit">
-                                <h1>rdgdgdrg</h1>
-                                <input type="text">
-                            </div>
-                            <div class="log">
-                                <img src="" alt="log">
+                    <div class="line"></div>
+                    <div class="dados">
+                    <div class="exit">
+                        <i class='bx  bx-x'  ></i> 
+                    </div>
+                        <div id="card-editar-mg">
+                            <div id="T-editar"><p>Nome Nome</p></div>
+                            <input class="cards-editar PAM" type="text"></input>
+                            <div id="T-editar"><p>Sobrenome</p></div>
+                            <input class="cards-editar PAM" type="text"></input>
+                            <div class="imagem-log">
+                                <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoPreta1.png" alt="logo">
                             </div>
                             <div class="buttons">
-                                <button type="button" id="can">cancelar</button>
-                                <button type="button" id="con">comfirma</button>
+                                <div class="btn-card certo">
+                                    <input type="button" value="✔ Confirmar">
+                                </div>
+                                <div class="btn-card errado">
+                                    <input type="button" value="🚫 Cancelar">
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
-            </div>
             </div>
 
             <!-- perfi dados do usuario -->
-            <div class="perfil-Meus-dados">
-                <div class="moficasao none">
+            <div class="perfil-Meus-dados none">
+                <div class="moficasao">
                     <div class="perfil-dados">
                         <p>Perfil</h1>
                         <div class="foto">
@@ -111,10 +152,11 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
                                 <i class='bx-fw bxl bx-facebook-square'></i>
                                 <i class='bx-fw bxl bx-facebook-square'></i>
                                 <i class='bx-fw bxl bx-facebook-square'></i>
+                                <i class='bx bx-plus'></i>
                             </div>
                         </div>
                     </div>
-                    <div class="x">X</div>
+                    <div class="x"><i class='bx  bx-x'  ></i></div>
                 </div>    
             </div>
 
@@ -167,44 +209,50 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
     </div><!--fim Principal -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Seleciona os botões pelas classes e estruturas existentes
-    const btnEditar = document.querySelector('.bnt-Editar'); // Botão Editar (div com h1)
-    const btnPerfil = document.querySelector('.CardPrincipal h1'); // Botão Perfil (h1 dentro do CardPrincipal)
-    const btnFecharPerfil = document.querySelector('.perfil-Meus-dados .x'); // Botão X para fechar perfil
+    const EditarBtn = document.getElementsByClassName("bnt-Editar") 
+    const EditarIcn = document.getElementsByClassName("icon")
+    const IconeExit1 = document.getElementsByClassName("exit");
+    const IconeExit2 = document.getElementsByClassName("x");
+    
+    // tela principal 
+    const MeusDadosc1 = document.getElementsByClassName("CardDados")
+    const MeusDadosc2 = document.getElementsByClassName("Conteudos")
+    // vializar perfil
+    const Perfildado1 = document.getElementsByClassName("perfil-Meus-dados")
+    // editar perfil 
+    const Editardado1 = document.getElementsByClassName("edisao")
 
-    // Áreas de conteúdo
-    const areaMeusDados = document.querySelector('.Conteudos');
-    const areaPerfil = document.querySelector('.perfil-Meus-dados');
-    const areaEdicao = document.querySelector('.edisao');
 
-    // Função para esconder todas as áreas
-    function esconderTodas() {
-        areaMeusDados.classList.add('none');
-        areaPerfil.classList.add('none');
-        areaEdicao.classList.add('none');
+
+    function mostrar(){
+        MeusDadosc1[0].classList.remove("none");
+        MeusDadosc2[0].classList.remove("none");
     }
-
-    // Clicar em "Perfil" (título no CardPrincipal)
-    btnPerfil.addEventListener('click', () => {
-        esconderTodas();
-        areaPerfil.classList.remove('none');
+    function esconder(){
+        MeusDadosc1[0].classList.add("none");
+        MeusDadosc2[0].classList.add("none");
+    }
+    EditarBtn[0].addEventListener('click',()=>{
+        esconder()
+        Editardado1[0].classList.remove("none");
+        console.log(Perfildado1)
     });
-
-    // Clicar em "Editar"
-    btnEditar.addEventListener('click', () => {
-        esconderTodas();
-        areaEdicao.classList.remove('none');
+    EditarIcn[0].addEventListener('click',()=>{
+        esconder()
+        Perfildado1[0].classList.remove("none");
+        console.log(Perfildado1)
     });
+    IconeExit1[0].addEventListener('click',() =>{
+        mostrar()
+        Editardado1[0].classList.add("none");
+        console.log(Perfildado1)
+    })
+    IconeExit2[0].addEventListener('click',() =>{
+        mostrar()
+        Perfildado1[0].classList.add("none");
+        console.log(Perfildado1)
+    })
 
-    // Clicar em "X" no perfil
-    btnFecharPerfil.addEventListener('click', () => {
-        esconderTodas();
-        areaMeusDados.classList.remove('none');
-    });
-
-    // Mostrar a tela "Meus Dados" por padrão
-    esconderTodas();
-    areaMeusDados.classList.remove('none');
 });
 </script>
 

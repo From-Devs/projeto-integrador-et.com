@@ -18,9 +18,6 @@ document.addEventListener("DOMContentLoaded", function(){
               botaoComprar = item.querySelector(".botaoComprarCardProduto"),
               botaoAnimacao = item.childNodes[7].childNodes[12];
 
-        console.log(botaoComprar)
-
-
         item.style.background = "linear-gradient(35deg, "+ cores[1] +" 30%, "+ cores[2] +" 100%)";
 
         botaoComprar.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";

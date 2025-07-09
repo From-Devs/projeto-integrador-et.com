@@ -1,246 +1,199 @@
-@import url(./../componentes/tabelasAssociado_ADM/HistoricoVendasAssociado/hv.css);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-*{
-    font-weight: bold;
+* {
     margin: 0;
     padding: 0;
-    font-family: "Montserrat", sans-serif;
-}
-
-body
-{
-    display: flex;
+    box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
-    background-color: #F8F8F8;
 }
 
-a
-{
+body {
+    background-color: #F8F8F8;
+    display: flex;
+}
+
+a {
     text-decoration: none;
 }
 
-/* PARTE DA DIREITA CONTAINER GERAL */
+.main {
+    margin-left: 287px;
+}
 
 .logo{
     padding-bottom: 4px;
 }
 
-.main{
-    margin-left: 287px;
-}
-
-#container
-{
-    gap: 15px;
-    padding-left: 60px;
-    box-sizing: border-box;
-    width: 100%;
-    padding-top: 50px;
+#container {
     display: flex;
     flex-direction: column;
+    padding-top: 50px;
+    padding-left: 60px;
+    gap: 15px;
+    width: 100%;
 }
 
-#lista{
-    margin-top: 15px;
-}
-
-#tituloH1{
+#tituloH1 {
     font-size: 36px;
 }
 
-@media (max-width: 1280px) {
+#lista {
+    width: 97%;
+    margin-top: 15px;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
 
+#tabelaVendas {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#barraCima {
+    background-color: black;
+    color: white;
+}
+
+#barraCima th {
+    font-size: 24px;
+    padding: 16px 8px;
+    text-align: center;
+    padding: 30px;
+}
+
+th, td {
+    text-align: center;
+    padding: 30px;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+#bordaEsquerda, .idProduto {
+    width: 5%;
+}
+
+#precoassoc {
+    color: #5DA400;
+}
+
+#bordaEsquerda {
+    border-top-left-radius: 10px;
+}
+
+#bordaDireita {
+    border-top-right-radius: 10px;
+}
+
+tr {
+    border-bottom: 1px solid #DADADA;
+}
+
+.tabela-body {
+    max-height: 620px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.tabela-body::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 1280px) {
     .main{
         margin-left: 250px;
     }
 
-    .idProduto{
-        right: 13px;
-    
+    #barraCima th {
+        font-size: 20px;
     }
 
     td {
-        right: 20px;
         font-size: 17px;
     }
-
-    th{
-        font-size: 20px;
-        padding-top: 24px;
-        padding-bottom: 24px;
-    }
-    
-    #vendasmais {
-        margin-top: 20px;
-        font-size: 15px;
-    }
-
-    #lista {
-    width: 94%;
-    margin-top: 12px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
-    border-radius: 15px;
-    overflow: hidden;
-    }
-
 }
 
 @media (max-width: 1024px) {
+    #container {
+        padding-left: 35px;
+    }
+
+    #barraCima th {
+        font-size: 17px;
+    }
+
+    td {
+        font-size: 14px;
+    }
 
     .main{
         margin-left: 230px;
     }
 
-    #container{
-        padding-left: 35px;
-    }
-
-    #lista {
-        width: 95%;
-        margin-top: 14px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        border-radius: 15px;
-        overflow: hidden;
-        }
-
-    td {
-        right: 20px;
-        font-size: 14px;
-    }
-
-    #vendasmais {
-        margin-top: 20px;
-        font-size: 12px;
-    }
-
-    th{
-        font-size: 17px;
-        padding-top: 20px;
-        padding-bottom: 22px;
-    }    
-    
 }
 
 @media (max-width: 800px) {
-
-    .main{
+    .main {
         margin-left: 0;
     }
 
-    #container{
-        padding-left: 0;
-        padding-top: 0;
+    #container {
+        padding: 0;
         align-items: center;
     }
+
     #titulo{
         width: 100%;
     }
 
-    th{
-        font-size: 14px;
-    }
-
-    #th2{
-        width: 250px;
-        padding-left: 30px;
-
-    }
-
-    #th3{
-        width: 200px;
-        padding-left: 29px;
-    }
-
-    #th5{
-        width: 100px;
-    }
-
-    th{
-        font-size: 20px;
-        padding-top: 24px;
-        padding-bottom: 24px;
-    }
-    
-    #vendasmais {
-        margin-top: 20px;
-        font-size: 15px;
-    }
-
-    #lista {
-    width: 94%;
-    margin-top: 12px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
-    border-radius: 15px;
-    overflow: hidden;
-    }
-
-}
-
-@media (max-width: 520px) {
-
-    td {
-        right: 20px;
-        font-size: 9px;
-        position: static;
-        padding-right: 20px;
-    }
-
-    th{
-        font-size: 10px;
-        padding: 0px;
-    }
-
-    #tabelaVendas{
-        width: 456px;
-    }
-
-    #bordaEsquerda{
-        width: 38px;
-    }
-
-    .idProduto{
-        padding-left: 3.7%;
-    }
-
-    #th2{
-        padding-left: 0px;
-        width: 150px;
-    }
-
-    #th3{
-        padding-left: 0px;
-        width: 130px;
-    }
-
-    #th4{
-        width: 65px;
-        padding-right: 5px;
-    }
-
-    #th5{
-        width: 60px;
-    }
-
-    tr{
-        height: 40px;
+    .listaContainer{
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        align-items: center;
+        margin: 0 15px;
     }
 
     #lista{
-        width: 450.3px;
+        width: 100%;
     }
 
-    #tabela-body{
-        width: 456px;
+    #barraCima th {
+        font-size: 14px;
     }
 
-    #vendasmais{
-        font-size: 11px;
-        margin-left: 7px;
+    th{
+        font-size: 16px;
     }
 
+    td{
+        font-size: 14px;
+    }
 
+    #tabelaVendas tbody tr{
+        height: auto;
+    }
+
+    .td-lista-associados{
+        height: auto;
+    }
+}
+
+@media (max-width: 520px) {
+    #barraCima th {
+        font-size: 10px;
+        padding: 8px 4px;
+    }
+
+    td {
+        font-size: 10px;
+        padding: 8px 4px;
+    }
+
+    tr {
+        height: 40px;
+    }
 }

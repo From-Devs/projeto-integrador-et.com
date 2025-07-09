@@ -24,12 +24,13 @@ body {
 }
 
 .dadosCadastraisTitulo {
-    margin-top: 131px;
+    margin-top: 150px;
     padding-left: 100px;
     text-align: center;
-    border-bottom: 2ps solid black;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     width: 90%;
+    font-size: 38px;
+    font-weight: 300;
 }
 
 .content p {
