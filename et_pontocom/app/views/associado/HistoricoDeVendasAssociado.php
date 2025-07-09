@@ -16,7 +16,7 @@ require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.ph
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historico De Vendas-Associado</title>
+    <title>Historico De Vendas</title>
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/HistoricoDeVendasAssociado.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/popUp/styles.css">

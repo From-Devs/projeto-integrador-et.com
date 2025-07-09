@@ -57,10 +57,12 @@
     
 
             <!--Estrutura do popUp de editar produto (terminar)-->
-            <dialog class="dialog-editar">
+            <dialog class="dialog-editar" id="dialogEditarProduto">
                 <div class="header-editar">
                     <h1>Editar produto</h1>
-                    <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
+                    <button class='fecharPopUp' onclick="fecharPopUp('dialogEditarProduto')">
+                        <img class='icone-fechar' src='/projeto-integrador-et.com/et_pontocom/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
+                    </button>
                 </div>
                 <div class="campos-editar">
                     <div>

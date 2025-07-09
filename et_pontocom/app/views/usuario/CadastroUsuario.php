@@ -50,7 +50,7 @@
                         <label class="termos" for="termos"> Concordo com os <a href="./TermoDeUso.php">Termos de Uso e Privacidade</a></label>
                     </div>
                         
-                    <button class="botaoConfirmar"><a id = "confirmar" href="../LoginUsuario/index.php">Confirmar</a></button>
+                    <button class="botaoConfirmar" onclick="redirecionar()" >Confirmar</button>
                                   
                 </div>
             </div>
@@ -62,7 +62,11 @@
         </section>
     </div>
 
-   
+<script> 
+    function redirecionar() {
+        window.location.href = "Login.php";
+    }
+</script> 
 
 </body>
 </html>

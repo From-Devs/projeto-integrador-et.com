@@ -19,7 +19,10 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebar/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/sliderProdutos.css">
+
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/projeto-integrador-et.com/et_pontocom/public/css/detalhesDoProduto.css">
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>Detalhes do produto</title>
@@ -52,7 +55,7 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
                 <div class="titulo-produto">
                     <div class="titulo">
                         <h3>Lorem ipsum dolor sit amet consectetur adipisicing</h3>
-                        <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "120px", "Adicionado aos favoritos!", "", "", "", "300px")?>
+                        <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
                         <abbr class="abbr-favoritos" title="Adicionar aos favoritos" onclick="abrirPopUp('popUpFavorito')">
                             <button class="imgCoracao">
                                 <img src='/projeto-integrador-et.com/et_pontocom/public/imagens/produto/coracao-detalhes-produto.png' alt='Coração'>
@@ -89,7 +92,7 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
                             ?>
                         </div>
                         <div>
-                            <?php echo botaoPersonalizadoRedirect("Comprar agora", "btn-white", "#", "100%", "40px")?>
+                            <?php echo botaoPersonalizadoRedirect("Comprar agora", "btn-white", "et_pontocom/app/views/usuario/Meu_Carrinho.php", "100%", "40px")?>
                         </div>
                     </div>
                 </div>
@@ -245,17 +248,31 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
             </div>
         </div>
     </div>
-    
-    <div class="container-produtos-similares">
-        <div class="container-container-produtos-similares">
-            <h3 class="titulo-produtos-similares">Produtos similares</h3>
-            <div class="produtos-similares">
-                <?php
-                 echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                 echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                 echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                 echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
-                 ?>
+
+    <div class="sliderContainer">
+        <div class="sessaoProdutos">
+            <div class="tituloSessao">
+                <p class="titulo">Produtos similares</p>
+            </div>
+            <div class="frameSlider">
+                <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
+                <div class="degradeEsquerda"></div>
+                <div class="frameProdutos">
+                    <div class="containerProdutos">
+                        <?php
+                        echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                        echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                        echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                        echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                        echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                        echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                        echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                        echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                        ?>
+                    </div>
+                </div>
+                <div class="degradeDireita"></div>
+                <i class="fa-solid fa-chevron-right setaSlider setaDireita" id="direita"></i>
             </div>
         </div>
     </div>
@@ -268,6 +285,7 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
 <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
 <script src="/projeto-integrador-et.com/et_pontocom/public/javascript/detalhesDoProduto.js"></script>
 <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/cardProduto/script.js"></script>
+<script src="/projeto-integrador-et.com/et_pontocom/public/javascript/slider.js"></script>
 <script src="/projeto-integrador-et.com/et_pontocom/public/componentes/rodape/script.js"></script>
 </body>
 </html>
