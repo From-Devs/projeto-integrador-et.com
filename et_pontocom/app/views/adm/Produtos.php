@@ -39,7 +39,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <div class="main">
         <div id="container">
 
-            <?php echo filtro("filtro",["ID", "Preço", "Data"])?>
+            <?php echo filtro("Filtro",["ID", "Preço", "Data"])?>
 
             <div class="listaContainer">
                 <div id="titulo">
