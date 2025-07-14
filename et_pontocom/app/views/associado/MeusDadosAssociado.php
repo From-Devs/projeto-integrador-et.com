@@ -48,7 +48,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
                         <h1>Meus dados</h1>
                         <div id="card-editar-mg">
 
-                            <div id="T-editar"><p>Nome Nome</p></div>
+                            <div id="T-editar"><p>Nome</p></div>
                             <input class="cards-editar" type="text"></input>
                             <div id="T-editar"><p>Sobrenome</p></div>
                             <input class="cards-editar PAD" type="text"></input>
@@ -100,9 +100,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
                         <i class='bx  bx-x'  ></i> 
                     </div>
                         <div id="card-editar-mg">
-                            <div id="T-editar"><p>Nome Nome</p></div>
+                            <div id="T-editar"><p>CPF</p></div>
                             <input class="cards-editar PAM" type="text"></input>
-                            <div id="T-editar"><p>Sobrenome</p></div>
+                            <div id="T-editar"><p>Telefone</p></div>
                             <input class="cards-editar PAM" type="text"></input>
                             <div class="imagem-log">
                                 <img src="/projeto-integrador-et.com/et_pontocom/public/imagens/ET/LogoPreta1.png" alt="logo">
@@ -255,6 +255,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 </script>
+
+<script src="/projeto-integrador-et.com/et_pontocom/public/componentes/sidebarADM_Associado/scripts.js"></script>
+<script src="/projeto-integrador-et.com/et_pontocom/public/componentes/popup/script.js"></script>
 
 </body>
 </html>
