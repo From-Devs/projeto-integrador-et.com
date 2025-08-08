@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+  
+.preto{
+    background-color: #020202;
+    width: 100%;
+    height: 100px;
+}
+.topo {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 400px;
+    height: 400px;
+    background: url(../CadastroLogin/CadastroUsuario/Imagem/LogoET.png);
+}
+
+.termos-box {
+    max-width: 1500px;
+    background-color: #fff;
+    margin: 40px auto;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+
+}
+
+.termos-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+
+.conteudo-termos p {
+    margin-bottom: 20px;
+    font-size: 28px;
+    line-height: 1.6;
+}
+
+.conteudo-termos strong {
+    font-weight: bold;
+}
+
+/*Ondas*/
+section
+{   
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+
+}
+
+section .wave
+{
+    position: absolute;
+    top: 0;
+    width: 200%;
+    height: 100px;
+    background: url(/projeto-integrador-et.com/public/imagens/icones/wave.png);
+    background-size: 1000px 100px;
+    animation: animacao 10s linear infinite;
+}
+
+section .wave.wave1
+{
+    top: 0;
+    animation: animacao 10s linear infinite;
+    z-index: 100;
+    opacity: 1;
+    animation-delay: 0s;
+
+
+}
+
+section .wave.wave2
+{
+    top: 0;
+    animation: animacao 10s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+
+
+}
+
+@keyframes animacao {
+
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
+      
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .onda-container, .wave {
+      display: none;
+    }
+  
+    .termos-box {
+      margin: 20px;
+      padding: 20px;
+    }
+  
+    .conteudo-termos p {
+      font-size: 14px;
+    }
+  }
