@@ -19,7 +19,7 @@
         <!-- ordem da função fotoDev 1° - imagem / 2° - linkGitHub / 3° - linkInstagram / 4° - linkLinkedin / 5° - nome -->
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/daniel.png","https://github.com/DanielPydev","https://www.instagram.com/dan_niel_008?igsh=aXE3bmxIMjEyejIt","https://www.linkedin.com/in/daniel-pr%C3%B3spero-de-figueiredo-47284a358/","Daniel Prospero") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/duda.png","https://github.com/Duda-Moreira","https://www.instagram.com/dudaa.txz","https://www.linkedin.com/in/maria-eduarda-moreira-6475752a8/","Maria Eduarda") ?>
-        <?php echo fotoDev("./../../../public/imagens/fotoNossas/eliel.png","","","","Eliel Murbach") ?>
+        <?php echo fotoDev("./../../../public/imagens/fotoNossas/eliel.png","https://github.com/ElielMurbach","https://www.instagram.com/lel.murbaxh","https://www.linkedin.com/in/eliel-murbach-86697a331","Eliel Murbach") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/evandro.png","https://github.com/evandroocm","https://www.instagram.com/evandroocm/","https://www.linkedin.com/in/evandrocmarques/","Evandro Marques") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/guilherme.png","","","","Guilherme Bergamo") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/kerolin.png","https://github.com/KerolinAntonia","https://www.instagram.com/kerolinantonia?igsh=MXY5dWFscWI5YjgwNg==","https://www.linkedin.com/in/kerolin-antonia-marcolina-dos-santos-073768271","Kerolin Dos Santos") ?>
