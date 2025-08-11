@@ -108,8 +108,9 @@ body {
     & a{
         text-decoration: none;
         color: black;
+        height: 200px;
     }
-} 
+}  
 
 .option-card {
     background: white;
