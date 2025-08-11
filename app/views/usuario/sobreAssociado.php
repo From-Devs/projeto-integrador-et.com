@@ -67,10 +67,10 @@
 
         <div class="card">
             <div class="card-box">
-                <img src="/projeto-integrador-et.com/public/imagens/sobreAssociado/imgCard01.png" alt="">
-                <a href="/projeto-integrador-et.com/app/views/usuario/CadastroAssociado.php">
+                <img src="/projeto-integrador-et.com/public/imagens/sobreAssociado/cardImg.png" alt="">
+                <!--<a href="/projeto-integrador-et.com/app/views/usuario/CadastroAssociado.php">
                     <button>Associar-se</button>
-                </a>
+                </a>-->
             </div>
         </div>
     </div>
