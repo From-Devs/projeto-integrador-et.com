@@ -3,9 +3,25 @@ require_once "./Controllers/UserController.php";
 
 $userController = new UserController();
 $responseCreate = null;
+$responseDelete = null;
+$editUserData = null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_id'])) {
+    $postData = [
+        'nome' => $_POST['nome'] ?? '',
+        'nome_social' => $_POST['nome_social'] ?? '',
+        'email' => $_POST['email'] ?? '',
+        'telefone' => $_POST['telefone'] ?? '',
+        'cpf' => $_POST['cpf'] ?? '',
+        'data_nascimento' => $_POST['data_nascimento'] ?? '',
+        'senha' => $_POST['senha'] ?? '',
+        'tipo' => $_POST['tipo'] ?? 'cliente',
+        'foto' => null,
+        'id_endereco' => null
+    ];
+    $responseUpdate = $userController->updateUser($_POST['update_id'], $postData);
+}
 
-// Se o formulário foi enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome'])) {
     $postData = [
         'nome' => $_POST['nome'] ?? '',
         'nome_social' => $_POST['nome_social'] ?? '',
@@ -20,6 +36,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 
     $responseCreate = $userController->createUser($postData);
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $responseDelete = $userController->deleteUser($_POST['delete_id']); // <-- chama método de exclusão
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_id'])) {
+    $editUserData  = $userController->getUserById($_POST['edit_id']);
 }
 
 $responseList = $userController->listAllUsers();
@@ -55,6 +80,11 @@ $responseList = $userController->listAllUsers();
         <pre><?php print_r($responseCreate); ?></pre>
     <?php endif; ?>
 
+    <?php if ($responseDelete): ?> <!-- Mostra resultado da exclusão -->
+        <h3>Resultado da Exclusão:</h3>
+        <pre><?php print_r($responseDelete); ?></pre>
+    <?php endif; ?>
+
     <h3>Lista de Usuários:</h3>
     <table border="1" cellpadding="5">
         <thead>
@@ -65,6 +95,7 @@ $responseList = $userController->listAllUsers();
                 <th>Email</th>
                 <th>CPF</th>
                 <th>Tipo</th>
+                <th>Ações</th> <!-- nova coluna para exclusão -->
             </tr>
         </thead>
         <tbody>
@@ -77,10 +108,24 @@ $responseList = $userController->listAllUsers();
                         <td><?= htmlspecialchars($user['email']) ?></td>
                         <td><?= htmlspecialchars($user['cpf']) ?></td>
                         <td><?= htmlspecialchars($user['tipo']) ?></td>
+                        <td>
+                            <!-- Form de exclusão -->
+                            <form method="POST" style="display:inline;">
+                                <input type="hidden" name="delete_id" value="<?= $user['id_usuario'] ?>">
+                                <button type="submit" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">
+                                    Excluir
+                                </button>
+                            </form>
+                            <!-- Botão de edição -->
+                            <form method="POST" style="display:inline;">
+                                <input type="hidden" name="edit_id" value="<?= $user['id_usuario'] ?>">
+                                <button type="submit">Editar</button>
+                            </form>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             <?php else: ?>
-                <tr><td colspan="6">Nenhum usuário encontrado.</td></tr>
+                <tr><td colspan="7">Nenhum usuário encontrado.</td></tr>
             <?php endif; ?>
         </tbody>
     </table>
@@ -118,5 +163,4 @@ $responseList = $userController->listAllUsers();
 // echo "<pre>";
 // print_r($responseList);
 // echo "</pre>";
-
 ?>

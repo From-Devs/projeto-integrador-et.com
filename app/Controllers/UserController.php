@@ -33,6 +33,37 @@ class UserController {
             return ['success' => false, 'message' => 'CPF já cadastrado ou erro ao criar usuário.'];
         }
     }
+    public function getUserById($id) {
+        $this->model->getUserById($id);
+    }
+
+    
+    public function deleteUser($id) {
+        if (empty($id) || !is_numeric($id)) {
+            return ['success' => false, 'message' => 'ID inválido.'];
+        }
+    
+        $deleted = $this->userModel->deleteById($id);
+    
+        if ($deleted) {
+            return ['success' => true, 'message' => 'Usuário deletado com sucesso!'];
+        } else {
+            return ['success' => false, 'message' => 'Erro ao deletar usuário.'];
+        }
+    }
+    public function editUser($id, $data) {
+        if (empty($id) || !is_numeric($id)) {
+            return ['success' => false, 'message' => 'ID inválido.'];
+        }
+    
+        $updated = $this->userModel->updateUser($id, $data);
+    
+        if ($updated) {
+            return ['success' => true, 'message' => 'Usuário atualizado com sucesso!'];
+        } else {
+            return ['success' => false, 'message' => 'Erro ao atualizar usuário.'];
+        }
+    }    
     
 }
 ?>
