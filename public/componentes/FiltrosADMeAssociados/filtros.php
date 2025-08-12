@@ -30,6 +30,39 @@ function filtro($tipo = "", $opcoesSelect = []){
     
         return $html;
     }
+    elseif ($tipo == "produto"){
+        $html = '
+        <div id="divPesquisarEFiltro">
+            <div id="pesquisar">
+                <form action="" class="divTextInput">
+                    <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
+                    <button><i class="bx bx-search lupaPesquisarInput"></i></button>
+                </form>
+            </div>
+            <div id="botoesProdutos">
+                <div id="filtro">
+                    <select id="botaoOrdenar">
+                        <option value="" selected disabled hidden>Filtro</option>';
+                        
+            foreach ($opcoesSelect as $opcao) {
+                $html .= '<option value="' . htmlspecialchars($opcao) . '">' . htmlspecialchars($opcao) . '</option>';
+            }
+
+            $html .= '
+                    </select>
+                </div>
+                <div id="Escolher">
+                    <a href="?tipo=associado">
+                        <button id="botaoAssociados">
+                            <p>Cadastrar Produto</p>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>';
+    
+        return $html;
+    }
     else{
         $html = '
             <div id="divPesquisarEFiltro">

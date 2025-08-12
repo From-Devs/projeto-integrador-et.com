@@ -110,7 +110,7 @@
     background-color: #3449b6d1;
 }
 
-#botoesAssociados{
+#botoesAssociados, #botoesProdutos{
     display: flex;
     gap: 20px;
 }
@@ -135,7 +135,7 @@
         font-size: 16px;
     }
 
-    #divPesquisarEFiltro, #botoesAssociados {
+    #divPesquisarEFiltro, #botoesAssociados, #botoesProdutos {
         gap: 14px;
     }
 
@@ -145,7 +145,7 @@
 }
 
 @media (max-width: 1350px) {
-    #divPesquisarEFiltro, #botoesAssociados {
+    #divPesquisarEFiltro, #botoesAssociados, #botoesProdutos {
         gap: 12px;
     }
 

@@ -38,28 +38,30 @@
         <div class="filtroDegrade"></div>
         
         <div class="promo-content">
-            <div class="promoContentText">
-                <h2>Torne-se um(a) associado(a) ET!</h2>
-                <p>Seja bem-vindo ao programa de marketing de associados da nossa empresa ETCOM. O Programa de Associados ETCOM ajuda vendedores, editores e blogueiros a monetizarem seus sites.</p>
+            <div class="promo-contentEsquerda">
+                <div class="promoContentText">
+                    <h2>Torne-se um(a) associado(a) ET!</h2>
+                    <p>Seja bem-vindo ao programa de marketing de associados da nossa empresa ETCOM. O Programa de Associados ETCOM ajuda vendedores, editores e blogueiros a monetizarem seus sites.</p>
+                </div>
+                <div class="botoesContainer">
+                    <?php
+                    echo botaoPersonalizadoRedirect("Saiba Mais", "btn-white", "app/views/usuario/sobreAssociado.php", "240px", "60px", "25px");
+                    ?>
+                    <?php
+                    echo botaoPersonalizadoRedirect("Associar-se", "btn-white", "app/views/usuario/CadastroAssociado.php", "240px", "60px", "25px");
+                    ?>
+                </div>
             </div>
-            <div class="botoesContainer">
-                <?php
-                echo botaoPersonalizadoRedirect("Saiba Mais", "btn-white", "app/views/usuario/sobreAssociado.php", "240px", "60px", "25px");
-                ?>
-                <?php
-                echo botaoPersonalizadoRedirect("Associar-se", "btn-white", "app/views/usuario/CadastroAssociado.php", "240px", "60px", "25px");
-                ?>
+            <div class="karla">
+                <img  class="promo-image" src="/projeto-integrador-et.com/public/imagens/TornarAssociado/moça.png" alt="Promo Image">
+                <div class="blurNomeKarla">
+                    <h1 class="nomeKarla">Karla</h1>
+                    <h2 class="cargoKarla">Associada ET</h2>
+                    <div class="blur"></div>
+                </div>
             </div>
         </div>
 
-        <div class="karla">
-            <img  class="promo-image" src="/projeto-integrador-et.com/public/imagens/TornarAssociado/moça.png" alt="Promo Image">
-            <div class="blurNomeKarla">
-                <h1 class="nomeKarla">Karla</h1>
-                <h2 class="cargoKarla">Associada ET</h2>
-                <div class="blur"></div>
-            </div>
-        </div>
 
         <?php
         echo createOnda(1); // Adiciona a onda sólida
@@ -170,15 +172,23 @@
         </div>
         <img class="sej" src="/projeto-integrador-et.com/public/imagens/TornarAssociado/sej.png" alt="img">
     </section>
-    <section class="final">
-            <img class="caixa_salmão" src="/projeto-integrador-et.com/public/imagens/TornarAssociado/Group 1000003753.png" usemap="#image-map">
-            <map name="image-map">
-                <area target="" alt="" title="" href="/projeto-integrador-et.com/app/views/usuario/CadastroAssociado.php" coords="1206,339,936,234" shape="rect">
-            </map>
-    </section>
-        <?php
-        echo createRodape();
-        ?>
+
+    <!-- <div class="cardRedirectWrapper"> -->
+        <div class="cardRedirect">
+            <img src="/projeto-integrador-et.com/public/imagens/ET/LogoPreta1.png" alt="" class="logoCardRedirect">
+            <span></span>
+            <div>
+                <h1>Recomende Produtos. Ganhe Rendas.</h1>
+                <?php
+                echo botaoPersonalizadoRedirect("Associar-se","btn-black","app/views/usuario/CadastroAssociado.php","270px","95px","30px")
+                ?>
+            </div>
+        </div>
+    <!-- </div> -->
+
+    <?php
+    echo createRodape();
+    ?>
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
