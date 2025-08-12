@@ -165,6 +165,11 @@ tr {
         justify-content: center;
         align-items: center;
     }
+
+    #tituloH1 {
+        padding-top: 3px;
+        font-size: 30px;
+    }
 }
 
 @media (max-width: 940px) {

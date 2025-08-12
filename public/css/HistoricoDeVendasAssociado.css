@@ -133,6 +133,12 @@ tr {
         margin-left: 230px;
     }
 
+    #tituloH1 {
+        padding-top: 3px;
+        font-size: 30px;
+    }
+    
+
 }
 
 @media (max-width: 800px) {
