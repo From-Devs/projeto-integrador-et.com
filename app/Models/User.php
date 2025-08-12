@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
 
-
 class User {
     private $conn;
 
@@ -9,13 +8,13 @@ class User {
         $db = new Database();
         $this->conn = $db->Connect();
     }
-    public function getUserById($id){
-        $sql ="SELECT * FROM usuario WHERE id = :id";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':id',$id,PDO::PARAM_INT);
-        return $stmt->execute();
-    }
-    
+
+    public function getUserById($id) {
+        $stmt = $this->conn->prepare("SELECT * FROM Usuario WHERE id_usuario = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }  
+
     public function getAll(){
         $sql = "SELECT * FROM Usuario";
         $stmt = $this->conn->prepare($sql);
@@ -51,14 +50,16 @@ class User {
         $stmt->bindParam(':id_endereco', $data['id_endereco']);
         return $stmt->execute();
     }
+
     public function deleteById($id){
-        $sql ="DELETE FROM usuario WHERE id_usuario = :id";
+        $sql = "DELETE FROM Usuario WHERE id_usuario = :id";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(":id",$id,PDO::PARAM_INT);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
+
     public function updateUser($id, $data) {
-        $sql = "UPDATE Usuario SET nome = :nome,nome_social = :nome_social,email = :email,telefone = :telefone,cpf = :cpf,data_nascimento = :data_nascimento,senha = :senha,tipo = :tipo,foto = :foto,id_endereco = :id_endereco WHERE id_usuario = :id";
+        $sql = "UPDATE Usuario SET nome = :nome, nome_social = :nome_social, email = :email, telefone = :telefone, cpf = :cpf, data_nascimento = :data_nascimento, senha = :senha, tipo = :tipo, foto = :foto, id_endereco = :id_endereco WHERE id_usuario = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':nome', $data['nome']);
         $stmt->bindParam(':nome_social', $data['nome_social']);
@@ -71,13 +72,11 @@ class User {
         $stmt->bindParam(':foto', $data['foto']);
         $stmt->bindParam(':id_endereco', $data['id_endereco']);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    
         return $stmt->execute();
     }
-    
 }
 ?>
-   
+
 <!-- basico do codigo
 $sql ="codigo de mysql";
 $stmt = $this->conn->prepare($sql);
