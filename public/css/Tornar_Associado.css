@@ -338,8 +338,10 @@ body {
   display: flex;
   align-self: center;
   justify-content: center;
-  width: fit-content;
+  /* width: fit-content; */
+  box-shadow: inset -4px 6px 13px rgba(0, 0, 0, 0.25);
 }
+/* box-shadow: -4px 8px 4px rgba(0, 0, 0, 0.25); */
 
 .cardRedirect div{
   display: flex;
@@ -351,13 +353,14 @@ body {
 }
 
 .cardRedirect span{
-  border-right: 1px solid black;
+  border-right: 4px solid black;
   margin: 20px 0px;
 }
 
 .logoCardRedirect{
   width: 500px;
   height: auto;
+  filter: drop-shadow(-4px 8px 4px rgba(0, 0, 0, 0.25));
 }
 
  @keyframes gradient {
