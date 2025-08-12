@@ -88,58 +88,76 @@ body{
 
 /*CARD*/
 
-/*.card-box{
+.card{
+    display: flex;
+    justify-content: center;
+
+    margin-top: 130px;
+}
+
+.card-box{
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 120px;
+    justify-content: space-evenly;
+    width: 65%;
+    height: 350px;
+    border-radius: 20px;
 }
 
-.card-box img{
-    width: 75%;
-    height: auto;
+.fundo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/projeto-integrador-et.com/public/imagens/sobreAssociado/cardImg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    border-radius: 20px;
+
+    filter: blur(1px);
 }
 
-.card-box:hover img{
-    filter: blur(5px);
-    transition: 0.9s;
-}
-
-.card-box:hover button{
-    background-color: #ffffff;
-    transition: 0.9s;
-}*/
-
-
-/*.card-box button{
-    width: 218px;
-    height: 49px;
-    border-radius: 100px;
-    border: none;
-    background-color: #fffcfca9;
-    font-size: 18px;
-    position: relative;
-    bottom: 100px;
-    color: black;
-}*/
-
-.card{
+.logo{
     display: flex;
     justify-content: center;
 }
 
-.card-box{
-    width: 65%;
-    height: 350px;
-    border: red solid;
-    border-radius: 20px;
+.logo img{
+    filter: drop-shadow(0px 0px 25px white);
 }
 
-.card-box img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
+.info{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 17px;
+}
+
+.line{
+    display: flex;
+    justify-content: center;
+}
+
+.line div{
+    width: 65%;
+    border-bottom: black 2px solid;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.button button{
+    width: 200px;
+    height: 50px;
+    border-radius: 1000px;
+    border: none;
+    font-size: 17px;
 }
 
 /*RESPONSIVIDADE*/

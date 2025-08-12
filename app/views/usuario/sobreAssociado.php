@@ -67,10 +67,25 @@
 
         <div class="card">
             <div class="card-box">
-                <img src="/projeto-integrador-et.com/public/imagens/sobreAssociado/cardImg.png" alt="">
-                <!--<a href="/projeto-integrador-et.com/app/views/usuario/CadastroAssociado.php">
+                <div class="fundo">
+
+                </div>
+
+                <div class="logo">
+                    <img src="/projeto-integrador-et.com/public/imagens/sobreAssociado/Logo01.png" alt="">
+                </div>
+
+                <div class="info">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+
+                <div class="line">
+                    <div></div>
+                </div>
+
+                <div class="button">
                     <button>Associar-se</button>
-                </a>-->
+                </div>
             </div>
         </div>
     </div>
