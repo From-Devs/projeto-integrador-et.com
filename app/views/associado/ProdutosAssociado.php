@@ -37,7 +37,7 @@ session_start();
     <div class="main">
         <div id="container">
 
-            <?php echo filtro("Filtro", ["ID", "Preço", "Data"])?>
+            <?php echo filtro("produto", ["ID", "Preço", "Data"])?>
         
             <!--cards relatorios-->
             <div class="listaContainer">
