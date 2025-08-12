@@ -170,15 +170,23 @@
         </div>
         <img class="sej" src="/projeto-integrador-et.com/public/imagens/TornarAssociado/sej.png" alt="img">
     </section>
-    <section class="final">
-            <img class="caixa_salmão" src="/projeto-integrador-et.com/public/imagens/TornarAssociado/Group 1000003753.png" usemap="#image-map">
-            <map name="image-map">
-                <area target="" alt="" title="" href="/projeto-integrador-et.com/app/views/usuario/CadastroAssociado.php" coords="1206,339,936,234" shape="rect">
-            </map>
-    </section>
-        <?php
-        echo createRodape();
-        ?>
+
+    <div class="cardRedirectWrapper">
+        <div class="cardRedirect">
+            <img src="/projeto-integrador-et.com/public/imagens/ET/LogoPreta1.png" alt="" class="logoCardRedirect">
+            <span></span>
+            <div>
+                <h1>Recomende Produtos. Ganhe Rendas.</h1>
+                <?php
+                echo botaoPersonalizadoRedirect("Associar-se","btn-black","app/views/usuario/CadastroAssociado.php","270px","95px","30px")
+                ?>
+            </div>
+        </div>
+    </div>
+
+    <?php
+    echo createRodape();
+    ?>
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>

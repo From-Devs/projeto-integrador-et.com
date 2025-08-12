@@ -327,6 +327,39 @@ body {
   margin-bottom: 20px;
 }
 
+.cardRedirectWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardRedirect{
+  background-color: #FFE5E5;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: fit-content;
+}
+
+.cardRedirect div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 75px;
+  margin: 0px 50px;
+}
+
+.cardRedirect span{
+  border-right: 1px solid black;
+  margin: 20px 0px;
+}
+
+.logoCardRedirect{
+  width: 500px;
+  height: auto;
+}
+
  @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
