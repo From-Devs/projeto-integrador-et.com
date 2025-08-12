@@ -183,11 +183,9 @@
                         ],
                 ];
 
-                $resultado = paginar($pedidos, 7);
-
-                tabelaPedidosADM($resultado['dados']);
-
-                renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
+                $resultado = paginar($pedidos, 7, 'pagePedidos');
+                echo tabelaPedidosADM($resultado['dados']);
+                renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas'], 'pagePedidos');
                 ?>
             </div>
         </div>

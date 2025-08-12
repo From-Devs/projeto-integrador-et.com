@@ -2,6 +2,7 @@
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
     
     
     session_start();
@@ -15,12 +16,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Carrinho</title>
-  <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/Meu_Carrinho.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/rodape/styles.css">
   <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/header/styles.css">
   <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
   <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebar/styles.css">
+  <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/paginacao/paginacao.css">
+  <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/Meu_Carrinho.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -54,14 +56,23 @@
             ["MÁSCARA CAPILAR", 30.00, 1, "/projeto-integrador-et.com/public/imagens/MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4 (2).png"],
             ["CONDICIONADOR", 20.00, 1, "/projeto-integrador-et.com/public/imagens/MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4 (3).png"],
             ["BODY LOTION", 40.00, 1, "/projeto-integrador-et.com/public/imagens/MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4.png"],
+            ["BODY LOTION", 40.00, 1, "/projeto-integrador-et.com/public/imagens/MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4.png"],
+            ["BODY LOTION", 40.00, 1, "/projeto-integrador-et.com/public/imagens/MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4.png"],
+            ["BODY LOTION", 40.00, 1, "/projeto-integrador-et.com/public/imagens/MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4.png"],
+            ["BODY LOTION", 40.00, 1, "/projeto-integrador-et.com/public/imagens/MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4.png"],
+            ["BODY LOTION", 40.00, 1, "/projeto-integrador-et.com/public/imagens/MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4.png"],
+            ["BODY LOTION", 40.00, 1, "/projeto-integrador-et.com/public/imagens/MeuCarrinho/creme-para-pentear-e-hidratante-2-em-1-divino-potinho-kids-skala-1000g-7897042007226-1 4.png"],
           ];
+
+          $resultado = paginar($produtos, 3);
+
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             foreach ($produtos as $index => $produto) {
               $produtos[$index][2] = $_POST['quantidade'][$index];
             }
           }
           $subtotal = 0;
-          foreach ($produtos as $index => $produto) {
+          foreach ($resultado['dados'] as $index => $produto) {
             $produtoSubtotal = $produto[1] * $produto[2];
             $subtotal += $produtoSubtotal;
             echo "<tr>
@@ -85,6 +96,9 @@
           }
           ?>
         </tbody>
+        <tr>
+          <td class="td-paginacao"><?php renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);?></td>
+        </tr>
         <tfoot>
           <tr>
             <td class='cor3' colspan="5" class="total-label">Subtotal:</td>

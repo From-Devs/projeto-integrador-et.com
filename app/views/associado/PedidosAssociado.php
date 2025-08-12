@@ -61,10 +61,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
                         ['nomeCliente' => 'Natalia Barros', 'nomeProduto' => 'Hidratante Corporal', 'preco' => 29.99, 'data' => '12/07/2024', 'status' => 'Pendente']
                         ];
         
-        
                         $resultado = paginar($pedidos, 7);
 
-                        tabelaPedidosAssociado($resultado['dados']);
+                        echo tabelaPedidosAssociado($resultado['dados']);
 
                         renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
                 ?>
