@@ -38,28 +38,30 @@
         <div class="filtroDegrade"></div>
         
         <div class="promo-content">
-            <div class="promoContentText">
-                <h2>Torne-se um(a) associado(a) ET!</h2>
-                <p>Seja bem-vindo ao programa de marketing de associados da nossa empresa ETCOM. O Programa de Associados ETCOM ajuda vendedores, editores e blogueiros a monetizarem seus sites.</p>
+            <div class="promo-contentEsquerda">
+                <div class="promoContentText">
+                    <h2>Torne-se um(a) associado(a) ET!</h2>
+                    <p>Seja bem-vindo ao programa de marketing de associados da nossa empresa ETCOM. O Programa de Associados ETCOM ajuda vendedores, editores e blogueiros a monetizarem seus sites.</p>
+                </div>
+                <div class="botoesContainer">
+                    <?php
+                    echo botaoPersonalizadoRedirect("Saiba Mais", "btn-white", "app/views/usuario/sobreAssociado.php", "240px", "60px", "25px");
+                    ?>
+                    <?php
+                    echo botaoPersonalizadoRedirect("Associar-se", "btn-white", "app/views/usuario/CadastroAssociado.php", "240px", "60px", "25px");
+                    ?>
+                </div>
             </div>
-            <div class="botoesContainer">
-                <?php
-                echo botaoPersonalizadoRedirect("Saiba Mais", "btn-white", "app/views/usuario/sobreAssociado.php", "240px", "60px", "25px");
-                ?>
-                <?php
-                echo botaoPersonalizadoRedirect("Associar-se", "btn-white", "app/views/usuario/CadastroAssociado.php", "240px", "60px", "25px");
-                ?>
+            <div class="karla">
+                <img  class="promo-image" src="/projeto-integrador-et.com/public/imagens/TornarAssociado/moça.png" alt="Promo Image">
+                <div class="blurNomeKarla">
+                    <h1 class="nomeKarla">Karla</h1>
+                    <h2 class="cargoKarla">Associada ET</h2>
+                    <div class="blur"></div>
+                </div>
             </div>
         </div>
 
-        <div class="karla">
-            <img  class="promo-image" src="/projeto-integrador-et.com/public/imagens/TornarAssociado/moça.png" alt="Promo Image">
-            <div class="blurNomeKarla">
-                <h1 class="nomeKarla">Karla</h1>
-                <h2 class="cargoKarla">Associada ET</h2>
-                <div class="blur"></div>
-            </div>
-        </div>
 
         <?php
         echo createOnda(1); // Adiciona a onda sólida
@@ -171,7 +173,7 @@
         <img class="sej" src="/projeto-integrador-et.com/public/imagens/TornarAssociado/sej.png" alt="img">
     </section>
 
-    <div class="cardRedirectWrapper">
+    <!-- <div class="cardRedirectWrapper"> -->
         <div class="cardRedirect">
             <img src="/projeto-integrador-et.com/public/imagens/ET/LogoPreta1.png" alt="" class="logoCardRedirect">
             <span></span>
@@ -182,7 +184,7 @@
                 ?>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 
     <?php
     echo createRodape();

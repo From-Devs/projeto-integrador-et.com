@@ -619,6 +619,11 @@ body{
     height: 0;
 }
 
+.popUpEditProdutoLancamento .lancamentoFuncional .baixo .botaoMaisDetalhesCardLancamento{
+    user-select: none;
+    pointer-events: none;
+}
+
 .popUpEditProdutoLancamento .esquerda{
     display: flex;
     flex-direction: column;

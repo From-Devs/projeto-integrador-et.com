@@ -79,17 +79,20 @@ body {
 }
 
 .promo-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  position: relative;
+}
+
+.promo-contentEsquerda{
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
-  background-color: transparent;
-  border-radius: 10px;
-  left: 200px;
-  color: #ffffff;
-  text-align: center;
-  z-index: 1;
   gap: 20px;
+  z-index: 1;
 }
 
 .promo-content .btn{
@@ -129,13 +132,14 @@ body {
 }
 
 .karla{
-  position: absolute;
+  /* position: absolute; */
   bottom: 82px;
   right: 200px;
   z-index: 901;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .promo-image {
@@ -337,10 +341,13 @@ body {
   background-color: #FFE5E5;
   display: flex;
   align-self: center;
-  justify-content: center;
-  /* width: fit-content; */
+  /* justify-content: space-between; */
   box-shadow: inset -4px 6px 13px rgba(0, 0, 0, 0.25);
+  margin: 0px 200px;
+  margin-top: 195px;
+  padding: 20px 0px;
 }
+
 /* box-shadow: -4px 8px 4px rgba(0, 0, 0, 0.25); */
 
 .cardRedirect div{
@@ -349,7 +356,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 75px;
-  margin: 0px 50px;
+  /* margin: 0px 50px; */
+  margin: auto;
 }
 
 .cardRedirect span{
@@ -360,6 +368,15 @@ body {
 .logoCardRedirect{
   width: 500px;
   height: auto;
+  filter: drop-shadow(-4px 8px 4px rgba(0, 0, 0, 0.25));
+  /* margin: auto; */
+}
+
+.logoCardRedirect, .cardRedirect div h1{
+  text-align: center;
+}
+
+.logoCardRedirect, .cardRedirect div h1, .cardRedirect span, .cardRedirect div .btn{
   filter: drop-shadow(-4px 8px 4px rgba(0, 0, 0, 0.25));
 }
 
