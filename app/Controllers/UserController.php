@@ -2,74 +2,34 @@
 require_once __DIR__ . '/../Models/User.php';
 
 class UserController {
-    private $userModel;
+    private $model;
 
     public function __construct() {
-        $this->userModel = new User();
+        $this->model = new User();
     }
 
-    public function listAllUsers() {
-        $users = $this->userModel->getAll();
-        if ($users) {
-            return ['success' => true, "data" => $users];
-        } else {
-            return ['success' => false, 'message' => 'Erro ao visualizar todos os usuários.'];
-        }
-    }
-
-    public function createUser($postData) {
-        if(empty($postData['nome']) || empty($postData['email']) || empty($postData['senha'])) {
-            return ['success' => false, 'message' => 'Nome, email e senha são obrigatórios!'];
-        }
-    
-        $postData['senha'] = password_hash($postData['senha'], PASSWORD_DEFAULT);
-    
-        try {
-            $created = $this->userModel->create($postData);
-        } catch (PDOException $e) {
-            return ['success' => false, 'message' => 'Erro no banco: ' . $e->getMessage()];
-        }
-    
-        if($created) {
-            return ['success' => true, 'message' => 'Usuário criado com sucesso!'];
-        } else {
-            return ['success' => false, 'message' => 'CPF já cadastrado ou erro ao criar usuário.'];
-        }
-    }
-    
-
-    // CORRIGIDO: agora retorna os dados do usuário
-    public function getUserById($id) {
-        return $this->userModel->getUserById($id);
-    }
-
-    public function deleteUser($id) {
-        if (empty($id) || !is_numeric($id)) {
-            return ['success' => false, 'message' => 'ID inválido.'];
-        }
-    
-        $deleted = $this->userModel->deleteById($id);
-    
-        if ($deleted) {
-            return ['success' => true, 'message' => 'Usuário deletado com sucesso!'];
-        } else {
-            return ['success' => false, 'message' => 'Erro ao deletar usuário.'];
-        }
+    public function createUser($data) {
+        $success = $this->model->create($data);
+        return ["success" => $success, "message" => $success ? "Usuário criado" : "Erro ao criar"];
     }
 
     public function editUser($id, $data) {
-        if (empty($id) || !is_numeric($id)) {
-            return ['success' => false, 'message' => 'ID inválido.'];
-        }
-    
-        $updated = $this->userModel->updateUser($id, $data);
-    
-        if ($updated) {
-            return ['success' => true, 'message' => 'Usuário atualizado com sucesso!'];
-        } else {
-            return ['success' => false, 'message' => 'Erro ao atualizar usuário.'];
-        }
+        $success = $this->model->updateUser($id, $data);
+        return ["success" => $success, "message" => $success ? "Usuário atualizado" : "Erro ao atualizar"];
     }
 
+    public function deleteUser($id) {
+        $success = $this->model->deleteById($id);
+        return ["success" => $success, "message" => $success ? "Usuário excluído" : "Erro ao excluir"];
+    }
+
+    public function getUserById($id) {
+        return $this->model->getUserById($id);
+    }
+
+    public function listAllUsers() {
+        $users = $this->model->getAll();
+        return ["success" => true, "data" => $users];
+    }
 }
 ?>

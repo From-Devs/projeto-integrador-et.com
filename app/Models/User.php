@@ -10,20 +10,20 @@ class User {
     }
 
     public function getUserById($id) {
-        $stmt = $this->conn->prepare("SELECT * FROM Usuario WHERE id_usuario = ?");
+        $stmt = $this->conn->prepare("SELECT * FROM usuario WHERE id_usuario = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }  
 
     public function getAll(){
-        $sql = "SELECT * FROM Usuario";
+        $sql = "SELECT * FROM usuario";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function cpfExists($cpf) {
-        $sql = "SELECT COUNT(*) FROM Usuario WHERE cpf = :cpf";
+        $sql = "SELECT COUNT(*) FROM usuario WHERE cpf = :cpf";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':cpf', $cpf);
         $stmt->execute();
@@ -35,7 +35,7 @@ class User {
             return false;
         }
     
-        $sql = "INSERT INTO Usuario (nome, nome_social, email, telefone, cpf, data_nascimento, senha, tipo, foto, id_endereco)
+        $sql = "INSERT INTO usuario (nome, nome_social, email, telefone, cpf, data_nascimento, senha, tipo, foto, id_endereco)
                 VALUES (:nome, :nome_social, :email, :telefone, :cpf, :data_nascimento, :senha, :tipo, :foto, :id_endereco)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':nome', $data['nome']);
@@ -52,14 +52,14 @@ class User {
     }
 
     public function deleteById($id){
-        $sql = "DELETE FROM Usuario WHERE id_usuario = :id";
+        $sql = "DELETE FROM usuario WHERE id_usuario = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
 
     public function updateUser($id, $data) {
-        $sql = "UPDATE Usuario SET nome = :nome, nome_social = :nome_social, email = :email, telefone = :telefone, cpf = :cpf, data_nascimento = :data_nascimento, senha = :senha, tipo = :tipo, foto = :foto, id_endereco = :id_endereco WHERE id_usuario = :id";
+        $sql = "UPDATE usuario SET nome = :nome, nome_social = :nome_social, email = :email, telefone = :telefone, cpf = :cpf, data_nascimento = :data_nascimento, senha = :senha, tipo = :tipo, foto = :foto, id_endereco = :id_endereco WHERE id_usuario = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':nome', $data['nome']);
         $stmt->bindParam(':nome_social', $data['nome_social']);
