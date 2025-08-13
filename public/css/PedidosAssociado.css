@@ -5,6 +5,7 @@
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
     margin: 0;
+    padding: 0;
 }
 
 body {
@@ -58,17 +59,9 @@ a {
     margin-top: 10px;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-}
-
 #lista {
     width: 97%;
-    margin-top: 15px;
-    margin-bottom: 0px;
+    margin: 15px 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     background-color: #fff;
     border-radius: 15px;
@@ -82,14 +75,6 @@ html, body {
     border-collapse: collapse;
     background-color: #fff;
     table-layout: fixed;
-}
-
-#barraCima {
-    background-color: black;
-    color: white;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 10%;
 }
 
 th, td {
@@ -143,10 +128,6 @@ tr {
         max-width: 100%;
     }
 
-    #tabelaVendas {
-        min-width: 700px;
-    }
-
     th, td {
         font-size: 18px;
         padding: 8px;
@@ -169,12 +150,6 @@ tr {
     #tituloH1 {
         padding-top: 3px;
         font-size: 30px;
-    }
-}
-
-@media (max-width: 940px) {
-    #tabelaVendas {
-        min-width: 500px;
     }
 }
 
@@ -203,10 +178,6 @@ tr {
         width: fit-content;
         align-items: center;
         margin: 0 15px;
-    }
-
-    #tabelaVendas {
-        min-width: 600px;
     }
 
     th, td {

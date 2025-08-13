@@ -199,7 +199,7 @@ function tabelaPedidosAssociado($pedidos) {
                     <td>{$pedido['nomeCliente']}</td>
                     <td>R$ " . number_format($pedido['preco'], 2, ',', '.') . "</td>
                     <td>{$pedido['data']}</td>
-                    <td><div id='{$statusClass}'>{$pedido['status']}</div></td>
+                    <td><div id='{$statusClass}'><p>{$pedido['status']}<p></div></td>
                 </tr>";
         $contador++;
     }

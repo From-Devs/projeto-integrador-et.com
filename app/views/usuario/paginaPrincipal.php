@@ -53,6 +53,7 @@
     <div class="carouselContainer" id="carousel">
         
         <div class="carouselBackground" id="carouselBackground"></div>
+        <div class="bubble-background" id="bubble-background"></div>
         
         <?php
         echo createHeader($login,$tipoUsuario,1);
