@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../Models/User.php';
 
-
 class UserController {
     private $userModel;
 
@@ -25,7 +24,11 @@ class UserController {
     
         $postData['senha'] = password_hash($postData['senha'], PASSWORD_DEFAULT);
     
-        $created = $this->userModel->create($postData);
+        try {
+            $created = $this->userModel->create($postData);
+        } catch (PDOException $e) {
+            return ['success' => false, 'message' => 'Erro no banco: ' . $e->getMessage()];
+        }
     
         if($created) {
             return ['success' => true, 'message' => 'Usuário criado com sucesso!'];
@@ -33,11 +36,13 @@ class UserController {
             return ['success' => false, 'message' => 'CPF já cadastrado ou erro ao criar usuário.'];
         }
     }
+    
+
+    // CORRIGIDO: agora retorna os dados do usuário
     public function getUserById($id) {
-        $this->model->getUserById($id);
+        return $this->userModel->getUserById($id);
     }
 
-    
     public function deleteUser($id) {
         if (empty($id) || !is_numeric($id)) {
             return ['success' => false, 'message' => 'ID inválido.'];
@@ -51,6 +56,7 @@ class UserController {
             return ['success' => false, 'message' => 'Erro ao deletar usuário.'];
         }
     }
+
     public function editUser($id, $data) {
         if (empty($id) || !is_numeric($id)) {
             return ['success' => false, 'message' => 'ID inválido.'];
@@ -63,7 +69,7 @@ class UserController {
         } else {
             return ['success' => false, 'message' => 'Erro ao atualizar usuário.'];
         }
-    }    
-    
+    }
+
 }
 ?>
