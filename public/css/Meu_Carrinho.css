@@ -493,6 +493,19 @@ tbody td:nth-child(3) {
   display: none;
 }
 
+.td-paginacao{
+  border: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.paginacao a, .paginacao .pagina-ativa{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10px;
+}
+
 /* Responsividade para pop-up */
 @media screen and (max-width: 430px) {
   .popup {

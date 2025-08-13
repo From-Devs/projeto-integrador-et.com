@@ -57,83 +57,123 @@
     
 
             <!--Estrutura do popUp de editar produto (terminar)-->
-            <dialog class="dialog-editar" id="dialogEditarProduto">
-                <div class="header-editar">
-                    <h1>Editar produto</h1>
-                    <button class='fecharPopUp' onclick="fecharPopUp('dialogEditarProduto')">
-                        <img class='icone-fechar' src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
-                    </button>
+            <dialog class="dialog-editar">
+            <div class="header-editar">
+                <h1>Editar produto</h1>
+                <button class="btn-fechar" onclick='fecharPopUp("dialog-editar")'>
+                    <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
+                </button>
+            </div>
+            <div class="campos-editar">
+                <!-- conteúdo do formulário como no original -->
+                <div>
+                    <div class="campo">
+                        <label>Nome:</label>
+                        <input type="text">
+                    </div>
+                    <div class="campo">
+                        <label>Marca:</label>
+                        <input type="text">
+                    </div>
+                    <div class="campo">
+                        <label>Categoria:</label>
+                        <select id="ddlCategoria">
+                            <option value="teste">Teste1</option>
+                            <option value="teste">Teste2</option>
+                            <option value="teste">Teste3</option>
+                            <option value="teste">Teste4</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="campos-editar">
-                    <div>
-                        <div class="campo">
-                            <label>Nome:</label>
+                <div>
+                    <div class="campo campo-large">
+                        <label>Breve descrição:</label>
+                        <textarea cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="divisao-esquerda">
+                    <div class="campos-esquerda">
+                        <div class="campo campo-small">
+                            <label>Código do Produto:</label>
                             <input type="text">
                         </div>
-                        <div class="campo">
-                            <label>Marca:</label>
+                        <div class="campo campo-small">
+                            <label>Preço:</label>
                             <input type="text">
                         </div>
-                        <div class="campo">
-                            <label>Categoria:</label>
-                            <select id="ddlCategoria">
-                                <option value="teste">Teste</option>
-                            </select>
+                        <div class="campo campo-small">
+                            <label>Preço Promocional:</label>
+                            <input type="text">
+                        </div>
+                        <div class="campo campo-small">
+                            <label>Quantidade:</label>
+                            <input type="text">
                         </div>
                     </div>
-                    <div>
-                        <div class="campo campo-large">
-                            <label>Breve descrição:</label>
-                            <textarea cols="30" rows="10"></textarea>
-                        </div>
-                    </div>
-                    <div class="divisao-esquerda">
-                        <div class="campos-esquerda">
-                            <div class="campo campo-small">
-                                <label>Código do Produto:</label>
-                                <input type="text">
-                            </div>
-                            <div class="campo campo-small">
-                                <label>Preço:</label>
-                                <input type="text">
-                            </div>
-                            <div class="campo campo-small">
-                                <label>Preço Promocional:</label>
-                                <input type="text">
-                            </div>
-                            <div class="campo campo-small">
-                                <label>Quantidade:</label>
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="campos-direita">
-                            <div class="imagens-produto">
-                                <div>
-                                    <img src="/projeto-integrador-et.com/public/imagens/produto/coffe.png" alt="img-produto">
-                                </div>
-                                <div>
-                                    <img src="/projeto-integrador-et.com/public/imagens/produto/coffe.png" alt="img-produto">
-                                </div>
-                                <div>
-                                    <img src="/projeto-integrador-et.com/public/imagens/produto/coffe.png" alt="img-produto">
+                    <div class="campos-direita">
+                        <div class="galeria-produtos">
+                            <div class="item-produto">
+                                <div class="imagem-produto-container">
+                                    <div class="container-img">
+                                        <img src=""
+                                            alt="Produto" class="imagem-produto" id="img-produto1" onerror="this.style.display='none';">
+                                    </div>
+
+                                    <label for="upload-produto1" class="icone-editar-label">
+                                        <img src="/projeto-integrador-et.com/public/imagens/produtoAssociado/icone-edit.png"
+                                            alt="Editar Produto" class="icone-editar">
+                                    </label>
+                                    <input type="file" id="upload-produto1" class="input-file" data-img-id="img-produto1" accept="image/*">
                                 </div>
                             </div>
-                            <div class="cores-produto">
-                                <input type="color">
+
+                            <div class="item-produto">
+                                <div class="imagem-produto-container">
+                                    <div class="container-img">
+                                        <img src=""
+                                            alt="Produto" class="imagem-produto" id="img-produto2" onerror="this.style.display='none';">
+                                    </div>
+
+                                    <label for="upload-produto2" class="icone-editar-label">
+                                        <img src="/projeto-integrador-et.com/public/imagens/produtoAssociado/icone-edit.png"
+                                            alt="Editar Produto" class="icone-editar">
+                                    </label>
+                                    <input type="file" id="upload-produto2" class="input-file" data-img-id="img-produto2" accept="image/*">
+                                </div>
+                            </div>
+
+                            <div class="item-produto">
+                                <div class="imagem-produto-container">
+                                    <div class="container-img">
+                                        <img src=""
+                                            alt="Produto" class="imagem-produto" id="img-produto3" onerror="this.style.display='none';">
+                                    </div>
+
+                                    <label for="upload-produto3" class="icone-editar-label">
+                                        <img src="/projeto-integrador-et.com/public/imagens/produtoAssociado/icone-edit.png"
+                                            alt="Editar Produto" class="icone-editar">
+                                    </label>
+                                    <input type="file" id="upload-produto3" class="input-file" data-img-id="img-produto3" accept="image/*">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="campo campo-large">
-                            <label>Características Completa:</label>
-                            <textarea cols="30" rows="10"></textarea>
+
+                        <div class="cores-produto">
+                            <input type="color">
                         </div>
                     </div>
                 </div>
-                <div class="div-btn">
-                    <button class="btn-concluir-edicao">Concluír edição</button>
+                <div>
+                    <div class="campo campo-large">
+                        <label>Características Completa:</label>
+                        <textarea cols="30" rows="10"></textarea>
+                    </div>
                 </div>
-            </dialog>
+            </div>
+            <div class="div-btn">
+                <button onclick="abrirPopUp('popUpSalvar')" class="btn-concluir-edicao">Concluír edição</button>
+            </div>
+        </dialog>
 
             <div class="tabela-body">
                 <table id="tabelaVendas">
