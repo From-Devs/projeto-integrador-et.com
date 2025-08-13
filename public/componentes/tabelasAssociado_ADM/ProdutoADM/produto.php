@@ -37,6 +37,19 @@
         </div>
         <?php
     }
+
+if (isset($_GET['status']) && $_GET['status'] === 'sucesso') {
+    echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            abrirPopUp('popUpSalvar');
+            // Remove ?status=sucesso da URL
+            if (window.history.replaceState) {
+                const urlSemParametro = window.location.origin + window.location.pathname;
+                window.history.replaceState({}, document.title, urlSemParametro);
+            }
+        });
+    </script>";
+}
     
 function tabelaProduto($produtos) {
     echo PopUpComImagemETitulo("popUpSalvar","popUp_Botoes/img-confirmar.png","120px","Edição salva com sucesso!");
@@ -96,7 +109,7 @@ function tabelaProduto($produtos) {
                     <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
                 </button>
             </div>
-            <div class="campos-editar">
+            <form class="campos-editar" action="http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=EditarProduto" method="post">
                 <!-- conteúdo do formulário como no original -->
                 <div>
                     <div class="campo">
@@ -201,10 +214,10 @@ function tabelaProduto($produtos) {
                         <textarea cols="30" rows="10"></textarea>
                     </div>
                 </div>
-            </div>
-            <div class="div-btn">
-                <button onclick="abrirPopUp('popUpSalvar')" class="btn-concluir-edicao">Concluír edição</button>
-            </div>
+                <div class="div-btn">
+                    <button onclick="abrirPopUp('popUpSalvar')" class="btn-concluir-edicao" type="submit">Concluír edição</button>
+                </div>
+            </form>
         </dialog>
     </div>
     <?php
