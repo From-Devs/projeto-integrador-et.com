@@ -44,7 +44,7 @@
             </div>
 
             <div class="edit-profile">
-                <a id="edit-profile" href="../layouts/editarPerfil.php">Editar perfil</a>
+                <a id="edit-profile" href="./editarPerfil.php">Editar perfil</a>
                 <i class='bx bx-edit-alt'></i>
             </div>
 
