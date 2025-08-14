@@ -4,15 +4,13 @@ $produtoController = new ProdutoController();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     switch ($_GET["acao"]) {
-        // case 'create':
-        //     break;
         case 'EditarProduto':
-            $resultado = $produtoController->EditarProduto()
-            header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso");
+            $resultado = $produtoController->EditarProduto();
+            header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=EditarProduto");
             break;
         case 'CadastrarProduto':
-            $resultado = $produtoController->CadastrarProduto()
-            header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso");
+            $resultado = $produtoController->CadastrarProduto();
+            header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=CadastrarProduto");
             break;
         default:
             echo "Nao encontrei nada";

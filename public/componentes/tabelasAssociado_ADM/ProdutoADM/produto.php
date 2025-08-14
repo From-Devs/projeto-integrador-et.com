@@ -39,16 +39,29 @@
     }
 
 if (isset($_GET['status']) && $_GET['status'] === 'sucesso') {
-    echo "<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            abrirPopUp('popUpSalvar');
-            // Remove ?status=sucesso da URL
-            if (window.history.replaceState) {
-                const urlSemParametro = window.location.origin + window.location.pathname;
-                window.history.replaceState({}, document.title, urlSemParametro);
-            }
-        });
-    </script>";
+    if(isset($_GET['acao']) && $_GET['acao'] === 'CadastrarProduto'){
+        echo "<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                abrirPopUp('popUpCadastro');
+                // Remove ?status=sucesso da URL
+                if (window.history.replaceState) {
+                    const urlSemParametro = window.location.origin + window.location.pathname;
+                    window.history.replaceState({}, document.title, urlSemParametro);
+                }
+            });
+        </script>";    
+    }else{
+        echo "<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                abrirPopUp('popUpSalvar');
+                // Remove ?status=sucesso da URL
+                if (window.history.replaceState) {
+                    const urlSemParametro = window.location.origin + window.location.pathname;
+                    window.history.replaceState({}, document.title, urlSemParametro);
+                }
+            });
+        </script>";
+    }
 }
     
 function tabelaProduto($produtos) {
@@ -215,7 +228,7 @@ function tabelaProduto($produtos) {
                     </div>
                 </div>
                 <div class="div-btn">
-                    <button onclick="abrirPopUp('popUpSalvar')" class="btn-concluir-edicao" type="submit">Concluír edição</button>
+                    <button class="btn-concluir-edicao" type="submit">Concluír edição</button>
                 </div>
             </form>
         </dialog>

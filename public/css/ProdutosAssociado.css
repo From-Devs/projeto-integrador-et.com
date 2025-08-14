@@ -60,7 +60,7 @@ a
     padding: 5px;
 }
 
-.dialog-editar {
+.dialog-editar, .dialog-cadastrar {
     border: none;
     border-radius: 20px;
     font-family: "Montserrat", sans-serif;
@@ -73,11 +73,11 @@ a
     transform: translate(-50%, -50%);
 }
 
-.dialog-editar::backdrop {
+.dialog-editar::backdrop, .dialog-cadastrar::backdrop {
     background-color: rgba(121, 121, 121, 0.5);
 }
 
-.header-editar {
+.header-editar, .header-cadastrar {
     position: relative;
     display: flex;
     align-items: center;
@@ -86,7 +86,7 @@ a
     height: 60px;
 }
 
-.header-editar h1 {
+.header-editar h1, .header-cadastrar h1 {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -94,12 +94,12 @@ a
     font-size: 2rem;
 }
 
-.header-editar img {
+.header-editar img, .header-cadastrar img {
     width: 25px;
     cursor: pointer;
 }
 
-.campos-editar {
+.campos-editar, .campos-cadastrar {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
@@ -204,7 +204,7 @@ a
     object-fit: cover;
 }
 
-.icone-editar {
+.icone-editar, .icone-cadastrar {
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -213,7 +213,7 @@ a
     cursor: pointer;
 }
 
-.icone-editar-label {
+.icone-editar-label, .icone-cadastrar-label {
     cursor: pointer;
     display: inline-block;
 }
@@ -222,7 +222,7 @@ a
     place-self: end;
 }
 
-.btn-concluir-edicao {
+.btn-concluir-edicao, .btn-concluir-cadastro {
     width: 150px;
     padding: 10px;
     border: none;
