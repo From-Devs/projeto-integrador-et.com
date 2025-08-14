@@ -103,45 +103,39 @@ function filtro($tipo = "", $opcoesSelect = []){
             <div>
                 <div class="campo">
                     <label>Nome:</label>
-                    <input type="text">
+                    <input type="text" name="nome">
                 </div>
                 <div class="campo">
                     <label>Marca:</label>
-                    <input type="text">
+                    <input type="text" name="marca">
                 </div>
                 <div class="campo">
-                    <label>Categoria:</label>
-                    <select id="ddlCategoria">
-                        <option value="teste">Teste1</option>
-                        <option value="teste">Teste2</option>
-                        <option value="teste">Teste3</option>
-                        <option value="teste">Teste4</option>
+                    <label>Subcategoria:</label>
+                    <select id="ddlCategoria" name="subCategoria">
+                        <option value="teste">Pele</option>
+                        <option value="teste">Olhos</option>
+                        <option value="teste">Boca</option>
+                        <option value="teste">Sobrancelhas</option>
                     </select>
                 </div>
             </div>
-            <div>
-                <div class="campo campo-large">
-                    <label>Breve descrição:</label>
-                    <textarea cols="30" rows="10"></textarea>
-                </div>
+            <div class="campo campo-large">
+                <label>Breve descrição:</label>
+                <textarea cols="30" rows="10" name="breveDescricao"></textarea>
             </div>
             <div class="divisao-esquerda">
                 <div class="campos-esquerda">
-                    <div class="campo campo-small">
+                    <!-- <div class="campo campo-small">
                         <label>Código do Produto:</label>
                         <input type="text">
-                    </div>
+                    </div> -->
                     <div class="campo campo-small">
                         <label>Preço:</label>
-                        <input type="text">
+                        <input type="number" name="preco">
                     </div>
                     <div class="campo campo-small">
                         <label>Preço Promocional:</label>
-                        <input type="text">
-                    </div>
-                    <div class="campo campo-small">
-                        <label>Quantidade:</label>
-                        <input type="text">
+                        <input type="number" name="precoPromocional">
                     </div>
                 </div>
                 <div class="campos-direita">
@@ -150,7 +144,7 @@ function filtro($tipo = "", $opcoesSelect = []){
                             <div class="imagem-produto-container">
                                 <div class="container-img">
                                     <img src=""
-                                        alt="Produto" class="imagem-produto" id="img-produto1" onerror="this.style.display='none';">
+                                        alt="Produto" class="imagem-produto" id="img-produto1" onerror="this.style.display='none';" name="img1">
                                 </div>
     
                                 <label for="upload-produto1" class="icone-cadastrar-label">
@@ -165,7 +159,7 @@ function filtro($tipo = "", $opcoesSelect = []){
                             <div class="imagem-produto-container">
                                 <div class="container-img">
                                     <img src=""
-                                        alt="Produto" class="imagem-produto" id="img-produto2" onerror="this.style.display='none';">
+                                        alt="Produto" class="imagem-produto" id="img-produto2" onerror="this.style.display='none';" name="img2">
                                 </div>
     
                                 <label for="upload-produto2" class="icone-cadastrar-label">
@@ -180,7 +174,7 @@ function filtro($tipo = "", $opcoesSelect = []){
                             <div class="imagem-produto-container">
                                 <div class="container-img">
                                     <img src=""
-                                        alt="Produto" class="imagem-produto" id="img-produto3" onerror="this.style.display='none';">
+                                        alt="Produto" class="imagem-produto" id="img-produto3" onerror="this.style.display='none';" name="img3">
                                 </div>
     
                                 <label for="upload-produto3" class="icone-cadastrar-label">
@@ -193,18 +187,33 @@ function filtro($tipo = "", $opcoesSelect = []){
                     </div>
     
                     <div class="cores-produto">
-                        <input type="color">
+                        <div>
+                            <input type="color" class="cor" name="corPrincipal">
+                            <span class="span-cor">Cor principal</span>
+                        </div>
+                        <div>
+                            <input type="color" class="cor" name="deg1">
+                            <span class="span-cor">Deg. 1</span>
+                        </div>
+                        <div>
+                            <input type="color" class="cor" name="deg2">
+                            <span class="span-cor">Deg. 2</span>
+                        </div>
+                        <div>
+                            <input type="color" class="cor" name="deg3">
+                            <span class="span-cor">Deg. 3</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="container-campos-large">
                 <div class="campo campo-large">
                     <label>Características Completa:</label>
-                    <textarea cols="30" rows="10"></textarea>
+                    <textarea cols="30" rows="10" name="caracteristicasCompleta"></textarea>
                 </div>
-            </div>
-            <div class="div-btn">
-                <button class="btn-concluir-cadastro" type="submit">Concluír edição</button>
+                <div class="div-btn">
+                    <button class="btn-concluir-cadastro" type="submit">Concluír edição</button>
+                </div>
             </div>
         </form>
     </dialog>
