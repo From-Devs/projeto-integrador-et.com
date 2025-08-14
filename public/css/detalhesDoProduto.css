@@ -195,6 +195,7 @@ a {
 
 .btn-juntos {
     display: flex;
+    height: 43px;
     align-items: center;
     gap: 10px;
 }
