@@ -38,7 +38,7 @@
         <section>
             <div class='wave solida'></div>
             <picture>
-                <source media="(max-width: 1240px)" srcset="/projeto-integrador-et.com/public/imagens/ET/LogoPreta1.png">
+                <source media="(max-width: 870px)" srcset="/projeto-integrador-et.com/public/imagens/ET/LogoPreta1.png">
                 <img id="fotoET" src="/projeto-integrador-et.com/public/imagens/ET/LogoBranca1.png" alt="">
             </picture>
         </section>
