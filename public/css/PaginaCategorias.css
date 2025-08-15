@@ -48,6 +48,7 @@ body{
 
 /* PARTE DOS PRODUTOS */
 .Produtos {
+    position: relative;
     gap: 24px;
     box-sizing: border-box;
     width: 100%;
@@ -55,10 +56,6 @@ body{
     flex-direction: row;
     justify-content: center;
     margin-top: 64px;
-}
-
-.filtro-botao{
-    font-size: 24px;
 }
 
 .filtro-botao, .form{
@@ -72,14 +69,17 @@ body{
 }
 
 .filtroSeparado {
+    display: flex;
+    flex-direction: column;
+    position: relative;
     width: 285px;
-    margin-top: 25px;
 }
 
 .PartedeCima { 
     padding: 20px 0px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .PartedeCima h3{

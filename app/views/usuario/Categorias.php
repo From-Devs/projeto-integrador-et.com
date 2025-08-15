@@ -53,22 +53,24 @@
     </div>
     
     <div class="Produtos">
-        <div class="filtroSeparado">
-            <button class="filtro-botao" type="button" onclick="toggleFiltro()">
-                <img src="/projeto-integrador-et.com/public/componentes/filtroCategoria/filtroimg.png" alt="Ícone de filtro">Filtros
-            </button>
-            
-            <div id="form-filtro" class="filtro-box">
-                <div class="form">
-                    <?php 
-                    renderSomenteSubcategorias($categoriasPorTela, $telaAtual);
-                    ?>
-                </div>
-            </div>
-        </div>
+        
         <div class="aVenda">
             <div class="PartedeCima">
                 <h3>Produtos</h3>
+
+                <div class="filtroSeparado">
+                    <button class="filtro-botao" type="button" onclick="toggleFiltro()">
+                        <img src="/projeto-integrador-et.com/public/componentes/filtroCategoria/filtroimg.png" alt="Ícone de filtro">Filtros
+                    </button>
+                    
+                    <div id="form-filtro" class="filtro-box">
+                        <div class="form">
+                            <?php 
+                            renderSomenteSubcategorias($categoriasPorTela, $telaAtual);
+                            ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         
             <div class="PartedeBaixo">
