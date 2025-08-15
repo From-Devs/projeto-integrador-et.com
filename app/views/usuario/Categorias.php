@@ -60,7 +60,7 @@
 
                 <div class="filtroSeparado">
                     <button class="filtro-botao" type="button" onclick="toggleFiltro()">
-                        <img src="/projeto-integrador-et.com/public/componentes/filtroCategoria/filtroimg.png" alt="Ícone de filtro">Filtros
+                        <img src="/projeto-integrador-et.com/public/componentes/filtroCategoria/filtroIcone.png" alt="Ícone de filtro">Filtros
                     </button>
                     
                     <div id="form-filtro" class="filtro-box">
