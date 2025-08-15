@@ -40,22 +40,26 @@
                     <img src="../../../public/imagens/user-icon.png" alt="User Profile" class="profile-pic">
                 </div>
 
-                <div class="edit-profile">
-                    <a id="edit-profile" href="/projeto-integrador-et.com/app/views/usuario/editarPerfil.php">Editar perfil</a>
-                    <i class='bx bx-edit-alt'></i>
-                </div>
-
-                <div class="content">
-                    <div class="content-nameUser">
-                        <p><strong>Nome de Usuário:</strong></p>
-                        <span id="username">ET.COM_LOJA_COSMETICOS</span>
+                
+                <div class="dadosUsuario">
+                    <div class="dadosUsuarioContainer">
+                        <div class="content-nameUser">
+                            <p><strong>Nome de Usuário:</strong></p>
+                            <span id="username">ET.COM_LOJA_COSMETICOS</span>
+                        </div>
+                        <div class="content-email">
+                            <p><strong>Email:</strong></p>
+                            <span id="email">ET_COM_LOJA@GMAIL.COM</span>
+                        </div>
                     </div>
-                    <div class="content-email">
-                        <p><strong>Email:</strong></p>
-                        <span id="email">ET_COM_LOJA@GMAIL.COM</span>
-                    </div>
-                    <div class="content-excluirConta">
-                        <a id="excluir-conta" href="#">Excluir conta</a>            
+                    <div class="dadosAcoesContainer">
+                        <div class="content-excluirConta">
+                            <a id="excluir-conta" href="#">Excluir conta</a>            
+                        </div>
+                        <div class="edit-profile">
+                            <a id="edit-profile" href="/projeto-integrador-et.com/app/views/usuario/editarPerfil.php">Editar perfil</a>
+                            <i class='bx bx-edit-alt'></i>
+                        </div>
                     </div>
                 </div>
             </div>

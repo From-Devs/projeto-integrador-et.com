@@ -4,12 +4,18 @@
     padding: 0;
     margin: 0;
     font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
     padding: 0;
     background: #f8f8f8;
+}
+
+main{
+    padding-top: 150px;
+    height: 100vh;
 }
 
 .menu i, .icons i {
@@ -19,7 +25,7 @@ body {
 }
 
 .tituloMinhaConta {
-    margin-top: 150px;
+    /* margin-top: 150px; */
     text-align: center;
     margin-bottom: 8px;
     font-size: 38px;
@@ -36,8 +42,24 @@ body {
     height: 1px;
 }
 
-.content p {
+.dadosUsuario{
+    display: flex;
+    height: 100%;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dadosUsuario p {
     margin: 15px 0px;
+}
+
+.dadosUsuarioContainer{
+    display: flex;
+}
+
+.dadosAcoesContainer{
+    display: flex;
 }
 
 .option-card p{
@@ -46,24 +68,27 @@ body {
 
 .conta-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 26px;
-    padding: 20px;
-    height: 400px;
+    padding: 20px 200px;
+    /* height: 400px; */
 }
 
 .profile-card {
+    display: flex;
+    align-items: center;
     background: white;
     padding: 56px 56px 56px 56px;
     border-radius: 10px;
     text-align: left;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
-    width: 350px;
-    height: 400px;
+    width: 100%;
+    height: 280px;
+    gap: 50px;
 }
 
 .edit-profile{
-    margin-top: 24px;
     display: flex;
 
     i {
@@ -88,22 +113,24 @@ body {
 }
 
 .content-excluirConta{
-    margin-top: 140px;
-
     a{
         color: black;
     }
 }
 
 .profile-pic {
-    width: 80px;
+    height: 100%;
     border-radius: 50%;
     border: 3px solid #ccc;
 }
 
 .opcoes-conta {
-    display: flex;
+    display: grid;
+    width: 100%;
+    row-gap: 10px;
+    column-gap: 10px;
     gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
 
     & a{
         text-decoration: none;
@@ -115,7 +142,8 @@ body {
 .option-card {
     background: white;
     padding: 20px;
-    width: 314px;
+    flex: 1;
+    /* width: 314px; */
     height: 10pc;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
@@ -136,6 +164,7 @@ body {
 }
 
 .Foto_e_edicao {
+    height: 100%;
     display: flex;
     flex-direction: column;
 }

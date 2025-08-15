@@ -42,6 +42,24 @@
     background: linear-gradient(to bottom, rgb(0,0,0) 0%,rgb(0, 0, 0) 80%,rgb(53, 53, 53) 100%);
 }
 
+#menu-toggle-mobile{
+    display: none;
+    position: absolute;
+    left: 24px;
+    top: 25px;
+    flex-direction: column;
+    gap: 9px;
+    cursor: pointer;
+}
+
+#menu-toggle-mobile .bar { /* Tag das barrinhas individuais*/
+    width: 29px;
+    height: 3px;
+    background: white;
+    transition: transform 0.3s ease;
+    border-radius: 100px;
+}
+
 
 /*_________________Logo_________________*/
 .logo{
@@ -190,4 +208,19 @@
 .overlay.mostrar {
     opacity: 1;
     pointer-events: all; /* Permite clicar no overlay quando visível */
+}
+
+@media (max-width: 480px) {
+    .nav_adm{
+        width: 100%;
+    }
+
+    .sidebar{
+        width: 100%;
+        left: -480px;
+    }
+
+    #menu-toggle-mobile{
+        display: flex;
+    }
 }
