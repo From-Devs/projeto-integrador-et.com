@@ -8,8 +8,7 @@ class UserController {
         $this->model = new User();
     }
     public function teste(){
-        $success = $this->model->testConntx();
-        return $success;
+        return $this->model->testConntx();
     }
 
     public function createUser($data) {
