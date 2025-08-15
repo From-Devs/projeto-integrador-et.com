@@ -14,7 +14,18 @@ class User {
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }  
-
+    public function testConntx() {
+        try {
+            $stmt = $this->conn->query("SELECT 1");
+            if ($stmt) {
+                echo "✅ Conexão com o banco de dados funcionando!";
+            } else {
+                echo "❌ Falha ao executar teste no banco.";
+            }
+        } catch (PDOException $e) {
+            echo "❌ Erro de conexão: " . $e->getMessage();
+        }
+    }    
     public function getAll(){
         $sql = "SELECT * FROM usuario";
         $stmt = $this->conn->prepare($sql);

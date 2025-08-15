@@ -7,6 +7,10 @@ class UserController {
     public function __construct() {
         $this->model = new User();
     }
+    public function teste(){
+        $success = $this->model->testConntx();
+        return $success;
+    }
 
     public function createUser($data) {
         $success = $this->model->create($data);
