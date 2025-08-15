@@ -213,6 +213,7 @@ section .wave
     animation-delay: 0s;
 }
 
+
 @keyframes animacao
 {
     0%
@@ -225,94 +226,41 @@ section .wave
     }
 }
 
-/* PARTE DA RESPONSIVIDADE */
-@media (max-width: 1669px){
-    /* ANIMACAO DA ONDA */
-    section .wave
-    {
-        position: fixed;
-        height: 100px;
-        left: 5%;
-        top: 400px;
-        transform: rotate(90deg) scaleX(-1);
+@media (max-width: 1240px){
+    #container{
+        flex-direction: column;
+        justify-content: center;
     }
 
-    /* PARTE ET */
-    #fotoET
-    {
-        height: 500px;
-        margin: 250px 0px 0px 100px;
+    section .wave{
+        display: none;
+    }
+
+    section{
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        background-color: transparent;
+    }
+
+    form{
+        width: 360px;
+    }
+
+    #botaoEntrar{
+        width: 300px;
+    }
+
+    #fotoET{
+        margin-left: 0px;
+        margin-top: 10vh;
+        height: 200px;
+    }
+
+    picture{
+        width: 100%;
+        text-align: center;
     }
 }
 
-
-@media (max-width: 1440px){
-    /* PARTE BRANCA */
-
-    #parteBranca
-    {
-        width: 700px;
-    }
-
-
-    /* PARTE ANIMADA ONDA */
-    section
-    {
-        height: 100vh;
-    }
-
-    section .wave
-    {
-        position: fixed;
-        height: 100px;
-        left: 1%;
-        top: 400px;
-        transform: rotate(90deg) scaleX(1);
-    }
-
-    /* PARTE PRETA (DIREITA) */
-
-    #fotoET
-    {
-        height: 400px;
-        margin: 250px 0px 0px 100px;
-    }
-
-
-
-}
-
-@media (max-width: 1024px)
-{
-    /* parte branca */
-
-    #parteBranca
-    {
-        width: 500px;
-    }
-
-
-    /* parte animacao onda */
-    section
-    {
-        height: 100vh;
-    }
-
-    section .wave
-    {
-        position: fixed;
-        height: 100px;
-        left: 1%;
-        top: 400px;
-        transform: rotate(90deg) scaleX(1);
-    }
-
-    /* PARTE PRETA (DIREITA) */
-
-    #fotoET
-    {
-        height: 300px;
-        margin: 300px 0px 0px 100px;
-    }
-
-}
