@@ -1,6 +1,7 @@
 <?php
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require __DIR__ . "/../../../router/UserRoutes.php";
 
     session_start();
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
