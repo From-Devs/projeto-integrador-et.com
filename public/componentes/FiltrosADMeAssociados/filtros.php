@@ -45,6 +45,7 @@ function filtro($tipo = "", $opcoesSelect = []){
                         <option value="" selected disabled hidden>Filtro</option>
                  
             <?php
+            $html = "";
             foreach ($opcoesSelect as $opcao) {
                 $html .= '<option value="' . htmlspecialchars($opcao) . '">' . htmlspecialchars($opcao) . '</option>';
             }
@@ -88,6 +89,7 @@ function filtro($tipo = "", $opcoesSelect = []){
     }
 
     echo PopUpComImagemETitulo("popUpCadastro","popUp_Botoes/img-confirmar.png","120px","Cadastro realizado com sucesso!");
+    echo PopUpConfirmar("popUpErro", "Preencha todos os campos!");
     ?>
 
 
@@ -99,7 +101,6 @@ function filtro($tipo = "", $opcoesSelect = []){
             </button>
         </div>
         <form class="campos-cadastrar" action="http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto" method="post">
-            <!-- conteúdo do formulário como no original -->
             <div>
                 <div class="campo">
                     <label>Nome:</label>
@@ -131,11 +132,11 @@ function filtro($tipo = "", $opcoesSelect = []){
                     </div> -->
                     <div class="campo campo-small">
                         <label>Preço:</label>
-                        <input type="number" name="preco">
+                        <input type="number" step="0.01" name="preco">
                     </div>
                     <div class="campo campo-small">
                         <label>Preço Promocional:</label>
-                        <input type="number" name="precoPromocional">
+                        <input type="number" step="0.01" name="precoPromocional">
                     </div>
                 </div>
                 <div class="campos-direita">
@@ -212,7 +213,7 @@ function filtro($tipo = "", $opcoesSelect = []){
                     <textarea cols="30" rows="10" name="caracteristicasCompleta"></textarea>
                 </div>
                 <div class="div-btn">
-                    <button class="btn-concluir-cadastro" type="submit">Concluír edição</button>
+                    <button class="btn-concluir-cadastro" type="submit">Cadastrar Produto</button>
                 </div>
             </div>
         </form>

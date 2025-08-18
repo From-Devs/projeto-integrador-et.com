@@ -62,6 +62,17 @@ if (isset($_GET['status']) && $_GET['status'] === 'sucesso') {
             });
         </script>";
     }
+}else if(isset($_GET['status']) && $_GET['status'] === 'erro'){
+    echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            abrirPopUp('popUpErro');
+            // Remove ?status=sucesso da URL
+            if (window.history.replaceState) {
+                const urlSemParametro = window.location.origin + window.location.pathname;
+                window.history.replaceState({}, document.title, urlSemParametro);
+            }
+        });
+    </script>";
 }
     
 function tabelaProduto($produtos) {

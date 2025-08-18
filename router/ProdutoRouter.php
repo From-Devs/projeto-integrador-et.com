@@ -9,11 +9,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=EditarProduto");
             break;
         case 'CadastrarProduto':
-            $resultado = $produtoController->CadastrarProduto($_POST["nome"], $_POST["marca"], $_POST["subCategoria"], $_POST["breveDescricao"], $_POST["preco"], $_POST["precoPromocional"], $_POST["img1"], $_POST["img2"], $_POST["img3"], $_POST["corPrincipal"],$_POST["deg1"], $_POST["deg2"], $_POST["deg3"], $_POST["caracteristicasCompleta"]);
+            $resultado = $produtoController->CadastrarProduto($_POST["nome"], $_POST["marca"], $_POST["breveDescricao"], $_POST["preco"], $_POST["precoPromocional"], $_POST["caracteristicasCompleta"]);
             if($resultado){
                 header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=CadastrarProduto");
             }else{
-                // header("Location: ../index.php");
+                header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=CadastrarProduto");
             }
             break;
         default:
