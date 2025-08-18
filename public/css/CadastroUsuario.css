@@ -209,22 +209,25 @@ section
 section .wave
 {
     position: fixed;
-    left: 32%;
-    width: 100%;
-    height: 100px;
+    left: -2%;
+    width: 170%;
+    height: 120px;
     background: url(../imagens/ondas/ondaSolida.png);
-    background-size: 1000px 100px;
-    transform: rotate(90deg) scaleX(-1);
-}
-
-section .wave.wave1
-{
-    top: 0;
+    background-size: 1000px 120px;
+    transform: rotate(90deg) /*scaleX(-1)*/;
     animation: animacao 10s linear infinite;
     z-index: 1000;
     opacity: 1;
     animation-delay: 0s;
+}
 
+section .wave.wave1
+{
+    top: 35vh;
+    animation: animacao 10s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
 
 }
 
@@ -240,7 +243,66 @@ section .wave.wave1
 }
 
 /* Responsividade */
-@media (max-width: 1024px) {
+
+@media (max-width: 1550px){
+    .id{
+        column-gap: 170px;
+    }
+}
+
+
+@media (max-width: 1440px){
+    .id{
+        column-gap: 70px;
+    }
+}
+
+@media (max-width: 1320px){
+    .container {
+        width: 100%;
+    }
+
+    .id{
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+}
+
+@media (max-width: 650px){
+    section{
+        display: none;
+    }
+
+    section .wave{
+        display: none;
+    }
+
+    .parteBranca{
+        width: 100%;
+    }
+
+    /**/
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .p2 {
+        font-size: 9px;
+    }
+
+    .checkbox label {
+        font-size: 14px;
+    }
+
+    #voltar {
+        font-size: 16px;
+    }
+}
+
+
+
+/*@media (max-width: 1024px) {
     .container {
         width: 100%;
         margin: 60px auto;
@@ -323,4 +385,4 @@ section .wave.wave1
     .wave {
         display: none;
     }
-}
+}*/
