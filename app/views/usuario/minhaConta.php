@@ -36,9 +36,8 @@
         </div>
         <section class="conta-container">
             <div class="profile-card">
-                <div class="Foto_e_edicao">
-                    <img src="../../../public/imagens/user-icon.png" alt="User Profile" class="profile-pic">
-                </div>
+
+                <img src="../../../public/imagens/user-icon.png" alt="User Profile" class="profile-pic">
 
                 
                 <div class="dadosUsuario">
@@ -51,15 +50,31 @@
                             <p><strong>Email:</strong></p>
                             <span id="email">ET_COM_LOJA@GMAIL.COM</span>
                         </div>
+                        <div class="content-cpf">
+                            <p><strong>Tipo de conta:</strong></p>
+                            <span id="email">Usuário</span>
+                        </div>
+                        <div class="content-phone">
+                            <p><strong>Telefone:</strong></p>
+                            <span id="email">+55 91234-5678</span>
+                        </div>
                     </div>
                     <div class="dadosAcoesContainer">
-                        <div class="content-excluirConta">
+                        <!-- <div class="content-excluirConta">
                             <a id="excluir-conta" href="#">Excluir conta</a>            
-                        </div>
-                        <div class="edit-profile">
-                            <a id="edit-profile" href="/projeto-integrador-et.com/app/views/usuario/editarPerfil.php">Editar perfil</a>
-                            <i class='bx bx-edit-alt'></i>
-                        </div>
+                        </div> -->
+
+                        <button class="delete-profile-button btn-red">
+                            <p id="edit-profile-text">Apagar perfil</p>
+                            <i class='bx bx-trash'></i>
+                        </button>
+
+                        <a href="/projeto-integrador-et.com/app/views/usuario/editarPerfil.php" class="edit-profile-container">
+                            <button class="edit-profile-button btn-black">
+                                <p id="edit-profile-text">Editar perfil</p>
+                                <i class='bx bx-edit-alt'></i>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
