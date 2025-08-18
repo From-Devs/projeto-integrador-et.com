@@ -1,0 +1,19 @@
+<?php
+header('Content-Type: application/json');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET");
+
+require_once '../ProdutoController.php';
+$controller = new ProdutoController();
+
+$acao = $_GET['acao'] ?? '';
+
+if ($acao === 'listar') {
+    $resultado = $controller->ListarProdutos();
+    echo json_encode($resultado);
+} else {
+    echo json_encode([
+        "status" => "error",
+        "mensagem" => "Ação inválida."
+    ]);
+}

@@ -1,47 +1,80 @@
 <?php
 require_once __DIR__ . '/../Models/Products.php';
+require_once __DIR__ . '/../Models/SubCategory.php';
+require_once __DIR__ . '/../Models/Category.php';
+require_once __DIR__ . '/../../config/database.php';
 
 class ProductsController {
-    private $productModel;
+    private $produtoModel;
+    private $subCategoriaModel;
+    private $db;
 
     public function __construct() {
-        $this->productModel = new Products();
+        $this->db = new Database();
+        $this->produtoModel = new Produto();
+        $this->subCategoriaModel = new SubCategory();
     }
 
+    // Criar Produto
     public function createProduto($data) {
-        $success = $this->productModel->create($data);
-        return ["success" => $success, "message" => $success ? "Produto criado" : "Erro ao criar"];
+        return $this->produtoModel->create($data)
+            ? ['success' => true, 'message' => 'Produto criado com sucesso!']
+            : ['success' => false, 'message' => 'Erro ao criar produto'];
     }
 
+    // Editar Produto
     public function editProduto($id, $data) {
-        $success = $this->productModel->updateProduto($id, $data);
-        return ["success" => $success, "message" => $success ? "Produto atualizado" : "Erro ao atualizar"];
+        return $this->produtoModel->update($id, $data)
+            ? ['success' => true, 'message' => 'Produto atualizado com sucesso!']
+            : ['success' => false, 'message' => 'Erro ao atualizar produto'];
     }
 
+    // Deletar Produto
     public function deleteProduto($id) {
-        $success = $this->productModel->deleteProduto($id);
-        return ["success" => $success, "message" => $success ? "Produto excluído" : "Erro ao excluir"];
+        return $this->produtoModel->delete($id)
+            ? ['success' => true, 'message' => 'Produto deletado com sucesso!']
+            : ['success' => false, 'message' => 'Erro ao deletar produto'];
     }
 
-    public function getProdutoById($id) {
-        return $this->productModel->produtoById($id);
-    }
-
+    // Listar todos os Produtos
     public function listAllProdutos() {
-        $produtos = $this->productModel->getAllProdutos();
-        return ["success" => true, "data" => $produtos];
+        $data = $this->produtoModel->getAllProdutos();
+        return ['success' => true, 'data' => $data];
     }
 
+    // Buscar Produto por ID
+    public function getProdutoById($id) {
+        $produtos = $this->produtoModel->getAllProdutos();
+        foreach($produtos as $p) {
+            if($p['id_produto'] == $id) return $p;
+        }
+        return null;
+    }
+
+    // Listar Subcategorias
     public function listSubcategorias() {
-        return $this->productModel->getAllSubcategorias();
+        $res = $this->subCategoriaModel->getAllSubCategorias();
+        return $res['success'] ? $res['data'] : [];
     }
 
+    // Listar Cores
     public function listCores() {
-        return $this->productModel->getAllCores();
+        try {
+            $stmt = $this->db->Connect()->query("SELECT * FROM cores");
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch(PDOException $e) {
+            return [];
+        }
     }
 
+    // Listar Usuários/Associados
     public function listAssociados() {
-        return $this->productModel->getAllAssociados();
+        try {
+            $stmt = $this->db->Connect()->query("SELECT * FROM usuario");
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch(PDOException $e) {
+            return [];
+        }
     }
 }
 ?>
