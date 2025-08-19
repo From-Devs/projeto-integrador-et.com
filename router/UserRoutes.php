@@ -5,20 +5,13 @@ $userController = new UserController();
 $responseCreate = null;
 $responseUpdate = null;
 $responseDelete = null;
-$editUserData = null;
 
 // Teste de conexão opcional
 $testeConexao = $userController->teste();
 
-$acao = $_GET["acao"] ?? '';
-
-if (!in_array($acao, ['','create','update','delete','getUser'])) {
-    header("Location: ../app/views/usuario/TelaErro.php");
-    exit();
-}
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    
+    $acao = $_GET["acao"] ?? '';
+
     switch ($acao) {
         case "create":
             if (isset($_POST['nome'])) {
@@ -74,19 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 }
             }            
             break;
-
-        case "getUser":
-            if (isset($_POST['edit_id'])) {
-                try {
-                    $editUserData = $userController->getUserById($_POST['edit_id']);
-                } catch (Exception $e) {
-                    $editUserData = ["success" => false, "message" => "Erro usuario nao existe: " . $e->getMessage()];
-                }
-            } 
-            break;
-        default:
-            echo "Nao encontrei nada";
-            break;
+            
     }
 }
 
