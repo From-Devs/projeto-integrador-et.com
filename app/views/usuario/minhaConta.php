@@ -50,13 +50,21 @@
                             <p><strong>Email:</strong></p>
                             <span id="email">ET_COM_LOJA@GMAIL.COM</span>
                         </div>
+                        <div class="content-nasc">
+                            <p><strong>Data de nascimento:</strong></p>
+                            <span id="email">01/01/2000</span>
+                        </div>
                         <div class="content-cpf">
-                            <p><strong>Tipo de conta:</strong></p>
-                            <span id="email">Usuário</span>
+                            <p><strong>CPF:</strong></p>
+                            <span id="email">123.456.789-10</span>
                         </div>
                         <div class="content-phone">
                             <p><strong>Telefone:</strong></p>
                             <span id="email">+55 91234-5678</span>
+                        </div>
+                        <div class="content-type">
+                            <p><strong>Tipo de conta:</strong></p>
+                            <span id="email">Usuário</span>
                         </div>
                     </div>
                     <div class="dadosAcoesContainer">

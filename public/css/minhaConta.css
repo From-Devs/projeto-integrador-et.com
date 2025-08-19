@@ -44,9 +44,10 @@ main{
 
 .dadosUsuario{
     display: flex;
+    flex-direction: column;
+    gap: 22px;
     height: 100%;
     flex: 1;
-    flex-direction: column;
     justify-content: space-between;
     padding: 24px;
     padding-left: 50px;
@@ -86,12 +87,10 @@ main{
     display: flex;
     align-items: center;
     background: white;
-    /* padding: 56px 56px 56px 56px; */
     border-radius: 10px;
     text-align: left;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     width: 100%;
-    height: 280px;
 }
 
 .edit-profile-container{
