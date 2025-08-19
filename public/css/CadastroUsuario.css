@@ -268,6 +268,18 @@ section .wave.wave1
     }
 }
 
+@media (max-width: 1000px){
+    .id{
+        row-gap: 12px;
+    }
+
+    .logo {
+        height: 10%;
+        bottom: 0px;
+        left: 32px;
+    }
+}
+
 @media (max-width: 650px){
     section{
         display: none;
@@ -279,6 +291,14 @@ section .wave.wave1
 
     .parteBranca{
         width: 100%;
+        height: 100vh;
+        padding-top: 15px;
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+
+    .logo{
+        display: none;
     }
 
     /**/
@@ -298,17 +318,28 @@ section .wave.wave1
     #voltar {
         font-size: 16px;
     }
+
+    .containerForm{
+        width: 100%;
+    }
+
+    form{
+        padding: 20px;
+    }
+
+    .campo-campo-container input{
+        width: 100%;
+    }
+
+    .botaoConfirmar{
+        width: 80%;
+    }
+
 }
 
 
 
 /*@media (max-width: 1024px) {
-    .container {
-        width: 100%;
-        margin: 60px auto;
-        padding: 20px;
-    }
-
     .id {
         grid-template-columns: 1fr;
         column-gap: 0;
@@ -340,9 +371,9 @@ section .wave.wave1
         justify-content: flex-start;
     }
 
-}
+}*/
 
-@media (max-width: 600px) {
+/*@media (max-width: 600px) {
     .logo {
         width: 80px;
         height: 80px;
