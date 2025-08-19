@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="karla">
-                <img  class="promo-image" src="/projeto-integrador-et.com/public/imagens/TornarAssociado/moça.png" alt="Promo Image">
+                <img class="promo-image" src="/projeto-integrador-et.com/public/imagens/TornarAssociado/moça.png" alt="Promo Image">
                 <div class="blurNomeKarla">
                     <h1 class="nomeKarla">Karla</h1>
                     <h2 class="cargoKarla">Associada ET</h2>
@@ -70,9 +70,9 @@
     </section>
     
     <div class="carousel-container">
-    <section class="associ">
-        <h2>Associados:</h2>
-    </section>
+        <div class="associadoTitle">
+            <h2>Associados:</h2>
+        </div>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item">
@@ -138,39 +138,69 @@
             </div>
         </div>
     </div>
-    <section class="commission-table">
-        <h2>Comissões</h2>
-        <p>A Partir de 7%</p>
-    </section>
     <section class="cards-section">
-        <div class="cards-container">
-            <div class="card card1">
-                <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/card1.png" alt="Descrição da Imagem do Card">
-                <div class="card-content">
-                </div>
-            </div>
-            <div class="card card2">
-                <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/card2.png" alt="Descrição da Imagem do Card">
-                <div class="card-content">
-                </div>
-            </div>
-            <div class="card card3">
-                <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/card3.png" alt="Descrição da Imagem do Card">
-                <div class="card-content">
-                </div>
-            </div>
-            <div class="card card4">
-                <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/card4.png" alt="Descrição da Imagem do Card">
-                <div class="card-content">
-                </div>
-            </div>
-            <div class="card card5">
-                <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/card5.png" alt="Descrição da Imagem do Card">
-                <div class="card-content">
-                </div>
-            </div>
+        <div class="commission-table">
+            <h2>Comissões</h2>
+            <p>A Partir de 7%</p>
         </div>
-        <img class="sej" src="/projeto-integrador-et.com/public/imagens/TornarAssociado/sej.png" alt="img">
+        <div class="cards-container">
+            <div class="comissionCard" id="maquiagemCard">
+                <div class="comissionCardIdentifier">
+                    <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/batom.png" alt="" class="comissionCardIcon">
+                    <h1 class="categoryComissionName">Maquiagem</h1>
+                </div>
+                <div class="comissionPercentageContainer">
+                    <p class="comissionPercentage">7% De Comissão</p>
+                </div>
+            </div>
+            <div class="comissionCard" id="perfumeCard">
+                <div class="comissionCardIdentifier">
+                    <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/perfume.png" alt="" class="comissionCardIcon">
+                    <h1 class="categoryComissionName">Perfumes</h1>
+                </div>
+                <div class="comissionPercentageContainer">
+                    <p class="comissionPercentage">8% De Comissão</p>
+                </div>
+            </div>
+            <div class="comissionCard" id="skinCareCard">
+                <div class="comissionCardIdentifier">
+                    <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/skin.png" alt="" class="comissionCardIcon">
+                    <h1 class="categoryComissionName">Skin Care</h1>
+                </div>
+                <div class="comissionPercentageContainer">
+                    <p class="comissionPercentage">9% De Comissão</p>
+                </div>
+            </div>
+            <div class="comissionCard" id="cabeloCard">
+                <div class="comissionCardIdentifier">
+                    <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/cabelo.png" alt="" class="comissionCardIcon">
+                    <h1 class="categoryComissionName">Cabelo</h1>
+                </div>
+                <div class="comissionPercentageContainer">
+                    <p class="comissionPercentage">8% De Comissão</p>
+                </div>
+            </div>
+            <div class="comissionCard" id="eletronicosCard">
+                <div class="comissionCardIdentifier">
+                    <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronico.png" alt="" class="comissionCardIcon">
+                    <h1 class="categoryComissionName">Eletrônicos</h1>
+                </div>
+                <div class="comissionPercentageContainer">
+                    <p class="comissionPercentage">10% De Comissão</p>
+                </div>
+            </div>
+            <div class="comissionCard" id="corporalCard">
+                <div class="comissionCardIdentifier">
+                    <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/corporal.png" alt="" class="comissionCardIcon">
+                    <h1 class="categoryComissionName">Corporais</h1>
+                </div>
+                <div class="comissionPercentageContainer">
+                    <p class="comissionPercentage">8% De Comissão</p>
+                </div>
+            </div>
+
+        </div>
+        <p class="comissionText">Seja bem-vindo ao programa de marketing de afiliados da nossa empresa ET.COM. O Programa de Associados ET.COM ajuda criadores de conteúdo, editores e blogueiros a monetizarem seus sites. Com milhões de produtos e diversos programas disponíveis no ET.COM, os associados podem usar ferramentas simples de criação de links para direcionar o público às suas recomendações e faturar com compras e programas qualificados.</p>
     </section>
 
     <!-- <div class="cardRedirectWrapper"> -->
@@ -193,4 +223,4 @@
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
 </body>
-</html>
+</html> 

@@ -63,7 +63,7 @@ a {
 }
 
 .img-principal div {
-    width: 350px;
+    width: 500px;
     height: 500px;
     border: 1px solid #ccc;
     border-radius: 20px;
@@ -75,6 +75,7 @@ a {
     height: 100%;
     border-radius: 20px;
     transition: transform 0.6s ease;
+    object-fit: cover;
 }
 
 .img-principal:hover img {
@@ -473,8 +474,13 @@ option {
     }
 
     .img-principal div {
-        width: 280px;
-        height: 400px;
+        width: 380px;
+        height: 380px;
+    }
+
+    .description-box {
+        margin: 40px 20px;
+        padding: 40px 40px;
     }
 }
 

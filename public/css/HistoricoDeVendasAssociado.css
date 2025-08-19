@@ -40,7 +40,7 @@ a {
 
 #lista {
     width: 97%;
-    margin-top: 15px;
+    margin: 15px 0px;
     background-color: #fff;
     border-radius: 15px;
     overflow: hidden;
@@ -54,26 +54,20 @@ a {
 }
 
 #barraCima {
-    background-color: black;
+    background-color: #141414;
     color: white;
 }
 
 #barraCima th {
     font-size: 24px;
-    padding: 16px 8px;
-    text-align: center;
-    padding: 30px;
+    padding: 2%;
 }
 
 th, td {
     text-align: center;
-    padding: 30px;
+    padding: 2%;
     font-weight: bold;
     font-size: 1.3rem;
-}
-
-#bordaEsquerda, .idProduto {
-    width: 5%;
 }
 
 #precoassoc {
@@ -132,6 +126,12 @@ tr {
     .main{
         margin-left: 230px;
     }
+
+    #tituloH1 {
+        padding-top: 3px;
+        font-size: 30px;
+    }
+    
 
 }
 

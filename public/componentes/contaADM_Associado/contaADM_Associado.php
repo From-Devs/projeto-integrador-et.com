@@ -13,7 +13,7 @@ function createContaAssociadoADM($tipo = "ADM"){
         ";
     }else{
         return "
-        <a class='componenteConta' href='/projeto-integrador-et.com/app/views/associado/MeusDadosAssociado.php'>
+        <div class='componenteConta'>
             <div class='fotoUserWrapper'>
                 <img id='fotoUser' src='https://preview.redd.it/which-meme-image-of-joker-is-going-to-be-turned-into-a-v0-qgt2ljdpsbzc1.jpg?width=640&crop=smart&auto=webp&s=58b0fbeed2d91a608cf2507d5575f7dd8ea65e19' alt='userIMG'>
             </div>
@@ -21,7 +21,7 @@ function createContaAssociadoADM($tipo = "ADM"){
                 <p id='textUser'>Wellinton R.</p>
                 <p id='textCargo'>Associado ET</p>
             </div>
-        </a>
+        </div>
         ";
     }
 }
