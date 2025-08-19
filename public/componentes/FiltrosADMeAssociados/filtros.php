@@ -100,7 +100,7 @@ function filtro($tipo = "", $opcoesSelect = []){
                 <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
             </button>
         </div>
-        <form class="campos-cadastrar" action="http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto" method="post">
+        <form class="campos-cadastrar" action="http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto" method="post" enctype="multipart/form-data">
             <div>
                 <div class="campo">
                     <label>Nome:</label>
@@ -152,8 +152,8 @@ function filtro($tipo = "", $opcoesSelect = []){
                                     <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
                                         alt="Editar Produto" class="icone-cadastrar">
                                 </label>
-                                <input type="file" id="upload-produto1" class="input-file" data-img-id="img-produto1" accept="image/*">
-                            </div>
+                                <input type="file" id="upload-produto1" name="img1" class="input-file" data-img-id="img-produto1" accept="image/*">
+                                </div>
                         </div>
     
                         <div class="item-produto">
@@ -167,8 +167,8 @@ function filtro($tipo = "", $opcoesSelect = []){
                                     <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
                                         alt="Editar Produto" class="icone-cadastrar">
                                 </label>
-                                <input type="file" id="upload-produto2" class="input-file" data-img-id="img-produto2" accept="image/*">
-                            </div>
+                                <input type="file" id="upload-produto2" name="img2" class="input-file" data-img-id="img-produto2" accept="image/*">
+                                </div>
                         </div>
     
                         <div class="item-produto">
@@ -182,8 +182,8 @@ function filtro($tipo = "", $opcoesSelect = []){
                                     <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
                                         alt="Editar Produto" class="icone-cadastrar">
                                 </label>
-                                <input type="file" id="upload-produto3" class="input-file" data-img-id="img-produto3" accept="image/*">
-                            </div>
+                                <input type="file" id="upload-produto3" name="img3" class="input-file" data-img-id="img-produto3" accept="image/*">
+                                </div>
                         </div>
                     </div>
     
