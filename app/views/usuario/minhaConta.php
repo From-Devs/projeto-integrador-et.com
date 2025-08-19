@@ -2,7 +2,7 @@
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
-    session_start();
+    // session_start();
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
