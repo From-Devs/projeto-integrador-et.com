@@ -17,15 +17,21 @@ class Products {
     }
 
     public function create($data){
-        // Se não houver imagem, define padrão
-        if(empty($data['imagem'])){
-            $data['imagem'] = 'uploads/The_Great_Wave_off_Kanagawa_artificial_intelligence_4K_waves_sunset-2199509 (1).jpg';
+        // Se não houver imagens, define padrões
+        if(empty($data['img_1'])){
+            $data['img_1'] = 'uploads/default1.jpg';
+        }
+        if(empty($data['img_2'])){
+            $data['img_2'] = 'uploads/default2.jpg';
+        }
+        if(empty($data['img_3'])){
+            $data['img_3'] = 'uploads/default3.jpg';
         }
 
         $sql = "INSERT INTO Produto 
-                (nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, imagem, id_subCategoria, id_cores, id_associado)
+                (nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, img_1, img_2, img_3, id_subCategoria, id_cores, id_associado)
                 VALUES 
-                (:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :imagem, :id_subCategoria, :id_cores, :id_associado)";
+                (:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :img_1, :img_2, :img_3, :id_subCategoria, :id_cores, :id_associado)";
         
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':nome', $data['nome']);
@@ -34,7 +40,9 @@ class Products {
         $stmt->bindParam(':descricaoTotal', $data['descricaoTotal']);
         $stmt->bindParam(':preco', $data['preco']);
         $stmt->bindParam(':precoPromo', $data['precoPromo']);
-        $stmt->bindParam(':imagem', $data['imagem']);
+        $stmt->bindParam(':img_1', $data['img_1']);
+        $stmt->bindParam(':img_2', $data['img_2']);
+        $stmt->bindParam(':img_3', $data['img_3']);
         $stmt->bindParam(':id_subCategoria', $data['id_subCategoria']);
         $stmt->bindParam(':id_cores', $data['id_cores']);
         $stmt->bindParam(':id_associado', $data['id_associado']);
@@ -56,7 +64,9 @@ class Products {
                     descricaoTotal = :descricaoTotal,
                     preco = :preco,
                     precoPromo = :precoPromo,
-                    imagem = :imagem,
+                    img_1 = :img_1,
+                    img_2 = :img_2,
+                    img_3 = :img_3,
                     id_subCategoria = :id_subCategoria,
                     id_cores = :id_cores,
                     id_associado = :id_associado
@@ -69,7 +79,9 @@ class Products {
         $stmt->bindParam(':descricaoTotal', $data['descricaoTotal']);
         $stmt->bindParam(':preco', $data['preco']);
         $stmt->bindParam(':precoPromo', $data['precoPromo']);
-        $stmt->bindParam(':imagem', $data['imagem']);
+        $stmt->bindParam(':img_1', $data['img_1']);
+        $stmt->bindParam(':img_2', $data['img_2']);
+        $stmt->bindParam(':img_3', $data['img_3']);
         $stmt->bindParam(':id_subCategoria', $data['id_subCategoria']);
         $stmt->bindParam(':id_cores', $data['id_cores']);
         $stmt->bindParam(':id_associado', $data['id_associado']);
