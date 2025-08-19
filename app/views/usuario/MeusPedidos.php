@@ -5,7 +5,7 @@
     require_once "/xampp/htdocs/projeto-integrador-et.com/public/componentes/botao/botao.php";
     require_once "/xampp/htdocs/projeto-integrador-et.com/public/componentes/popUp/popUp.php";
 
-    session_start();
+    // session_start();
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente'; // Descomente essa parte para tipo do usuario = Usuário
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado"; // Descomente essa parte para tipo do usuario = Associado
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)

@@ -1,7 +1,7 @@
 ﻿<?php
 
-function filtro($tipo = "", $opcoesSelect = []){
-    if ($tipo == "associado"){
+function filtro($tipo = "", $opcoesSelect = []) {
+    if ($tipo == "associado") {
         $html = '
         <div id="divPesquisarEFiltro">
             <div id="pesquisar">
@@ -27,11 +27,10 @@ function filtro($tipo = "", $opcoesSelect = []){
                 </div>
             </div>
         </div>';
-    
         return $html;
-    }
-    elseif ($tipo == "produto"){
-        ?>
+    } 
+    elseif ($tipo == "produto") {
+        $html = '
         <div id="divPesquisarEFiltro">
             <div id="pesquisar">
                 <form action="" class="divTextInput">
@@ -42,181 +41,182 @@ function filtro($tipo = "", $opcoesSelect = []){
             <div id="botoesProdutos">
                 <div id="filtro">
                     <select id="botaoOrdenar">
-                        <option value="" selected disabled hidden>Filtro</option>
-                 
-            <?php
-            $html = "";
-            foreach ($opcoesSelect as $opcao) {
-                $html .= '<option value="' . htmlspecialchars($opcao) . '">' . htmlspecialchars($opcao) . '</option>';
-            }
-            ?>
+                        <option value="" selected disabled hidden>Filtro</option>';
+        
+        foreach ($opcoesSelect as $opcao) {
+            $html .= '<option value="' . htmlspecialchars($opcao) . '">' . htmlspecialchars($opcao) . '</option>';
+        }
 
-                </select>
+        $html .= '
+                    </select>
                 </div>
                 <div id="Escolher">
-                    <button id="botaoAssociados" onclick="abrirPopUp('dialog-cadastrar')">
+                    <button id="botaoAssociados" onclick="abrirPopUp(\'dialog-cadastrar\')">
                         <p>Cadastrar Produto</p>
                     </button>
                 </div>
             </div>
-        </div>
-    <?php
-    }
-    else{
+        </div>';
+
+        return $html;
+    } 
+    else {
         $html = '
-            <div id="divPesquisarEFiltro">
-                <div id="pesquisar">
-                    <form action="" class="divTextInput">
-                        <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
-                        <button><i class="bx bx-search lupaPesquisarInput"></i></button>
-                    </form>
-                </div>
-                <div id="filtro">
-                    <select id="botaoOrdenar">
+        <div id="divPesquisarEFiltro">
+            <div id="pesquisar">
+                <form action="" class="divTextInput">
+                    <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
+                    <button><i class="bx bx-search lupaPesquisarInput"></i></button>
+                </form>
+            </div>
+            <div id="filtro">
+                <select id="botaoOrdenar">
                     <option value="" selected disabled hidden>Filtro</option>';
-                    
+
         foreach ($opcoesSelect as $opcao) {
             $html .= '<option value="' . htmlspecialchars($opcao) . '">' . htmlspecialchars($opcao) . '</option>';
         }
-    
-        $html .= '
-                    </select>
-                </div>
-            </div>';
-    
-        return $html;
-        
-    }
 
+        $html .= '
+                </select>
+            </div>
+        </div>';
+
+        return $html;
+    }
+}
     echo PopUpComImagemETitulo("popUpCadastro","popUp_Botoes/img-confirmar.png","120px","Cadastro realizado com sucesso!");
     echo PopUpConfirmar("popUpErro", "Preencha todos os campos!");
-    ?>
+?>
 
 
-    <dialog class="dialog-cadastrar">
-        <div class="header-cadastrar">
-            <h1>Cadastrar produto</h1>
-            <button class="btn-fechar" onclick='fecharPopUp("dialog-cadastrar")'>
-                <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
-            </button>
+
+<dialog class="dialog-cadastrar">
+    <div class="header-cadastrar">
+        <h1>Cadastrar produto</h1>
+        <button class="btn-fechar" onclick='fecharPopUp("dialog-cadastrar")'>
+            <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
+        </button>
+    </div>
+    <form class="campos-cadastrar" action="http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto" method="post" enctype="multipart/form-data">
+        <div>
+            <div class="campo">
+                <label>Nome:</label>
+                <input type="text" name="nome">
+            </div>
+            <div class="campo">
+                <label>Marca:</label>
+                <input type="text" name="marca">
+            </div>
+            <div class="campo">
+                <label>Subcategoria:</label>
+                <select id="ddlCategoria" name="subCategoria">
+                    <option value="teste">Pele</option>
+                    <option value="teste">Olhos</option>
+                    <option value="teste">Boca</option>
+                    <option value="teste">Sobrancelhas</option>
+                </select>
+            </div>
         </div>
-        <form class="campos-cadastrar" action="http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto" method="post" enctype="multipart/form-data">
-            <div>
-                <div class="campo">
-                    <label>Nome:</label>
-                    <input type="text" name="nome">
+        <div class="campo campo-large">
+            <label>Breve descrição:</label>
+            <textarea cols="30" rows="10" name="breveDescricao"></textarea>
+        </div>
+        <div class="divisao-esquerda">
+            <div class="campos-esquerda">
+                <!-- <div class="campo campo-small">
+                    <label>Código do Produto:</label>
+                    <input type="text">
+                </div> -->
+                <div class="campo campo-small">
+                    <label>Quantidade no estoque:</label>
+                    <input type="number" name="qtdEstoque">
                 </div>
-                <div class="campo">
-                    <label>Marca:</label>
-                    <input type="text" name="marca">
+                <div class="campo campo-small">
+                    <label>Preço:</label>
+                    <input type="number" step="0.01" name="preco">
                 </div>
-                <div class="campo">
-                    <label>Subcategoria:</label>
-                    <select id="ddlCategoria" name="subCategoria">
-                        <option value="teste">Pele</option>
-                        <option value="teste">Olhos</option>
-                        <option value="teste">Boca</option>
-                        <option value="teste">Sobrancelhas</option>
-                    </select>
+                <div class="campo campo-small">
+                    <label>Preço Promocional:</label>
+                    <input type="number" step="0.01" name="precoPromocional">
                 </div>
             </div>
+            <div class="campos-direita">
+                <div class="galeria-produtos">
+                    <div class="item-produto">
+                        <div class="imagem-produto-container">
+                            <div class="container-img">
+                                <img src=""
+                                    alt="Produto" class="imagem-produto" id="img-produto1" onerror="this.style.display='none';" name="img1">
+                            </div>
+
+                            <label for="upload-produto1" class="icone-cadastrar-label">
+                                <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
+                                    alt="Editar Produto" class="icone-cadastrar">
+                            </label>
+                            <input type="file" id="upload-produto1" name="img1" class="input-file" data-img-id="img-produto1" accept="image/*">
+                            </div>
+                    </div>
+
+                    <div class="item-produto">
+                        <div class="imagem-produto-container">
+                            <div class="container-img">
+                                <img src=""
+                                    alt="Produto" class="imagem-produto" id="img-produto2" onerror="this.style.display='none';" name="img2">
+                            </div>
+
+                            <label for="upload-produto2" class="icone-cadastrar-label">
+                                <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
+                                    alt="Editar Produto" class="icone-cadastrar">
+                            </label>
+                            <input type="file" id="upload-produto2" name="img2" class="input-file" data-img-id="img-produto2" accept="image/*">
+                            </div>
+                    </div>
+
+                    <div class="item-produto">
+                        <div class="imagem-produto-container">
+                            <div class="container-img">
+                                <img src=""
+                                    alt="Produto" class="imagem-produto" id="img-produto3" onerror="this.style.display='none';" name="img3">
+                            </div>
+
+                            <label for="upload-produto3" class="icone-cadastrar-label">
+                                <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
+                                    alt="Editar Produto" class="icone-cadastrar">
+                            </label>
+                            <input type="file" id="upload-produto3" name="img3" class="input-file" data-img-id="img-produto3" accept="image/*">
+                            </div>
+                    </div>
+                </div>
+
+                <div class="cores-produto">
+                    <div>
+                        <input type="color" class="cor" name="corPrincipal">
+                        <span class="span-cor">Cor principal</span>
+                    </div>
+                    <div>
+                        <input type="color" class="cor" name="deg1">
+                        <span class="span-cor">Deg. 1</span>
+                    </div>
+                    <div>
+                        <input type="color" class="cor" name="deg2">
+                        <span class="span-cor">Deg. 2</span>
+                    </div>
+                    <div>
+                        <input type="color" class="cor" name="deg3">
+                        <span class="span-cor">Deg. 3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-campos-large">
             <div class="campo campo-large">
-                <label>Breve descrição:</label>
-                <textarea cols="30" rows="10" name="breveDescricao"></textarea>
+                <label>Características Completa:</label>
+                <textarea cols="30" rows="10" name="caracteristicasCompleta"></textarea>
             </div>
-            <div class="divisao-esquerda">
-                <div class="campos-esquerda">
-                    <!-- <div class="campo campo-small">
-                        <label>Código do Produto:</label>
-                        <input type="text">
-                    </div> -->
-                    <div class="campo campo-small">
-                        <label>Preço:</label>
-                        <input type="number" step="0.01" name="preco">
-                    </div>
-                    <div class="campo campo-small">
-                        <label>Preço Promocional:</label>
-                        <input type="number" step="0.01" name="precoPromocional">
-                    </div>
-                </div>
-                <div class="campos-direita">
-                    <div class="galeria-produtos">
-                        <div class="item-produto">
-                            <div class="imagem-produto-container">
-                                <div class="container-img">
-                                    <img src=""
-                                        alt="Produto" class="imagem-produto" id="img-produto1" onerror="this.style.display='none';" name="img1">
-                                </div>
-    
-                                <label for="upload-produto1" class="icone-cadastrar-label">
-                                    <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
-                                        alt="Editar Produto" class="icone-cadastrar">
-                                </label>
-                                <input type="file" id="upload-produto1" name="img1" class="input-file" data-img-id="img-produto1" accept="image/*">
-                                </div>
-                        </div>
-    
-                        <div class="item-produto">
-                            <div class="imagem-produto-container">
-                                <div class="container-img">
-                                    <img src=""
-                                        alt="Produto" class="imagem-produto" id="img-produto2" onerror="this.style.display='none';" name="img2">
-                                </div>
-    
-                                <label for="upload-produto2" class="icone-cadastrar-label">
-                                    <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
-                                        alt="Editar Produto" class="icone-cadastrar">
-                                </label>
-                                <input type="file" id="upload-produto2" name="img2" class="input-file" data-img-id="img-produto2" accept="image/*">
-                                </div>
-                        </div>
-    
-                        <div class="item-produto">
-                            <div class="imagem-produto-container">
-                                <div class="container-img">
-                                    <img src=""
-                                        alt="Produto" class="imagem-produto" id="img-produto3" onerror="this.style.display='none';" name="img3">
-                                </div>
-    
-                                <label for="upload-produto3" class="icone-cadastrar-label">
-                                    <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
-                                        alt="Editar Produto" class="icone-cadastrar">
-                                </label>
-                                <input type="file" id="upload-produto3" name="img3" class="input-file" data-img-id="img-produto3" accept="image/*">
-                                </div>
-                        </div>
-                    </div>
-    
-                    <div class="cores-produto">
-                        <div>
-                            <input type="color" class="cor" name="corPrincipal">
-                            <span class="span-cor">Cor principal</span>
-                        </div>
-                        <div>
-                            <input type="color" class="cor" name="deg1">
-                            <span class="span-cor">Deg. 1</span>
-                        </div>
-                        <div>
-                            <input type="color" class="cor" name="deg2">
-                            <span class="span-cor">Deg. 2</span>
-                        </div>
-                        <div>
-                            <input type="color" class="cor" name="deg3">
-                            <span class="span-cor">Deg. 3</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="div-btn">
+                <button class="btn-concluir-cadastro" type="submit">Cadastrar Produto</button>
             </div>
-            <div class="container-campos-large">
-                <div class="campo campo-large">
-                    <label>Características Completa:</label>
-                    <textarea cols="30" rows="10" name="caracteristicasCompleta"></textarea>
-                </div>
-                <div class="div-btn">
-                    <button class="btn-concluir-cadastro" type="submit">Cadastrar Produto</button>
-                </div>
-            </div>
-        </form>
-    </dialog>
-    <?php
-}
+        </div>
+    </form>
+</dialog>
