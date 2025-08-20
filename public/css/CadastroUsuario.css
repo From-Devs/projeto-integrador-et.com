@@ -244,6 +244,8 @@ section .wave.wave1
 
 /* Responsividade */
 
+/**/
+
 @media (max-width: 1550px){
     .id{
         column-gap: 170px;
@@ -280,6 +282,8 @@ section .wave.wave1
     }
 }
 
+/**/
+
 @media (max-width: 650px){
     section{
         display: none;
@@ -288,6 +292,14 @@ section .wave.wave1
     section .wave{
         display: none;
     }
+    
+    .logo{
+        display: none;
+    }
+
+    .containerForm{
+        width: 100%;
+    }
 
     .parteBranca{
         width: 100%;
@@ -295,10 +307,6 @@ section .wave.wave1
         padding-top: 15px;
         padding-left: 45px;
         padding-right: 45px;
-    }
-
-    .logo{
-        display: none;
     }
 
     /**/
@@ -319,9 +327,7 @@ section .wave.wave1
         font-size: 16px;
     }
 
-    .containerForm{
-        width: 100%;
-    }
+    /**/
 
     form{
         padding: 20px;
