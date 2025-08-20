@@ -11,7 +11,7 @@
     require __DIR__ . "/../../../public/componentes/popup/popUp.php";
     
     
-    session_start();
+    // session_start();
     // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipo_usuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
@@ -151,14 +151,14 @@
             <div class="frameProdutos">
                 <div class="containerProdutos">
                     <?php
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
                     ?>
                 </div>
             </div>
