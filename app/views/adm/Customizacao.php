@@ -7,7 +7,7 @@ require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento
 require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
 
-session_start();
+// session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 ?>
 

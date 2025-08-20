@@ -31,13 +31,12 @@
                 <form action="" method="">
                     <div class = "id">
                         <?php echo Camp("Nome Completo:") ?>
-                        <?php echo Camp("Nome Social:") ?>
                         <?php echo Camp("Email:") ?>
                         <?php echo Camp("Data de Nascimento:","date") ?>
-                        <?php echo Camp("Senha:", "password") ?>
                         <?php echo Camp("Telefone:") ?>
-                        <?php echo Camp("Confirmar Senha:", "password") ?>
+                        <?php echo Camp("Senha:", "password") ?>
                         <?php echo Camp("CPF:") ?>
+                        <?php echo Camp("Confirmar Senha:", "password") ?>
                     </div>
         
                 </form>

@@ -6,7 +6,7 @@
     require __DIR__ . "/../../../public/componentes/cardListaDeDesejos/cardListaDeDesejos.php";
     require __DIR__ . "/../../../config/database.php";
 
-    session_start();
+    // session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipo_usuario'] ?? "Associado";
     // $id_usuario = $_SESSION['id_usuario'] ?? null;

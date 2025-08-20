@@ -15,32 +15,31 @@ class ProdutoController{
         
     // }
 
-    public function CadastrarProduto($nome, $marca, $subCategoria, $breveDescricao, $preco, $precoPromocional, $img1, $img2, $img3, $corPrincipal, $deg1, $deg2, $deg3, $caracteristicasCompleta){
-        echo $nome;
+    // public function CadastrarProduto($nome, $marca, $breveDescricao, $preco, $precoPromocional, $caracteristicasCompleta, $qtdEstoque, $img1, $img2, $img3) Com imagem cadastrando (Blob) - Verificar qual tipo salvar no banco
+    public function CadastrarProduto($nome, $marca, $breveDescricao, $preco, $precoPromocional, $caracteristicasCompleta, $qtdEstoque){
         try {
-            $sql = "INSERT INTO PRODUTO(nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, img1, img2, img3)
+            // $sql = "INSERT INTO PRODUTO(nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, qtdEstoque, img1, img2, img3)
+            //(:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :qtdEstoque, :img1, :img2, :img3)";
+            $sql = "INSERT INTO PRODUTO(nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, qtdEstoque)
             VALUES
-            (:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :img1, :img2, :img3)";
+            (:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :qtdEstoque)";   
             $db = $this->conn->prepare($sql);
             $db->bindParam(":nome",$nome);
             $db->bindParam(":marca",$marca);
             $db->bindParam(":descricaoBreve",$breveDescricao);
             $db->bindParam(":preco",$preco);
             $db->bindParam(":precoPromo",$precoPromocional);
-            $db->bindParam(":img1",$img1);
-            $db->bindParam(":img2",$img2);
-            $db->bindParam(":img3",$img3);
+            $db->bindParam(":qtdEstoque",$qtdEstoque);
+            // $db->bindParam(":img1",$img1);
+            // $db->bindParam(":img2",$img2);
+            // $db->bindParam(":img3",$img3);
             $db->bindParam(":descricaoTotal",$caracteristicasCompleta);
-            $db->execute();
-            $resposta = $db->fetchAll(PDO::FETCH_ASSOC);
+            $resposta = $db->execute();
 
-            if($resposta){
-                return true;
-            }else{
-                return false;
-            }
+            return $resposta;
         } catch (\Throwable $th) {
             //throw $th;
+            echo $th->getMessage();
         }
     }
 }

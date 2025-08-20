@@ -7,7 +7,50 @@ require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Asso
 require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
 require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
 
-session_start();
+function verificaELimpaQueryString(){
+    if (isset($_GET['status']) && $_GET['status'] === 'sucesso') {
+        if(isset($_GET['acao']) && $_GET['acao'] === 'CadastrarProduto'){
+            echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    abrirPopUp('popUpCadastro');
+                    // Remove ?status=sucesso da URL
+                    if (window.history.replaceState) {
+                        const urlSemParametro = window.location.origin + window.location.pathname;
+                        window.history.replaceState({}, document.title, urlSemParametro);
+                    }
+                });
+            </script>";    
+        }else{
+            echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    abrirPopUp('popUpSalvar');
+                    // Remove ?status=sucesso da URL
+                    if (window.history.replaceState) {
+                        const urlSemParametro = window.location.origin + window.location.pathname;
+                        window.history.replaceState({}, document.title, urlSemParametro);
+                    }
+                });
+            </script>";
+        }
+    }else if(isset($_GET['status']) && $_GET['status'] === 'erro'){
+        if(isset($_GET['acao']) && $_GET['acao'] === 'CadastrarProduto'){
+            echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    abrirPopUp('popUpErro');
+                    // Remove ?status=sucesso da URL
+                    if (window.history.replaceState) {
+                        const urlSemParametro = window.location.origin + window.location.pathname;
+                        window.history.replaceState({}, document.title, urlSemParametro);
+                    }
+                });
+            </script>";
+        }
+    }
+}
+
+verificaELimpaQueryString();
+
+    // // session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 ?>
 
@@ -39,7 +82,7 @@ session_start();
     <div class="main">
         <div id="container">
 
-            <?php echo filtro("produto", ["ID", "Preço", "Data"])?>
+            <?php echo filtro("produto", ["ID", "Preço", "Data"]);?>
         
             <!--cards relatorios-->
             <div class="listaContainer">
