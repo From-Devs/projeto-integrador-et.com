@@ -4,7 +4,7 @@
     require __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
-    session_start();
+    // session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipo_usuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)

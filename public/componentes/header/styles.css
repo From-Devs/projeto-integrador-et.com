@@ -368,3 +368,24 @@
         background-image: linear-gradient(191deg, black 0%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
     }
 }
+
+@media (max-width: 480px){ /*Celular Vertical*/
+    .headerUsuario .esquerdo a{
+        display: none;
+    }
+
+    .direito .botoes{ /* Div onde os icones estão agrupados */
+        gap: 20px;
+        padding-right: 24px;
+    }
+    
+    .direito .botoes img{ /* Icones individualmente */
+        width: 34px;
+        height: 34px;
+    }
+
+    .menu-toggle{
+        transform: scale(0.8);
+        margin-left: 24px;
+    }
+}
