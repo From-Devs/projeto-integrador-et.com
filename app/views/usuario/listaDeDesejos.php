@@ -3,15 +3,19 @@
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     require __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require __DIR__ . "/../../../public/componentes/cardListaDeDesejos/cardListaDeDesejos.php";
+    require __DIR__ . "/../../../config/database.php";
 
     session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipo_usuario'] ?? "Associado";
+    // $id_usuario = $_SESSION['id_usuario'] ?? null;
+    // $login = $id_usuario !== null;
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +27,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebar/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/cardProduto/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/cardListaDeDesejos/styles.css">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -46,7 +51,7 @@
         <center><div class="line"></div></center>
     </div>
 
-    <div class="cont-legend">
+    <!-- <div class="cont-legend">
         <div class="cards-legend">
             <div class="produto">
                 <p><strong>Produto</strong></p>
@@ -56,174 +61,46 @@
                 <p><strong>Preço</strong></p>
             </div>
         </div>
-    </div>
+    </div> -->
    
+    <div id="acoesSelecionados" style="display:none;">
+        <input type="checkbox" id="selecionarTodos"> Selecionar todos
+        <button id="adicionarCarrinho">Adicionar no carrinho</button>
+        <button id="excluirSelecionados">Excluir</button>
+    </div>
 
     <div class="container">
         <div class="degradeTopo"></div>
         <div class="degradeBaixo"></div>
         <div class="card-container">
-            <div class="cardDesejos card01">
-                <div class="cardImg">
-                    <img src="/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png" alt="">
-                </div>
+            <?php 
+                // if ($id_usuario) {
+                    $sql = "SELEC p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.imagem, ld.dataAdd
+                            FROM ListaDesejos ld
+                            JOIN Produto p ON ld.id_produto = p.id_produto
+                            WHERE ld.id_usuario = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute([$id_usuario]);
+                    $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                <div class="cardPreco">
-                    <p><strong>R$50,00</strong></p>
-                </div>
-
-                <div class="cardInfo">
-                    <p>Nivea  HIDRATANTE CORPORAL MILK</p>
-                </div>
-
-                <div class="cardDate">
-                    <p><strong>Adicionado 11/03/25</strong></p>
-                </div>
-
-                <div class="cardButtons">
-                    <button class="buttonDesejos" id="buttonDetalhes" onclick="redirecionarDetalhesDoProduto()">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
-                    <button class="buttonDesejos" id="buttonLixeira">
-                        <img src="/projeto-integrador-et.com/public/imagens/produtoAssociado/lixeira.png" alt="">
-                    </button>
-                </div>
-            </div>
-
-            <div class="cardDesejos card02">
-                <div class="cardImg">
-                    <img src="/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod02.png" alt="">
-                </div>
-
-                <div class="cardPreco">
-                    <p><strong>R$50,00</strong></p>
-                </div>
-
-                <div class="cardInfo">
-                    <p>Nivea  HIDRATANTE CORPORAL MILK</p>
-                </div>
-
-                <div class="cardDate">
-                    <p><strong>Adicionado 11/03/25</strong></p>
-                </div>
-
-                <div class="cardButtons">
-                    <button class="buttonDesejos" id="buttonDetalhes" onclick="redirecionarDetalhesDoProduto()">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
-                    <button class="buttonDesejos" id="buttonLixeira">
-                        <img src="/projeto-integrador-et.com/public/imagens/produtoAssociado/lixeira.png" alt="">
-                    </button>
-                </div>
-            </div>
-
-            <div class="cardDesejos card03">
-                <div class="cardImg">
-                    <img src="/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod03.png" alt="">
-                </div>
-
-                <div class="cardPreco">
-                    <p><strong>R$50,00</strong></p>
-                </div>
-
-                <div class="cardInfo">
-                    <p>Nivea  HIDRATANTE CORPORAL MILK</p>
-                </div>
-
-                <div class="cardDate">
-                    <p><strong>Adicionado 11/03/25</strong></p>
-                </div>
-
-                <div class="cardButtons">
-                    <button class="buttonDesejos" id="buttonDetalhes" onclick="redirecionarDetalhesDoProduto()">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
-                    <button class="buttonDesejos" id="buttonLixeira">
-                        <img src="/projeto-integrador-et.com/public/imagens/produtoAssociado/lixeira.png" alt="">
-                    </button>
-                </div>
-            </div>
-
-            <div class="cardDesejos card04">
-                <div class="cardImg">
-                    <img src="/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod04.png" alt="">
-                </div>
-
-                <div class="cardPreco">
-                    <p><strong>R$50,00</strong></p>
-                </div>
-
-                <div class="cardInfo">
-                    <p>Nivea  HIDRATANTE CORPORAL MILK</p>
-                </div>
-
-                <div class="cardDate">
-                    <p><strong>Adicionado 11/03/25</strong></p>
-                </div>
-
-                <div class="cardButtons">
-                    <button class="buttonDesejos" id="buttonDetalhes" onclick="redirecionarDetalhesDoProduto()">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
-                    <button class="buttonDesejos" id="buttonLixeira">
-                        <img src="/projeto-integrador-et.com/public/imagens/produtoAssociado/lixeira.png" alt="">
-                    </button>
-                </div>
-            </div>
-
-            <div class="cardDesejos card01">
-                <div class="cardImg">
-                    <img src="/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png" alt="">
-                </div>
-
-                <div class="cardPreco">
-                    <p><strong>R$50,00</strong></p>
-                </div>
-
-                <div class="cardInfo">
-                    <p>Nivea  HIDRATANTE CORPORAL MILK</p>
-                </div>
-
-                <div class="cardDate">
-                    <p><strong>Adicionado 11/03/25</strong></p>
-                </div>
-
-                <div class="cardButtons">
-                    <button class="buttonDesejos" id="buttonDetalhes" onclick="redirecionarDetalhesDoProduto()">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
-                    <button class="buttonDesejos" id="buttonLixeira">
-                        <img src="/projeto-integrador-et.com/public/imagens/produtoAssociado/lixeira.png" alt="">
-                    </button>
-                </div>
-            </div>
-
-            <div class="cardDesejos card02">
-                <div class="cardImg">
-                    <img src="/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod02.png" alt="">
-                </div>
-
-                <div class="cardPreco">
-                    <p><strong>R$50,00</strong></p>
-                </div>
-
-                <div class="cardInfo">
-                    <p>Nivea  HIDRATANTE CORPORAL MILK</p>
-                </div>
-
-                <div class="cardDate">
-                    <p><strong>Adicionado 11/03/25</strong></p>
-                </div>
-
-                <div class="cardButtons">
-                    <button class="buttonDesejos" id="buttonDetalhes" onclick="redirecionarDetalhesDoProduto()">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
-                    <button class="buttonDesejos" id="buttonLixeira">
-                        <img src="/projeto-integrador-et.com/public/imagens/produtoAssociado/lixeira.png" alt="">
-                    </button>
-                </div>
-            </div>
+                    if ($produtos){
+                        foreach ($produtos as $produto){
+                            echo createCardListaDeDesejos(
+                                $produto['id_produto'],
+                                $produto['imagem'],
+                                $produto['precoPromo'] ?? $produto['preco'],
+                                $produto['marca'],
+                                $produto['nome'],
+                                date("d/m/Y", strtotime($produto['dataAdd']))
+                            );
+                        }
+                    } else{
+                        echo "<span>Sua lista de desejos está vazia.</span>";
+                    }
+                // } else{
+                //     echo "<span>Você precisa estar logado para adicionar e ver sua lista de desejo.</span>";
+                // }
+            ?>
         </div>
     </div>
 
@@ -273,6 +150,7 @@
         window.location.href = "detalhesDoProduto.php";
     }
     </script>
+    <script src="/projeto-integrador-et.com/public/javascript/listaDeDesejos.js"></script>
     
     
 </body>
