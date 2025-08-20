@@ -329,12 +329,36 @@ a
 
 }
 
-@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+@media (max-width: 320px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
     #tituloH1{
-        font-size: 30px;
+        font-size: 2rem;
+        text-align: center;
+        margin-top: 68px;
     }
 
     #titulo{
-        margin-top: 24px;
+        flex: 1;
+        justify-content: center;
+        width: 50%;
+    }
+
+    #geralInformacoes
+    {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    #controlePizzas
+    {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0 0 0;
+        gap: 20px;
+    }
+
+    #divPizzaEsquerda, #divPizzaDireita{
+        width: 90%;
+        height: 330px;
     }
 }
