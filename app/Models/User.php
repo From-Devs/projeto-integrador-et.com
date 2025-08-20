@@ -13,7 +13,14 @@ class User {
         $stmt = $this->conn->prepare("SELECT * FROM usuario WHERE id_usuario = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
-    }  
+    }
+    
+    public function getUserByEmail($email) {
+        $stmt = $this->conn->prepare("SELECT * FROM usuario WHERE email = ?");
+        $stmt->execute([$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function testConntx() {
         try {
             $stmt = $this->conn->query("SELECT 1");

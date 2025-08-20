@@ -12,7 +12,7 @@ $testeConexao = $userController->teste();
 
 $acao = $_GET["acao"] ?? '';
 
-if (!in_array($acao, ['','create','update','delete','getUser'])) {
+if (!in_array($acao, ['','create','update','delete','getUser','login'])) {
     header("Location: ../app/views/usuario/TelaErro.php");
     exit();
 }
@@ -20,6 +20,7 @@ if (!in_array($acao, ['','create','update','delete','getUser'])) {
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     switch ($acao) {
+    
         case "create":
             if (isset($_POST['nome'])) {
                 $postData = [
@@ -75,20 +76,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }            
             break;
 
-        case "getUser":
-            if (isset($_POST['edit_id'])) {
+            case "getUser":
                 try {
-                    $editUserData = $userController->getUserById($_POST['edit_id']);
+                    if (isset($_POST['edit_id'])) {
+                        $editUserData = $userController->getUserById($_POST['edit_id']);
+                    } else {
+                        if (isset($_SESSION['id_usuario'])) {
+                            $editUserData = $userController->getUserById($_SESSION['id_usuario']);
+                        } else {
+                            $editUserData = ["success" => false, "message" => "Usuário não está logado"];
+                        }
+                    }
                 } catch (Exception $e) {
-                    $editUserData = ["success" => false, "message" => "Erro usuario nao existe: " . $e->getMessage()];
+                    $editUserData = ["success" => false, "message" => "Erro: " . $e->getMessage()];
                 }
-            } 
-            break;
+                echo json_encode($editUserData);
+                break;
         default:
             echo "Nao encontrei nada";
             break;
+
+        case "login":
+            $email = $_POST['email'] ?? "";
+            $senha = $_POST['senha'] ?? "";
+            $result = $this->controller->login($email, $senha);
+            echo json_encode($result);
+            break;
+        }
     }
-}
 
 $usuarios = $userController->listAllUsers()['data'] ?? [];
 ?>
