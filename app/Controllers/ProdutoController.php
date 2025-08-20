@@ -1,45 +1,94 @@
 <?php
-require_once __DIR__ . "/../../config/database.php";
+require_once __DIR__ . '/../Models/Products.php';
 
-class ProdutoController{
 
-    private $conn;
+class ProdutoController {
+    private $productModel;
 
-    public function __construct(){
-        $banco = new Database();
-
-        $this->conn = $banco->Connect();
+    public function __construct() {
+        $this->productModel = new Products();
     }
-   
-    // public function EditarProduto(){
-        
-    // }
 
-    // public function CadastrarProduto($nome, $marca, $breveDescricao, $preco, $precoPromocional, $caracteristicasCompleta, $qtdEstoque, $img1, $img2, $img3) Com imagem cadastrando (Blob) - Verificar qual tipo salvar no banco
-    public function CadastrarProduto($nome, $marca, $breveDescricao, $preco, $precoPromocional, $caracteristicasCompleta, $qtdEstoque){
+    // Criar produto
+    public function CadastrarProduto($data) {
         try {
-            // $sql = "INSERT INTO PRODUTO(nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, qtdEstoque, img1, img2, img3)
-            //(:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :qtdEstoque, :img1, :img2, :img3)";
-            $sql = "INSERT INTO PRODUTO(nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, qtdEstoque)
-            VALUES
-            (:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :qtdEstoque)";   
-            $db = $this->conn->prepare($sql);
-            $db->bindParam(":nome",$nome);
-            $db->bindParam(":marca",$marca);
-            $db->bindParam(":descricaoBreve",$breveDescricao);
-            $db->bindParam(":preco",$preco);
-            $db->bindParam(":precoPromo",$precoPromocional);
-            $db->bindParam(":qtdEstoque",$qtdEstoque);
-            // $db->bindParam(":img1",$img1);
-            // $db->bindParam(":img2",$img2);
-            // $db->bindParam(":img3",$img3);
-            $db->bindParam(":descricaoTotal",$caracteristicasCompleta);
-            $resposta = $db->execute();
+            $success = $this->productModel->CadastrarProduto(
+                $data['nome'],
+                $data['marca'],
+                $data['descricaoBreve'],
+                $data['preco'],
+                $data['precoPromo'],
+                $data['descricaoTotal'],
+                $data['qtdEstoque'] ?? 0,
+                $data['img_1'] ?? null,
+                $data['img_2'] ?? null,
+                $data['img_3'] ?? null,
+                $data['id_subCategoria'] ?? 1,
+                $data['id_cores'] ?? 1,
+                $data['id_associado'] ?? 1
+            );
 
-            return $resposta;
+            return [
+                "success" => $success,
+                "message" => $success ? "Produto cadastrado com sucesso" : "Erro ao cadastrar produto"
+            ];
         } catch (\Throwable $th) {
-            //throw $th;
-            echo $th->getMessage();
+            return ["success" => false, "message" => $th->getMessage()];
         }
     }
+
+    // Editar produto
+    public function EditarProduto($id, $data) {
+        try {
+            $success = $this->productModel->updateProduto($id, $data);
+
+            return [
+                "success" => $success,
+                "message" => $success ? "Produto atualizado com sucesso" : "Erro ao atualizar produto"
+            ];
+        } catch (\Throwable $th) {
+            return ["success" => false, "message" => $th->getMessage()];
+        }
+    }
+
+    // Excluir produto
+    public function DeletarProduto($id) {
+        try {
+            $success = $this->productModel->deleteProduto($id);
+
+            return [
+                "success" => $success,
+                "message" => $success ? "Produto excluído com sucesso" : "Erro ao excluir produto"
+            ];
+        } catch (\Throwable $th) {
+            return ["success" => false, "message" => $th->getMessage()];
+        }
+    }
+
+    // Buscar produto pelo ID
+    public function BuscarProdutoPorId($id) {
+        return $this->productModel->produtoById($id);
+    }
+
+    // Listar todos os produtos
+    public function ListarProdutos() {
+        $produtos = $this->productModel->getAllProdutos();
+        return ["success" => true, "data" => $produtos];
+    }
+
+    // Listar subcategorias
+    public function ListarSubcategorias() {
+        return $this->productModel->getAllSubcategorias();
+    }
+
+    // Listar cores
+    public function ListarCores() {
+        return $this->productModel->getAllCores();
+    }
+
+    // Listar associados
+    public function ListarAssociados() {
+        return $this->productModel->getAllAssociados();
+    }
 }
+?>
