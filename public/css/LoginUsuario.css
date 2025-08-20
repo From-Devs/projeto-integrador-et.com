@@ -256,4 +256,8 @@ section .wave
         width: 100%;
         text-align: center;
     }
+
+    #bemVindo{   
+        font-size: 40px;
+    }
 }

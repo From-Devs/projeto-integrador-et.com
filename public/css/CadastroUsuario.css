@@ -176,7 +176,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 #voltarSair{
-    position: fixed;
+    position: absolute;
     display: flex;
     align-items: center;
     top: 32px;
@@ -328,6 +328,7 @@ section .wave.wave1
     }
 
     /**/
+
 
     form{
         padding: 20px;
