@@ -14,7 +14,18 @@ class User {
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }  
-
+    public function testConntx() {
+        try {
+            $stmt = $this->conn->query("SELECT 1");
+            if ($stmt) {
+                return "✅ Conexão com o banco de dados funcionando!";
+            } else {
+                return "❌ Falha ao executar teste no banco.";
+            }
+        } catch (PDOException $e) {
+            return "❌ Erro de conexão: " . $e->getMessage();
+        }
+    }    
     public function getAll(){
         $sql = "SELECT * FROM usuario";
         $stmt = $this->conn->prepare($sql);
@@ -31,25 +42,52 @@ class User {
     }    
     
     public function create($data) {
-        if ($this->cpfExists($data['cpf'])) {
-            return false;
-        }
+        try {
+            // 1️⃣ Verifica se o CPF já existe
+            if ($this->cpfExists($data['cpf'])) {
+                return ["success" => false, "message" => "CPF já cadastrado"];
+            }
     
-        $sql = "INSERT INTO usuario (nome, nome_social, email, telefone, cpf, data_nascimento, senha, tipo, foto, id_endereco)
-                VALUES (:nome, :nome_social, :email, :telefone, :cpf, :data_nascimento, :senha, :tipo, :foto, :id_endereco)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':nome', $data['nome']);
-        $stmt->bindParam(':nome_social', $data['nome_social']);
-        $stmt->bindParam(':email', $data['email']);
-        $stmt->bindParam(':telefone', $data['telefone']);
-        $stmt->bindParam(':cpf', $data['cpf']);
-        $stmt->bindParam(':data_nascimento', $data['data_nascimento']);
-        $stmt->bindParam(':senha', $data['senha']);
-        $stmt->bindParam(':tipo', $data['tipo']);
-        $stmt->bindParam(':foto', $data['foto']);
-        $stmt->bindParam(':id_endereco', $data['id_endereco']);
-        return $stmt->execute();
+            // 2️⃣ Garante que a senha seja hash
+            if (!empty($data['senha'])) {
+                $data['senha'] = password_hash($data['senha'], PASSWORD_DEFAULT);
+            } else {
+                return ["success" => false, "message" => "Senha obrigatória"];
+            }
+    
+            // 3️⃣ Garante valores padrão para campos opcionais
+            $data['foto'] = $data['foto'] ?? '';
+            $data['id_endereco'] = $data['id_endereco'] ?? null;
+    
+            // 4️⃣ Prepara a query
+            $sql = "INSERT INTO usuario (nome, nome_social, email, telefone, cpf, data_nascimento, senha, tipo, foto, id_endereco)
+                    VALUES (:nome, :nome_social, :email, :telefone, :cpf, :data_nascimento, :senha, :tipo, :foto, :id_endereco)";
+            $stmt = $this->conn->prepare($sql);
+    
+            // 5️⃣ Faz o bind dos parâmetros
+            $stmt->bindParam(':nome', $data['nome']);
+            $stmt->bindParam(':nome_social', $data['nome_social']);
+            $stmt->bindParam(':email', $data['email']);
+            $stmt->bindParam(':telefone', $data['telefone']);
+            $stmt->bindParam(':cpf', $data['cpf']);
+            $stmt->bindParam(':data_nascimento', $data['data_nascimento']);
+            $stmt->bindParam(':senha', $data['senha']);
+            $stmt->bindParam(':tipo', $data['tipo']);
+            $stmt->bindParam(':foto', $data['foto']);
+            $stmt->bindParam(':id_endereco', $data['id_endereco']);
+    
+            // 6️⃣ Executa e retorna resultado
+            if ($stmt->execute()) {
+                return ["success" => true, "message" => "Usuário criado com sucesso!"];
+            } else {
+                $error = $stmt->errorInfo();
+                return ["success" => false, "message" => "Erro no INSERT: " . $error[2]];
+            }
+        } catch (PDOException $e) {
+            return ["success" => false, "message" => "Erro de conexão ou query: " . $e->getMessage()];
+        }
     }
+    
 
     public function deleteById($id){
         $sql = "DELETE FROM usuario WHERE id_usuario = :id";
