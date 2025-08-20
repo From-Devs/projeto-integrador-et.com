@@ -11,9 +11,13 @@
 
 .cardDesejos{
     display: grid;
+    flex-direction: row;
     grid-template-columns: 150px auto auto auto auto;
     height: 122.19px;
-    background: linear-gradient(to right, #3F7FD9, #81ABE6, #C0D5F3, #FFFFFF);
+}
+.cardDesejos .cardColorido{
+    grid-template-columns: 150px auto auto auto auto;
+    height: 122.19px;
     border-radius: 10px;
     box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
     border-radius: 35px;
@@ -55,44 +59,6 @@
     font-size: 17px;
 }
 
-/*CARD 02*/
-
-.card02{
-    background: linear-gradient(to right, #D29065, #E1B598, #EED6C6, #FFFFFF);
-}
-
-/*CARD 03*/
-
-.card03{
-    background: linear-gradient(to right, #31BADA, #B9643A, #FFFFFF);
-}
-
-/*CARD 04*/
-
-.card04{
-    background: linear-gradient(to right, #D29065, #FFFFFF);
-}
-
-.cardButtons{
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    gap: 12px;
-}
-
-.cardButtons .buttonDesejos{
-    background: transparent;
-    border: none;
-    width: 45px;
-    height: 45px;
-    font-size: 34px;
-    cursor: pointer;
-}
-
-.cardButtons .buttonDesejos img{
-    width: 45px;
-    height: 45px;
-}
 
 
 
@@ -107,7 +73,7 @@
 
 /*RESPONSIVIDADE DOS BUTTONS*/
 
-@media (max-width: 850px){
+/* @media (max-width: 850px){
     .button-container{
         display: flex;
         flex-direction: column;
@@ -125,12 +91,12 @@
         display: flex;
         justify-content: center;
     }
-}
+} */
 
 /*ESTILIZAÇÃO DO BOTÃO*/
 /*BOTÃO 01*/
 
-.button01 button{
+/* .button01 button{
     display: flex;
     width: 225px;
     height: 55px;
@@ -148,11 +114,11 @@
 
 .button01 p{
     margin: auto;
-}
+} */
 
 /*BOTÃO 02*/
 
-.button02 button{
+/* .button02 button{
     display: flex;
     width: 180px;
     height: 38px;
@@ -165,7 +131,7 @@
 
 .button02 p{
     margin: auto;
-}
+} */
 
 .line2{
     width: 75%;
@@ -211,3 +177,116 @@
         max-width: 300px;
     }
 }
+
+
+/*RESPONSIVIDADE CARDS*/
+/*02*/
+@media (max-width: 1080px){
+    /*card01*/
+    .cardDesejos{
+        display: grid;
+        grid-template-columns: 95px auto auto auto auto;
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+    }
+
+    .cardPreco{
+        font-size: 13px;
+    }
+    
+    .cardInfo{
+        font-size: 12px;
+    }
+    
+    .cardDate{
+        font-size: 14px;
+    }
+
+}
+
+/*03*/
+@media (max-width: 680px){
+    /*card01*/
+    .cardDesejos{
+        display: grid;
+        grid-template-columns: 85px auto auto auto auto;
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+        align-items: center;
+    }
+
+    .cardImg img{
+        width: 100px;
+        height: 100px;
+    }
+    
+    .cardPreco{
+        font-size: 13px;
+    }
+        
+    .cardInfo{
+        font-size: 12px;
+        padding: 10px;
+    }
+        
+    .cardDate{
+        font-size: 14px;
+    }
+    
+}
+
+/*04*/
+@media (max-width: 580px){
+    .cards-legend{
+        display: none;
+    }
+
+    .cardDesejos{
+        display: flex;
+        height: auto;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    .cardImg img{
+        width: 90px;
+        height: 90px;
+    }
+    
+    .cardPreco{
+        font-size: 13px;
+        position: relative;
+        bottom: 10px;
+    }
+        
+    .cardInfo{
+        position: relative;
+        font-size: 12px;
+        bottom: 12px;
+    }
+        
+    .cardDate{
+        position: relative;
+        font-size: 14px;
+        bottom: 15px;
+    }
+
+    .cardCheck{
+        display: flex;
+        position: relative;
+        bottom: 8px;
+        justify-content: center;
+    }
+
+}
+
+
+
+
