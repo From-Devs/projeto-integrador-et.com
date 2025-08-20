@@ -227,7 +227,12 @@
             </div>-->
 
             <?php 
-                echo creatCardProdutoListaDese($image = "/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod02.png", $preco = "R$20,00", $info = "informação", $date = "Adicionado 00/00/00", $imgBot1 = "", $imgBot2 = "");
+                echo creatCardProdutoListaDese("/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png", "R$20,00", "informação", "Adicionado 00/00/00", "", "");
+                echo creatCardProdutoListaDese("/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png", "R$20,00", "informação", "Adicionado 00/00/00", "", "");
+                echo creatCardProdutoListaDese("/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png", "R$20,00", "informação", "Adicionado 00/00/00", "", "");
+                echo creatCardProdutoListaDese("/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png", "R$20,00", "informação", "Adicionado 00/00/00", "", "");
+                echo creatCardProdutoListaDese("/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png", "R$20,00", "informação", "Adicionado 00/00/00", "", "");
+                echo creatCardProdutoListaDese("/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png", "R$20,00", "informação", "Adicionado 00/00/00", "", "");
             ?>
         </div>
     </div>

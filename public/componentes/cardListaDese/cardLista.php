@@ -4,7 +4,7 @@ function creatCardProdutoListaDese($image = "", $preco = "", $info = "", $date =
     return"
         <div class='cardDesejos card01'>
             <div class='cardImg'>
-                <img src=' $image ' alt="">
+                <img src=' $image ' alt=''>
             </div>
 
             <div class='cardPreco'>
@@ -21,10 +21,10 @@ function creatCardProdutoListaDese($image = "", $preco = "", $info = "", $date =
 
             <div class='cardButtons'>
                 <button class='buttonDesejos' id='buttonDetalhes' onclick='redirecionarDetalhesDoProduto()'>
-                    <img src=' $imgBot1 ' alt="">
+                    <img src=' $imgBot1 ' alt=''>
                 </button>
                 <button class='buttonDesejos' id='buttonLixeira'>
-                    <img src=' $imgBot2 ' alt="">
+                    <img src=' $imgBot2 ' alt=''>
                 </button>
             </div>
         </div>
