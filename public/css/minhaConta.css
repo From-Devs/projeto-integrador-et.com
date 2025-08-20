@@ -4,28 +4,19 @@
     padding: 0;
     margin: 0;
     font-family: "Montserrat", sans-serif;
-    box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
     background: #f8f8f8;
 }
 
 main{
     padding-top: 150px;
     height: 100vh;
-}
-
-.menu i, .icons i {
-    font-size: 20px;
-    margin: 0 10px;
-    cursor: pointer;
+    box-sizing: border-box;
 }
 
 .tituloMinhaConta {
-    /* margin-top: 150px; */
     text-align: center;
     margin-bottom: 8px;
     font-size: 38px;
@@ -62,6 +53,7 @@ main{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     row-gap: 18px;
+    column-gap: 32px;
 }
 
 .dadosAcoesContainer{
@@ -70,24 +62,19 @@ main{
     gap: 8px;
 }
 
-.option-card p{
-    margin: 16px 0px;
-}
-
 .conta-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 26px;
     padding: 20px 320px;
-    /* height: 400px; */
 }
 
 .profile-card {
     display: flex;
     align-items: center;
     background: white;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: left;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     width: 100%;
@@ -103,7 +90,7 @@ main{
     justify-content: center;
     border-radius: 19px;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 18px;
     font-weight: 600;
     transition: all 0.3s;
     padding: 8px 10px;
@@ -111,7 +98,7 @@ main{
     color: #ffffff;
 
     i {
-        font-size: 20px;
+        font-size: 22px;
     }
 }
 
@@ -124,13 +111,13 @@ main{
     color: rgb(255, 255, 255);
 }
 
-.content-nameUser, .content-email, .content-excluirConta {
+.dadosText {
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     p, span{
-        font-size: 15px;
+        font-size: 18px;
     }
 }
 
@@ -144,7 +131,7 @@ main{
     margin-left: 56px;
     height: 170px;
     border-radius: 50%;
-    border: 3px solid #ccc;
+    border: 3px solid #000000;
 }
 
 .opcoes-conta {
@@ -153,27 +140,25 @@ main{
     row-gap: 10px;
     column-gap: 10px;
     gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
 
     & a{
         text-decoration: none;
         color: black;
-        height: 200px;
     }
 }  
 
 .option-card {
+    box-sizing: border-box;
     background: white;
     padding: 20px;
     flex: 1;
-    /* width: 314px; */
-    height: 10pc;
-    border-radius: 8px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); */
+    height: 135px;
+    border-radius: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between;
 }
 
 .option-card:hover {
@@ -181,10 +166,40 @@ main{
     cursor: pointer;
 }
 
+.optionCardDesc{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
 .option-card .icon i {
     font-size: 48px;
-    color: #555;
+    color: #000000;
     padding: 0 24px 0 16px;
 }
 
+.option-card p{
+    margin-top: 16px;
+}
 
+.option-card .iconeSeta{
+    font-size: 48px;
+}
+
+.popUpDeleteProfileConfirm .texto-popUp{
+    text-align: center;
+    width: 350px;
+}
+
+.popUpDeleteProfileConfirm .botoes-popUp{
+    gap: 20px;
+}
+
+.popUpDeleteProfileConfirm .btn-red{
+    border: 0;
+}
+
+.popUpDeleteProfileConfirm .btn-red img{
+    display: none;
+}
