@@ -116,6 +116,47 @@
   .cor-1 { background-image: linear-gradient(to bottom, #C69065 0%, #B88D6B 50%, #EBC1B6 100%); }
   .cor-2 { background-image: linear-gradient(to bottom, #F2D5AF 0%, #CC9F9D 50%, #CE766C 100%); }
 
+@keyframes rise {
+  0% {
+      margin-left: 0;
+      transform: translateY(0);
+      opacity: 0;
+  }
+  25% {
+      margin-left: -(var(--bubble-x-shift));
+  }
+  50% {
+      opacity: 1;
+      margin-left: var(--bubble-x-shift);
+  }
+  75% {
+      margin-left: -(var(--bubble-x-shift));
+  }
+  100% {
+      margin-left: 0;
+      transform: translateY(-100vh);
+      opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0% {
+    margin-left: 0;
+  }
+  25% {
+    margin-left: 50px;
+  }
+  50% {
+    margin-left: -50px;
+  }
+  75% {
+    margin-left: 50px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+
   @media (max-width: 1800px){ /*Computador Grande*/
     .carousel {
       height: 310px;

@@ -15,7 +15,7 @@
     width: 100%;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    gap: 90px;
+    gap: 80px;
 }
 
 
@@ -59,7 +59,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 1445px;
+    width: 1450px;
 }
 
 .pedidoAndamentoMP .tituloAndamentoMP{
@@ -68,20 +68,25 @@
 }
 
 .pedidoAndamentoMP #produtosAndamento{
-    margin-top: 7px;
     width: 100%;
-    max-height: 620px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 15px 20px 20px 20px;
+    max-height: 540px;
     overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
-    gap: 30px;
+    box-shadow: inset 0px 0px 10px 0px rgba(71, 71, 71, 0.541);
+    gap: 20px;
+    border-radius: 30px;
 }
 
-.pedidoAndamentoMP #produtosAndamento::-webkit-scrollbar{
+.pedidoAndamentoMP #produtosAndamento::-webkit-scrollbar, .pedidosFinalizadosMP #produtosFinalizados::-webkit-scrollbar{
+    margin-left: 5px;
     width: 5px;                                                  /*scroll da área de produtos a caminho*/
 }
 
-#produtosAndamento::-webkit-scrollbar-thumb{
+#produtosAndamento::-webkit-scrollbar-thumb, .pedidosFinalizadosMP #produtosFinalizados::-webkit-scrollbar-thumb{
     background-color: rgba(0, 0, 0, 0.363);                                   /*style do scroll*/
     border-radius: 10px;
 }
@@ -95,11 +100,12 @@
 .cards-produtoAndamento .data-compra{
     font-size: 15px;
     margin-left: 2px;
+    width: max-content;
 }
 
 .cards-produtoAndamento .cardcoloridoCam{
     margin-top: 10px;
-    margin-left: 5px;
+    /* margin-left: 5px; */
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -116,10 +122,11 @@
     flex-direction: row;
     align-items: center;
     height: 219px;
-    width: 400px;
+    width: 100%;
+    box-sizing: border-box;
     border-radius: 30px;
     padding-right: 40px;
-    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.301);
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem{
@@ -446,9 +453,10 @@
 }
 
 .pedidosFinalizadosMP #produtosFinalizados{
-    width: 97%;
+    width: 100%;
+    box-sizing: border-box;
     max-height: 540px;
-    margin-top: 15px;
+    margin-top: 10px;
     padding: 15px 20px 20px 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
@@ -460,15 +468,6 @@
     background-color: white;
 }
 
-.pedidosFinalizadosMP #produtosFinalizados::-webkit-scrollbar{
-    width: 5px;                                                  /*scroll da área de produtos a caminho*/
-}
-
-.pedidosFinalizadosMP #produtosFinalizados::-webkit-scrollbar-thumb{
-    background-color: rgba(0, 0, 0, 0);                                   /*style do scroll*/
-    border-radius: 10px;
-}
-
 #produtosFinalizados .cardProduto-finalizado{
     display: flex;
     flex-direction: column;
@@ -477,7 +476,7 @@
 
 .cardProduto-finalizado .cardcoloridoFin{
     margin-top: 10px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -487,10 +486,11 @@
     display: flex;
     flex-direction: column;
     height: 219px;
-    width: 410px;
+    width: 100%;
+    box-sizing: border-box;
     border-radius: 30px;
     padding-right: 30px;
-    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.511);
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .cardcoloridoFin .card-info2 .data-entrega{

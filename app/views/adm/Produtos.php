@@ -8,7 +8,7 @@ require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Asso
 require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
 require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
 
-session_start();
+// session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 ?>
 

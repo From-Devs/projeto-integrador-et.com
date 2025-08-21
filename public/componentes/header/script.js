@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
         const perfil = item.childNodes[5].childNodes[1].childNodes[7];
         const menuConta = item.childNodes[5].childNodes[3];
         const botaoMenu = item.childNodes[1].childNodes[1];
+        const botaoMenuMobile = document.getElementById('menu-toggle-mobile')
         const menu = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
 
@@ -81,6 +82,17 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
                 menuConta.style.display = "none";
             }
         })
+
+        botaoMenuMobile.addEventListener("click", function(event){
+            event.stopPropagation();
+            menu.classList.remove('mostrar');
+            overlay.classList.remove('mostrar'); // Ativa/desativa o overlay
+            menuConta.style.display = "none";
+            pesquisa.className = "pesquisaHeader closed";
+            item.className = "headerUsuario";
+            input.value = "";
+        })
     })
+
 
 })
