@@ -16,6 +16,25 @@ class Products {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    CREATE TABLE Produto(
+        id_produto INT AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(255) NOT NULL,
+        marca VARCHAR(255) NOT NULL,
+        descricaoBreve VARCHAR(255) NOT NULL,
+        descricaoTotal VARCHAR(255) NOT NULL,
+        preco DECIMAL(10,2) NOT NULL,
+        precoPromo DECIMAL(10,2),
+        qtdEstoque int NOT NULL,
+        img1 VARCHAR(255),
+        img2 VARCHAR(255),
+        img3 VARCHAR(255),
+        id_subCategoria INT,
+        id_cores INT,
+        id_associado INT,
+        FOREIGN KEY (id_subCategoria) REFERENCES SubCategoria(id_subCategoria),
+        FOREIGN KEY (id_cores) REFERENCES Cores(id_cores),
+        FOREIGN KEY (id_associado) REFERENCES Usuario(id_usuario)
+    );
     // Substituindo create por CadastrarProduto
     public function CadastrarProduto($nome, $marca, $descricaoBreve, $preco, $precoPromo, $descricaoTotal, $qtdEstoque, $img_1 = null, $img_2 = null, $img_3 = null, $id_subCategoria = 1, $id_cores = 1, $id_associado = 1){
         try {
@@ -78,7 +97,7 @@ class Products {
         $stmt->bindParam(':descricaoTotal', $data['descricaoTotal']);
         $stmt->bindParam(':preco', $data['preco']);
         $stmt->bindParam(':precoPromo', $data['precoPromo']);
-        $stmt->bindParam(':img_1', $data['img_1']);
+        $stmt->bindParam(':img_1', $data['mg_1']);
         $stmt->bindParam(':img_2', $data['img_2']);
         $stmt->bindParam(':img_3', $data['img_3']);
         $stmt->bindParam(':id_subCategoria', $data['id_subCategoria']);

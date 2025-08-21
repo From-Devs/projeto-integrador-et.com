@@ -1,5 +1,10 @@
 ﻿<?php
 
+require_once __DIR__ . "/../../../app/Controllers/ProdutoController.php";
+$produtoController = new ProdutoController();
+
+$subCategorias = $produtoController->CapturarSubCategorias();
+
 function filtro($tipo = "", $opcoesSelect = []) {
     if ($tipo == "associado") {
         $html = '
@@ -101,25 +106,30 @@ function filtro($tipo = "", $opcoesSelect = []) {
     <form class="campos-cadastrar" action="http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto" method="post" enctype="multipart/form-data">
         <div>
             <div class="campo">
-                <label>Nome:</label>
+                <label>Nome: *</label>
                 <input type="text" name="nome">
             </div>
             <div class="campo">
-                <label>Marca:</label>
+                <label>Marca: *</label>
                 <input type="text" name="marca">
             </div>
             <div class="campo">
-                <label>Subcategoria:</label>
+                <label>Subcategoria: *</label>
                 <select id="ddlCategoria" name="subCategoria">
-                    <option value="teste">Pele</option>
-                    <option value="teste">Olhos</option>
-                    <option value="teste">Boca</option>
-                    <option value="teste">Sobrancelhas</option>
+                    <?php
+                        foreach ($subCategorias as $sc) {
+                            ?>
+                            <option value="<?php echo htmlspecialchars($sc['id_subCategoria']); ?>">
+                                <?php echo htmlspecialchars($sc['nome']); ?>
+                            </option>
+                            <?php
+                        }
+                        ?>
                 </select>
             </div>
         </div>
         <div class="campo campo-large">
-            <label>Breve descrição:</label>
+            <label>Breve descrição: *</label>
             <textarea cols="30" rows="10" name="breveDescricao"></textarea>
         </div>
         <div class="divisao-esquerda">
@@ -129,15 +139,15 @@ function filtro($tipo = "", $opcoesSelect = []) {
                     <input type="text">
                 </div> -->
                 <div class="campo campo-small">
-                    <label>Quantidade no estoque:</label>
+                    <label>Quantidade no estoque: *</label>
                     <input type="number" name="qtdEstoque">
                 </div>
                 <div class="campo campo-small">
-                    <label>Preço:</label>
+                    <label>Preço: *</label>
                     <input type="number" step="0.01" name="preco">
                 </div>
                 <div class="campo campo-small">
-                    <label>Preço Promocional:</label>
+                    <label>Preço Promocional: *</label>
                     <input type="number" step="0.01" name="precoPromocional">
                 </div>
             </div>
@@ -192,26 +202,22 @@ function filtro($tipo = "", $opcoesSelect = []) {
                 <div class="cores-produto">
                     <div>
                         <input type="color" class="cor" name="corPrincipal">
-                        <span class="span-cor">Cor principal</span>
+                        <span class="span-cor">Cor principal *</span>
                     </div>
                     <div>
                         <input type="color" class="cor" name="deg1">
-                        <span class="span-cor">Deg. 1</span>
+                        <span class="span-cor">Deg. 1 *</span>
                     </div>
                     <div>
                         <input type="color" class="cor" name="deg2">
-                        <span class="span-cor">Deg. 2</span>
-                    </div>
-                    <div>
-                        <input type="color" class="cor" name="deg3">
-                        <span class="span-cor">Deg. 3</span>
+                        <span class="span-cor">Deg. 2 *</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container-campos-large">
             <div class="campo campo-large">
-                <label>Características Completa:</label>
+                <label>Características Completa: *</label>
                 <textarea cols="30" rows="10" name="caracteristicasCompleta"></textarea>
             </div>
             <div class="div-btn">
