@@ -11,35 +11,70 @@ class ProdutoController{
         $this->conn = $banco->Connect();
     }
    
+    public function CapturarSubCategorias(){
+        try {    
+            $sqlCores = "SELECT * FROM subcategoria ORDER BY NOME";
+            $db = $this->conn->prepare($sqlCores);
+            $db->execute();
+            $res = $db->fetchAll(PDO::FETCH_ASSOC);
+
+            return $res;
+        } catch (\Throwable $th) {
+            $this->conn->rollBack();
+            echo "Erro ao inserir: " . $th->getMessage();
+            return false;
+        }
+    }
+
     // public function EditarProduto(){
         
     // }
 
     // public function CadastrarProduto($nome, $marca, $breveDescricao, $preco, $precoPromocional, $caracteristicasCompleta, $qtdEstoque, $img1, $img2, $img3) Com imagem cadastrando (Blob) - Verificar qual tipo salvar no banco
-    public function CadastrarProduto($nome, $marca, $breveDescricao, $preco, $precoPromocional, $caracteristicasCompleta, $qtdEstoque){
-        try {
-            // $sql = "INSERT INTO PRODUTO(nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, qtdEstoque, img1, img2, img3)
+    // $sql = "INSERT INTO PRODUTO(nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, qtdEstoque, img1, img2, img3)
             //(:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :qtdEstoque, :img1, :img2, :img3)";
-            $sql = "INSERT INTO PRODUTO(nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, qtdEstoque)
-            VALUES
-            (:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :qtdEstoque)";   
+    public function CadastrarProduto($nome, $marca, $breveDescricao, $preco, $precoPromocional, $caracteristicasCompleta, $qtdEstoque, $corPrincipal, $deg1, $deg2){
+        try {
+            $this->conn->beginTransaction();
+    
+            $sqlCores = "INSERT INTO CORES(corPrincipal, hexDegrade1, hexDegrade2)
+                        VALUES(:corPrincipal, :hex1, :hex2)";
+            $db = $this->conn->prepare($sqlCores);
+            $db->bindParam(":corPrincipal", $corPrincipal);
+            $db->bindParam(":hex1", $deg1);
+            $db->bindParam(":hex2", $deg2);
+            $db->execute();
+    
+            $idInserido = $this->conn->lastInsertId();
+    
+            // 2. Inserir PRODUTO
+            $sql = "INSERT INTO PRODUTO(nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, qtdEstoque, img1, img2, img3, id_subCategoria, id_cores, id_associado)
+                    VALUES(:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :qtdEstoque, null, null, null, null, :idCores, null)";
             $db = $this->conn->prepare($sql);
-            $db->bindParam(":nome",$nome);
-            $db->bindParam(":marca",$marca);
-            $db->bindParam(":descricaoBreve",$breveDescricao);
-            $db->bindParam(":preco",$preco);
-            $db->bindParam(":precoPromo",$precoPromocional);
-            $db->bindParam(":qtdEstoque",$qtdEstoque);
-            // $db->bindParam(":img1",$img1);
-            // $db->bindParam(":img2",$img2);
-            // $db->bindParam(":img3",$img3);
-            $db->bindParam(":descricaoTotal",$caracteristicasCompleta);
+            $db->bindParam(":nome", $nome);
+            $db->bindParam(":marca", $marca);
+            $db->bindParam(":descricaoBreve", $breveDescricao);
+            $db->bindParam(":descricaoTotal", $caracteristicasCompleta);
+            $db->bindParam(":preco", $preco);
+            $db->bindParam(":precoPromo", $precoPromocional);
+            $db->bindParam(":qtdEstoque", $qtdEstoque);
+            $db->bindParam(":idCores", $idInserido);
+    
             $resposta = $db->execute();
-
-            return $resposta;
+    
+            if ($resposta) {
+                $this->conn->commit();
+                return true;
+            } else {
+                $this->conn->rollBack();
+                return false;
+            }
+    
         } catch (\Throwable $th) {
-            //throw $th;
-            echo $th->getMessage();
+            $this->conn->rollBack();
+            echo "Erro ao inserir: " . $th->getMessage();
+            return false;
         }
     }
+            
 }
