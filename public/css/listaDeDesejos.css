@@ -31,6 +31,7 @@ body{
 .degradeBaixo{
     background-image: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
     bottom: 0;
+    z-index: 2000;
 }
 
 .sliderContainer{
@@ -63,6 +64,49 @@ body{
     text-align: center;
 }
 
+/*COLUNA COM PARA SELECIONAR TUDO*/
+
+.acoesWrapper{
+    height: 60px;
+}
+
+.acoesSelecionados{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    width: 1100px;
+    z-index: 1000;
+    gap: 20px;
+    
+    background-color: transparent;
+    padding-top: 35px;
+    
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.acoesSelecionados input[type="checkbox"] {
+    transform: scale(2.2);
+    cursor: pointer;
+}
+
+.acoesSelecionados.ativo{
+    visibility: visible;
+    opacity: 1;
+}
+
+.acoesSelecionados button{
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
 /*CONTAINER DE SCROOL*/
 
 .card-container{
@@ -84,14 +128,15 @@ body{
     border-radius: 5px;
 }
 
-/*COLUNA COM PARA SELECIONAR TUDO*/
 
-.acoesSelecionados{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 50px;
+
+.line2{
+    width: 75%;
+    border-bottom: black 3px solid;
+    margin-top: 100px;
 }
+
+
 
 /* .cont-legend{
     display: flex;
@@ -117,7 +162,7 @@ body{
 
 /*RESPONSIVIDADE DA LEGENDA (PRODUTOS) E (PRECO)*/
 
-@media (max-width: 1480px){
+/* @media (max-width: 1480px){
     .cards-legend{
         display: grid;
         width: 1072px;
@@ -150,7 +195,7 @@ body{
         font-size: 14px;
         gap: 35px;
     }
-}  
+}   */
 
 
 /* Outra página, cards da lista */

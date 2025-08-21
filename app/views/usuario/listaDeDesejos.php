@@ -63,10 +63,12 @@
         </div>
     </div> -->
    
-    <div class="acoesSelecionados" id="acoesSelecionados" style="display:none;">
-        <input type="checkbox" id="selecionarTodos"> Selecionar todos
-        <button id="adicionarCarrinho">Adicionar no carrinho</button>
-        <button id="excluirSelecionados">Excluir</button>
+    <div class="acoesWrapper">
+        <div class="acoesSelecionados" id="acoesSelecionados" style="display:none;">
+            <input type="checkbox" id="selecionarTodos"> Selecionar todos
+            <button id="adicionarCarrinho">Adicionar no carrinho</button>
+            <button id="excluirSelecionados">Excluir</button>
+        </div>
     </div>
 
     <div class="container">

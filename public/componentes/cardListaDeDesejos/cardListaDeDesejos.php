@@ -3,7 +3,7 @@
     function createCardListaDeDesejos( $id_produto,$imagemProd = "", $preco = 00.00, $marca = "", $nome = "", $dataAdicionado = "", $cor1 = "#919191", $cor2 = "#919191", $cor3 = "#919191"){
         return "
             <div class='cardDesejos'>
-                <div class='checkbox'>
+                <div class='checkboxes'>
                     <input type='checkbox' class='cardCheckbox' data-id='$id_produto'>
                 </div>
                 <div class='cardColorido'  style='background: linear-gradient(to right, $cor1, $cor2, $cor3, #FFFFFF);'>
