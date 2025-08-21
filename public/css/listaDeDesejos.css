@@ -84,7 +84,14 @@ body{
     border-radius: 5px;
 }
 
-/*COLUNA COM OS NOMES (PRODUTOS E PRECO)*/
+/*COLUNA COM PARA SELECIONAR TUDO*/
+
+.acoesSelecionados{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+}
 
 /* .cont-legend{
     display: flex;
