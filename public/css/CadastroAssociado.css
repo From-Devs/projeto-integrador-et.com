@@ -4,8 +4,27 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.formAssociado{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 100px;
+}
+
+.formAssociado .p{
+    display: flex;
+    gap: 5px;
+}
+
+.p1{
+    color: #ff0000;
+    font-weight: 700;
+}
+
 .editDadosAssociado{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 /* PARTE CLARA */
@@ -13,18 +32,28 @@
     height: 200px;
     width: 200px;
 }
+
+.dadosWrapper{
+    display: flex;
+    flex: 1;
+    padding: 24px;
+    padding-left: 70px;
+}
+
 /* dados = div com todos os campos com excessão da foto */
 .dados {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 50px;
 }
 /* Cadastro = parte branca no geral */
 .Cadastro {
     display: flex;
     width: 100%;
-    margin: 30px 0px 0px 100px;
+    box-sizing: border-box;
+    justify-content: center;
     align-items: center;
     gap: 10px;
 }
@@ -76,28 +105,34 @@
     padding-right: 30px;
 }
 
-
 /* PARTE DA DESCRIÇÃO E BOTÕES */
 /* caixa grande de texto */
 .caixa_texto {
-    width: 550px;
+    box-sizing: border-box;
+    width: 100%;
     height: 200px;
     border: 2px solid black;
     border-radius: 8px;
-    margin-left: 70px;
+    font-size: 18px;
+    padding: 8px 10px;
+    overflow-y: scroll;
+    scrollbar-color: black rgba(255, 255, 255, 0);
+    scrollbar-width: auto;
+    resize: none;
 }
 /* parte debaixo dos inputs pequenos */
 .embaixo {
-    margin-top: 40px;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    gap: 30px; 
+    flex-direction: column;
+    align-items: center;
+    margin-top: 12px;
 }
 /* autoexplicativo */
 .botoes {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
 }
@@ -105,19 +140,8 @@
 .checkbox input[type="checkbox"] {
     width: 22px;
     height: 22px;
-    /* margin-bottom: 4px; */
 }
 
-.botoes button{
-    width: 300px;
-    height: 50px;
-    background-color: black;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: larger;
-    cursor: pointer;
-}
 /* div com a checkbox e o texto do lado */
 .checkbox {
     display: flex;
@@ -166,11 +190,13 @@ section .wave.wave1
     flex-direction: column;
     align-items: center;
     position: relative;
+    align-self: flex-end;
+    margin-bottom: 24px;
 }
 
 .profileIconEditContainer h1{
     position: absolute;
-    font-size: 18px;
+    font-size: 16px;
     width: max-content;
     top: -40px;
 }
@@ -212,6 +238,80 @@ section .wave.wave1
     width: 170px;
     border-radius: 50%;
     border: 3px solid #000000;
+}
+
+.campo-campo-container {
+    position: relative;
+    width: 100%;
+}
+
+.campo-campo-container input {
+    width: 100%;
+    padding: 5px;
+    font-size: 20px;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    background: transparent;
+    box-sizing: border-box;
+    font-weight: 400;
+}
+
+.campo-campo-container label {
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    transition: 0.2s ease-in-out;
+    pointer-events: none;
+    font-weight: 700;
+}
+
+.campo-campo-container input:focus + label,
+.campo-campo-container input:valid + label {
+    top: -15px;
+    font-size: 16px;
+    color: black;
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+#red{
+    color: red;
+}
+
+.textAreaTitle{
+    margin-top: 20px;
+}
+
+.termos{
+    font-weight: 700;
+}
+
+.botaoConfirmar {
+    background-color: black;
+    color: white;
+    width: 420px;
+    height: 60px;
+    font-size: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.botaoConfirmar:hover {
+    transform: scale(1.05);
 }
 
 @keyframes animacao

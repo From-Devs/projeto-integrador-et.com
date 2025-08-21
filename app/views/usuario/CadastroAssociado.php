@@ -1,6 +1,7 @@
 <?php require __DIR__."../../../../public/componentes/cadastassociado/InputsCadastrAssoc.php";
     require_once __DIR__."../../../../public/componentes/botao/botao.php";
     require_once __DIR__."../../../../public/componentes/popup/popUp.php"; 
+    require __DIR__."/../../../public/componentes/CampoInput/camp.php"
     
 ?>
 <!DOCTYPE html>
@@ -34,7 +35,12 @@
     </div>
     <div class="Cadastro">
         <!-- Área branca -->
-    <form action="" method="post" id="form">
+    <form class="formAssociado" action="" method="post" id="form">
+        <h1>Edite seus dados (Opicional)</h1>
+        <div class= "p">
+            <p class = "p1">*</p>
+            <p class= "p2">PREENCHIMENTO OBRIGATÓRIO</p>
+        </div>
         <div class="editDadosAssociado">
             <div class="profileIconEditContainer">
                 <h1>Alterar foto de perfil</h1>
@@ -45,28 +51,30 @@
                     <label for="avatar"><i class='bx bx-image-alt'></i></label>
                 </div>
             </div>
-            
-            <div class="dados">
-                <!-- Área com todos os campos (pra mudar algum input, vai pra campos.php) -->
-                <?php echo Campos("Nome")?>
-                <div class="organizacao">
-                    <input type="date" name="DataNasc" class="campo" required placeholder="">
-                    <label for="DataNasc" class="Nasc">Data de Nascimento</label>
+
+            <div class="dadosWrapper">
+                <div class="dados">
+                    <!-- Área com todos os campos (pra mudar algum input, vai pra campos.php) -->
+                    <?php echo Camp("Nome Completo:") ?>
+                    <?php echo Camp("Email:") ?>
+                    <?php echo Camp("Data de Nascimento:","date") ?>
+                    <?php echo Camp("Telefone:") ?>
+                    <?php echo Camp("CPF:") ?>
                 </div>
-                <?php echo Campos("CPF")?>
-                <?php echo Campos("Telefone")?>
-                <?php echo Campos("E-Mail", "email")?>
             </div>
+            
         </div>
+        <h1 class="textAreaTitle">Escreva sobre seus produtos</h1>
+
         <div class="embaixo">
-            <!-- input grande -->                <input type="text" placeholder="Digite algo sobre seu produto :)" class="caixa_texto">
+            <textarea class="caixa_texto" name="" id="" cols="30" rows="10"></textarea>
             <div class="botoes">
                 <div class="checkbox">
                     <input type="checkbox" name="termos" id="termos"> 
                     <label class="termos" for="termos"> Concordo com os <a href="./TermoDeUso.php">Termos de Uso e Privacidade</a></label>
                 </div>
                 
-                <button type="button" onclick="abrirPopUp('popup')"><b>Confirmar</b></button>
+                <button class="botaoConfirmar" type="button" onclick="abrirPopUp('popup')"><b>Confirmar</b></button>
             </div>
         </div>
     </form>
