@@ -3,6 +3,11 @@
     margin: 0;
     font-family: 'Montserrat', sans-serif;
 }
+
+.editDadosAssociado{
+    display: flex;
+}
+
 /* PARTE CLARA */
 .Foto img{
     height: 200px;

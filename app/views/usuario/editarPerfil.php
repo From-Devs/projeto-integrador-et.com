@@ -29,7 +29,7 @@
     echo createHeader($login,$tipoUsuario); // função que cria o header 
     ?>
 
-     <main>
+    <main>
         <h1 class="tituloEditarConta">EDITAR DADOS</h1>
         <div class="line-out">
             <div class="line"></div>
