@@ -1,8 +1,12 @@
 <?php
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require_once __DIR__ . "/../../../router/UserRoutes.php";
+    require_once __DIR__ . "/../../Controllers/UserController.php";
+    $_SESSION['id_usuario'] = 2 ;
 
-    // session_start();
+    $controller = new UserController(); 
+    $user = $controller->getLoggedUser();
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
@@ -47,37 +51,39 @@
                     </div>
                 </div>
                 
+            <form method="POST" action="../router/UserRoutes.php?action=update">   
+                
+                <input type="hidden" name="update_id" value="<?= htmlspecialchars($user['id_usuario'] ?? ''); ?>">   
+                
                 <div class="dadosUsuarioForm">
                     <div class="dadosUsuarioFormInputs">
                         <div class="formControl">
-                            <input type="text" class="formInput" id="username" value="ET.COM_LOJA_COSMETICOS">
+                            <input type="text" class="formInput" name="nome" id="username" value="<?= htmlspecialchars($user['nome'] ?? "-"); ?>" required>
                             <label for="username">Nome Completo:</label>
                         </div>
                         <div class="formControl">
-                            <input type="email" class="formInput" id="email" value="ET_COM_LOJA@GMAIL.COM">
+                            <input type="email" class="formInput" name="email" id="email" value="<?= htmlspecialchars($user['email'] ?? "-"); ?>" required>
                             <label for="email">Email:</label>
                         </div>
                         <div class="formControl">
-                            <input type="date" class="formInput" id="date" value="2000-01-01">
+                            <input type="date" class="formInput" name="data_nascimento" id="date" value="<?= htmlspecialchars($user['data_nascimento'] ?? "-"); ?>" required>
                             <label for="date">Data de nascimento:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" id="cpf" value="123.456.789-10">
+                            <input type="text" class="formInput" name="cpf" id="cpf" value="<?= htmlspecialchars($user['cpf'] ?? "-"); ?>" required>
                             <label for="cpf">CPF:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" id="phone" value="+55 91234-5678">
+                            <input type="text" class="formInput" name="telefone" id="phone" value="<?= htmlspecialchars($user['telefone'] ?? "-"); ?>" required>
                             <label for="phone">Telefone:</label>
                         </div>
                     </div>
 
                     <div class="dadosAcoesContainer">
-                        <a href="/projeto-integrador-et.com/app/views/usuario/minhaConta.php">
-                            <button type="button" class="cancelEditButton btn-red">
-                                <p class="editButtonText">Cancelar</p>
-                                <i class='bx bx-trash'></i>
-                            </button>
-                        </a>
+                    <a href="/projeto-integrador-et.com/app/views/usuario/minhaConta.php" class="cancelEditButton btn-red">
+                        <p class="editButtonText">Cancelar</p>
+                        <i class='bx bx-trash'></i>
+                    </a>
         
                         <button type="submit" class="saveButton btn-black">
                             <p class="editButtonText">Salvar alterações</p>

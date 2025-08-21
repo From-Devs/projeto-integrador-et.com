@@ -4,7 +4,7 @@
     require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
     require_once __DIR__ . "/../../../router/UserRoutes.php";
     require_once __DIR__ . "/../../Controllers/UserController.php";
-
+    $_SESSION['id_usuario'] = 2 ;
 
     $controller = new UserController(); 
     $user = $controller->getLoggedUser();
@@ -75,7 +75,7 @@
                         </div>
                         <div class="dadosText" id="content-type">
                             <p><strong>Tipo de conta:</strong></p>
-                            <span><?= htmlspecialchars($user['tipo_conta'] ?? "-"); ?></span>
+                            <span><?= htmlspecialchars($user['tipo'] ?? "-"); ?></span>
                         </div>
                     </div>
                 </form>

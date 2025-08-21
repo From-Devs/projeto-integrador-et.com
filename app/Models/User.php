@@ -104,20 +104,41 @@ class User {
     }
 
     public function updateUser($id, $data) {
-        $sql = "UPDATE usuario SET nome = :nome, nome_social = :nome_social, email = :email, telefone = :telefone, cpf = :cpf, data_nascimento = :data_nascimento, senha = :senha, tipo = :tipo, foto = :foto, id_endereco = :id_endereco WHERE id_usuario = :id";
+        $sql = "UPDATE usuario 
+                SET nome = :nome, email = :email, telefone = :telefone, cpf = :cpf, 
+                    data_nascimento = :data_nascimento, senha = :senha, tipo = :tipo, 
+                    foto = :foto, id_endereco = :id_endereco 
+                WHERE id_usuario = :id";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':nome', $data['nome']);
-        $stmt->bindParam(':nome_social', $data['nome_social']);
-        $stmt->bindParam(':email', $data['email']);
-        $stmt->bindParam(':telefone', $data['telefone']);
-        $stmt->bindParam(':cpf', $data['cpf']);
-        $stmt->bindParam(':data_nascimento', $data['data_nascimento']);
-        $stmt->bindParam(':senha', $data['senha']);
-        $stmt->bindParam(':tipo', $data['tipo']);
-        $stmt->bindParam(':foto', $data['foto']);
-        $stmt->bindParam(':id_endereco', $data['id_endereco']);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        return $stmt->execute();
+    
+        $stmt->bindValue(':nome', $data['nome']);
+        $stmt->bindValue(':email', $data['email']);
+        $stmt->bindValue(':telefone', $data['telefone']);
+        $stmt->bindValue(':cpf', $data['cpf']);
+        $stmt->bindValue(':data_nascimento', $data['data_nascimento']);
+        $stmt->bindValue(':senha', $data['senha']);
+        $stmt->bindValue(':tipo', $data['tipo']);
+    
+        if ($data['foto'] === null) {
+            $stmt->bindValue(':foto', null, PDO::PARAM_NULL);
+        } else {
+            $stmt->bindValue(':foto', $data['foto']);
+        }
+    
+        if ($data['id_endereco'] === null) {
+            $stmt->bindValue(':id_endereco', null, PDO::PARAM_NULL);
+        } else {
+            $stmt->bindValue(':id_endereco', $data['id_endereco']);
+        }
+    
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    
+        if (!$stmt->execute()) {
+            print_r($stmt->errorInfo());
+            return false;
+        }
+    
+        return true;
     }
 }
 ?>

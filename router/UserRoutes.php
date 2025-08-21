@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../app/Controllers/UserController.php';
+session_start();
+$_SESSION['id_usuario'] = 1;
 
 $userController = new UserController();
 $responseCreate = null;
@@ -40,32 +42,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
             break;
 
-        case "update":
-            if (isset($_POST['update_id'])) {
-                $postData = [
-                    'nome' => $_POST['nome'] ?? '',
-                    'nome_social' => $_POST['nome_social'] ?? '',
-                    'email' => $_POST['email'] ?? '',
-                    'telefone' => $_POST['telefone'] ?? '',
-                    'cpf' => $_POST['cpf'] ?? '',
-                    'data_nascimento' => $_POST['data_nascimento'] ?? '',
-                    'senha' => $_POST['senha'] ?? '',
-                    'tipo' => $_POST['tipo'] ?? 'cliente',
-                    'foto' => null,
-                    'id_endereco' => null
-                ];
-
-                // Mantém senha antiga se não for alterada
-                if (empty($postData['senha'])) {
-                    $userOld = $userController->getUserById($_POST['update_id']);
-                    $postData['senha'] = $userOld['senha'];
-                } else {
-                    $postData['senha'] = password_hash($postData['senha'], PASSWORD_DEFAULT);
+            case "update":
+                if (isset($_POST['update_id'])) {
+                    $id = $_POST['update_id'];
+            
+                    $postData = [
+                        'nome'            => $_POST['nome'] ?? '',
+                        'email'           => $_POST['email'] ?? '',
+                        'telefone'        => $_POST['telefone'] ?? '',
+                        'cpf'             => $_POST['cpf'] ?? '',
+                        'data_nascimento' => $_POST['data_nascimento'] ?? ''
+                    ];
+            
+                    $userOld = $userController->getUserById($id);
+            
+                    $postData['senha'] = $userOld['senha'];      
+                    $postData['tipo'] = $userOld['tipo'];         
+                    $postData['foto'] = null;                    
+                    $postData['id_endereco'] = null;          
+            
+                    $responseUpdate = $userController->editUser($id, $postData);
+            
+                    header("Location: ../usuario/minhaConta.php");
+                    var_dump($_POST);
+                    exit;
+                    exit;
                 }
-
-                $responseUpdate = $userController->editUser($_POST['update_id'], $postData);
-            }
-            break;
+                break;    
+            
         case "delete":
             if (isset($_POST['delete_id'])) {
                 try {
@@ -87,14 +91,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             $editUserData = ["success" => false, "message" => "Usuário não está logado"];
                         }
                     }
-                } catch (Exception $e) {
-                    $editUserData = ["success" => false, "message" => "Erro: " . $e->getMessage()];
-                }
-                echo json_encode($editUserData);
-                break;
-        default:
-            echo "Nao encontrei nada";
-            break;
+                }catch (Exception $e) {
+                            $editUserData = ["success" => false, "message" => "Erro: " . $e->getMessage()];
+                        }
+                            echo json_encode($editUserData);
+                            break;
+                        default:
+                            echo "Nao encontrei nada";
+                            break;
 
         case "login":
             $email = $_POST['email'] ?? "";
