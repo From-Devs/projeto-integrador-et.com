@@ -30,7 +30,7 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
         $botao1 = botaoPersonalizadoRedirect('Cadastrar-se', 'btn-white', 'app/views/usuario/CadastroUsuario.php', '155px', '44px', '16px');           
         $botao2 = botaoPersonalizadoRedirect('Entrar', 'btn-white', 'app/views/usuario/Login.php', '155px', '44px', '16px');
     }else{
-        $botao1 = botaoPersonalizadoRedirect('Minha Conta', 'btn-white', '', '155px', '44px', '16px');
+        $botao1 = botaoPersonalizadoRedirect('Minha Conta', 'btn-white', 'app/views/usuario/minhaConta.php', '155px', '44px', '16px');
         $botao2 = botaoPersonalizadoRedirect('Sair', 'btn-white', '', '155px', '44px', '16px');
     }
 

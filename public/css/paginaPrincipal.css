@@ -147,47 +147,6 @@ body{
     z-index: 0;
 }
 
-@keyframes rise {
-    0% {
-        margin-left: 0;
-        transform: translateY(0);
-        opacity: 0;
-    }
-    25% {
-        margin-left: -(var(--bubble-x-shift));
-    }
-    50% {
-        opacity: 1;
-        margin-left: var(--bubble-x-shift);
-    }
-    75% {
-        margin-left: -(var(--bubble-x-shift));
-    }
-    100% {
-        margin-left: 0;
-        transform: translateY(-100vh);
-        opacity: 0;
-    }
-}
-
-  @keyframes sway {
-    0% {
-      margin-left: 0;
-    }
-    25% {
-      margin-left: 50px;
-    }
-    50% {
-      margin-left: -50px;
-    }
-    75% {
-      margin-left: 50px;
-    }
-    100% {
-      margin-left: 0;
-    }
-}
-
 @keyframes CarouselDegrade{
     0%{
         opacity: 1;

@@ -34,8 +34,14 @@
     <div class="Cadastro">
         <!-- Área branca -->
     <form action="" method="post" id="form">
-        <div class="Foto">
-            <img src="/projeto-integrador-et.com/public/imagens/cadastassoc/AdicionarFotoCadstr.png" alt="Insira sua foto">
+        <div class="profileIconEditContainer">
+            <h1>Alterar foto de perfil</h1>
+
+            <div class="profileIconWrapper">
+                <img src="../../../public/imagens/user-icon.png" alt="User Profile" class="profile-pic" id="avatarPreview">
+                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" onchange="previewFile()"/>
+                <label for="avatar"><i class='bx bx-image-alt'></i></label>
+            </div>
         </div>
         
             <div class="dados">
@@ -45,13 +51,9 @@
                     <input type="date" name="DataNasc" class="campo" required placeholder="">
                     <label for="DataNasc" class="Nasc">Data de Nascimento</label>
                 </div>
-                <?php echo Campos("Nome Social")?>
                 <?php echo Campos("CPF")?>
-                <?php echo Campos("CEP")?>
                 <?php echo Campos("Telefone")?>
                 <?php echo Campos("E-Mail", "email")?>
-                <?php echo Campos("Senha", "password")?>
-                <?php echo Campos("Confirmar Senha", "password")?>
             </div>
             <div class="embaixo">
                 <!-- input grande -->                <input type="text" placeholder="Digite algo sobre seu produto :)" class="caixa_texto">
