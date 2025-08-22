@@ -50,6 +50,7 @@ function tabelaProduto($produtos) {
                     <!-- <th id="th3" scope="col">Estoque</th> -->
                     <th id="th5" scope="col">Preço</th>
                     <th id="th4" scope="col">Preço Promocional</th>
+                    <th id="th4" scope="col">Qtd. Estoque</th>
                     <th id="th8" scope="col">Ações</th>
                 </tr>
             </thead>
@@ -65,6 +66,7 @@ function tabelaProduto($produtos) {
                             <!-- <td><?= $produto['estoque'] ?></td> -->
                             <td>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></td>
                             <td>R$ <?= number_format($produto['precoPromocional'], 2, ',', '.') ?></td>
+                            <td><?= $produto['qtdEstoque']?></td>
                             <td>
                                 <div class="acoes-tabela">
                                     <?php
@@ -105,11 +107,16 @@ function tabelaProduto($produtos) {
                     </div>
                     <div class="campo">
                         <label>Subcategoria:</label>
-                        <select id="ddlCategoria">
-                            <option value="teste">Teste1</option>
-                            <option value="teste">Teste2</option>
-                            <option value="teste">Teste3</option>
-                            <option value="teste">Teste4</option>
+                        <select id="ddlCategoria" name="subCategoria">
+                            <?php
+                                foreach ($subCategorias as $sc) {
+                                    ?>
+                                    <option value="<?php echo htmlspecialchars($sc['id_subCategoria']); ?>">
+                                        <?php echo htmlspecialchars($sc['nome']); ?>
+                                    </option>
+                                    <?php
+                                }
+                                ?>
                         </select>
                     </div>
                 </div>
@@ -185,19 +192,15 @@ function tabelaProduto($produtos) {
                 <div class="cores-produto">
                     <div>
                         <input type="color" class="cor" name="corPrincipal">
-                        <span class="span-cor">Cor principal</span>
+                        <span class="span-cor">Cor principal *</span>
                     </div>
                     <div>
                         <input type="color" class="cor" name="deg1">
-                        <span class="span-cor">Deg. 1</span>
+                        <span class="span-cor">Deg. 1 *</span>
                     </div>
                     <div>
                         <input type="color" class="cor" name="deg2">
-                        <span class="span-cor">Deg. 2</span>
-                    </div>
-                    <div>
-                        <input type="color" class="cor" name="deg3">
-                        <span class="span-cor">Deg. 3</span>
+                        <span class="span-cor">Deg. 2 *</span>
                     </div>
                 </div>
                 </div>  
