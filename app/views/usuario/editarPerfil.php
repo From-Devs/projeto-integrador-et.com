@@ -39,7 +39,7 @@
             <div class="line"></div>
         </div>
         <section class="conta-container">
-            <form class="profile-card">
+            <form class="profile-card" method="POST" action="../../../router/UserRoutes.php?acao=update" >
 
                 <div class="profileIconEditContainer">
                     <h1>Alterar foto de perfil</h1>
@@ -50,13 +50,10 @@
                         <label for="avatar"><i class='bx bx-image-alt'></i></label>
                     </div>
                 </div>
-                
-            <form method="POST" action="../router/UserRoutes.php?action=update">   
-                
-                <input type="hidden" name="update_id" value="<?= htmlspecialchars($user['id_usuario'] ?? ''); ?>">   
-                
+
                 <div class="dadosUsuarioForm">
                     <div class="dadosUsuarioFormInputs">
+                    <input type="hidden" name="update_id" value="<?= htmlspecialchars($user['id_usuario'] ?? ''); ?>">
                         <div class="formControl">
                             <input type="text" class="formInput" name="nome" id="username" value="<?= htmlspecialchars($user['nome'] ?? "-"); ?>" required>
                             <label for="username">Nome Completo:</label>
@@ -80,19 +77,20 @@
                     </div>
 
                     <div class="dadosAcoesContainer">
-                    <a href="/projeto-integrador-et.com/app/views/usuario/minhaConta.php" class="cancelEditButton btn-red">
-                        <p class="editButtonText">Cancelar</p>
-                        <i class='bx bx-trash'></i>
-                    </a>
-        
+                        
+                        <button type="button" class="cancelEditButton btn-red">
+                            <p class="editButtonText">Cancelar</p>
+                            <i class='bx bx-trash'></i>
+                        </button>
+                    
                         <button type="submit" class="saveButton btn-black">
                             <p class="editButtonText">Salvar alterações</p>
                             <i class='bx bx-edit'></i>
                         </button>
                     </div>
+                    
                 </div>
             </form>
-
         </section>
     </main>
 
