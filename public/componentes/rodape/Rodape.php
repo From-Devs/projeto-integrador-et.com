@@ -22,24 +22,12 @@ function createRodape($tipo = 0){
                             Categorias
                         </h1>
                         <div class="ColunsLine">
-                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php" class="CategoriaLink">
-                                Maquiagem
-                            </a>
-                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php" class="CategoriaLink">
-                                Perfumes
-                            </a>
-                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php" class="CategoriaLink">
-                                SkinCare
-                            </a>
-                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php" class="CategoriaLink">
-                                Cabelo
-                            </a>
-                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php" class="CategoriaLink">
-                                Eletrônicos
-                            </a>
-                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php" class="CategoriaLink">
-                                Corporal
-                            </a>
+                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=Maquiagem" class="categoria_link">Maquiagem</a>
+                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=Perfume" class="categoria_link">Perfume</a>
+                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=SkinCare" class="categoria_link">SkinCare</a>
+                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=Cabelo" class="categoria_link">Cabelo</a>
+                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=Corporal" class="categoria_link">Corporal</a>
+                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=Eletronicos" class="categoria_link">Eletrônicos</a>
                         </div>
                     </div>
     

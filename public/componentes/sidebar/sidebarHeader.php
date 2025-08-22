@@ -26,34 +26,34 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                         <p class="categoria_nome">Categorias</p>
                         <li class="categoria">
                             <div>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php" class="categoria_link">Maquiagem</a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem" class="categoria_link">Maquiagem</a>
                                 <div class="button_sub">
                                     <i class="fa fa-chevron-down"></i>
                                 </div>
                             </div>
                             <ul class="submenu">
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Pele</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Olhos</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Boca</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Sobrancelhas</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub=pele"><li><p class="submenu_link">Pele</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub=olhos"><li><p class="submenu_link">Olhos</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub=boca"><li><p class="submenu_link">Boca</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub=sobrancelhas"><li><p class="submenu_link">Sobrancelhas</p></li></a>
                             </ul>
                         </li>
                         <li class="categoria">
                             <div>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php" class="categoria_link">Perfume</a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=perfume" class="categoria_link" >Perfume</a>
                                 <div class="button_sub">
                                     <i class="fa fa-chevron-down"></i>
                                 </div>
                             </div>
                             <ul class="submenu">
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Feminino</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Masculino</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Unissex</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=perfume&sub=feminino"><li><p class="submenu_link">Feminino</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=perfume&sub=masculino"><li><p class="submenu_link">Masculino</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=perfume&sub=unissex"><li><p class="submenu_link">Unissex</p></li></a>
                             </ul>
                         </li>
                         <li class="categoria">
                             <div>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php" class="categoria_link">SkinCare</a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=skincare" class="categoria_link" >SkinCare</a>
                                 <div class="button_sub">
                                     <i class="fa fa-chevron-down"></i>
                                 </div>
@@ -69,7 +69,7 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                         </li>
                         <li class="categoria">
                             <div>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php" class="categoria_link">Cabelo</a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=cabelo" class="categoria_link" >Cabelo</a>
                                 <div class="button_sub">
                                     <i class="fa fa-chevron-down"></i>
                                 </div>
@@ -84,7 +84,7 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                         </li>
                         <li class="categoria">
                             <div>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php" class="categoria_link">Eletrônicos</a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=eletronicos" class="categoria_link" >Eletrônicos</a>
                                 <div class="button_sub">
                                     <i class="fa fa-chevron-down"></i>
                                 </div>
@@ -97,7 +97,7 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                         </li>
                         <li class="categoria">
                             <div>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php" class="categoria_link">Corporal</a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal" class="categoria_link" >Corporal</a>
                                 <div class="button_sub">
                                     <i class="fa fa-chevron-down"></i>
                                 </div>
