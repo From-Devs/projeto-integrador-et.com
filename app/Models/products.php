@@ -10,6 +10,37 @@ class Products {
         $this->conn = $banco->Connect();
     }
 
+    public function buscarTodosProdutos(){
+        try {    
+            $sqlPodutos = "SELECT id_produto as id, nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo as precoPromocional, qtdEstoque, img1, img2, img3, id_subCategoria, id_cores, id_associado FROM produto ORDER BY id_produto";
+            $db = $this->conn->prepare($sqlPodutos);
+            $db->execute();
+            $res = $db->fetchAll(PDO::FETCH_ASSOC);
+
+            return $res;
+        } catch (\Throwable $th) {
+            $this->conn->rollBack();
+            echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
+    }
+
+    public function deletarProduto($id_delete){
+        try {    
+            $sqlPodutos = "DELETE FROM produto WHERE :id";
+            $db->bindParam(":id", $id_delete);
+            $db = $this->conn->prepare($sqlPodutos);
+            $db->execute();
+            $res = $db->fetchAll(PDO::FETCH_ASSOC);
+
+            return $res;
+        } catch (\Throwable $th) {
+            $this->conn->rollBack();
+            echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
+    }
+
     public function capturarSubCategorias() {
         try {
             $sql = "SELECT * FROM subcategoria ORDER BY nome";

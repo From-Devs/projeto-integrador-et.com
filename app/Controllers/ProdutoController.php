@@ -8,9 +8,16 @@ class ProdutoController {
     public function __construct() {
         $this->produtoModel = new Products();
     }
-
+    public function buscarTodosProdutos(){
+        return $this->produtoModel->buscarTodosProdutos();
+    }
+    
     public function capturarSubCategorias() {
         return $this->produtoModel->capturarSubCategorias();
+    }
+    
+    public function removerProduto($id_delete){
+        return $this->produtoModel->deletarProduto($id_delete);
     }
 
     public function cadastrarProduto(

@@ -43,8 +43,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
             break;
 
+        case 'DeletarProduto':
+            if(isset($_POST["id_produto"])){
+                $resultado = $produtoController->removerProduto($_POST["id_produto"]);
+                if($resultado){
+                    header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=DeletarProduto");
+                    exit;
+                } else {
+                    header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=DeletarProduto");
+                    exit;
+                }
+            }
+            break;
+
         default:
-            echo "Nao encontrei nada";
+            echo "Ação POST inválida.";
             break;
     }
 }
