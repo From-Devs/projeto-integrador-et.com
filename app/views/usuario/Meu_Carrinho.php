@@ -1,5 +1,6 @@
 <?php
-// Inclui todos os arquivos de componentes e controllers necessários
+// Inclui todos os arquivos de componentes e controllers necessários usando require_once para evitar erros de re-declaração.
+require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
 require_once __DIR__ . "/../../../config/ProdutoController.php";
 require_once __DIR__ . "/../../../public/componentes/header/header.php";
 require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
@@ -11,26 +12,30 @@ require_once __DIR__ . "/../../../public/componentes/ondas/onda.php";
 require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
 require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
+// Verifica se a sessão já foi iniciada antes de chamar session_start().
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
 $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
-$login = false;
+$login = false; // Define o estado de login do usuário.
 
+// Instancia o controller e lista os produtos do carrinho.
 $controller = new ProdutoController();
 $carrinho = $controller->ListarCarrinho();
 
-// Cálculo dos valores
+// Variáveis para o cálculo do total
 $subtotal = 0;
-$frete = 10.00;
+$frete = 10.00; // Valor de frete fixo.
 $precosProdutos = [];
 
+// Preenche o array de preços para ser usado no JavaScript.
 foreach ($carrinho as $item) {
     $preco = (float)($item['precoPromo'] ?? $item['preco']);
     $precosProdutos[] = $preco;
-    $subtotal += $preco * ($item['quantidade'] ?? 1);
+    $subtotal += $preco; // Soma o preço de cada produto para o subtotal.
 }
+
 $total = $subtotal + $frete;
 ?>
 <!DOCTYPE html>
@@ -42,6 +47,7 @@ $total = $subtotal + $frete;
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/Meu_Carrinho.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/rodape/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/paginacao/paginacao.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/header/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebar/styles.css">
@@ -53,8 +59,11 @@ $total = $subtotal + $frete;
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popup/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/paginaPrincipal.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap' rel='stylesheet'>
     <script src='https://kit.fontawesome.com/661f108459.js' crossorigin='anonymous'></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'>
 </head>
+
 <body>
     <?php echo createHeader($login, $tipoUsuario); ?>
     <main>
@@ -68,57 +77,49 @@ $total = $subtotal + $frete;
                         <th></th>
                         <th>Preço</th>
                         <th>Quantia</th>
-                        <th>Subtotal</th>
-                        <th class="radius2">Ações</th>
+                        <th class="radius2">Subtotal</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (!empty($carrinho)): ?>
-                        <?php foreach ($carrinho as $index => $produto): 
-                            $precoUnit = (float)($produto['precoPromo'] ?? $produto['preco']);
-                            $preco = number_format($precoUnit, 2, ',', '.');
-                            $subtotalProduto = number_format($precoUnit * ($produto['quantidade'] ?? 1), 2, ',', '.');
+                        <?php
+                        // Loop dinâmico para exibir os produtos do carrinho.
+                        foreach ($carrinho as $index => $produto) {
+                            $preco = number_format((float)($produto['precoPromo'] ?? $produto['preco']), 2, ',', '.');
+                            $subtotalProduto = number_format((float)($produto['precoPromo'] ?? $produto['preco']) * ($produto['quantidade'] ?? 1), 2, ',', '.');
                             $imagem = !empty($produto['imagem']) ? $produto['imagem'] : 'no-image.png';
                             $quantidade = $produto['quantidade'] ?? 1;
+
+                            echo "<tr>
+                                    <td>
+                                        <input class='check' type='checkbox' name='selecionar[$index]'>
+                                        <img class='cor1' src='/projeto-integrador-et.com/public/imagens/produto/{$imagem}' alt='{$produto['nome']}' width='50'>
+                                        <span class='produto-nome'>{$produto['nome']}</span>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class='cor2'>R$ {$preco}</td>
+                                    <td class='quantityColumn'>
+                                        <div class='quantity-container'>
+                                            <button type='button' class='quantity-btn' onclick='decrementQuantity({$index})'>-</button>
+                                            <input type='number' name='quantidade[{$index}]' value='{$quantidade}' min='1' class='quantity-input'>
+                                            <button type='button' class='quantity-btn' onclick='incrementQuantity({$index})'>+</button>
+                                        </div>
+                                    </td>
+                                    <td class='cor2' id='subtotal-item-{$index}'>R$ {$subtotalProduto}</td>
+                                </tr>";
+                        }
                         ?>
-                            <tr>
-                                <td>
-                                    <input class='check' type='checkbox' name='selecionar[<?php echo $index; ?>]'>
-                                    <img class='cor1' src='/projeto-integrador-et.com/public/imagens/produto/<?php echo $imagem; ?>' alt='<?php echo $produto['nome']; ?>' width='50'>
-                                    <span class='produto-nome'><?php echo $produto['nome']; ?></span>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td class='cor2'>R$ <?php echo $preco; ?></td>
-                                <td class='quantityColumn'>
-                                    <div class='quantity-container'>
-                                        <button type='button' class='quantity-btn' onclick='decrementQuantity(<?php echo $index; ?>)'>-</button>
-                                        <input type='number' name='quantidade[<?php echo $index; ?>]' value='<?php echo $quantidade; ?>' min='1' class='quantity-input'>
-                                        <button type='button' class='quantity-btn' onclick='incrementQuantity(<?php echo $index; ?>)'>+</button>
-                                    </div>
-                                </td>
-                                <td class='cor2' id='subtotal-item-<?php echo $index; ?>'>R$ <?php echo $subtotalProduto; ?></td>
-                                <td>
-                                    <!-- Botão remover -->
-                                    <form action="/projeto-integrador-et.com/config/produtoRouter.php" method="POST" style="display:inline;">
-                                        <input type="hidden" name="id_produto" value="<?php echo $produto['id']; ?>"> 
-                                        <input type="hidden" name="acao" value="remover_carrinho">
-                                        <button type="submit" class="btn-remover">Remover</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="7" class="carrinhoVazio">Seu carrinho está vazio.</td>
+                            <td colspan="6" class="carrinhoVazio">Seu carrinho está vazio.</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td class='cor3' colspan="5">Subtotal:</td>
+                        <td class='cor3' colspan="5" class="total-label">Subtotal:</td>
                         <td class="total-value" id="subtotal">R$ <?php echo number_format($subtotal, 2, ',', '.'); ?></td>
-                        <td></td>
                     </tr>
                     <tr>
                         <td class='cor3' colspan="2">
@@ -126,26 +127,54 @@ $total = $subtotal + $frete;
                             <input class="redondo" type="text" id="cep" name="cep" placeholder="Digite seu CEP">
                             <button type="button" class="botaoCalcular" onclick="calcularTotal()">Calcular</button>
                         </td>
-                        <td colspan="3"></td>
-                        <td><span class="total-value" id="frete">R$ <?php echo number_format($frete, 2, ',', '.'); ?></span></td>
                         <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><span class="total-value" id="frete">R$ <?php echo number_format($frete, 2, ',', '.'); ?></span></td>
                     </tr>
                     <tr>
-                        <td class='cor3' colspan="5">Total:</td>
+                        <td class='cor3' colspan="5" class="total-label">Total:</td>
                         <td class="total-value" id="total">R$ <?php echo number_format($total, 2, ',', '.'); ?></td>
-                        <td></td>
                     </tr>
                 </tfoot>
             </table>
             <div class="button-container">
                 <button type="button" onclick="abrirPopup()">Realizar Pedido</button>
+                <button type="button">Excluir Pedido</button>
             </div>
         </form>
     </main>
 
-    <?php echo createRodape(); ?>
-
+    <div class="sessaoProdutos">
+        <div class="tituloSessao">
+            <p class="titulo">Ofertas Imperdíveis</p>
+            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">Ver Mais</a>
+        </div>
+        <div class="frameSlider">
+            <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
+            <div class="degradeEsquerda"></div>
+            <div class="frameProdutos">
+                <div class="containerProdutos">
+                    <?php
+                    // Produtos estáticos de exemplo (removido no código final para evitar confusão)
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    ?>
+                </div>
+            </div>
+            <div class="degradeDireita"></div>
+            <i class="fa-solid fa-chevron-right setaSlider setaDireita" id="direita"></i>
+        </div>
+    </div>
+    
     <script>
+        // Passa os preços dos produtos do PHP para o JavaScript
         const precosProdutos = <?php echo json_encode($precosProdutos); ?>;
         
         function calcularTotal() {
@@ -182,6 +211,7 @@ $total = $subtotal + $frete;
         }
         
         document.addEventListener("DOMContentLoaded", function() {
+            // Recalcula o total inicial e adiciona o evento de input para cada campo de quantidade
             calcularTotal();
             document.querySelectorAll('input[name^="quantidade"]').forEach(function(input) {
                 input.addEventListener('input', calcularTotal);
@@ -189,15 +219,24 @@ $total = $subtotal + $frete;
         });
     </script>
 
-    <!-- Popups -->
+    <?php echo createRodape(); ?>
+    <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
+    
+    <!-- Fundo escurecido e modal -->
     <div id="overlayPopUp" class="overlayPopUp hidden"></div>
+
     <div id="popup" class="popup hidden">
-        <p>Vamos continuar o atendimento pelo WhatsApp<br><small>(Informações de pagamento e entrega)</small></p>
+        <p>Vamos continuar o atendimento pelo WhatsApp<br><small>(Sobre as informações de pagamento e entrega)</small></p>
         <div class="popup-buttons">
             <button onclick="fecharPopup()">Cancelar</button>
             <button onclick="confirmarCompra()">Continuar</button>
         </div>
     </div>
+
     <div id="popupConfirmado" class="popup hidden">
         <p>✅ Compra confirmada com sucesso!</p>
         <div class="popup-buttons">
@@ -210,16 +249,23 @@ $total = $subtotal + $frete;
         document.getElementById('overlayPopUp').classList.remove('hidden');
         document.getElementById('popup').classList.remove('hidden');
     }
+
     function fecharPopup() {
         document.getElementById('overlayPopUp').classList.add('hidden');
         document.getElementById('popup').classList.add('hidden');
         document.getElementById('popupConfirmado').classList.add('hidden');
     }
+
     function confirmarCompra() {
         document.getElementById('popup').classList.add('hidden');
         document.getElementById('popupConfirmado').classList.remove('hidden');
     }
-    document.getElementById('overlayPopUp').addEventListener('click', fecharPopup);
+
+    document.getElementById('overlayPopUp').addEventListener('click', function () {
+        document.getElementById('overlayPopUp').classList.add('hidden');
+        document.getElementById('popup').classList.add('hidden');
+        document.getElementById('popupConfirmado').classList.add('hidden');
+    });
     </script>
 </body>
 </html>
