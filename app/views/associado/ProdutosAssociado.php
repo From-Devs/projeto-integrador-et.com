@@ -1,5 +1,6 @@
 <?php
 
+// require_once __DIR__ . "/../../app/Controllers/ProdutoController.php";
 require_once __DIR__ . "/./../../../public/componentes/popup/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
 include __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/ProdutoADM/produto.php";
@@ -47,6 +48,11 @@ function verificaELimpaQueryString(){
         }
     }
 }
+
+// function buscaProdutos(){
+//     $produtoController = new ProdutoController();
+//     $produtos = $produtoController
+// }
 
 verificaELimpaQueryString();
 
