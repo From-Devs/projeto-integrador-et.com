@@ -50,23 +50,23 @@
                 <div class="dadosUsuarioForm">
                     <div class="dadosUsuarioFormInputs">
                         <div class="formControl">
-                            <input type="text" name="username" class="formInput" id="username" value="ET.COM_LOJA_COSMETICOS">
+                            <input type="text" name="username" class="formInput" id="username" value="ET.COM_LOJA_COSMETICOS" required>
                             <label for="username">Nome Completo:</label>
                         </div>
                         <div class="formControl">
-                            <input type="email" name="email" class="formInput" id="email" value="ET_COM_LOJA@GMAIL.COM">
+                            <input type="email" name="email" class="formInput" id="email" value="ET_COM_LOJA@GMAIL.COM" required>
                             <label for="email">Email:</label>
                         </div>
                         <div class="formControl">
-                            <input type="date" name="date" class="formInput" id="date" value="2000-01-01">
+                            <input type="date" name="date" class="formInput" id="date" value="2000-01-01" required>
                             <label for="date">Data de nascimento:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" name="cpf" class="formInput" id="cpf" value="123.456.789-10">
+                            <input type="text" name="cpf" class="formInput" id="cpf" value="123.456.789-10" required>
                             <label for="cpf">CPF:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" name="phone" class="formInput" id="phone" value="+55 91234-5678">
+                            <input type="text" name="phone" class="formInput" id="phone" value="+55 91234-5678" required>
                             <label for="phone">Telefone:</label>
                         </div>
                     </div>
