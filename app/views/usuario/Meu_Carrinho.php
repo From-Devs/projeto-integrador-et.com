@@ -116,6 +116,7 @@ $total = $subtotal + $frete;
                         </tr>
                     <?php endif; ?>
                 </tbody>
+                
                 <tfoot>
                     <tr>
                         <td class='cor3' colspan="5" class="total-label">Subtotal:</td>
