@@ -47,10 +47,9 @@ function tabelaProduto($produtos) {
                 <tr>
                     <th id="bordaEsquerda" scope="col">ID</th>
                     <th id="th2" scope="col">Produto</th>
-                    <th id="th3" scope="col">Estoque</th>
-                    <th id="th4" scope="col">Custo</th>
+                    <!-- <th id="th3" scope="col">Estoque</th> -->
                     <th id="th5" scope="col">Preço</th>
-                    <th id="th6" scope="col">Qtd. Pedidos</th>
+                    <th id="th4" scope="col">Preço Promocional</th>
                     <th id="th8" scope="col">Ações</th>
                 </tr>
             </thead>
@@ -63,10 +62,9 @@ function tabelaProduto($produtos) {
                         <tr>
                             <td><?= $produto['id'] ?></td>
                             <td><?= htmlspecialchars($produto['nome']) ?></td>
-                            <td><?= $produto['estoque'] ?></td>
-                            <td>R$ <?= number_format($produto['custo'], 2, ',', '.') ?></td>
+                            <!-- <td><?= $produto['estoque'] ?></td> -->
                             <td>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></td>
-                            <td><?= $produto['pedidos'] ?></td>
+                            <td>R$ <?= number_format($produto['precoPromocional'], 2, ',', '.') ?></td>
                             <td>
                                 <div class="acoes-tabela">
                                     <?php
@@ -204,14 +202,14 @@ function tabelaProduto($produtos) {
                 </div>
                 </div>  
                 </div>
-                <div>
+                <div class="container-campos-large">
                     <div class="campo campo-large">
-                        <label>Características Completa:</label>
-                        <textarea cols="30" rows="10"></textarea>
+                        <label>Características Completa: *</label>
+                        <textarea cols="30" rows="10" name="caracteristicasCompleta"></textarea>
                     </div>
-                </div>
-                <div class="div-btn">
-                    <button class="btn-concluir-edicao" type="submit">Concluír edição</button>
+                    <div class="div-btn">
+                        <button class="btn-concluir-edicao" type="submit">Concluír edição</button>
+                    </div>
                 </div>
             </form>
         </dialog>
