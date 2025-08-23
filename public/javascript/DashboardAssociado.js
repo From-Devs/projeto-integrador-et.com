@@ -90,9 +90,9 @@ var myChartDireita = new Chart(ctxDireita, {
       },
       title: {
         display: true,
-        text: 'Regiões que mais compram', // Texto do título
+        text: 'Top 5 Regiões', // Texto do título
         font: {
-          size: 24, // Tamanho grande do título
+          size: 28, // Tamanho grande do título
           weight: 'bold',
         },
         padding: {

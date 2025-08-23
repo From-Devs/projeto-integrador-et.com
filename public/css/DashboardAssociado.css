@@ -144,7 +144,7 @@ a
     width: 100%;
     height: 470px;
     border-radius: 15px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     background-color: #ffffff;
     font-family: "Montserrat", sans-serif;
 }
@@ -175,7 +175,7 @@ a
     flex-direction: row-reverse;
 }
 
-@media (max-width: 2560px)
+/* @media (max-width: 2560px)
 {
 
     #geralInformacoes
@@ -191,7 +191,7 @@ a
     }
 
 
-}
+} */
 
 @media (max-width: 1280px) {
     #main
@@ -284,13 +284,6 @@ a
         width: 300px;
     }
 
-    #titulo
-    { 
-        margin-left: 80px;
-        margin-top: 18px;
-        margin-bottom: 20px;
-    }
-
     #valorVendas, #lucroLiquido, #vendas
     {
         width: 80%;
@@ -324,22 +317,30 @@ a
 
     #divPizzaEsquerda, #divPizzaDireita{
         width: 80%;
-        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.3);
     }
 
 }
 
-@media (max-width: 320px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+/* RESPONSIVIDADE MOBILE MAX 425PX */
+@media (max-width: 425px){ 
+    #container{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+    }
+    
     #tituloH1{
         font-size: 2rem;
-        text-align: center;
         margin-top: 68px;
     }
 
     #titulo{
-        flex: 1;
+        display: flex;
+        width: 100%;
         justify-content: center;
-        width: 50%;
+        align-items: center;
     }
 
     #geralInformacoes
@@ -360,5 +361,134 @@ a
     #divPizzaEsquerda, #divPizzaDireita{
         width: 90%;
         height: 330px;
+    }
+}
+
+/* RESPONSIVIDADE TABLET MAX 768PX */
+@media (min-width: 426px) and (max-width: 768px){ 
+    #container{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+    }
+    
+    #tituloH1{
+        font-size: 2rem;
+        margin-top: 68px;
+        margin-left: 78px;
+    }
+
+    #titulo{
+        display: flex;
+        width: 100%;
+        justify-content: start;
+        align-items: center;
+    }
+
+    #geralInformacoes
+    {
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+    }
+
+    #valorVendas, #lucroLiquido, #vendas{
+        width: 26%;
+    }
+
+    #imagemInformaEstilizacao{
+        height: 40px;
+
+        & img{
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    #textoInformacao{
+        margin: 0px;
+    }
+
+    #controlePizzas{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0 0 0;
+        gap: 20px;
+    }
+
+    #divPizzaEsquerda, #divPizzaDireita{
+        width: 40%;
+        height: 330px;
+        margin-bottom: 0;
+    }
+}
+
+/* RESPONSIVIDADE LAPTOP MAX 1024PX */
+@media (min-width: 769px) and (max-width: 1024px){ 
+    #container{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+        padding-left: 0px;
+    }
+    
+    #tituloH1{
+        font-size: 2rem;
+        margin-top: 0px;
+        margin-left: 32px;
+    }
+
+    #textoTituloInform, #valorInform{
+        width: 150px;
+    }
+
+    #titulo{
+        display: flex;
+        width: 100%;
+        justify-content: start;
+        align-items: center;
+    }
+
+    #geralInformacoes
+    {
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+    }
+
+    #valorVendas, #lucroLiquido, #vendas{
+        width: 30%;
+    }
+
+    #imagemInformaEstilizacao{
+        height: 40px;
+
+        & img{
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    #textoInformacao{
+        margin: 0px;
+    }
+
+    #controlePizzas{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0 0 0;
+        gap: 20px;
+    }
+
+    #divPizzaEsquerda, #divPizzaDireita{
+        width: 44%;
+        height: 330px;
+        margin-bottom: 0;
     }
 }
