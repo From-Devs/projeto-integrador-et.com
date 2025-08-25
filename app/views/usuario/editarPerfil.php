@@ -90,6 +90,36 @@
                     
                 </div>
             </form>
+
+            <div class="opcoes-conta">
+
+                <div class="option-card" id="alterarSenhaCard">
+                    <div class="optionCardDesc">
+                        <div class="icon">
+                            <i class='bx bx-lock' ></i>
+                        </div>
+                        <div class="opcoes-content">
+                            <strong>Alterar senha</strong> 
+                            <p>Mude a credencial de entrada da conta</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="option-card" id="alterarEnderecoCard">
+                    <div class="optionCardDesc">
+                        <div class="icon">
+                            <i class='bx bx-location-plus' ></i>
+                        </div>
+                        <div class="opcoes-content">
+                            <strong>Editar endereço</strong> 
+                            <p>Mude informações do seu endereço</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </section>
     </main>
 
@@ -104,6 +134,12 @@
         }
         
         const botaoCancelarEdicaoConta = document.getElementById('cancelEditButton').addEventListener('click', voltarPaginaAnterior);
+        const botaoAlterarEndereco = document.getElementById('alterarEnderecoCard').addEventListener('click', function(){
+            window.location.href = 'editarEndereco.php';
+        });
+        const botaoAlterarSenha = document.getElementById('alterarSenhaCard').addEventListener('click', function(){
+            window.location.href = 'alterarSenha.php';
+        });
         
     </script>
 
