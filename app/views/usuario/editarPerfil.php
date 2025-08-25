@@ -3,7 +3,6 @@
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require_once __DIR__ . "/../../../router/UserRoutes.php";
     require_once __DIR__ . "/../../Controllers/UserController.php";
-    $_SESSION['id_usuario'] = 2 ;
 
     $controller = new UserController(); 
     $user = $controller->getLoggedUser();
@@ -78,7 +77,7 @@
 
                     <div class="dadosAcoesContainer">
                         
-                        <button type="button" class="cancelEditButton btn-red">
+                        <button type="button" class="cancelEditButton btn-red" id='cancelEditButton'>
                             <p class="editButtonText">Cancelar</p>
                             <i class='bx bx-trash'></i>
                         </button>
@@ -97,6 +96,16 @@
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/editarDados.js"></script>
+
+    <script>
+        
+        function voltarPaginaAnterior() {
+            history.back();
+        }
+        
+        const botaoCancelarEdicaoConta = document.getElementById('cancelEditButton').addEventListener('click', voltarPaginaAnterior);
+        
+    </script>
 
 
 </body>

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../app/Controllers/UserController.php';
 session_start();
-$_SESSION['tipo'] = 2;
+$_SESSION['id_usuario'] = 1;
 
 $userController = new UserController();
 $responseCreate = null;
