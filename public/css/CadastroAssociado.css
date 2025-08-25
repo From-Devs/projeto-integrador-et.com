@@ -156,59 +156,6 @@ section .wave.wave1
 
 }
 
-.profileIconEditContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-.profileIconEditContainer h1{
-    position: absolute;
-    font-size: 18px;
-    width: max-content;
-    top: -40px;
-}
-
-.profileIconEditContainer input{
-    display: none;
-}
-
-.profileIconWrapper{
-    position: relative;
-}
-
-.profileIconWrapper label{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 48px;
-    width: 48px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    color: white;
-    font-size: 32px;
-    cursor: pointer;
-}
-
-.profileIconWrapper i{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-.profile-pic {
-    height: 170px;
-    width: 170px;
-    border-radius: 50%;
-    border: 3px solid #000000;
-}
-
 @keyframes animacao
 {
     0%

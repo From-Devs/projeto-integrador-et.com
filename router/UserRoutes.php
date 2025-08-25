@@ -7,6 +7,7 @@ $userController = new UserController();
 $responseCreate = null;
 $responseUpdate = null;
 $responseDelete = null;
+$editUserData = null;
 
 // Teste de conexão opcional
 $testeConexao = $userController->teste();
@@ -19,8 +20,7 @@ if (!in_array($acao, ['', 'create', 'update', 'delete', 'getUser', 'login'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $acao = $_GET["acao"] ?? '';
-
+    
     switch ($acao) {
         case "create":
             if (isset($_POST['nome'])) {

@@ -1,46 +1,45 @@
 <?php
-require_once __DIR__ . "/../Models/Products.php";
+require_once __DIR__ . "/../../config/database.php";
 
-class ProdutoController {
+class ProdutoController{
 
-    private $produtoModel;
+    private $conn;
 
-    public function __construct() {
-        $this->produtoModel = new Products();
+    public function __construct(){
+        $banco = new Database();
+
+        $this->conn = $banco->Connect();
     }
+   
+    // public function EditarProduto(){
+        
+    // }
 
-    public function buscarTodosProdutos(){
-        return $this->produtoModel->buscarTodosProdutos();
-    }
+    // public function CadastrarProduto($nome, $marca, $breveDescricao, $preco, $precoPromocional, $caracteristicasCompleta, $qtdEstoque, $img1, $img2, $img3) Com imagem cadastrando (Blob) - Verificar qual tipo salvar no banco
+    public function CadastrarProduto($nome, $marca, $breveDescricao, $preco, $precoPromocional, $caracteristicasCompleta, $qtdEstoque){
+        try {
+            // $sql = "INSERT INTO PRODUTO(nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, qtdEstoque, img1, img2, img3)
+            //(:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :qtdEstoque, :img1, :img2, :img3)";
+            $sql = "INSERT INTO PRODUTO(nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, qtdEstoque)
+            VALUES
+            (:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :qtdEstoque)";   
+            $db = $this->conn->prepare($sql);
+            $db->bindParam(":nome",$nome);
+            $db->bindParam(":marca",$marca);
+            $db->bindParam(":descricaoBreve",$breveDescricao);
+            $db->bindParam(":preco",$preco);
+            $db->bindParam(":precoPromo",$precoPromocional);
+            $db->bindParam(":qtdEstoque",$qtdEstoque);
+            // $db->bindParam(":img1",$img1);
+            // $db->bindParam(":img2",$img2);
+            // $db->bindParam(":img3",$img3);
+            $db->bindParam(":descricaoTotal",$caracteristicasCompleta);
+            $resposta = $db->execute();
 
-    public function capturarSubCategorias() {
-        return $this->produtoModel->capturarSubCategorias();
-    }
-
-    public function cadastrarProduto(
-        $nome, 
-        $marca, 
-        $breveDescricao, 
-        $preco, 
-        $precoPromocional, 
-        $caracteristicasCompleta, 
-        $qtdEstoque, 
-        $corPrincipal, 
-        $deg1, 
-        $deg2
-    ) {
-        return $this->produtoModel->cadastrarProduto(
-            $nome, 
-            $marca, 
-            $breveDescricao, 
-            $preco, 
-            $precoPromocional, 
-            $caracteristicasCompleta, 
-            $qtdEstoque, 
-            $corPrincipal, 
-            $deg1, 
-            $deg2,
-            $_FILES // imagens vêm daqui
-        );
+            return $resposta;
+        } catch (\Throwable $th) {
+            //throw $th;
+            echo $th->getMessage();
+        }
     }
 }
