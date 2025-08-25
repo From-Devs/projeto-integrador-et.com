@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../app/Controllers/UserController.php';
 session_start();
-$_SESSION['tipo'] = 2;
+$_SESSION['id_usuario'] = 2;
 
 $userController = new UserController();
 $responseCreate = null;
@@ -24,22 +24,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     switch ($acao) {
         case "create":
             if (isset($_POST['nome'])) {
+                $senha = $_POST['senha'] ?? '';
+                $confirmarSenha = $_POST['confirmar_senha'] ?? '';
+                if ($senha !== $confirmarSenha) {
+                    $responseCreate = [
+                        "success" => false,
+                        "message" => "As senhas não coincidem!"
+                    ];
+                    header("Location: ../app/views/usuario/CadastroUsuario.php?erro=senha");
+                    break;
+                }
+        
                 $postData = [
-                    'nome' => $_POST['nome'] ?? '',
-                    'nome_social' => $_POST['nome_social'] ?? '',
-                    'email' => $_POST['email'] ?? '',
-                    'telefone' => $_POST['telefone'] ?? '',
-                    'cpf' => $_POST['cpf'] ?? '',
+                    'nome'            => $_POST['nome'] ?? '',
+                    'email'           => $_POST['email'] ?? '',
+                    'telefone'        => $_POST['telefone'] ?? '',
+                    'cpf'             => $_POST['cpf'] ?? '',
                     'data_nascimento' => $_POST['data_nascimento'] ?? '',
-                    'senha' => password_hash($_POST['senha'], PASSWORD_DEFAULT),
-                    'tipo' => $_POST['tipo'] ?? 'cliente',
-                    'foto' => null,
-                    'id_endereco' => null
+                    'senha'           => password_hash($senha, PASSWORD_DEFAULT),
+                    'tipo'            => $_POST['tipo'] ?? 'cliente',
+                    'foto'            => null,
+                    'id_endereco'     => null
                 ];
-
+        
                 $responseCreate = $userController->createUser($postData);
+                header("Location: ../app/views/usuario/Login.php");
             }
             break;
+        
 
         case "update":
             if (isset($_POST['update_id'])) {

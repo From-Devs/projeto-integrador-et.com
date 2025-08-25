@@ -1,4 +1,9 @@
-<?php  require __DIR__."/../../../public/componentes/CampoInput/camp.php" ?>
+<?php
+    require_once __DIR__ . "/../../../public/componentes/CampoInput/camp.php";
+
+    require_once __DIR__ . "/../../Controllers/UserController.php";
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,37 +27,35 @@
                 <p id="voltar" href="./paginaPrincipal.php">Voltar</p>          
             </button> 
             <!--Campos-->    
-            <div class="containerForm">
-                <h1>Informe seus dados</h1>
-                <div class= "p">
-                    <p class = "p1">*</p>
-                    <p class= "p2">PREENCHIMENTO OBRIGATÓRIO</p>
-                </div>
-                <form action="" method="">
-                    <div class = "id">
-                        <?php echo Camp("Nome Completo:") ?>
-                        <?php echo Camp("Email:") ?>
-                        <?php echo Camp("Data de Nascimento:","date") ?>
-                        <?php echo Camp("Telefone:") ?>
-                        <?php echo Camp("Senha:", "password") ?>
-                        <?php echo Camp("CPF:") ?>
-                        <?php echo Camp("Confirmar Senha:", "password") ?>
+            <form method="POST" action="../../../router/UserRoutes.php?acao=create">
+                <div class="containerForm">
+                    <h1>Informe seus dados</h1>
+                    <div class= "p">
+                        <p class = "p1">*</p>
+                        <p class= "p2">PREENCHIMENTO OBRIGATÓRIO</p>
                     </div>
-        
-                </form>
-                <!--Termos de uso e botões-->
-        
-                <div class="low">
-                        
-                    <div class="checkbox">
-                        <input type="checkbox" name="termos" id="termos"> 
-                        <label class="termos" for="termos"> Concordo com os <a href="./TermoDeUso.php">Termos de Uso e Privacidade</a></label>
+                        <?php echo Camp("Nome Completo", "text", "nome") ?>
+                        <?php echo Camp("Email", "email", "email") ?>
+                        <?php echo Camp("Data de Nascimento", "date", "data_nascimento") ?>
+                        <?php echo Camp("Telefone", "text", "telefone") ?>
+                        <?php echo Camp("CPF", "text", "cpf") ?>
+                        <?php echo Camp("Senha", "password", "senha") ?>
+                        <?php echo Camp("Confirmar Senha", "password", "confirmar_senha") ?>
+
+                    <!--Termos de uso e botões-->
+            
+                    <div class="low">
+                            
+                        <div class="checkbox">
+                            <input type="checkbox" name="termos" id="termos"> 
+                            <label class="termos" for="termos"> Concordo com os <a href="./TermoDeUso.php">Termos de Uso e Privacidade</a></label>
+                        </div>
+                            
+                        <button class="botaoConfirmar" type="submit" >Confirmar</button>
+                                    
                     </div>
-                        
-                    <button class="botaoConfirmar" onclick="redirecionar()" >Confirmar</button>
-                                  
                 </div>
-            </div>
+            </form>
         </div>
 
         <!--Ondas-->
