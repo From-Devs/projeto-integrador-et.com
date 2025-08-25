@@ -1,8 +1,11 @@
 <?php
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require_once __DIR__ . "/../../../router/UserRoutes.php";
+    require_once __DIR__ . "/../../Controllers/UserController.php";
 
-    // session_start();
+    $controller = new UserController(); 
+    $user = $controller->getLoggedUser();
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
@@ -29,13 +32,13 @@
     echo createHeader($login,$tipoUsuario); // função que cria o header 
     ?>
 
-     <main>
+    <main>
         <h1 class="tituloEditarConta">EDITAR DADOS</h1>
         <div class="line-out">
             <div class="line"></div>
         </div>
         <section class="conta-container">
-            <form class="profile-card">
+            <form class="profile-card" method="POST" action="../../../router/UserRoutes.php?acao=update" >
 
                 <div class="profileIconEditContainer">
                     <h1>Alterar foto de perfil</h1>
@@ -46,53 +49,63 @@
                         <label for="avatar"><i class='bx bx-image-alt'></i></label>
                     </div>
                 </div>
-                
+
                 <div class="dadosUsuarioForm">
                     <div class="dadosUsuarioFormInputs">
+                    <input type="hidden" name="update_id" value="<?= htmlspecialchars($user['id_usuario'] ?? ''); ?>">
                         <div class="formControl">
-                            <input type="text" class="formInput" id="username" value="ET.COM_LOJA_COSMETICOS">
+                            <input type="text" class="formInput" name="nome" id="username" value="<?= htmlspecialchars($user['nome'] ?? "-"); ?>" required>
                             <label for="username">Nome Completo:</label>
                         </div>
                         <div class="formControl">
-                            <input type="email" class="formInput" id="email" value="ET_COM_LOJA@GMAIL.COM">
+                            <input type="email" class="formInput" name="email" id="email" value="<?= htmlspecialchars($user['email'] ?? "-"); ?>" required>
                             <label for="email">Email:</label>
                         </div>
                         <div class="formControl">
-                            <input type="date" class="formInput" id="date" value="2000-01-01">
+                            <input type="date" class="formInput" name="data_nascimento" id="date" value="<?= htmlspecialchars($user['data_nascimento'] ?? "-"); ?>" required>
                             <label for="date">Data de nascimento:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" id="cpf" value="123.456.789-10">
+                            <input type="text" class="formInput" name="cpf" id="cpf" value="<?= htmlspecialchars($user['cpf'] ?? "-"); ?>" required>
                             <label for="cpf">CPF:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" id="phone" value="+55 91234-5678">
+                            <input type="text" class="formInput" name="telefone" id="phone" value="<?= htmlspecialchars($user['telefone'] ?? "-"); ?>" required>
                             <label for="phone">Telefone:</label>
                         </div>
                     </div>
 
                     <div class="dadosAcoesContainer">
-                        <a href="/projeto-integrador-et.com/app/views/usuario/minhaConta.php">
-                            <button type="button" class="cancelEditButton btn-red">
-                                <p class="editButtonText">Cancelar</p>
-                                <i class='bx bx-trash'></i>
-                            </button>
-                        </a>
-        
+                        
+                        <button type="button" class="cancelEditButton btn-red" id='cancelEditButton'>
+                            <p class="editButtonText">Cancelar</p>
+                            <i class='bx bx-trash'></i>
+                        </button>
+                    
                         <button type="submit" class="saveButton btn-black">
                             <p class="editButtonText">Salvar alterações</p>
                             <i class='bx bx-edit'></i>
                         </button>
                     </div>
+                    
                 </div>
             </form>
-
         </section>
     </main>
 
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/editarDados.js"></script>
+
+    <script>
+        
+        function voltarPaginaAnterior() {
+            history.back();
+        }
+        
+        const botaoCancelarEdicaoConta = document.getElementById('cancelEditButton').addEventListener('click', voltarPaginaAnterior);
+        
+    </script>
 
 
 </body>

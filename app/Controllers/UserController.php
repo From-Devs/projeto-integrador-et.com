@@ -2,74 +2,77 @@
 require_once __DIR__ . '/../Models/User.php';
 
 class UserController {
-    private $userModel;
+    private $model;
 
     public function __construct() {
-        $this->userModel = new User();
+        $this->model = new User();
+    }
+
+    public function teste() {
+        return $this->model->testConntx();
+    }
+
+    public function createUser($data) {
+        $success = $this->model->create($data);
+        return [
+            "success" => $success,
+            "message" => $success ? "Usuário criado" : "Erro ao criar"
+        ];
+    }
+
+    public function editUser($id_usuario, $data) {
+        $success = $this->model->updateUser($id_usuario, $data);
+        return [
+            "success" => $success,
+            "message" => $success ? "Usuário atualizado" : "Erro ao atualizar"
+        ];
+    }
+
+    public function deleteUser($id_usuario) {
+        $success = $this->model->deleteById($id_usuario);
+        return [
+            "success" => $success,
+            "message" => $success ? "Usuário excluído" : "Erro ao excluir"
+        ];
+    }
+
+    public function getUserById($id_usuario) {
+        return $this->model->getUserById($id_usuario);
     }
 
     public function listAllUsers() {
-        $users = $this->userModel->getAll();
-        if ($users) {
-            return ['success' => true, "data" => $users];
-        } else {
-            return ['success' => false, 'message' => 'Erro ao visualizar todos os usuários.'];
-        }
-    }
-
-    public function createUser($postData) {
-        if(empty($postData['nome']) || empty($postData['email']) || empty($postData['senha'])) {
-            return ['success' => false, 'message' => 'Nome, email e senha são obrigatórios!'];
-        }
-    
-        $postData['senha'] = password_hash($postData['senha'], PASSWORD_DEFAULT);
-    
-        try {
-            $created = $this->userModel->create($postData);
-        } catch (PDOException $e) {
-            return ['success' => false, 'message' => 'Erro no banco: ' . $e->getMessage()];
-        }
-    
-        if($created) {
-            return ['success' => true, 'message' => 'Usuário criado com sucesso!'];
-        } else {
-            return ['success' => false, 'message' => 'CPF já cadastrado ou erro ao criar usuário.'];
-        }
+        $users = $this->model->getAll();
+        return [
+            "success" => true,
+            "data" => $users
+        ];
     }
     
 
-    // CORRIGIDO: agora retorna os dados do usuário
-    public function getUserById($id) {
-        return $this->userModel->getUserById($id);
+    public function login($email, $senha) {
+        $user = $this->model->getUserByEmail($email);
+
+        if ($user && password_verify($senha, $user['senha'])) {
+
+            $_SESSION['id_usuario'] = $user['id_usuario'];
+            return [
+                "success" => true,
+                "user" => $user
+            ];
+        }
+
+        return [
+            "success" => false,
+            "message" => "E-mail ou senha inválidos"
+        ];
     }
 
-    public function deleteUser($id) {
-        if (empty($id) || !is_numeric($id)) {
-            return ['success' => false, 'message' => 'ID inválido.'];
-        }
-    
-        $deleted = $this->userModel->deleteById($id);
-    
-        if ($deleted) {
-            return ['success' => true, 'message' => 'Usuário deletado com sucesso!'];
-        } else {
-            return ['success' => false, 'message' => 'Erro ao deletar usuário.'];
-        }
-    }
 
-    public function editUser($id, $data) {
-        if (empty($id) || !is_numeric($id)) {
-            return ['success' => false, 'message' => 'ID inválido.'];
+    public function getLoggedUser() {
+        if (!isset($_SESSION['id_usuario'])) {
+            return null;
         }
-    
-        $updated = $this->userModel->updateUser($id, $data);
-    
-        if ($updated) {
-            return ['success' => true, 'message' => 'Usuário atualizado com sucesso!'];
-        } else {
-            return ['success' => false, 'message' => 'Erro ao atualizar usuário.'];
-        }
+        return $this->model->getUserById($_SESSION['id_usuario']);
     }
-
 }
 ?>
