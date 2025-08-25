@@ -13,7 +13,14 @@ class User {
         $stmt = $this->conn->prepare("SELECT * FROM usuario WHERE id_usuario = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
-    }  
+    }
+    
+    public function getUserByEmail($email) {
+        $stmt = $this->conn->prepare("SELECT * FROM usuario WHERE email = ?");
+        $stmt->execute([$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function testConntx() {
         try {
             $stmt = $this->conn->query("SELECT 1");
@@ -97,10 +104,21 @@ class User {
     }
 
     public function updateUser($id, $data) {
-        $sql = "UPDATE usuario SET nome = :nome, nome_social = :nome_social, email = :email, telefone = :telefone, cpf = :cpf, data_nascimento = :data_nascimento, senha = :senha, tipo = :tipo, foto = :foto, id_endereco = :id_endereco WHERE id_usuario = :id";
+        $sql = "UPDATE usuario 
+                SET nome = :nome, 
+                    email = :email, 
+                    telefone = :telefone, 
+                    cpf = :cpf, 
+                    data_nascimento = :data_nascimento, 
+                    senha = :senha, 
+                    tipo = :tipo, 
+                    foto = :foto, 
+                    id_endereco = :id_endereco 
+                WHERE id_usuario = :id";
+    
         $stmt = $this->conn->prepare($sql);
+    
         $stmt->bindParam(':nome', $data['nome']);
-        $stmt->bindParam(':nome_social', $data['nome_social']);
         $stmt->bindParam(':email', $data['email']);
         $stmt->bindParam(':telefone', $data['telefone']);
         $stmt->bindParam(':cpf', $data['cpf']);
@@ -110,8 +128,22 @@ class User {
         $stmt->bindParam(':foto', $data['foto']);
         $stmt->bindParam(':id_endereco', $data['id_endereco']);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        return $stmt->execute();
+    
+        if (!$stmt->execute()) {
+            // Se falhar, mostra o erro real do PDO
+            $error = $stmt->errorInfo();
+            return [
+                "success" => false,
+                "error"   => $error[2]  // mensagem real do banco
+            ];
+        }
+    
+        return [
+            "success" => true,
+            "rows"    => $stmt->rowCount() // quantas linhas foram alteradas
+        ];
     }
+    
 }
 ?>
 
