@@ -23,6 +23,7 @@ Pode ser necessário trocar o caminho dos styles e scripts dependendo de onde a 
 
 <?php
 require __DIR__ . '/../sidebar/sidebarHeader.php'; // import do componente da sidebar
+require __DIR__ . '/../pesquisaHeader/pesquisaHeader.php'; // import do componente da sidebar
 
 function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
                                             // $login (sujeito a mudança): é o estado de login do usuário, true pra logado e false para deslogado
@@ -53,10 +54,7 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
     
             </div>
     
-            <div class='pesquisaHeader closed'>
-                <input type='text' class='inputHeader'></input>
-                <button><i class='bx bx-search lupaHeaderInput'></i></button>
-            </div>
+            ".createPesquisaHeader()."
     
             <div class='direito'>
                 <div class='botoes'>
@@ -89,10 +87,7 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
     
             </div>
     
-            <div class='pesquisaHeader closed'>
-                <input type='text' class='inputHeader'></input>
-                <button><i class='bx bx-search lupaHeaderInput'></i></button>
-            </div>
+            ".createPesquisaHeader()."
     
             <div class='direito'>
                 <div class='botoes'>

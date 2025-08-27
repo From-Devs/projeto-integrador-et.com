@@ -202,14 +202,14 @@ function tabelaProduto($produtos) {
                 </div>
                 </div>  
                 </div>
-                <div>
+                <div class="container-campos-large">
                     <div class="campo campo-large">
-                        <label>Características Completa:</label>
-                        <textarea cols="30" rows="10"></textarea>
+                        <label>Características Completa: *</label>
+                        <textarea cols="30" rows="10" name="caracteristicasCompleta"></textarea>
                     </div>
-                </div>
-                <div class="div-btn">
-                    <button class="btn-concluir-edicao" type="submit">Concluír edição</button>
+                    <div class="div-btn">
+                        <button class="btn-concluir-edicao" type="submit">Concluír edição</button>
+                    </div>
                 </div>
             </form>
         </dialog>
