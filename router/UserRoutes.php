@@ -1,7 +1,8 @@
 <?php
 require_once __DIR__ . '/../app/Controllers/UserController.php';
+
 session_start();
-$_SESSION['id_usuario'] = 1;
+$_SESSION['id_usuario'] = 4;
 
 $userController = new UserController();
 $responseCreate = null;
@@ -37,6 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     'id_endereco' => null
                 ];
 
+                // Adiciona avatar se enviado
+                if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
+                    $postData['foto'] = $userController->saveAvatar($_FILES['avatar']);
+                }
+
                 $responseCreate = $userController->createUser($postData);
             }
             break;
@@ -45,23 +51,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if (isset($_POST['update_id'])) {
                 $id = $_POST['update_id'];
         
+                // Busca dados antigos
+                $userOld = $userController->getUserById($id);
+        
                 $postData = [
                     'nome' => $_POST['nome'] ?? '',
                     'email' => $_POST['email'] ?? '',
                     'telefone' => $_POST['telefone'] ?? '',
                     'cpf' => $_POST['cpf'] ?? '',
-                    'data_nascimento' => $_POST['data_nascimento'] ?? ''
+                    'data_nascimento' => $_POST['data_nascimento'] ?? '',
+                    'senha' => $userOld['senha'],
+                    'tipo' => $userOld['tipo'],
+                    'foto' => $userOld['foto'], // mantém a foto antiga se não enviar nova
+                    'id_endereco' => $userOld['id_endereco']
                 ];
         
-                $userOld = $userController->getUserById($id);
+                // Salva avatar se houver arquivo enviado
+                if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
+                    $postData['foto'] = $userController->saveAvatar($_FILES['avatar']);
+                }
         
-                $postData['senha'] = $userOld['senha'];
-                $postData['tipo'] = $userOld['tipo'];
-                $postData['foto'] = null;
-                $postData['id_endereco'] = null;
-        
+                // Atualiza usuário
                 $responseUpdate = $userController->editUser($id, $postData);
-
+        
                 header("Location: ../app/views/usuario/minhaConta.php");
                 exit;
             }
@@ -107,3 +119,4 @@ if ($acao === 'getUser') {
 
 // Lista todos os usuários (opcional)
 $usuarios = $userController->listAllUsers()['data'] ?? [];
+?>

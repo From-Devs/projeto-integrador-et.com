@@ -38,7 +38,7 @@
             <div class="line"></div>
         </div>
         <section class="conta-container">
-            <form class="profile-card" method="POST" action="../../../router/UserRoutes.php?acao=update" >
+            <form class="profile-card" method="POST" action="../../../router/UserRoutes.php?acao=update" enctype="multipart/form-data">
 
                 <div class="profileIconEditContainer">
                     <h1>Alterar foto de perfil</h1>
