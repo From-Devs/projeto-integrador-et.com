@@ -57,23 +57,21 @@
         </div>
         <center><div class="line"></div></center>
     </div>
-
-    <!-- <div class="cont-legend">
-        <div class="cards-legend">
-            <div class="produto">
-                <p><strong>Produto</strong></p>
-            </div>
-            <div class="preco">
-                <p><strong>Preço</strong></p>
-            </div>
-        </div>
-    </div> -->
    
     <div class="acoesWrapper">
         <div class="acoesSelecionados" id="acoesSelecionados" style="display:none;">
-            <input type="checkbox" id="selecionarTodos"> Selecionar todos
-            <button id="adicionarCarrinho">Adicionar no carrinho</button>
-            <button id="excluirSelecionados">Excluir</button>
+            <div class="inputCheck">
+                <input type="checkbox" id="selecionarTodos"> 
+                <label>Selecionar todos</label>
+            </div>
+            <div class="btnCheck">
+                <button id="adicionarCarrinho">Adicionar ao Carrinho
+                    <!-- <i class='fa-solid fa-cart-shopping'></i> -->
+                </button>
+                <button id="excluirSelecionados"> Excluir
+                    <!-- <i class='fa-solid fa-trash-can'></i> -->
+                </button>
+            </div>
         </div>
 
     </div>
@@ -84,12 +82,12 @@
         <div class="card-container">
 
             <?php 
-            if (!empty($favoritos)) {
-                foreach ($favoritos as $item) {
-                    $preco      = "R$ " . number_format((float)$item['preco'], 2, ",", ".");
-                    $precoPromo = "R$ " . number_format((float)$item['precoPromo'], 2, ",", ".");
-                    $emDesconto = $item['precoPromo'] < $item['preco']; // Adiciona a lógica para verificar o desconto
-                    $imagem     = !empty($item['imagem']) ? $item['imagem'] : 'no-image.png';
+            // if (!empty($favoritos)) {
+            //     foreach ($favoritos as $item) {
+            //         $preco      = "R$ " . number_format((float)$item['preco'], 2, ",", ".");
+            //         $precoPromo = "R$ " . number_format((float)$item['precoPromo'], 2, ",", ".");
+            //         $emDesconto = $item['precoPromo'] < $item['preco']; // Adiciona a lógica para verificar o desconto
+            //         $imagem     = !empty($item['imagem']) ? $item['imagem'] : 'no-image.png';
 
 
                     echo createCardListaDeDesejos(1,"bt-ovni.png",48.68,"Bruna Tavares", "BT Ovni Galaxy","08/07/2025", "rgba(28, 30, 37, 0.712)","rgb(217,234,37)", "rgb(221, 235, 67)");
@@ -132,10 +130,10 @@
                     // } else{
                     //     echo "<span>Você precisa estar logado para adicionar e ver sua lista de desejo.</span>";
                     // }
-                }
-            } else {
-                echo "<p style='text-align: center; margin-top: 2rem;'>Sua lista de desejos está vazia.</p>";
-            }
+            //     }
+            // } else {
+            //     echo "<p style='text-align: center; margin-top: 2rem;'>Sua lista de desejos está vazia.</p>";
+            // }
 // ======= VINICIUS
 //             <?php
 //             // Verificação para garantir que o array está populado e para exibir os cards dinamicamente
@@ -235,53 +233,53 @@
      * Adiciona um produto ao carrinho.
      * @param {number} idProduto O ID do produto a ser adicionado.
      */
-    function adicionarAoCarrinho(idProduto) {
-        // Envia um formulário dinâmico para o router PHP
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = '/projeto-integrador-et.com/config/produtoRouter.php';
+    // function adicionarAoCarrinho(idProduto) {
+    //     // Envia um formulário dinâmico para o router PHP
+    //     const form = document.createElement('form');
+    //     form.method = 'POST';
+    //     form.action = '/projeto-integrador-et.com/config/produtoRouter.php';
 
-        const acaoInput = document.createElement('input');
-        acaoInput.type = 'hidden';
-        acaoInput.name = 'acao';
-        acaoInput.value = 'carrinho';
-        form.appendChild(acaoInput);
+    //     const acaoInput = document.createElement('input');
+    //     acaoInput.type = 'hidden';
+    //     acaoInput.name = 'acao';
+    //     acaoInput.value = 'carrinho';
+    //     form.appendChild(acaoInput);
 
-        const idInput = document.createElement('input');
-        idInput.type = 'hidden';
-        idInput.name = 'id_produto';
-        idInput.value = idProduto;
-        form.appendChild(idInput);
+    //     const idInput = document.createElement('input');
+    //     idInput.type = 'hidden';
+    //     idInput.name = 'id_produto';
+    //     idInput.value = idProduto;
+    //     form.appendChild(idInput);
 
-        document.body.appendChild(form);
-        form.submit();
-    }
+    //     document.body.appendChild(form);
+    //     form.submit();
+    // }
     
-    /**
-     * Remove um produto da lista de favoritos.
-     * @param {number} idProduto O ID do produto a ser removido.
-     */
-    function removerDosFavoritos(idProduto) {
-        // Envia uma requisição POST para o router PHP
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = '/projeto-integrador-et.com/config/produtoRouter.php';
+    // /**
+    //  * Remove um produto da lista de favoritos.
+    //  * @param {number} idProduto O ID do produto a ser removido.
+    //  */
+    // function removerDosFavoritos(idProduto) {
+    //     // Envia uma requisição POST para o router PHP
+    //     const form = document.createElement('form');
+    //     form.method = 'POST';
+    //     form.action = '/projeto-integrador-et.com/config/produtoRouter.php';
 
-        const acaoInput = document.createElement('input');
-        acaoInput.type = 'hidden';
-        acaoInput.name = 'acao';
-        acaoInput.value = 'remover_favorito';
-        form.appendChild(acaoInput);
+    //     const acaoInput = document.createElement('input');
+    //     acaoInput.type = 'hidden';
+    //     acaoInput.name = 'acao';
+    //     acaoInput.value = 'remover_favorito';
+    //     form.appendChild(acaoInput);
 
-        const idInput = document.createElement('input');
-        idInput.type = 'hidden';
-        idInput.name = 'id_produto';
-        idInput.value = idProduto;
-        form.appendChild(idInput);
+    //     const idInput = document.createElement('input');
+    //     idInput.type = 'hidden';
+    //     idInput.name = 'id_produto';
+    //     idInput.value = idProduto;
+    //     form.appendChild(idInput);
 
-        document.body.appendChild(form);
-        form.submit();
-    }
+    //     document.body.appendChild(form);
+    //     form.submit();
+    // }
     </script>
     <script src="/projeto-integrador-et.com/public/javascript/listaDeDesejos.js"></script>
     

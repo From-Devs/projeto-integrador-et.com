@@ -21,7 +21,7 @@ $login = false; // Define o estado de login do usuário.
 
 // Instancia o controller e lista os produtos do carrinho.
 $controller = new ProdutoController();
-$carrinho = $controller->ListarCarrinho();
+// $carrinho = $controller->ListarCarrinho();
 
 // Variáveis para o cálculo do total
 $subtotal = 0;
