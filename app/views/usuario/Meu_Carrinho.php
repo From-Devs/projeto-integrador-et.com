@@ -1,5 +1,6 @@
 <?php
 // Inclui todos os arquivos de componentes e controllers necessários usando require_once para evitar erros de re-declaração.
+require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
 require_once __DIR__ . "/../../../config/ProdutoController.php";
 require_once __DIR__ . "/../../../public/componentes/header/header.php";
 require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
@@ -46,6 +47,7 @@ $total = $subtotal + $frete;
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/Meu_Carrinho.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/rodape/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/paginacao/paginacao.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/header/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebar/styles.css">
@@ -114,6 +116,7 @@ $total = $subtotal + $frete;
                         </tr>
                     <?php endif; ?>
                 </tbody>
+                
                 <tfoot>
                     <tr>
                         <td class='cor3' colspan="5" class="total-label">Subtotal:</td>

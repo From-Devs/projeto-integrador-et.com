@@ -111,15 +111,11 @@ class ProdutoController {
      * @param int $idProduto O ID do produto a ser removido.
      * @return bool Retorna true em caso de sucesso, false em caso de falha.
      */
-    public function removerDoCarrinho($idProduto) {
+    public function removerDoCarrinho($idCarrinhoItem) {
         try {
-            // Assumimos que o carrinho com ID 1 já existe para fins de demonstração
-            $idCarrinho = 1;
-
-            $sql = "DELETE FROM carrinho2 WHERE id_carrinho = :idCarrinho AND id_produto = :idProduto";
+            $sql = "DELETE FROM carrinho2 WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindValue(':idCarrinho', $idCarrinho, PDO::PARAM_INT);
-            $stmt->bindValue(':idProduto', $idProduto, PDO::PARAM_INT);
+            $stmt->bindValue(':id', $idCarrinhoItem, PDO::PARAM_INT);
             return $stmt->execute();
         } catch (Exception $e) {
             return false;
