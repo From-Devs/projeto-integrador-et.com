@@ -203,3 +203,39 @@ main{
 .popUpDeleteProfileConfirm .btn-red img{
     display: none;
 }
+
+@media (max-width: 1800px){ /*Computador Grande*/
+
+}
+
+@media (max-width: 1525px){ /*Computador Grande*/
+
+}
+
+@media (max-width: 1400px){ /*Computador Grande*/
+
+}
+
+@media (max-width: 1300px){ /*Computador*/
+
+}
+
+@media (max-width: 1200px){ /*Computador*/
+
+}
+
+@media (max-width: 1067px){ /*Computador*/
+
+}
+
+@media (max-height: 900px){ /*Tablet*/
+
+}
+
+@media (max-height: 768px){ /*Celular Paisagem*/
+
+}
+
+@media (max-width: 576px){ /*Celular Vertical*/
+
+}

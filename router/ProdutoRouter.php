@@ -14,10 +14,6 @@ $produtoController = new ProdutoController();
 //     return $imgs;
 // }
 
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-
 function ValidaCampos(){
     if(isset($_POST["nome"]) && !empty(trim($_POST["nome"])) &&
     isset($_POST["marca"]) && !empty(trim($_POST["marca"])) &&
@@ -25,10 +21,7 @@ function ValidaCampos(){
     isset($_POST["qtdEstoque"]) && !empty($_POST["qtdEstoque"]) && is_numeric($_POST["qtdEstoque"]) &&
     isset($_POST["preco"]) && !empty($_POST["preco"]) && is_numeric($_POST["preco"]) &&
     isset($_POST["precoPromocional"]) && !empty($_POST["precoPromocional"]) && is_numeric($_POST["precoPromocional"]) &&
-    isset($_POST["caracteristicasCompleta"]) && !empty(trim($_POST["caracteristicasCompleta"])) &&
-    isset($_POST["corPrincipal"]) && !empty(trim($_POST["corPrincipal"])) &&
-    isset($_POST["deg1"]) && !empty(trim($_POST["deg1"])) &&
-    isset($_POST["deg2"]) && !empty(trim($_POST["deg2"]))){
+    isset($_POST["caracteristicasCompleta"]) && !empty(trim($_POST["caracteristicasCompleta"]))){
         return true;
     }else{
         return false;
@@ -48,13 +41,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 //     $resultado = $produtoController->CadastrarProduto($_POST["nome"], $_POST["marca"], $_POST["breveDescricao"], $_POST["preco"], $_POST["precoPromocional"], $_POST["caracteristicasCompleta"], $_POST["qtdEstoque"], $imagens['img1'], $imagens['img2'], $imagens['img3']);
                 // }
 
-                $resultado = $produtoController->CadastrarProduto($_POST["nome"], $_POST["marca"], $_POST["breveDescricao"], $_POST["preco"], $_POST["precoPromocional"], $_POST["caracteristicasCompleta"], $_POST["qtdEstoque"], $_POST["corPrincipal"], $_POST["deg1"], $_POST["deg2"]);
+                $resultado = $produtoController->CadastrarProduto($_POST["nome"], $_POST["marca"], $_POST["breveDescricao"], $_POST["preco"], $_POST["precoPromocional"], $_POST["caracteristicasCompleta"], $_POST["qtdEstoque"]);
                 if($resultado){
                     header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=CadastrarProduto");
                 }else{
                     header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=CadastrarProduto");
                 }
-            }else{                
+            }else{
                 header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=CadastrarProduto");
             }
         default:
@@ -63,13 +56,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
 }else if($_SERVER["REQUEST_METHOD"] == "GET"){
-    // switch ($_GET["acao"]) {
-    //     // Não tem GET por enquanto
+    switch ($_GET["acao"]) {
+        // Não tem GET por enquanto
         
-    //     default:
-    //         echo "Nao encontrei nada";
-    //         break;
-    // }
+        default:
+            echo "Nao encontrei nada";
+            break;
+    }
 }else{
     echo "Erro";
 }
