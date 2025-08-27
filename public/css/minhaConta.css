@@ -29,7 +29,7 @@ main{
     margin-bottom: 50px;
 } .line{
     background-color: black;
-    width: 1350px;
+    width: 70%;
     height: 1px;
 }
 
@@ -67,7 +67,7 @@ main{
     flex-direction: column;
     align-items: center;
     gap: 26px;
-    padding: 20px 320px;
+    padding: 20px 15%;
 }
 
 .profile-card {
@@ -115,9 +115,13 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
+    overflow: hidden;
 
     p, span{
         font-size: 18px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 }
 
@@ -204,38 +208,95 @@ main{
     display: none;
 }
 
-@media (max-width: 1800px){ /*Computador Grande*/
-
-}
-
-@media (max-width: 1525px){ /*Computador Grande*/
-
-}
-
-@media (max-width: 1400px){ /*Computador Grande*/
-
-}
-
-@media (max-width: 1300px){ /*Computador*/
-
-}
-
 @media (max-width: 1200px){ /*Computador*/
+    main{
+        padding-top: 120px;
+    }
+
+    .dadosUsuarioContainer{
+        grid-template-columns: 1fr;
+    }
+
+    .conta-container {
+        padding: 20px 10%;
+    }
+
+    .dadosUsuario{
+        padding-left: 32px;
+    }
+
+    .profile-pic {
+        margin-left: 32px;
+    }
+
+    .line-out{
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 992px){ /*Computador*/
 
 }
 
-@media (max-width: 1067px){ /*Computador*/
+@media (max-width: 768px){ /*Celular Paisagem*/
+    main{
+        padding-top: 100px;
+    }
 
-}
+    .profile-card {
+        flex-direction: column;
+    }
 
-@media (max-height: 900px){ /*Tablet*/
+    .dadosUsuario{
+        padding: 24px;
+    }
 
-}
-
-@media (max-height: 768px){ /*Celular Paisagem*/
-
+    .profile-pic {
+        margin-left: 0;
+        margin-top: 24px;
+    }
 }
 
 @media (max-width: 576px){ /*Celular Vertical*/
+    .conta-container {
+        padding: 20px 6%;
+    }
 
+    .dadosAcoesContainer{
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .edit-profile-button, .delete-profile-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 19px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        transition: all 0.3s;
+        /* padding: 8px 10px; */
+        border: 0;
+        color: #ffffff;
+        flex: 1;
+        /* width: 100%; */
+    
+        i {
+            font-size: 22px;
+        }
+    }
+
+    .edit-profile-container{
+        display: flex;
+        flex: 1;
+    }
+
+    .option-card{
+        height: auto;
+    }
+
+    .option-card p {
+        display: none;
+    }
 }
