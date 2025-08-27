@@ -133,14 +133,22 @@ function tabelaPedidosADM($pedidos) {
                 </div>
             </div>
             <div id="componenteTabelaProdutos">
-                <?php echo detalhesPedidos($pedido['detalhesPedido']); ?>
+                <?php 
+                $resultado = paginar($pedido['detalhesPedido'], 1, 'pageProdutos'.$contador);
+                echo detalhesPedidos($resultado['dados']);
+                renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas'], 'pageProdutos'.$contador);
+                ?>
             </div>
 
             
             <div class="containerBaixo">
                 <div id="componenteTotaisAssociados">
                     <h3>Total a pagar:</h3>
-                    <?php echo tabelaTotaisAssociado($pedido['infoPagamentos']); ?>
+                    <?php 
+                    $resultado = paginar($pedido['infoPagamentos'], 5, 'pagePagamentos'.$contador);
+                    echo tabelaTotaisAssociado($resultado['dados']);
+                    renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas'], 'pagePagamentos'.$contador);
+                    ?>
                 </div>
                 <div id="componenteResumoFinal">
                     <?php echo resumoFinal($pedido['detalhesPedido']); ?>
@@ -199,7 +207,7 @@ function tabelaPedidosAssociado($pedidos) {
                     <td>{$pedido['nomeCliente']}</td>
                     <td>R$ " . number_format($pedido['preco'], 2, ',', '.') . "</td>
                     <td>{$pedido['data']}</td>
-                    <td><div id='{$statusClass}'>{$pedido['status']}</div></td>
+                    <td><div id='{$statusClass}'><p>{$pedido['status']}<p></div></td>
                 </tr>";
         $contador++;
     }

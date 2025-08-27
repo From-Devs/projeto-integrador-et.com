@@ -1,0 +1,19 @@
+.paginacao {
+    display: flex;
+    margin: 20px 0;
+    gap: 8px;
+}
+
+.paginacao a, .paginacao span {
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+}
+
+.paginacao .pagina-ativa {
+    background-color: #3449B6;
+    color: white;
+    font-weight: bold;
+}

@@ -7,7 +7,7 @@ require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Asso
 require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
 
 
-    session_start();
+    // session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 ?>
 
@@ -23,6 +23,8 @@ require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.ph
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebarADM_Associado/style.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/contaADM_Associado/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/FiltrosADMeAssociados/filtros.css">
+    <!-- <link rel="stylesheet" href="/projeto-integrador-et.com/public\componentes\tabelasAssociado_ADM\HistoricoVendasAssociado\hv.css"> -->
+    
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">

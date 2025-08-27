@@ -4,7 +4,10 @@ require_once "./Controllers/UserController.php";
 $userController = new UserController();
 $responseCreate = null;
 $responseDelete = null;
+$responseUpdate = null;
 $editUserData = null;
+
+// Atualizar usuário
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_id'])) {
     $postData = [
         'nome' => $_POST['nome'] ?? '',
@@ -18,10 +21,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_id'])) {
         'foto' => null,
         'id_endereco' => null
     ];
-    $responseUpdate = $userController->updateUser($_POST['update_id'], $postData);
+
+    // Se senha vazia, mantém a senha antiga para não sobrescrever com vazio
+    if (empty($postData['senha'])) {
+        $userOld = $userController->getUserById($_POST['update_id']);
+        $postData['senha'] = $userOld['senha'];
+    } else {
+        // Se senha preenchida, faz hash
+        $postData['senha'] = password_hash($postData['senha'], PASSWORD_DEFAULT);
+    }
+
+    $responseUpdate = $userController->editUser($_POST['update_id'], $postData);
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome'])) {
+// Criar usuário novo
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome']) && !isset($_POST['update_id']) && !isset($_POST['delete_id']) && !isset($_POST['edit_id'])) {
     $postData = [
         'nome' => $_POST['nome'] ?? '',
         'nome_social' => $_POST['nome_social'] ?? '',
@@ -38,13 +52,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome'])) {
     $responseCreate = $userController->createUser($postData);
 }
 
-
+// Excluir usuário
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
-    $responseDelete = $userController->deleteUser($_POST['delete_id']); // <-- chama método de exclusão
+    $responseDelete = $userController->deleteUser($_POST['delete_id']);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_id'])) {
-    $editUserData  = $userController->getUserById($_POST['edit_id']);
+    $editUserData = $userController->getUserById($_POST['edit_id']);
 }
 
 $responseList = $userController->listAllUsers();
@@ -57,22 +71,61 @@ $responseList = $userController->listAllUsers();
     <title>Cadastro de Usuário</title>
 </head>
 <body>
-    <h2>Formulário de Cadastro</h2>
+    <h2><?= $editUserData ? 'Editar Usuário' : 'Formulário de Cadastro' ?></h2>
+
     <form method="POST" action="">
-        <label>Nome: <input type="text" name="nome" required></label><br><br>
-        <label>Nome Social: <input type="text" name="nome_social"></label><br><br>
-        <label>Email: <input type="email" name="email" required></label><br><br>
-        <label>Telefone: <input type="text" name="telefone"></label><br><br>
-        <label>CPF: <input type="text" name="cpf" required></label><br><br>
-        <label>Data de Nascimento: <input type="date" name="data_nascimento"></label><br><br>
-        <label>Senha: <input type="password" name="senha" required></label><br><br>
+        <?php if ($editUserData): ?>
+            <input type="hidden" name="update_id" value="<?= htmlspecialchars($editUserData['id_usuario']) ?>">
+        <?php endif; ?>
+
+        <label>Nome:
+            <input type="text" name="nome" required
+                value="<?= $editUserData ? htmlspecialchars($editUserData['nome']) : '' ?>">
+        </label><br><br>
+
+        <label>Nome Social:
+            <input type="text" name="nome_social"
+                value="<?= $editUserData ? htmlspecialchars($editUserData['nome_social']) : '' ?>">
+        </label><br><br>
+
+        <label>Email:
+            <input type="email" name="email" required
+                value="<?= $editUserData ? htmlspecialchars($editUserData['email']) : '' ?>">
+        </label><br><br>
+
+        <label>Telefone:
+            <input type="text" name="telefone"
+                value="<?= $editUserData ? htmlspecialchars($editUserData['telefone']) : '' ?>">
+        </label><br><br>
+
+        <label>CPF:
+            <input type="text" name="cpf" required
+                value="<?= $editUserData ? htmlspecialchars($editUserData['cpf']) : '' ?>">
+        </label><br><br>
+
+        <label>Data de Nascimento:
+            <input type="date" name="data_nascimento"
+                value="<?= $editUserData ? htmlspecialchars($editUserData['data_nascimento']) : '' ?>">
+        </label><br><br>
+
+        <label>Senha:
+            <input type="password" name="senha" <?= $editUserData ? '' : 'required' ?>>
+            <?php if ($editUserData): ?>
+                <small>(Deixe vazio para manter a senha atual)</small>
+            <?php endif; ?>
+        </label><br><br>
+
         <label>Tipo:
             <select name="tipo">
-                <option value="cliente">Cliente</option>
-                <option value="associado">Associado</option>
+                <option value="cliente" <?= $editUserData && $editUserData['tipo'] === 'cliente' ? 'selected' : '' ?>>Cliente</option>
+                <option value="associado" <?= $editUserData && $editUserData['tipo'] === 'associado' ? 'selected' : '' ?>>Associado</option>
             </select>
         </label><br><br>
-        <button type="submit">Cadastrar</button>
+
+        <button type="submit"><?= $editUserData ? 'Atualizar' : 'Cadastrar' ?></button>
+        <?php if ($editUserData): ?>
+            <a href="<?= $_SERVER['PHP_SELF'] ?>">Cancelar edição</a>
+        <?php endif; ?>
     </form>
 
     <?php if ($responseCreate): ?>
@@ -80,7 +133,12 @@ $responseList = $userController->listAllUsers();
         <pre><?php print_r($responseCreate); ?></pre>
     <?php endif; ?>
 
-    <?php if ($responseDelete): ?> <!-- Mostra resultado da exclusão -->
+    <?php if ($responseUpdate): ?>
+        <h3>Resultado da Atualização:</h3>
+        <pre><?php print_r($responseUpdate); ?></pre>
+    <?php endif; ?>
+
+    <?php if ($responseDelete): ?>
         <h3>Resultado da Exclusão:</h3>
         <pre><?php print_r($responseDelete); ?></pre>
     <?php endif; ?>
@@ -95,7 +153,7 @@ $responseList = $userController->listAllUsers();
                 <th>Email</th>
                 <th>CPF</th>
                 <th>Tipo</th>
-                <th>Ações</th> <!-- nova coluna para exclusão -->
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -112,11 +170,9 @@ $responseList = $userController->listAllUsers();
                             <!-- Form de exclusão -->
                             <form method="POST" style="display:inline;">
                                 <input type="hidden" name="delete_id" value="<?= $user['id_usuario'] ?>">
-                                <button type="submit" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">
-                                    Excluir
-                                </button>
+                                <button type="submit" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</button>
                             </form>
-                            <!-- Botão de edição -->
+                            <!-- Form de edição -->
                             <form method="POST" style="display:inline;">
                                 <input type="hidden" name="edit_id" value="<?= $user['id_usuario'] ?>">
                                 <button type="submit">Editar</button>

@@ -35,14 +35,6 @@
     padding: 20px;
 }
 
-
-/*Configuração dos campos*/
-form{
-    display: grid;
-    grid-row: 2px;
-    margin-top: 20px;
-}
-
 .id{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -50,6 +42,7 @@ form{
     row-gap: 30px; 
     column-gap: 270px;
     width: 100%;
+    margin-top: 20px;
 }
 
 .none {
@@ -64,7 +57,6 @@ form{
 
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
     cursor: pointer;
 }
 
@@ -85,10 +77,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background: transparent;
     box-sizing: border-box;
     font-weight: 400;
-}
+} 
 
-.campo-campo-container input[type="date"]:not(:valid) {
+input[type=date]:required:invalid::-webkit-datetime-edit {
     color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
 }
 
 .campo-campo-container label {
@@ -108,10 +103,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: black;
 }
 
-
 /* Termos de Uso e botões*/
 .p{
     display: flex;
+    gap: 5px;
 }
 
 .p1{
@@ -119,7 +114,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .p2{
-    font-size: 10px;
+    font-weight: 400;
 }
 
 .low {
@@ -143,11 +138,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .checkbox input[type=checkbox] {
     width: 22px;
     height: 22px;
-    margin-bottom: 4px;
-}
-
-.termos {
-    height: 25px;
 }
 
 .botaoConfirmar {
@@ -156,7 +146,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 420px;
     height: 60px;
     font-size: 20px;
-    font-weight: bolder;
+    font-weight: 700;
     border-radius: 12px;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
@@ -166,14 +156,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     transform: scale(1.05);
 }
 
-
 #confirmar{
     text-decoration: none;
     color: white;
 }
 
 /*Botão Voltar*/
-
 
 #voltarSair{
     position: absolute;
@@ -203,7 +191,6 @@ section
     height: 100vh;
     background-color: black;
     overflow: hidden;
-
 }
 
 section .wave

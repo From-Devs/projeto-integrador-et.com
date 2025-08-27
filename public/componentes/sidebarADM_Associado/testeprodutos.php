@@ -3,7 +3,7 @@
     require_once __DIR__ . "/sidebarInterno.php";
 
 
-    session_start();
+    // session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     //$tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 ?>
