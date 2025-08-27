@@ -100,6 +100,17 @@
             </div>
         </div>
     </div>
+
+    <div class="page">
+        <div class="pagin">
+            <p>Antr</p>
+            <span><a href="">1</a></span>
+            <span><a href="">2</a></span>
+            <span><a href="">3</a></span>
+            <p>Post</p>
+        </div>
+    </div>
+
     <?php
     echo createRodape();
     ?>
