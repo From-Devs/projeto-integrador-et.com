@@ -1,30 +1,48 @@
 <?php
-// app/components/CardPedido.php
-require_once __DIR__ . '/CardProduto.php';
-
 function renderCardPedido($pedido) {
-    $data = date('d/m/Y', strtotime($pedido['dataPedido']));
-    $total = number_format((float)$pedido['total'], 2, ',', '.');
-    ?>
-    <div class="produtoMP">
-        <span class="dataCompraMP">Data de compra: <?php echo $data; ?></span>
-        <?php foreach ($pedido['itens'] as $item): ?>
-            <div class="produtoCardMP">
-                <img class="imagemProdutoMP" src="<?php echo $item['imagem']; ?>" alt="<?php echo $item['nome']; ?>">
-                <div class="infoProdutoMP">
-                    <span class="nomeProdutoMP"><?php echo $item['nome']; ?></span>
-                    <span class="descricaoProdutoMP"><?php echo $item['descricaoBreve']; ?></span>
-                    <span class="qtdProdutoMP">Qtd: <?php echo $item['qntProduto']; ?></span>
-                    <span class="precoProdutoMP">R$ <?php echo number_format($item['preco'], 2, ',', '.'); ?></span>
-                    <span class="subtotalProdutoMP">Subtotal: R$ <?php echo number_format($item['subtotal'], 2, ',', '.'); ?></span>
-                    <a href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=<?php echo $item['id_produto']; ?>" class="verMaisMP">Ver Mais</a>
+    $dataCompra = date('d/m/Y', strtotime($pedido['dataPedido']));
+
+    foreach ($pedido['itens'] as $item): ?>
+    
+        <div class="cards-produtoAndamento produtoMP" data-id="<?php echo $item['id_produto']; ?>">
+            <span class="data-compra">Data de compra: <?php echo $dataCompra; ?></span>
+
+            <div class="cardcoloridoCam" style="border-radius:25px; overflow:hidden;">
+                <div class="card-info" style="
+                    display:flex; 
+                    flex-direction:row; 
+                    align-items:center; 
+                    justify-content:space-between;
+                    padding:20px;
+                    border-radius:25px;
+                    background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(0,0,0,0.05));
+                    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+                ">
+                    <!-- Imagem -->
+                    <div class="card-imagem" style="flex:0 0 120px; text-align:center;">
+                        <img src="<?php echo $item['imagem']; ?>" 
+                             alt="<?php echo $item['nome']; ?>" 
+                             style="height:120px; width:auto; object-fit:contain;">
+                    </div>
+
+                    <!-- Informações -->
+                    <div class="info-caminho" style="flex:1; padding-left:20px; display:flex; flex-direction:column; gap:8px;">
+                        <span style="font-size:20px; font-weight:700; color:#222;">
+                            <?php echo $item['nome']; ?>
+                        </span>
+                        <span style="font-size:16px; color:#555;">
+                            <?php echo $item['descricaoBreve'] ?? $item['categoria'] ?? ''; ?>
+                        </span>
+                        <a href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=<?php echo $item['id_produto']; ?>" 
+                           class="verMais" 
+                           style="margin-top:10px; font-size:15px; font-weight:500; color:#000; text-decoration:underline;">
+                           Ver Mais
+                        </a>
+                    </div>
                 </div>
             </div>
-        <?php endforeach; ?>
-
-        <div class="pedido-total">
-            <strong>Total do pedido:</strong> R$ <?php echo $total; ?>
         </div>
-    </div>
-    <?php
+
+    <?php endforeach;
 }
+?>
