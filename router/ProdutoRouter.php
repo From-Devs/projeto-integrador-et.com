@@ -56,6 +56,54 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
             break;
 
+        case 'EditarProduto':
+            if(isset($_POST["id_produto"]) && ValidaCampos()){
+                $resultado = $produtoController->EditarProduto(
+                    $_POST["id_produto"],
+                    $_POST["nome"],
+                    $_POST["marca"],
+                    $_POST["breveDescricao"],
+                    $_POST["caracteristicasCompleta"], // descrição total
+                    $_POST["preco"],
+                    $_POST["precoPromocional"],
+                    $_POST["qtdEstoque"],
+                    $_POST["img1"] ?? null,
+                    $_POST["img2"] ?? null,
+                    $_POST["img3"] ?? null,
+                    $_POST["subCategoria"] ?? null,
+                    $_POST["id_cores"] ?? null,
+                    $_POST["id_associado"] ?? null
+                );
+        
+                if($resultado){
+                    header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=EditarProduto");
+                    exit;
+                } else {
+                    header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=EditarProduto");
+                    exit;
+                }
+            } else {
+                header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=EditarProduto");
+                exit;
+            }
+            break;
+    
+        case 'DeletarProduto':
+            if(isset($_POST["id_produto"])){
+                $resultado = $produtoController->removerProduto($_POST["id_produto"]);
+                if($resultado){
+                    header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=DeletarProduto");
+                    exit;
+                } else {
+                    header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=DeletarProduto");
+                    exit;
+                }
+            } else {
+                header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=DeletarProduto");
+                exit;
+            }
+            break;
+            
         default:
             echo "Ação POST inválida.";
             break;

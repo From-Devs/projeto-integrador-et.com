@@ -12,6 +12,10 @@ class ProdutoController {
         return $this->produtoModel->buscarTodosProdutos();
     }
     
+    public function buscarPorId($id) {
+        return $this->produtoModel->buscarProdutoPorId($id);
+    }
+
     public function capturarSubCategorias() {
         return $this->produtoModel->capturarSubCategorias();
     }
@@ -46,4 +50,38 @@ class ProdutoController {
             $_FILES // imagens vêm daqui
         );
     }
+   public function EditarProduto(
+        $id_produto,
+        $nome,
+        $marca,
+        $descricaoBreve,
+        $descricaoTotal,
+        $preco,
+        $precoPromo,
+        $qtdEstoque,
+        $img1 = null,
+        $img2 = null,
+        $img3 = null,
+        $id_subCategoria = null,
+        $id_cores = null,
+        $id_associado = null
+    ) {
+        return $this->produtoModel->updateProduto(
+            $id_produto,
+            $nome,
+            $marca,
+            $descricaoBreve,
+            $descricaoTotal,
+            $preco,
+            $precoPromo,
+            $qtdEstoque,
+            $img1,
+            $img2,
+            $img3,
+            $id_subCategoria,
+            $id_cores,
+            $id_associado
+        );
+    }
+
 }

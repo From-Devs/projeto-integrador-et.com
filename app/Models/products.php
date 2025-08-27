@@ -10,6 +10,14 @@ class Products {
         $this->conn = $banco->Connect();
     }
 
+    public function buscarProdutoPorId($id){
+        $sql = "SELECT * FROM `produto` WHERE id_produto = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
     public function buscarTodosProdutos(){
         try {    
             $sqlPodutos = "SELECT id_produto as id, nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo as precoPromocional, qtdEstoque, img1, img2, img3, id_subCategoria, id_cores, id_associado FROM produto ORDER BY id_produto";
@@ -25,21 +33,76 @@ class Products {
         }
     }
 
-    public function deletarProduto($id_delete){
-        try {    
-            $sqlPodutos = "DELETE FROM produto WHERE :id";
-            $db->bindParam(":id", $id_delete);
-            $db = $this->conn->prepare($sqlPodutos);
-            $db->execute();
-            $res = $db->fetchAll(PDO::FETCH_ASSOC);
-
-            return $res;
+    public function updateProduto(
+        $id_produto,
+        $nome,
+        $marca,
+        $descricaoBreve,
+        $descricaoTotal,
+        $preco,
+        $precoPromo,
+        $qtdEstoque,
+        $img1,
+        $img2,
+        $img3,
+        $id_subCategoria,
+        $id_cores,
+        $id_associado
+    ) {
+        try {
+            $sql = "UPDATE produto SET 
+                        nome = :nome,
+                        marca = :marca,
+                        descricaoBreve = :descricaoBreve,
+                        descricaoTotal = :descricaoTotal,
+                        preco = :preco,
+                        precoPromo = :precoPromo,
+                        qtdEstoque = :qtdEstoque,
+                        img1 = :img1,
+                        img2 = :img2,
+                        img3 = :img3,
+                        id_subCategoria = :id_subCategoria,
+                        id_cores = :id_cores,
+                        id_associado = :id_associado
+                    WHERE id_produto = :id_produto";
+    
+            $db = $this->conn->prepare($sql);
+    
+            $db->bindParam(":id_produto", $id_produto, PDO::PARAM_INT);
+            $db->bindParam(":nome", $nome);
+            $db->bindParam(":marca", $marca);
+            $db->bindParam(":descricaoBreve", $descricaoBreve);
+            $db->bindParam(":descricaoTotal", $descricaoTotal);
+            $db->bindParam(":preco", $preco);
+            $db->bindParam(":precoPromo", $precoPromo);
+            $db->bindParam(":qtdEstoque", $qtdEstoque, PDO::PARAM_INT);
+            $db->bindParam(":img1", $img1);
+            $db->bindParam(":img2", $img2);
+            $db->bindParam(":img3", $img3);
+            $db->bindParam(":id_subCategoria", $id_subCategoria, PDO::PARAM_INT);
+            $db->bindParam(":id_cores", $id_cores, PDO::PARAM_INT);
+            $db->bindParam(":id_associado", $id_associado, PDO::PARAM_INT);
+    
+            return $db->execute();
+    
         } catch (\Throwable $th) {
-            $this->conn->rollBack();
-            echo "Erro ao buscar: " . $th->getMessage();
+            echo "Erro ao atualizar produto: " . $th->getMessage();
             return false;
         }
     }
+    
+    public function deletarProduto($id_delete){
+        try {
+            $sql = "DELETE FROM produto WHERE id_produto = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":id", $id_delete, PDO::PARAM_INT);
+            return $stmt->execute();
+        } catch (\Throwable $th) {
+            echo "Erro ao deletar produto: " . $th->getMessage();
+            return false;
+        }
+    }
+    
 
     public function capturarSubCategorias() {
         try {
