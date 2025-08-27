@@ -2,8 +2,11 @@
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
+    require_once __DIR__ . "/../../../router/UserRoutes.php";
+    require_once __DIR__ . "/../../Controllers/UserController.php";
 
-    // session_start();
+    $controller = new UserController(); 
+    $user = $controller->getLoggedUser();
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
@@ -45,34 +48,36 @@
 
                 <img src="../../../public/imagens/user-icon.png" alt="User Profile" class="profile-pic">
 
-                
+            
                 <div class="dadosUsuario">
+                <form>
                     <div class="dadosUsuarioContainer">
                         <div class="dadosText" id="content-nameUser">
                             <p><strong>Nome Completo:</strong></p>
-                            <span id="username">ET.COM_LOJA_COSMETICOS</span>
+                            <span id="username"><?= htmlspecialchars($user['nome'] ?? "Não logado"); ?></span>
                         </div>
                         <div class="dadosText" id="content-email">
                             <p><strong>Email:</strong></p>
-                            <span id="email">ET_COM_LOJA@GMAIL.COM</span>
+                            <span id="email"><?= htmlspecialchars($user['email'] ?? "-"); ?></span>
                         </div>
                         <div class="dadosText" id="content-nasc">
                             <p><strong>Data de nascimento:</strong></p>
-                            <span id="email">01/01/2000</span>
+                            <span><?= htmlspecialchars($user['data_nascimento'] ?? "-"); ?></span>
                         </div>
                         <div class="dadosText" id="content-cpf">
                             <p><strong>CPF:</strong></p>
-                            <span id="email">123.456.789-10</span>
+                            <span><?= htmlspecialchars($user['cpf'] ?? "-"); ?></span>
                         </div>
                         <div class="dadosText" id="content-phone">
                             <p><strong>Telefone:</strong></p>
-                            <span id="email">+55 91234-5678</span>
+                            <span><?= htmlspecialchars($user['telefone'] ?? "-"); ?></span>
                         </div>
                         <div class="dadosText" id="content-type">
                             <p><strong>Tipo de conta:</strong></p>
-                            <span id="email">Usuário</span>
+                            <span><?= htmlspecialchars($user['tipo'] ?? "-"); ?></span>
                         </div>
                     </div>
+                </form>
                     <div class="dadosAcoesContainer">
                         <button class="delete-profile-button btn-red" onclick='abrirPopUp("popUpDeleteProfileConfirm")'>
                             <p id="edit-profile-text">Apagar conta</p>
