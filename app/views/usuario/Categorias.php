@@ -12,10 +12,10 @@
     $fundos = [
         "maquiagem" => [
             "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemFundo.png",
-            "pele"         => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemPele.png",
             "olhos"        => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemOlhos.png",
-            "boca"         => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemBoca.png",
-            "sobrancelhas" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemSobrancelhas.png"
+            "sobrancelhas" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemSobrancelhas.png",
+            "lábios"       => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemBoca.png",
+            "pele"         => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemPele.png"
         ],
         "perfume" => [
             "default"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/PerfumeFundo.png",
@@ -24,46 +24,50 @@
             "unissex"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/PerfumeUnissex.png"
         ],
         "skincare" => [
-            "default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareFundo.png",
-            "rosto"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareRosto.png",
-            "corpo"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareCorpo.png",
-            "kit"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareKit.png"
+            "default"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareFundo.png",
+            "limpeza"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareRosto.png",   
+            "esfoliação"=> "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareCorpo.png",   
+            "hidratação"=> "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareKit.png",     
+            "máscara"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareRosto.png",
+            "protetor"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareCorpo.png",
+            "especiais" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareKit.png"
         ],
         "cabelo" => [
-            "default"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloFundo.png",
-            "shampoo"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloShampoo.png",
-            "condicionador" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloCondicionador.png",
-            "tratamento"    => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloTratamento.png"
-        ],
-        "corporal" => [
-            "default"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalFundo.png",
-            "hidratante" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalHidratante.png",
-            "esfoliante" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalEsfoliante.png",
-            "oleo"       => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalOleo.png"
+            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloFundo.png",
+            "dia-a-dia"    => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloShampoo.png",
+            "tratamentos"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloTratamento.png",
+            "estilização"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloCondicionador.png",
+            "especiais"    => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloTratamento.png",
+            "acessórios"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloCondicionador.png"
         ],
         "eletronicos" => [
-            "default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosFundo.png",
-            "secador" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosSecador.png",
-            "chapinha" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosChapinha.png",
-            "barbeador" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosBarbeador.png"
+            "default"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosFundo.png",
+            "cabelos"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosSecador.png",
+            "pincel"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosChapinha.png",
+            "esponja"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosBarbeador.png"
+        ],
+        "corporal" => [
+            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalFundo.png",
+            "body splash"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalHidratante.png",
+            "óleos"        => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalOleo.png",
+            "creme"        => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalHidratante.png",
+            "protetor"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalEsfoliante.png"
         ]
     ];
 
-    renderSomenteSubcategorias($fundos[$slugCategoria], $slugCategoria);
+    $slugCategoria = $_GET['tela'] ?? "maquiagem"; 
+    $slugSub       = $_GET['sub'] ?? "default";    
 
-    $slugCategoria = $_GET['tela'] ?? "maquiagem"; // fallback pra categoria
-    $slugSub = $_GET['sub'] ?? "default"; // fallback pra subcategoria
+    renderSomenteSubcategorias($fundos[$slugCategoria], $slugCategoria);
 
     $telaAtual = ucfirst($slugCategoria);
     $subAtual  = $slugSub !== "default" ? ucfirst($slugSub) : "";
 
-        
     if (isset($fundos[$slugCategoria][$slugSub])) {
         $fundoAtual = $fundos[$slugCategoria][$slugSub];
     } else {
         $fundoAtual = $fundos[$slugCategoria]["default"];
     }
-
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "associado";
     $login = false;
         

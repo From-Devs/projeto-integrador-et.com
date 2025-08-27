@@ -59,12 +59,12 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                                 </div>
                             </div>
                             <ul class="submenu">
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Limpeza</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Esfoliação</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Hidratação</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Máscara</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Protetor Solar</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Especiais</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=skincare&sub=limpeza"><li><p class="submenu_link">Limpeza</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=skincare&sub=esfoliação"><li><p class="submenu_link">Esfoliação</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=skincare&sub=hidratação"><li><p class="submenu_link">Hidratação</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=skincare&sub=mascara"><li><p class="submenu_link">Máscara</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=skincare&sub=protetorsolar"><li><p class="submenu_link">Protetor Solar</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=skincare&sub=especiais"><li><p class="submenu_link">Especiais</p></li></a>
                             </ul>
                         </li>
                         <li class="categoria">
@@ -75,11 +75,11 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                                 </div>
                             </div>
                             <ul class="submenu">
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Dia-a-dia</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Tratamentos</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Estilização</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Especiais</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Acessórios</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=cabelo&sub=dia-a-dia"><li><p class="submenu_link">Dia-a-dia</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=cabelo&sub=tratamentos"><li><p class="submenu_link">Tratamentos</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=cabelo&sub=estilização"><li><p class="submenu_link">Estilização</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=cabelo&sub=especiais"><li><p class="submenu_link">Especiais</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=cabelo&sub=acessorios"><li><p class="submenu_link">Acessórios</p></li></a>
                             </ul>
                         </li>
                         <li class="categoria">
@@ -90,9 +90,9 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                                 </div>
                             </div>
                             <ul class="submenu">
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Cabelo</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Pincel</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Esponja</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=eletronicos&sub=cabelo"><li><p class="submenu_link">Cabelo</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=eletronicos&sub=pincel"><li><p class="submenu_link">Pincel</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=eletronicos&sub=esponja"><li><p class="submenu_link">Esponja</p></li></a>
                             </ul>
                         </li>
                         <li class="categoria">
@@ -103,10 +103,10 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                                 </div>
                             </div>
                             <ul class="submenu">
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Body Splash</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Óleos</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Cremes</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php"><li><p class="submenu_link">Protetores</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal&sub=bodysplash"><li><p class="submenu_link">Body Splash</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal&sub=oleos"><li><p class="submenu_link">Óleos</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal&sub=cremes"><li><p class="submenu_link">Cremes</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal&sub=protetores"><li><p class="submenu_link">Protetores</p></li></a>
                             </ul>
                         </li>
                     </ul>

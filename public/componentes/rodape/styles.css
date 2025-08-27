@@ -23,7 +23,6 @@ footer{
     font-family: "Montserrat", sans-serif;
 }
 
-
 .primeiraSecao{
     display: flex;
     justify-content: center;
@@ -53,6 +52,9 @@ footer{
 .ColunsCategoria{
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    color: white;
+    list-style: none;
     gap: 20px;
 }
 
@@ -60,6 +62,7 @@ footer{
     display: flex;
     flex-direction: column;
     gap: 15px;
+    color: white;
 }
 
 .ColunsCategoria .tituloCategoria{
