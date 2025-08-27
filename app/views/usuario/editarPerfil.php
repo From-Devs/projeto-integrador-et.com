@@ -3,7 +3,6 @@
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require_once __DIR__ . "/../../../router/UserRoutes.php";
     require_once __DIR__ . "/../../Controllers/UserController.php";
-    $_SESSION['id_usuario'] = 2 ;
 
     $controller = new UserController(); 
     $user = $controller->getLoggedUser();
@@ -33,7 +32,7 @@
     echo createHeader($login,$tipoUsuario); // função que cria o header 
     ?>
 
-     <main>
+    <main>
         <h1 class="tituloEditarConta">EDITAR DADOS</h1>
         <div class="line-out">
             <div class="line"></div>
@@ -78,7 +77,7 @@
 
                     <div class="dadosAcoesContainer">
                         
-                        <button type="button" class="cancelEditButton btn-red">
+                        <button type="button" class="cancelEditButton btn-red" id='cancelEditButton'>
                             <p class="editButtonText">Cancelar</p>
                             <i class='bx bx-trash'></i>
                         </button>
@@ -91,12 +90,58 @@
                     
                 </div>
             </form>
+
+            <div class="opcoes-conta">
+
+                <div class="option-card" id="alterarSenhaCard">
+                    <div class="optionCardDesc">
+                        <div class="icon">
+                            <i class='bx bx-lock' ></i>
+                        </div>
+                        <div class="opcoes-content">
+                            <strong>Alterar senha</strong> 
+                            <p>Mude a credencial de entrada da conta</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="option-card" id="alterarEnderecoCard">
+                    <div class="optionCardDesc">
+                        <div class="icon">
+                            <i class='bx bx-location-plus' ></i>
+                        </div>
+                        <div class="opcoes-content">
+                            <strong>Editar endereço</strong> 
+                            <p>Mude informações do seu endereço</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </section>
     </main>
 
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/editarDados.js"></script>
+
+    <script>
+        
+        function voltarPaginaAnterior() {
+            history.back();
+        }
+        
+        const botaoCancelarEdicaoConta = document.getElementById('cancelEditButton').addEventListener('click', voltarPaginaAnterior);
+        const botaoAlterarEndereco = document.getElementById('alterarEnderecoCard').addEventListener('click', function(){
+            window.location.href = 'editarEndereco.php';
+        });
+        const botaoAlterarSenha = document.getElementById('alterarSenhaCard').addEventListener('click', function(){
+            window.location.href = 'alterarSenha.php';
+        });
+        
+    </script>
 
 
 </body>

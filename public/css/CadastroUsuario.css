@@ -64,7 +64,6 @@ form{
 
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
     cursor: pointer;
 }
 
@@ -85,10 +84,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background: transparent;
     box-sizing: border-box;
     font-weight: 400;
-}
+} 
 
-.campo-campo-container input[type="date"]:not(:valid) {
+input[type=date]:required:invalid::-webkit-datetime-edit {
     color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
 }
 
 .campo-campo-container label {
@@ -108,10 +110,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: black;
 }
 
-
 /* Termos de Uso e botões*/
 .p{
     display: flex;
+    gap: 5px;
 }
 
 .p1{
@@ -119,7 +121,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .p2{
-    font-size: 10px;
+    font-weight: 400;
 }
 
 .low {
@@ -143,11 +145,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .checkbox input[type=checkbox] {
     width: 22px;
     height: 22px;
-    margin-bottom: 4px;
-}
-
-.termos {
-    height: 25px;
 }
 
 .botaoConfirmar {
