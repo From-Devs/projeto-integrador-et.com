@@ -7,6 +7,7 @@
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
     require __DIR__ . "/../../../public/componentes/filtroCategoria/filtroCategoria.php";
+    require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
     $telaAtual = $_GET["tela"] ?? "Maquiagem";
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "associado";
     $login = false;
@@ -105,11 +106,11 @@
 
     <div class="page">
         <div class="pagin">
-            <p>Antr</p>
+            <p>Antr.</p>
             <span><a href="">1</a></span>
             <span><a href="">2</a></span>
             <span><a href="">3</a></span>
-            <p>Post</p>
+            <p>Post.</p>
         </div>
     </div>
 
