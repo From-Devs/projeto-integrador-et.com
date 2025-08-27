@@ -88,23 +88,23 @@ class ProdutoController {
      * Lista os produtos que estão no carrinho.
      * @return array Um array contendo os produtos do carrinho.
      */
-    // public function ListarCarrinho() {
-    //     try {
-    //         $sql = "SELECT c.id, p.id_produto, p.nome, p.preco, p.precoPromo, c.quantidade, p.imagem
-    //                 FROM carrinho2 c
-    //                 JOIN produto p ON c.id_produto = p.id_produto";
-    //         $stmt = $this->conn->prepare($sql);
-    //         $stmt->execute();
+    public function ListarCarrinho() {
+        try {
+            $sql = "SELECT c.id, p.id_produto, p.nome, p.preco, p.precoPromo, c.quantidade, p.imagem
+                    FROM carrinho2 c
+                    JOIN produto p ON c.id_produto = p.id_produto";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
     
-    //         // Como está usando PDO, o fetch é assim:
-    //         $carrinho = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            // Como está usando PDO, o fetch é assim:
+            $carrinho = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-    //         return $carrinho;
-    //     } catch (Exception $e) {
-    //         error_log("Erro ao listar carrinho: " . $e->getMessage());
-    //         return [];
-    //     }
-    // }
+            return $carrinho;
+        } catch (Exception $e) {
+            error_log("Erro ao listar carrinho: " . $e->getMessage());
+            return [];
+        }
+    }
     
     /**
      * Remove um produto do carrinho.
