@@ -35,14 +35,6 @@
     padding: 20px;
 }
 
-
-/*Configuração dos campos*/
-form{
-    display: grid;
-    grid-row: 2px;
-    margin-top: 20px;
-}
-
 .id{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -50,6 +42,7 @@ form{
     row-gap: 30px; 
     column-gap: 270px;
     width: 100%;
+    margin-top: 20px;
 }
 
 .none {
@@ -153,7 +146,7 @@ input[type=date]:focus::-webkit-datetime-edit {
     width: 420px;
     height: 60px;
     font-size: 20px;
-    font-weight: bolder;
+    font-weight: 700;
     border-radius: 12px;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
@@ -163,14 +156,12 @@ input[type=date]:focus::-webkit-datetime-edit {
     transform: scale(1.05);
 }
 
-
 #confirmar{
     text-decoration: none;
     color: white;
 }
 
 /*Botão Voltar*/
-
 
 #voltarSair{
     position: fixed;
@@ -200,7 +191,6 @@ section
     height: 100vh;
     background-color: black;
     overflow: hidden;
-
 }
 
 section .wave
@@ -221,8 +211,6 @@ section .wave.wave1
     z-index: 1000;
     opacity: 1;
     animation-delay: 0s;
-
-
 }
 
 @keyframes animacao {

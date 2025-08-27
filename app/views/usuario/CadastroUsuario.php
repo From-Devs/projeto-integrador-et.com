@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container"> 
         <div class="parteBranca">
             
             <!--Logo-->
@@ -34,13 +34,15 @@
                         <p class = "p1">*</p>
                         <p class= "p2">PREENCHIMENTO OBRIGATÓRIO</p>
                     </div>
+                    <div class="id">
                         <?php echo Camp("Nome Completo", "text", "nome") ?>
                         <?php echo Camp("Email", "email", "email") ?>
                         <?php echo Camp("Data de Nascimento", "date", "data_nascimento") ?>
                         <?php echo Camp("Telefone", "text", "telefone") ?>
-                        <?php echo Camp("CPF", "text", "cpf") ?>
                         <?php echo Camp("Senha", "password", "senha") ?>
+                        <?php echo Camp("CPF", "text", "cpf") ?>
                         <?php echo Camp("Confirmar Senha", "password", "confirmar_senha") ?>
+                    </div>
 
                     <!--Termos de uso e botões-->
             
