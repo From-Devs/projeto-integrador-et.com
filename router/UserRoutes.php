@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../app/Controllers/UserController.php';
 session_start();
-$_SESSION['id_usuario'] = 2;
+$_SESSION['id_usuario'] = 9;
 
 $userController = new UserController();
 $responseCreate = null;
@@ -14,7 +14,7 @@ $testeConexao = $userController->teste();
 
 $acao = $_GET["acao"] ?? '';
 
-if (!in_array($acao, ['', 'create', 'update', 'delete', 'getUser', 'login'])) {
+if (!in_array($acao, ['', 'create', 'update', 'delete', 'getUser', 'login', 'update_password'])) {
     header("Location: ../app/views/usuario/TelaErro.php");
     exit();
 }
@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         "message" => "As senhas não coincidem!"
                     ];
                     header("Location: ../app/views/usuario/CadastroUsuario.php?erro=senha");
+                    exit;
                     break;
                 }
         
@@ -48,7 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 ];
         
                 $responseCreate = $userController->createUser($postData);
+
                 header("Location: ../app/views/usuario/Login.php");
+                exit;
             }
             break;
         
@@ -56,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         case "update":
             if (isset($_POST['update_id'])) {
                 $id = $_POST['update_id'];
-        
+
                 $postData = [
                     'nome' => $_POST['nome'] ?? '',
                     'email' => $_POST['email'] ?? '',
@@ -79,6 +82,42 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
             break;
 
+            case "update_password":
+                if (isset($_POST['update_senha'])) {
+                    $id = $_SESSION['id_usuario'];
+                    $usuario = $userController->getUserById($id);
+                
+                if (!$usuario) {
+                        header("Location: ../app/views/usuario/minhaConta.php?erro=usuario_nao_encontrado");
+                        exit;
+                    }
+                
+                    $senhaHashBanco = $usuario['senha'];
+                    $senhaAtualDigitada = trim($_POST['senhaAtual'] ?? '');
+                    $novaSenha = trim($_POST['novaSenha'] ?? '');
+                    $confirmarSenha = trim($_POST['confirmarSenha'] ?? '');
+                    
+                if (!password_verify($senhaAtualDigitada, $senhaHashBanco)) {
+                        header("Location: ../app/views/usuario/minhaConta.php?erro=senha_atual_incorreta");
+                        exit;
+                    }
+                
+                if ($novaSenha !== $confirmarSenha) {
+                        header("Location: ../app/views/usuario/minhaConta.php?erro=confirmacao");
+                        exit;
+                    }
+                
+                $postData = [
+                    'senha' => password_hash($novaSenha, PASSWORD_DEFAULT),
+                ];
+                
+                $responseUpdate = $userController->editUser($id, $postData);
+                
+                header("Location: ../app/views/usuario/minhaConta.php?sucesso=senha");
+                exit;
+            }
+            break;            
+
         case "delete":
             if (isset($_POST['delete_id'])) {
                 try {
@@ -99,7 +138,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-// Tratamento de GET (ou POST também, caso precise)
 if ($acao === 'getUser') {
     try {
         if (isset($_POST['edit_id'])) {
@@ -117,5 +155,4 @@ if ($acao === 'getUser') {
     exit;
 }
 
-// Lista todos os usuários (opcional)
 $usuarios = $userController->listAllUsers()['data'] ?? [];

@@ -9,6 +9,7 @@
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+
 ?>
 
 <!DOCTYPE html>
@@ -38,11 +39,11 @@
             <div class="line"></div>
         </div>
         <section class="conta-container">
-            <form class="profile-card" method="POST" action="" >
+            <form class="profile-card" method="POST" action="../../../router/UserRoutes.php?acao=update_password" >
 
                 <div class="dadosUsuarioForm">
                     <div class="dadosUsuarioFormInputs">
-                    <input type="hidden" name="update_id" value="<?= htmlspecialchars($user['id_usuario'] ?? ''); ?>">
+                    <input type="hidden" name="update_senha" value="<?= htmlspecialchars($user['id_usuario'] ?? ''); ?>">
                         <div class="formControl">
                             <input type="text" class="formInput" name="senhaAtual" id="senhaAtual" required>
                             <label for="senhaAtual">Senha Atual:</label>
