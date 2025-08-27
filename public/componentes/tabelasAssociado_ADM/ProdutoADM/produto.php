@@ -1,7 +1,7 @@
 <?php
     require_once __DIR__."/../../popup/popUp.php";
     require_once __DIR__."/../../botao/botao.php";
-    require_once __DIR__."/../../popup/popUp.php";
+    require_once __DIR__."/../../../../app/Controllers/produtoController.php";
 
     function tabelaProdutoAdm($produtos){
         ?>
@@ -76,7 +76,7 @@ function tabelaProduto($produtos) {
                                     <div class="excluir" onclick="abrirPopUp('popUpExcluir')">
                                         <img src="/projeto-integrador-et.com/public/imagens/associado/img-excluir.png" alt="img-excluir">
                                     </div>
-                                    <div class="editar" onclick="abrirPopUp('dialog-editar')">
+                                    <div class="editar" onclick="buscarAtributosDoProduto(<?= $produto['id'] ?>)">
                                         <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png" alt="img-editar">
                                     </div>
                                 </div>

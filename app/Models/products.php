@@ -10,10 +10,26 @@ class Products {
         $this->conn = $banco->Connect();
     }
 
+    public function buscarProdutoPeloId($id){
+        try {
+            $sqlProduto = "SELECT * FROM produto WHERE id_produto = :id";
+            $db = $this->conn->prepare($sqlProduto);
+            $db->bindParam(":id", $id);
+            $db->execute();
+            $res = $db->fetchAll(PDO::FETCH_ASSOC);
+
+            return $res;
+        } catch (\Throwable $th) {
+            $this->conn->rollBack();
+            echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
+    }
+
     public function buscarTodosProdutos(){
         try {    
-            $sqlPodutos = "SELECT id_produto as id, nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo as precoPromocional, qtdEstoque, img1, img2, img3, id_subCategoria, id_cores, id_associado FROM produto ORDER BY id_produto";
-            $db = $this->conn->prepare($sqlPodutos);
+            $sqlProdutos = "SELECT id_produto as id, nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo as precoPromocional, qtdEstoque, img1, img2, img3, id_subCategoria, id_cores, id_associado FROM produto ORDER BY id_produto";
+            $db = $this->conn->prepare($sqlProdutos);
             $db->execute();
             $res = $db->fetchAll(PDO::FETCH_ASSOC);
 

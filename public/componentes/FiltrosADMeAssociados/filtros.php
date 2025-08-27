@@ -134,10 +134,6 @@ function filtro($tipo = "", $opcoesSelect = []) {
         </div>
         <div class="divisao-esquerda">
             <div class="campos-esquerda">
-                <!-- <div class="campo campo-small">
-                    <label>Código do Produto:</label>
-                    <input type="text">
-                </div> -->
                 <div class="campo campo-small">
                     <label>Quantidade no estoque: *</label>
                     <input type="number" name="qtdEstoque">

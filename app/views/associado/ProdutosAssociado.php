@@ -67,7 +67,6 @@ $produtos = buscarTodosProdutos();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
-    <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/ProdutosAssociado.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popUp/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebarADM_Associado/style.css">
@@ -75,6 +74,7 @@ $produtos = buscarTodosProdutos();
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/AssociadoGeral.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/FiltrosADMeAssociados/filtros.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/paginacao/paginacao.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/ProdutosAssociado.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
@@ -127,5 +127,6 @@ $produtos = buscarTodosProdutos();
         
     <script src="/projeto-integrador-et.com/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/Produto.js"></script>
 </body>
 </html>

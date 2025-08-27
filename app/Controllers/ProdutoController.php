@@ -9,6 +9,10 @@ class ProdutoController {
         $this->produtoModel = new Products();
     }
 
+    public function buscarProdutoPeloId($id){
+        return $this->produtoModel->buscarProdutoPeloId($id);
+    }
+
     public function buscarTodosProdutos(){
         return $this->produtoModel->buscarTodosProdutos();
     }

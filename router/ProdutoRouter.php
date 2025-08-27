@@ -42,7 +42,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=CadastrarProduto");
             }
             break;
-
+        default:
+            echo "Nao encontrei nada";
+            break;
+    }
+}else{
+    switch ($_GET["acao"]) {
+        case 'BuscarProduto':
+            if (isset($_GET['id'])) {
+                $res = $produtoController->buscarProdutoPeloId($_GET['id']);
+                header('Content-Type: application/json');
+                echo json_encode($res);
+            } else {
+                echo json_encode(['erro' => 'ID do produto não informado']);
+            }
+            break;
         default:
             echo "Nao encontrei nada";
             break;
