@@ -116,9 +116,6 @@ body{
         width: 100vw;
         font-size: 4.5rem;
     }
-    .headerUsuario {
-        width: 100vw;
-    }
     .filtroSeparado {
         margin-left: 5px;
         margin-top: 0px;
@@ -126,14 +123,16 @@ body{
 }
 @media (max-width: 1320px) {
     .PartedeBaixo {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 }
 @media (max-width: 1050px) {
     .PartedeBaixo {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr ;
+        display: column;
+        align-self: center;
     }
     .Produtos {
         flex-direction: column;
@@ -142,37 +141,79 @@ body{
 }
 @media (max-width: 990px) {
     .PartedeBaixo {
-        grid-template-columns: 1fr ;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        display: column;
+        align-self: center;
     }
-    .Topo {
-        width: fit-content;
-    }
+
     .wave.fantasma {
         width: 100%;
+        bottom: -100px;
     }
     .wave.solida {
         width: 100%;
+        bottom: -100px;
     }
 }
-@media (max-width: 430px) {
-    .Topo {
-        width: 100%;
-        height: 100%;
+@media (max-width: 612px) {
+    .PartedeBaixo {
+        grid-template-columns: 1fr;
+        display: column;
+        align-self: center;
     }
-    .Produtos {
-        flex-direction: column;
-        margin: 30px 0px 0px 0px;
-    }
+
     .Titulo {
         height: 450px;
         width: 100vw;
         background-position: center;
         font-size: 2.5rem;
     }
-    .wave {
-        display: none;
+
+    .aVenda {
+        margin-left: 5px;
     }
+    .ColunsCategoria {
+        padding: 0px;
+        width: 100vw;
+    }
+}
+
+@media (max-width: 412px) {
+
+    .PartedeBaixo {
+        grid-template-columns: 1fr;
+    }
+
+    .Titulo {
+        height: 450px;
+        width: 100vw;
+        background-position: center;
+        font-size: 2.5rem;
+    }
+
+    .aVenda {
+        margin-left: 5px;
+    }
+    .ColunsCategoria {
+        padding: 0px;
+        width: 100vw;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .PartedeBaixo {
+        grid-template-columns: 1fr;
+  
+    }
+
+    .Titulo {
+        height: 450px;
+        width: 100vw;
+        background-position: center;
+        font-size: 2.5rem;
+    }
+
     .aVenda {
         margin-left: 5px;
     }

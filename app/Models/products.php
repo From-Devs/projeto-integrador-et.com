@@ -16,37 +16,30 @@ class Products {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Substituindo create por CadastrarProduto
-    public function CadastrarProduto($nome, $marca, $descricaoBreve, $preco, $precoPromo, $descricaoTotal, $qtdEstoque, $img_1 = null, $img_2 = null, $img_3 = null, $id_subCategoria = 1, $id_cores = 1, $id_associado = 1){
-        try {
-            // Define imagens padrão caso não enviadas
-            $img_1 = $img_1 ?? 'uploads/default1.jpg';
-            $img_2 = $img_2 ?? 'uploads/default2.jpg';
-            $img_3 = $img_3 ?? 'uploads/default3.jpg';
-
-            $sql = "INSERT INTO Produto
-                    (nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, img_1, img_2, img_3, id_subCategoria, id_cores, id_associado)
-                    VALUES
-                    (:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :img_1, :img_2, :img_3, :id_subCategoria, :id_cores, :id_associado)";
-
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':nome', $nome);
-            $stmt->bindParam(':marca', $marca);
-            $stmt->bindParam(':descricaoBreve', $descricaoBreve);
-            $stmt->bindParam(':descricaoTotal', $descricaoTotal);
-            $stmt->bindParam(':preco', $preco);
-            $stmt->bindParam(':precoPromo', $precoPromo);
-            $stmt->bindParam(':img_1', $img_1);
-            $stmt->bindParam(':img_2', $img_2);
-            $stmt->bindParam(':img_3', $img_3);
-            $stmt->bindParam(':id_subCategoria', $id_subCategoria);
-            $stmt->bindParam(':id_cores', $id_cores);
-            $stmt->bindParam(':id_associado', $id_associado);
-
-            return $stmt->execute();
-        } catch (\Throwable $th) {
-            echo $th->getMessage();
+    public function create($data){
+        // Se não houver imagem, define padrão
+        if(empty($data['imagem'])){
+            $data['imagem'] = 'uploads/The_Great_Wave_off_Kanagawa_artificial_intelligence_4K_waves_sunset-2199509 (1).jpg';
         }
+
+        $sql = "INSERT INTO Produto 
+                (nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, imagem, id_subCategoria, id_cores, id_associado)
+                VALUES 
+                (:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :imagem, :id_subCategoria, :id_cores, :id_associado)";
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':nome', $data['nome']);
+        $stmt->bindParam(':marca', $data['marca']);
+        $stmt->bindParam(':descricaoBreve', $data['descricaoBreve']);
+        $stmt->bindParam(':descricaoTotal', $data['descricaoTotal']);
+        $stmt->bindParam(':preco', $data['preco']);
+        $stmt->bindParam(':precoPromo', $data['precoPromo']);
+        $stmt->bindParam(':imagem', $data['imagem']);
+        $stmt->bindParam(':id_subCategoria', $data['id_subCategoria']);
+        $stmt->bindParam(':id_cores', $data['id_cores']);
+        $stmt->bindParam(':id_associado', $data['id_associado']);
+
+        return $stmt->execute();
     }
 
     public function produtoById($id){
@@ -63,9 +56,7 @@ class Products {
                     descricaoTotal = :descricaoTotal,
                     preco = :preco,
                     precoPromo = :precoPromo,
-                    img_1 = :img_1,
-                    img_2 = :img_2,
-                    img_3 = :img_3,
+                    imagem = :imagem,
                     id_subCategoria = :id_subCategoria,
                     id_cores = :id_cores,
                     id_associado = :id_associado
@@ -78,9 +69,7 @@ class Products {
         $stmt->bindParam(':descricaoTotal', $data['descricaoTotal']);
         $stmt->bindParam(':preco', $data['preco']);
         $stmt->bindParam(':precoPromo', $data['precoPromo']);
-        $stmt->bindParam(':img_1', $data['img_1']);
-        $stmt->bindParam(':img_2', $data['img_2']);
-        $stmt->bindParam(':img_3', $data['img_3']);
+        $stmt->bindParam(':imagem', $data['imagem']);
         $stmt->bindParam(':id_subCategoria', $data['id_subCategoria']);
         $stmt->bindParam(':id_cores', $data['id_cores']);
         $stmt->bindParam(':id_associado', $data['id_associado']);
