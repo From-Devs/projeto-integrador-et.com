@@ -67,30 +67,67 @@ body{
 /*COLUNA COM PARA SELECIONAR TUDO*/
 
 .acoesWrapper{
-    height: 60px;
+    height: 65px;
+    display: flex;
+    flex-direction: row;
 }
 
 .acoesSelecionados{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     position: sticky;
-    width: 1100px;
+    margin-left: 350px;
     z-index: 1000;
     gap: 20px;
     
     background-color: transparent;
-    padding-top: 35px;
+    padding-top: 40px;
     
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.acoesSelecionados input[type="checkbox"] {
-    transform: scale(2.2);
+.acoesSelecionados .inputCheck label{
+    margin-left: 10px;
+}
+
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    transform: scale(1.5);
+    vertical-align: middle;
+    appearance: none;
+    background-color: #A6A6A6;
+    border-radius: 20%;
     cursor: pointer;
+    display: inline-block;
+    position: relative;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+input[type="checkbox"]:checked {
+    background-color: #A6A6A6;
+    color: white; 
+}
+
+input[type="checkbox"]:checked::before {
+    content: url("../imagens/check.png");
+    width: 16px;
+    height: 16px;
+    align-self: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.acoesSelecionados .selecionarTodos{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
 }
 
 .acoesSelecionados.ativo{
@@ -98,14 +135,37 @@ body{
     opacity: 1;
 }
 
-.acoesSelecionados button{
-    padding: 8px 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.2s ease;
+.acoesSelecionados .btnCheck{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
+
+/* .acoesSelecionados .btnCheck #adicionarCarrinho,
+.acoesSelecionados .btnCheck #excluirSelecionados{
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    color: #686868;
+} */
+
+.acoesSelecionados .btnCheck #adicionarCarrinho,
+.acoesSelecionados .btnCheck #excluirSelecionados{
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 4px 16px;
+    background-color: transparent;
+}
+
+.acoesSelecionados .btnCheck #adicionarCarrinho:hover,
+.acoesSelecionados .btnCheck #excluirSelecionados:hover{
+    color: white;
+    background-color: black;
+}
+
 
 /*CONTAINER DE SCROOL*/
 
