@@ -8,6 +8,7 @@
 body{
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .container{
@@ -360,11 +361,24 @@ body{
 
 /*RESPONSIVIDADE DO TITULO*/
 
+@media (max-width: 992px){
+    .title-container{
+        margin-top: 100px;
+    }
+}
 @media (max-width: 507px){
     .title h1{
         font-size: 28px;
         font-weight: 350;
         text-align: center;
+    }
+
+    .title-container{
+        margin-bottom: 20px;
+    }
+
+    .cont-legend{
+        display: none;
     }
 }
 

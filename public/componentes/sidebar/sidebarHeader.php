@@ -12,6 +12,11 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
     <div id="overlay" class="overlay"></div>
     <div class="sidebar" id="sidebar">
         <div class="nav_adm">
+            <div id="menu-toggle-mobile">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
             <a href="/projeto-integrador-et.com/app/views/usuario/paginaPrincipal.php" class="logo">
                 <img src="/projeto-integrador-et.com/public/imagens/ET/LogoBranca2.png" alt="">
             </a>

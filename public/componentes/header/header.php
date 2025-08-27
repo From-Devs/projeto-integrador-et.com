@@ -23,6 +23,7 @@ Pode ser necessário trocar o caminho dos styles e scripts dependendo de onde a 
 
 <?php
 require __DIR__ . '/../sidebar/sidebarHeader.php'; // import do componente da sidebar
+require __DIR__ . '/../pesquisaHeader/pesquisaHeader.php'; // import do componente da sidebar
 
 function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
                                             // $login (sujeito a mudança): é o estado de login do usuário, true pra logado e false para deslogado
@@ -30,7 +31,7 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
         $botao1 = botaoPersonalizadoRedirect('Cadastrar-se', 'btn-white', 'app/views/usuario/CadastroUsuario.php', '155px', '44px', '16px');           
         $botao2 = botaoPersonalizadoRedirect('Entrar', 'btn-white', 'app/views/usuario/Login.php', '155px', '44px', '16px');
     }else{
-        $botao1 = botaoPersonalizadoRedirect('Minha Conta', 'btn-white', '', '155px', '44px', '16px');
+        $botao1 = botaoPersonalizadoRedirect('Minha Conta', 'btn-white', 'app/views/usuario/minhaConta.php', '155px', '44px', '16px');
         $botao2 = botaoPersonalizadoRedirect('Sair', 'btn-white', '', '155px', '44px', '16px');
     }
 
@@ -53,10 +54,7 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
     
             </div>
     
-            <div class='pesquisaHeader closed'>
-                <input type='text' class='inputHeader'></input>
-                <button><i class='bx bx-search lupaHeaderInput'></i></button>
-            </div>
+            ".createPesquisaHeader()."
     
             <div class='direito'>
                 <div class='botoes'>
@@ -89,10 +87,7 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
     
             </div>
     
-            <div class='pesquisaHeader closed'>
-                <input type='text' class='inputHeader'></input>
-                <button><i class='bx bx-search lupaHeaderInput'></i></button>
-            </div>
+            ".createPesquisaHeader()."
     
             <div class='direito'>
                 <div class='botoes'>

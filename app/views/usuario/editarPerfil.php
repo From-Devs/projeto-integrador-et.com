@@ -1,8 +1,11 @@
 <?php
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require_once __DIR__ . "/../../../router/UserRoutes.php";
+    require_once __DIR__ . "/../../Controllers/UserController.php";
 
-    session_start();
+    $controller = new UserController(); 
+    $user = $controller->getLoggedUser();
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
@@ -17,59 +20,129 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/header/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebar/styles.css">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/rodape/styles.css">
 
     <link rel="stylesheet" href="../../../public/css/editarPerfil.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Editar Perfil</title>
+    <title>Editar Dados</title>
 </head>
 <body>
     <?php
     echo createHeader($login,$tipoUsuario); // função que cria o header 
     ?>
-    <header>
-        <a href="/projeto-integrador-et.com/app/views/usuario/minhaConta.php" class="back-button"><i class="fas fa-arrow-left"></i></a>
-        <h1 class="editarPerfilTitulo">EDITAR PERFIL</h1>
-    </header>
 
-    <div class="line-out">
-        <div class="line"></div>
-    </div>
-
-    <section class="container">
-        <div class="profile-section">
-            <div id="agua">
-                
-                <div class="profile-img">
-                    <img src="../../../public/imagens/user-icon.png" alt="user profile" class="profile-pic">
-                <span class="camera-icon"><i class='bx bxs-camera-plus'></i></span>
-            </div>
-            <div class="content">
-                <div class="content-nameUser">
-                    <p><strong>Nome de Usuário:</strong></p>
-                    <span id="username">ET.COM_LOJA_COSMETICOS</span>
-                </div>
-            </div>
-                
-                <div class="content-email">
-                    <p><strong>Email:</strong></p>
-                    <span id="email">ET_COM_LOJA@GMAIL.COM</span>
-                </div>
-            </div>
-            <div class="options">
-                <h3>OPÇÕES</h3>
-                <label for="username">Mudar nome de usuário</label>
-                <input type="text" id="username" name="username" placeholder="Digite aqui">
-                <label for="email">Mudar email de cadastro</label>
-                <input type="email" id="email" name="email" placeholder="Digite aqui">
-            </div>
+    <main>
+        <h1 class="tituloEditarConta">EDITAR DADOS</h1>
+        <div class="line-out">
+            <div class="line"></div>
         </div>
-    </section>
+        <section class="conta-container">
+            <form class="profile-card" method="POST" action="../../../router/UserRoutes.php?acao=update" >
+
+                <div class="profileIconEditContainer">
+                    <h1>Alterar foto de perfil</h1>
+
+                    <div class="profileIconWrapper">
+                        <img src="../../../public/imagens/user-icon.png" alt="User Profile" class="profile-pic" id="avatarPreview">
+                        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" onchange="previewFile()"/>
+                        <label for="avatar"><i class='bx bx-image-alt'></i></label>
+                    </div>
+                </div>
+
+                <div class="dadosUsuarioForm">
+                    <div class="dadosUsuarioFormInputs">
+                    <input type="hidden" name="update_id" value="<?= htmlspecialchars($user['id_usuario'] ?? ''); ?>">
+                        <div class="formControl">
+                            <input type="text" class="formInput" name="nome" id="username" value="<?= htmlspecialchars($user['nome'] ?? "-"); ?>" required>
+                            <label for="username">Nome Completo:</label>
+                        </div>
+                        <div class="formControl">
+                            <input type="email" class="formInput" name="email" id="email" value="<?= htmlspecialchars($user['email'] ?? "-"); ?>" required>
+                            <label for="email">Email:</label>
+                        </div>
+                        <div class="formControl">
+                            <input type="date" class="formInput" name="data_nascimento" id="date" value="<?= htmlspecialchars($user['data_nascimento'] ?? "-"); ?>" required>
+                            <label for="date">Data de nascimento:</label>
+                        </div>
+                        <div class="formControl">
+                            <input type="text" class="formInput" name="cpf" id="cpf" value="<?= htmlspecialchars($user['cpf'] ?? "-"); ?>" required>
+                            <label for="cpf">CPF:</label>
+                        </div>
+                        <div class="formControl">
+                            <input type="text" class="formInput" name="telefone" id="phone" value="<?= htmlspecialchars($user['telefone'] ?? "-"); ?>" required>
+                            <label for="phone">Telefone:</label>
+                        </div>
+                    </div>
+
+                    <div class="dadosAcoesContainer">
+                        
+                        <button type="button" class="cancelEditButton btn-red" id='cancelEditButton'>
+                            <p class="editButtonText">Cancelar</p>
+                            <i class='bx bx-trash'></i>
+                        </button>
+                    
+                        <button type="submit" class="saveButton btn-black">
+                            <p class="editButtonText">Salvar alterações</p>
+                            <i class='bx bx-edit'></i>
+                        </button>
+                    </div>
+                    
+                </div>
+            </form>
+
+            <div class="opcoes-conta">
+
+                <div class="option-card" id="alterarSenhaCard">
+                    <div class="optionCardDesc">
+                        <div class="icon">
+                            <i class='bx bx-lock' ></i>
+                        </div>
+                        <div class="opcoes-content">
+                            <strong>Alterar senha</strong> 
+                            <p>Mude a credencial de entrada da conta</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="option-card" id="alterarEnderecoCard">
+                    <div class="optionCardDesc">
+                        <div class="icon">
+                            <i class='bx bx-location-plus' ></i>
+                        </div>
+                        <div class="opcoes-content">
+                            <strong>Editar endereço</strong> 
+                            <p>Mude informações do seu endereço</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
 
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
-    <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/editarDados.js"></script>
+
+    <script>
+        
+        function voltarPaginaAnterior() {
+            history.back();
+        }
+        
+        const botaoCancelarEdicaoConta = document.getElementById('cancelEditButton').addEventListener('click', voltarPaginaAnterior);
+        const botaoAlterarEndereco = document.getElementById('alterarEnderecoCard').addEventListener('click', function(){
+            window.location.href = 'editarEndereco.php';
+        });
+        const botaoAlterarSenha = document.getElementById('alterarSenhaCard').addEventListener('click', function(){
+            window.location.href = 'alterarSenha.php';
+        });
+        
+    </script>
+
 
 </body>
 </html>

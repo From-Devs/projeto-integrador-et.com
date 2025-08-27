@@ -76,7 +76,7 @@
     align-items: center;
     gap: 20px;
     position: relative;
-    padding-top: 20px;
+    padding-top: 30px;
   }
 
   .Seta-btn {
@@ -115,6 +115,47 @@
   .cor-0 { background-image: linear-gradient(to bottom, #7A3241 0%, #39121D 50%, #150106 100%); }
   .cor-1 { background-image: linear-gradient(to bottom, #C69065 0%, #B88D6B 50%, #EBC1B6 100%); }
   .cor-2 { background-image: linear-gradient(to bottom, #F2D5AF 0%, #CC9F9D 50%, #CE766C 100%); }
+
+@keyframes rise {
+  0% {
+      margin-left: 0;
+      transform: translateY(0);
+      opacity: 0;
+  }
+  25% {
+      margin-left: -(var(--bubble-x-shift));
+  }
+  50% {
+      opacity: 1;
+      margin-left: var(--bubble-x-shift);
+  }
+  75% {
+      margin-left: -(var(--bubble-x-shift));
+  }
+  100% {
+      margin-left: 0;
+      transform: translateY(-100vh);
+      opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0% {
+    margin-left: 0;
+  }
+  25% {
+    margin-left: 50px;
+  }
+  50% {
+    margin-left: -50px;
+  }
+  75% {
+    margin-left: 50px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
 
   @media (max-width: 1800px){ /*Computador Grande*/
     .carousel {
