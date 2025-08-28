@@ -73,6 +73,7 @@ body{
     flex-direction: column;
     position: relative;
     width: 285px;
+    margin-right: 1%;
 }
 
 .PartedeCima { 
@@ -84,7 +85,7 @@ body{
 
 .PartedeCima h3{
     font-weight: 400;
-    font-size: 36px;
+    font-size: 36px
 }
 
 .PartedeBaixo {
@@ -108,7 +109,7 @@ body{
 
 @media (max-width: 1750px) {
     .PartedeBaixo {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
         margin: 0px;
     }
@@ -138,6 +139,10 @@ body{
         flex-direction: column;
         margin: 0px;
     }
+
+    .TituloProdutos{
+        margin-left: 10px;
+    }
 }
 @media (max-width: 990px) {
     .PartedeBaixo {
@@ -162,11 +167,13 @@ body{
         align-self: center;
     }
 
+
+
     .Titulo {
         height: 450px;
         width: 100vw;
         background-position: center;
-        font-size: 2.5rem;
+        font-size: 50px;
     }
 
     .aVenda {
@@ -184,6 +191,11 @@ body{
         grid-template-columns: 1fr;
     }
 
+    .filtroSeparado{
+        width: 200px;
+    }
+
+
     .Titulo {
         height: 450px;
         width: 100vw;
@@ -197,6 +209,10 @@ body{
     .ColunsCategoria {
         padding: 0px;
         width: 100vw;
+    }
+
+    .TituloProdutos{
+        font-size: 15px;
     }
 }
 

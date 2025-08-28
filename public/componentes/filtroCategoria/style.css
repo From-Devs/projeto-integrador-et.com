@@ -57,6 +57,7 @@
 }
 
 .categoriaLabel{
+
     display: flex;
     align-items: center;
     gap: 4px;
@@ -69,4 +70,11 @@
     width: 25px;
     height: 25px;
     border: 2px solid black;
+}
+
+@media (max-width: 412px){
+    .categoriaLabel{
+        font-size: large;
+    }
+
 }
