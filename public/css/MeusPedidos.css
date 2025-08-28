@@ -836,7 +836,7 @@
 
 
 .conteudoMeusPedidos .linhaInferiorMP{
-    width: 855px;
+    width: 70%;
     height: 3px;
     background-color: black;
     box-shadow:0px 5px 8px 0.1px rgba(0, 0, 0, 0.301);
@@ -1391,9 +1391,7 @@
     .conteudoMeusPedidos .popupMP{
         width: 770px;
     }
-    .popupMP .popupMP-conteudo{
-        height: 570px;              /*pensando*/
-    }
+
     .popupMP .popupMP-conteudo .popupMP-superior{
         width: 770px;
         top: 65px;
@@ -1410,7 +1408,7 @@
         margin-top: 80px;
     }
     .popupMP .popupMP-conteudo .popupMP-inferior{
-        gap: 400px;
+        gap: 200px;
         bottom: 95px;
     }
     .popupMP .popupMP-conteudo .popupMP-linhainferior{
@@ -1467,6 +1465,7 @@
         padding: 7px 12px;
         font-size: 12px;
     }
+    
 
 @media (max-width: 992px){
     .areaSuperiorMP .tituloPrincipalMP{
@@ -1604,6 +1603,12 @@
     .cardcoloridoFin .card-info2 .data-entrega{
         font-size: 15px;
         margin: 15px 0 15px 0;
+    }
+
+    .popupMP .popupMP-conteudo{
+        height: 570px;
+        width: 95%;
+        overflow-x: ;
     }
 } 
 

@@ -100,8 +100,8 @@
                 <div class="popupMP-superior">
                     <div class="popupMP-linhasuperior"></div>
                     <div class='icone-fechar'>
-                        <button class='bx bx-x'></button>
-                    </div>
+                            <button class='bx bx-x'></button>
+                        </div>
                 </div>
                 <div class="popupMP-main">
                     <div class="popupMP-Produtos" id="popupMP-Produtos"></div>
