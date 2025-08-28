@@ -221,14 +221,6 @@ main{
         padding: 20px 10%;
     }
 
-    .dadosUsuario{
-        padding-left: 32px;
-    }
-
-    .profile-pic {
-        margin-left: 32px;
-    }
-
     .line-out{
         margin-bottom: 24px;
     }
@@ -248,7 +240,9 @@ main{
     }
 
     .dadosUsuario{
+        box-sizing: border-box;
         padding: 24px;
+        width: 100%;
     }
 
     .profile-pic {
@@ -267,24 +261,8 @@ main{
         width: 100%;
     }
 
-    .edit-profile-button, .delete-profile-button{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 19px;
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: 600;
-        transition: all 0.3s;
-        /* padding: 8px 10px; */
-        border: 0;
-        color: #ffffff;
+    .edit-profile-button, .delete-profile-button{ 
         flex: 1;
-        /* width: 100%; */
-    
-        i {
-            font-size: 22px;
-        }
     }
 
     .edit-profile-container{
