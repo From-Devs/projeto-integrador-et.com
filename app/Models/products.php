@@ -10,9 +10,61 @@ class Products {
         $this->conn = $banco->Connect();
     }
 
+    // public function EditarProduto(
+    //     $id, 
+    //     $nome, 
+    //     $marca, 
+    //     $breveDescricao, 
+    //     $preco, 
+    //     $precoPromocional, 
+    //     $caracteristicasCompleta, 
+    //     $qtdEstoque, 
+    //     $corPrincipal, 
+    //     $deg1, 
+    //     $deg2
+    // ){
+    //     try {
+    //         $sqlCores = "SELECT * FROM cores C
+    //         JOIN PRODUTO P
+    //         ON "
+
+    //         $sql = "UPDATE PRODUTO SET nome = :nome, 
+    //         marca = :marca, 
+    //         descricaoBreve = descricaoBreve, 
+    //         descricaoTotal = :descricaoTotal,
+    //         preco = :preco,
+    //         precoPromo = :precoPromo,
+    //         qtdEstoque = :qtdEstoque,
+    //         id_cores = "
+    //     } catch (\Throwable $th) {
+    //         echo "Erro: " . $th->getMessage();
+    //     }
+    // }
+
     public function buscarProdutoPeloId($id){
         try {
-            $sqlProduto = "SELECT * FROM produto WHERE id_produto = :id";
+            $sqlProduto = "SELECT P.nome, 
+            marca, 
+            descricaoBreve, 
+            descricaoTotal, 
+            preco, 
+            precoPromo, 
+            qtdEstoque, 
+            img1, 
+            img2, 
+            img3, 
+            SC.id_subCategoria,
+            SC.nome AS subcategoria, 
+            C.corPrincipal, 
+            C.hexDegrade1 AS hex1, 
+            C.hexDegrade2 AS hex2
+            FROM produto P
+                JOIN subcategoria SC
+            ON P.id_subCategoria = SC.id_subCategoria
+                JOIN cores C
+            ON P.id_cores = C.id_cores
+                WHERE P.id_produto = :id";
+
             $db = $this->conn->prepare($sqlProduto);
             $db->bindParam(":id", $id);
             $db->execute();

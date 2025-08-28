@@ -44,7 +44,35 @@ class ProdutoController {
             $corPrincipal, 
             $deg1, 
             $deg2,
-            $_FILES // imagens vêm daqui
+            $_FILES
         );
     }
+
+    // public function EditarProduto(
+    //     $id, 
+    //     $nome, 
+    //     $marca, 
+    //     $breveDescricao, 
+    //     $preco, 
+    //     $precoPromocional, 
+    //     $caracteristicasCompleta, 
+    //     $qtdEstoque, 
+    //     $corPrincipal, 
+    //     $deg1, 
+    //     $deg2
+    // ){
+    //     return $this->produtoModel->EditarProduto(
+    //         $id, 
+    //         $nome,
+    //         $marca, 
+    //         $breveDescricao, 
+    //         $preco, 
+    //         $precoPromocional, 
+    //         $caracteristicasCompleta, 
+    //         $qtdEstoque, 
+    //         $corPrincipal, 
+    //         $deg1, 
+    //         $deg2
+    //     );
+    // }
 }

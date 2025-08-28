@@ -1,7 +1,10 @@
 <?php
     require_once __DIR__."/../../popup/popUp.php";
     require_once __DIR__."/../../botao/botao.php";
-    require_once __DIR__."/../../../../app/Controllers/produtoController.php";
+    require_once __DIR__ . "/../../../../app/Controllers/ProdutoController.php";
+    $produtoController = new ProdutoController();
+
+    $subCategorias = $produtoController->CapturarSubCategorias();
 
     function tabelaProdutoAdm($produtos){
         ?>
@@ -47,7 +50,6 @@ function tabelaProduto($produtos) {
                 <tr>
                     <th id="bordaEsquerda" scope="col">ID</th>
                     <th id="th2" scope="col">Produto</th>
-                    <!-- <th id="th3" scope="col">Estoque</th> -->
                     <th id="th5" scope="col">Preço</th>
                     <th id="th4" scope="col">Preço Promocional</th>
                     <th id="th4" scope="col">Qtd. Estoque</th>
@@ -63,7 +65,6 @@ function tabelaProduto($produtos) {
                         <tr>
                             <td><?= $produto['id'] ?></td>
                             <td><?= htmlspecialchars($produto['nome']) ?></td>
-                            <!-- <td><?= $produto['estoque'] ?></td> -->
                             <td>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></td>
                             <td>R$ <?= number_format($produto['precoPromocional'], 2, ',', '.') ?></td>
                             <td><?= $produto['qtdEstoque']?></td>
@@ -96,14 +97,16 @@ function tabelaProduto($produtos) {
             </div>
             <form class="campos-editar" action="http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=EditarProduto" method="post">
                 <!-- conteúdo do formulário como no original -->
+                <input type="hidden" name="id_produto">
+
                 <div>
                     <div class="campo">
                         <label>Nome:</label>
-                        <input type="text">
+                        <input type="text" name="nome">
                     </div>
                     <div class="campo">
                         <label>Marca:</label>
-                        <input type="text">
+                        <input type="text" name="marca">
                     </div>
                     <div class="campo">
                         <label>Subcategoria:</label>
@@ -123,22 +126,22 @@ function tabelaProduto($produtos) {
                 <div>
                     <div class="campo campo-large">
                         <label>Breve descrição:</label>
-                        <textarea cols="30" rows="10"></textarea>
+                        <textarea cols="30" rows="10" name="breveDescricao"></textarea>
                     </div>
                 </div>
                 <div class="divisao-esquerda">
                     <div class="campos-esquerda">
                         <div class="campo campo-small">
-                            <label>Preço:</label>
-                            <input type="text">
+                            <label>Quantidade no estoque:</label>
+                            <input type="text" name="qtdEstoque">
                         </div>
                         <div class="campo campo-small">
-                            <label>Quantidade no estoque:</label>
-                            <input type="text">
+                            <label>Preço:</label>
+                            <input type="text" name="preco">
                         </div>
                         <div class="campo campo-small">
                             <label>Preço Promocional:</label>
-                            <input type="text">
+                            <input type="text" name="precoPromocional">
                         </div>
                     </div>
                     <div class="campos-direita">

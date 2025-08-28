@@ -42,6 +42,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=CadastrarProduto");
             }
             break;
+
+        // case 'EditarProduto':
+        //     if(ValidaCampos()){
+        //         $resultado = $produtoController->EditarProduto(
+        //             $_POST["id"],
+        //             $_POST["nome"],
+        //             $_POST["marca"],
+        //             $_POST["breveDescricao"],
+        //             $_POST["preco"],
+        //             $_POST["precoPromocional"],
+        //             $_POST["caracteristicasCompleta"],
+        //             $_POST["qtdEstoque"],
+        //             $_POST["corPrincipal"],
+        //             $_POST["deg1"],
+        //             $_POST["deg2"]
+        //         );
+
+        //         if($resultado){
+        //             header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=EditarProduto");
+        //         }else{
+        //             header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=EditarProduto");
+        //         }
+        //     } else {
+        //         header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=EditarProduto");
+        //     }
+        //     break;
         default:
             echo "Nao encontrei nada";
             break;
