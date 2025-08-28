@@ -1,12 +1,12 @@
 <?php  
 
-    function createCardListaDeDesejos( $id_produto,$imagemProd = "", $preco = 00.00, $marca = "", $nome = "", $dataAdicionado = "", $cor1 = "#919191", $cor2 = "#919191", $cor3 = "#919191"){
+    function createCardListaDeDesejos( $id_produto,$imagemProd = "", $preco = 00.00, $marca = "", $nome = "", $dataAdicionado = "", $corprincipal = "#919191", $corhexdegrade1 = "#919191", $corhexdegrade2 = "#919191", $corhexdegrade3 = "#919191"){
         return "
             <div class='cardDesejos' data-id='$id_produto'>
                 <div class='checkboxes'>
                     <input type='checkbox' class='cardCheckbox' data-id='$id_produto'>
                 </div>
-                <div class='cardColorido'  style='background: linear-gradient(to right, $cor1, $cor2, $cor3, #FFFFFF);'>
+                <div class='cardColorido'  style='background: linear-gradient(to right, $corprincipal, $corhexdegrade1, $corhexdegrade2, $corhexdegrade3,#FFFFFF);'>
                     <div class='cardImg'>
                         <img src='/projeto-integrador-et.com/public/imagens/ProdutosMP/$imagemProd' alt='$nome'>
                     </div>
