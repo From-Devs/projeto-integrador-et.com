@@ -200,7 +200,7 @@
             </div>
 
         </div>
-        <p class="comissionText">Bem-vindo ao Programa de Associados ET.COM!. Aqui você tem a oportunidade de vender nossos produtos e ganhar comissões exclusivas a cada venda realizada. É simples e rápido, você se associa, divulga e começa a lucrar junto com a gente.</p>
+        <p class="comissionText">Bem-vindo ao Programa de Associados ET.COM! Aqui você tem a oportunidade de vender nossos produtos e ganhar comissões exclusivas a cada venda realizada. É simples e rápido, você se associa, divulga e começa a lucrar junto com a gente.</p>
     </section>
 
     <!-- <div class="cardRedirectWrapper"> -->
