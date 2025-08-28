@@ -527,3 +527,21 @@ tbody td:nth-child(3) {
       font-size: 14px;
   }
 }
+
+/**/
+
+.select{
+  display: flex;
+  width: ;
+}
+
+.select td{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkSelect{
+  display: flex;
+  align-items: center;
+}

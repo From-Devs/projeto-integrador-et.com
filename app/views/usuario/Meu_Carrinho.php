@@ -113,6 +113,12 @@
           <td class="td-paginacao"><?php renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);?></td>
         </tr>
         <tfoot>
+
+          <tr class="select">
+            <td>Selecionar Tudo</td>
+            <td class="checkSelect"><input type="checkbox"></td>
+          </tr>
+
           <tr>
             <td class='cor3' colspan="5" class="total-label">Subtotal:</td>
             <td class="total-value" id="subtotal">R$ <?php echo $subtotal; ?></td>
