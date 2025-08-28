@@ -78,42 +78,42 @@
     <div class="degradeParaHeader"></div>
 
     <div class="linkCategorias">
-        <a class="botaoCategoria botao1" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao1" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/batom.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/batomHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Maquiagem</p>            
         </a>
-        <a class="botaoCategoria botao2" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao2" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=perfume">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/perfume.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/perfumeHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Perfumes</p>            
         </a>
-        <a class="botaoCategoria botao3" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao3" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=skincare">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/skin.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/skinHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Skin Care</p>            
         </a>
-        <a class="botaoCategoria botao4" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao4" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=cabelo">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/cabelo.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/cabeloHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Cabelo</p>            
         </a>
-        <a class="botaoCategoria botao5" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao5" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=eletronicos">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronico.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronicoHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Eletrônicos</p>            
         </a>
-        <a class="botaoCategoria botao6" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao6" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/corporal.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/corporalHover.png" alt="" class="iconeCategoriaHover">

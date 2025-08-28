@@ -1,7 +1,7 @@
 <?php
 $categoriasPorTela = [ 
     "Maquiagem" => [
-        "Tipos" => ["Olhos", "Sombrancelha","Lábios","Pele"],
+        "Tipos" => ["Olhos", "Sombrancelhas","Boca","Pele"],
     ],
     "Perfume" => [
         "Gênero" => ["Feminino", "Masculino", "Unissex"],

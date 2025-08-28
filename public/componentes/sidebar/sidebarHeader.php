@@ -35,7 +35,7 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                                 <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub=pele"><li><p class="submenu_link">Pele</p></li></a>
                                 <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub=olhos"><li><p class="submenu_link">Olhos</p></li></a>
                                 <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub=boca"><li><p class="submenu_link">Boca</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub=sobrancelhas"><li><p class="submenu_link">Sobrancelhas</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub=sombrancelhas"><li><p class="submenu_link">Sombrancelhas</p></li></a>
                             </ul>
                         </li>
                         <li class="categoria">

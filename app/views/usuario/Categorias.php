@@ -13,7 +13,7 @@
         "maquiagem" => [
             "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemFundo.png",
             "olhos"        => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemOlhos.png",
-            "sobrancelhas" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemSobrancelhas.png",
+            "sombrancelhas" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemSombrancelhas.png",
             "lábios"       => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemBoca.png",
             "pele"         => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemPele.png"
         ],
