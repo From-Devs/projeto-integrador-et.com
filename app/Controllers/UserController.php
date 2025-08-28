@@ -13,11 +13,7 @@ class UserController {
     }
 
     public function createUser($data) {
-        $success = $this->model->create($data);
-        return [
-            "success" => $success,
-            "message" => $success ? "Usuário criado" : "Erro ao criar"
-        ];
+        return $this->model->create($data);
     }
 
     public function editUser($id_usuario, $data) {
@@ -73,6 +69,19 @@ class UserController {
             return null;
         }
         return $this->model->getUserById($_SESSION['id_usuario']);
+    }
+
+    public function updatePassword($id_usuario, $novoHash) {
+        if (is_array($novoHash)) {
+            $novoHash = $novoHash['senha'] ?? '';
+        }
+    
+        $success = $this->model->updateSenha($id_usuario, $novoHash);
+    
+        return [
+            "success" => $success,
+            "message" => $success ? "Senha alterada com sucesso" : "Erro ao alterar senha"
+        ];
     }
 }
 ?>

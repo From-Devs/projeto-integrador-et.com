@@ -45,15 +45,15 @@
                     <div class="dadosUsuarioFormInputs">
                     <input type="hidden" name="update_senha" value="<?= htmlspecialchars($user['id_usuario'] ?? ''); ?>">
                         <div class="formControl">
-                            <input type="text" class="formInput" name="senhaAtual" id="senhaAtual" required>
+                            <input type="password" class="formInput" name="senhaAtual" id="senhaAtual" required>
                             <label for="senhaAtual">Senha Atual:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="novaSenha" id="novaSenha" required>
+                            <input type="password" class="formInput" name="novaSenha" id="novaSenha" required>
                             <label for="novaSenha">Nova Senha:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="confirmarSenha" id="confirmarSenha" required>
+                            <input type="password" class="formInput" name="confirmarSenha" id="confirmarSenha" required>
                             <label for="confirmarSenha">Confirmar Senha:</label>
                         </div>
                     </div>
