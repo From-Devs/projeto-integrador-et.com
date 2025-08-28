@@ -41,7 +41,7 @@
             <div class="promo-contentEsquerda">
                 <div class="promoContentText">
                     <h2>Torne-se um(a) associado(a) ET!</h2>
-                    <p>Seja bem-vindo ao programa de associados da nossa empresa ETCOM. No Programa de Associados ETCOM, você vende nossos produtos e recebe comissões!</p>
+                    <p>Seja bem-vindo ao programa de associados da nossa empresa ET.COM No Programa de Associados ET.COM, você publica nossos produtos e recebe comissões!</p>
                 </div>
                 <div class="botoesContainer">
                     <?php
