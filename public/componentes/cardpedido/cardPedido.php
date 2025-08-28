@@ -4,28 +4,25 @@ function renderCardPedido($pedido) {
 
     foreach ($pedido['itens'] as $item): ?>
     
-        <div class="cards-produtoAndamento produtoMP" data-id="<?php echo $item['id_produto']; ?>">
+        <div class="cards-produtoAndamento produtoMP" data-id="<?php echo $item['id_produto']; ?>" style="position:relative;">
             <span class="data-compra">Data de compra: <?php echo $dataCompra; ?></span>
 
-            <div class="cardcoloridoCam" style="border-radius:25px; overflow:hidden;">
+            <div class="cardcoloridoCam" style="border-radius:25px; overflow:hidden; position:relative;">
                 <div class="card-info" style="
                     display:flex; 
                     flex-direction:row; 
                     align-items:center; 
-                    justify-content:space-between;
-                    padding:20px;
+                    justify-content:flex-start;
+                    padding:20px 20px 20px 30px;
                     border-radius:25px;
-                    background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(0,0,0,0.05));
                     box-shadow:0 4px 10px rgba(0,0,0,0.1);
                 ">
-                    <!-- Imagem -->
                     <div class="card-imagem" style="flex:0 0 120px; text-align:center;">
-                        <img src="<?php echo $item['imagem']; ?>" 
+                        <img src="/projeto-integrador-et.com/public/imagens/produto/<?php echo $item['imagem']; ?>" 
                              alt="<?php echo $item['nome']; ?>" 
                              style="height:120px; width:auto; object-fit:contain;">
                     </div>
 
-                    <!-- Informações -->
                     <div class="info-caminho" style="flex:1; padding-left:20px; display:flex; flex-direction:column; gap:8px;">
                         <span style="font-size:20px; font-weight:700; color:#222;">
                             <?php echo $item['nome']; ?>

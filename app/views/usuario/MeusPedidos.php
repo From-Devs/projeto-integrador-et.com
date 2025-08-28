@@ -31,7 +31,7 @@
     <!-- botao e popup -->
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popUp/styles.css">
-    <!-- link para icones -->
+    <!-- ícones -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
 </head>
@@ -54,7 +54,7 @@
                     <p class="aviso">Você ainda não possui pedidos.</p>
                 <?php else: ?>
                     <?php foreach ($pedidos as $pedido): ?>
-                        <?php if ($pedido['tipoStatus'] !== 'Finalizado'): ?>
+                        <?php if (($pedido['tipoStatus'] ?? '') !== 'Finalizado'): ?>
                             <?php renderCardPedido($pedido); ?>
                         <?php endif; ?>
                     <?php endforeach; ?>
@@ -70,44 +70,58 @@
             <div id="produtosFinalizados">
                 <?php if ($pedidos): ?>
                     <?php foreach ($pedidos as $pedido): ?>
-                        <?php if ($pedido['tipoStatus'] === 'Finalizado'): ?>
-                            <?php foreach ($pedido['itens'] as $item): ?>
-                                <div class="cardProduto-finalizado produtoMP" data-id="<?php echo $item['id_produto']; ?>">
-                                    <div class="cardcoloridoFin">
-                                        <div class="card-info2">
-                                            <span class="data-entrega">Entregue em: <?php echo date('d/m/Y', strtotime($pedido['dataEntrega'])); ?></span>
-                                            <div class="cardcolestrutura">
-                                                <div class="card-imagem2">
-                                                    <img src="<?php echo $item['imagem']; ?>" alt="<?php echo $item['nome']; ?>">
-                                                </div>
-                                                <div class="info-finalizado">
-                                                    <div class="informacoes-card">
-                                                        <span><strong><?php echo $item['nome']; ?></strong></span>
-                                                        <span><?php echo $item['descricaoBreve']; ?></span>
-                                                        <span>Qtd: <?php echo $item['qntProduto']; ?></span>
-                                                        <span>R$ <?php echo number_format($item['preco'], 2, ',', '.'); ?></span>
-                                                        <span>Total: R$ <?php echo number_format($item['subtotal'], 2, ',', '.'); ?></span>
-                                                    </div>
-                                                    <a href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=<?php echo $item['id_produto']; ?>" class="maisInfo">Ver Mais</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
+                        <?php if (($pedido['tipoStatus'] ?? '') === 'Finalizado'): ?>
+                            <?php
+                                // 1) Renderiza os cards normalmente (um por produto)
+                                renderCardPedido($pedido);
+
+                                // 2) Prepara texto da data de entrega (se houver)
+                                $txtEntrega = !empty($pedido['dataEntrega'])
+                                    ? ('Data de entrega: ' . date('d/m/Y', strtotime($pedido['dataEntrega'])))
+                                    : null;
+
+                                // 3) Para cada item desse pedido, insere a "badge" dentro do card
+                                if ($txtEntrega) {
+                                    foreach ($pedido['itens'] as $item) {
+                                        $pid = $item['id_produto'];
+                                        $safeTxt = json_encode($txtEntrega, JSON_UNESCAPED_UNICODE);
+                                        echo "<script>
+                                            (function(){
+                                                var sel = '.produtoMP[data-id=\"{$pid}\"] .cardcoloridoCam';
+                                                var el = document.querySelector(sel);
+                                                if (!el) return;
+                                                var badge = document.createElement('div');
+                                                badge.textContent = {$safeTxt};
+                                                badge.style.position = 'absolute';
+                                                badge.style.top = '8px';
+                                                badge.style.right = '14px';
+                                                badge.style.fontWeight = '700';
+                                                badge.style.fontSize = '14px';
+                                                badge.style.color = '#111';
+                                                badge.style.background = 'rgba(255,255,255,0.65)';
+                                                badge.style.padding = '4px 10px';
+                                                badge.style.borderRadius = '12px';
+                                                badge.style.backdropFilter = 'blur(2px)';
+                                                el.appendChild(badge);
+                                            })();
+                                        </script>";
+                                    }
+                                }
+                            ?>
                         <?php endif; ?>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <p class="aviso">Nenhum pedido finalizado.</p>
                 <?php endif; ?>
             </div>
+
+           
         </section>
 
         <div class="linhaInferiorMP"></div>
     </div>
 
     <!-- PopUps -->
-    <?php // mantive iguais aos seus ?>
     <dialog class="popupMP" id="popupMP"> ... </dialog>
     <dialog class="popupMPFinalizado" id="popupMPFinalizado"> ... </dialog>
     <dialog class="popupAvaliarProduto" id="popupAvaliarProduto"> ... </dialog>
