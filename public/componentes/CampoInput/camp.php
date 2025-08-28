@@ -1,12 +1,12 @@
 <?php
-function Camp($nome, $tipo="text", $class="campo") {
-    $id = strtolower(str_replace(' ', '_', $nome)); // Gera um ID único baseado no nome
-    $asterisco = ($nome === "Nome Social:") ? "" : "<b id=\"red\">*</b>"; // Remove o asterisco se for "Nome social"
-    
+function Camp($label, $tipo="text", $name=null, $class="campo") {
+    $id = $name ?? strtolower(str_replace(' ', '_', $label));
+    $asterisco = "<b id='red'>*</b>";
+
     return "
-    <div class='$class-campo-container'>
-        <input type='$tipo' name='$id' id='$id' class='input' required placeholder=' '>
-        <label for='$id'>$nome $asterisco</label>
+    <div class='{$class}-campo-container'>
+        <input type='{$tipo}' name='{$id}' id='{$id}' class='input' required placeholder=' '>
+        <label for='{$id}'>{$label} {$asterisco}</label>
     </div>";
 }
 ?>

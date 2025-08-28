@@ -33,6 +33,17 @@
             <?= htmlspecialchars($responseDelete['message']) ?>
         </div>
     <?php endif; ?>
+    <h3>Buscar Usuário por ID</h3>
+    <form method="POST" action="teste.php?acao=getUser">
+        <input type="number" name="edit_id" placeholder="Digite o ID do usuário" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <?php if($editUserData): ?>
+        <div class="response" style="color: lightblue">
+            <pre><?= print_r($editUserData, true) ?></pre>
+        </div>
+    <?php endif; ?>
 
 
     <h3>Criar Usuário</h3>

@@ -59,7 +59,8 @@ class User {
 
             $data['foto'] = $data['foto'] ?? '';
             $data['id_endereco'] = $data['id_endereco'] ?? null;
-
+    
+            // 4️⃣ Prepara a query
             $sql = "INSERT INTO usuario (nome, email, telefone, cpf, data_nascimento, senha, tipo, foto, id_endereco)
                     VALUES (:nome, :email, :telefone, :cpf, :data_nascimento, :senha, :tipo, :foto, :id_endereco)";
             $stmt = $this->conn->prepare($sql);
@@ -99,7 +100,6 @@ class User {
                     telefone = :telefone, 
                     cpf = :cpf, 
                     data_nascimento = :data_nascimento, 
-                    senha = :senha, 
                     tipo = :tipo, 
                     foto = :foto, 
                     id_endereco = :id_endereco 
@@ -112,7 +112,6 @@ class User {
         $stmt->bindParam(':telefone', $data['telefone']);
         $stmt->bindParam(':cpf', $data['cpf']);
         $stmt->bindParam(':data_nascimento', $data['data_nascimento']);
-        $stmt->bindParam(':senha', $data['senha']);
         $stmt->bindParam(':tipo', $data['tipo']);
         $stmt->bindParam(':foto', $data['foto']);
         $stmt->bindParam(':id_endereco', $data['id_endereco']);
@@ -142,5 +141,14 @@ class User {
         }
         return null;
     }
+
+    public function updateSenha($id, $novoHash) {
+        $sql = "UPDATE usuario SET senha = :senha WHERE id_usuario = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':senha', $novoHash);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+    
 }
 ?>

@@ -8,34 +8,41 @@ $userController = new UserController();
 $responseCreate = null;
 $responseUpdate = null;
 $responseDelete = null;
+$editUserData = null;
 
 // Teste de conexão opcional
 $testeConexao = $userController->teste();
 
 $acao = $_GET["acao"] ?? '';
 
-if (!in_array($acao, ['', 'create', 'update', 'delete', 'getUser', 'login'])) {
+if (!in_array($acao, ['', 'create', 'update', 'delete', 'getUser', 'login', 'update_password'])) {
     header("Location: ../app/views/usuario/TelaErro.php");
     exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $acao = $_GET["acao"] ?? '';
-
+    
     switch ($acao) {
         case "create":
             if (isset($_POST['nome'])) {
+                $senha = $_POST['senha'] ?? '';
+                $confirmarSenha = $_POST['confirmar_senha'] ?? '';
+        
+                if ($senha !== $confirmarSenha) {
+                    header("Location: ../app/views/usuario/CadastroUsuario.php?erro=senha");
+                    exit;
+                }
+        
                 $postData = [
-                    'nome' => $_POST['nome'] ?? '',
-                    'nome_social' => $_POST['nome_social'] ?? '',
-                    'email' => $_POST['email'] ?? '',
-                    'telefone' => $_POST['telefone'] ?? '',
-                    'cpf' => $_POST['cpf'] ?? '',
+                    'nome'            => $_POST['nome'] ?? '',
+                    'email'           => $_POST['email'] ?? '',
+                    'telefone'        => $_POST['telefone'] ?? '',
+                    'cpf'             => $_POST['cpf'] ?? '',
                     'data_nascimento' => $_POST['data_nascimento'] ?? '',
-                    'senha' => password_hash($_POST['senha'], PASSWORD_DEFAULT),
-                    'tipo' => $_POST['tipo'] ?? 'cliente',
-                    'foto' => null,
-                    'id_endereco' => null
+                    'senha'           => $senha,
+                    'tipo'            => $_POST['tipo'] ?? 'cliente',
+                    'foto'            => null,
+                    'id_endereco'     => null
                 ];
 
                 // Adiciona avatar se enviado
@@ -44,8 +51,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 }
 
                 $responseCreate = $userController->createUser($postData);
+        
+                if ($responseCreate['success']) {
+                    header("Location: ../app/views/usuario/Login.php?sucesso=1");
+                } else {
+                    header("Location: ../app/views/usuario/CadastroUsuario.php?erro=" . urlencode($responseCreate['message']));
+                }
+                exit;
             }
             break;
+        
+        
 
         case "update":
             if (isset($_POST['update_id'])) {
@@ -60,9 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     'telefone' => $_POST['telefone'] ?? '',
                     'cpf' => $_POST['cpf'] ?? '',
                     'data_nascimento' => $_POST['data_nascimento'] ?? '',
-                    'senha' => $userOld['senha'],
-                    'tipo' => $userOld['tipo'],
-                    'foto' => $userOld['foto'], // mantém a foto antiga se não enviar nova
+                    'foto' => $userOld['foto'], 
                     'id_endereco' => $userOld['id_endereco']
                 ];
         
@@ -78,6 +92,42 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 exit;
             }
             break;
+
+        case "update_password":
+            if (isset($_POST['update_senha'])) {
+                $id = $_SESSION['id_usuario'];
+                $usuario = $userController->getUserById($id);
+                
+            if (!$usuario) {
+                    header("Location: ../app/views/usuario/minhaConta.php?erro=usuario_nao_encontrado");
+                    exit;
+                }
+                
+                $senhaHashBanco = $usuario['senha'];
+                $senhaAtualDigitada = trim($_POST['senhaAtual'] ?? '');
+                $novaSenha = trim($_POST['novaSenha'] ?? '');
+                $confirmarSenha = trim($_POST['confirmarSenha'] ?? '');
+                    
+            if (!password_verify($senhaAtualDigitada, $senhaHashBanco)) {
+                    header("Location: ../app/views/usuario/minhaConta.php?erro=senha_atual_incorreta");
+                    exit;
+                }
+                
+            if ($novaSenha !== $confirmarSenha) {
+                    header("Location: ../app/views/usuario/minhaConta.php?erro=confirmacao");
+                    exit;
+                }
+                
+            $postData = [
+                'senha' => password_hash($novaSenha, PASSWORD_DEFAULT),
+            ];
+                
+            $responseUpdate = $userController->updatePassword($id, $postData);
+                
+            header("Location: ../app/views/usuario/minhaConta.php?sucesso=senha");
+            exit;
+        }
+        break;            
 
         case "delete":
             if (isset($_POST['delete_id'])) {
@@ -99,7 +149,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-// Tratamento de GET (ou POST também, caso precise)
 if ($acao === 'getUser') {
     try {
         if (isset($_POST['edit_id'])) {
@@ -117,6 +166,5 @@ if ($acao === 'getUser') {
     exit;
 }
 
-// Lista todos os usuários (opcional)
 $usuarios = $userController->listAllUsers()['data'] ?? [];
 ?>

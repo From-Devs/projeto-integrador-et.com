@@ -50,5 +50,18 @@ class UserController {
         if (!isset($_SESSION['id_usuario'])) return null;
         return $this->model->getUserById($_SESSION['id_usuario']);
     }
+
+    public function updatePassword($id_usuario, $novoHash) {
+        if (is_array($novoHash)) {
+            $novoHash = $novoHash['senha'] ?? '';
+        }
+    
+        $success = $this->model->updateSenha($id_usuario, $novoHash);
+    
+        return [
+            "success" => $success,
+            "message" => $success ? "Senha alterada com sucesso" : "Erro ao alterar senha"
+        ];
+    }
 }
 ?>

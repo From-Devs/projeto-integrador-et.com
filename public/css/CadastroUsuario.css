@@ -35,14 +35,6 @@
     padding: 20px;
 }
 
-
-/*Configuração dos campos*/
-form{
-    display: grid;
-    grid-row: 2px;
-    margin-top: 20px;
-}
-
 .id{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -50,6 +42,7 @@ form{
     row-gap: 30px; 
     column-gap: 270px;
     width: 100%;
+    margin-top: 20px;
 }
 
 .none {
@@ -153,6 +146,7 @@ input[type=date]:focus::-webkit-datetime-edit {
     width: 420px;
     height: 60px;
     font-size: 20px;
+    font-weight: 700;
     border-radius: 12px;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
@@ -162,7 +156,6 @@ input[type=date]:focus::-webkit-datetime-edit {
     transform: scale(1.05);
 }
 
-
 #confirmar{
     text-decoration: none;
     color: white;
@@ -170,9 +163,8 @@ input[type=date]:focus::-webkit-datetime-edit {
 
 /*Botão Voltar*/
 
-
 #voltarSair{
-    position: fixed;
+    position: absolute;
     display: flex;
     align-items: center;
     top: 32px;
@@ -199,28 +191,30 @@ section
     height: 100vh;
     background-color: black;
     overflow: hidden;
-
 }
 
 section .wave
 {
     position: fixed;
-    left: 32%;
-    width: 100%;
-    height: 100px;
+    left: -2%;
+    width: 170%;
+    height: 120px;
     background: url(../imagens/ondas/ondaSolida.png);
-    background-size: 1000px 100px;
-    transform: rotate(90deg) scaleX(-1);
-}
-
-section .wave.wave1
-{
-    top: 0;
+    background-size: 1000px 120px;
+    transform: rotate(90deg) /*scaleX(-1)*/;
     animation: animacao 10s linear infinite;
     z-index: 1000;
     opacity: 1;
     animation-delay: 0s;
+}
 
+section .wave.wave1
+{
+    top: 35vh;
+    animation: animacao 10s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
 
 }
 
@@ -236,13 +230,110 @@ section .wave.wave1
 }
 
 /* Responsividade */
-@media (max-width: 1024px) {
+
+/**/
+
+@media (max-width: 1550px){
+    .id{
+        column-gap: 170px;
+    }
+}
+
+
+@media (max-width: 1440px){
+    .id{
+        column-gap: 70px;
+    }
+}
+
+@media (max-width: 1320px){
     .container {
         width: 100%;
-        margin: 60px auto;
+    }
+
+    .id{
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+}
+
+@media (max-width: 1000px){
+    .id{
+        row-gap: 12px;
+    }
+
+    .logo {
+        height: 10%;
+        bottom: 0px;
+        left: 32px;
+    }
+}
+
+/**/
+
+@media (max-width: 650px){
+    section{
+        display: none;
+    }
+
+    section .wave{
+        display: none;
+    }
+    
+    .logo{
+        display: none;
+    }
+
+    .containerForm{
+        width: 100%;
+    }
+
+    .parteBranca{
+        width: 100%;
+        height: 100vh;
+        padding-top: 15px;
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+
+    /**/
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .p2 {
+        font-size: 9px;
+    }
+
+    .checkbox label {
+        font-size: 14px;
+    }
+
+    #voltar {
+        font-size: 16px;
+    }
+
+    /**/
+
+
+    form{
         padding: 20px;
     }
 
+    .campo-campo-container input{
+        width: 100%;
+    }
+
+    .botaoConfirmar{
+        width: 80%;
+    }
+
+}
+
+
+
+/*@media (max-width: 1024px) {
     .id {
         grid-template-columns: 1fr;
         column-gap: 0;
@@ -274,9 +365,9 @@ section .wave.wave1
         justify-content: flex-start;
     }
 
-}
+}*/
 
-@media (max-width: 600px) {
+/*@media (max-width: 600px) {
     .logo {
         width: 80px;
         height: 80px;
@@ -319,4 +410,4 @@ section .wave.wave1
     .wave {
         display: none;
     }
-}
+}*/

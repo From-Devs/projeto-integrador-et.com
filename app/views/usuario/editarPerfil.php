@@ -111,6 +111,8 @@
                         </div>
                     </div>
 
+                    <i class='bx bx-chevron-right iconeSeta'></i> 
+
                 </div>
 
                 <div class="option-card" id="alterarEnderecoCard">
@@ -123,6 +125,8 @@
                             <p>Mude informações do seu endereço</p>
                         </div>
                     </div>
+
+                    <i class='bx bx-chevron-right iconeSeta'></i> 
 
                 </div>
 
