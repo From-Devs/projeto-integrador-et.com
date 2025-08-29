@@ -84,12 +84,11 @@
                             <i class='bx bx-trash'></i>
                         </button>
 
-                        <a href="/projeto-integrador-et.com/app/views/usuario/editarPerfil.php" class="edit-profile-container">
-                            <button class="edit-profile-button btn-black">
-                                <p id="edit-profile-text">Editar dados</p>
-                                <i class='bx bx-edit'></i>
-                            </button>
-                        </a>
+                        <button class="edit-profile-button btn-black" id="botaoEdit">
+                            <p id="edit-profile-text">Editar dados</p>
+                            <i class='bx bx-edit'></i>
+                        </button>
+                    
                     </div>
                 </div>
             </div>
@@ -137,6 +136,12 @@
             </div>
         </section>
     </main>
+
+    <script>
+        const botaoEdit = document.getElementById("botaoEdit").addEventListener('click', function(){
+            window.location.href = 'editarPerfil.php';
+        });
+    </script>
 
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
