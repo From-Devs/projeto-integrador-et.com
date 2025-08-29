@@ -177,3 +177,7 @@ class ProdutoController {
         }
     }
 }
+/**
+ * O carrinho2 que está puxando e outro carrinho que eu fiz no banco de dados ele tem id, id_produto, quantidade e data_adicionado fiz isso porque o carrinho que eu tinha
+ *so tinha cep, id_carrinho e id_usuario e não ficaria tão completo mas tem como implementar os dois então se for adicionar no projeto tente juntar os dois e troque o carrinho dois por so carrinho
+ */
