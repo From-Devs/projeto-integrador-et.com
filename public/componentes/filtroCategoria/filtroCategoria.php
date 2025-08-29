@@ -1,10 +1,7 @@
 <?php
 $categoriasPorTela = [ 
     "Maquiagem" => [
-        "Olhos" => ["Cílios", "Lápis","Delineador","Sombras"],
-        "Sombrancelha" => ["Lápis", "Gel","Cera"],
-        "Lábios" => ["Batom", "Batom Líquido", "Lip Tint", "Lip Gloss"],
-        "Pele" => ["Contorno", "Base","Blush","Corretivo","Pó","Paletas"],
+        "Tipos" => ["Olhos", "Sombrancelhas","Boca","Pele"],
     ],
     "Perfume" => [
         "Gênero" => ["Feminino", "Masculino", "Unissex"],
