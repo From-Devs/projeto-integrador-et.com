@@ -91,6 +91,8 @@ function filtro($tipo = "", $opcoesSelect = []) {
     }
 }
     echo PopUpComImagemETitulo("popUpCadastro","popUp_Botoes/img-confirmar.png","120px","Cadastro realizado com sucesso!");
+    echo PopUpComImagemETitulo("popUpEdicao","popUp_Botoes/img-confirmar.png","120px","Edição realizada com sucesso!");
+    echo PopUpComImagemETitulo("popUpRemocao","popUp_Botoes/img-confirmar.png","120px","Produto removido com sucesso!");
     echo PopUpConfirmar("popUpErro", "Preencha todos os campos!");
 ?>
 

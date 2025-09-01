@@ -10,36 +10,91 @@ class Products {
         $this->conn = $banco->Connect();
     }
 
-    // public function EditarProduto(
-    //     $id, 
-    //     $nome, 
-    //     $marca, 
-    //     $breveDescricao, 
-    //     $preco, 
-    //     $precoPromocional, 
-    //     $caracteristicasCompleta, 
-    //     $qtdEstoque, 
-    //     $corPrincipal, 
-    //     $deg1, 
-    //     $deg2
-    // ){
-    //     try {
-    //         $sqlCores = "SELECT * FROM cores C
-    //         JOIN PRODUTO P
-    //         ON "
+    public function RemoverProduto($id){
+        try {
+            $sqlDelete = "DELETE FROM PRODUTO WHERE id_produto = :idProduto";
 
-    //         $sql = "UPDATE PRODUTO SET nome = :nome, 
-    //         marca = :marca, 
-    //         descricaoBreve = descricaoBreve, 
-    //         descricaoTotal = :descricaoTotal,
-    //         preco = :preco,
-    //         precoPromo = :precoPromo,
-    //         qtdEstoque = :qtdEstoque,
-    //         id_cores = "
-    //     } catch (\Throwable $th) {
-    //         echo "Erro: " . $th->getMessage();
-    //     }
-    // }
+            $res = $this->conn->prepare($sqlDelete);
+            $res->bindParam(":idProduto", $id);
+            $res->execute();
+
+            return true;
+        } catch (\Throwable $th) {
+            echo "Erro SQL: " . $th->getMessage();
+            return false;
+        }
+    }
+
+    public function EditarProduto(
+        $id, 
+        $nome, 
+        $marca, 
+        $breveDescricao, 
+        $preco, 
+        $precoPromocional, 
+        $caracteristicasCompleta, 
+        $qtdEstoque, 
+        $corPrincipal, 
+        $deg1, 
+        $deg2
+    ){
+        try {
+            $getCorId = $this->conn->prepare("
+                SELECT id_cores 
+                FROM PRODUTO 
+                WHERE id_produto = :idProduto
+            ");
+            $getCorId->bindParam(":idProduto", $id, PDO::PARAM_INT);
+            $getCorId->execute();
+    
+            $resCoresId = $getCorId->fetch(PDO::FETCH_ASSOC);
+            $idCores = $resCoresId ? $resCoresId['id_cores'] : null;
+    
+            if ($idCores) {
+                $updateCores = "UPDATE CORES 
+                    SET corPrincipal = :corPrincipal, 
+                        hexDegrade1 = :hexDegrade1, 
+                        hexDegrade2 = :hexDegrade2
+                    WHERE id_cores = :idCores";
+    
+                $resCores = $this->conn->prepare($updateCores);
+                $resCores->bindParam(":corPrincipal", $corPrincipal);
+                $resCores->bindParam(":hexDegrade1", $deg1);
+                $resCores->bindParam(":hexDegrade2", $deg2);
+                $resCores->bindParam(":idCores", $idCores, PDO::PARAM_INT);
+                $resCores->execute();
+            }
+    
+            $sql = "UPDATE PRODUTO 
+                SET nome = :nome, 
+                    marca = :marca, 
+                    descricaoBreve = :descricaoBreve, 
+                    descricaoTotal = :descricaoTotal,
+                    preco = :preco,
+                    precoPromo = :precoPromo,
+                    qtdEstoque = :qtdEstoque,
+                    id_cores = :idCores
+                WHERE id_produto = :idProduto";
+    
+            $res = $this->conn->prepare($sql);
+            $res->bindParam(":nome", $nome);
+            $res->bindParam(":marca", $marca);
+            $res->bindParam(":descricaoBreve", $breveDescricao);
+            $res->bindParam(":descricaoTotal", $caracteristicasCompleta);
+            $res->bindParam(":preco", $preco);
+            $res->bindParam(":precoPromo", $precoPromocional);
+            $res->bindParam(":qtdEstoque", $qtdEstoque, PDO::PARAM_INT);
+            $res->bindParam(":idCores", $idCores, PDO::PARAM_INT);
+            $res->bindParam(":idProduto", $id, PDO::PARAM_INT);
+    
+            $res->execute();
+            return true;
+    
+        } catch (\Throwable $th) {
+            echo "Erro SQL: " . $th->getMessage();
+            return false;
+        }
+    }    
 
     public function buscarProdutoPeloId($id){
         try {

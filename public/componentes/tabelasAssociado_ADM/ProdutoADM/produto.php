@@ -71,10 +71,13 @@ function tabelaProduto($produtos) {
                             <td>
                                 <div class="acoes-tabela">
                                     <?php
-                                    $btnSim = botaoPersonalizadoOnClick("Sim", "btn-black", "", "100px");
+
+                                    $popUpId = "popUpExcluir_".$produto['id'];
+                                    $btnSim = botaoPersonalizadoOnClick("Sim", "btn-black", "removerProduto(".$produto['id'].")", "100px");
                                     $btnNao = botaoPersonalizadoOnClick("Não", "btn-white", "", "100px");
-                                    echo PopUpConfirmar("popUpExcluir", "Deseja excluir o produto selecionado?", $btnSim, $btnNao, "400px"); ?>
-                                    <div class="excluir" onclick="abrirPopUp('popUpExcluir')">
+                                    echo PopUpConfirmar($popUpId, "Deseja excluir o produto selecionado?", $btnSim, $btnNao, "400px");?>
+
+                                    <div class="excluir" onclick="abrirPopUp('<?= $popUpId ?>')">
                                         <img src="/projeto-integrador-et.com/public/imagens/associado/img-excluir.png" alt="img-excluir">
                                     </div>
                                     <div class="editar" onclick="buscarAtributosDoProduto(<?= $produto['id'] ?>)">

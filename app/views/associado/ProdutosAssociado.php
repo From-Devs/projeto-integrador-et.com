@@ -21,10 +21,21 @@ function verificaELimpaQueryString(){
                     }
                 });
             </script>";    
-        }else{
+        }else if(isset($_GET['acao']) && $_GET['acao'] === 'EditarProduto'){
             echo "<script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    abrirPopUp('popUpSalvar');
+                    abrirPopUp('popUpEdicao');
+                    // Remove ?status=sucesso da URL
+                    if (window.history.replaceState) {
+                        const urlSemParametro = window.location.origin + window.location.pathname;
+                        window.history.replaceState({}, document.title, urlSemParametro);
+                    }
+                });
+            </script>";
+        }else if(isset($_GET['acao']) && $_GET['acao'] === 'RemoverProduto'){
+            echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    abrirPopUp('popUpRemocao');
                     // Remove ?status=sucesso da URL
                     if (window.history.replaceState) {
                         const urlSemParametro = window.location.origin + window.location.pathname;

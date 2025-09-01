@@ -9,6 +9,10 @@ class ProdutoController {
         $this->produtoModel = new Products();
     }
 
+    public function RemoverProduto($id){
+        return $this->produtoModel->RemoverProduto($id);
+    }
+
     public function buscarProdutoPeloId($id){
         return $this->produtoModel->buscarProdutoPeloId($id);
     }
@@ -48,31 +52,31 @@ class ProdutoController {
         );
     }
 
-    // public function EditarProduto(
-    //     $id, 
-    //     $nome, 
-    //     $marca, 
-    //     $breveDescricao, 
-    //     $preco, 
-    //     $precoPromocional, 
-    //     $caracteristicasCompleta, 
-    //     $qtdEstoque, 
-    //     $corPrincipal, 
-    //     $deg1, 
-    //     $deg2
-    // ){
-    //     return $this->produtoModel->EditarProduto(
-    //         $id, 
-    //         $nome,
-    //         $marca, 
-    //         $breveDescricao, 
-    //         $preco, 
-    //         $precoPromocional, 
-    //         $caracteristicasCompleta, 
-    //         $qtdEstoque, 
-    //         $corPrincipal, 
-    //         $deg1, 
-    //         $deg2
-    //     );
-    // }
+    public function EditarProduto(
+        $id, 
+        $nome, 
+        $marca, 
+        $breveDescricao, 
+        $preco, 
+        $precoPromocional, 
+        $caracteristicasCompleta, 
+        $qtdEstoque, 
+        $corPrincipal, 
+        $deg1, 
+        $deg2
+    ){
+        return $this->produtoModel->EditarProduto(
+            $id, 
+            $nome,
+            $marca, 
+            $breveDescricao, 
+            $preco, 
+            $precoPromocional, 
+            $caracteristicasCompleta, 
+            $qtdEstoque, 
+            $corPrincipal, 
+            $deg1, 
+            $deg2
+        );
+    }
 }
