@@ -33,18 +33,44 @@
     top: 4px;
 }
 
-.ticketMaldito{
+.ticketContainer{
     position: absolute;
-    transform: scale(0.5);
-    right: 240px;
-    bottom: 5px;
+    left: -35px;
+    top: 10px;
+    z-index: 5;
     visibility: hidden;
     user-select: none;
     pointer-events: none;
 }
 
-.cardProduto.desconto .ticketMaldito{
+.ticketDesconto{
+    width: 54px;
+    right: 240px;
+    overflow: visible;
+    padding-bottom: 5px;
+}
+
+.cardProduto.desconto .ticketContainer{
     visibility: visible;
+}
+
+.descontoTextContainer{
+    position: absolute;
+    display: flex;
+    align-items: end;
+    top: 42px;
+    left: 2px;
+    rotate: -68.5deg;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.descontoOffText{
+    font-size: 7px;
+    height: min-content;
+    margin-bottom: 1.5px;
+    font-weight: 600;
 }
 
 .coracaoFofo{
