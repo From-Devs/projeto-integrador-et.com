@@ -142,15 +142,17 @@ class ProdutoController {
      * Lista os produtos que estão nos favoritos.
      * @return array Um array contendo os produtos favoritos.
      */
-    public function ListarFavoritos() {
+    public function ListarFavoritos($idUsuario) {
         try {
             $sql = "
-                SELECT p.*, co.corPrincipal, co.hexDegrade1, co.hexDegrade2
-                FROM favoritos f
-                JOIN produto p ON f.id_produto = p.id_produto
-                LEFT JOIN cores co ON p.id_cores = co.id_cores
+                SELECT p.*, ld.dataAdd, co.corPrincipal, co.hexDegrade1, co.hexDegrade2, co.hexDegrade3
+                FROM ListaDesejos ld
+                JOIN produto p ON ld.id_produto = p.id_produto
+                LEFT JOIN Cores co ON p.id_cores = co.id_cores
+                WHERE ld.id_usuario = :idUsuario
             ";
             $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
             $stmt->execute();
             $favoritos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -166,11 +168,12 @@ class ProdutoController {
      * @param int $idProduto O ID do produto a ser removido.
      * @return bool Retorna true em caso de sucesso, false em caso de falha.
      */
-    public function removerDosFavoritos($idProduto) {
+    public function removerDosFavoritos($idProduto, $idUsuario) {
         try {
-            $sql = "DELETE FROM favoritos WHERE id_produto = :idProduto";
+            $sql = "DELETE FROM ListaDesejos WHERE id_produto = :idProduto AND id_usuario = :idUsuario";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(':idProduto', $idProduto, PDO::PARAM_INT);
+            $stmt->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
             return $stmt->execute();
         } catch (Exception $e) {
             return false;
