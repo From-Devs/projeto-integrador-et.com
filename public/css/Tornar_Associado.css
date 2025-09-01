@@ -230,8 +230,9 @@ body {
 
 .cards-container {
   display: flex;
-  gap: 50px;
+  gap: 40px;
 }
+
 
 .comissionCard{
   display: flex;
@@ -387,112 +388,69 @@ body {
       background-position-x: 0;
   }
 }
-@media screen and (max-width: 430px) {
-  .carousel-title {
-    font-size: 18px;
-    text-align: center;
-  }
-
-  .carousel-container {
-    flex-direction: column;
-    margin-top: 50px;
-  }
-
-  .carousel-item {
-    width: 100px;
-    height: 100px;
-    margin: 0 10px;
-  }
-
+@media (max-width: 992px) {
   .promo-content {
-    padding: 40px 20px;
-    margin: 0 auto;
-    max-width: 100%;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .promo-image {
+    max-width: 400px;
+  }
+
+  .promo-content p {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .cardRedirect {
+    margin: 40px 20px;
+    flex-direction: column;
     text-align: center;
   }
 
-  .promo-content h2 {
+  .cardRedirect span {
+    display: none;
+  }
+
+  .logoCardRedirect {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-inner {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .promoContentText h2 {
     font-size: 28px;
   }
 
-  .promo-content p,
-  .azul {
+  .promo-content p {
     font-size: 16px;
-    max-width: 100%;
   }
 
-  .promo-image,
-  .substituir-imagem {
+  .promo-image {
     display: none;
-  }
-
-  .commission-table {
-    position: static;
-    margin-top: 20px;
-    padding: 10px;
-  }
-
-  .cards-section {
-    height: auto;
-    padding: 20px;
-    margin-top: 100px;
-    background-size: cover;
   }
 
   .cards-container {
-    flex-direction: column;
-    transform: none;
-    top: auto;
-    left: auto;
-    position: static;
+    grid-template-columns: 1fr;
   }
 
-  .card {
-    width: 40%;
-    margin: 5px auto;
-    margin-top: -30px;
-  }
-
-  .card img {
+  .comissionText {
+    font-size: 16px;
     width: 100%;
-    height: auto;
+    padding: 10px;
   }
+}
 
-  .caixa_salmão {
-    width: 90%;
-    margin: 40px auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .caixa_salmão img {
-    width: 80%;
-    height: auto;
-  }
-
-  .sej {
-    width: 90%;
-    margin: 40px auto;
-    position: static;
-    display: flex;
-    justify-content: center;
-  }
-
-  .sej img {
-    width: 80%;
-    height: auto;
-  }
-
-  .associ {
-    width: 90%;
-    margin: 20px auto;
-    position: static;
-    text-align: center;
-  }
-
-  .wave.solida {
-    display: none;
-  }
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
