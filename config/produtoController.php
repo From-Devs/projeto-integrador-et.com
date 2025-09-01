@@ -127,10 +127,11 @@ class ProdutoController {
      * @param int $idProduto O ID do produto a ser adicionado.
      * @return bool Retorna true em caso de sucesso, false em caso de falha.
      */
-    public function adicionarAosFavoritos($idProduto) {
+    public function adicionarAosFavoritos($idProduto, $idUsuario) {
         try {
-            $sql = "INSERT IGNORE INTO favoritos (id_produto) VALUES (:idProduto)";
+            $sql = "INSERT IGNORE INTO favoritos (id_usuario, id_produto) VALUES (:idUsuario, :idProduto)";
             $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
             $stmt->bindValue(':idProduto', $idProduto, PDO::PARAM_INT);
             return $stmt->execute();
         } catch (Exception $e) {
