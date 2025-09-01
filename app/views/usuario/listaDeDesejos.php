@@ -2,6 +2,7 @@
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     require __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
+    require __DIR__ . "/../../../public/componentes/cardListaDese/cardLista.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
     // session_start();
@@ -63,7 +64,7 @@
         <div class="degradeTopo"></div>
         <div class="degradeBaixo"></div>
         <div class="card-container">
-            <div class="cardDesejos card01">
+            <!--<div class="cardDesejos card01">
                 <div class="cardImg">
                     <img src="/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png" alt="">
                 </div>
@@ -223,7 +224,16 @@
                         <img src="/projeto-integrador-et.com/public/imagens/produtoAssociado/lixeira.png" alt="">
                     </button>
                 </div>
-            </div>
+            </div>-->
+
+            <?php 
+                echo creatCardProdutoListaDese("/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png", "R$20,00", "informação", "Adicionado 00/00/00", "", "");
+                echo creatCardProdutoListaDese("/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png", "R$20,00", "informação", "Adicionado 00/00/00", "", "");
+                echo creatCardProdutoListaDese("/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png", "R$20,00", "informação", "Adicionado 00/00/00", "", "");
+                echo creatCardProdutoListaDese("/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png", "R$20,00", "informação", "Adicionado 00/00/00", "", "");
+                echo creatCardProdutoListaDese("/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png", "R$20,00", "informação", "Adicionado 00/00/00", "", "");
+                echo creatCardProdutoListaDese("/projeto-integrador-et.com/public/imagens/listaDeDesejos/prod01.png", "R$20,00", "informação", "Adicionado 00/00/00", "", "");
+            ?>
         </div>
     </div>
 

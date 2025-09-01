@@ -121,7 +121,7 @@
         
         <div class="aVenda">
             <div class="PartedeCima">
-                <h3>Produtos</h3>
+                <h3 class="TituloProdutos">Produtos</h3>
 
                 <div class="filtroSeparado">
                     <button class="filtro-botao" type="button" onclick="toggleFiltro()">

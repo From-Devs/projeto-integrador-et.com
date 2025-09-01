@@ -29,7 +29,7 @@ main{
     margin-bottom: 50px;
 } .line{
     background-color: black;
-    width: 1350px;
+    width: 70%;
     height: 1px;
 }
 
@@ -126,7 +126,7 @@ main{
     flex-direction: column;
     align-items: center;
     gap: 26px;
-    padding: 20px 320px;
+    padding: 20px 15%;
 }
 
 .profile-card {
@@ -209,6 +209,18 @@ main{
     color: black;
 }
 
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
+}
+
 .opcoes-conta {
     display: grid;
     width: 100%;
@@ -260,4 +272,109 @@ main{
 
 .option-card .iconeSeta{
     font-size: 48px;
+}
+
+@media (max-width: 1200px){ /*Computador*/
+    main{
+        padding-top: 120px;
+    }
+
+    .dadosUsuarioFormInputs{
+        grid-template-columns: 1fr;
+    }
+
+    .conta-container {
+        padding: 20px 10%;
+    }
+
+    .dadosUsuario{
+        padding-left: 32px;
+    }
+
+    .profile-pic {
+        margin-left: 0;
+    }
+
+    .line-out{
+        margin-bottom: 24px;
+    }
+
+    .formControl label{
+        font-size: 18px;
+    }
+
+}
+
+@media (max-width: 992px){ /*Computador*/
+    .opcoes-conta {
+    display: grid;
+    width: 100%;
+    row-gap: 10px;
+    column-gap: 10px;
+    gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    & a{
+        text-decoration: none;
+        color: black;
+    }
+}  
+}
+
+@media (max-width: 768px){ /*Celular Paisagem*/
+    main{
+        padding-top: 100px;
+    }
+
+    .profile-card {
+        flex-direction: column;
+    }
+
+    .dadosUsuarioForm{
+        box-sizing: border-box;
+        padding: 24px;
+        width: 100%;
+    }
+
+    .profile-pic {
+        margin-left: 0;
+        margin-top: 52px;
+    }
+
+    .profileIconEditContainer {
+        margin-left: 0;
+    }
+
+    .profileIconEditContainer h1 {
+        top: 20px;
+    }
+}
+
+@media (max-width: 576px){ /*Celular Vertical*/
+    .conta-container {
+        padding: 20px 6%;
+    }
+
+    .dadosAcoesContainer{
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .edit-profile-button, .delete-profile-button{ 
+        flex: 1;
+    }
+
+    .edit-profile-container{
+        display: flex;
+        flex: 1;
+    }
+
+    .option-card{
+        height: auto;
+    }
+
+    .option-card p {
+        display: none;
+    }
 }
