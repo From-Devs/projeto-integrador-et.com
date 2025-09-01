@@ -30,7 +30,7 @@ var myChartEsquerda = new Chart(ctxEsquerda, {
   options: {
     plugins: {
       legend: {
-        position: 'bottom', // Posiciona as legendas à direita
+        position: 'bottom', // Posiciona as legendas à baixo
         labels: {
           boxWidth: 20,
           padding: 15

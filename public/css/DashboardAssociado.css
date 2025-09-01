@@ -175,24 +175,6 @@ a
     flex-direction: row-reverse;
 }
 
-/* @media (max-width: 2560px)
-{
-
-    #geralInformacoes
-    {
-        gap: 50px;
-    }
-
-    #controlePizzas
-    {
-        margin: 50 0 0 0;
-        justify-content: center;
-        gap: 65px;
-    }
-
-
-} */
-
 @media (max-width: 1280px) {
     #main
     {
@@ -465,6 +447,7 @@ a
     }
 
     #imagemInformaEstilizacao{
+        width: 40px;
         height: 40px;
 
         & img{
@@ -477,6 +460,10 @@ a
         margin: 0px;
     }
 
+    #controleImagemInform{
+        margin-right: 30px;
+    }
+
     #controlePizzas{
         display: flex;
         flex-direction: row;
@@ -487,8 +474,55 @@ a
     }
 
     #divPizzaEsquerda, #divPizzaDireita{
-        width: 44%;
+        width: 46%;
         height: 330px;
         margin-bottom: 0;
+    }
+}
+
+/* RESPONSIVIDADE LAPTOP MAX 1440PX */
+@media (min-width: 1025px) and (max-width: 1440px){
+    #geralInformacoes{
+        gap: 8px;
+    }
+
+    #valorVendas, #lucroLiquido, #vendas{
+        width: 340px;
+        height: 120px;
+    }
+    
+    #textoTituloInform, #valorInform{
+        font-size: 1em;
+    }
+    
+    #controlePizzas{
+        gap: 20px;
+        width: 1050px;
+        margin-top: 32px;
+    }
+    
+    #divPizzaEsquerda, #divPizzaDireita{
+        width: 550px;
+    }
+    
+    #imagemInformaEstilizacao{
+        width: 60px;
+        height: 60px;
+        
+        & img{
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+
+/* RESPONSIVIDADE PC 4k */
+@media (min-width: 1441px){
+    #geralInformacoes{
+        gap: 16px;
+    }
+
+    #controlePizzas{
+        gap: 20px;
     }
 }
