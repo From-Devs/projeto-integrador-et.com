@@ -12,7 +12,7 @@ $categoriasPorTela = [
     "Cabelos" => [
         "Tipos" => ["Dia-A-Dia", "Tratamentos", "Estilização", "Especiais", "Acessórios"],
     ],
-    "Eletrônicos" => [
+    "Eletronicos" => [
         "Acessórios" => ["Cabelos", "Pincel", "Esponja"],
     ],
     "Corporal" => [
