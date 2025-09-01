@@ -12,7 +12,6 @@ body{
 /* PARTE INICIAL */
 .Topo {
     position: relative;
-    background-image: url(../imagens/PaginaCategoria/PerfumeFundo.png);
     height: 500px;
     background-size: cover;
     width: 100%;
