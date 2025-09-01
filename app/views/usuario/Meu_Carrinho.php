@@ -113,16 +113,11 @@
           <td class="td-paginacao"><?php renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);?></td>
         </tr>
         <tfoot>
-
-          <tr class="select" >
-            <td class="cor3">Selecionar Tudo</td>
-            <td class="checkSelect"><input type="checkbox"></td>
-          </tr>
-
           <tr>
             <td class='cor3' colspan="5" class="total-label">Subtotal:</td>
             <td class="total-value" id="subtotal">R$ <?php echo $subtotal; ?></td>
           </tr>
+
           <tr>
             <td class='cor3' colspan="2">
               <label for="cep">Frete: </label>
@@ -134,15 +129,22 @@
             <td></td>
             <td><span class="total-value" id="frete">R$ 10.00</span></td>
           </tr>
+
           <tr>
             <td class='cor3' colspan="5" class="total-label">Total:</td>
             <td class="total-value" id="total">R$ <?php echo $subtotal + 10; ?></td>
           </tr>
         </tfoot>
       </table class="table1">
+
+      <div class="tudo">
+        <p>Selecionar Tudo:</td>
+        <div class="tudoCheck"><input type="checkbox"/></div>
+      </div>
+
       <div class="button-container">
         <button type="button" onclick="abrirPopup()">Realizar Pedido</button>
-        <button type="button">Excluir Pedido</button>
+        <button type="button">Excluir</button>
       </div>
     </form>
   </main>
