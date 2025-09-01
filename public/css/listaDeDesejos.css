@@ -26,12 +26,15 @@ body{
 .degradeTopo{
     background-image: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
     top: 0;
+    position: absolute;
+    z-index: 10;
 }
 
 .degradeBaixo{
     background-image: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
     bottom: 0;
-    z-index: 2000;
+    position: absolute;
+    z-index: 10;
 }
 
 .sliderContainer{
@@ -141,14 +144,6 @@ input[type="checkbox"]:checked::before {
     gap: 20px;
 }
 
-/* .acoesSelecionados .btnCheck #adicionarCarrinho,
-.acoesSelecionados .btnCheck #excluirSelecionados{
-    border: none;
-    background-color: transparent;
-    font-size: 15px;
-    color: #686868;
-} */
-
 .acoesSelecionados .btnCheck #adicionarCarrinho,
 .acoesSelecionados .btnCheck #excluirSelecionados{
     font-size: 15px;
@@ -177,6 +172,7 @@ input[type="checkbox"]:checked::before {
     flex-direction: column;
     gap: 40px;
     overflow: auto;
+    z-index: 1;
 }
 
 .card-container::-webkit-scrollbar{
