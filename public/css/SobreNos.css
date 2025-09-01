@@ -11,10 +11,11 @@ body
 {
 	margin: 0;
 	padding: 0;
-	background: linear-gradient(-45deg, #410dce, #7801c2, #06a8ff, #17a5f1);
+	background-image: url(./../imagens/fotoNossas/fundo.png);
+	backdrop-filter: blur(5px);
 	background-size: 400% 400%;
 	background-attachment: fixed;
-	animation: gradient 15s ease infinite;
+	/* animation: gradient 15s ease infinite; */
 	height: 100vh;
 }
 
