@@ -50,12 +50,29 @@
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.644)); 
 }
 
-.cardColorido .cardPreco{
+.cardColorido .cardPrecoArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardColorido .cardPrecoArea .cardPreco{
     font-weight: 600;
     font-size: 18px;
     justify-content: center;
     margin: auto;
-    
+}
+
+.cardColorido .cardPrecoArea .precoAntigo{
+    font-weight: 300;
+    font-size: 15px;
+    text-decoration: line-through;
+}
+
+.cardColorido .cardPrecoArea .precoNovo{
+    font-weight: 600;
+    font-size: 18px;
 }
 
 .cardColorido .cardInfo{
