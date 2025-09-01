@@ -3,20 +3,25 @@
     require_once __DIR__ . "/../../../config/ProdutoController.php";
     require_once __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
-    require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
     require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
+    require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
     require_once __DIR__ . "/../../../public/componentes/cardListaDeDesejos/cardListaDeDesejos.php";
     require_once __DIR__ . "/../../../config/database.php";
-    require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
     session_start();
-    $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
+
+    //Pega a conexaão
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";             // Define o tipo de usuário e o estado de login com base na sessão.
     $login = !empty($_SESSION['id_usuario']); // Uma forma mais confiável de verificar o login
 
     // Cria uma instância do controlador para buscar os produtos favoritos.
     $controller = new ProdutoController();
-    // $favoritos = $controller->ListarFavoritos();
+
+    //pega o id do usuario logado
+    $idUsuario = $_SESSION['id_usuario'] ?? null;
+    //busca os favoritos
+    $favoritos = $idUsuario ? $controller->ListarFavoritos($idUsuario) : [];    
 
 ?>
 
@@ -65,12 +70,8 @@
                 <label>Selecionar todos</label>
             </div>
             <div class="btnCheck">
-                <button id="adicionarCarrinho">Adicionar ao Carrinho
-                    <!-- <i class='fa-solid fa-cart-shopping'></i> -->
-                </button>
-                <button id="excluirSelecionados"> Excluir
-                    <!-- <i class='fa-solid fa-trash-can'></i> -->
-                </button>
+                <button id="adicionarCarrinho" onclick="adicionarAoCarrinho($item['id_produto'])">Adicionar ao Carrinho</button>
+                <button id="excluirSelecionados" onclick="removerDosFavoritos($item['id_produto'])"> Excluir</button>
             </div>
         </div>
 
@@ -81,96 +82,53 @@
         <div class="degradeBaixo"></div>
         <div class="card-container">
 
-            <?php       ///Parte da Nicolle
-            // if (!empty($favoritos)) {
-            //     foreach ($favoritos as $item) {
-            //         $preco      = "R$ " . number_format((float)$item['preco'], 2, ",", ".");
-            //         $precoPromo = "R$ " . number_format((float)$item['precoPromo'], 2, ",", ".");
-            //         $emDesconto = $item['precoPromo'] < $item['preco']; // Adiciona a lógica para verificar o desconto
-            //         $imagem     = !empty($item['imagem']) ? $item['imagem'] : 'no-image.png';
-
-
-            //         echo createCardListaDeDesejos(1,"bt-ovni.png",48.68,"Bruna Tavares", "BT Ovni Galaxy","08/07/2025", "rgba(28, 30, 37, 0.712)","rgb(217,234,37)", "rgb(221, 235, 67)");
-            //         echo createCardListaDeDesejos(2,"superstay-ink-vinyl.png",99.51,"Maybelline", "Superstay Vinyl Ink Liquid Lipstick","08/07/2025", "rgb(160, 1, 27)","rgb(199, 43, 69)", "rgb(211, 112, 128)");
-            //         echo createCardListaDeDesejos(3,"base-liquida-matte-vult.png",23.87,"Vult", "Base Líquida Efeito Matte","08/07/2025", "rgb(197, 153, 114)","rgb(231,187,148)", "rgb(241, 204, 171)");
-            //         echo createCardListaDeDesejos(4,"bt-velvet-blackberry.png",35.89,"Bruna Tavares", "BT Velvet Blackberry","08/07/2025", "rgb(58, 9, 13)","rgb(112, 37, 42)", "rgb(179, 110, 116)");
-            //         echo createCardListaDeDesejos(5,"renew-avon.png",75.90,"Avon", "Creme Renew Reversalist Dia Vitalidade 30+","08/07/2025", "rgb(143, 43, 41)","rgb(182, 78, 76)", "rgb(196, 117, 116)");
-            //         echo createCardListaDeDesejos(6,"bodysplash-cuide-se-bem.png",84.90,"O Boticário", "Body Splash Cuide-se Bem Nuvem","08/07/2025", "rgb(139, 198, 206)","rgb(176, 237, 247)", "rgb(205, 245, 250)");
-            //         echo createCardListaDeDesejos(7,"epidrat-mantecorp-facial.png",66.60,"Mantecorp", "Epidrat Calm Hidratante","08/07/2025", "rgb(81,74,108)","rgb(149, 140, 185)", "rgb(163, 156, 189)");
-            //         echo createCardListaDeDesejos(8,"hidratante-nivea.png",20.99,"Nivea", "Creme Hidratante Milk","08/07/2025", "rgb(15, 44, 122)","rgb(70, 100, 182)", "rgb(117, 138, 194)");
-            //         echo createCardListaDeDesejos(9,"Malbec_Colonia.png",169.00,"O Boticário", "Malbec Tradicional","08/07/2025", "rgb(65, 16, 16)","rgb(102, 56, 48)", "rgb(122, 92, 85)");
-            //         echo createCardListaDeDesejos(10,"pincel-marimaria.png",95.90,"Mari Maria Makeup", "Pincel Angular Para Base","08/07/2025", "rgb(187, 49, 1)","rgb(232, 104, 63)", "rgb(235, 149, 120)");
-            //         echo createCardListaDeDesejos(11,"esponja-mari-maria.png",35.90,"Mari Maria Makeup", "Esponja Flat Blende","08/07/2025", "rgb(241, 93, 10)","rgb(243, 130, 64)", "rgb(248, 180, 140)");
-            //         echo createCardListaDeDesejos(12,"truss_net_masc.png",269.99,"Truss", "Net Mask Máscara Capilar","08/07/2025", "rgb(0, 150, 177)","rgb(66, 203, 228)", "rgb(141, 221, 235)");
-            //         echo createCardListaDeDesejos(13,"amor-amor-perfume-feminino.png",405.30,"Cacharel", "AMOR AMOR","08/07/2025", "rgb(206, 21, 21)","rgb(247, 53, 53)", "rgb(255, 255, 255)");
-                    
-            //         if ($id_usuario) {
-            //             $sql = "SELEC p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.imagem, ld.dataAdd
-            //                     FROM ListaDesejos ld
-            //                     JOIN Produto p ON ld.id_produto = p.id_produto
-            //                     WHERE ld.id_usuario = ?";
-            //             $stmt = $conn->prepare($sql);
-            //             $stmt->execute([$id_usuario]);
-            //             $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            //             if ($produtos){
-            //                 foreach ($produtos as $produto){
-            //                     echo createCardListaDeDesejos(
-            //                         $produto['id_produto'],
-            //                         $produto['imagem'],
-            //                         $produto['precoPromo'] ?? $produto['preco'],
-            //                         $produto['marca'],
-            //                         $produto['nome'],
-            //                         date("d/m/Y", strtotime($produto['dataAdd']))
-            //                     );
-            //                 }
-            //             } else{
-            //                 echo "<span>Sua lista de desejos está vazia.</span>";
-            //             }
-            //         } else{
-            //             echo "<span>Você precisa estar logado para adicionar e ver sua lista de desejo.</span>";
-            //         }
-            //     }
-            // } else {
-            //     echo "<p style='text-align: center; margin-top: 2rem;'>Sua lista de desejos está vazia.</p>";
-            // }
-// ======= VINICIUS
-               // Verificação para garantir que o array está populado e para exibir os cards dinamicamente
+            <?php
+            // Verificação para garantir que o array está populado e para exibir os cards dinamicamente      
             if (!empty($favoritos)) {
                 foreach ($favoritos as $item) {
-                    $preco      = "R$ " . number_format((float)$item['preco'], 2, ",", ".");
-                    $precoPromo = "R$ " . number_format((float)$item['precoPromo'], 2, ",", ".");
-                    $emDesconto = $item['precoPromo'] < $item['preco']; // Adiciona a lógica para verificar o desconto
+                    $preco = $item['preco'];
+                    $precoPromo = $item['precoPromo'] ?? null;
                     $imagem     = !empty($item['imagem']) ? $item['imagem'] : 'no-image.png';
+                    $dataAdicionado = $item['dataAdd'];
 
-                    echo "
-                    <div class='cardDesejos' data-id='{$item['id_produto']}'>
-                        <div class='cardImg'>
-                            <img src='/projeto-integrador-et.com/public/imagens/produto/{$imagem}' alt='Imagem do produto'>
-                        </div>
-
-                        <div class='cardPreco'>
-                            <p><strong>{$preco}</strong></p>
-                        </div>
-
-                        <div class='cardInfo'>
-                            <p>{$item['marca']} {$item['nome']}</p>
-                        </div>
-
-                        <div class='cardButtons'>
-                            <button class='buttonDesejos' onclick='adicionarAoCarrinho({$item['id_produto']})'>
-                                <i class='fa-solid fa-cart-shopping'></i>
-                            </button>
-                            <button class='buttonDesejos' onclick='removerDosFavoritos({$item['id_produto']})'>
-                                <img src='/projeto-integrador-et.com/public/imagens/produtoAssociado/lixeira.png' alt='Remover da lista'>
-                            </button>
-                        </div>
-                    </div>";
+                    echo createCardListaDeDesejos(
+                        $item['id_produto'],
+                        $imagem,
+                        $preco,
+                        $item['marca'],
+                        $item['nome'],
+                        $dataAdicionado,
+                        $item['corPrincipal'] ?? "#919191",
+                        $item['hexDegrade1'] ?? "#919191",
+                        $item['hexDegrade2'] ?? "#919191",
+                        $item['hexDegrade3'] ?? "#919191",
+                        $precoPromo
+                    );
+                       
+                    
                 }
             } else {
-                echo "<p style='text-align: center; margin-top: 2rem;'>Sua lista de desejos está vazia.</p>";
+                // echo "<p style='text-align: center; margin-top: 2rem;'>Sua lista de desejos está vazia.</p>";
+
+                //Colocarei essa parte apenas para mostrar como ficaria o front. Quando ficar pronto o back-end, descomentar a parte de cima e apagar essa:    
+                    echo createCardListaDeDesejos(1,"bt-ovni",48.68,"Bruna Tavares", "BT Ovni Galaxy","08/07/2025", "rgba(28, 30, 37, 0.712)","rgb(217,234,37)", "rgb(221, 235, 67)", "rgb(255,255,255)");
+                    echo createCardListaDeDesejos(2,"superstay",99.51,"Maybelline", "Superstay Vinyl Ink Liquid Lipstick","08/07/2025", "rgb(160, 1, 27)","rgb(199, 43, 69)", "rgb(211, 112, 128)", "rgb(255,255,255)",50.00);
+                    echo createCardListaDeDesejos(3,"vult",23.87,"Vult", "Base Líquida Efeito Matte","08/07/2025", "rgb(197, 153, 114)","rgb(231,187,148)", "rgb(241, 204, 171)", "rgb(255,255,255)");
+                    echo createCardListaDeDesejos(4,"bt-blackberry",35.89,"Bruna Tavares", "BT Velvet Blackberry","08/07/2025", "rgb(58, 9, 13)","rgb(112, 37, 42)", "rgb(179, 110, 116)", "rgb(255,255,255)");
+                    echo createCardListaDeDesejos(5,"renew",75.90,"Avon", "Creme Renew Reversalist Dia Vitalidade 30+","08/07/2025", "rgb(143, 43, 41)","rgb(182, 78, 76)", "rgb(196, 117, 116)", "rgb(255,255,255)");
+                    echo createCardListaDeDesejos(6,"nuvem",84.90,"O Boticário", "Body Splash Cuide-se Bem Nuvem","08/07/2025", "rgb(139, 198, 206)","rgb(176, 237, 247)", "rgb(205, 245, 250)", "rgb(255,255,255)");
+                    echo createCardListaDeDesejos(7,"epidrat",66.60,"Mantecorp", "Epidrat Calm Hidratante","08/07/2025", "rgb(81,74,108)","rgb(149, 140, 185)", "rgb(163, 156, 189)", "rgb(255,255,255)");
+                    echo createCardListaDeDesejos(8,"milk",20.99,"Nivea", "Creme Hidratante Milk","08/07/2025", "rgb(15, 44, 122)","rgb(70, 100, 182)", "rgb(117, 138, 194)", "rgb(255,255,255)");
+                    echo createCardListaDeDesejos(9,"malbec",169.00,"O Boticário", "Malbec Tradicional","08/07/2025", "rgb(65, 16, 16)","rgb(102, 56, 48)", "rgb(122, 92, 85)", "rgb(255,255,255)");
+                    echo createCardListaDeDesejos(10,"pincel",95.90,"Mari Maria Makeup", "Pincel Angular Para Base","08/07/2025", "rgb(187, 49, 1)","rgb(232, 104, 63)", "rgb(235, 149, 120)", "rgb(255,255,255)");
+                    echo createCardListaDeDesejos(11,"esponja",35.90,"Mari Maria Makeup", "Esponja Flat Blende","08/07/2025", "rgb(241, 93, 10)","rgb(243, 130, 64)", "rgb(248, 180, 140)", "rgb(255,255,255)");
+                    echo createCardListaDeDesejos(12,"truss",269.99,"Truss", "Net Mask Máscara Capilar","08/07/2025", "rgb(0, 150, 177)","rgb(66, 203, 228)", "rgb(141, 221, 235)", "rgb(255,255,255)");
+                    echo createCardListaDeDesejos(13,"amor-amor",405.30,"Cacharel", "AMOR AMOR","08/07/2025", "rgb(206, 21, 21)","rgb(247, 53, 53)", "rgb(255, 255, 255)", "rgb(255,255,255)");
             }
-// >>>>>>> feat-Vinicius
+
+
+               
+            
             ?>
         </div>
     </div>
@@ -190,14 +148,14 @@
                 <div class="frameProdutos">
                     <div class="containerProdutos">
                         <?php
-                        echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                        echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                        echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                        echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
-                        echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                        echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                        echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", false, "R$30,00", "#DBA980", "72543A", "#E4B186");
-                        echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                        echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                        echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                        echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                        echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                        echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                        echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                        echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "72543A", "#E4B186");
+                        echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
 
                         ?>
                     </div>
