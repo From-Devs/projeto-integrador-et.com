@@ -114,8 +114,8 @@
         </tr>
         <tfoot>
 
-          <tr class="select">
-            <td>Selecionar Tudo</td>
+          <tr class="select" >
+            <td class="cor3">Selecionar Tudo</td>
             <td class="checkSelect"><input type="checkbox"></td>
           </tr>
 
