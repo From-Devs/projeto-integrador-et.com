@@ -7,10 +7,70 @@
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
     require __DIR__ . "/../../../public/componentes/filtroCategoria/filtroCategoria.php";
-    $telaAtual = $_GET["tela"] ?? "Maquiagem";
+    require_once __DIR__ . "/../../Models/categoria.php";
+
+    $fundos = [
+        "maquiagem" => [
+            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemFundo.png",
+            "olhos"        => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemOlhos.png",
+            "sombrancelhas" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemSombrancelhas.png",
+            "lábios"       => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemBoca.png",
+            "pele"         => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemPele.png"
+        ],
+        "perfume" => [
+            "default"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/PerfumeFundo.png",
+            "feminino"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/PerfumeFeminino.png",
+            "masculino" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/PerfumeMasculino.png",
+            "unissex"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/PerfumeUnissex.png"
+        ],
+        "skincare" => [
+            "default"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareFundo.png",
+            "limpeza"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareRosto.png",   
+            "esfoliação"=> "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareCorpo.png",   
+            "hidratação"=> "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareKit.png",     
+            "máscara"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareRosto.png",
+            "protetor"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareCorpo.png",
+            "especiais" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareKit.png"
+        ],
+        "cabelo" => [
+            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloFundo.png",
+            "dia-a-dia"    => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloShampoo.png",
+            "tratamentos"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloTratamento.png",
+            "estilização"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloCondicionador.png",
+            "especiais"    => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloTratamento.png",
+            "acessórios"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloCondicionador.png"
+        ],
+        "eletronicos" => [
+            "default"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosFundo.png",
+            "cabelos"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosSecador.png",
+            "pincel"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosChapinha.png",
+            "esponja"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosBarbeador.png"
+        ],
+        "corporal" => [
+            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalFundo.png",
+            "body splash"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalHidratante.png",
+            "óleos"        => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalOleo.png",
+            "creme"        => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalHidratante.png",
+            "protetor"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalEsfoliante.png"
+        ]
+    ];
+
+    $slugCategoria = $_GET['tela'] ?? "maquiagem"; 
+    $slugSub       = $_GET['sub'] ?? "default";    
+
+    renderSomenteSubcategorias($fundos[$slugCategoria], $slugCategoria);
+
+    $telaAtual = ucfirst($slugCategoria);
+    $subAtual  = $slugSub !== "default" ? ucfirst($slugSub) : "";
+
+    if (isset($fundos[$slugCategoria][$slugSub])) {
+        $fundoAtual = $fundos[$slugCategoria][$slugSub];
+    } else {
+        $fundoAtual = $fundos[$slugCategoria]["default"];
+    }
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "associado";
     $login = false;
-
+        
 ?>
 
 <!DOCTYPE html>
@@ -35,15 +95,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="../../../public/css/PaginaCategorias.css">
-    <title>Perfumes</title>
+    <title><?php echo $telaAtual; ?></title>
 </head>
 <body>
 <?php
     echo createHeader($login,$tipo_usuario); // função que cria o header
     ?>
-    <div class="Topo">
+    <div class="Topo" style="background-image: url('<?php echo $fundoAtual; ?>')">
         <div class="tituloWrapper">
-            <h1 class="Titulo">Perfumes</h1>
+            <h1 class="Titulo">
+            <?php 
+                echo $telaAtual; 
+                if ($subAtual) echo " - " . $subAtual;
+            ?>
+            </h1>
         </div>
 
         <?php
@@ -56,7 +121,7 @@
         
         <div class="aVenda">
             <div class="PartedeCima">
-                <h3>Produtos</h3>
+                <h3 class="TituloProdutos">Produtos</h3>
 
                 <div class="filtroSeparado">
                     <button class="filtro-botao" type="button" onclick="toggleFiltro()">
