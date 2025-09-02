@@ -166,7 +166,7 @@ section
 section .wave
 {
     position: fixed;
-    right: 36%;
+    right: 35%;
     width: 100%;
     height: 100px;
     background: url(../imagens/ondas/ondaSolida.png);
