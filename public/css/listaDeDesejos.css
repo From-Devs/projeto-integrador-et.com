@@ -11,49 +11,11 @@ body{
     overflow-x: hidden;
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
-.degradeTopo, .degradeBaixo{
-    position: absolute;
-    height: 20px;
-    width: 100%;
-}
-
-.degradeTopo{
-    background-image: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
-    top: 0;
-    position: absolute;
-    z-index: 10;
-}
-
-.degradeBaixo{
-    background-image: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
-    bottom: 0;
-    position: absolute;
-    z-index: 10;
-}
-
-.sliderContainer{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .title-container{
     display: flex;
     margin-top: 150px;
     flex-direction: column;
     gap: 8px;
-}
-
-.line{
-    width: 50%;
-    border-bottom: black 2px solid;
 }
 
 .title{
@@ -67,7 +29,54 @@ body{
     text-align: center;
 }
 
-/*COLUNA COM PARA SELECIONAR TUDO*/
+.line{
+    width: 60%;
+    border-bottom: black 2px solid;
+}
+
+    /*RESPONSIVIDADE DO TITULO*/
+
+    @media (max-width: 1050px){
+        .title-container{
+            margin-top: 130px;
+        }
+        .title h1{
+            font-size: 34px;
+            font-weight: 350;
+        }
+        .line{
+            width: 65%;
+        }
+    }
+    @media (max-width: 992px){
+        .title-container{
+            margin-top: 100px;
+        }
+    }
+    @media (max-width: 750px){
+        .title h1{
+            font-size: 28px;
+            font-weight: 350;
+        }
+        .line{
+            width: 70%;
+        }
+    }
+    @media (max-width: 507px){
+        
+
+        .title-container{
+            margin-bottom: 20px;
+        }
+
+        .cont-legend{
+            display: none;
+        }
+    }
+
+
+
+/*ÁREA DE SELECIONAR TODOS OS CHECKBOXES*/
 
 .acoesWrapper{
     height: 65px;
@@ -161,15 +170,49 @@ input[type="checkbox"]:checked::before {
     background-color: black;
 }
 
+    /*RESPONSIVIDADE DA ÁREA DE SELECIONADOS*/
+            /*farei depois de fazer a responsividade dos componentes*/
 
-/*CONTAINER DE SCROOL*/
+
+
+
+/*ÁREA DO CONTAINER COM O CONTEÚDO DOS CARDS DA LISTA*/
+
+.container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.degradeTopo, .degradeBaixo{
+    position: absolute;
+    z-index: 10;
+    height: 20px;
+    width: 100%;
+}
+
+.degradeTopo{
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
+    top: 0;
+}
+
+.degradeBaixo{
+    background-image: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
+    bottom: 0;
+}
+
+.line2{
+    width: 75%;
+    border-bottom: black 3px solid;
+    margin-top: 100px;
+}
 
 .card-container{
     width: 100%;
     height: 70vh;
-    max-width: 1472px;
+    max-width: 1672px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 40px;
     overflow: auto;
     z-index: 1;
@@ -184,100 +227,52 @@ input[type="checkbox"]:checked::before {
     border-radius: 5px;
 }
 
+    /*RESPONSIVIADE DESSA ÁREA*/
+
+    /* @media (max-width: 1480px){
+        .card-container{
+            max-width: 1072px;
+        }
+    } */
+    
+    /*02*/
+    /* @media (max-width: 1080px){
+        .card-container{
+            max-width: 672px;
+            padding: 0 16px;
+        }
+    
+        .cardButtons{
+            margin-left: 10px;
+        }
+    } */
+    
+    /*03*/
+    @media (max-width: 680px){
+        .card-container{
+            padding: 0 10px;
+        }
+    
+        .cardButtons{
+            margin-right: 10px;
+        }
+    }
+    
+    /*04*/
+    @media (max-width: 410px){
+        .card-container{
+            max-width: 300px;
+        }
+    }
 
 
-.line2{
-    width: 75%;
-    border-bottom: black 3px solid;
-    margin-top: 100px;
-}
 
+/*ÁREA DE SUGESTÃO*/
 
-
-/* .cont-legend{
+.sliderContainer{
+    width: 100%;
     display: flex;
-    justify-content: center;
-    margin-top: 50px;
-}
-
-.cards-legend{
-    display: grid;
-    width: 1475px;
-    grid-template-columns: 100px 100px;
-    font-size: 18px;
-    gap: 120px;
-}
-
-.produto{
-    text-align: center;
-}
-
-.preco{
-    text-align: center;
-} */
-
-/*RESPONSIVIDADE DA LEGENDA (PRODUTOS) E (PRECO)*/
-
-/* @media (max-width: 1480px){
-    .cards-legend{
-        display: grid;
-        width: 1072px;
-        grid-template-columns: 100px 100px;
-        font-size: 18px;
-        gap: 70px;
-    }
-
-}
-
-@media (max-width: 1080px){
-    .cards-legend{
-        display: grid;
-        width: 672px;
-        grid-template-columns: 50px 50px;
-        font-size: 16px;
-        gap: 55px;
-    }
-}   
-
-@media (max-width: 680px){
-    .cont-legend{
-        padding-left: 10px;
-        justify-content: flex-start;
-    }
-    .cards-legend{
-        display: grid;
-        width: 400px;
-        grid-template-columns: 50px 50px;
-        font-size: 14px;
-        gap: 35px;
-    }
-}   */
-
-
-/* Outra página, cards da lista */
-
-
-
-/*RESPONSIVIDADE DO TITULO*/
-
-@media (max-width: 992px){
-    .title-container{
-        margin-top: 100px;
-    }
-}
-@media (max-width: 507px){
-    .title h1{
-        font-size: 28px;
-        font-weight: 350;
-        text-align: center;
-    }
-
-    .title-container{
-        margin-bottom: 20px;
-    }
-
-    .cont-legend{
-        display: none;
-    }
+    flex-direction: column;
+    align-items: center;
 }
 

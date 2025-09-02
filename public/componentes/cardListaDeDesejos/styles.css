@@ -1,5 +1,4 @@
 /*ESTILIZAÇÃO DOS CARDS*/
-/*CARD 01*/
 
 .cardDesejos:first-child{
     margin-top: 20px;
@@ -10,16 +9,26 @@
 }
 
 .cardDesejos{
+    width: 86%;
+    height: 122.19px;
+    background-color: brown;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+/* .cardDesejos{
     display: grid;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     grid-template-columns: 40px 70vw;
     height: 122.19px;
-}
+} */
 
 .cardDesejos .checkboxes{
     display: flex;
+    padding-right: 20px;
 }
 
 .cardDesejos .checkboxes input[type="checkbox"] {
@@ -31,7 +40,7 @@
 
 .cardDesejos .cardColorido{
     display: grid;
-    grid-template-columns: 180px 200px 450px 300px 180px;
+    grid-template-columns: 190px 180px 480px 300px 230px;
     align-items: center;
     height: 122.19px;
     border-radius: 10px;
@@ -39,10 +48,64 @@
     border-radius: 35px;
 }
 
+    /*RESPONSIVIDADE DESSA ÁREA GERAL DO CARD*/
+
+    @media (max-width: 1665px){
+        .cardDesejos .checkboxes{
+            padding-right: 20px;
+        }
+        .cardDesejos .cardColorido{
+            grid-template-columns: 170px 160px 460px 280px 210px;
+        }
+    }
+    @media (max-width: 1550px){
+        .cardDesejos .cardColorido{
+            grid-template-columns: 150px 140px 440px 260px 190px;
+        }
+    }
+    @media (max-width: 1440px){
+        .cardDesejos .cardColorido{
+            grid-template-columns: 130px 120px 420px 240px 170px;
+        }
+    }
+    @media (max-width: 1330px){
+        .cardDesejos .cardColorido{
+            grid-template-columns: 110px 100px 400px 220px 150px;
+        }
+    }
+    @media (max-width: 1220px){
+        .cardDesejos{
+            height: 115px;
+        }
+        .cardDesejos .cardColorido{
+            grid-template-columns: 90px 140px 360px 170px 130px;
+            height: 115px;
+        }
+    }
+    @media (max-width: 1110px){
+        .cardDesejos .cardColorido{
+            grid-template-columns: 80px 110px 320px 160px 100px;
+        }
+    }
+    @media (max-width: 980px){
+        .cardDesejos .cardColorido{
+            grid-template-columns: 70px 120px 300px 120px 90px;
+        }
+    }
+    @media (max-width: 880px){
+        .cardDesejos .cardColorido{
+            grid-template-columns: 70px 100px 260px 100px 90px;
+        }
+    }
+
+
+/*ÁREA INTERNA DO CARD*/
+
 .cardColorido .cardImg{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 15px 0 30px;
 }
 
 .cardColorido .cardImg img{
@@ -55,6 +118,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 15px;
 }
 
 .cardColorido .cardPrecoArea .cardPreco{
@@ -77,6 +141,8 @@
 
 .cardColorido .cardInfo{
     font-size: 17px;
+    padding: 0 15px;
+    text-align: center;
     margin: auto;
     justify-content: center;
     overflow-wrap: break-word;
@@ -85,6 +151,7 @@
 
 .cardColorido .cardDate{
     font-size: 17px;
+    padding: 0 15px;
     justify-content: center;
     margin: auto;
 }
@@ -95,6 +162,7 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+    padding: 0 30px 0 15px;
 }
 
 .cardColorido .buttonsListaDesejos .buttonCarrinho,
@@ -104,54 +172,102 @@
     font-size: 30px;
 }
 
-
-
-
-/*RESPONSIVIDADE GERAL*/
-
-/*01*/
-@media (max-width: 1480px){
-    .card-container{
-        max-width: 1072px;
+    /*RESPONSIVIDADE GERAL*/
+    @media (max-width: 1550px){
+        .cardColorido .cardPrecoArea .cardPreco,
+        .cardColorido .cardPrecoArea .precoNovo{
+            font-size: 17px;
+        }
+        .cardColorido .cardPrecoArea .precoAntigo{
+            font-size: 14px;
+        }
+        .cardColorido .cardInfo,
+        .cardColorido .cardDate{
+            font-size: 16px;
+        }
+        .cardColorido .buttonsListaDesejos .buttonCarrinho,
+        .cardColorido .buttonsListaDesejos .buttonLixeira{
+            font-size: 27px;
+        }
     }
-}
-
-/*02*/
-@media (max-width: 1080px){
-    .card-container{
-        max-width: 672px;
-        padding: 0 16px;
+    @media (max-width: 1330px){
+        .cardColorido .cardImg{
+            padding: 0 15px 0 35px;
+        }
+        .cardColorido .cardImg img{
+            height: 100px;
+        }
+        .cardColorido .cardPrecoArea .precoAntigo{
+            font-size: 13px;
+        }
+        .cardColorido .cardPrecoArea .cardPreco,
+        .cardColorido .cardPrecoArea .precoNovo,
+        .cardColorido .cardInfo,
+        .cardColorido .cardDate{
+            font-size: 15px;
+        }
+        .cardColorido .buttonsListaDesejos{
+            gap: 15px;
+        }
+        .cardColorido .buttonsListaDesejos .buttonCarrinho,
+        .cardColorido .buttonsListaDesejos .buttonLixeira{
+            font-size: 24px;
+        }
+    }
+    @media(max-width:1220px){
+        .cardColorido .cardImg img{
+            height: 90px;
+        }
+        .cardColorido .cardPrecoArea{
+            padding-left: 25px;
+        }
+        .cardColorido .cardPrecoArea .cardPreco,
+        .cardColorido .cardPrecoArea .precoNovo,
+        .cardColorido .cardInfo,
+        .cardColorido .cardDate{
+            font-size: 14px;
+        }
+        .cardColorido .buttonsListaDesejos .buttonCarrinho,
+        .cardColorido .buttonsListaDesejos .buttonLixeira{
+            font-size: 22px;
+        }
+    }
+    @media (max-width:1110px){
+        .cardColorido .cardImg{
+            padding: 0 15px 0 40px;
+        }
+        .cardColorido .buttonsListaDesejos{
+            padding: 0 40px 0 15px;
+            gap: 10px;
+        }
+    }
+    @media (max-width: 980px){
+        .cardColorido .cardImg{
+            padding: 0 25px 0 45px;
+        }
+        .cardColorido .cardImg img{
+            height: 85px;
+        }
+        .cardColorido .cardPrecoArea .precoAntigo{
+            font-size: 12px;
+        }
+        .cardColorido .cardPrecoArea .cardPreco,
+        .cardColorido .cardPrecoArea .precoNovo,
+        .cardColorido .cardInfo,
+        .cardColorido .cardDate{
+            font-size: 13px;
+        }
     }
 
-    .cardButtons{
-        margin-left: 10px;
-    }
-}
 
-/*03*/
-@media (max-width: 680px){
-    .card-container{
-        padding: 0 10px;
-    }
 
-    .cardButtons{
-        margin-right: 10px;
-    }
-}
-
-/*04*/
-@media (max-width: 410px){
-    .card-container{
-        max-width: 300px;
-    }
-}
 
 
 /*RESPONSIVIDADE CARDS*/
 /*02*/
 @media (max-width: 1080px){
     /*card01*/
-    .cardDesejos{
+    /* .cardDesejos{
         display: grid;
         grid-template-columns: 95px auto auto auto auto;
         border-radius: 10px;
@@ -169,7 +285,7 @@
     
     .cardDate{
         font-size: 14px;
-    }
+    } */
 
 }
 

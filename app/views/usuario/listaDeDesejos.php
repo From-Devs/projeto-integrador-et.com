@@ -151,11 +151,11 @@
                         echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
                         echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
                         echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                        echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                        echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffee", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
                         echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
                         echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
                         echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "72543A", "#E4B186");
-                        echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                        echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffee", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
 
                         ?>
                     </div>
