@@ -1,6 +1,8 @@
 <?php
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";  //importar rodapé
+    require_once __DIR__ . '/../../../config/PedidoController.php';
+    require_once __DIR__ . '/../../../public/componentes/cardpedido/cardPedido.php';
 
     require_once "/xampp/htdocs/projeto-integrador-et.com/public/componentes/botao/botao.php";
     require_once "/xampp/htdocs/projeto-integrador-et.com/public/componentes/popUp/popUp.php";
@@ -9,6 +11,13 @@
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente'; // Descomente essa parte para tipo do usuario = Usuário
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado"; // Descomente essa parte para tipo do usuario = Associado
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+
+    $id_usuario = 2;
+
+    $pedidoController = new PedidoController();
+    $pedidos = $pedidoController->ListarPedidosAgrupados($id_usuario);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -35,26 +44,55 @@
     <?php
         echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
+   <div class="conteudoMeusPedidos">
+    <!-- Parte Superior da Página -->
+    <div class="areaSuperiorMP">
+        <h1 class="tituloPrincipalMP">MEUS PEDIDOS</h1>
+        <div class="linhaSuperiorTituloMP"></div>
+    </div>
 
-    <div class="conteudoMeusPedidos">
-            <!-- Parte Superior da Página -->
-        <div class="areaSuperiorMP">
-            <h1 class="tituloPrincipalMP">MEUS PEDIDOS</h1>
-            <div class="linhaSuperiorTituloMP"></div>
+    <!-- Pedidos em andamento -->
+    <section class="pedidoAndamentoMP">
+        <h2 class="tituloAndamentoMP">Em Andamento</h2>
+        <div id="produtosAndamento">
+            <?php if (!$pedidos): ?>
+                <p class="aviso">Você ainda não possui pedidos.</p>
+            <?php else: ?>
+                <?php foreach ($pedidos as $pedido): ?>
+                    <?php if ($pedido['tipoStatus'] !== 'Finalizado'): ?>
+                        <?php renderCardPedido($pedido); ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
+    </section>
 
-            <!-- Parte de Pedidos que estão a caminho -->
-        <section class="pedidoAndamentoMP">
-            <h2 class="tituloAndamentoMP">Em Andamento</h2>
-            <div id="produtosAndamento"></div> <!-- Parte do JavaScript-->
-        </section>
+    <!-- Pedidos finalizados -->
+    <section class="pedidosFinalizadosMP">
+        <h2 class="tituloFinalizadoMP">Finalizado</h2>
+        <div id="produtosFinalizados">
+            <?php foreach ($pedidos as $pedido): ?>
+                <?php if ($pedido['tipoStatus'] === 'Finalizado'): ?>
+                    <?php foreach ($pedido['itens'] as $item): ?>
+                        <div class="produtoMP">
+                            <img class="imagemProdutoMP" src="<?php echo $item['imagem']; ?>" alt="<?php echo $item['nome']; ?>">
+                            <div class="infoProdutoMP">
+                                <span class="nomeProdutoMP"><?php echo $item['nome']; ?></span>
+                                <span class="descricaoProdutoMP"><?php echo $item['descricaoBreve']; ?></span>
+                                <span class="qtdProdutoMP">Qtd: <?php echo $item['qntProduto']; ?></span>
+                                <span class="precoProdutoMP">R$ <?php echo number_format($item['preco'], 2, ',', '.'); ?></span>
+                                <span class="subtotalProdutoMP">Subtotal: R$ <?php echo number_format($item['subtotal'], 2, ',', '.'); ?></span>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=<?php echo $item['id_produto']; ?>" class="verMaisMP">Ver Mais</a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+    </section>
 
-            <!-- Parte de Pedidos que foram entregues -->
-        <section class="pedidosFinalizadosMP">
-            <h2 class="tituloFinalizadoMP">Finalizado</h2>
-            <div id="produtosFinalizados"></div> <!-- Parte do JavaScript -->
-
-        </section>
+    <div class="linhaInferiorMP"></div>
+</div>
 
             <!-- PopUp mostrando todos os pedidos efetuados na compra -->
         <dialog class="popupMP" id="popupMP">
@@ -62,8 +100,8 @@
                 <div class="popupMP-superior">
                     <div class="popupMP-linhasuperior"></div>
                     <div class='icone-fechar'>
-                        <button class='bx bx-x'></button>
-                    </div>
+                            <button class='bx bx-x'></button>
+                        </div>
                 </div>
                 <div class="popupMP-main">
                     <div class="popupMP-Produtos" id="popupMP-Produtos"></div>

@@ -5,7 +5,7 @@ class Database
     private static $host = "localhost";
     private static $username = "root";
     private static $password = ""; // sem espaço
-    private static $dbName = "et.com";
+    private static $dbName = "et_com";
 
     // função para conectar o banco de dados
     public function Connect(){

@@ -18,7 +18,7 @@
     <div class="container">
         <!-- ordem da função fotoDev 1° - imagem / 2° - linkGitHub / 3° - linkInstagram / 4° - linkLinkedin / 5° - nome -->
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/daniel.png","https://github.com/DanielPydev","https://www.instagram.com/dan_niel_008?igsh=aXE3bmxIMjEyejIt","https://www.linkedin.com/in/daniel-pr%C3%B3spero-de-figueiredo-47284a358/","Daniel Prospero") ?>
-        <?php echo fotoDev("./../../../public/imagens/fotoNossas/duda.png","https://github.com/Duda-Moreira","https://www.instagram.com/dudaa.txz","https://www.linkedin.com/in/maria-eduarda-moreira-6475752a8/","Maria Eduarda") ?>
+        <?php echo fotoDev("./../../../public/imagens/fotoNossas/duda.png","https://github.com/Duda-Moreira","https://www.instagram.com/dudaa.txz","https://www.linkedin.com/in/maria-eduarda-moreira-6475752a8/","Duda Moreira") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/eliel.png","https://github.com/ElielMurbach","https://www.instagram.com/lel.murbaxh","https://www.linkedin.com/in/eliel-murbach-86697a331","Eliel Murbach") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/evandro.png","https://github.com/evandroocm","https://www.instagram.com/evandroocm/","https://www.linkedin.com/in/evandrocmarques/","Evandro Marques") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/guilherme.png","","","","Guilherme Bergamo") ?>
@@ -28,7 +28,7 @@
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/nicolle.png","https://github.com/NicolleZaleski","https://www.instagram.com/nicolle.zaleski?igsh=ajB1dTJoZnI4azFj","https://www.linkedin.com/in/nicolle-zaleski-290578333/","Nicolle Zaleski") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/vinicius.png","https://github.com/Vini909","https://www.instagram.com/viniciuselionai?igsh=bzF4MmJtdmJ2NTdk","https://www.linkedin.com/in/vinicius-elionai-92ab79361?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app","Vinicius Elionai") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/robert.png","","","","Robert Fernandes") ?>
-        <?php echo fotoDev("./../../../public/imagens/fotoNossas/marcos.png","","","","Marcos Paulo") ?>
+        <?php echo fotoDev("./../../../public/imagens/fotoNossas/marcos.png","https://github.com/marcos4380","https://www.instagram.com/marcos.mp_2008","","Marcos Paulo") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/eduardo.png","https://github.com/eduardoserafiim","https://www.instagram.com/eduardoserafiim_","https://www.linkedin.com/in/eduardo-serafim-821649305/", "Eduardo Serafim") ?>
     </div>
 </body>
