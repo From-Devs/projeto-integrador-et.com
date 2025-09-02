@@ -1,4 +1,9 @@
 <?php
+    require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
+    require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
+    require __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
+    require __DIR__ . "/../../../public/componentes/cardListaDese/cardLista.php";
+    require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
     require_once __DIR__ . "/../../../config/ProdutoController.php";
     require_once __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
