@@ -3,6 +3,7 @@
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require_once __DIR__ . "/../../../router/UserRoutes.php";
     require_once __DIR__ . "/../../Controllers/UserController.php";
+    require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 
     $controller = new UserController(); 
     $user = $controller->getLoggedUser();
@@ -20,6 +21,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/header/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebar/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popUp/styles.css">
 
     <link rel="stylesheet" href="../../../public/css/editarEndereco.css">
 
@@ -29,7 +31,11 @@
 </head>
 <body>
     <?php
-    echo createHeader($login,$tipoUsuario); // função que cria o header 
+    echo createHeader($login,$tipoUsuario); // função que cria o header
+    $botao1 = botaoPersonalizadoOnClick("Não","btn-white",'fecharPopUp("confirmacao")',"90px","40px","20px");
+    $botao2 = botaoPersonalizadoRedirect("Sim","btn-green", "app/views/usuario/paginaPrincipal.php","90px","40px","20px");
+    echo PopUpConfirmar("confirmacao", "Deseja Salvar Endereço?", $botao1, $botao2, "300px", "white", "", "1.7rem");
+    echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmacao\")");
     ?>
 
     <main>
@@ -84,7 +90,7 @@
                             <i class='bx bx-trash'></i>
                         </button>
                     
-                        <button type="submit" class="saveButton btn-black">
+                        <button type="submit" class="saveButton btn-black" onclick='abrirPopUp("confirmacao")'>
                             <p class="editButtonText">Salvar alterações</p>
                             <i class='bx bx-edit'></i>
                         </button>
@@ -98,6 +104,7 @@
 
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
 
     <script>
         
