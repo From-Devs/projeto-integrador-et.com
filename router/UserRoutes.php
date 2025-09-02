@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../app/Controllers/UserController.php';
 session_start();
-$_SESSION['id_usuario'] = 24;
+$_SESSION['id_usuario'] = 26;
 
 $userController = new UserController();
 $responseCreate = null;
@@ -125,6 +125,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 } catch (Exception $e) {
                     $responseDelete = ["success" => false, "message" => "Erro ao deletar: " . $e->getMessage()];
                 }
+
+                header("Location: ../app/views/usuario/Login.php?sucesso=eliel_deletado");
+                exit;
             }
             break;
 
