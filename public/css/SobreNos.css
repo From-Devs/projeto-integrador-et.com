@@ -100,6 +100,21 @@ a
 	position: relative;
 	display: inline-block;
 	margin: 10px;
+	border-radius: 20px;
+	overflow: hidden;
+
+	border: 3px solid transparent;
+	background: 
+		linear-gradient(#111, #111) padding-box,
+		linear-gradient(135deg, #EC01A4, #00d9ff) border-box;
+
+	box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+	transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.image-container:hover {
+	transform: translateY(-8px) scale(1.03);
+	box-shadow: 0 0 30px rgba(124, 0, 165, 0.466);
 }
 
 /* IMAGEM QUE MOSTRA OS DEVS */
@@ -174,13 +189,13 @@ a
 
 @property --myColor1 {
 	syntax: '<color>';
-	initial-value: #3001ec;
+	initial-value: #EC01A4;
 	inherits: false;
   }
   
   @property --myColor2 {
 	syntax: '<color>';
-	initial-value: #5b00a5;
+	initial-value: #7D00A5;
 	inherits: false;
   }
   @property --myColor3 {
@@ -212,6 +227,6 @@ a
 
 #divisaoLinkagem:hover {
 	--myColor1: #000000;
-	--myColor2: #5b00a5;
-	--myColor3:#3001ec;
+	--myColor2: #7D00A5;
+	--myColor3:#EC01A4;
 }
