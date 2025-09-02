@@ -154,6 +154,86 @@ class Products {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function cadastrarProduto(
+        $nome, 
+        $marca, 
+        $breveDescricao, 
+        $preco, 
+        $precoPromocional, 
+        $caracteristicasCompleta, 
+        $qtdEstoque, 
+        $corPrincipal, 
+        $deg1, 
+        $deg2, 
+        $files
+    ) {
+        try {
+            $this->conn->beginTransaction();
+
+            // 1. Inserir na tabela cores
+            $sqlCores = "INSERT INTO cores(corPrincipal, hexDegrade1, hexDegrade2)
+                         VALUES(:corPrincipal, :hex1, :hex2)";
+            $db = $this->conn->prepare($sqlCores);
+            $db->bindParam(":corPrincipal", $corPrincipal);
+            $db->bindParam(":hex1", $deg1);
+            $db->bindParam(":hex2", $deg2);
+            $db->execute();
+
+            $idCores = $this->conn->lastInsertId();
+
+            // 2. Salvar imagens
+            $img1 = $this->salvarImagem("img1", $files);
+            $img2 = $this->salvarImagem("img2", $files);
+            $img3 = $this->salvarImagem("img3", $files);
+
+            // 3. Inserir produto
+            $sql = "INSERT INTO produto(
+                        nome, marca, descricaoBreve, descricaoTotal, 
+                        preco, precoPromo, qtdEstoque, 
+                        img1, img2, img3, 
+                        id_subCategoria, id_cores, id_associado
+                    ) VALUES(
+                        :nome, :marca, :descricaoBreve, :descricaoTotal,
+                        :preco, :precoPromo, :qtdEstoque,
+                        :img1, :img2, :img3,
+                        :idSubCategoria, :idCores, null
+                    )";
+
+            $db = $this->conn->prepare($sql);
+            $db->bindParam(":nome", $nome);
+            $db->bindParam(":marca", $marca);
+            $db->bindParam(":descricaoBreve", $breveDescricao);
+            $db->bindParam(":descricaoTotal", $caracteristicasCompleta);
+            $db->bindParam(":preco", $preco);
+            $db->bindParam(":precoPromo", $precoPromocional);
+            $db->bindParam(":qtdEstoque", $qtdEstoque);
+            $db->bindParam(":img1", $img1);
+            $db->bindParam(":img2", $img2);
+            $db->bindParam(":img3", $img3);
+
+            // ⚠️ IMPORTANTE: Subcategoria vem do formulário
+            $idSubCategoria = $_POST["subCategoria"] ?? null;
+            $db->bindParam(":idSubCategoria", $idSubCategoria);
+
+            $db->bindParam(":idCores", $idCores);
+
+            $resposta = $db->execute();
+
+            if ($resposta) {
+                $this->conn->commit();
+                return true;
+            } else {
+                $this->conn->rollBack();
+                return false;
+            }
+
+        } catch (\Throwable $th) {
+            $this->conn->rollBack();
+            echo "Erro ao cadastrar produto: " . $th->getMessage();
+            return false;
+        }
+    }
+
     public function create($data){
         // Se não houver imagem, define padrão
         if(empty($data['imagem'])){

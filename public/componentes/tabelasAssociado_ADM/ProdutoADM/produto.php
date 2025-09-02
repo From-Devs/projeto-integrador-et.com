@@ -1,10 +1,10 @@
 <?php
     require_once __DIR__."/../../popup/popUp.php";
     require_once __DIR__."/../../botao/botao.php";
-    require_once __DIR__ . "/../../../../app/Controllers/ProdutoController.php";
-    $produtoController = new ProdutoController();
+    require_once __DIR__ . "/../../../../app/Models/products.php";
+    $products = new Products();
 
-    $subCategorias = $produtoController->CapturarSubCategorias();
+    $subCategorias = $products->getAllSubcategorias();
 
     function tabelaProdutoAdm($produtos){
         ?>
@@ -211,14 +211,14 @@ function tabelaProduto($produtos) {
                 </div>
                 </div>  
                 </div>
-                <div>
+                <div class="container-campos-large">
                     <div class="campo campo-large">
-                        <label>Características Completa:</label>
-                        <textarea cols="30" rows="10"></textarea>
+                        <label>Características Completa: *</label>
+                        <textarea cols="30" rows="10" name="caracteristicasCompleta"></textarea>
                     </div>
-                </div>
-                <div class="div-btn">
-                    <button class="btn-concluir-edicao" type="submit">Concluír edição</button>
+                    <div class="div-btn">
+                        <button class="btn-concluir-edicao" type="submit">Concluír edição</button>
+                    </div>
                 </div>
             </form>
         </dialog>

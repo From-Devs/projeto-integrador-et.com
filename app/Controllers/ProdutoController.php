@@ -1,14 +1,12 @@
 <?php
-require_once __DIR__ . "/../../config/database.php";
+require_once __DIR__ . "/../Models/Products.php";
 
-class ProdutoController{
+class ProdutoController {
 
-    private $conn;
+    private $produtoModel;
 
-    public function __construct(){
-        $banco = new Database();
-
-        $this->conn = $banco->Connect();
+    public function __construct() {
+        $this->produtoModel = new Products();
     }
 
     public function RemoverProduto($id){
@@ -21,6 +19,10 @@ class ProdutoController{
 
     public function buscarTodosProdutos(){
         return $this->produtoModel->buscarTodosProdutos();
+    }
+
+    public function capturarSubCategorias() {
+        return $this->produtoModel->getAllSubcategorias();
     }
 
     public function cadastrarProduto(

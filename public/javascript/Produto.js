@@ -27,7 +27,6 @@ function buscarAtributosDoProduto(idProduto) {
             if (data[0].img1) document.getElementById("img-editar1").src = "/projeto-integrador-et.com/" + data[0].img1;
             if (data[0].img2) document.getElementById("img-editar2").src = "/projeto-integrador-et.com/" + data[0].img2;
             if (data[0].img3) document.getElementById("img-editar3").src = "/projeto-integrador-et.com/" + data[0].img3;
-
         })
         .catch(err => console.error(err));
 }
