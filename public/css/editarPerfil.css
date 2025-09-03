@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 *{
-    margin: 0;
     padding: 0;
+    margin: 0;
     font-family: "Montserrat", sans-serif;
 }
 
@@ -10,32 +10,17 @@ body {
     background: #f8f8f8;
 }
 
-.back-button {
-    position: absolute;
-    left: 20px;
-    font-size: 28px;
-    color: black;
-    cursor: pointer;
+main{
+    padding-top: 150px;
+    height: 100vh;
+    box-sizing: border-box;
 }
 
-.editarPerfilTitulo {
-    margin-top: 150px;
-    padding-left: 100px;
+.tituloEditarConta {
     text-align: center;
     margin-bottom: 8px;
-    width: 90%;
     font-size: 38px;
     font-weight: 300;
-}
-
-#agua p{
-    margin: 15px 0px;
-}
-
-h3{
-    margin-left: 20px;
-    margin-top: 18px;
-    margin-bottom: 18px;
 }
 
 .line-out{
@@ -44,81 +29,352 @@ h3{
     margin-bottom: 50px;
 } .line{
     background-color: black;
-    width: 1350px;
+    width: 70%;
     height: 1px;
 }
 
-section.container{
+.dadosUsuarioForm{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 22px;
+    height: 100%;
+    flex: 1;
+    justify-content: space-between;
+    padding: 24px;
+    padding-left: 50px;
 }
 
-.container {
-
-    justify-content: center;
-    padding: 20px;
-}
-
-.profile-section {
-    background: white;
-    border-radius: 20px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+.profileIconEditContainer{
     display: flex;
-    justify-content: center;
-    gap: 26px;
-    padding: 20px;
-    height: 500px;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 56px;
+    position: relative;
 }
 
-.profile-pic {
-    width: 176px;
+.profileIconEditContainer h1{
+    position: absolute;
+    font-size: 18px;
+    width: max-content;
+    top: -40px;
+}
+
+.profileIconEditContainer input{
+    display: none;
+}
+
+.profileIconWrapper{
+    position: relative;
+}
+
+.profileIconWrapper label{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 48px;
+    width: 48px;
     border-radius: 50%;
-    border: 3px solid #ccc;
-    margin-left: 40px;
-    margin-top: 75px;
-}
-
-.camera-icon i {
-    margin-bottom: 20px;
-    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    font-size: 32px;
     cursor: pointer;
 }
 
-.content-nameUser, .content-email {
+.profileIconWrapper i{
     display: flex;
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* justify-content: center; */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
 
-    p, span{
+.profile-pic {
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+    border: 3px solid #000000;
+}
+
+.dadosUsuarioFormInputs p {
+    margin-bottom: 8px;
+}
+
+.dadosUsuarioFormInputs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 36px;
+    column-gap: 32px;
+    margin-top: 26px;
+}
+
+.dadosAcoesContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 8px;
+}
+
+.dadosAcoesContainer a{
+    text-decoration: none;
+}
+
+.conta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+    padding: 20px 15%;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.editProfileContainer{
+    text-decoration: none;
+}
+
+.saveButton, .cancelEditButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 19px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s;
+    padding: 8px 10px;
+    border: 0;
+    color: #ffffff;
+
+    i {
+        font-size: 22px;
         display: flex;
-        font-size: 15px;
+        justify-content: center;
         align-items: center;
-        padding-left: 10px;
     }
 }
 
-.options{
-    display: flex;
-    flex-direction: column;
-    margin: 0px 200px 0px 100px;
+.saveButton:hover, .cancelEditButton:hover{
+    transform: scale(1.05);
 }
 
-.options label {
-    font-size: 14px;
-    font-weight: bold;
-    color: #555;
-    margin: 50px 0px 0px 20px
+.editButtonText{
+    padding-right: 8px;
+    color: rgb(255, 255, 255);
 }
 
+.formControl {
+    position: relative;
+}
 
+.formControl label{
+    position: absolute;
+    top: 8px;
+    left: 0;
+    color: black;
+    transition: 0.2s ease-in-out;
+    font-size: 20px;
+    font-weight: 700;
+    pointer-events: none;
+}
 
-.options input {
-    width: 600px;
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
+.formInput{
+    width: 100%;
+    height: 34px;
+    padding: 5px;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 18px;
+    color: black;
+    transition: 0.5s ease-in-out;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+.formControl .formInput:focus + label,
+.formControl .formInput:valid + label {
+    top: -15px;
+    font-size: 16px;
+    color: black;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
+}
+
+.opcoes-conta {
+    display: grid;
+    width: 100%;
+    row-gap: 10px;
+    column-gap: 10px;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+
+    & a{
+        text-decoration: none;
+        color: black;
+    }
+}  
+
+.option-card {
+    box-sizing: border-box;
+    background: white;
+    padding: 20px;
+    flex: 1;
+    height: 135px;
     border-radius: 15px;
-    font-size: 14px;
-    box-shadow: rgb(129, 129, 129) 0px 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.option-card:hover {
+    background-color: #e9e9e9;
+    cursor: pointer;
+}
+
+.optionCardDesc{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.option-card .icon i {
+    font-size: 48px;
+    color: #000000;
+    padding: 0 24px 0 16px;
+}
+
+.option-card p{
+    margin-top: 16px;
+}
+
+.option-card .iconeSeta{
+    font-size: 48px;
+}
+
+@media (max-width: 1200px){ /*Computador*/
+    main{
+        padding-top: 120px;
+    }
+
+    .dadosUsuarioFormInputs{
+        grid-template-columns: 1fr;
+    }
+
+    .conta-container {
+        padding: 20px 10%;
+    }
+
+    .dadosUsuario{
+        padding-left: 32px;
+    }
+
+    .profile-pic {
+        margin-left: 0;
+    }
+
+    .line-out{
+        margin-bottom: 24px;
+    }
+
+    .formControl label{
+        font-size: 18px;
+    }
+
+}
+
+@media (max-width: 992px){ /*Computador*/
+    .opcoes-conta {
+    display: grid;
+    width: 100%;
+    row-gap: 10px;
+    column-gap: 10px;
+    gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    & a{
+        text-decoration: none;
+        color: black;
+    }
+}  
+}
+
+@media (max-width: 768px){ /*Celular Paisagem*/
+    main{
+        padding-top: 100px;
+    }
+
+    .profile-card {
+        flex-direction: column;
+    }
+
+    .dadosUsuarioForm{
+        box-sizing: border-box;
+        padding: 24px;
+        width: 100%;
+    }
+
+    .profile-pic {
+        margin-left: 0;
+        margin-top: 52px;
+    }
+
+    .profileIconEditContainer {
+        margin-left: 0;
+    }
+
+    .profileIconEditContainer h1 {
+        top: 20px;
+    }
+}
+
+@media (max-width: 576px){ /*Celular Vertical*/
+    .conta-container {
+        padding: 20px 6%;
+    }
+
+    .dadosAcoesContainer{
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .edit-profile-button, .delete-profile-button{ 
+        flex: 1;
+    }
+
+    .edit-profile-container{
+        display: flex;
+        flex: 1;
+    }
+
+    .option-card{
+        height: auto;
+    }
+
+    .option-card p {
+        display: none;
+    }
 }

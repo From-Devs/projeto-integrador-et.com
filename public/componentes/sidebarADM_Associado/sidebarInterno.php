@@ -104,7 +104,7 @@ require_once __DIR__ . "/../botao/botao.php";
         }
     }
     function createSidebarInterna($tipo_usuario){
-        $btnSim = botaoPersonalizadoRedirect('Sim','btn-white','et_pontocom/app/views/usuario/paginaPrincipal.php','60px', '30px');
+        $btnSim = botaoPersonalizadoRedirect('Sim','btn-white','app/views/usuario/paginaPrincipal.php','60px', '30px');
         $btnNao = botaoPersonalizadoOnClick('Não', 'btn-white', 'fecharPopUp("popupSair")','60px', '30px');
         return "
                 <div class='menu-toggle' id='menu-toggle'>

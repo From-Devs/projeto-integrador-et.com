@@ -5,8 +5,52 @@ require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sideba
 include __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/ProdutoADM/produto.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
 require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
+require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
 
-session_start();
+function verificaELimpaQueryString(){
+    if (isset($_GET['status']) && $_GET['status'] === 'sucesso') {
+        if(isset($_GET['acao']) && $_GET['acao'] === 'CadastrarProduto'){
+            echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    abrirPopUp('popUpCadastro');
+                    // Remove ?status=sucesso da URL
+                    if (window.history.replaceState) {
+                        const urlSemParametro = window.location.origin + window.location.pathname;
+                        window.history.replaceState({}, document.title, urlSemParametro);
+                    }
+                });
+            </script>";    
+        }else{
+            echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    abrirPopUp('popUpSalvar');
+                    // Remove ?status=sucesso da URL
+                    if (window.history.replaceState) {
+                        const urlSemParametro = window.location.origin + window.location.pathname;
+                        window.history.replaceState({}, document.title, urlSemParametro);
+                    }
+                });
+            </script>";
+        }
+    }else if(isset($_GET['status']) && $_GET['status'] === 'erro'){
+        if(isset($_GET['acao']) && $_GET['acao'] === 'CadastrarProduto'){
+            echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    abrirPopUp('popUpErro');
+                    // Remove ?status=sucesso da URL
+                    if (window.history.replaceState) {
+                        const urlSemParametro = window.location.origin + window.location.pathname;
+                        window.history.replaceState({}, document.title, urlSemParametro);
+                    }
+                });
+            </script>";
+        }
+    }
+}
+
+verificaELimpaQueryString();
+
+    // // session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 ?>
 
@@ -23,6 +67,7 @@ session_start();
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/contaADM_Associado/styles.css"> 
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/AssociadoGeral.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/FiltrosADMeAssociados/filtros.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/paginacao/paginacao.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
@@ -37,7 +82,7 @@ session_start();
     <div class="main">
         <div id="container">
 
-            <?php echo filtro("Filtro", ["ID", "Preço", "Data"])?>
+            <?php echo filtro("produto", ["ID", "Preço", "Data"]);?>
         
             <!--cards relatorios-->
             <div class="listaContainer">
@@ -62,7 +107,12 @@ session_start();
                         ['id' => 14, 'nome' => 'Creme para Mãos', 'estoque' => 55, 'custo' => 5.00, 'preco' => 14.90, 'pedidos' => 210, 'sku' => 'LKJ34DFS'],
                         ['id' => 15, 'nome' => 'Máscara Facial', 'estoque' => 60, 'custo' => 6.00, 'preco' => 15.90, 'pedidos' => 150, 'sku' => 'SDF234DF']
                     ];
-                    tabelaProduto($produtos);
+
+                    $resultado = paginar($produtos, 7);
+
+                    tabelaProduto($resultado['dados']);
+
+                    renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
                 ?>
             </div>
         </div>

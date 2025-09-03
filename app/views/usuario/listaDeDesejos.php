@@ -1,26 +1,33 @@
 <?php
-// Inclui os arquivos necessários para o funcionamento da página.
-// Mantive todos os requires no início para melhor organização.
-require_once __DIR__ . "/../../../config/ProdutoController.php";
-require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
-require_once __DIR__ . "/../../../public/componentes/header/header.php";
-require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
-require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
-require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
+    require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
+    require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
+    require __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
+    require __DIR__ . "/../../../public/componentes/cardListaDese/cardLista.php";
+    require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
-session_start();
-// Define o tipo de usuário e o estado de login com base na sessão.
-$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
-$login = !empty($_SESSION['id_usuario']); // Uma forma mais confiável de verificar o login
+    require_once __DIR__ . "/../../../config/ProdutoController.php";
+    require_once __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
+    require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
+    require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
+    require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require_once __DIR__ . "/../../../public/componentes/cardListaDeDesejos/cardListaDeDesejos.php";
+    require_once __DIR__ . "/../../../config/database.php";
+    require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
-// Cria uma instância do controlador para buscar os produtos favoritos.
-$controller = new ProdutoController();
-$favoritos = $controller->ListarFavoritos();
+    session_start();
+    $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";             // Define o tipo de usuário e o estado de login com base na sessão.
+    $login = !empty($_SESSION['id_usuario']); // Uma forma mais confiável de verificar o login
+
+    // Cria uma instância do controlador para buscar os produtos favoritos.
+    // $controller = new ProdutoController();
+    // $favoritos = $controller->ListarFavoritos();
 
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,6 +40,7 @@ $favoritos = $controller->ListarFavoritos();
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebar/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/cardProduto/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/cardListaDeDesejos/styles.css">
 
     <!-- Fontes e ícones -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -55,15 +63,23 @@ $favoritos = $controller->ListarFavoritos();
         <center><div class="line"></div></center>
     </div>
 
-    <div class="cont-legend">
-        <div class="cards-legend">
-            <div class="produto">
-                <p><strong>Produto</strong></p>
+   
+    <div class="acoesWrapper">
+        <div class="acoesSelecionados" id="acoesSelecionados" style="display:none;">
+            <div class="inputCheck">
+                <input type="checkbox" id="selecionarTodos"> 
+                <label>Selecionar todos</label>
             </div>
-            <div class="preco">
-                <p><strong>Preço</strong></p>
+            <div class="btnCheck">
+                <button id="adicionarCarrinho">Adicionar ao Carrinho
+                    <!-- <i class='fa-solid fa-cart-shopping'></i> -->
+                </button>
+                <button id="excluirSelecionados"> Excluir
+                    <!-- <i class='fa-solid fa-trash-can'></i> -->
+                </button>
             </div>
         </div>
+
     </div>
 
     <div class="container">
@@ -106,6 +122,22 @@ $favoritos = $controller->ListarFavoritos();
             } else {
                 echo "<p style='text-align: center; margin-top: 2rem;'>Sua lista de desejos está vazia.</p>";
             }
+
+            <?php 
+                echo createCardListaDeDesejos(1,"bt-ovni.png",48.68,"Bruna Tavares", "BT Ovni Galaxy","08/07/2025", "rgba(28, 30, 37, 0.712)","rgb(217,234,37)", "rgb(221, 235, 67)");
+                echo createCardListaDeDesejos(2,"superstay-ink-vinyl.png",99.51,"Maybelline", "Superstay Vinyl Ink Liquid Lipstick","08/07/2025", "rgb(160, 1, 27)","rgb(199, 43, 69)", "rgb(211, 112, 128)");
+                echo createCardListaDeDesejos(3,"base-liquida-matte-vult.png",23.87,"Vult", "Base Líquida Efeito Matte","08/07/2025", "rgb(197, 153, 114)","rgb(231,187,148)", "rgb(241, 204, 171)");
+                echo createCardListaDeDesejos(4,"bt-velvet-blackberry.png",35.89,"Bruna Tavares", "BT Velvet Blackberry","08/07/2025", "rgb(58, 9, 13)","rgb(112, 37, 42)", "rgb(179, 110, 116)");
+                echo createCardListaDeDesejos(5,"renew-avon.png",75.90,"Avon", "Creme Renew Reversalist Dia Vitalidade 30+","08/07/2025", "rgb(143, 43, 41)","rgb(182, 78, 76)", "rgb(196, 117, 116)");
+                echo createCardListaDeDesejos(6,"bodysplash-cuide-se-bem.png",84.90,"O Boticário", "Body Splash Cuide-se Bem Nuvem","08/07/2025", "rgb(139, 198, 206)","rgb(176, 237, 247)", "rgb(205, 245, 250)");
+                echo createCardListaDeDesejos(7,"epidrat-mantecorp-facial.png",66.60,"Mantecorp", "Epidrat Calm Hidratante","08/07/2025", "rgb(81,74,108)","rgb(149, 140, 185)", "rgb(163, 156, 189)");
+                echo createCardListaDeDesejos(8,"hidratante-nivea.png",20.99,"Nivea", "Creme Hidratante Milk","08/07/2025", "rgb(15, 44, 122)","rgb(70, 100, 182)", "rgb(117, 138, 194)");
+                echo createCardListaDeDesejos(9,"Malbec_Colonia.png",169.00,"O Boticário", "Malbec Tradicional","08/07/2025", "rgb(65, 16, 16)","rgb(102, 56, 48)", "rgb(122, 92, 85)");
+                echo createCardListaDeDesejos(10,"pincel-marimaria.png",95.90,"Mari Maria Makeup", "Pincel Angular Para Base","08/07/2025", "rgb(187, 49, 1)","rgb(232, 104, 63)", "rgb(235, 149, 120)");
+                echo createCardListaDeDesejos(11,"esponja-mari-maria.png",35.90,"Mari Maria Makeup", "Esponja Flat Blende","08/07/2025", "rgb(241, 93, 10)","rgb(243, 130, 64)", "rgb(248, 180, 140)");
+                echo createCardListaDeDesejos(12,"truss_net_masc.png",269.99,"Truss", "Net Mask Máscara Capilar","08/07/2025", "rgb(0, 150, 177)","rgb(66, 203, 228)", "rgb(141, 221, 235)");
+                echo createCardListaDeDesejos(13,"amor-amor-perfume-feminino.png",405.30,"Cacharel", "AMOR AMOR","08/07/2025", "rgb(206, 21, 21)","rgb(247, 53, 53)", "rgb(255, 255, 255)");
+
             ?>
         </div>
     </div>
@@ -133,6 +165,7 @@ $favoritos = $controller->ListarFavoritos();
                         echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
                         echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", false, "R$30,00", "#DBA980", "72543A", "#E4B186");
                         echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+
                         ?>
                     </div>
                 </div>
@@ -213,6 +246,12 @@ $favoritos = $controller->ListarFavoritos();
         document.body.appendChild(form);
         form.submit();
     }
+
+    
     </script>
+    <script src="/projeto-integrador-et.com/public/javascript/listaDeDesejos.js"></script>
+    
+    
+
 </body>
 </html>

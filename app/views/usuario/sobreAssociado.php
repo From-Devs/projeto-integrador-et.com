@@ -4,7 +4,7 @@
     require __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
-    session_start();
+    // session_start();
     // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipo_usuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
@@ -67,10 +67,25 @@
 
         <div class="card">
             <div class="card-box">
-                <img src="/projeto-integrador-et.com/public/imagens/sobreAssociado/imgCard01.png" alt="">
-                <a href="/projeto-integrador-et.com/app/views/usuario/CadastroAssociado.php">
+                <div class="fundo">
+
+                </div>
+
+                <div class="logo">
+                    <img src="/projeto-integrador-et.com/public/imagens/sobreAssociado/Logo01.png" alt="">
+                </div>
+
+                <div class="info">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+
+                <div class="line">
+                    <div></div>
+                </div>
+
+                <div class="button">
                     <button>Associar-se</button>
-                </a>
+                </div>
             </div>
         </div>
     </div>

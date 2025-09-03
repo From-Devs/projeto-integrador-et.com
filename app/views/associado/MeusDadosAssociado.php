@@ -6,7 +6,7 @@ require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require __DIR__ . "/../../../public/componentes/componentesADM_Associado/componentesADM_Associado.php";
 
-session_start();
+// session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 ?>
 

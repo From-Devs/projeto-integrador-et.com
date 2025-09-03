@@ -1,8 +1,7 @@
 #lista 
 {
     width: 97%;
-    margin-top: 15px;
-    margin-bottom: 0px;
+    margin: 15px 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     background-color: #fff;
     border-radius: 15px;
@@ -39,7 +38,7 @@ th {
 
 td 
 {
-    padding: 2%;
+    /* padding: 2%; */
     font-size: 20px;
     font-weight: bold;
 }
@@ -65,10 +64,18 @@ td
 
 .acoes-tabela{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10px;
 }
 
 .excluir img, .editar img{
     cursor: pointer;
     width: 30px;
+}
+
+@media (max-width: 800px) {
+    td 
+    {
+        padding: 2% 0px;
+    }
 }

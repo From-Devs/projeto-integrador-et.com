@@ -1,69 +1,67 @@
 <?php
 require_once __DIR__ . '/../Models/User.php';
 
-
 class UserController {
-    private $userModel;
-
+    private $model;
+    
     public function __construct() {
-        $this->userModel = new User();
+        $this->model = new User();
+    }
+
+    public function teste() {
+        return $this->model->testConntx();
+    }
+
+    public function createUser($data) {
+        return $this->model->create($data);
+    }
+
+    public function editUser($id_usuario, $data) {
+        return $this->model->updateUser($id_usuario, $data);
+    }
+
+    public function deleteUser($id_usuario) {
+        return $this->model->deleteById($id_usuario);
+    }
+
+    public function getUserById($id_usuario) {
+        return $this->model->getUserById($id_usuario);
     }
 
     public function listAllUsers() {
-        $users = $this->userModel->getAll();
-        if ($users) {
-            return ['success' => true, "data" => $users];
-        } else {
-            return ['success' => false, 'message' => 'Erro ao visualizar todos os usuários.'];
-        }
+        $users = $this->model->getAll();
+        return ["success" => true, "data" => $users];
     }
 
-    public function createUser($postData) {
-        if(empty($postData['nome']) || empty($postData['email']) || empty($postData['senha'])) {
-            return ['success' => false, 'message' => 'Nome, email e senha são obrigatórios!'];
+    public function login($email, $senha) {
+        $user = $this->model->getUserByEmail($email);
+        if ($user && password_verify($senha, $user['senha'])) {
+            $_SESSION['id_usuario'] = $user['id_usuario'];
+            return ["success" => true, "user" => $user];
         }
-    
-        $postData['senha'] = password_hash($postData['senha'], PASSWORD_DEFAULT);
-    
-        $created = $this->userModel->create($postData);
-    
-        if($created) {
-            return ['success' => true, 'message' => 'Usuário criado com sucesso!'];
-        } else {
-            return ['success' => false, 'message' => 'CPF já cadastrado ou erro ao criar usuário.'];
-        }
+        return ["success" => false, "message" => "E-mail ou senha inválidos"];
     }
-    public function getUserById($id) {
-        $this->model->getUserById($id);
-    }
-
     
-    public function deleteUser($id) {
-        if (empty($id) || !is_numeric($id)) {
-            return ['success' => false, 'message' => 'ID inválido.'];
-        }
-    
-        $deleted = $this->userModel->deleteById($id);
-    
-        if ($deleted) {
-            return ['success' => true, 'message' => 'Usuário deletado com sucesso!'];
-        } else {
-            return ['success' => false, 'message' => 'Erro ao deletar usuário.'];
-        }
-    }
-    public function editUser($id, $data) {
-        if (empty($id) || !is_numeric($id)) {
-            return ['success' => false, 'message' => 'ID inválido.'];
-        }
-    
-        $updated = $this->userModel->updateUser($id, $data);
-    
-        if ($updated) {
-            return ['success' => true, 'message' => 'Usuário atualizado com sucesso!'];
-        } else {
-            return ['success' => false, 'message' => 'Erro ao atualizar usuário.'];
-        }
+    public function saveAvatar($file) {
+        return $this->model->salvarImagemFile($file);
     }    
     
+    public function getLoggedUser() {
+        if (!isset($_SESSION['id_usuario'])) return null;
+        return $this->model->getUserById($_SESSION['id_usuario']);
+    }
+
+    public function updatePassword($id_usuario, $novoHash) {
+        if (is_array($novoHash)) {
+            $novoHash = $novoHash['senha'] ?? '';
+        }
+    
+        $success = $this->model->updateSenha($id_usuario, $novoHash);
+    
+        return [
+            "success" => $success,
+            "message" => $success ? "Senha alterada com sucesso" : "Erro ao alterar senha"
+        ];
+    }
 }
 ?>

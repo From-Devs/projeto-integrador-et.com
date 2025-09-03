@@ -8,6 +8,13 @@
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
     require __DIR__ . "/../../../public/componentes/carousel/carousel.php";
     require __DIR__ . "/../../../public/componentes/popup/popUp.php";
+    require_once __DIR__ . "../../../../public/componentes/pesquisaHeader/pesquisaHeader.php";
+
+    // == ADIÇÃO: carregar produtos do banco ==
+    require_once __DIR__ . "/../../../config/ProdutoController.php";
+    $produtoController = new ProdutoController();
+    $resultadoProdutos = $produtoController->ListarProdutos();
+    $produtos = $resultadoProdutos['produtos'] ?? [];
 
     // == ADIÇÃO: carregar produtos do banco ==
     require_once __DIR__ . "/../../../config/ProdutoController.php";
@@ -57,6 +64,7 @@
     <div class="carouselContainer" id="carousel">
         
         <div class="carouselBackground" id="carouselBackground"></div>
+        <div class="bubble-background" id="bubble-background"></div>
         
         <?php
         echo createHeader($login,$tipoUsuario,1);
@@ -81,42 +89,42 @@
     <div class="degradeParaHeader"></div>
 
     <div class="linkCategorias">
-        <a class="botaoCategoria botao1" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao1" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/batom.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/batomHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Maquiagem</p>            
         </a>
-        <a class="botaoCategoria botao2" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao2" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=perfume">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/perfume.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/perfumeHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Perfumes</p>            
         </a>
-        <a class="botaoCategoria botao3" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao3" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=skincare">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/skin.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/skinHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Skin Care</p>            
         </a>
-        <a class="botaoCategoria botao4" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao4" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=cabelo">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/cabelo.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/cabeloHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Cabelo</p>            
         </a>
-        <a class="botaoCategoria botao5" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao5" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=eletronicos">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronico.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronicoHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Eletrônicos</p>            
         </a>
-        <a class="botaoCategoria botao6" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao6" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/corporal.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integridor-et.com/public/imagens/botoesCategorias/corporalHover.png" alt="" class="iconeCategoriaHover">
@@ -167,14 +175,14 @@
             <div class="frameProdutos">
                 <div class="containerProdutos">
                     <?php
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
                     ?>
                 </div>
             </div>
@@ -194,14 +202,14 @@
             <div class="frameProdutos">
                 <div class="containerProdutos">
                     <?php
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk.png", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito.png", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult.png", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffe.png", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
                     ?>
                 </div>
             </div>

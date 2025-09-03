@@ -7,11 +7,10 @@
     border: 2px solid black;
     padding: 10px 20px;
     cursor: pointer;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 600;
     font-family: "Montserrat", sans-serif;
-    margin-bottom: 10px;
-    border-radius: 20px;
+    border-radius: 24px;
     height: 50px;
     gap: 12px;
     transition: all 0.3s;
@@ -35,6 +34,9 @@
 }
 
 .form{
+    position: absolute;
+    z-index: 50;
+    top: 70px;
     box-sizing: border-box;
     display: flex;
     gap: 3px;
@@ -44,7 +46,7 @@
     padding: 12px;
     margin-bottom: 10px;    
     border: 2px solid black;
-    border-radius: 20px;
+    border-radius: 24px;
     font-size: 30px;
     font-family: "Montserrat", sans-serif;
 }
@@ -55,6 +57,7 @@
 }
 
 .categoriaLabel{
+
     display: flex;
     align-items: center;
     gap: 4px;
@@ -67,4 +70,21 @@
     width: 25px;
     height: 25px;
     border: 2px solid black;
+}
+
+@media (max-width: 1040px){
+    .categoriaLabel{
+        font-size: 24px;
+    }
+
+}
+@media (max-width: 412px){
+    .filtro-botao {
+        font-size: 20px;
+    }
+
+    .categoriaLabel{
+        font-size: large;
+    }
+
 }

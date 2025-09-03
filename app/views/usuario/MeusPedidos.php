@@ -7,14 +7,17 @@
     require_once "/xampp/htdocs/projeto-integrador-et.com/public/componentes/botao/botao.php";
     require_once "/xampp/htdocs/projeto-integrador-et.com/public/componentes/popUp/popUp.php";
 
-    session_start();
-    $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
-    $login = false; 
+    // session_start();
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente'; // Descomente essa parte para tipo do usuario = Usuário
+    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado"; // Descomente essa parte para tipo do usuario = Associado
+    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 
     $id_usuario = 2;
 
     $pedidoController = new PedidoController();
     $pedidos = $pedidoController->ListarPedidosAgrupados($id_usuario);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -36,15 +39,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <?php echo createHeader($login,$tipoUsuario); ?>
+    <?php
+        echo createHeader($login,$tipoUsuario); // função que cria o header
+    ?>
+   <div class="conteudoMeusPedidos">
+    <!-- Parte Superior da Página -->
+    <div class="areaSuperiorMP">
+        <h1 class="tituloPrincipalMP">MEUS PEDIDOS</h1>
+        <div class="linhaSuperiorTituloMP"></div>
+    </div>
 
-    <div class="conteudoMeusPedidos">
-
-        <!-- Parte Superior -->
-        <div class="areaSuperiorMP">
-            <h1 class="tituloPrincipalMP">MEUS PEDIDOS</h1>
-            <div class="linhaSuperiorTituloMP"></div>
+    <!-- Pedidos em andamento -->
+    <section class="pedidoAndamentoMP">
+        <h2 class="tituloAndamentoMP">Em Andamento</h2>
+        <div id="produtosAndamento">
+            <?php if (!$pedidos): ?>
+                <p class="aviso">Você ainda não possui pedidos.</p>
+            <?php else: ?>
+                <?php foreach ($pedidos as $pedido): ?>
+                    <?php if ($pedido['tipoStatus'] !== 'Finalizado'): ?>
+                        <?php renderCardPedido($pedido); ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
+    </section>
 
         <!-- Pedidos em andamento -->
         <section class="pedidoAndamentoMP">

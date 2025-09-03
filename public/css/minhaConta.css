@@ -7,19 +7,16 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
     background: #f8f8f8;
 }
 
-.menu i, .icons i {
-    font-size: 20px;
-    margin: 0 10px;
-    cursor: pointer;
+main{
+    padding-top: 150px;
+    height: 100vh;
+    box-sizing: border-box;
 }
 
 .tituloMinhaConta {
-    margin-top: 150px;
     text-align: center;
     margin-bottom: 8px;
     font-size: 38px;
@@ -32,96 +29,140 @@ body {
     margin-bottom: 50px;
 } .line{
     background-color: black;
-    width: 1350px;
+    width: 70%;
     height: 1px;
 }
 
-.content p {
-    margin: 15px 0px;
+.dadosUsuario{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    height: 100%;
+    flex: 1;
+    justify-content: space-between;
+    padding: 24px;
+    padding-left: 50px;
 }
 
-.option-card p{
-    margin: 16px 0px;
+.dadosUsuarioContainer p {
+    margin-bottom: 8px;
+}
+
+.dadosUsuarioContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 18px;
+    column-gap: 32px;
+}
+
+.dadosAcoesContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 8px;
 }
 
 .conta-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 26px;
-    padding: 20px;
-    height: 400px;
+    padding: 20px 15%;
 }
 
 .profile-card {
+    display: flex;
+    align-items: center;
     background: white;
-    padding: 56px 56px 56px 56px;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: left;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
-    width: 350px;
-    height: 400px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 100%;
 }
 
-.edit-profile{
-    margin-top: 24px;
+.edit-profile-container{
+    text-decoration: none;
+}
+
+.edit-profile-button, .delete-profile-button{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 19px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s;
+    padding: 8px 10px;
+    border: 0;
+    color: #ffffff;
 
     i {
-        font-size: 20px;
+        font-size: 22px;
     }
 }
 
-#edit-profile{
-    text-decoration: none;
-    padding-right: 12px;
-    color: black;
+.edit-profile-button:hover, .delete-profile-button:hover{
+    transform: scale(1.05);
 }
 
-.content-nameUser, .content-email, .content-excluirConta {
+#edit-profile-text{
+    padding-right: 8px;
+    color: rgb(255, 255, 255);
+}
+
+.dadosText {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
+    overflow: hidden;
 
     p, span{
-        font-size: 15px;
+        font-size: 18px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 }
 
 .content-excluirConta{
-    margin-top: 140px;
-
     a{
         color: black;
     }
 }
 
 .profile-pic {
-    width: 80px;
+    margin-left: 56px;
+    height: 170px;
     border-radius: 50%;
-    border: 3px solid #ccc;
+    border: 3px solid #000000;
 }
 
 .opcoes-conta {
-    display: flex;
+    display: grid;
+    width: 100%;
+    row-gap: 10px;
+    column-gap: 10px;
     gap: 10px;
+    grid-template-columns: 1fr;
 
     & a{
         text-decoration: none;
         color: black;
-        height: 200px;
     }
 }  
 
 .option-card {
+    box-sizing: border-box;
     background: white;
     padding: 20px;
-    width: 314px;
-    height: 10pc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    flex: 1;
+    height: 135px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between;
 }
 
 .option-card:hover {
@@ -129,14 +170,111 @@ body {
     cursor: pointer;
 }
 
+.optionCardDesc{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
 .option-card .icon i {
     font-size: 48px;
-    color: #555;
+    color: #000000;
     padding: 0 24px 0 16px;
 }
 
-.Foto_e_edicao {
-    display: flex;
-    flex-direction: column;
+.option-card p{
+    margin-top: 16px;
 }
 
+.option-card .iconeSeta{
+    font-size: 48px;
+}
+
+.popUpDeleteProfileConfirm .texto-popUp{
+    text-align: center;
+    width: 350px;
+}
+
+.popUpDeleteProfileConfirm .botoes-popUp{
+    gap: 20px;
+}
+
+.popUpDeleteProfileConfirm .btn-red{
+    border: 0;
+}
+
+.popUpDeleteProfileConfirm .btn-red img{
+    display: none;
+}
+
+@media (max-width: 1200px){ /*Computador*/
+    main{
+        padding-top: 120px;
+    }
+
+    .dadosUsuarioContainer{
+        grid-template-columns: 1fr;
+    }
+
+    .conta-container {
+        padding: 20px 10%;
+    }
+
+    .line-out{
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 992px){ /*Computador*/
+
+}
+
+@media (max-width: 768px){ /*Celular Paisagem*/
+    main{
+        padding-top: 100px;
+    }
+
+    .profile-card {
+        flex-direction: column;
+    }
+
+    .dadosUsuario{
+        box-sizing: border-box;
+        padding: 24px;
+        width: 100%;
+    }
+
+    .profile-pic {
+        margin-left: 0;
+        margin-top: 24px;
+    }
+}
+
+@media (max-width: 576px){ /*Celular Vertical*/
+    .conta-container {
+        padding: 20px 6%;
+    }
+
+    .dadosAcoesContainer{
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .edit-profile-button, .delete-profile-button{ 
+        flex: 1;
+    }
+
+    .edit-profile-container{
+        display: flex;
+        flex: 1;
+    }
+
+    .option-card{
+        height: auto;
+    }
+
+    .option-card p {
+        display: none;
+    }
+}

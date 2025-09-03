@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const carousel = document.getElementById('carousel');
     const background = document.getElementById('carouselBackground');
     const detalhes = this.documentElement.querySelector('.detalheProdutoCarousel')
+    const bubbleBackground = document.getElementById('bubble-background');
 
     let detalhesTitulo = detalhes.childNodes[1].childNodes[1].childNodes[1];
     let detalhesMarca = detalhes.childNodes[1].childNodes[1].childNodes[3];
@@ -24,6 +25,24 @@ document.addEventListener("DOMContentLoaded", function(){
 	startAutoSlide();
 	resetInactivityTimer();
 	AtualizarCarousel();
+
+  function createBubbles() {
+    for (let i = 0; i < 18; i++) {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      const size = Math.random() * 120 + 60; // Tamanho entre 20px e 40px
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.animationDuration = `${Math.random() * 15 + 8}s`; // Duração entre 5s e 13s
+      bubble.style.animationDelay = `${Math.random() * 5}s`; // Atraso na animação
+      const randomBlur = Math.random() * 8 + 2;
+      bubble.style.filter = `blur(${randomBlur}px)`;
+      const randomSideShift = Math.random() * 130 + 20; // Movimento aleatório entre -20px e 20px
+      bubble.style.setProperty('--bubble-x-shift', `${randomSideShift}px`);
+      bubbleBackground.appendChild(bubble);
+    }
+  }
 
 	// Controle de tempo
 	function resetTimers() {
@@ -193,4 +212,5 @@ document.addEventListener("DOMContentLoaded", function(){
         closePopup();
       }
     })
+    createBubbles()
 });

@@ -2,51 +2,61 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.carousel-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #000000; /* Ajuste a cor conforme necessário */
-  position: relative;
-  z-index: 901;
-}
 
 .carousel-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   margin-top: 100px;
   overflow: hidden;
   width: 100%;
 }
+
+.associadoTitle{
+  align-self: flex-start;
+  margin-bottom: 40px;
+  margin-left: 40px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.associadoTitle h2{
+  color: black;
+  font-size: 40px;
+  font-weight: 400;
+}
+
 .carousel-inner {
   display: flex;
   flex-direction: row;
   width: 200%;
-  margin-top: 100px;
   animation: scroll 8s linear infinite;
 }
+
 .carousel-item {
   flex: 0 0 auto;
   width: 150px;
   margin: 0 40px;
   text-align: center;
 }
+
 .carousel-item img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
 }
+
 .carousel-item .name {
   margin-top: 10px;
   font-size: 18px;
   font-weight: bold;
 }
+
 @keyframes scroll {
   0%
   {
@@ -63,11 +73,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  overflow: hidden; /* Adicionado para garantir que as ondas não saiam da seção */
+  overflow: hidden; 
   height: 92vh;
 }
 
@@ -79,17 +88,19 @@ body {
 }
 
 .promo-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-contentEsquerda{
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
-  background-color: transparent;
-  border-radius: 10px;
-  left: 200px;
-  color: #ffffff;
-  text-align: center;
-  z-index: 1;
   gap: 20px;
+  margin-bottom: 50px;
+  color: #ffffff;
 }
 
 .promo-content .btn{
@@ -97,11 +108,12 @@ body {
   filter: drop-shadow(-2px 4px 2px rgba(0, 0, 0, 0.3));
 }
 
-.promo-content h2 {
+.promoContentText h2 {
   font-size: 56px;
   font-weight: bold;
   margin-bottom: 10px;
   filter: drop-shadow(-2px 4px 2px rgba(0, 0, 0, 0.5));
+  text-align: center;
 }
 
 .promo-content p {
@@ -114,28 +126,17 @@ body {
   filter: drop-shadow(-2px 4px 2px rgba(0, 0, 0, 0.5));
 }
 
-.azul {
-  font-weight: bold;
-  color: #5C87D9;
-  margin-bottom: 20px;
-  margin: 0 auto;
-  font-size: 30px;
-  max-width: 70%;
-}
-
 .botoesContainer{
   display: flex;
   gap: 30px;
 }
 
 .karla{
-  position: absolute;
-  bottom: 82px;
-  right: 200px;
   z-index: 901;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .promo-image {
@@ -184,11 +185,12 @@ body {
 }
 
 .commission-table {
+  flex: 1;
   border-radius: 10px;
   text-align: left;
   position: absolute;
-  margin-top: 220px;
-  margin-left: 23px;
+  left: 40px;
+  top: 100px;
   z-index: 2;
 }
 .commission-table h2 {
@@ -200,131 +202,166 @@ body {
 }
 .commission-table p {
   font-size: 16px;
+  font-weight: 700;
   color: #AA8E8E;
 }
 .cards-section {
   box-sizing: border-box;
   position: relative;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 0px;
   width: 100%;
-  
-  /* max-width: 1918px; */
-  /* max-height: 760px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-image: url('/projeto-integrador-et.com/public/imagens/TornarAssociado/Rectangle.png');
   background-size: cover;
   background-position: center;
   height: 800px;
-  z-index: 1;
   margin-top: 100px;
-  margin-left: -1px;
-}
-.cards-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
-  z-index: 2;
-}
-.card {
-  margin: 10px;
-}
-.cards-section h2 {
-  font-size: 30px;
-  margin-bottom: 20px;
-}
-.card-content {
-  padding: 10px;
-}
-.card-content h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-.card-content p {
-  font-size: 14px;
-  color: #333;
-}
-.card1 {
-  padding: 10px;
-  border-radius: 10px;
-  transition: filter 0.3s ease-in-out;
-}
-.card1:hover {
-  filter: drop-shadow(0 0 15px rgba(0, 183, 255, 0.541));
-}
-.card2 {
-  padding: 10px;
-  border-radius: 10px;
-  transition: filter 0.3s ease-in-out;
-}
-.card2:hover {
-  filter: drop-shadow(0 0 15px #9633ff);
-}
-.card3 {
-  padding: 10px;
-  border-radius: 10px;
-  transition: filter 0.3s ease-in-out;
-}
-.card3:hover {
-  filter: drop-shadow(0 0 15px #7b00ff);
-}
-.card4 {
-  padding: 10px;
-  border-radius: 10px;
-  transition: filter 0.3s ease-in-out;
-}
-.card4:hover {
-  filter: drop-shadow(0 0 15px #ff00f2);
-}
-.card5 {
-  padding: 10px;
-  border-radius: 10px;
-  transition: filter 0.3s ease-in-out;
-}
-.card5:hover {
-  filter: drop-shadow(0 0 15px #ff0059);
 }
 
-.final{
+.comissionText{
+  position: absolute;
+  width: 820px;
+  font-size: 24px;
+  right: 50px;
+  bottom: 0;
+}
+
+.cards-container {
+  display: flex;
+  gap: 50px;
+}
+
+.comissionCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: -8px 8px 4px 4px rgba(0, 0, 0, 0.30);
+  gap: 32px;
+  padding: 30px;
+  transition: filter 0.3s ease-in-out;
+  border: 8px solid black;
+}
+
+.comissionCardIdentifier{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  filter: drop-shadow(0px 2px 2px black);
+}
+
+.comissionCardIcon{
+  height: 80px;
+}
+
+.comissionPercentageContainer{
+  background-color: black;
+  color: white;
+  padding: 24px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+#maquiagemCard{
+  background-color: #DDBEFF;
+}
+
+#maquiagemCard:hover {
+  filter: drop-shadow(0 0 15px #DDBEFF);
+}
+
+#perfumeCard{
+  background-color: #BF85FF;
+}
+
+#perfumeCard:hover {
+  filter: drop-shadow(0 0 15px #BF85FF);
+}
+
+#skinCareCard{
+  background-color: #8C23FF;
+}
+
+#skinCareCard:hover {
+  filter: drop-shadow(0 0 15px #8C23FF);
+}
+
+#cabeloCard{
+  background-color: #FF32F5;
+}
+
+#cabeloCard:hover {
+  filter: drop-shadow(0 0 15px #FF32F5);
+}
+
+#eletronicosCard{
+  background-color: #FF5993;
+}
+
+#eletronicosCard:hover {
+  filter: drop-shadow(0 0 15px #FF5993);
+}
+
+#corporalCard{
+  background-color: #c11a55;
+}
+
+#corporalCard:hover {
+  filter: drop-shadow(0 0 15px #c11a55);
+}
+
+.cardRedirectWrapper{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.caixa_salmão {
+.cardRedirect{
+  background-color: #FFE5E5;
   display: flex;
-  justify-content: center;
-  margin-top: 200px;  
-}
-.caixa_salmão img {
-  max-width: 100%;
-  height: auto;
-}
-.sej {
-  z-index: 5;
-  display: flex;
-  justify-content: left;
-  align-items: left;
-  right: 100px;
-  bottom: 0;
-  position: absolute;
+  align-self: center;
+  /* justify-content: space-between; */
+  box-shadow: inset -4px 6px 13px rgba(0, 0, 0, 0.25);
+  margin: 0px 200px;
+  margin-top: 195px;
+  padding: 20px 0px;
 }
 
-.associ{
-  margin-right: 1650px;
-  text-align: left;
-  position: absolute;
-  margin-top: -200px;
-  z-index: 2;
+/* box-shadow: -4px 8px 4px rgba(0, 0, 0, 0.25); */
+
+.cardRedirect div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 75px;
+  /* margin: 0px 50px; */
+  margin: auto;
 }
-.associ h2{
-  color: #877d7d;
-  font-size: 30px;
-  margin-bottom: 20px;
+
+.cardRedirect span{
+  border-right: 4px solid black;
+  margin: 20px 0px;
+}
+
+.logoCardRedirect{
+  width: 500px;
+  height: auto;
+  filter: drop-shadow(-4px 8px 4px rgba(0, 0, 0, 0.25));
+  /* margin: auto; */
+}
+
+.logoCardRedirect, .cardRedirect div h1{
+  text-align: center;
+}
+
+.logoCardRedirect, .cardRedirect div h1, .cardRedirect span, .cardRedirect div .btn{
+  filter: drop-shadow(-4px 8px 4px rgba(0, 0, 0, 0.25));
 }
 
  @keyframes gradient {
