@@ -16,7 +16,7 @@ VALUES
 ('Pele', 1),
 ('Olhos', 1),
 ('Boca', 1),
-('Sobrancelhas', 1);
+('Sombrancelhas', 1);
 
 -- Subcategoria de Perfume
 

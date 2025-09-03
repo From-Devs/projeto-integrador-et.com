@@ -8,13 +8,18 @@
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
     require __DIR__ . "/../../../public/componentes/carousel/carousel.php";
     require __DIR__ . "/../../../public/componentes/popup/popUp.php";
+    require_once __DIR__ . "../../../../public/componentes/pesquisaHeader/pesquisaHeader.php";
 
-    // session_start();
+    // == ADIÇÃO: carregar produtos do banco ==
+    require_once __DIR__ . "/../../../config/ProdutoController.php";
+    $produtoController = new ProdutoController();
+    $resultadoProdutos = $produtoController->ListarProdutos();
+    $produtos = $resultadoProdutos['produtos'] ?? [];
+
+    session_start();
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
-    $login = true; // Estado de login do usuário (false = deslogado / true = logado)
-
-
+    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +44,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/paginaPrincipal.css">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -78,42 +83,42 @@
     <div class="degradeParaHeader"></div>
 
     <div class="linkCategorias">
-        <a class="botaoCategoria botao1" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao1" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/batom.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/batomHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Maquiagem</p>            
         </a>
-        <a class="botaoCategoria botao2" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao2" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=perfume">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/perfume.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/perfumeHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Perfumes</p>            
         </a>
-        <a class="botaoCategoria botao3" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao3" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=skincare">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/skin.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/skinHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Skin Care</p>            
         </a>
-        <a class="botaoCategoria botao4" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao4" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=cabelo">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/cabelo.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/cabeloHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Cabelo</p>            
         </a>
-        <a class="botaoCategoria botao5" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao5" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=eletronicos">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronico.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronicoHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Eletrônicos</p>            
         </a>
-        <a class="botaoCategoria botao6" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">            
+        <a class="botaoCategoria botao6" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/corporal.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/corporalHover.png" alt="" class="iconeCategoriaHover">

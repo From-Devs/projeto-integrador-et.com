@@ -104,10 +104,6 @@ section .wave.wave2
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .onda-container, .wave {
-      display: none;
-    }
-  
     .termos-box {
       margin: 20px;
       padding: 20px;

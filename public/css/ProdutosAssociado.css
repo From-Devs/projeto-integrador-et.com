@@ -313,11 +313,6 @@ a
     td {
         font-size: 14px;
     }
-
-    #tituloH1 {
-        padding-top: 3px;
-        font-size: 30px;
-    }
 }
 
 @media (max-width: 800px){

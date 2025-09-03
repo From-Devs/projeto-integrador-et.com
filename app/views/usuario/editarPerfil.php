@@ -38,13 +38,20 @@
             <div class="line"></div>
         </div>
         <section class="conta-container">
-            <form class="profile-card" method="POST" action="../../../router/UserRoutes.php?acao=update" >
+            <form class="profile-card" method="POST" action="../../../router/UserRoutes.php?acao=update" enctype="multipart/form-data">
 
                 <div class="profileIconEditContainer">
                     <h1>Alterar foto de perfil</h1>
 
                     <div class="profileIconWrapper">
-                        <img src="../../../public/imagens/user-icon.png" alt="User Profile" class="profile-pic" id="avatarPreview">
+                    <?php
+                        // Caminho salvo no banco, ex: "public/uploads/1756329425_nome.jpg"
+                        $avatarPath = !empty($user['foto']) 
+                            ? "/projeto-integrador-et.com/" . $user['foto'] 
+                            : "/projeto-integrador-et.com/public/imagens/user-icon.png";
+                        ?>
+
+                        <img src="<?= $avatarPath ?>" alt="User Profile" class="profile-pic" id="avatarPreview">
                         <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" onchange="previewFile()"/>
                         <label for="avatar"><i class='bx bx-image-alt'></i></label>
                     </div>
@@ -104,6 +111,8 @@
                         </div>
                     </div>
 
+                    <i class='bx bx-chevron-right iconeSeta'></i> 
+
                 </div>
 
                 <div class="option-card" id="alterarEnderecoCard">
@@ -116,6 +125,8 @@
                             <p>Mude informações do seu endereço</p>
                         </div>
                     </div>
+
+                    <i class='bx bx-chevron-right iconeSeta'></i> 
 
                 </div>
 
