@@ -122,8 +122,8 @@
             } else {
                 echo "<p style='text-align: center; margin-top: 2rem;'>Sua lista de desejos está vazia.</p>";
             }
+            
 
-            <?php 
                 echo createCardListaDeDesejos(1,"bt-ovni.png",48.68,"Bruna Tavares", "BT Ovni Galaxy","08/07/2025", "rgba(28, 30, 37, 0.712)","rgb(217,234,37)", "rgb(221, 235, 67)");
                 echo createCardListaDeDesejos(2,"superstay-ink-vinyl.png",99.51,"Maybelline", "Superstay Vinyl Ink Liquid Lipstick","08/07/2025", "rgb(160, 1, 27)","rgb(199, 43, 69)", "rgb(211, 112, 128)");
                 echo createCardListaDeDesejos(3,"base-liquida-matte-vult.png",23.87,"Vult", "Base Líquida Efeito Matte","08/07/2025", "rgb(197, 153, 114)","rgb(231,187,148)", "rgb(241, 204, 171)");
@@ -137,8 +137,8 @@
                 echo createCardListaDeDesejos(11,"esponja-mari-maria.png",35.90,"Mari Maria Makeup", "Esponja Flat Blende","08/07/2025", "rgb(241, 93, 10)","rgb(243, 130, 64)", "rgb(248, 180, 140)");
                 echo createCardListaDeDesejos(12,"truss_net_masc.png",269.99,"Truss", "Net Mask Máscara Capilar","08/07/2025", "rgb(0, 150, 177)","rgb(66, 203, 228)", "rgb(141, 221, 235)");
                 echo createCardListaDeDesejos(13,"amor-amor-perfume-feminino.png",405.30,"Cacharel", "AMOR AMOR","08/07/2025", "rgb(206, 21, 21)","rgb(247, 53, 53)", "rgb(255, 255, 255)");
-
             ?>
+            
         </div>
     </div>
     
