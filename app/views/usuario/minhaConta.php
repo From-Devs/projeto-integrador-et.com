@@ -45,8 +45,13 @@
         </div>
         <section class="conta-container">
             <div class="profile-card">
-
-                <img src="../../../public/imagens/user-icon.png" alt="User Profile" class="profile-pic">
+                <?php
+                // Caminho salvo no banco, ex: "public/uploads/1756329425_nome.jpg"
+                $avatarPath = !empty($user['foto']) 
+                    ? "/projeto-integrador-et.com/" . $user['foto'] 
+                    : "/projeto-integrador-et.com/public/imagens/user-icon.png";
+                ?>
+                <img src="<?= $avatarPath ?>" alt="Avatar" class="profile-pic">
 
             
                 <div class="dadosUsuario">
