@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="info">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Recomende Produtos e Ganhe Comissões.</p>
                 </div>
 
                 <div class="line">
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="button">
-                    <button>Associar-se</button>
+                    <button onclick="cadAss()">Associar-se</button>
                 </div>
             </div>
         </div>
@@ -97,6 +97,12 @@
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
+
+    <script>
+        function cadAss(){
+            window.location.href = "CadastroAssociado.php";
+        }
+    </script>
     
 </body>
 </html>
