@@ -36,6 +36,8 @@
     $botao2 = botaoPersonalizadoRedirect("Sim","btn-green", "app/views/usuario/paginaPrincipal.php","90px","40px","20px");
     echo PopUpConfirmar("confirmacao", "Deseja Salvar?", $botao1, $botao2, "300px", "white", "", "1.7rem");
     echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmacao\")");
+
+    echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/atencao.png", "160px", "Preencha Todos os Campos!", "", "", "", "352px");
     ?>
 
     <main>
@@ -88,7 +90,7 @@
                             <i class='bx bx-trash'></i>
                         </button>
                     
-                        <button type="submit" class="saveButton btn-black" onclick='abrirPopUp("confirmacao")'>
+                        <button type="submit" class="saveButton btn-black" onclick='validarCampos()'>
                             <p class="editButtonText">Salvar alterações </p>
                             <i class='bx bx-edit'></i>
                         </button>
@@ -152,6 +154,23 @@
         const botaoAlterarSenha = document.getElementById('alterarSenhaCard').addEventListener('click', function(){
             window.location.href = 'alterarSenha.php';
         });
+
+        function validarCampos(){
+            let campos = document.querySelectorAll(".formInput");
+            let vazio = false;
+
+            campos.forEach(campo => {
+                if(!campo.value.trim()){
+                    vazio = true;
+                }
+            });
+
+            if(vazio){
+                abrirPopUp("popUpFavorito");
+            }else{
+                console.log("");
+            }
+        }
         
     </script>
 
