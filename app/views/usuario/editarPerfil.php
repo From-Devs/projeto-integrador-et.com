@@ -37,7 +37,7 @@
     echo PopUpConfirmar("confirmacao", "Deseja Salvar?", $botao1, $botao2, "300px", "white", "", "1.7rem");
     echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmacao\")");
 
-    echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/atencao.png", "160px", "Preencha Todos os Campos!", "", "", "", "352px");
+    echo PopUpComImagemETitulo("popUpAtencao", "/popUp_Botoes/atencao.png", "160px", "Preencha Todos os Campos!", "", "", "", "352px");
     ?>
 
     <main>
@@ -166,7 +166,7 @@
             });
 
             if(vazio){
-                abrirPopUp("popUpFavorito");
+                abrirPopUp("popUpAtencao");
             }else{
                 console.log("");
             }
