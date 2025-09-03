@@ -134,6 +134,7 @@ main{
 .profile-pic {
     margin-left: 56px;
     height: 170px;
+    width: 170px;
     border-radius: 50%;
     border: 3px solid #000000;
 }
