@@ -16,7 +16,7 @@ function botaoPersonalizadoOnClick($texto, $tipo="btn-black", $onClick, $largura
         //É um botão de cancelar ou confirmar?
         if($tipo == "btn-red"){
             return "
-            <button id='botaoPadrao' class='btn $tipo' style='width: $largura; height:$altura; font-size: $tamanhoFonte;' onclick='$onClick'><img src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-cancelar.png' alt='img-cancelar' class='img-cancelar'>$texto</button>";
+            <button id='botaoPadrao' class='btn $tipo' type='submit' style='width: $largura; height:$altura; font-size: $tamanhoFonte;' onclick='$onClick'><img src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-cancelar.png' alt='img-cancelar' class='img-cancelar'>$texto</button>";
         }else if($tipo == "btn-green"){
             return "
             <button id='botaoPadrao' class='btn $tipo' style='width: $largura; height:$altura; font-size: $tamanhoFonte;' onclick='$onClick'>
