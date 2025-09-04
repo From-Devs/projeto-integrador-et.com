@@ -85,12 +85,6 @@ class Products {
         return $stmt->execute();
     }
 
-    // Auxiliares
-    public function getAllSubcategorias(){
-        $stmt = $this->conn->query("SELECT * FROM SubCategoria");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
     public function getAllCores(){
         $stmt = $this->conn->query("SELECT * FROM Cores");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
