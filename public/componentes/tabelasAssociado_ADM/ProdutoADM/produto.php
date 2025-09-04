@@ -2,9 +2,6 @@
     require_once __DIR__."/../../popup/popUp.php";
     require_once __DIR__."/../../botao/botao.php";
     require_once __DIR__ . "/../../../../app/Models/products.php";
-    $products = new Products();
-
-    $subCategorias = $products->getAllSubcategorias();
 
     function tabelaProdutoAdm($produtos){
         ?>
@@ -114,15 +111,7 @@ function tabelaProduto($produtos) {
                     <div class="campo">
                         <label>Subcategoria:</label>
                         <select id="ddlCategoria" name="subCategoria">
-                            <?php
-                                foreach ($subCategorias as $sc) {
-                                    ?>
-                                    <option value="<?php echo htmlspecialchars($sc['id_subCategoria']); ?>">
-                                        <?php echo htmlspecialchars($sc['nome']); ?>
-                                    </option>
-                                    <?php
-                                }
-                                ?>
+                            
                         </select>
                     </div>
                 </div>
@@ -153,7 +142,7 @@ function tabelaProduto($produtos) {
                         <div class="imagem-produto-container">
                             <div class="container-img">
                                 <img src=""
-                                    alt="Produto" class="imagem-produto" id="img-produto1" onerror="this.style.display='none';" name="img1">
+                                    alt="Produto" class="imagem-produto" id="img-produto1" name="img1">
                             </div>
 
                             <label for="upload-produto1" class="icone-cadastrar-label">
@@ -168,7 +157,7 @@ function tabelaProduto($produtos) {
                         <div class="imagem-produto-container">
                             <div class="container-img">
                                 <img src=""
-                                    alt="Produto" class="imagem-produto" id="img-produto2" onerror="this.style.display='none';" name="img2">
+                                    alt="Produto" class="imagem-produto" id="img-produto2" name="img2">
                             </div>
 
                             <label for="upload-produto2" class="icone-cadastrar-label">
@@ -183,7 +172,7 @@ function tabelaProduto($produtos) {
                         <div class="imagem-produto-container">
                             <div class="container-img">
                                 <img src=""
-                                    alt="Produto" class="imagem-produto" id="img-produto3" onerror="this.style.display='none';" name="img3">
+                                    alt="Produto" class="imagem-produto" id="img-produto3" name="img3">
                             </div>
 
                             <label for="upload-produto3" class="icone-cadastrar-label">

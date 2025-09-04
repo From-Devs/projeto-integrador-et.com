@@ -2,19 +2,35 @@
 require_once __DIR__ . "/../app/Controllers/ProdutoController.php";
 $produtoController = new ProdutoController();
 
-function ValidaCampos(){
-    return isset($_POST["nome"], $_POST["marca"], $_POST["breveDescricao"], $_POST["qtdEstoque"], $_POST["preco"], $_POST["precoPromocional"], $_POST["caracteristicasCompleta"], $_POST["corPrincipal"], $_POST["deg1"], $_POST["deg2"])
-        && !empty(trim($_POST["nome"]))
-        && !empty(trim($_POST["marca"]))
-        && !empty(trim($_POST["breveDescricao"]))
-        && is_numeric($_POST["qtdEstoque"])
-        && is_numeric($_POST["preco"])
-        && is_numeric($_POST["precoPromocional"])
-        && !empty(trim($_POST["caracteristicasCompleta"]))
-        && !empty(trim($_POST["corPrincipal"]))
-        && !empty(trim($_POST["deg1"]))
-        && !empty(trim($_POST["deg2"]));
+function ValidaCampos() {
+    $camposObrigatorios = [
+        "nome", "marca", "breveDescricao", "qtdEstoque",
+        "preco", "precoPromocional", "caracteristicasCompleta",
+        "corPrincipal", "deg1", "deg2", "subCategoria"
+    ];
+
+    foreach ($camposObrigatorios as $campo) {
+        if (!isset($_POST[$campo]) || trim($_POST[$campo]) === "") {
+            return false;
+        }
+    }
+
+    if (!is_numeric($_POST["qtdEstoque"]) || !is_numeric($_POST["preco"]) || !is_numeric($_POST["precoPromocional"])) {
+        return false;
+    }
+
+    $temImagem = 
+    (isset($_FILES["img1"]) && $_FILES["img1"]["size"] > 0) ||
+    (isset($_FILES["img2"]) && $_FILES["img2"]["size"] > 0) ||
+    (isset($_FILES["img3"]) && $_FILES["img3"]["size"] > 0);
+
+    if (!$temImagem) {
+        return false;
+    }
+
+    return true;
 }
+
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     switch ($_GET["acao"]) {
@@ -35,11 +51,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                 if($resultado){
                     header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=CadastrarProduto");
+                    exit;
                 }else{
                     header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=CadastrarProduto");
+                    exit;
                 }
             } else {
                 header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=CadastrarProduto");
+                exit;
             }
             break;
 
@@ -70,11 +89,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $resultado = $produtoController->RemoverProduto($_POST["id"]);
 
             if($resultado){
-                echo "Sim";
                 header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=RemoverProduto");
             }else{
-                echo "Não";
-                // header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=RemoverProduto");
+                header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=RemoverProduto");
             }
 
             break;

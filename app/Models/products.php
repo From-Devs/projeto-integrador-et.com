@@ -170,7 +170,6 @@ class Products {
         try {
             $this->conn->beginTransaction();
 
-            // 1. Inserir na tabela cores
             $sqlCores = "INSERT INTO cores(corPrincipal, hexDegrade1, hexDegrade2)
                          VALUES(:corPrincipal, :hex1, :hex2)";
             $db = $this->conn->prepare($sqlCores);
@@ -181,12 +180,10 @@ class Products {
 
             $idCores = $this->conn->lastInsertId();
 
-            // 2. Salvar imagens
             $img1 = $this->salvarImagem("img1", $files);
             $img2 = $this->salvarImagem("img2", $files);
             $img3 = $this->salvarImagem("img3", $files);
 
-            // 3. Inserir produto
             $sql = "INSERT INTO produto(
                         nome, marca, descricaoBreve, descricaoTotal, 
                         preco, precoPromo, qtdEstoque, 
@@ -211,7 +208,6 @@ class Products {
             $db->bindParam(":img2", $img2);
             $db->bindParam(":img3", $img3);
 
-            // ⚠️ IMPORTANTE: Subcategoria vem do formulário
             $idSubCategoria = $_POST["subCategoria"] ?? null;
             $db->bindParam(":idSubCategoria", $idSubCategoria);
 
@@ -235,7 +231,6 @@ class Products {
     }
 
     public function create($data){
-        // Se não houver imagem, define padrão
         if(empty($data['imagem'])){
             $data['imagem'] = 'uploads/The_Great_Wave_off_Kanagawa_artificial_intelligence_4K_waves_sunset-2199509 (1).jpg';
         }
@@ -303,7 +298,6 @@ class Products {
         return $stmt->execute();
     }
 
-    // Auxiliares
     public function getAllSubcategorias(){
         $stmt = $this->conn->query("SELECT * FROM SubCategoria");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -318,5 +312,22 @@ class Products {
         $stmt = $this->conn->query("SELECT * FROM Usuario WHERE tipo = 'associado'");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    private function salvarImagem($inputName, $files) {
+        if (isset($files[$inputName]) && $files[$inputName]['error'] === UPLOAD_ERR_OK) {
+            $nomeArquivo = time() . '_' . basename($files[$inputName]['name']);
+            $caminhoDestino = __DIR__ . '/../../public/uploads/' . $nomeArquivo;
+
+            if (!is_dir(__DIR__ . '/../../public/uploads')) {
+                mkdir(__DIR__ . '/../../public/uploads', 0777, true);
+            }
+
+            if (move_uploaded_file($files[$inputName]['tmp_name'], $caminhoDestino)) {
+                return 'public/uploads/' . $nomeArquivo; // caminho salvo no banco
+            }
+        }
+        return null;
+    }
+    
 }
 ?>

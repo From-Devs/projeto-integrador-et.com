@@ -118,6 +118,7 @@ function filtro($tipo = "", $opcoesSelect = []) {
             <div class="campo">
                 <label>Subcategoria: *</label>
                 <select id="ddlCategoria" name="subCategoria">
+                    <option value="" disabled selected>Selecione uma subcategoria</option>
                     <?php
                         foreach ($subCategorias as $sc) {
                             ?>

@@ -1,20 +1,17 @@
 function buscarAtributosDoProduto(idProduto) {
-    const dialog = document.querySelector('.dialog-editar');
-    if (dialog) {
-        dialog.showModal();
-    }
-
     fetch(`http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=BuscarProduto&id=${idProduto}`)
         .then(response => response.json())
         .then(data => {
             const form = dialog.querySelector('form');
             form.reset();
-            console.log(data[0]);
+            console.log("Produto carregado:", data[0]);
+            console.log(document.getElementById("img-produto1").src = "http://localhost/projeto-integrador-et.com/" + data[0].img1)
+            console.log(document.getElementById("img-produto2").src = "http://localhost/projeto-integrador-et.com/" + data[0].img2)
+            console.log(document.getElementById("img-produto3").src = "http://localhost/projeto-integrador-et.com/" + data[0].img3)
 
             form.querySelector('input[name="id_produto"]').value = idProduto;
             form.querySelector('input[name="nome"]').value = data[0].nome ?? "";
             form.querySelector('input[name="marca"]').value = data[0].marca ?? "";
-            form.querySelector('select[name="subCategoria"]').value = data[0].id_subCategoria ?? "";
             form.querySelector('input[name="preco"]').value = data[0].preco ?? "";
             form.querySelector('input[name="precoPromocional"]').value = data[0].precoPromo ?? "";
             form.querySelector('input[name="qtdEstoque"]').value = data[0].qtdEstoque ?? "";
@@ -24,12 +21,23 @@ function buscarAtributosDoProduto(idProduto) {
             form.querySelector('input[name="deg1"]').value = data[0].hex1 || "#000000";
             form.querySelector('input[name="deg2"]').value = data[0].hex2 || "#000000";
 
-            if (data[0].img1) document.getElementById("img-editar1").src = "/projeto-integrador-et.com/" + data[0].img1;
-            if (data[0].img2) document.getElementById("img-editar2").src = "/projeto-integrador-et.com/" + data[0].img2;
-            if (data[0].img3) document.getElementById("img-editar3").src = "/projeto-integrador-et.com/" + data[0].img3;
+            carregarSubCategorias(
+                form.querySelector('select[name="subCategoria"]'),
+                data[0].id_subCategoria
+            );
+
+            (data[0].img1) ? document.getElementById("img-produto1").src = "http://localhost/projeto-integrador-et.com/" + data[0].img1 : console.log("Não tem imagem");
+            (data[0].img2) ? document.getElementById("img-produto2").src = "http://localhost/projeto-integrador-et.com/" + data[0].img2 : console.log("Não tem imagem");
+            (data[0].img3) ? document.getElementById("img-produto3").src = "http://localhost/projeto-integrador-et.com/" + data[0].img3 : console.log("Não tem imagem");
         })
-        .catch(err => console.error(err));
+        .catch(err => console.error("Erro ao buscar produto:", err));
+
+    const dialog = document.querySelector('.dialog-editar');
+    if (dialog) {
+        dialog.showModal();
+    }
 }
+
 
 function removerProduto(idProduto) {
     fetch("http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=RemoverProduto", {
@@ -48,4 +56,25 @@ function removerProduto(idProduto) {
     popUpRemocao.addEventListener('close', () => {
         window.location.reload();
     }, { once: true });
+}
+
+function carregarSubCategorias(select, idSelecionado = null) {
+    fetch("http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=ListarSubCategorias")
+        .then(response => response.json())
+        .then(data => {
+            select.innerHTML = '<option value="" disabled>Selecione uma subcategoria</option>';
+            
+            data.forEach(sc => {
+                const opt = document.createElement("option");
+                opt.value = sc.id_subCategoria;
+                opt.textContent = sc.nome;
+
+                if (idSelecionado && String(sc.id_subCategoria) === String(idSelecionado)) {
+                    opt.selected = true;
+                }
+
+                select.appendChild(opt);
+            });
+        })
+        .catch(err => console.error(err));
 }

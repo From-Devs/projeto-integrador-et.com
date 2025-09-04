@@ -9,8 +9,8 @@ require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.ph
 require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
 
 function verificaELimpaQueryString(){
-    if (isset($_GET['status']) && $_GET['status'] === 'sucesso') {
-        if(isset($_GET['acao']) && $_GET['acao'] === 'CadastrarProduto'){
+    if (isset($_GET['status']) && $_GET['status'] == 'sucesso') {
+        if(isset($_GET['acao']) && $_GET['acao'] == 'CadastrarProduto'){
             echo "<script>
                 document.addEventListener('DOMContentLoaded', function() {
                     abrirPopUp('popUpCadastro');
@@ -21,7 +21,7 @@ function verificaELimpaQueryString(){
                     }
                 });
             </script>";    
-        }else if(isset($_GET['acao']) && $_GET['acao'] === 'EditarProduto'){
+        }else if(isset($_GET['acao']) && $_GET['acao'] == 'EditarProduto'){
             echo "<script>
                 document.addEventListener('DOMContentLoaded', function() {
                     abrirPopUp('popUpEdicao');
@@ -32,7 +32,7 @@ function verificaELimpaQueryString(){
                     }
                 });
             </script>";
-        }else if(isset($_GET['acao']) && $_GET['acao'] === 'RemoverProduto'){
+        }else if(isset($_GET['acao']) && $_GET['acao'] == 'RemoverProduto'){
             echo "<script>
                 document.addEventListener('DOMContentLoaded', function() {
                     abrirPopUp('popUpRemocao');
@@ -44,7 +44,7 @@ function verificaELimpaQueryString(){
                 });
             </script>";
         }
-    }else if(isset($_GET['status']) && $_GET['status'] === 'erro'){
+    }else if(isset($_GET['status']) && $_GET['status'] == 'erro'){
         if(isset($_GET['acao']) && $_GET['acao'] === 'CadastrarProduto'){
             echo "<script>
                 document.addEventListener('DOMContentLoaded', function() {
