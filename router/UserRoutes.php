@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../app/Controllers/UserController.php';
 
 session_start();
-$_SESSION['id_usuario'] = 4;
 
 $userController = new UserController();
 $responseCreate = null;
@@ -136,17 +135,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 } catch (Exception $e) {
                     $responseDelete = ["success" => false, "message" => "Erro ao deletar: " . $e->getMessage()];
                 }
+
+                header("Location: ../app/views/usuario/Login.php?sucesso=eliel_deletado");
+                exit;
             }
             break;
 
-        case "login":
-            $email = $_POST['email'] ?? "";
-            $senha = $_POST['senha'] ?? "";
-            $result = $userController->login($email, $senha);
-            echo json_encode($result);
-            exit;
-            break;
-    }
+            case "login":
+                $email = $_POST['email'] ?? "";
+                $senha = $_POST['senha'] ?? "";
+                $result = $userController->login($email, $senha);
+            
+                if ($result["success"]) {
+                    $_SESSION['id_usuario'] = $result['user']['id_usuario'];
+                    header("Location: ../app/views/usuario/paginaPrincipal.php");
+                    exit;
+                } else {
+                    header("Location: ../app/views/usuario/Login.php?erro=credenciais_invalidas");
+                    exit;
+                }
+                break;
+        }
 }
 
 if ($acao === 'getUser') {
