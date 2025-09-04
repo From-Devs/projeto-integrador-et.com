@@ -63,5 +63,9 @@ class UserController {
             "message" => $success ? "Senha alterada com sucesso" : "Erro ao alterar senha"
         ];
     }
+
+    public function saveOrUpdateEndereco($id_usuario, $dadosEndereco){
+        return $this->model->saveOrUpdateEndereco($id_usuario, $dadosEndereco);
+    }
 }
 ?>
