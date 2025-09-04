@@ -20,7 +20,13 @@ function createCardProduto($marca = "Marca", $nomeProduto = "Nome do Produto", $
             <i class='coracaoFofo'>
                 <img class='coracaoImg' src='/projeto-integrador-et.com/public/imagens/produtoCard/coracao.png' alt='Coração'>
             </i>
-            <img class ='ticketMaldito' src='/projeto-integrador-et.com/public/imagens/produtoCard/ticket.png' alt='ticket'>
+            <div class='ticketContainer'>
+                <img class ='ticketDesconto' src='/projeto-integrador-et.com/public/imagens/produtoCard/ticket2.png' alt='ticket'>
+                <div class='descontoTextContainer'>
+                    <p class='descontoPorcento'>00%</p>
+                    <p class='descontoOffText'>FF</p>
+                </div>
+            </div>
             <i class='buraquinho'></i>
         </div>
 

@@ -1,11 +1,99 @@
 <?php
+require_once __DIR__ . "/../../../config/database.php";
+$conn = (new Database())->Connect();
 
-require_once __DIR__ . "../../../../public/componentes/header/header.php";
-require_once __DIR__ . "../../../../public/componentes/popup/popUp.php";
-require_once __DIR__ . "../../../../public/componentes/botao/botao.php";
-require_once __DIR__ . "../../../../public/componentes/cardProduto/cardProduto.php";
-require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])) {
+    $id_produto = intval($_POST['id_produto']);
 
+    $sql = "INSERT INTO carrinho2 (id_produto, quantidade) VALUES (:id_produto, 1)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":id_produto", $id_produto, PDO::PARAM_INT);
+
+    if ($stmt->execute()) {
+        echo "<script>; window.location.href='Meu_Carrinho.php';</script>";
+    } else {
+        echo "<script>alert('Erro ao adicionar ao carrinho.');</script>";
+    }
+}
+?>
+
+<?php
+require_once __DIR__ . "/../../../public/componentes/header/header.php";
+require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
+require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
+require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
+require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
+
+require_once __DIR__ . "/../../../config/produtoController.php";
+
+session_start();
+$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Usuário";
+$login = false;
+
+// carrega produto por id
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$produto = null;
+
+if ($id > 0) {
+    $produtoController = new ProdutoController();
+    $produto = $produtoController->BuscarProdutoPorId($id);
+}
+
+if (!$produto) {
+    // produto não encontrado
+    echo "<!DOCTYPE html><html lang='pt-br'><head><meta charset='UTF-8'><title>Produto</title></head><body>";
+    echo createHeader($login, $tipoUsuario);
+    echo "<div style='max-width:1000px;margin:2rem auto;padding:1rem;'><h2>Produto não encontrado.</h2><p><a href='/projeto-integrador-et.com/app/views/usuario/paginaPrincipal.php'>Voltar à página principal</a></p></div>";
+    echo createRodape();
+    echo "</body></html>";
+    exit;
+}
+
+// prepara dados
+$nome        = $produto['nome'] ?? '';
+$marca       = $produto['marca'] ?? '';
+$descBreve   = $produto['descricaoBreve'] ?? '';
+$descTotal   = $produto['descricaoTotal'] ?? '';
+$preco       = (float)($produto['preco'] ?? 0);
+$precoPromo  = (float)($produto['precoPromo'] ?? 0);
+
+// Busca subcategoria/cor caso não tenham vindo do controller
+if (empty($subcategoria) || empty($corPrincipal)) {
+    try {
+        require_once __DIR__ . '/../../../config/database.php';
+        if (class_exists('Database')) {
+            $db = new Database();
+            $pdo = $db->Connect();
+            if (empty($subcategoria)) {
+                $stmt = $pdo->prepare('SELECT s.nome FROM subcategoria s JOIN produto p ON p.id_subCategoria = s.id_subCategoria WHERE p.id_produto = :id LIMIT 1');
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+                $stmt->execute();
+                $subcategoria = $stmt->fetchColumn() ?: '';
+            }
+            if (empty($corPrincipal)) {
+                $stmt = $pdo->prepare('SELECT c.corPrincipal FROM cores c JOIN produto p ON p.id_cores = c.id_cores WHERE p.id_produto = :id LIMIT 1');
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+                $stmt->execute();
+                $corPrincipal = $stmt->fetchColumn() ?: '';
+            }
+        }
+    } catch (Throwable $e) { /* silencioso */ }
+}
+$temPromo    = $precoPromo > 0 && $precoPromo < $preco;
+
+
+$subcategoria = $produto['subcategoria'] ?? ($produto['nomeSubcategoria'] ?? '');
+$corPrincipal = $produto['corPrincipal'] ?? ($produto['cor'] ?? '');
+$imgArquivo  = trim($produto['imagem'] ?? '');
+$baseImgPath = "/projeto-integrador-et.com/public/imagens/produto/";
+if ($imgArquivo === '' || strtolower($imgArquivo) === 'null') {
+    $imgPrincipal = $baseImgPath . 'no-image.png';
+} else {
+    $imgPrincipal = $baseImgPath . $imgArquivo;
+}
+$imgAlt1 = $imgPrincipal;
+$imgAlt2 = $imgPrincipal;
+$imgAlt3 = $imgPrincipal;
 ?>
 
 <!DOCTYPE html>
@@ -24,37 +112,36 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/detalhesDoProduto.css">
-    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>Detalhes do produto</title>
-    
 </head>
 <body>
-    <?php echo createHeader(false, "Usuário")?>
+    <?php echo createHeader($login, $tipoUsuario) ?>
     
     <div class="container-detalhes">
         <div class="detalhes-principal">
             <div class="detalhes-imagens">
                 <div class="imagens-lateral">
                     <div>
-                        <img src="/projeto-integrador-et.com/public/imagens/produto/exemplo-produto1.png" alt="img-lateral">
+                        <img src="<?php echo htmlspecialchars($imgAlt1); ?>" alt="img-lateral">
                     </div>
                     <div>
-                        <img src="/projeto-integrador-et.com/public/imagens/produto/exemplo-produto2.png" alt="img-lateral">
+                        <img src="<?php echo htmlspecialchars($imgAlt2); ?>" alt="img-lateral">
                     </div>
                     <div>
-                        <img src="/projeto-integrador-et.com/public/imagens/produto/simple.webp" alt="img-lateral">
+                        <img src="<?php echo htmlspecialchars($imgAlt3); ?>" alt="img-lateral">
                     </div>
                 </div>
                 <div class="img-principal">
                     <div>
-                        <img src="/projeto-integrador-et.com/public/imagens/produto/exemplo-produto4.png" alt="img-principal">
+                        <img src="<?php echo htmlspecialchars($imgPrincipal); ?>" alt="img-principal">
                     </div>
                 </div>
             </div>
             <div class="detalhes-info">
                 <div class="titulo-produto">
                     <div class="titulo">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing</h3>
+                        <h3><?php echo htmlspecialchars($nome); ?></h3>
                         <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
                         <abbr class="abbr-favoritos" title="Adicionar aos favoritos" onclick="abrirPopUp('popUpFavorito')">
                             <button class="imgCoracao">
@@ -63,7 +150,14 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
                         </abbr>
                     </div>
                     <div class="sub-titulo-produto">
-                        <span class="preco-produto">R$39,90</span>
+                        <span class="preco-produto">
+                            <?php if ($temPromo): ?>
+                                <span style="font-weight:700;">R$ <?php echo number_format($precoPromo, 2, ',', '.'); ?></span>
+                                <span style="text-decoration:line-through;margin-left:.5rem;color:#777;">R$ <?php echo number_format($preco, 2, ',', '.'); ?></span>
+                            <?php else: ?>
+                                R$ <?php echo number_format($preco, 2, ',', '.'); ?>
+                            <?php endif; ?>
+                        </span>
                         <abbr title="Avaliações" class="avaliacao-descricao">
                             <a href="#all-avaliacoes">
                                 <img src="/projeto-integrador-et.com/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
@@ -74,9 +168,9 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
                 </div>
                 <div class="mais-detalhes">
                     <div class="descricao">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores illum iste hic, eius quae natus nobis eveniet voluptates qui facere modi? Explicabo, ad velit. Consequatur placeat possimus dolore accusantium iure.
-                        Perspiciatis esse aut voluptas quia ex repudiandae consequuntur iste quasi, recusandae deserunt odit eos voluptatibus dicta nulla quos voluptates rerum sit! Dolorum voluptate odio quaerat explicabo praesentium obcaecati dolor natus!</p>
-                        <span>Disponível no estoque <img src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-confirmar.png" alt="img-correto"></span>
+                        <p><?php echo nl2br(htmlspecialchars($descTotal ?: $descBreve)); ?></p>
+<span>Disponível no estoque <img src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-confirmar.png" alt="img-correto"></span>
+                        <p style="margin-top:.5rem;color:#666;">Marca: <strong><?php echo htmlspecialchars($marca); ?></strong></p>
                     </div>
                     <div class="botoes-detalhes">
                         <div class="btn-juntos">
@@ -85,14 +179,28 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
                                 <span id="valor">1</span>
                                 <button onclick="aumentarQtdProduto()">+</button>
                             </div>
-                            <?php
-                            echo PopUpComImagemETitulo("AddCarrinho", "/produto/img-carrinho.png", "80px", "Adicionado ao carrinho!");
-                            
-                            echo botaoPersonalizadoOnClick("Adicionar ao carrinho", "btn-black", "abrirPopUp(\"AddCarrinho\")", "100%", "100%");
-                            ?>
+                            <form method="post">
+                                <input type="hidden" name="id_produto" value="<?php echo $produto['id_produto']; ?>">
+                                <button type="submit" name="adicionar_carrinho" class="btn btn-success">
+                                    Adicionar ao Carrinho
+                                </button>
+                            </form>
                         </div>
-                        <div>
-                            <?php echo botaoPersonalizadoRedirect("Comprar agora", "btn-white", "app/views/usuario/Meu_Carrinho.php", "100%", "40px")?>
+                        <div class="div-favorito-e-carrinho">
+    
+    
+    <!-- Parte modificada: Adicionei um formulário para que o clique no botão de coração envie os dados. -->
+    <form action="/projeto-integrador-et.com/config/produtoRouter.php" method="POST">
+        <!-- Este campo esconde o ID do produto, mas o envia junto com o formulário. -->
+        <input type="hidden" name="id_produto" value="<?php echo htmlspecialchars($id); ?>">
+        <!-- Este campo informa ao router que a ação é para "favorito". -->
+        <input type="hidden" name="acao" value="favorito">
+        <!-- O botão agora submete o formulário, enviando os dados. -->
+        <button type="submit" class="botao-fav">
+            <i class='fa-solid fa-heart coracaoDetalhes'></i>
+        </button>
+    </form>
+
                         </div>
                     </div>
                 </div>
@@ -109,27 +217,20 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
     <div class="description-box">
         <div class="description-header">
             <h2>DESCRIÇÃO</h2>
-            <p>Marca: Mary Kay<br>
-                Linha: At Play®<br>
-                Volume: 29ml<br>
-                Tipo de Produto: Base Líquida Matte<br>
+            <p>
+                Marca: <?php echo htmlspecialchars($marca); ?><br>
+                Categoria: <?php echo htmlspecialchars($subcategoria ?: 'Não definida'); ?><br>
+                Cor: <?php echo htmlspecialchars($corPrincipal ?: 'Não definida'); ?><br>
+<!-- Campos extras podem ser preenchidos dinamicamente se existirem no banco -->
             </p>
         </div>
         
-            <h3>Características: </h3>
-            <ul>
-                <li>Acabamento Matte: Proporciona um acabamento opaco, ideal para peles mistas a oleosas ou para quem prefere um visual sem brilho.</li>
-                <li>Cobertura: Oferece uma cobertura leve a média, permitindo a construção de camadas para alcançar o nível desejado de cobertura, sem deixar a pele com aspecto pesado.</li>
-                <li>Fórmula: A fórmula é leve e confortável, garantindo que a base se espalhe facilmente sobre a pele, proporcionando um acabamento uniforme e natural.</li>
-                <li>Durabilidade: Desenvolvida para longa duração, a base mantém a pele com aparência impecável por várias horas, resistindo ao calor e à umidade.</li>
-                <li>Controle de Oleosidade: Ajuda a controlar a oleosidade ao longo do dia, mantendo a pele com aparência fresca e sem brilho excessivo.</li>
-                <li>Disponibilidade de Tons: Disponível em uma variedade de tons para atender diferentes tonalidades de pele, garantindo um match perfeito para a maioria das pessoas.</li>
-                <li>Indicação: Indicada para todos os tipos de pele, especialmente para peles oleosas e mistas, devido ao seu efeito matte e controle de oleosidade.</li>
-                <li>Modo de Uso: Aplicar uma pequena quantidade de produto no dorso da mão e, com o auxílio de um pincel, esponja ou os dedos, espalhar uniformemente pelo rosto, começando do centro para as extremidades.</li>
-                <li>Benefícios Adicionais: mAlém de proporcionar uma cobertura natural e uniforme, a base contribui para um visual mais saudável da pele, minimizando a aparência de poros e imperfeições.</li>
-                <li>Embalagem: Vem em uma embalagem prática e portátil, facilitando o transporte e a aplicação em qualquer lugar.</li>
-                <li>Esta base é perfeita para quem busca uma pele com acabamento matte, natural e duradouro, sem abrir mão do conforto e da qualidade.</li>
-            </ul>
+        <h3>Características: </h3>
+        <ul>
+            <li><?php echo nl2br(htmlspecialchars($descTotal ?: $descBreve)); ?></p>
+            <li>Categoria: <strong><?php echo htmlspecialchars($subcategoria ?: 'Não definida'); ?></strong></li>
+            <li>Cor principal: <strong><?php echo htmlspecialchars($corPrincipal ?: 'Não definida'); ?></strong></li>
+        </ul>
     </div>
 
     <div id="all-avaliacoes">
@@ -148,21 +249,6 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
                     <option value="maisRecentes">Mais recentes</option>
                     <option value="maisAntigas">Mais antigas</option>
                 </select>
-                <!-- <button class="btn-ordenar" onclick="abrirFiltro()">Ordenar por: <img src="/projeto-integrador-et.com/public/imagens/setaBaixo.png" alt="seta-baixo"></button>
-                    <div class="" hidden>
-                        <div class="item-filtro mais-relevantes">
-                            <span>Mais relevantes</span>
-                        </div>
-                        <hr>
-                        <div class="item-filtro mais-recentes">
-                            <span>Mais recentes</span>
-                        </div>
-                        <hr>
-                        <div class="item-filtro mais-antigas">
-                            <span>Mais antigas</span>
-                        </div>
-                    </div>
-                </div> -->
             </div>
             <div class="container-avaliacoes">
                 <div class="avaliacao">
@@ -174,7 +260,7 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
                         <span>10/01/2024</span>
                     </div>
                     <div class="descricao-avaliacao">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?</p>
+                        <p>Produto excelente, recomendo!</p>
                     </div>
                     <div class="pergunta-avaliacao">
                         <span>Esta avaliação foi útil?</span>
@@ -185,6 +271,7 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
                         </div>
                     </div>
                 </div>
+                <!-- (demais avaliações mantidas do seu template) -->
                 <div class="avaliacao">
                     <div class="container-nome-usuario">
                         <h3 class="nome-usuario">Nícolas Eloy</h3>
@@ -194,7 +281,7 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
                         <span>25/12/2024</span>
                     </div>
                     <div class="descricao-avaliacao">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?</p>
+                        <p>Muito bom custo-benefício.</p>
                     </div>
                     <div class="pergunta-avaliacao">
                         <span>Esta avaliação foi útil?</span>
@@ -214,7 +301,7 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
                         <span>03/08/2024</span>
                     </div>
                     <div class="descricao-avaliacao">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?</p>
+                        <p>Atendeu minhas expectativas.</p>
                     </div>
                     <div class="pergunta-avaliacao">
                         <span>Esta avaliação foi útil?</span>
@@ -234,7 +321,7 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
                         <span>01/01/2024</span>
                     </div>
                     <div class="descricao-avaliacao">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem doloribus porro aut alias aspernatur reiciendis quis autem culpa et?</p>
+                        <p>Chegou rapidinho e bem embalado.</p>
                     </div>
                     <div class="pergunta-avaliacao">
                         <span>Esta avaliação foi útil?</span>
@@ -281,11 +368,11 @@ require_once __DIR__ . "../../../../public/componentes/rodape/Rodape.php";
     echo createRodape(); 
     ?>
 
-<script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
-<script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
-<script src="/projeto-integrador-et.com/public/javascript/detalhesDoProduto.js"></script>
-<script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
-<script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
-<script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/detalhesDoProduto.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
 </body>
 </html>
