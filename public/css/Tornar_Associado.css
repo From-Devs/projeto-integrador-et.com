@@ -205,37 +205,33 @@ body {
   font-weight: 700;
   color: #AA8E8E;
 }
-.cards-section {
-  box-sizing: border-box;
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column; /* muda para coluna */
-  justify-content: center;
-  align-items: center; /* centraliza tudo */
-  background-image: url('/projeto-integrador-et.com/public/imagens/TornarAssociado/Rectangle.png');
-  background-size: cover;
-  background-position: center;
-  padding: 60px 20px; /* padding responsivo */
-  gap: 40px; /* espaço entre cards e texto */
-}
 
-.comissionText {
-  position: static; /* remove o absolute */
-  max-width: 820px;
-  font-size: 24px;
-  text-align: center; /* centraliza texto */
-  color: #000;
-}
+.cards-section { box-sizing: border-box; 
+  position: relative; 
+  width: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  background-image: url('/projeto-integrador-et.com/public/imagens/TornarAssociado/Rectangle.png'); 
+  background-size: cover; 
+  background-position: center; 
+  height: 800px; 
+  margin-top: 100px; }
 
 
-.cards-container {
-  display: flex;
-  flex-wrap: wrap; /* permite quebrar linha */
-  justify-content: center; /* centraliza horizontalmente */
-  gap: 40px;
-  max-width: 1200px;
+.comissionText{ 
+  position: absolute; 
+  width: 820px; 
+  font-size: 24px; 
+  right: 50px; 
+  bottom: 0; 
 }
+
+  .cards-container { 
+    display: flex; 
+    gap: 40px; 
+  }
 
 .comissionCard{
   display: flex;
@@ -391,83 +387,7 @@ body {
       background-position-x: 0;
   }
 }
-@media (max-width: 900px) {
-  .promo-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-  }
 
-  .promo-image {
-    max-width: 400px;
-  }
-
-  .promo-content p {
-    width: 100%;
-    font-size: 18px;
-  }
-
-  .cardRedirect {
-    margin: 40px 20px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .cardRedirect span {
-    display: none;
-  }
-
-  .logoCardRedirect {
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 768px) {
-  .comissionText {
-    font-size: 18px;
-    padding: 0 15px;
-  }
-
-  .cards-container {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-
-@media (max-width: 500px) {
-  .carousel-inner {
-    animation: none;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .promoContentText h2 {
-    font-size: 28px;
-  }
-
-  .promo-content p {
-    font-size: 16px;
-  }
-
-  .promo-image {
-    display: none;
-  }
-
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap; /* permite quebrar linha */
-    justify-content: center; /* centraliza horizontalmente */
-    gap: 40px;
-    max-width: 1200px;
-  }
-
-  .comissionText {
-    font-size: 16px;
-    width: 100%;
-    padding: 10px;
-  }
-}
 
 @keyframes gradient {
   0% { background-position: 0% 50%; }
