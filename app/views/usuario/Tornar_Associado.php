@@ -138,11 +138,11 @@
             </div>
         </div>
     </div>
+    <div class="commission-table">
+        <h2>Comissões</h2>
+        <p>A Partir de 7%</p>
+    </div>
     <section class="cards-section">
-        <div class="commission-table">
-            <h2>Comissões</h2>
-            <p>A Partir de 7%</p>
-        </div>
         <div class="cards-container">
             <div class="comissionCard" id="maquiagemCard">
                 <div class="comissionCardIdentifier">
