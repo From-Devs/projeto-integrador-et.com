@@ -146,7 +146,76 @@ $total = $subtotal + $frete;
         </form>
     </main>
 
-    <div class="sessaoProdutos">
+          if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            foreach ($produtos as $index => $produto) {
+              $produtos[$index][2] = $_POST['quantidade'][$index];
+            }
+          }
+          $subtotal = 0;
+          foreach ($resultado['dados'] as $index => $produto) {
+            $produtoSubtotal = $produto[1] * $produto[2];
+            $subtotal += $produtoSubtotal;
+            echo "<tr>
+              <td>
+                <input class='check' type='checkbox' name='selecionar[$index]'>
+                <img class='cor1' src='{$produto[3]}' alt='{$produto[0]}' width='50'>
+                <span class='produto-nome'>{$produto[0]}</span>
+              </td>
+              <td></td>
+              <td></td>
+              <td class='cor2'>R$ {$produto[1]}</td>
+              <td class='quantityColumn'>
+                <div class='quantity-container'>
+                  <button type='button' class='quantity-btn' onclick='decrementQuantity($index)'>-</button>
+                  <input type='number' name='quantidade[$index]' value='{$produto[2]}' min='1' class='quantity-input'>
+                  <button type='button' class='quantity-btn' onclick='incrementQuantity($index)'>+</button>
+                </div>
+              </td>
+              <td class='cor2'>R$ $produtoSubtotal</td>
+            </tr>";
+          }
+          ?>
+        </tbody>
+        <tr>
+          <td class="td-paginacao"><?php renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);?></td>
+        </tr>
+        <tfoot>
+          <tr>
+            <td class='cor3' colspan="5" class="total-label">Subtotal:</td>
+            <td class="total-value" id="subtotal">R$ <?php echo $subtotal; ?></td>
+          </tr>
+
+          <tr>
+            <td class='cor3' colspan="2">
+              <label for="cep">Frete: </label>
+              <input class="redondo" type="text" id="cep" name="cep" placeholder="Digite seu CEP" oninput="calcularTotal()">
+              <button type="button" class="botaoCalcular">Calcular</button>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><span class="total-value" id="frete">R$ 10.00</span></td>
+          </tr>
+
+          <tr>
+            <td class='cor3' colspan="5" class="total-label">Total:</td>
+            <td class="total-value" id="total">R$ <?php echo $subtotal + 10; ?></td>
+          </tr>
+        </tfoot>
+      </table class="table1">
+
+      <div class="tudo">
+        <p>Selecionar Tudo:</td>
+        <div class="tudoCheck"><input type="checkbox"/></div>
+      </div>
+
+      <div class="button-container">
+        <button type="button" onclick="abrirPopup()">Realizar Pedido</button>
+        <button type="button">Excluir</button>
+      </div>
+    </form>
+  </main>
+  <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Ofertas Imperdíveis</p>
             <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=ofertas">Ver Mais</a>

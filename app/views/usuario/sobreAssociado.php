@@ -55,12 +55,12 @@
         <div class="cont-text">
             <div class="text01">
                 <h3>ASSOCIADOS ET.COM</h3>
-                <p>Seja bem-vindo ao programa de marketing de afiliados da nossa empresa ET.COM. O Programa de Associados. Com milhões de produtos e diversos programas disponíveis no ET.COM, os associados podem usar ferramentas simples de criação de links para direcionar o público às suas recomendações e faturar com compras e programas qualificados.</p>
+                <p>O Programa de Associados ET.COM é a oportunidade ideal para quem deseja lucrar indicando nossos produtos. Ao se tornar associado, você pode divulgar nossa variedade de itens e, a cada venda realizada através da sua indicação, recebe comissões especiais.</p>
             </div>
 
             <div class="text02">
                 <h3>COMO FUNCIONA O PROGRAMA DE ASSOCIADOS?</h3>
-                <p> O Programa de acossiados permitiria que a pessoa compartilhasse links, e a realização de divulgação em suas redes sociais, blog, site, canal no YouTube ou e-mails. Cada vez que o associado realizasse uma venda por meio desse link, ele receberia uma comissão previamente definida pelo produtor.</p>
+                <p>O Programa de Associados ET.COM permite que você divulgue nossos produtos em suas redes sociais, blog, site, canal no YouTube ou até mesmo por e-mail. A cada venda realizada por meio da sua divulgação, você recebe uma comissão previamente definida por nossos colaboradores.</br></br><strong>É simples. você compartilha, o cliente compra e você ganha!</strong></p>
             </div>
         </div>
 
@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="info">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Recomende Produtos e Ganhe Comissões.</p>
                 </div>
 
                 <div class="line">
@@ -100,6 +100,12 @@
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
+
+    <script>
+        function cadAss(){
+            window.location.href = "CadastroAssociado.php";
+        }
+    </script>
     
 </body>
 </html>
