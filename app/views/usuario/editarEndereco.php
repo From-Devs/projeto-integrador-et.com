@@ -72,7 +72,7 @@
                             <label for="cep">CEP:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="complemento" id="complemento" value="<?= htmlspecialchars($user['complemento'] ?? ""); ?>" required>
+                            <input type="text" class="formInput" name="complemento" id="complemento" value="<?= htmlspecialchars($user['complemento'] ?? ""); ?>">
                             <label for="complemento">Complemento (Opicional):</label>
                         </div>
                     </div>
