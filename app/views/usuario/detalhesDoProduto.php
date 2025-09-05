@@ -86,14 +86,11 @@ $subcategoria = $produto['subcategoria'] ?? ($produto['nomeSubcategoria'] ?? '')
 $corPrincipal = $produto['corPrincipal'] ?? ($produto['cor'] ?? '');
 $imgArquivo  = trim($produto['imagem'] ?? '');
 $baseImgPath = "/projeto-integrador-et.com/public/imagens/produto/";
-if ($imgArquivo === '' || strtolower($imgArquivo) === 'null') {
-    $imgPrincipal = $baseImgPath . 'no-image.png';
-} else {
-    $imgPrincipal = $baseImgPath . $imgArquivo;
-}
-$imgAlt1 = $imgPrincipal;
-$imgAlt2 = $imgPrincipal;
-$imgAlt3 = $imgPrincipal;
+
+$img1 = !empty($produto['img1']) ? $baseImgPath . $produto['img1'] : $baseImgPath . 'no-image.png';
+$img2 = !empty($produto['img2']) ? $baseImgPath . $produto['img2'] : $img1;
+$img3 = !empty($produto['img3']) ? $baseImgPath . $produto['img3'] : $img1;
+$imgPrincipal = $img1;
 ?>
 
 <!DOCTYPE html>
@@ -120,23 +117,14 @@ $imgAlt3 = $imgPrincipal;
     
     <div class="container-detalhes">
         <div class="detalhes-principal">
-            <div class="detalhes-imagens">
-                <div class="imagens-lateral">
-                    <div>
-                        <img src="<?php echo htmlspecialchars($imgAlt1); ?>" alt="img-lateral">
-                    </div>
-                    <div>
-                        <img src="<?php echo htmlspecialchars($imgAlt2); ?>" alt="img-lateral">
-                    </div>
-                    <div>
-                        <img src="<?php echo htmlspecialchars($imgAlt3); ?>" alt="img-lateral">
-                    </div>
-                </div>
-                <div class="img-principal">
-                    <div>
-                        <img src="<?php echo htmlspecialchars($imgPrincipal); ?>" alt="img-principal">
-                    </div>
-                </div>
+            <div class="imagens-lateral">
+                <div><img src="<?php echo htmlspecialchars($img1); ?>" alt="img-lateral"></div>
+                <div><img src="<?php echo htmlspecialchars($img2); ?>" alt="img-lateral"></div>
+                <div><img src="<?php echo htmlspecialchars($img3); ?>" alt="img-lateral"></div>
+            </div>
+
+            <div class="img-principal">
+                <div><img src="<?php echo htmlspecialchars($imgPrincipal); ?>" alt="img-principal"></div>
             </div>
             <div class="detalhes-info">
                 <div class="titulo-produto">
