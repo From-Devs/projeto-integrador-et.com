@@ -66,23 +66,23 @@
                         </div>
                         <div class="dadosText" id="content-email">
                             <p><strong>Email:</strong></p>
-                            <span id="email"><?= htmlspecialchars($user['email'] ?? "-"); ?></span>
+                            <span id="email"><?= htmlspecialchars($user['email'] ?? ""); ?></span>
                         </div>
                         <div class="dadosText" id="content-nasc">
                             <p><strong>Data de nascimento:</strong></p>
-                            <span id='nascSpan'><?= htmlspecialchars($user['data_nascimento'] ?? "-"); ?></span>
+                            <span id='nascSpan'><?= htmlspecialchars($user['data_nascimento'] ?? ""); ?></span>
                         </div>
                         <div class="dadosText" id="content-cpf">
                             <p><strong>CPF:</strong></p>
-                            <span><?= htmlspecialchars($user['cpf'] ?? "-"); ?></span>
+                            <span><?= htmlspecialchars($user['cpf'] ?? ""); ?></span>
                         </div>
                         <div class="dadosText" id="content-phone">
                             <p><strong>Telefone:</strong></p>
-                            <span><?= htmlspecialchars($user['telefone'] ?? "-"); ?></span>
+                            <span><?= htmlspecialchars($user['telefone'] ?? ""); ?></span>
                         </div>
                         <div class="dadosText" id="content-type">
                             <p><strong>Tipo de conta:</strong></p>
-                            <span><?= htmlspecialchars($user['tipo'] ?? "-"); ?></span>
+                            <span><?= htmlspecialchars($user['tipo'] ?? ""); ?></span>
                         </div>
                     </div>
                 </form>
