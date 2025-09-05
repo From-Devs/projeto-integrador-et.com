@@ -41,7 +41,7 @@
             <div class="promo-contentEsquerda">
                 <div class="promoContentText">
                     <h2>Torne-se um(a) associado(a) ET!</h2>
-                    <p>Seja bem-vindo ao programa de marketing de associados da nossa empresa ETCOM. O Programa de Associados ETCOM ajuda vendedores, editores e blogueiros a monetizarem seus sites.</p>
+                    <p>Seja bem-vindo ao programa de associados da nossa empresa ET.COM No Programa de Associados ET.COM, você publica nossos produtos e recebe comissões!</p>
                 </div>
                 <div class="botoesContainer">
                     <?php
@@ -200,7 +200,7 @@
             </div>
 
         </div>
-        <p class="comissionText">Seja bem-vindo ao programa de marketing de afiliados da nossa empresa ET.COM. O Programa de Associados ET.COM ajuda criadores de conteúdo, editores e blogueiros a monetizarem seus sites. Com milhões de produtos e diversos programas disponíveis no ET.COM, os associados podem usar ferramentas simples de criação de links para direcionar o público às suas recomendações e faturar com compras e programas qualificados.</p>
+        <p class="comissionText">Bem-vindo ao Programa de Associados ET.COM! Aqui você tem a oportunidade de vender nossos produtos e ganhar comissões exclusivas a cada venda realizada. É simples e rápido, você se associa, divulga e começa a lucrar junto com a gente.</p>
     </section>
 
     <!-- <div class="cardRedirectWrapper"> -->
@@ -208,7 +208,7 @@
             <img src="/projeto-integrador-et.com/public/imagens/ET/LogoPreta1.png" alt="" class="logoCardRedirect">
             <span></span>
             <div>
-                <h1>Recomende Produtos. Ganhe Rendas.</h1>
+                <h1>Recomende Produtos e Ganhe Comissões.</h1>
                 <?php
                 echo botaoPersonalizadoRedirect("Associar-se","btn-black","app/views/usuario/CadastroAssociado.php","270px","95px","30px")
                 ?>

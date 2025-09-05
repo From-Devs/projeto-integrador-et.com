@@ -1,7 +1,7 @@
 <?php
     require_once __DIR__."/../../popup/popUp.php";
     require_once __DIR__."/../../botao/botao.php";
-    require_once __DIR__."/../../popup/popUp.php";
+    require_once __DIR__ . "/../../../../app/Models/products.php";
 
     function tabelaProdutoAdm($produtos){
         ?>
@@ -47,10 +47,9 @@ function tabelaProduto($produtos) {
                 <tr>
                     <th id="bordaEsquerda" scope="col">ID</th>
                     <th id="th2" scope="col">Produto</th>
-                    <th id="th3" scope="col">Estoque</th>
-                    <th id="th4" scope="col">Custo</th>
                     <th id="th5" scope="col">Preço</th>
-                    <th id="th6" scope="col">Qtd. Pedidos</th>
+                    <th id="th4" scope="col">Preço Promocional</th>
+                    <th id="th4" scope="col">Qtd. Estoque</th>
                     <th id="th8" scope="col">Ações</th>
                 </tr>
             </thead>
@@ -63,20 +62,22 @@ function tabelaProduto($produtos) {
                         <tr>
                             <td><?= $produto['id'] ?></td>
                             <td><?= htmlspecialchars($produto['nome']) ?></td>
-                            <td><?= $produto['estoque'] ?></td>
-                            <td>R$ <?= number_format($produto['custo'], 2, ',', '.') ?></td>
                             <td>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></td>
-                            <td><?= $produto['pedidos'] ?></td>
+                            <td>R$ <?= number_format($produto['precoPromocional'], 2, ',', '.') ?></td>
+                            <td><?= $produto['qtdEstoque']?></td>
                             <td>
                                 <div class="acoes-tabela">
                                     <?php
-                                    $btnSim = botaoPersonalizadoOnClick("Sim", "btn-black", "", "100px");
+
+                                    $popUpId = "popUpExcluir_".$produto['id'];
+                                    $btnSim = botaoPersonalizadoOnClick("Sim", "btn-black", "removerProduto(".$produto['id'].")", "100px");
                                     $btnNao = botaoPersonalizadoOnClick("Não", "btn-white", "", "100px");
-                                    echo PopUpConfirmar("popUpExcluir", "Deseja excluir o produto selecionado?", $btnSim, $btnNao, "400px"); ?>
-                                    <div class="excluir" onclick="abrirPopUp('popUpExcluir')">
+                                    echo PopUpConfirmar($popUpId, "Deseja excluir o produto selecionado?", $btnSim, $btnNao, "400px");?>
+
+                                    <div class="excluir" onclick="abrirPopUp('<?= $popUpId ?>')">
                                         <img src="/projeto-integrador-et.com/public/imagens/associado/img-excluir.png" alt="img-excluir">
                                     </div>
-                                    <div class="editar" onclick="abrirPopUp('dialog-editar')">
+                                    <div class="editar" onclick="buscarAtributosDoProduto(<?= $produto['id'] ?>)">
                                         <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png" alt="img-editar">
                                     </div>
                                 </div>
@@ -96,44 +97,43 @@ function tabelaProduto($produtos) {
             </div>
             <form class="campos-editar" action="http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=EditarProduto" method="post">
                 <!-- conteúdo do formulário como no original -->
+                <input type="hidden" name="id_produto">
+
                 <div>
                     <div class="campo">
                         <label>Nome:</label>
-                        <input type="text">
+                        <input type="text" name="nome">
                     </div>
                     <div class="campo">
                         <label>Marca:</label>
-                        <input type="text">
+                        <input type="text" name="marca">
                     </div>
                     <div class="campo">
                         <label>Subcategoria:</label>
-                        <select id="ddlCategoria">
-                            <option value="teste">Teste1</option>
-                            <option value="teste">Teste2</option>
-                            <option value="teste">Teste3</option>
-                            <option value="teste">Teste4</option>
+                        <select id="ddlCategoria" name="subCategoria">
+                            
                         </select>
                     </div>
                 </div>
                 <div>
                     <div class="campo campo-large">
                         <label>Breve descrição:</label>
-                        <textarea cols="30" rows="10"></textarea>
+                        <textarea cols="30" rows="10" name="breveDescricao"></textarea>
                     </div>
                 </div>
                 <div class="divisao-esquerda">
                     <div class="campos-esquerda">
                         <div class="campo campo-small">
-                            <label>Preço:</label>
-                            <input type="text">
+                            <label>Quantidade no estoque:</label>
+                            <input type="text" name="qtdEstoque">
                         </div>
                         <div class="campo campo-small">
-                            <label>Quantidade no estoque:</label>
-                            <input type="text">
+                            <label>Preço:</label>
+                            <input type="text" name="preco">
                         </div>
                         <div class="campo campo-small">
                             <label>Preço Promocional:</label>
-                            <input type="text">
+                            <input type="text" name="precoPromocional">
                         </div>
                     </div>
                     <div class="campos-direita">
@@ -142,7 +142,7 @@ function tabelaProduto($produtos) {
                         <div class="imagem-produto-container">
                             <div class="container-img">
                                 <img src=""
-                                    alt="Produto" class="imagem-produto" id="img-produto1" onerror="this.style.display='none';" name="img1">
+                                    alt="Produto" class="imagem-produto" id="img-produto1" name="img1">
                             </div>
 
                             <label for="upload-produto1" class="icone-cadastrar-label">
@@ -157,7 +157,7 @@ function tabelaProduto($produtos) {
                         <div class="imagem-produto-container">
                             <div class="container-img">
                                 <img src=""
-                                    alt="Produto" class="imagem-produto" id="img-produto2" onerror="this.style.display='none';" name="img2">
+                                    alt="Produto" class="imagem-produto" id="img-produto2" name="img2">
                             </div>
 
                             <label for="upload-produto2" class="icone-cadastrar-label">
@@ -172,7 +172,7 @@ function tabelaProduto($produtos) {
                         <div class="imagem-produto-container">
                             <div class="container-img">
                                 <img src=""
-                                    alt="Produto" class="imagem-produto" id="img-produto3" onerror="this.style.display='none';" name="img3">
+                                    alt="Produto" class="imagem-produto" id="img-produto3" name="img3">
                             </div>
 
                             <label for="upload-produto3" class="icone-cadastrar-label">
@@ -187,31 +187,27 @@ function tabelaProduto($produtos) {
                 <div class="cores-produto">
                     <div>
                         <input type="color" class="cor" name="corPrincipal">
-                        <span class="span-cor">Cor principal</span>
+                        <span class="span-cor">Cor principal *</span>
                     </div>
                     <div>
                         <input type="color" class="cor" name="deg1">
-                        <span class="span-cor">Deg. 1</span>
+                        <span class="span-cor">Deg. 1 *</span>
                     </div>
                     <div>
                         <input type="color" class="cor" name="deg2">
-                        <span class="span-cor">Deg. 2</span>
-                    </div>
-                    <div>
-                        <input type="color" class="cor" name="deg3">
-                        <span class="span-cor">Deg. 3</span>
+                        <span class="span-cor">Deg. 2 *</span>
                     </div>
                 </div>
                 </div>  
                 </div>
-                <div>
+                <div class="container-campos-large">
                     <div class="campo campo-large">
-                        <label>Características Completa:</label>
-                        <textarea cols="30" rows="10"></textarea>
+                        <label>Características Completa: *</label>
+                        <textarea cols="30" rows="10" name="caracteristicasCompleta"></textarea>
                     </div>
-                </div>
-                <div class="div-btn">
-                    <button class="btn-concluir-edicao" type="submit">Concluír edição</button>
+                    <div class="div-btn">
+                        <button class="btn-concluir-edicao" type="submit">Concluír edição</button>
+                    </div>
                 </div>
             </form>
         </dialog>
