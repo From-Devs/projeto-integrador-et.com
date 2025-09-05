@@ -70,7 +70,7 @@
                         </div>
                         <div class="dadosText" id="content-nasc">
                             <p><strong>Data de nascimento:</strong></p>
-                            <span><?= htmlspecialchars($user['data_nascimento'] ?? "-"); ?></span>
+                            <span id='nascSpan'><?= htmlspecialchars($user['data_nascimento'] ?? "-"); ?></span>
                         </div>
                         <div class="dadosText" id="content-cpf">
                             <p><strong>CPF:</strong></p>
@@ -149,6 +149,14 @@
     </main>
 
     <script>
+        const nascSpan = document.getElementById("nascSpan");
+        const valor = nascSpan.textContent;
+
+        if (valor && valor.includes("-")) {
+            const [ano, mes, dia] = valor.split("-");
+            nascSpan.textContent = `${dia}/${mes}/${ano}`;
+        }
+
         const botaoEdit = document.getElementById("botaoEdit").addEventListener('click', function(){
             window.location.href = 'editarPerfil.php';
         });

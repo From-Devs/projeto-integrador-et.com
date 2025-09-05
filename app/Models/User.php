@@ -149,6 +149,63 @@ class User {
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+    public function saveOrUpdateEndereco($id_usuario, $dadosEndereco) {
+        try {
+            $stmt = $this->conn->prepare("SELECT id_endereco FROM usuario WHERE id_usuario = ?");
+            $stmt->execute([$id_usuario]);
+            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            if (!$usuario) {
+                return ["success" => false, "message" => "Usuário não encontrado"];
+            }
+    
+            if ($usuario['id_endereco']) {
+                $sql = "UPDATE Endereco 
+                        SET tipoLogradouro=:tipoLogradouro, estado=:estado, cidade=:cidade, bairro=:bairro, 
+                            rua=:rua, numero=:numero, cep=:cep, complemento=:complemento
+                        WHERE id_endereco=:id_endereco";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute([
+                    ':tipoLogradouro' => $dadosEndereco['tipoLogradouro'],
+                    ':estado' => $dadosEndereco['estado'],
+                    ':cidade' => $dadosEndereco['cidade'],
+                    ':bairro' => $dadosEndereco['bairro'],
+                    ':rua' => $dadosEndereco['rua'],
+                    ':numero' => $dadosEndereco['numero'],
+                    ':cep' => $dadosEndereco['cep'],
+                    ':complemento' => $dadosEndereco['complemento'] ?? null,
+                    ':id_endereco' => $usuario['id_endereco']
+                ]);
+            } else {
+                $sql = "INSERT INTO Endereco (tipoLogradouro, estado, cidade, bairro, rua, numero, cep, complemento) 
+                        VALUES (:tipoLogradouro, :estado, :cidade, :bairro, :rua, :numero, :cep, :complemento)";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute([
+                    ':tipoLogradouro' => $dadosEndereco['tipoLogradouro'],
+                    ':estado' => $dadosEndereco['estado'],
+                    ':cidade' => $dadosEndereco['cidade'],
+                    ':bairro' => $dadosEndereco['bairro'],
+                    ':rua' => $dadosEndereco['rua'],
+                    ':numero' => $dadosEndereco['numero'],
+                    ':cep' => $dadosEndereco['cep'],
+                    ':complemento' => $dadosEndereco['complemento'] ?? null,
+                ]);
+                $id_endereco = $this->conn->lastInsertId();
+    
+                $sqlUsuario = "UPDATE Usuario SET id_endereco=:id_endereco WHERE id_usuario=:id_usuario";
+                $stmtUsuario = $this->conn->prepare($sqlUsuario);
+                $stmtUsuario->execute([
+                    ':id_endereco' => $id_endereco,
+                    ':id_usuario' => $id_usuario
+                ]);
+            }
+    
+            return ["success" => true, "message" => "Endereço salvo com sucesso!"];
+        } catch (Exception $e) {
+            return ["success" => false, "message" => "Erro: " . $e->getMessage()];
+        }
+    }
     
 }
 ?>
