@@ -83,8 +83,11 @@
                     <div></div>
                 </div>
 
-                <div class="button">
-                    <button onclick="cadAss()">Associar-se</button>
+                <div style="display: flex; justify-content: center; align-items: center; height: 200px;">
+                    <?php
+                        echo botaoPersonalizadoRedirect("Associar-se","btn-white","app/views/usuario/CadastroAssociado.php","240px","60px","25px"
+                    );
+                    ?>
                 </div>
             </div>
         </div>

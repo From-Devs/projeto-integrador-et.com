@@ -69,23 +69,23 @@
                     <div class="dadosUsuarioFormInputs">
                     <input type="hidden" name="update_id" value="<?= htmlspecialchars($user['id_usuario'] ?? ''); ?>">
                         <div class="formControl">
-                            <input type="text" class="formInput" name="nome" id="username" value="<?= htmlspecialchars($user['nome'] ?? "-"); ?>" required>
+                            <input type="text" class="formInput" name="nome" id="username" value="<?= htmlspecialchars($user['nome'] ?? ""); ?>" required>
                             <label for="username">Nome Completo:</label>
                         </div>
                         <div class="formControl">
-                            <input type="email" class="formInput" name="email" id="email" value="<?= htmlspecialchars($user['email'] ?? "-"); ?>" required>
+                            <input type="email" class="formInput" name="email" id="email" value="<?= htmlspecialchars($user['email'] ?? ""); ?>" required>
                             <label for="email">Email:</label>
                         </div>
                         <div class="formControl">
-                            <input type="date" class="formInput" name="data_nascimento" id="date" value="<?= htmlspecialchars($user['data_nascimento'] ?? "-"); ?>" required>
+                            <input type="date" class="formInput" name="data_nascimento" id="date" value="<?= htmlspecialchars($user['data_nascimento'] ?? ""); ?>" required>
                             <label for="date">Data de nascimento:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="cpf" id="cpf" value="<?= htmlspecialchars($user['cpf'] ?? "-"); ?>" required>
+                            <input type="text" class="formInput" name="cpf" id="cpf" value="<?= htmlspecialchars($user['cpf'] ?? ""); ?>" required>
                             <label for="cpf">CPF:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="telefone" id="phone" value="<?= htmlspecialchars($user['telefone'] ?? "-"); ?>" required>
+                            <input type="text" class="formInput" name="telefone" id="phone" value="<?= htmlspecialchars($user['telefone'] ?? ""); ?>" required>
                             <label for="phone">Telefone:</label>
                         </div>
                     </div>

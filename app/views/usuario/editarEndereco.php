@@ -46,41 +46,41 @@
             <div class="line"></div>
         </div>
         <section class="conta-container">
-            <form class="profile-card" method="POST" action="" >
+            <form class="profile-card" method="POST" action="../../../router/UserRoutes.php?acao=save_adress" >
 
                 <div class="dadosUsuarioForm">
                     <div class="dadosUsuarioFormInputs">
                     <input type="hidden" name="update_id" value="<?= htmlspecialchars($user['id_usuario'] ?? ''); ?>">
                         <div class="formControl">
-                            <input type="text" class="formInput" name="tipoLogradouro" id="tipoLogradouro" required>
+                            <input type="text" class="formInput" name="tipoLogradouro" id="tipoLogradouro" value="<?= htmlspecialchars($user['tipoLogradouro'] ?? ""); ?>" required>
                             <label for="tipoLogradouro">Tipo do logradouro:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="estado" id="estado" required>
+                            <input type="text" class="formInput" name="estado" id="estado" value="<?= htmlspecialchars($user['estado'] ?? ""); ?>" required>
                             <label for="estado">Estado:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="cidade" id="cidade" required>
+                            <input type="text" class="formInput" name="cidade" id="cidade" value="<?= htmlspecialchars($user['cidade'] ?? ""); ?>" required>
                             <label for="cidade">Cidade:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="bairro" id="bairro" required>
+                            <input type="text" class="formInput" name="bairro" id="bairro" value="<?= htmlspecialchars($user['bairro'] ?? ""); ?>" required>
                             <label for="bairro">Bairro:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="rua" id="rua" required>
+                            <input type="text" class="formInput" name="rua" id="rua" value="<?= htmlspecialchars($user['rua'] ?? ""); ?>" required>
                             <label for="rua">Rua:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="numero" id="numero" required>
+                            <input type="text" class="formInput" name="numero" id="numero" value="<?= htmlspecialchars($user['numero'] ?? ""); ?>" required>
                             <label for="numero">Número:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="cep" id="cep" required>
+                            <input type="text" class="formInput" name="cep" id="cep" value="<?= htmlspecialchars($user['cep'] ?? ""); ?>" required>
                             <label for="cep">CEP:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="complemento" id="complemento">
+                            <input type="text" class="formInput" name="complemento" id="complemento" value="<?= htmlspecialchars($user['complemento'] ?? ""); ?>">
                             <label for="complemento">Complemento (Opicional):</label>
                         </div>
                     </div>
