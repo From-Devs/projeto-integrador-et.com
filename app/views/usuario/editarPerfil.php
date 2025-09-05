@@ -38,13 +38,20 @@
             <div class="line"></div>
         </div>
         <section class="conta-container">
-            <form class="profile-card" method="POST" action="../../../router/UserRoutes.php?acao=update" >
+            <form class="profile-card" method="POST" action="../../../router/UserRoutes.php?acao=update" enctype="multipart/form-data">
 
                 <div class="profileIconEditContainer">
                     <h1>Alterar foto de perfil</h1>
 
                     <div class="profileIconWrapper">
-                        <img src="../../../public/imagens/user-icon.png" alt="User Profile" class="profile-pic" id="avatarPreview">
+                    <?php
+                        // Caminho salvo no banco, ex: "public/uploads/1756329425_nome.jpg"
+                        $avatarPath = !empty($user['foto']) 
+                            ? "/projeto-integrador-et.com/" . $user['foto'] 
+                            : "/projeto-integrador-et.com/public/imagens/user-icon.png";
+                        ?>
+
+                        <img src="<?= $avatarPath ?>" alt="User Profile" class="profile-pic" id="avatarPreview">
                         <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" onchange="previewFile()"/>
                         <label for="avatar"><i class='bx bx-image-alt'></i></label>
                     </div>
@@ -54,23 +61,23 @@
                     <div class="dadosUsuarioFormInputs">
                     <input type="hidden" name="update_id" value="<?= htmlspecialchars($user['id_usuario'] ?? ''); ?>">
                         <div class="formControl">
-                            <input type="text" class="formInput" name="nome" id="username" value="<?= htmlspecialchars($user['nome'] ?? "-"); ?>" required>
+                            <input type="text" class="formInput" name="nome" id="username" value="<?= htmlspecialchars($user['nome'] ?? ""); ?>" required>
                             <label for="username">Nome Completo:</label>
                         </div>
                         <div class="formControl">
-                            <input type="email" class="formInput" name="email" id="email" value="<?= htmlspecialchars($user['email'] ?? "-"); ?>" required>
+                            <input type="email" class="formInput" name="email" id="email" value="<?= htmlspecialchars($user['email'] ?? ""); ?>" required>
                             <label for="email">Email:</label>
                         </div>
                         <div class="formControl">
-                            <input type="date" class="formInput" name="data_nascimento" id="date" value="<?= htmlspecialchars($user['data_nascimento'] ?? "-"); ?>" required>
+                            <input type="date" class="formInput" name="data_nascimento" id="date" value="<?= htmlspecialchars($user['data_nascimento'] ?? ""); ?>" required>
                             <label for="date">Data de nascimento:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="cpf" id="cpf" value="<?= htmlspecialchars($user['cpf'] ?? "-"); ?>" required>
+                            <input type="text" class="formInput" name="cpf" id="cpf" value="<?= htmlspecialchars($user['cpf'] ?? ""); ?>" required>
                             <label for="cpf">CPF:</label>
                         </div>
                         <div class="formControl">
-                            <input type="text" class="formInput" name="telefone" id="phone" value="<?= htmlspecialchars($user['telefone'] ?? "-"); ?>" required>
+                            <input type="text" class="formInput" name="telefone" id="phone" value="<?= htmlspecialchars($user['telefone'] ?? ""); ?>" required>
                             <label for="phone">Telefone:</label>
                         </div>
                     </div>

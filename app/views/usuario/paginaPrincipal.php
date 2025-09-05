@@ -8,13 +8,18 @@
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
     require __DIR__ . "/../../../public/componentes/carousel/carousel.php";
     require __DIR__ . "/../../../public/componentes/popup/popUp.php";
+    require_once __DIR__ . "../../../../public/componentes/pesquisaHeader/pesquisaHeader.php";
 
-    // session_start();
+    // == ADIÇÃO: carregar produtos do banco ==
+    require_once __DIR__ . "/../../../config/ProdutoController.php";
+    $produtoController = new ProdutoController();
+    $resultadoProdutos = $produtoController->ListarProdutos();
+    $produtos = $resultadoProdutos['produtos'] ?? [];
+
+    session_start();
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
-    $login = true; // Estado de login do usuário (false = deslogado / true = logado)
-
-
+    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +44,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/paginaPrincipal.css">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -149,14 +154,14 @@
     </div>
 
     <?php
-    // echo createProdutoDestaque("Hidratante Corporal Milk","Nivea","R$20,00","milk.png","rgb(0, 0, 145)","rgb(75, 75, 226)","rgb(0, 0, 57)");
+    // echo createProdutoDestaque("Hidratante Corporal Milk","Nivea",20,"milk.png","rgb(0, 0, 145)","rgb(75, 75, 226)","rgb(0, 0, 57)");
     echo createProdutoDestaque();
     ?>
 
     <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Ofertas Imperdíveis</p>
-            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">Ver Mais</a>
+            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=ofertas">Ver Mais</a>
         </div>
         <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
@@ -164,14 +169,14 @@
             <div class="frameProdutos">
                 <div class="containerProdutos">
                     <?php
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", true, 30, "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", true, 30, "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", true, 30, "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", true, 30, "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", true, 30, "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", true, 30, "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", true, 30, "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", true, 30, "#D2936A", "#6C4A34", "#D29065");
                     ?>
                 </div>
             </div>
@@ -183,7 +188,7 @@
     <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Mais Vendidos</p>
-            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">Ver Mais</a>
+            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=mais_vendidos">Ver Mais</a>
         </div>
         <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
@@ -191,14 +196,14 @@
             <div class="frameProdutos">
                 <div class="containerProdutos">
                     <?php
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065");
                     ?>
                 </div>
             </div>

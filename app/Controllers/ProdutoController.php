@@ -79,4 +79,38 @@ class ProdutoController {
             $deg2
         );
     }
+
+    // public function EditarProduto(
+    //     $id_produto,
+    //     $nome,
+    //     $marca,
+    //     $descricaoBreve,
+    //     $descricaoTotal,
+    //     $preco,
+    //     $precoPromo,
+    //     $qtdEstoque,
+    //     $img1 = null,
+    //     $img2 = null,
+    //     $img3 = null,
+    //     $id_subCategoria = null,
+    //     $id_cores = null,
+    //     $id_associado = null
+    // ) {
+    //     return $this->produtoModel->updateProduto(
+    //         $id_produto,
+    //         $nome,
+    //         $marca,
+    //         $descricaoBreve,
+    //         $descricaoTotal,
+    //         $preco,
+    //         $precoPromo,
+    //         $qtdEstoque,
+    //         $img1,
+    //         $img2,
+    //         $img3,
+    //         $id_subCategoria,
+    //         $id_cores,
+    //         $id_associado
+    //     );
+    // }
 }

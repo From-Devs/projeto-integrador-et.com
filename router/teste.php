@@ -49,7 +49,6 @@
     <h3>Criar Usuário</h3>
     <form method="POST" action="teste.php?acao=create">
         <input type="text" name="nome" placeholder="Nome" required>
-        <input type="text" name="nome_social" placeholder="Nome Social">
         <input type="email" name="email" placeholder="Email" required>
         <input type="text" name="telefone" placeholder="Telefone">
         <input type="text" name="cpf" placeholder="CPF" required>
@@ -68,7 +67,6 @@
         <form method="POST" action="teste.php?acao=update">
             <input type="hidden" name="update_id" value="<?= $u['id_usuario'] ?>">
             <input type="text" name="nome" value="<?= htmlspecialchars($u['nome']) ?>" required>
-            <input type="text" name="nome_social" value="<?= htmlspecialchars($u['nome_social']) ?>">
             <input type="email" name="email" value="<?= htmlspecialchars($u['email']) ?>" required>
             <input type="text" name="telefone" value="<?= htmlspecialchars($u['telefone']) ?>">
             <input type="text" name="cpf" value="<?= htmlspecialchars($u['cpf']) ?>" required>
@@ -86,7 +84,6 @@
             <button type="submit" style="background: #dc3545;">Excluir</button>
         </form>
     <?php endforeach; ?>
-
 
 </body>
 </html>

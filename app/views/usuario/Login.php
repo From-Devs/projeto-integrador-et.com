@@ -12,28 +12,27 @@
     <div id="container">
         <div id="parteBranca">
             <h1 id="bemVindo">BEM-VINDO!</h1>
-            <div class="formContainer">
-                <form>
-                    <div class="email-input">
-                        <input type="text" class="input" id="email" required>
-                        <label for="EmailCPF">Email</label>
-                    </div>
-                    <div class="senha-input">
-                        <input type="password" class="input" id="senha" required>
-                        <label for="Senha">Senha</label>
-                    </div>
-                </form>
+
+            <form class="formContainer" id="formContainer" method="POST" action="../../../router/UserRoutes.php?acao=login">
+                <div class="email-input">
+                    <input type="text" name="email" class="input" id="email" required>
+                    <label for="EmailCPF">Email</label>
+                </div>
+                <div class="senha-input">
+                    <input type="password" name="senha" class="input" id="senha" required>
+                    <label for="Senha">Senha</label>
+                </div>
                 <a id='esqueciSenha' href="">Esqueceu a senha?</a>
-            </div>
-            <button id="botaoEntrar" onclick="redirecionar()" >Entrar</button>
+            </form>
+            <button id="botaoEntrar" type="submit" form="formContainer">Entrar</button>
             <div id="cadastro">
                 <p>Novo na ET?</p>
                 <a id="cadastroClique" href="CadastroUsuario.php">Cadastre-se</a>
             </div>
-            <button id="voltarSair" onclick="history.back()">
+            <button id="voltarSair" type="button" onclick="history.back()">
                 <i class='fas fa-chevron-left'></i>
                 <p id="voltar" href="./paginaPrincipal.php">Voltar</p>          
-            </button>    
+            </button> 
         </div>
         <section>
             <div class='wave solida'></div>
@@ -45,9 +44,6 @@
     </div>
 
 <script> 
-    function redirecionar() {
-        window.location.href = "paginaPrincipal.php";
-    }
 </script>
 </body>
 </html>
