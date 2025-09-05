@@ -50,7 +50,8 @@ class User {
             if ($this->cpfExists($data['cpf'])) {
                 return ["success" => false, "message" => "CPF já cadastrado"];
             }
-
+    
+            // 2️⃣ Garante que a senha seja hash
             if (!empty($data['senha'])) {
                 $data['senha'] = password_hash($data['senha'], PASSWORD_DEFAULT);
             } else {
