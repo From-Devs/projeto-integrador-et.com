@@ -49,16 +49,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $_POST["deg2"]
                 );
 
-                if($resultado){
-                    header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=CadastrarProduto");
-                    exit;
-                }else{
-                    header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=CadastrarProduto");
-                    exit;
-                }
+            if ($resultado) {
+                echo json_encode([
+                    "sucesso" => true,
+                    "mensagem" => "Produto cadastrado com sucesso"
+                ]);
             } else {
-                header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=CadastrarProduto");
-                exit;
+                echo json_encode([
+                    "sucesso" => false,
+                    "mensagem" => "Erro ao cadastrar produto"
+                ]);
+            }
+        
+            } else {
+                echo json_encode([
+                    "sucesso" => false,
+                    "mensagem" => "Campos inválidos ou imagens não enviadas"
+                ]);
             }
             break;
 
