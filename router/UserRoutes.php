@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../app/Controllers/UserController.php';
 
 session_start();
-$_SESSION['id_usuario'] = 4;
 
 $userController = new UserController();
 $responseCreate = null;
@@ -15,7 +14,7 @@ $testeConexao = $userController->teste();
 
 $acao = $_GET["acao"] ?? '';
 
-if (!in_array($acao, ['', 'create', 'update', 'delete', 'getUser', 'login', 'update_password'])) {
+if (!in_array($acao, ['', 'create', 'update', 'delete', 'getUser', 'login', 'update_password', 'save_adress'])) {
     header("Location: ../app/views/usuario/TelaErro.php");
     exit();
 }
@@ -136,6 +135,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 } catch (Exception $e) {
                     $responseDelete = ["success" => false, "message" => "Erro ao deletar: " . $e->getMessage()];
                 }
+
+                header("Location: ../app/views/usuario/Login.php?sucesso=eliel_deletado");
+                exit;
             }
             break;
 
@@ -143,11 +145,45 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $email = $_POST['email'] ?? "";
             $senha = $_POST['senha'] ?? "";
             $result = $userController->login($email, $senha);
-            echo json_encode($result);
-            exit;
+            
+            if ($result["success"]) {
+                $_SESSION['id_usuario'] = $result['user']['id_usuario'];
+                header("Location: ../app/views/usuario/paginaPrincipal.php");
+                exit;
+            } else {
+                header("Location: ../app/views/usuario/Login.php?erro=credenciais_invalidas");
+                exit;
+            }
             break;
+
+        case "save_adress":
+            if (isset($_SESSION['id_usuario'])) {
+                $id_usuario = $_SESSION['id_usuario'];
+                $dadosEndereco = [
+                    "tipoLogradouro" => $_POST['tipoLogradouro'],
+                    "estado" => $_POST['estado'],
+                    "cidade" => $_POST['cidade'],
+                    "bairro" => $_POST['bairro'],
+                    "rua" => $_POST['rua'],
+                    "numero" => $_POST['numero'],
+                    "cep" => $_POST['cep'],
+                    "complemento" => $_POST['complemento'] ?? null,
+                ];
+        
+                $response = $userController->saveOrUpdateEndereco($id_usuario, $dadosEndereco);
+                
+                if ($response['success']) {
+                    header("Location: ../app/views/usuario/minhaConta.php?sucesso=endereco");
+                } else {
+                    header("Location: ../app/views/usuario/editarEndereco.php?erro=" . urlencode($response['message']));
+                }
+                exit;
+            }
+            break;
+
+        }
     }
-}
+
 
 if ($acao === 'getUser') {
     try {
