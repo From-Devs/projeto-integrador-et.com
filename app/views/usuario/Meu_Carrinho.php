@@ -13,16 +13,24 @@ require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
 require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
 // Verifica se a sessão já foi iniciada antes de chamar session_start().
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+session_start();
+$idUsuario = $_SESSION['idUsuario'] ?? null;
+
+if (!$idUsuario) {
+    die("Usuário não logado!");
 }
 
 $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
 $login = false; // Define o estado de login do usuário.
 
 // Instancia o controller e lista os produtos do carrinho.
+
+
 $controller = new ProdutoController();
-$carrinho = $controller->ListarCarrinho();
+$carrinhoData = $controller->listarCarrinho($idUsuario);
+$carrinho = $carrinhoData['items'] ?? [];
+$totalCarrinho = $carrinhoData['total'] ?? 0;
+
 
 // Variáveis para o cálculo do total
 $subtotal = 0;
@@ -86,10 +94,10 @@ $total = $subtotal + $frete;
                         // Loop dinâmico para exibir os produtos do carrinho.
                         foreach ($carrinho as $index => $produto) {
                             $preco = number_format((float)($produto['precoPromo'] ?? $produto['preco']), 2, ',', '.');
-                            $subtotalProduto = number_format((float)($produto['precoPromo'] ?? $produto['preco']) * ($produto['quantidade'] ?? 1), 2, ',', '.');
-                            $imagem = !empty($produto['imagem']) ? $produto['imagem'] : 'no-image.png';
-                            $quantidade = $produto['quantidade'] ?? 1;
-
+                            $quantidade = $produto['qntProduto'] ?? 1;
+                            $subtotalProduto = number_format((float)($produto['precoPromo'] ?? $produto['preco']) * $quantidade, 2, ',', '.');
+                            $imagem = $produto['img1'] ?? 'no-image.png';
+                        
                             echo "<tr>
                                     <td>
                                         <input class='check' type='checkbox' name='selecionar[$index]'>
@@ -109,6 +117,7 @@ $total = $subtotal + $frete;
                                     <td class='cor2' id='subtotal-item-{$index}'>R$ {$subtotalProduto}</td>
                                 </tr>";
                         }
+                        
                         ?>
                     <?php else: ?>
                         <tr>
