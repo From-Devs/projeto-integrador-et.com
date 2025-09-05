@@ -65,22 +65,6 @@
         </div>
     </section>
 
-        <!-- Pedidos em andamento -->
-        <section class="pedidoAndamentoMP">
-            <h2 class="tituloAndamentoMP">Em Andamento</h2>
-            <div id="produtosAndamento">
-                <?php if (!$pedidos): ?>
-                    <p class="aviso">Você ainda não possui pedidos.</p>
-                <?php else: ?>
-                    <?php foreach ($pedidos as $pedido): ?>
-                        <?php if (($pedido['tipoStatus'] ?? '') !== 'Finalizado'): ?>
-                            <?php renderCardPedido($pedido); ?>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
-        </section>
-
         <div class="linhaInferiorMP"></div>
 
         <!-- Pedidos finalizados -->
