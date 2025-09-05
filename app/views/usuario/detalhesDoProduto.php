@@ -1,16 +1,25 @@
 <?php
 require_once __DIR__ . "/../../../config/database.php";
+require_once __DIR__ . "/../../../config/produtoController.php";
+
+session_start();
+
+$idUsuario = $_SESSION['id_usuario'] ?? null;
+if (!$idUsuario) {
+    die("Usuário não logado!");
+}
+
 $conn = (new Database())->Connect();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])) {
-    $id_produto = intval($_POST['id_produto']);
+    $idProduto = intval($_POST['id_produto']);
+    $quantidade = 1; // ou pegue do input se quiser permitir alterar
 
-    $sql = "INSERT INTO carrinho2 (id_produto, quantidade) VALUES (:id_produto, 1)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(":id_produto", $id_produto, PDO::PARAM_INT);
+    $controller = new ProdutoController();
+    $resultado = $controller->adicionarAoCarrinho($idUsuario, $idProduto, $quantidade);
 
-    if ($stmt->execute()) {
-        echo "<script>; window.location.href='Meu_Carrinho.php';</script>";
+    if ($resultado['ok']) {
+        echo "<script>window.location.href='Meu_Carrinho.php';</script>";
     } else {
         echo "<script>alert('Erro ao adicionar ao carrinho.');</script>";
     }
@@ -24,12 +33,15 @@ require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
 require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
 
-require_once __DIR__ . "/../../../config/produtoController.php";
 
 session_start();
 $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Usuário";
 $login = false;
 
+$idUsuario = $_SESSION['id_usuario'] ?? null;
+if (!$idUsuario) {
+    die("Usuário não logado!");
+}
 // carrega produto por id
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $produto = null;
