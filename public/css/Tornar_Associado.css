@@ -478,6 +478,11 @@ body {
 }
 
 @media screen and (max-width: 900px) {
+
+  .karla{
+    display: none;
+  }
+
   .promo-section {
     flex-direction: column;
     text-align: center;
