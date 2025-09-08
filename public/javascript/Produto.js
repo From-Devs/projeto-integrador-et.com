@@ -1,3 +1,27 @@
+document.getElementsByClassName("campos-cadastrar")[0].addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const teste = document.getElementsByClassName("dialog-cadastrar")[0];
+    console.log(teste);
+
+    let formData = new FormData(this);
+
+    fetch("http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json()) 
+    .then(data => {
+        if (data.sucesso) {
+            abrirPopUp("popUpCadastro");
+            teste.close();
+        } else {
+            abrirPopUp("popUpErro");
+        }
+    })
+    .catch(err => console.error("Erro:", err));
+});
+
 function buscarAtributosDoProduto(idProduto) {
     fetch(`http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=BuscarProduto&id=${idProduto}`)
         .then(response => response.json())

@@ -105,7 +105,7 @@ function filtro($tipo = "", $opcoesSelect = []) {
             <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
         </button>
     </div>
-    <form class="campos-cadastrar" action="http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto" method="post" enctype="multipart/form-data">
+    <form class="campos-cadastrar" enctype="multipart/form-data">
         <div>
             <div class="campo">
                 <label>Nome: *</label>
