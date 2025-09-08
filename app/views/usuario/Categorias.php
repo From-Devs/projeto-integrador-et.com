@@ -7,8 +7,30 @@
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
     require __DIR__ . "/../../../public/componentes/filtroCategoria/filtroCategoria.php";
+    require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
     require_once __DIR__ . "/../../Models/categoria.php";
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
+
+    $categoriasPorTela = [ 
+        "Maquiagem" => [
+            "Tipos" => ["Olhos", "Sombrancelhas","Boca","Pele"],
+        ],
+        "Perfume" => [
+            "Gênero" => ["Feminino", "Masculino", "Unissex"],
+        ],
+        "SkinCare" => [
+            "Tipos" => ["Limpeza", "Esfoliação", "Hidratação", "Máscara", "Protetor Solar", "Especiais"],
+        ],
+        "Cabelos" => [
+            "Tipos" => ["Dia-A-Dia", "Tratamentos", "Estilização", "Especiais", "Acessórios"],
+        ],
+        "Eletronicos" => [
+            "Acessórios" => ["Cabelos", "Pincel", "Esponja"],
+        ],
+        "Corporal" => [
+            "Produtos" => ["Body Splash", "Óleos", "Creme", "Protetor"],
+        ],
+    ];
 
     $fundos = [
         "maquiagem" => [
@@ -116,6 +138,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/cardLancamento/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/cardProduto/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/ondas/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popup/styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
@@ -129,6 +152,7 @@
 <?php
     echo createHeader($login,$tipo_usuario); // função que cria o header
     ?>
+    <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
     <div class="Topo" style="background-image: url('<?php echo $fundoAtual; ?>')">
         <div class="tituloWrapper">
             <h1 class="Titulo">
@@ -234,5 +258,6 @@
     <script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/produtoDestaque/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/filtroCategoria/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
 </body>
 </html>
