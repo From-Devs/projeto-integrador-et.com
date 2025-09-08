@@ -1106,7 +1106,7 @@
     .pedidoAndamentoMP #produtosAndamento{
         width: 1040px;
         max-height: 450px;
-        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));   
+        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
         gap: 15px;
     }
     #produtosAndamento .cards-produtoAndamento{
@@ -1674,3 +1674,50 @@
         margin: 15px 0 12px 0;
     }
 }
+.container {
+    width: 90%;
+    margin: 20px auto;
+  }
+  
+  .titulo {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .pedido-container {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+  }
+  
+  .pedido-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  .pedido-status {
+    background: #f5f5f5;
+    padding: 3px 8px;
+    border-radius: 8px;
+  }
+  
+  .pedido-itens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .pedido-total {
+    text-align: right;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .aviso {
+    font-size: 16px;
+    color: #666;
+  }

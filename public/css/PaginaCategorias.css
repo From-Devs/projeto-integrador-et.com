@@ -244,3 +244,60 @@ body{
         width: 100vw;
     }
 }
+
+/*Paginação*/
+
+.page{
+    margin-top: 40px;
+}
+
+.pagin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    width: auto;
+    height: auto;
+    border-radius: 20px;
+    gap: 10px;
+    background-color: black;
+    color: white;
+
+    font-weight: bolder;
+    font-size: 16px;
+}
+
+.pagin a{
+    text-decoration: none;
+    color: black;
+}
+
+.pagin p{
+    width: auto;
+    height: auto;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.pagin span{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+}
+
+.pagin span:hover{
+    box-shadow: inset 0px 0px 10px;
+    transition: 0.1s;
+}
+
+.pagin p:hover{
+    box-shadow: inset 0px 0px 6px;
+    font-size: 17px;
+    transition: 0.3s;
+}
