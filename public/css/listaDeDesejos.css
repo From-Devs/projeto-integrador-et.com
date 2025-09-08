@@ -21,6 +21,7 @@ body{
     position: absolute;
     height: 20px;
     width: 100%;
+    z-index: 990;
 }
 
 .degradeTopo{
@@ -31,7 +32,6 @@ body{
 .degradeBaixo{
     background-image: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
     bottom: 0;
-    z-index: 2000;
 }
 
 .sliderContainer{
