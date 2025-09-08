@@ -56,12 +56,14 @@
 }
 
 .descontoTextContainer{
+    width: 40px;
     position: absolute;
     display: flex;
+    justify-content: center;
     align-items: end;
     top: 41px;
     left: 3px;
-    rotate: -68.5deg;
+    rotate: -68deg;
     color: #ffffff;
     font-weight: 500;
     font-size: 14px;

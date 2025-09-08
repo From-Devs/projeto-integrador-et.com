@@ -161,7 +161,7 @@
     <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Ofertas Imperdíveis</p>
-            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">Ver Mais</a>
+            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=ofertas">Ver Mais</a>
         </div>
         <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
@@ -188,7 +188,7 @@
     <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Mais Vendidos</p>
-            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">Ver Mais</a>
+            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=mais_vendidos">Ver Mais</a>
         </div>
         <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>

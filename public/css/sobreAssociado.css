@@ -121,12 +121,12 @@ body{
     filter: blur(1px);
 }
 
-.logo{
+.card-box .logo{
     display: flex;
     justify-content: center;
 }
 
-.logo img{
+.card-box .logo img{
     filter: drop-shadow(0px 0px 25px white);
 }
 
