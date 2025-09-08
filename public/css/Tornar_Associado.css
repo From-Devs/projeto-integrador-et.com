@@ -2,12 +2,12 @@
   margin: 0;
   padding: 0;
 }
-
+ 
 body {
   font-family: 'Montserrat', sans-serif;
 }
-
-
+ 
+ 
 .carousel-container {
   display: flex;
   flex-direction: column;
@@ -16,47 +16,47 @@ body {
   overflow: hidden;
   width: 100%;
 }
-
+ 
 .associadoTitle{
   align-self: flex-start;
   margin-bottom: 40px;
   margin-left: 40px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
-
+ 
 .associadoTitle h2{
   color: black;
   font-size: 40px;
   font-weight: 400;
 }
-
+ 
 .carousel-inner {
   display: flex;
   flex-direction: row;
   width: 200%;
   animation: scroll 8s linear infinite;
 }
-
+ 
 .carousel-item {
   flex: 0 0 auto;
   width: 150px;
   margin: 0 40px;
   text-align: center;
 }
-
+ 
 .carousel-item img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
 }
-
+ 
 .carousel-item .name {
   margin-top: 10px;
   font-size: 18px;
   font-weight: bold;
 }
-
+ 
 @keyframes scroll {
   0%
   {
@@ -67,33 +67,33 @@ body {
     transform: translate(-5.63%);
   }
 }
-
+ 
 .promo-section {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
+  background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  overflow: hidden; 
+  overflow: hidden;
   height: 92vh;
 }
-
+ 
 .filtroDegrade{
   position: absolute;
   width: 100%;
   height: 100%;
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, #00000000 57%, rgba(0, 0, 0, 0.7) 100%);
 }
-
+ 
 .promo-content {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+ 
 .promo-contentEsquerda{
   display: flex;
   flex-direction: column;
@@ -102,12 +102,12 @@ body {
   margin-bottom: 50px;
   color: #ffffff;
 }
-
+ 
 .promo-content .btn{
   border: 0;
   filter: drop-shadow(-2px 4px 2px rgba(0, 0, 0, 0.3));
 }
-
+ 
 .promoContentText h2 {
   font-size: 56px;
   font-weight: bold;
@@ -115,7 +115,7 @@ body {
   filter: drop-shadow(-2px 4px 2px rgba(0, 0, 0, 0.5));
   text-align: center;
 }
-
+ 
 .promo-content p {
   font-size: 24px;
   margin-bottom: 20px;
@@ -125,12 +125,12 @@ body {
   color: rgba(255, 255, 255, 0.9);
   filter: drop-shadow(-2px 4px 2px rgba(0, 0, 0, 0.5));
 }
-
+ 
 .botoesContainer{
   display: flex;
   gap: 30px;
 }
-
+ 
 .karla{
   z-index: 901;
   display: flex;
@@ -138,7 +138,7 @@ body {
   align-items: center;
   position: relative;
 }
-
+ 
 .promo-image {
   width: 710px;
   height: auto; /* Ajuste a altura para permitir que a imagem se mova */
@@ -146,7 +146,7 @@ body {
   object-fit: cover;
   filter: drop-shadow(0 0 120px rgba(255, 255, 255, 0.4));
 }
-
+ 
 .blurNomeKarla {
   position: absolute;
   bottom: -80px;
@@ -158,7 +158,7 @@ body {
   width: 500px;
   z-index: 902;
 }
-
+ 
 .blurNomeKarla .blur{
   position: absolute;
   background-color: white;
@@ -169,30 +169,31 @@ body {
   filter: blur(20px);
   border-radius: 50px;
 }
-
+ 
 .nomeKarla{
   margin-top: 20px;
   font-size: 40px;
   font-weight: 700;
   z-index: 903;
 }
-
+ 
 .cargoKarla{
   font-size: 25px;
   font-weight: 500;
   color: #978E8E;
   z-index: 903;
 }
-
+ 
 .commission-table {
   flex: 1;
+  position: absolute;
   border-radius: 10px;
   text-align: left;
-  position: absolute;
-  left: 40px;
-  top: 100px;
+  margin-left: 40px;
+  margin-top: 100px;
   z-index: 2;
 }
+
 .commission-table h2 {
   color:#000000;;
   font-size: 40px;
@@ -205,8 +206,8 @@ body {
   font-weight: 700;
   color: #AA8E8E;
 }
-.cards-section {
-  box-sizing: border-box;
+ 
+.cards-section { box-sizing: border-box;
   position: relative;
   width: 100%;
   display: flex;
@@ -216,10 +217,10 @@ body {
   background-image: url('/projeto-integrador-et.com/public/imagens/TornarAssociado/Rectangle.png');
   background-size: cover;
   background-position: center;
-  height: 800px;
-  margin-top: 100px;
+  height: 760px;
 }
-
+ 
+ 
 .comissionText{
   position: absolute;
   width: 820px;
@@ -227,12 +228,12 @@ body {
   right: 50px;
   bottom: 0;
 }
-
-.cards-container {
-  display: flex;
-  gap: 50px;
-}
-
+ 
+  .cards-container {
+    display: flex;
+    gap: 40px;
+  }
+ 
 .comissionCard{
   display: flex;
   flex-direction: column;
@@ -245,7 +246,7 @@ body {
   transition: filter 0.3s ease-in-out;
   border: 8px solid black;
 }
-
+ 
 .comissionCardIdentifier{
   display: flex;
   flex-direction: column;
@@ -254,11 +255,11 @@ body {
   color: white;
   filter: drop-shadow(0px 2px 2px black);
 }
-
+ 
 .comissionCardIcon{
   height: 80px;
 }
-
+ 
 .comissionPercentageContainer{
   background-color: black;
   color: white;
@@ -266,61 +267,61 @@ body {
   border-radius: 10px;
   font-weight: 700;
 }
-
+ 
 #maquiagemCard{
   background-color: #DDBEFF;
 }
-
+ 
 #maquiagemCard:hover {
   filter: drop-shadow(0 0 15px #DDBEFF);
 }
-
+ 
 #perfumeCard{
   background-color: #BF85FF;
 }
-
+ 
 #perfumeCard:hover {
   filter: drop-shadow(0 0 15px #BF85FF);
 }
-
+ 
 #skinCareCard{
   background-color: #8C23FF;
 }
-
+ 
 #skinCareCard:hover {
   filter: drop-shadow(0 0 15px #8C23FF);
 }
-
+ 
 #cabeloCard{
   background-color: #FF32F5;
 }
-
+ 
 #cabeloCard:hover {
   filter: drop-shadow(0 0 15px #FF32F5);
 }
-
+ 
 #eletronicosCard{
   background-color: #FF5993;
 }
-
+ 
 #eletronicosCard:hover {
   filter: drop-shadow(0 0 15px #FF5993);
 }
-
+ 
 #corporalCard{
   background-color: #c11a55;
 }
-
+ 
 #corporalCard:hover {
   filter: drop-shadow(0 0 15px #c11a55);
 }
-
+ 
 .cardRedirectWrapper{
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+ 
 .cardRedirect{
   background-color: #FFE5E5;
   display: flex;
@@ -331,9 +332,9 @@ body {
   margin-top: 195px;
   padding: 20px 0px;
 }
-
+ 
 /* box-shadow: -4px 8px 4px rgba(0, 0, 0, 0.25); */
-
+ 
 .cardRedirect div{
   display: flex;
   flex-direction: column;
@@ -343,39 +344,39 @@ body {
   /* margin: 0px 50px; */
   margin: auto;
 }
-
+ 
 .cardRedirect span{
   border-right: 4px solid black;
   margin: 20px 0px;
 }
-
+ 
 .logoCardRedirect{
   width: 500px;
   height: auto;
   filter: drop-shadow(-4px 8px 4px rgba(0, 0, 0, 0.25));
   /* margin: auto; */
 }
-
+ 
 .logoCardRedirect, .cardRedirect div h1{
   text-align: center;
 }
-
+ 
 .logoCardRedirect, .cardRedirect div h1, .cardRedirect span, .cardRedirect div .btn{
   filter: drop-shadow(-4px 8px 4px rgba(0, 0, 0, 0.25));
 }
-
+ 
  @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-
+ 
 @keyframes animacaoOnda
 {
   0%
@@ -387,112 +388,186 @@ body {
       background-position-x: 0;
   }
 }
-@media screen and (max-width: 430px) {
-  .carousel-title {
-    font-size: 18px;
-    text-align: center;
+ 
+ 
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+ 
+@media screen and (max-width: 1555px) {
+  .wave.solida {
+    position: static;
+    width: 100vw;
+    height: 250px;
+    background-size: 180px 250px;
+    animation-delay: 0s;
+    overflow-x: hidden;
+  }
+  
+  .promoContentText h2 {
+    font-size: 40px;
+  }
+  .promo-content p {
+    width: 90%;
+    font-size: 20px;
+  }
+  .promo-image {
+    width: 500px;
+  }
+  .nomeKarla {
+    font-size: 32px;
+  }
+  .cargoKarla {
+    font-size: 20px;
+  }
+  .commission-table {
+    position: static;
+    text-align: left;
+    margin-left: 40px;
+    margin-top: 100px;
+   
+  }
+  .cards-section {
+    height: auto;
+    padding: 50px 20px;
+  }
+  .cards-container {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .comissionCard {
+    width: 200px;
+    padding: 20px;
   }
 
-  .carousel-container {
+  .comissionText {
+    font-size: 18px;
+    text-align: center;
+    position: static;
+    max-width: 100%;
+    margin-top: 80px;
+  }
+
+  .botoesContainer{
+    display: flex;
+    gap: 30px;
+    width: 400px;
+  }
+
+  .cardRedirect {
+    margin: 50px 20px 0 20px;
     flex-direction: column;
-    margin-top: 50px;
+    align-items: center;
+    gap: 20px;
+  }
+  .cardRedirect div {
+    gap: 20px;
+  }
+  .logoCardRedirect {
+    width: 300px;
+  }
+  .cardRedirect span{
+    display: none;
+  }
+  .cardRedirect h1{
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .promo-section {
+    flex-direction: column;
+    text-align: center;
+    padding:0px 20px;
+  }
+  .promo-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .promoContentText h2 {
+    margin-top: 150px;
+    font-size: 28px;
+  }
+  .promo-content p {
+    font-size: 16px;
+  }
+  .promo-image {
+    width: 300px;
+  }
+  .nomeKarla {
+    font-size: 24px;
+  }
+  .cargoKarla {
+    font-size: 16px;
+  }
+  .commission-table {
+    position: static;
+    text-align: left;
+    margin-left: 40px;
+    margin-top: 100px;
+   
+  }
+
+  .comissionText {
+    font-size: 18px;
+    position: static;
+    max-width: 100%;
+    margin-top: 80px;
   }
 
   .carousel-item {
     width: 100px;
-    height: 100px;
     margin: 0 10px;
   }
-
-  .promo-content {
-    padding: 40px 20px;
-    margin: 0 auto;
-    max-width: 100%;
-    text-align: center;
+  .carousel-item img {
+    width: 100px;
+    height: 100px;
   }
-
-  .promo-content h2 {
-    font-size: 28px;
-  }
-
-  .promo-content p,
-  .azul {
-    font-size: 16px;
-    max-width: 100%;
-  }
-
-  .promo-image,
-  .substituir-imagem {
-    display: none;
-  }
-
-  .commission-table {
-    position: static;
-    margin-top: 20px;
-    padding: 10px;
-  }
-
-  .cards-section {
-    height: auto;
-    padding: 20px;
-    margin-top: 100px;
-    background-size: cover;
-  }
-
   .cards-container {
-    flex-direction: column;
-    transform: none;
-    top: auto;
-    left: auto;
-    position: static;
-  }
-
-  .card {
-    width: 40%;
-    margin: 5px auto;
-    margin-top: -30px;
-  }
-
-  .card img {
-    width: 100%;
-    height: auto;
-  }
-
-  .caixa_salmão {
-    width: 90%;
-    margin: 40px auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
   }
-
-  .caixa_salmão img {
-    width: 80%;
-    height: auto;
-  }
-
-  .sej {
+  .comissionCard {
     width: 90%;
-    margin: 40px auto;
-    position: static;
-    display: flex;
-    justify-content: center;
+  }
+  .cardRedirect {
+    margin: 20px;
+  }
+  .logoCardRedirect {
+    width: 200px;
   }
 
-  .sej img {
-    width: 80%;
-    height: auto;
+  .cardRedirect h1{
+    font-size: 20px;
   }
 
-  .associ {
-    width: 90%;
-    margin: 20px auto;
-    position: static;
+  
+}
+
+@media screen and (max-width: 480px) {
+  .promoContentText h2 {
+    font-size: 22px;
+  }
+  .comissionText {
+    font-size: 18px;
     text-align: center;
+    position: static;
+    max-width: 100%;
   }
-
-  .wave.solida {
-    display: none;
+  .promo-content p {
+    font-size: 14px;
+  }
+  .promo-image {
+    width: 200px;
+  }
+  .nomeKarla {
+    font-size: 18px;
+  }
+  .cargoKarla {
+    font-size: 14px;
   }
 }

@@ -65,7 +65,27 @@
     $slugCategoria = $_GET['tela'] ?? "maquiagem"; 
     $slugSub       = $_GET['sub'] ?? "default";    
 
-    // renderSomenteSubcategorias($fundos[$slugCategoria], $slugCategoria);
+    function renderSomenteSubcategoriasDB($id_categoria) {
+        require_once __DIR__ . "/../../Models/categoria.php";
+        $subcategorias = CategoriaModel::getSubcategorias($id_categoria);
+    
+        if (!$subcategorias) {
+            echo "<p>Nenhum filtro disponível para essa categoria.</p>";
+            return;
+        }
+    
+        foreach ($subcategorias as $sub) {
+            echo '
+                <div class="item-filtro">
+                    <label class="categoriaLabel">
+                        <input type="checkbox" name="subcategorias[]" value="' . htmlspecialchars($sub["nome"]) . '"> 
+                        <span class="checkmark"></span>
+                        ' . htmlspecialchars($sub["nome"]) . '
+                    </label>
+                </div>
+            ';
+        }
+    }
 
     $telaAtual = str_replace("_"," ", ucfirst($slugCategoria));
     $subAtual  = $slugSub !== "default" ? ucfirst($slugSub) : "";
