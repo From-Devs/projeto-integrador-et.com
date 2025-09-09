@@ -22,13 +22,17 @@ document.getElementsByClassName("campos-cadastrar")[0].addEventListener("submit"
     .catch(err => console.error("Erro:", err));
 });
 
+// Ordenar a listaa
+document.querySelector("#botaoOrdenar").addEventListener("change", function (){
+    window.location.href = `?ordem=${this.value}`;
+})
+
 function buscarAtributosDoProduto(idProduto) {
     fetch(`http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=BuscarProduto&id=${idProduto}`)
         .then(response => response.json())
         .then(data => {
             const form = dialog.querySelector('form');
             form.reset();
-            console.log("Produto carregado:", data[0]);
 
             form.querySelector('input[name="id_produto"]').value = idProduto;
             form.querySelector('input[name="nome"]').value = data[0].nome ?? "";

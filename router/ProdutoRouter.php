@@ -124,6 +124,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
             break;
 
+        // case 'buscarTodosProdutosOrdenados':
+        //     $res = $produtoController->buscarTodosProdutosOrdenados($ordem);
+        //     header('Content-Type: application/json');
+        //     echo json_encode($res);
+        //     break;
+
         case 'ListarSubCategorias':
             header('Content-Type: application/json; charset=utf-8');
             $res = $produtoController->capturarSubCategorias();
