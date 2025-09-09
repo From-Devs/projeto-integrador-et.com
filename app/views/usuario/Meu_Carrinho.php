@@ -66,6 +66,7 @@ $total = $subtotal + $frete;
 
 <body>
     <?php echo createHeader($login, $tipoUsuario); ?>
+    <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
     <main>
         <h1 class="Meio">MEU CARRINHO</h1>
         <form method="post" action="">
@@ -314,28 +315,6 @@ $total = $subtotal + $frete;
         </div>
     </div>
 
-    <script>
-    function abrirPopup() {
-        document.getElementById('overlayPopUp').classList.remove('hidden');
-        document.getElementById('popup').classList.remove('hidden');
-    }
-
-    function fecharPopup() {
-        document.getElementById('overlayPopUp').classList.add('hidden');
-        document.getElementById('popup').classList.add('hidden');
-        document.getElementById('popupConfirmado').classList.add('hidden');
-    }
-
-    function confirmarCompra() {
-        document.getElementById('popup').classList.add('hidden');
-        document.getElementById('popupConfirmado').classList.remove('hidden');
-    }
-
-    document.getElementById('overlayPopUp').addEventListener('click', function () {
-        document.getElementById('overlayPopUp').classList.add('hidden');
-        document.getElementById('popup').classList.add('hidden');
-        document.getElementById('popupConfirmado').classList.add('hidden');
-    });
-    </script>
+    <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
 </body>
 </html>
