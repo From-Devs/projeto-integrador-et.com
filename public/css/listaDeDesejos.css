@@ -52,7 +52,7 @@ body{
             width: 65%;
         }
     }
-    @media (max-width: 992px){
+    @media (max-width: 990px){
         .title-container{
             margin-top: 100px;
         }
