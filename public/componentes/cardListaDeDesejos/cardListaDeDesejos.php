@@ -20,18 +20,24 @@
                     <div class='cardImg'>
                         <img src='/projeto-integrador-et.com/public/imagens/produtos/$imagemProd/fotoSemFundo.png' alt='$nome'>
                     </div>
-                    <span class='cardPrecoArea'>
-                        {$precoCarrinho}
-                    </span>
-                    <span class='cardInfo'>$nome $marca</span>
-                    <span class='cardDate'>Adicionado $dataAdicionado</span>
-                    <div class='buttonsListaDesejos'>
-                        <button class='buttonCarrinho' id='buttonCarrinho' onclick='adicionarAoCarrinho($id_produto)'>
-                            <i class='fa-solid fa-cart-shopping'></i>
-                        </button>
-                        <button class='buttonLixeira' id='buttonLixeira' onclick='removerDosFavoritos($id_produto)'>
-                            <i class='fa-solid fa-trash-can'></i>
-                        </button>
+                    <div class='cardConteudo'>
+                        <div class='precoinfo'>
+                            <span class='cardPrecoArea'>
+                                {$precoCarrinho}
+                            </span>
+                            <span class='cardInfo'>$nome $marca</span>
+                        </div>
+                        <div class='areaFinal'>
+                            <span class='cardDate'>Adicionado $dataAdicionado</span>
+                            <div class='buttonsListaDesejos'>
+                                <button class='buttonCarrinho' id='buttonCarrinho' onclick='adicionarAoCarrinho($id_produto)'>
+                                    <i class='fa-solid fa-cart-shopping'></i>
+                                </button>
+                                <button class='buttonLixeira' id='buttonLixeira' onclick='removerDosFavoritos($id_produto)'>
+                                    <i class='fa-solid fa-trash-can'></i>
+                                </button>
+                            </div>  
+                        </div>
                     </div>
                 </div>
             </div>
