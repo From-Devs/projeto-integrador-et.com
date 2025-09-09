@@ -1,3 +1,7 @@
+<?php
+    require __DIR__ . "/../../../public/componentes/popup/popUp.php";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,10 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - ET</title>
     <link rel="stylesheet" href="../../../public/css/LoginUsuario.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popUp/styles.css">
+
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+    <dialog class='popUpDialog popUpEditProduto'>
+        <div class='popUp' style=' padding: 33px; background-color: #F8F8F8;'>
+            <div class='topoPopUp'>
+                <h1 class="tituloPopUp">Editar Produto</h1>
+                <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
+            </div>
+
+            <div class="wrapperPopUp">
+               
+            </div>
+        </div>
+    </dialog>
+
     <div id="container">
         <div id="parteBranca">
             <h1 id="bemVindo">BEM-VINDO!</h1>
@@ -43,8 +63,7 @@
         </section>
     </div>
 
-<script> 
-</script>
+    <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
 </body>
 </html>
 
