@@ -58,6 +58,7 @@
     <div class="carouselContainer" id="carousel">
         
         <div class="carouselBackground" id="carouselBackground"></div>
+        <div class="bubble-background" id="bubble-background"></div>
         
         <?php
         echo createHeader($login,$tipoUsuario,1);
@@ -120,7 +121,7 @@
         <a class="botaoCategoria botao6" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/corporal.png" alt="" class="iconeCategoria">
-                <img src="/projeto-integridor-et.com/public/imagens/botoesCategorias/corporalHover.png" alt="" class="iconeCategoriaHover">
+                <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/corporalHover.png" alt="" class="iconeCategoriaHover">
             </div>
             <p class="tituloCategoria">Corporal</p>            
         </a>
@@ -153,14 +154,14 @@
     </div>
 
     <?php
-    // echo createProdutoDestaque("Hidratante Corporal Milk","Nivea","R$20,00","milk.png","rgb(0, 0, 145)","rgb(75, 75, 226)","rgb(0, 0, 57)");
+    // echo createProdutoDestaque("Hidratante Corporal Milk","Nivea",20,"milk.png","rgb(0, 0, 145)","rgb(75, 75, 226)","rgb(0, 0, 57)");
     echo createProdutoDestaque();
     ?>
 
     <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Ofertas Imperdíveis</p>
-            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">Ver Mais</a>
+            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=ofertas">Ver Mais</a>
         </div>
         <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
@@ -168,14 +169,14 @@
             <div class="frameProdutos">
                 <div class="containerProdutos">
                     <?php
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffee", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", true, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", true, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", true, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffee", true, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", true, 30, "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", true, 30, "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", true, 30, "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", true, 30, "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", true, 30, "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", true, 30, "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", true, 30, "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", true, 30, "#D2936A", "#6C4A34", "#D29065");
                     ?>
                 </div>
             </div>
@@ -187,7 +188,7 @@
     <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Mais Vendidos</p>
-            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php">Ver Mais</a>
+            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=mais_vendidos">Ver Mais</a>
         </div>
         <div class="frameSlider">
             <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
@@ -195,14 +196,14 @@
             <div class="frameProdutos">
                 <div class="containerProdutos">
                     <?php
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffee", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffe Man", "R$30,00", "coffee", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065");
+                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9");
+                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA");
+                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186");
+                    echo createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065");
                     ?>
                 </div>
             </div>
@@ -211,70 +212,6 @@
         </div>
     </div>
 
-    <div class="sessaoProdutos">
-        <div class="tituloSessao">
-            <p class="titulo">Produtos Dinâmicos</p>
-        </div>
-        <div class="frameProdutos">
-            <div class="containerProdutos">
-                <?php
-                if (!empty($produtos)) {
-                    foreach ($produtos as $p) {
-                        $preco      = "R$ " . number_format((float)$p['preco'], 2, ",", ".");
-                        $precoPromo = "R$ " . number_format((float)$p['precoPromo'], 2, ",", ".");
-                        $img = !empty($p['imagem']) ? $p['imagem'] : 'no-image.png'; // seu componente já resolve o caminho
-                        $link       = "/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=" . $p['id_produto'];
-
-                        // Se o componente tiver sido atualizado para aceitar o 10º parâmetro ($link)
-                        // usamos; senão, deixamos o card clicável inteiro como fallback.
-                        try {
-                            $rf = new ReflectionFunction('createCardProduto');
-                            if ($rf->getNumberOfParameters() >= 10) {
-                                echo createCardProduto(
-                                    $p['marca'],
-                                    $p['descricaoBreve'],
-                                    $preco,
-                                    $img,
-                                    true,
-                                    $precoPromo,
-                                    "#FFFFFF", "#CCCCCC", "#AAAAAA",
-                                    $link
-                                );
-                            } else {
-                                echo '<a href="'.$link.'" style="text-decoration:none;">';
-                                echo createCardProduto(
-                                    $p['marca'],
-                                    $p['descricaoBreve'],
-                                    $preco,
-                                    $img,
-                                    true,
-                                    $precoPromo,
-                                    "#FFFFFF", "#CCCCCC", "#AAAAAA"
-                                );
-                                echo '</a>';
-                            }
-                        } catch (Throwable $e) {
-                            // fallback robusto
-                            echo '<a href="'.$link.'" style="text-decoration:none;">';
-                            echo createCardProduto(
-                                $p['marca'],
-                                $p['descricaoBreve'],
-                                $preco,
-                                $img,
-                                true,
-                                $precoPromo,
-                                "#FFFFFF", "#CCCCCC", "#AAAAAA"
-                            );
-                            echo '</a>';
-                        }
-                    }
-                } else {
-                    echo "<p style='padding:1rem;color:#666;'>Nenhum produto cadastrado.</p>";
-                }
-                ?>
-            </div>
-        </div>
-    </div>
     <?php
     echo createRodape();
     ?>
