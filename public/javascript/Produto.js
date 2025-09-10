@@ -31,6 +31,11 @@ function buscarAtributosDoProduto(idProduto) {
     fetch(`http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=BuscarProduto&id=${idProduto}`)
         .then(response => response.json())
         .then(data => {
+            const dialog = document.querySelector('.dialog-editar');
+            if (dialog) {
+                dialog.showModal();
+            }
+
             const form = dialog.querySelector('form');
             form.reset();
 
@@ -52,16 +57,16 @@ function buscarAtributosDoProduto(idProduto) {
                 data[0].id_subCategoria
             );
 
-            (data[0].img1 != null) ? document.getElementById("img-produto1").src = "http://localhost/projeto-integrador-et.com/" + data[0].img1 : console.log("Não tem imagem");
-            (data[0].img2 != null) ? document.getElementById("img-produto2").src = "http://localhost/projeto-integrador-et.com/" + data[0].img2 : console.log("Não tem imagem");
-            (data[0].img3 != null) ? document.getElementById("img-produto3").src = "http://localhost/projeto-integrador-et.com/" + data[0].img3 : console.log("Não tem imagem");
+            document.getElementById("img-produto-editar1").src = montarUrlImagem(data[0].img1) ?? "";
+            document.getElementById("img-produto-editar2").src = montarUrlImagem(data[0].img2) ?? "";
+            document.getElementById("img-produto-editar3").src = montarUrlImagem(data[0].img3) ?? "";
         })
         .catch(err => console.error("Erro ao buscar produto:", err));
+}
 
-    const dialog = document.querySelector('.dialog-editar');
-    if (dialog) {
-        dialog.showModal();
-    }
+function montarUrlImagem(img) {
+    if (!img || img === "null") return null;
+    return "http://localhost/projeto-integrador-et.com/" + img;
 }
 
 

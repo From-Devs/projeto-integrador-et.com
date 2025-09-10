@@ -24,7 +24,7 @@ function ValidaCampos() {
     (isset($_FILES["img2"]) && $_FILES["img2"]["size"] > 0) ||
     (isset($_FILES["img3"]) && $_FILES["img3"]["size"] > 0);
 
-    if (!$temImagem) {
+    if(!$temImagem && $acao === 'CadastrarProduto') {
         return false;
     }
 
