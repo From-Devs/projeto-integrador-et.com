@@ -42,7 +42,7 @@
                     <input type="password" name="senha" class="input" id="senha" required>
                     <label for="Senha">Senha</label>
                 </div>
-                <a id='esqueciSenha' href="">Esqueceu a senha?</a>
+                <button id='esqueciSenha' onClick='abrirPopUp("popUpEditProduto")'>Esqueceu a senha?</button>
             </form>
             <button id="botaoEntrar" type="submit" form="formContainer">Entrar</button>
             <div id="cadastro">
@@ -64,13 +64,6 @@
     </div>
 
     <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
+
 </body>
 </html>
-
-
-<!-- os links não possuem endereçamento pois ainda não foram criadas as outras telas, se quando forem executar o html e perceberem que não muda a tela  -->
-<!-- não se esquecam de indexar os endereçamentos. -->
-<!-- Observações: 
-    O arquivo ainda não possui responsividade,
-    Os inputs não são salvos em lugar nenhum,
-    Lembre-se que no projeto final o arquivo precisa estar no formato PhP e não HTML. -->
