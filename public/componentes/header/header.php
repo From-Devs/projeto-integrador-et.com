@@ -33,8 +33,8 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
     }else{
         $botao1 = botaoPersonalizadoRedirect('Minha Conta', 'btn-white', 'app/views/usuario/minhaConta.php', '155px', '44px', '16px');
         $botao2 = '
-        <form method="POST" action="../../../router/UserRoutes.php?acao=logout" style="display:inline;">
-            <button type="submit" class="btn-white" style="width:155px; height:44px; font-size:16px;">
+        <form method="POST" action="../../../router/UserRoutes.php?acao=logout">
+            <button type="submit" class="btn btn-white" style="width:155px; height:44px; font-size:16px;">
                 Sair
             </button>
         </form>

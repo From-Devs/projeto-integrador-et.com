@@ -6,17 +6,13 @@
     require_once __DIR__ . '/../../../config/PedidoController.php';
     require_once __DIR__ . '/../../../public/componentes/cardpedido/cardPedido.php';
 
-    // session_start();
-    $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente'; // Descomente essa parte para tipo do usuario = Usuário
-    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado"; // Descomente essa parte para tipo do usuario = Associado
-    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+    session_start();
 
-    $id_usuario = 2;
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 
     $pedidoController = new PedidoController();
     $pedidos = $pedidoController->ListarPedidosAgrupados($id_usuario);
-
-
 ?>
 
 <!DOCTYPE html>

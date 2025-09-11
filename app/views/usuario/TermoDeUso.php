@@ -3,10 +3,10 @@
     require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php"; // import do card
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
-    // session_start();
-    // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
-    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
-    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+    session_start();
+
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 
 
 ?>
@@ -30,7 +30,7 @@
 <body>
 
     <?php
-    echo createHeader($login,$tipo_usuario); // função que cria o header
+    echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
     
     

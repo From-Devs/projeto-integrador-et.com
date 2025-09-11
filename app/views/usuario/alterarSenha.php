@@ -7,9 +7,11 @@
 
     $controller = new UserController(); 
     $user = $controller->getLoggedUser();
-    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
+    
+    session_start();
+    
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
-    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 
 ?>
 
