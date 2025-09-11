@@ -26,6 +26,7 @@
 .buraquinho{
     position: absolute;
     background-color: white;
+    box-shadow: inset rgba(0, 0, 0, 0.35) 0px 6px 3px;
     border-radius: 100%;
     width: 9px;
     height: 9px;
@@ -55,12 +56,14 @@
 }
 
 .descontoTextContainer{
+    width: 40px;
     position: absolute;
     display: flex;
+    justify-content: center;
     align-items: end;
-    top: 42px;
-    left: 2px;
-    rotate: -68.5deg;
+    top: 41px;
+    left: 3px;
+    rotate: -68deg;
     color: #ffffff;
     font-weight: 500;
     font-size: 14px;

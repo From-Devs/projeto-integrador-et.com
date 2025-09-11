@@ -32,13 +32,19 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
         $botao2 = botaoPersonalizadoRedirect('Entrar', 'btn-white', 'app/views/usuario/Login.php', '155px', '44px', '16px');
     }else{
         $botao1 = botaoPersonalizadoRedirect('Minha Conta', 'btn-white', 'app/views/usuario/minhaConta.php', '155px', '44px', '16px');
-        $botao2 = botaoPersonalizadoRedirect('Sair', 'btn-white', '', '155px', '44px', '16px');
+        $botao2 = '
+        <form method="POST" action="../../../router/UserRoutes.php?acao=logout" style="display:inline;">
+            <button type="submit" class="btn-white" style="width:155px; height:44px; font-size:16px;">
+                Sair
+            </button>
+        </form>
+    ';
     }
 
     if($tipo == 0){
         // Abaixo é o código do header que vai pro HTML, ele usa a função de criar a sidebar de outro componente.
         return "
-        ".createSidebar($tipoUsuario)."
+        ".createSidebar($tipoUsuario, $login)."
         <header class='headerUsuario' id='headerUsuario'>
             
             <div class='esquerdo'>

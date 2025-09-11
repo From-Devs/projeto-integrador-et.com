@@ -1106,7 +1106,7 @@
     .pedidoAndamentoMP #produtosAndamento{
         width: 1040px;
         max-height: 450px;
-        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));   
+        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
         gap: 15px;
     }
     #produtosAndamento .cards-produtoAndamento{

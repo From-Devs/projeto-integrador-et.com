@@ -14,7 +14,7 @@ class PedidoController {
         $sql = "
             SELECT 
                 p.id_pedido, p.dataPedido, COALESCE(s.tipoStatus, 'Sem status') AS tipoStatus,
-                pr.id_produto, pr.nome, pr.imagem, pr.preco, pr.descricaoBreve,
+                pr.id_produto, pr.nome, pr.img1, pr.preco, pr.descricaoBreve,
                 pc.qntProduto
             FROM pedido p
             INNER JOIN carrinho c       ON c.id_carrinho = p.id_carrinho

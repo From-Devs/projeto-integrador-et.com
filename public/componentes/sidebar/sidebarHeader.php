@@ -7,7 +7,17 @@ function typeSidebar($tipoUsuario){
     };
 }
 
-function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para versão oficial.
+function typeMyAccount($login){
+    if($login){
+       return '<a href="/projeto-integrador-et.com/app/views/usuario/minhaConta.php"><li class="config"><p class="config_link">Minha Conta</p></li></a>';
+    }else{
+       return '<a href="/projeto-integrador-et.com/app/views/usuario/Login.php"><li class="config"><p class="config_link">Minha Conta</p></li></a>';
+    };
+}
+
+
+
+function createSidebar($tipoUsuario, $login){ // Sidebar de teste, depois trocar para versão oficial.
     return '
     <div id="overlay" class="overlay"></div>
     <div class="sidebar" id="sidebar">
@@ -114,7 +124,7 @@ function createSidebar($tipoUsuario){ // Sidebar de teste, depois trocar para ve
                 <div class="botoes_config">
                     <p class="categoria_nome">Ajuda e Configurações</p>
                     <ul>
-                        <a href="/projeto-integrador-et.com/app/views/usuario/minhaConta.php"><li class="config"><p class="config_link">Minha Conta</p></li></a>
+                        ' . typeMyAccount($login) . '
                         <a href="/projeto-integrador-et.com/app/views/usuario/meusPedidos.php"><li class="config"><p class="config_link">Meus Pedidos</p></li></a>
                         ' . typeSidebar($tipoUsuario) . '
                         <a href="/projeto-integrador-et.com/app/views/usuario/TermoDeUso.php"><li class="config"><p class="config_link">Termos de Uso e Privacidade</p></li></a>

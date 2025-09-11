@@ -1,11 +1,10 @@
 <?php
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";  //importar rodapé
+    require __DIR__ . "/../../../public/componentes/botao/botao.php";  //importar rodapé
+    require __DIR__ . "/../../../public/componentes/popUp/popUp.php";  //importar rodapé
     require_once __DIR__ . '/../../../config/PedidoController.php';
     require_once __DIR__ . '/../../../public/componentes/cardpedido/cardPedido.php';
-
-    require_once "/xampp/htdocs/projeto-integrador-et.com/public/componentes/botao/botao.php";
-    require_once "/xampp/htdocs/projeto-integrador-et.com/public/componentes/popUp/popUp.php";
 
     // session_start();
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente'; // Descomente essa parte para tipo do usuario = Usuário
