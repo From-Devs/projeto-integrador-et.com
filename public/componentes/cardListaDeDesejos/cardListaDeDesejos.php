@@ -1,5 +1,5 @@
 <?php  
-    function createCardListaDeDesejos( $id_produto,$imagemProd = "", $preco = 00.00, $marca = "", $nome = "", $dataAdicionado = "", $corprincipal = "#919191", $corhexdegrade1 = "#919191", $corhexdegrade2 = "#919191", $corhexdegrade3 = "#919191", $precoPromo=null){
+    function createCardListaDeDesejos( $id_produto,$imagemProd = "", $preco = 00.00, $marca = "", $nome = "", $dataAdicionado = "", $corprincipal = "#919191", $corhexdegrade1 = "#919191", $corhexdegrade2 = "#919191", $precoPromo=null){
 
         if (!empty($precoPromo) && $precoPromo < $preco){
             $precoCarrinho = "
@@ -16,7 +16,7 @@
                 <div class='checkboxes'>
                     <input type='checkbox' class='cardCheckbox' data-id='$id_produto'>
                 </div>
-                <div class='cardColorido'  style='background: linear-gradient(to right, $corprincipal, $corhexdegrade1, $corhexdegrade2, $corhexdegrade3,#FFFFFF);'>
+                <div class='cardColorido'  style='background: linear-gradient(to right, $corprincipal, $corhexdegrade1, $corhexdegrade2,#FFFFFF);'>
                     <div class='cardImg'>
                         <img src='/projeto-integrador-et.com/public/imagens/produtos/$imagemProd/fotoSemFundo.png' alt='$nome'>
                     </div>
