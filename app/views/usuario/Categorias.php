@@ -242,9 +242,12 @@
                         echo $produto;
                     }
 
-                    renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
                 ?>
             </div>
+            <?php
+            renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
+            ?>
+            
         </div>
     </div>
 
