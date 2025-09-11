@@ -16,7 +16,7 @@
                 <div class='checkboxes'>
                     <input type='checkbox' class='cardCheckbox' data-id='$id_produto'>
                 </div>
-                <div class='cardColorido'  style='background: linear-gradient(to right, $corprincipal, $corhexdegrade1, $corhexdegrade2,#FFFFFF);'>
+                <div class='cardColorido'  style='background: linear-gradient(to right, $corprincipal, $corhexdegrade1, $corhexdegrade2,#FFFFFF 85%);'>
                     <div class='cardImg'>
                         <img src='/projeto-integrador-et.com/public/imagens/produtos/$imagemProd/fotoSemFundo.png' alt='$nome'>
                     </div>
