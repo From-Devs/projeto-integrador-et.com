@@ -1,13 +1,13 @@
 <?php
-
     require_once __DIR__ . "/../../../config/ProdutoController.php";
     require_once __DIR__ . "/../../../config/database.php";
-    require_once __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
+    require_once __DIR__ . "/../../../public/componentes/header/header.php"; 
     require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
     require_once __DIR__ . "/../../../public/componentes/cardListaDeDesejos/cardListaDeDesejos.php";
     require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
     require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
+    require_once __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
 
     session_start();
     
@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/cardProduto/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/cardListaDeDesejos/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popup/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/paginacao/paginacao.css">
 
     <!-- Fontes e ícones -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -96,42 +97,64 @@
                     $imagem     = !empty($item['imagem']) ? $item['imagem'] : 'no-image.png';
                     $dataAdicionado = $item['dataAdd'];
 
-                    echo createCardListaDeDesejos(
-                        $item['id_produto'],
-                        $imagem,
-                        $preco,
-                        $item['marca'],
-                        $item['nome'],
-                        $dataAdicionado,
-                        $item['corPrincipal'] ?? "#919191",
-                        $item['hexDegrade1'] ?? "#919191",
-                        $item['hexDegrade2'] ?? "#919191",
-                       $precoPromo
-                    );
-                       
+                    $produtosListaDesejos = [
+                        createCardListaDeDesejos(
+                            $item['id_produto'],
+                            $imagem,
+                            $preco,
+                            $item['marca'],
+                            $item['nome'],
+                            $dataAdicionado,
+                            $item['corPrincipal'] ?? "#919191",
+                            $item['hexDegrade1'] ?? "#919191",
+                            $item['hexDegrade2'] ?? "#919191",
+                            $precoPromo
+                        ),
+                    ];
+
+                    $resultado = paginar($produtosListaDesejos, 16);
+
+                    foreach ($resultado['dados'] as $produtos){
+                        echo $produtos;
+                    }
+
+                    renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
                     
                 }
             } else {
                 // echo "<p style='text-align: center; margin-top: 2rem;'>Sua lista de desejos está vazia.</p>";
 
                 //Colocarei essa parte apenas para mostrar como ficaria o front. Quando ficar pronto o back-end, descomentar a parte de cima e apagar essa:    
-                    echo createCardListaDeDesejos(1,"bt-ovni",48.68,"Bruna Tavares", "BT Ovni Galaxy","08/07/2025", "rgba(28, 30, 37, 0.712)","rgb(217,234,37)", "rgb(221, 235, 67)");
-                    echo createCardListaDeDesejos(2,"superstay",99.51,"Maybelline", "Superstay Vinyl Ink Liquid Lipstick","08/07/2025", "rgb(160, 1, 27)","rgb(199, 43, 69)", "rgb(211, 112, 128)",50.00);
-                    echo createCardListaDeDesejos(3,"vult",23.87,"Vult", "Base Líquida Efeito Matte","08/07/2025", "rgb(197, 153, 114)","rgb(231,187,148)", "rgb(241, 204, 171)");
-                    echo createCardListaDeDesejos(4,"bt-blackberry",35.89,"Bruna Tavares", "BT Velvet Blackberry","08/07/2025", "rgb(58, 9, 13)","rgb(112, 37, 42)", "rgb(179, 110, 116)");
-                    echo createCardListaDeDesejos(5,"renew",75.90,"Avon", "Creme Renew Reversalist Dia Vitalidade 30+","08/07/2025", "rgb(143, 43, 41)","rgb(182, 78, 76)", "rgb(196, 117, 116)");
-                    echo createCardListaDeDesejos(6,"nuvem",84.90,"O Boticário", "Body Splash Cuide-se Bem Nuvem","08/07/2025", "rgb(139, 198, 206)","rgb(176, 237, 247)", "rgb(205, 245, 250)");
-                    echo createCardListaDeDesejos(7,"epidrat",66.60,"Mantecorp", "Epidrat Calm Hidratante","08/07/2025", "rgb(81,74,108)","rgb(149, 140, 185)", "rgb(163, 156, 189)");
-                    echo createCardListaDeDesejos(8,"milk",20.99,"Nivea", "Creme Hidratante Milk","08/07/2025", "rgb(15, 44, 122)","rgb(70, 100, 182)", "rgb(117, 138, 194)");
-                    echo createCardListaDeDesejos(9,"malbec",169.00,"O Boticário", "Malbec Tradicional","08/07/2025", "rgb(65, 16, 16)","rgb(102, 56, 48)", "rgb(122, 92, 85)");
-                    echo createCardListaDeDesejos(10,"pincel",95.90,"Mari Maria Makeup", "Pincel Angular Para Base","08/07/2025", "rgb(187, 49, 1)","rgb(232, 104, 63)", "rgb(235, 149, 120)");
-                    echo createCardListaDeDesejos(11,"esponja",35.90,"Mari Maria Makeup", "Esponja Flat Blende","08/07/2025", "rgb(241, 93, 10)","rgb(243, 130, 64)", "rgb(248, 180, 140)");
-                    echo createCardListaDeDesejos(12,"truss",269.99,"Truss", "Net Mask Máscara Capilar","08/07/2025", "rgb(0, 150, 177)","rgb(66, 203, 228)", "rgb(141, 221, 235)");
-                    echo createCardListaDeDesejos(13,"amor-amor",405.30,"Cacharel", "AMOR AMOR","08/07/2025", "rgb(206, 21, 21)","rgb(247, 53, 53)", "rgb(242, 116, 116)");
+                $produtosListaDesejos = [
+                    createCardListaDeDesejos(1,"bt-ovni",48.68,"Bruna Tavares", "BT Ovni Galaxy","08/07/2025", "rgba(28, 30, 37, 0.712)","rgb(217,234,37)", "rgb(221, 235, 67)"),
+                    createCardListaDeDesejos(2,"superstay",99.51,"Maybelline", "Superstay Vinyl Ink Liquid Lipstick","08/07/2025", "rgb(160, 1, 27)","rgb(199, 43, 69)", "rgb(211, 112, 128)",50.00),
+                    createCardListaDeDesejos(3,"vult",23.87,"Vult", "Base Líquida Efeito Matte","08/07/2025", "rgb(197, 153, 114)","rgb(231,187,148)", "rgb(241, 204, 171)"),
+                    createCardListaDeDesejos(4,"bt-blackberry",35.89,"Bruna Tavares", "BT Velvet Blackberry","08/07/2025", "rgb(58, 9, 13)","rgb(112, 37, 42)", "rgb(179, 110, 116)"),
+                    createCardListaDeDesejos(5,"renew",75.90,"Avon", "Creme Renew Reversalist Dia Vitalidade 30+","08/07/2025", "rgb(143, 43, 41)","rgb(182, 78, 76)", "rgb(196, 117, 116)"),
+                    createCardListaDeDesejos(6,"nuvem",84.90,"O Boticário", "Body Splash Cuide-se Bem Nuvem","08/07/2025", "rgb(139, 198, 206)","rgb(176, 237, 247)", "rgb(205, 245, 250)"),
+                    createCardListaDeDesejos(7,"epidrat",66.60,"Mantecorp", "Epidrat Calm Hidratante","08/07/2025", "rgb(81,74,108)","rgb(149, 140, 185)", "rgb(163, 156, 189)"),
+                    createCardListaDeDesejos(8,"milk",20.99,"Nivea", "Creme Hidratante Milk","08/07/2025", "rgb(15, 44, 122)","rgb(70, 100, 182)", "rgb(117, 138, 194)"),
+                    createCardListaDeDesejos(9,"malbec",169.00,"O Boticário", "Malbec Tradicional","08/07/2025", "rgb(65, 16, 16)","rgb(102, 56, 48)", "rgb(122, 92, 85)"),
+                    createCardListaDeDesejos(10,"pincel",95.90,"Mari Maria Makeup", "Pincel Angular Para Base","08/07/2025", "rgb(187, 49, 1)","rgb(232, 104, 63)", "rgb(235, 149, 120)"),
+                    createCardListaDeDesejos(11,"esponja",35.90,"Mari Maria Makeup", "Esponja Flat Blende","08/07/2025", "rgb(241, 93, 10)","rgb(243, 130, 64)", "rgb(248, 180, 140)"),
+                    createCardListaDeDesejos(12,"truss",269.99,"Truss", "Net Mask Máscara Capilar","08/07/2025", "rgb(0, 150, 177)","rgb(66, 203, 228)", "rgb(141, 221, 235)"),
+                    createCardListaDeDesejos(13,"amor-amor",405.30,"Cacharel", "AMOR AMOR","08/07/2025", "rgb(206, 21, 21)","rgb(247, 53, 53)", "rgb(242, 116, 116)"),
+                ];
+
+                $resultado = paginar($produtosListaDesejos, 10);
+
+                    foreach ($resultado['dados'] as $produtos){
+                        echo $produtos;
+                    }
+
+                    
             }
 
             ?>
-        </div>
+        </div>     
+    </div>
+    <div class="paginação" style="width: 100%; justify-items: center;">
+        <?php renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']); ?>
     </div>
     
     <center><div class="line2"></div></center>
