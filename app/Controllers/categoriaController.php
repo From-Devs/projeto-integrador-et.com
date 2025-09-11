@@ -23,7 +23,7 @@ class CategoriaController {
     public function AtualizarCategoria($id, $nome) {
         return $this->categoriaModel->update($id, $nome);
     }
-    // nao ta funcionado k ta querendo deletar tudo / Sub que essa categario
+    // nao ta funcionado k ta querendo deletar tudo / Sub que essa categario / não necessario mas possivel implementar
     public function DeletarCategoria($id) {
         return $this->categoriaModel->delete($id);
     }
