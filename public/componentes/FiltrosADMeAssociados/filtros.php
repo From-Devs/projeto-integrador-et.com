@@ -149,6 +149,10 @@ function filtro($tipo = "", $opcoesSelect = []) {
                     <label>Preço Promocional: *</label>
                     <input type="number" step="0.01" name="precoPromocional">
                 </div>
+                <div class="campo-small chkPromocao">
+                    <label>Em promoção:</label>
+                    <input type="checkbox" name="fgPromocao">
+                </div>
             </div>
             <div class="campos-direita">
                 <div class="galeria-produtos">

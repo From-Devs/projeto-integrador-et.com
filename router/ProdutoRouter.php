@@ -35,6 +35,8 @@ function ValidaCampos() {
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     switch ($_GET["acao"]) {
         case 'CadastrarProduto':
+            $fgPromocao = isset($_POST["fgPromocao"]) ? 1 : 0;
+
             if(ValidaCampos()){
                 $resultado = $produtoController->cadastrarProduto(
                     $_POST["nome"],
@@ -42,6 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $_POST["breveDescricao"],
                     $_POST["preco"],
                     $_POST["precoPromocional"],
+                    $fgPromocao,
                     $_POST["caracteristicasCompleta"],
                     $_POST["qtdEstoque"],
                     $_POST["corPrincipal"],
@@ -70,6 +73,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             break;
 
         case 'EditarProduto':
+            $fgPromocao = isset($_POST["fgPromocao"]) ? 1 : 0;
+
             $resultado = $produtoController->EditarProduto(
                 $_POST["id_produto"],
                 $_POST["nome"],
@@ -77,6 +82,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $_POST["breveDescricao"],
                 $_POST["preco"],
                 $_POST["precoPromocional"],
+                $fgPromocao,
                 $_POST["caracteristicasCompleta"],
                 $_POST["qtdEstoque"],
                 $_POST["corPrincipal"],
