@@ -8,24 +8,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - ET</title>
-    <link rel="stylesheet" href="../../../public/css/LoginUsuario.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popUp/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
+    <link rel="stylesheet" href="../../../public/css/LoginUsuario.css">
 
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <dialog class='popUpDialog popUpEditProduto'>
+    <dialog class='popUpDialog popUpRecuperarSenha'>
         <div class='popUp' style=' padding: 33px; background-color: #F8F8F8;'>
             <div class='topoPopUp'>
-                <h1 class="tituloPopUp">Editar Produto</h1>
-                <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
+                <h1 class="tituloPopUp">Recuperar minha senha</h1>
+                <button  class='fecharPopUp' onclick="fecharPopUp('popUpRecuperarSenha')">
+                    <img class='icone-fechar' src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
+                </button>
             </div>
 
-            <div class="wrapperPopUp">
-               
-            </div>
+            <form class="wrapperPopUp">
+                <p>Informe o email cadastrado em sua conta para recuperar sua senha.</p>
+                <div class="recoverPassword-input">
+                    <input type="email" name="recoverPassword" class="input" id="recoverPassword" required>
+                    <label for="recoverPassword">Email</label>
+                </div>
+                <button type="submit" class="recoverPasswordButton btn-black" id='recoverPasswordButton'>
+                    <p class="recoverPasswordButtonText">Enviar</p>
+                </button>
+            </form>
         </div>
     </dialog>
 
@@ -36,13 +46,13 @@
             <form class="formContainer" id="formContainer" method="POST" action="../../../router/UserRoutes.php?acao=login">
                 <div class="email-input">
                     <input type="text" name="email" class="input" id="email" required>
-                    <label for="EmailCPF">Email</label>
+                    <label for="email">Email</label>
                 </div>
                 <div class="senha-input">
                     <input type="password" name="senha" class="input" id="senha" required>
-                    <label for="Senha">Senha</label>
+                    <label for="senha">Senha</label>
                 </div>
-                <button id='esqueciSenha' onClick='abrirPopUp("popUpEditProduto")'>Esqueceu a senha?</button>
+                <button id='esqueciSenha' onClick='abrirPopUp("popUpRecuperarSenha")'>Esqueceu a senha?</button>
             </form>
             <button id="botaoEntrar" type="submit" form="formContainer">Entrar</button>
             <div id="cadastro">
