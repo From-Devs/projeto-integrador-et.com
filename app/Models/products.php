@@ -155,9 +155,14 @@ class Products {
             $sqlProdutos = "SELECT id_produto as id, nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo as precoPromocional, fgPromocao, qtdEstoque, img1, img2, img3, id_subCategoria, id_cores, id_associado FROM produto ORDER BY $ordem";
             $db = $this->conn->prepare($sqlProdutos);
             $db->execute();
-            $res = $db->fetchAll(PDO::FETCH_ASSOC);
+            $res = $this->conn->query($sqlProdutos);
 
-            return $res;
+            if($res && $res->rowCount() > 0){
+                return $db->fetchAll(PDO::FETCH_ASSOC);
+            }else{
+                return [];
+            }
+
         } catch (\Throwable $th) {
             echo "Erro ao buscar: " . $th->getMessage();
             return false;
