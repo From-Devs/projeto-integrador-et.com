@@ -24,7 +24,7 @@ function ValidaCampos() {
     (isset($_FILES["img2"]) && $_FILES["img2"]["size"] > 0) ||
     (isset($_FILES["img3"]) && $_FILES["img3"]["size"] > 0);
 
-    if (!$temImagem) {
+    if(!$temImagem && $acao === 'CadastrarProduto') {
         return false;
     }
 
@@ -123,6 +123,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo json_encode(['erro' => 'ID do produto não informado']);
             }
             break;
+
+        // case 'buscarTodosProdutosOrdenados':
+        //     $res = $produtoController->buscarTodosProdutosOrdenados($ordem);
+        //     header('Content-Type: application/json');
+        //     echo json_encode($res);
+        //     break;
 
         case 'ListarSubCategorias':
             header('Content-Type: application/json; charset=utf-8');

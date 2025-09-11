@@ -20,6 +20,10 @@ class ProdutoController {
     public function buscarTodosProdutos(){
         return $this->produtoModel->buscarTodosProdutos();
     }
+    
+    public function buscarTodosProdutosOrdenados($ordem){
+        return $this->produtoModel->buscarTodosProdutosOrdenados($ordem);
+    }
 
     public function capturarSubCategorias() {
         return $this->produtoModel->getAllSubcategorias();
