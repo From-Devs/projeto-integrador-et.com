@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebar/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/cardProduto/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/cardListaDeDesejos/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popup/styles.css">
 
     <!-- Fontes e ícones -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -55,6 +56,8 @@
     <?php
     echo createHeader($login, $tipoUsuario);
     ?>
+
+    <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
 
     <div class="title-container">
         <div class="title">
@@ -184,6 +187,7 @@
     <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
 
     <script>
     /**

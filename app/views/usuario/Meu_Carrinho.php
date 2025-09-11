@@ -70,6 +70,7 @@ $total = $subtotal + $frete;
 </head>
 <body>
     <?php echo createHeader($login, $tipoUsuario); ?>
+    <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
     <main>
         <h1 class="Meio">MEU CARRINHO</h1>
         <form method="post" action="">
@@ -188,5 +189,30 @@ $total = $subtotal + $frete;
     </script>
 
     <?php echo createRodape(); ?>
+    <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
+    
+    <!-- Fundo escurecido e modal -->
+    <div id="overlayPopUp" class="overlayPopUp hidden"></div>
+
+    <div id="popup" class="popup hidden">
+        <p>Vamos continuar o atendimento pelo WhatsApp<br><small>(Sobre as informações de pagamento e entrega)</small></p>
+        <div class="popup-buttons">
+            <button onclick="fecharPopup()">Cancelar</button>
+            <button onclick="confirmarCompra()">Continuar</button>
+        </div>
+    </div>
+
+    <div id="popupConfirmado" class="popup hidden">
+        <p>✅ Compra confirmada com sucesso!</p>
+        <div class="popup-buttons">
+            <button onclick="fecharPopup()">Fechar</button>
+        </div>
+    </div>
+
+    <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
 </body>
 </html>
