@@ -1,154 +1,93 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
 
-class Products {
-    private $conn;
+class ProdutoModel {
+    protected $conn;
+    protected $table = "produto";
+    protected $primaryKey = "id_produto"; 
 
     public function __construct() {
         $db = new Database();
         $this->conn = $db->Connect();
     }
 
+    // Remover produto
     public function RemoverProduto($id){
-        try {
-            $sqlDelete = "DELETE FROM PRODUTO WHERE id_produto = :idProduto";
-
-            $res = $this->conn->prepare($sqlDelete);
-            $res->bindParam(":idProduto", $id);
-            $res->execute();
-
-            return true;
-        } catch (\Throwable $th) {
-            echo "Erro SQL: " . $th->getMessage();
-            return false;
-        }
+        $sql = "DELETE FROM {$this->table} WHERE {$this->primaryKey} = :idProduto";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":idProduto", $id, PDO::PARAM_INT);
+        return $stmt->execute(); // true/false
     }
 
-    public function EditarProduto(
-        $id, 
-        $nome, 
-        $marca, 
-        $breveDescricao, 
-        $preco, 
-        $precoPromocional, 
-        $fgPromocao,
-        $caracteristicasCompleta, 
-        $qtdEstoque, 
-        $corPrincipal, 
-        $deg1, 
-        $deg2
-    ){
-        try {
-            $getCorId = $this->conn->prepare("
-                SELECT id_cores 
-                FROM PRODUTO 
-                WHERE id_produto = :idProduto
-            ");
-            $getCorId->bindParam(":idProduto", $id, PDO::PARAM_INT);
-            $getCorId->execute();
-    
-            $resCoresId = $getCorId->fetch(PDO::FETCH_ASSOC);
-            $idCores = $resCoresId ? $resCoresId['id_cores'] : null;
-    
-            if ($idCores) {
-                $updateCores = "UPDATE CORES 
-                    SET corPrincipal = :corPrincipal, 
-                        hexDegrade1 = :hexDegrade1, 
-                        hexDegrade2 = :hexDegrade2
-                    WHERE id_cores = :idCores";
-    
-                $resCores = $this->conn->prepare($updateCores);
-                $resCores->bindParam(":corPrincipal", $corPrincipal);
-                $resCores->bindParam(":hexDegrade1", $deg1);
-                $resCores->bindParam(":hexDegrade2", $deg2);
-                $resCores->bindParam(":idCores", $idCores, PDO::PARAM_INT);
-                $resCores->execute();
-            }
-    
-            $sql = "UPDATE PRODUTO 
-                SET nome = :nome, 
-                    marca = :marca, 
-                    descricaoBreve = :descricaoBreve, 
-                    descricaoTotal = :descricaoTotal,
-                    preco = :preco,
-                    precoPromo = :precoPromo,
-                    fgPromocao = :fgPromocao,
-                    qtdEstoque = :qtdEstoque,
-                    id_cores = :idCores
-                WHERE id_produto = :idProduto";
-    
-            $res = $this->conn->prepare($sql);
-            $res->bindParam(":nome", $nome);
-            $res->bindParam(":marca", $marca);
-            $res->bindParam(":descricaoBreve", $breveDescricao);
-            $res->bindParam(":descricaoTotal", $caracteristicasCompleta);
-            $res->bindParam(":preco", $preco);
-            $res->bindParam(":precoPromo", $precoPromocional);
-            $res->bindParam(":fgPromocao", $fgPromocao);
-            $res->bindParam(":qtdEstoque", $qtdEstoque, PDO::PARAM_INT);
-            $res->bindParam(":idCores", $idCores, PDO::PARAM_INT);
-            $res->bindParam(":idProduto", $id, PDO::PARAM_INT);
-    
-            $res->execute();
-            return true;
-    
-        } catch (\Throwable $th) {
-            echo "Erro SQL: " . $th->getMessage();
-            return false;
+    // Editar produto e cores
+    public function EditarProduto($id, $nome, $marca, $breveDescricao, $preco, $precoPromocional, $fgPromocao, $caracteristicasCompleta, $qtdEstoque, $corPrincipal, $deg1, $deg2){
+        // Primeiro buscar id_cores do produto
+        $stmt = $this->conn->prepare("SELECT id_cores FROM {$this->table} WHERE {$this->primaryKey} = :idProduto");
+        $stmt->bindParam(":idProduto", $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $corbyid = $stmt->fetch(PDO::FETCH_ASSOC);
+        $idCores = $corbyid ? $corbyid['id_cores'] : null;
+
+        // Atualizar tabela CORES se existir
+        if ($idCores) {
+            $sql = "UPDATE CORES SET corPrincipal = :corPrincipal, hexDegrade1 = :hexDegrade1, hexDegrade2 = :hexDegrade2 WHERE id_cores = :idCores";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":corPrincipal", $corPrincipal, PDO::PARAM_STR);
+            $stmt->bindParam(":hexDegrade1", $deg1, PDO::PARAM_STR);
+            $stmt->bindParam(":hexDegrade2", $deg2, PDO::PARAM_STR);
+            $stmt->bindParam(":idCores", $idCores, PDO::PARAM_INT);
+            $stmt->execute();
         }
-    }    
 
-    public function buscarProdutoPeloId($id){
-        try {
-            $sqlProduto = "SELECT P.nome, 
-            marca, 
-            descricaoBreve, 
-            descricaoTotal, 
-            preco, 
-            precoPromo, 
-            fgPromocao,
-            qtdEstoque, 
-            img1, 
-            img2, 
-            img3, 
-            SC.id_subCategoria,
-            SC.nome AS subcategoria, 
-            C.corPrincipal, 
-            C.hexDegrade1 AS hex1, 
-            C.hexDegrade2 AS hex2
-            FROM produto P
-                JOIN subcategoria SC
-            ON P.id_subCategoria = SC.id_subCategoria
-                JOIN cores C
-            ON P.id_cores = C.id_cores
-                WHERE P.id_produto = :id";
+        $sql = "UPDATE {$this->table} SET 
+                nome = :nome, 
+                marca = :marca, 
+                descricaoBreve = :descricaoBreve, 
+                descricaoTotal = :descricaoTotal,
+                preco = :preco,
+                precoPromo = :precoPromo,
+                fgPromocao = :fgPromocao,
+                qtdEstoque = :qtdEstoque,
+                id_cores = :idCores
+                WHERE {$this->primaryKey} = :idProduto";
 
-            $db = $this->conn->prepare($sqlProduto);
-            $db->bindParam(":id", $id);
-            $db->execute();
-            $res = $db->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":nome", $nome);
+        $stmt->bindParam(":marca", $marca);
+        $stmt->bindParam(":descricaoBreve", $breveDescricao);
+        $stmt->bindParam(":descricaoTotal", $caracteristicasCompleta);
+        $stmt->bindParam(":preco", $preco);
+        $stmt->bindParam(":precoPromo", $precoPromocional);
+        $stmt->bindParam(":fgPromocao", $fgPromocao);
+        $stmt->bindParam(":qtdEstoque", $qtdEstoque, PDO::PARAM_INT);
+        $stmt->bindParam(":idCores", $idCores, PDO::PARAM_INT);
+        $stmt->bindParam(":idProduto", $id, PDO::PARAM_INT);
 
-            return $res;
-        } catch (\Throwable $th) {
-            $this->conn->rollBack();
-            echo "Erro ao buscar: " . $th->getMessage();
-            return false;
-        }
+        return $stmt->execute();
     }
 
-    public function buscarTodosProdutos(){
-        try {    
-            $sqlProdutos = "SELECT id_produto as id, nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo as precoPromocional, fgPromocao, qtdEstoque, img1, img2, img3, id_subCategoria, id_cores, id_associado FROM produto ORDER BY id_produto";
-            $db = $this->conn->prepare($sqlProdutos);
-            $db->execute();
-            $res = $db->fetchAll(PDO::FETCH_ASSOC);
+    // Exemplo: Buscar uma subcategoria pelo ID
+    public function buscarSubcategoriaPeloId($id) {
+        $sql = "SELECT SC.id_subCategoria, SC.nome, C.nome AS categoria
+                FROM subcategoria SC
+                JOIN categoria C ON SC.id_categoria = C.id_categoria
+                WHERE SC.id_subCategoria = :id";
 
-            return $res;
-        } catch (\Throwable $th) {
-            $this->conn->rollBack();
-            echo "Erro ao buscar: " . $th->getMessage();
-            return false;
-        }
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC); // só um registro
+    }
+
+    public function buscarTodosProdutos(){   
+            $sql = "SELECT id_produto as id, nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo as precoPromocional, fgPromocao, qtdEstoque, img1, img2, img3, id_subCategoria, id_cores, id_associado FROM produto ORDER BY id_produto";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $stmt = $db->fetchAll(PDO::FETCH_ASSOC);
+
+            return $stmt;
+ 
 
     }
     public function getAllProdutos(){
