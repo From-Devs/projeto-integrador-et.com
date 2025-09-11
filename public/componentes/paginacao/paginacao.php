@@ -1,6 +1,9 @@
 <?php
 
 function paginar($dados, $itensPorPagina = 10, $nomeParametro = 'page') {
+    if (!is_array($dados)) {
+        $dados = [];
+    }
     $totalItens = count($dados);
     $totalPaginas = ceil($totalItens / $itensPorPagina);
 
