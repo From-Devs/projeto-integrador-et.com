@@ -76,7 +76,7 @@ function filtro($tipo = "", $opcoesSelect = []) {
             </div>
             <div id="filtro">
                 <select id="botaoOrdenar">
-                    <option value="" selected disabled hidden>Filtro</option>';
+                    <option value="" selected disabled hidden>Ordenar</option>';
 
         foreach ($opcoesSelect as $opcao) {
             $html .= '<option value="' . htmlspecialchars($opcao) . '">' . htmlspecialchars($opcao) . '</option>';
