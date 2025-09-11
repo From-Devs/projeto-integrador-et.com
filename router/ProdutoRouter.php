@@ -2,7 +2,7 @@
 require_once __DIR__ . "/../app/Controllers/ProdutoController.php";
 $produtoController = new ProdutoController();
 
-function ValidaCampos() {
+function ValidaCampos($acao) {
     $camposObrigatorios = [
         "nome", "marca", "breveDescricao", "qtdEstoque",
         "preco", "precoPromocional", "caracteristicasCompleta",
@@ -24,7 +24,7 @@ function ValidaCampos() {
     (isset($_FILES["img2"]) && $_FILES["img2"]["size"] > 0) ||
     (isset($_FILES["img3"]) && $_FILES["img3"]["size"] > 0);
 
-    if (!$temImagem) {
+    if(!$temImagem && $acao === 'CadastrarProduto') {
         return false;
     }
 
@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         case 'CadastrarProduto':
             $fgPromocao = isset($_POST["fgPromocao"]) ? 1 : 0;
 
-            if(ValidaCampos()){
+            if(ValidaCampos($_GET["acao"])){
                 $resultado = $produtoController->cadastrarProduto(
                     $_POST["nome"],
                     $_POST["marca"],

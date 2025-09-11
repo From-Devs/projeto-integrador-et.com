@@ -17,8 +17,8 @@ class ProdutoController {
         return $this->produtoModel->buscarProdutoPeloId($id);
     }
 
-    public function buscarTodosProdutos(){
-        return $this->produtoModel->buscarTodosProdutos();
+    public function buscarTodosProdutos($ordem){
+        return $this->produtoModel->buscarTodosProdutos($ordem);
     }
 
     public function capturarSubCategorias() {
