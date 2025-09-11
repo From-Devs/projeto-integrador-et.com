@@ -2,7 +2,7 @@
 require_once __DIR__ . "/../app/Controllers/ProdutoController.php";
 $produtoController = new ProdutoController();
 
-function ValidaCampos() {
+function ValidaCampos($acao) {
     $camposObrigatorios = [
         "nome", "marca", "breveDescricao", "qtdEstoque",
         "preco", "precoPromocional", "caracteristicasCompleta",
@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         case 'CadastrarProduto':
             $fgPromocao = isset($_POST["fgPromocao"]) ? 1 : 0;
 
-            if(ValidaCampos()){
+            if(ValidaCampos($_GET["acao"])){
                 $resultado = $produtoController->cadastrarProduto(
                     $_POST["nome"],
                     $_POST["marca"],
@@ -123,12 +123,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo json_encode(['erro' => 'ID do produto não informado']);
             }
             break;
-
-        // case 'buscarTodosProdutosOrdenados':
-        //     $res = $produtoController->buscarTodosProdutosOrdenados($ordem);
-        //     header('Content-Type: application/json');
-        //     echo json_encode($res);
-        //     break;
 
         case 'ListarSubCategorias':
             header('Content-Type: application/json; charset=utf-8');
