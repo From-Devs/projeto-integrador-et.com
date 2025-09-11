@@ -117,7 +117,7 @@ a
     margin-bottom: 5px;
 }
 
-.campo label {
+.campo label, .campo-small label {
     font-weight: 500;
 }
 
@@ -281,6 +281,22 @@ a
     align-items: center;
     justify-content: center;
     font-size: 0.7rem;
+}
+
+.chkPromocao{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.chkPromocao input{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.chkPromocao input:checked{
+    color: green;
 }
 
 @media (max-width: 1280px) {
