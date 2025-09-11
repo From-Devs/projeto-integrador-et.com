@@ -137,7 +137,7 @@ function tabelaProduto($produtos) {
                         </div>
                         <div class="campo-small chkPromocao">
                             <label>Em promoção:</label>
-                            <input type="checkbox" name="fgPromocao">
+                            <input type="checkbox" name="fgPromocao" value="1">
                         </div>
                     </div>
                     <div class="campos-direita">
