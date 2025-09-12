@@ -1,4 +1,11 @@
 <?php
+    require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
+    require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";  //importar rodapé
+    require __DIR__ . "/../../../public/componentes/botao/botao.php";  //importar rodapé
+    require __DIR__ . "/../../../public/componentes/popUp/popUp.php";  //importar rodapé
+    require_once __DIR__ . '/../../../config/PedidoController.php';
+    require_once __DIR__ . '/../../../public/componentes/cardpedido/cardPedido.php';
+
     session_start(); // garante que a sessão está ativa
     $id_usuario = $_SESSION['id_usuario'] ?? null;
     
@@ -6,24 +13,12 @@
         die("Você precisa estar logado para ver os pedidos.");
     }
 
-    require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
-    require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";  //importar rodapé
-    require __DIR__ . "/../../../public/componentes/botao/botao.php";  //importar rodapé
-    require __DIR__ . "/../../../public/componentes/popUp/popUp.php";  //importar rodapé
-    require_once __DIR__ . '/../../../config/PedidoController.php';
-    require_once __DIR__ . '/../../../public/componentes/cardpedido/cardPedido.php';
- 
-    // session_start();
-    $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente'; // Descomente essa parte para tipo do usuario = Usuário
-    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado"; // Descomente essa parte para tipo do usuario = Associado
-    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
- 
-    
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
  
     $pedidoController = new PedidoController();
     $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
- 
- 
+
 ?>
  
 <!DOCTYPE html>
