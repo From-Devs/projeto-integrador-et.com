@@ -1,4 +1,9 @@
 <?php
+// Inicia sessão
+session_start();
+$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Usuário"; // pega da sessão ou define padrão
+$login = isset($_SESSION['id_usuario']); // true se logado, false se não
+
 require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
 require_once __DIR__ . "/../../../config/ProdutoController.php";
 require_once __DIR__ . "/../../../public/componentes/header/header.php";
@@ -11,40 +16,41 @@ require_once __DIR__ . "/../../../public/componentes/ondas/onda.php";
 require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
 require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
-// Inicia sessão
-session_start();
-$idUsuario = $_SESSION['id_usuario'] ?? null;
 
-if (!$idUsuario) {
-    die("Usuário não logado!");
+if (!isset($_SESSION['id_usuario'])) {
+    die("Você precisa estar logado para ver o carrinho.");
 }
 
+$id_usuario = $_SESSION['id_usuario'];
 
-$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
-$login = false; // Estado do login do usuário
+// conecta ao banco
+$conn = (new Database())->connect();
 
-// Instancia controller e busca carrinho
-$controller = new ProdutoController();
-$carrinhoData = $controller->listarCarrinho($idUsuario);
-$carrinho = $carrinhoData['items'] ?? [];
-$frete = 10.00;
-
-// Atualiza quantidades via POST
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    foreach ($carrinho as $index => $produto) {
-        $carrinho[$index]['qntProduto'] = $_POST['quantidade'][$index] ?? 1;
-    }
+try {
+    // Busca produtos no carrinho
+    $sql = "SELECT c.id_carrinho, c.quantidade, p.id_produto, p.nome, 
+                   p.preco, p.precoPromo, p.img1 
+            FROM carrinho c
+            JOIN produto p ON p.id_produto = c.id_produto
+            WHERE c.id_usuario = :id_usuario";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':id_usuario' => $id_usuario]);
+    $carrinho = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Erro ao carregar carrinho: " . $e->getMessage());
 }
 
 // Calcula subtotal e total
 $subtotal = 0;
 $precosProdutos = [];
 foreach ($carrinho as $produto) {
-    $quantidade = $produto['qntProduto'] ?? 1;
+    $quantidade = $produto['quantidade'] ?? 1;
     $preco = $produto['precoPromo'] ?? $produto['preco'];
     $precosProdutos[] = $preco;
     $subtotal += $preco * $quantidade;
 }
+
+$frete = 0; // valor inicial do frete (pode ser calculado depois no JS/PHP)
 $total = $subtotal + $frete;
 ?>
 <!DOCTYPE html>
@@ -88,7 +94,7 @@ $total = $subtotal + $frete;
                 <tbody>
                 <?php if (!empty($carrinho)): ?>
                     <?php foreach ($carrinho as $index => $produto): 
-                        $quantidade = $produto['qntProduto'] ?? 1;
+                        $quantidade = $produto['quantidade'] ?? 1;
                         $preco = $produto['precoPromo'] ?? $produto['preco'];
                         $subtotalProduto = $preco * $quantidade;
                         $imagem = $produto['img1'] ?? 'no-image.png';
