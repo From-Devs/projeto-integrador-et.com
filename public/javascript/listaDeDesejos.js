@@ -31,16 +31,60 @@ btnAdicionarcarrinho.addEventListener('click', () => {
         const idSelecionados = Array.from(checkboxes)
         .filter(cb => cb.checked)
         .map(cb => cb.dataset.id);
-        console.log("Adicionar ao Carrinho o produto",idSelecionados);
+        // console.log("Adicionar ao Carrinho o produto",idSelecionados);
 
-        //enviar para POST para back-end (mexer com isso depois)
+        //enviar para POST para back-end 
+        if (idSelecionados.length > 0){
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/projeto-integrador-et.com/config/produtoRouter.php';
+
+            idSelecionados.forEach(id => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'id_produto[]';
+                input.value = id;
+                form.appendChild(input);
+            });
+
+            const acaoInput = document.createElement('input');
+            acaoInput.type = 'hidden';
+            acaoInput.name = 'acao';
+            acaoInput.value = 'carrinho';
+            form.appendChild(acaoInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
     });
 
     btnExcluirSelecionados.addEventListener('click', () => {
         const idSelecionados = Array.from(checkboxes)
         .filter(cb => cb.checked)
         .map(cb => cb.dataset.id);
-        console.log("Remover da Lista de Desejos o produto", idSelecionados);
+        // console.log("Remover da Lista de Desejos o produto", idSelecionados);
 
-        //fazer o mesmo como no acima
+        //enviar para POST para o back
+        if (idSelecionados.length > 0){
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/projeto-integrador-et.com/config/produtoRouter.php';
+
+            idSelecionados.forEach(id => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'id_produto[]';
+                input.value = id;
+                form.appendChild(input);
+            });
+
+            const acaoInput = document.createElement('input');
+            acaoInput.type = 'hidden';
+            acaoInput.name = 'acao';
+            acaoInput.value = 'remover_favorito';
+            form.appendChild(acaoInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
     })

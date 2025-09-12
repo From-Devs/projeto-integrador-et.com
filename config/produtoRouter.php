@@ -46,7 +46,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["acao"], $_POST["id_pr
         // ======== FAVORITOS ========
         case "favorito":
             try {
-                $controller->adicionarAosFavoritos($idProduto);
+                session_start();
+                $idUsuario = $_SESSION['id_usuario'] ?? null;
+
+                if ($idUsuario){
+                    $controller->adicionarAosFavoritos($idProduto, $idUsuario);
+                }
+                
                 header("Location: /projeto-integrador-et.com/app/views/usuario/listaDeDesejos.php");
                 exit;
             } catch (Exception $e) {
@@ -56,7 +62,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["acao"], $_POST["id_pr
 
         case "remover_favorito":
             try {
-                $controller->removerDosFavoritos($idProduto);
+                session_start();  //garante q a sessão está ativa
+                $idUsuario = $_SESSION['id_usuario'] ?? null;
+
+                if ($idUsuario){
+                    $controller->removerDosFavoritos($idProduto, $idUsuario);
+                }
+                
                 header("Location: /projeto-integrador-et.com/app/views/usuario/listaDeDesejos.php");
                 exit;
             } catch (Exception $e) {
