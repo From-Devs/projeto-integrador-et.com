@@ -108,6 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
 
             break;
+
         default:
             echo "Nao encontrei nada";
             break;
@@ -122,6 +123,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             } else {
                 echo json_encode(['erro' => 'ID do produto não informado']);
             }
+            break;
+
+        case 'buscarTodosProdutos':
+            $ordem = $_GET['ordem'] ?? '';
+            $pesquisa = $_GET['pesquisa'] ?? '';
+            $res = $produtoController->buscarTodosProdutos($ordem, $pesquisa);
+            header('Content-Type: application/json');
+            echo json_encode($res);
             break;
 
         case 'ListarSubCategorias':

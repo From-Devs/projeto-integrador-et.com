@@ -1,8 +1,8 @@
 document.getElementsByClassName("campos-cadastrar")[0].addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const teste = document.getElementsByClassName("dialog-cadastrar")[0];
-    console.log(teste);
+    const popUpCadastrar = document.getElementsByClassName("dialog-cadastrar")[0];
+    const popUpSucesso = document.getElementsByClassName("popUpCadastro")[0];
 
     let formData = new FormData(this);
 
@@ -14,12 +14,25 @@ document.getElementsByClassName("campos-cadastrar")[0].addEventListener("submit"
     .then(data => {
         if (data.sucesso) {
             abrirPopUp("popUpCadastro");
-            teste.close();
+            popUpCadastrar.close();
+
+            // Recarrega a página ao cadastrar
+            popUpSucesso.addEventListener("close", function(){
+                window.location.reload();
+            })
         } else {
             abrirPopUp("popUpErro");
         }
     })
     .catch(err => console.error("Erro:", err));
+});        
+        
+// Pesquisa
+const btnPesquisar = document.getElementsByClassName("lupaPesquisarInput")[0];
+const inputPesquisar = document.getElementById("inputPesquisar");
+
+btnPesquisar.addEventListener("click", function() {
+    window.location.href = `?pesquisa=${inputPesquisar.value}`;
 });
 
 // Ordenar a listaa
