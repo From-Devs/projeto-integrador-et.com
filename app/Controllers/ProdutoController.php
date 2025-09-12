@@ -1,120 +1,39 @@
 <?php
-require_once __DIR__ . "/../Models/Products.php";
+require_once __DIR__ . '/../Models/ProdutoModel.php';
 
 class ProdutoController {
-
-    private $produtoModel;
+    private ProdutoModel $model;
 
     public function __construct() {
-        $this->produtoModel = new Products();
+        $this->model = new ProdutoModel();
     }
 
-    public function RemoverProduto($id){
-        return $this->produtoModel->RemoverProduto($id);
+    public function listarTodos(): array {
+        return $this->model->getAll();
     }
 
-    public function buscarProdutoPeloId($id){
-        return $this->produtoModel->buscarProdutoPeloId($id);
+    public function existe(int $id): bool {
+        return $this->model->exists($id);
     }
 
-    public function buscarTodosProdutos(){
-        return $this->produtoModel->buscarTodosProdutos();
+    public function getProduto(int $id): ?array {
+        return $this->model->getById($id);
     }
 
-    public function capturarSubCategorias() {
-        return $this->produtoModel->getAllSubcategorias();
+    // Este é o método que faltava
+    public function criarProduto(array $dados, array $files): bool {
+        return $this->model->criarProduto($dados, $files);
     }
-
-    public function cadastrarProduto(
-        $nome, 
-        $marca, 
-        $breveDescricao, 
-        $preco, 
-        $precoPromocional, 
-        $fgPromocao,
-        $caracteristicasCompleta, 
-        $qtdEstoque, 
-        $corPrincipal, 
-        $deg1, 
-        $deg2
-    ) {
-        return $this->produtoModel->cadastrarProduto(
-            $nome, 
-            $marca, 
-            $breveDescricao, 
-            $preco, 
-            $precoPromocional, 
-            $fgPromocao,
-            $caracteristicasCompleta, 
-            $qtdEstoque, 
-            $corPrincipal, 
-            $deg1, 
-            $deg2,
-            $_FILES
-        );
-    }
-
-    public function EditarProduto(
-        $id, 
-        $nome, 
-        $marca, 
-        $breveDescricao, 
-        $preco, 
-        $precoPromocional,
-        $fgPromocao, 
-        $caracteristicasCompleta, 
-        $qtdEstoque, 
-        $corPrincipal, 
-        $deg1, 
-        $deg2
-    ){
-        return $this->produtoModel->EditarProduto(
-            $id, 
-            $nome,
-            $marca, 
-            $breveDescricao, 
-            $preco, 
-            $precoPromocional, 
-            $fgPromocao,
-            $caracteristicasCompleta, 
-            $qtdEstoque, 
-            $corPrincipal, 
-            $deg1, 
-            $deg2
-        );
-    }
-
-    // public function EditarProduto(
-    //     $id_produto,
-    //     $nome,
-    //     $marca,
-    //     $descricaoBreve,
-    //     $descricaoTotal,
-    //     $preco,
-    //     $precoPromo,
-    //     $qtdEstoque,
-    //     $img1 = null,
-    //     $img2 = null,
-    //     $img3 = null,
-    //     $id_subCategoria = null,
-    //     $id_cores = null,
-    //     $id_associado = null
-    // ) {
-    //     return $this->produtoModel->updateProduto(
-    //         $id_produto,
-    //         $nome,
-    //         $marca,
-    //         $descricaoBreve,
-    //         $descricaoTotal,
-    //         $preco,
-    //         $precoPromo,
-    //         $qtdEstoque,
-    //         $img1,
-    //         $img2,
-    //         $img3,
-    //         $id_subCategoria,
-    //         $id_cores,
-    //         $id_associado
-    //     );
-    // }
 }
+
+
+
+
+
+// Exemplo de uso
+$controller = new ProdutoController();
+// $produtos = $controller->listarTodos();
+// print_r($produtos);
+
+// $existe = $controller->existe(2); // agora correto
+// var_dump($existe); // true ou false
