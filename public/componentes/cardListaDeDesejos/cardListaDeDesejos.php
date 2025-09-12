@@ -1,25 +1,43 @@
 <?php  
+    function createCardListaDeDesejos( $id_produto,$imagemProd = "", $preco = 00.00, $marca = "", $nome = "", $dataAdicionado = "", $corprincipal = "#919191", $corhexdegrade1 = "#919191", $corhexdegrade2 = "#919191", $precoPromo=null){
 
-    function createCardListaDeDesejos( $id_produto,$imagemProd = "", $preco = 00.00, $marca = "", $nome = "", $dataAdicionado = "", $cor1 = "#919191", $cor2 = "#919191", $cor3 = "#919191"){
+        if (!empty($precoPromo) && $precoPromo < $preco){
+            $precoCarrinho = "
+            <span class='precoAntigo'>R$ ".number_format($preco, 2, ',', '.')."</span>
+            <span class='precoNovo'>R$ ".number_format($precoPromo, 2, ',', '.')."</span>
+            ";
+        } else{
+            $precoCarrinho = "
+                <span class='cardPreco'>R$ ".number_format($preco, 2, ',', '.')."</span>
+            ";
+        }
         return "
-            <div class='cardDesejos'>
+            <div class='cardDesejos' data-id='$id_produto'>
                 <div class='checkboxes'>
                     <input type='checkbox' class='cardCheckbox' data-id='$id_produto'>
                 </div>
-                <div class='cardColorido'  style='background: linear-gradient(to right, $cor1, $cor2, $cor3, #FFFFFF);'>
+                <div class='cardColorido'  style='background: linear-gradient(to right, $corprincipal, $corhexdegrade1, $corhexdegrade2,#FFFFFF 85%);'>
                     <div class='cardImg'>
-                        <img src='/projeto-integrador-et.com/public/imagens/ProdutosMP/$imagemProd' alt='$nome'>
+                        <img src='/projeto-integrador-et.com/public/imagens/produtos/$imagemProd/fotoSemFundo.png' alt='$nome'>
                     </div>
-                    <span class='cardPreco'>R$ ".number_format($preco, 2, ',', '.')."</span>
-                    <span class='cardInfo'>$nome $marca</span>
-                    <span class='cardDate'>Adicionado $dataAdicionado</span>
-                    <div class='buttonsListaDesejos'>
-                        <button class='buttonCarrinho' id='buttonCarrinho' onclick='redirecionarCarrinho()'>
-                            <i class='fa-solid fa-cart-shopping'></i>
-                        </button>
-                        <button class='buttonLixeira' id='buttonLixeira'>
-                            <i class='fa-solid fa-trash-can'></i>
-                        </button>
+                    <div class='cardConteudo'>
+                        <div class='precoinfo'>
+                            <span class='cardPrecoArea'>
+                                {$precoCarrinho}
+                            </span>
+                            <span class='cardInfo'>$nome $marca</span>
+                        </div>
+                        <div class='areaFinal'>
+                            <span class='cardDate'>Adicionado $dataAdicionado</span>
+                            <div class='buttonsListaDesejos'>
+                                <button class='buttonCarrinho' id='buttonCarrinho' onclick='adicionarAoCarrinho($id_produto)'>
+                                    <i class='fa-solid fa-cart-shopping'></i>
+                                </button>
+                                <button class='buttonLixeira' id='buttonLixeira' onclick='removerDosFavoritos($id_produto)'>
+                                    <i class='fa-solid fa-trash-can'></i>
+                                </button>
+                            </div>  
+                        </div>
                     </div>
                 </div>
             </div>
