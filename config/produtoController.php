@@ -95,12 +95,12 @@ class ProdutoController {
         }
     }
 
-    // === Carrinho (adaptado para carrinho2) ===
+    // === Carrinho ===
     public function listarCarrinho($idUsuario) {
         $sql = "
             SELECT c.id, c.id_produto, c.quantidade, c.data_adicionado,
                    p.nome, p.preco, p.precoPromo, p.img1
-            FROM carrinho2 c
+            FROM carrinho c
             INNER JOIN produto p ON p.id_produto = c.id_produto
             WHERE c.id_usuario = :u
             ORDER BY c.data_adicionado DESC
@@ -119,16 +119,16 @@ class ProdutoController {
     }
 
     public function adicionarAoCarrinho($idUsuario, $idProduto, $qtd = 1) {
-        $sel = $this->conn->prepare("SELECT id, quantidade FROM carrinho2 WHERE id_usuario = :u AND id_produto = :p");
+        $sel = $this->conn->prepare("SELECT id, quantidade FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
         $sel->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
         $row = $sel->fetch(PDO::FETCH_ASSOC);
 
         if ($row) {
             $novaQtd = (int)$row['quantidade'] + (int)$qtd;
-            $upd = $this->conn->prepare("UPDATE carrinho2 SET quantidade = :q WHERE id = :id");
+            $upd = $this->conn->prepare("UPDATE carrinho SET quantidade = :q WHERE id = :id");
             $upd->execute([':q' => $novaQtd, ':id' => (int)$row['id']]);
         } else {
-            $ins = $this->conn->prepare("INSERT INTO carrinho2 (id_usuario, id_produto, quantidade, data_adicionado) VALUES (:u, :p, :q, NOW())");
+            $ins = $this->conn->prepare("INSERT INTO carrinho (id_usuario, id_produto, quantidade, data_adicionado) VALUES (:u, :p, :q, NOW())");
             $ins->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto, ':q' => (int)$qtd]);
         }
 
@@ -137,17 +137,17 @@ class ProdutoController {
 
     public function atualizarQuantidade($idUsuario, $idProduto, $qtd) {
         if ((int)$qtd <= 0) {
-            $del = $this->conn->prepare("DELETE FROM carrinho2 WHERE id_usuario = :u AND id_produto = :p");
+            $del = $this->conn->prepare("DELETE FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
             $del->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
         } else {
-            $upd = $this->conn->prepare("UPDATE carrinho2 SET quantidade = :q WHERE id_usuario = :u AND id_produto = :p");
+            $upd = $this->conn->prepare("UPDATE carrinho SET quantidade = :q WHERE id_usuario = :u AND id_produto = :p");
             $upd->execute([':q' => (int)$qtd, ':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
         }
         return ['ok' => true];
     }
 
     public function removerDoCarrinho($idUsuario, $idProduto) {
-        $del = $this->conn->prepare("DELETE FROM carrinho2 WHERE id_usuario = :u AND id_produto = :p");
+        $del = $this->conn->prepare("DELETE FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
         $del->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
         return ['ok' => true];
     }
@@ -155,7 +155,7 @@ class ProdutoController {
     // === Pedidos ===
     public function criarPedido($idUsuario, $idStatus = 1) {
         // Valida se tem itens no carrinho
-        $chk = $this->conn->prepare("SELECT COUNT(*) FROM carrinho2 WHERE id_usuario = :u");
+        $chk = $this->conn->prepare("SELECT COUNT(*) FROM carrinho WHERE id_usuario = :u");
         $chk->execute([':u' => (int)$idUsuario]);
         if ((int)$chk->fetchColumn() === 0) {
             return ['ok' => false, 'msg' => 'Carrinho vazio'];
@@ -181,11 +181,11 @@ class ProdutoController {
         $stmt->execute([':u' => (int)$idUsuario]);
         $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Anexa itens de cada pedido a partir do carrinho2 do usuário
+        // Anexa itens de cada pedido a partir do carrinho do usuário
         foreach ($pedidos as &$p) {
             $it = $this->conn->prepare("
                 SELECT p.id_produto, p.nome, p.img1, p.preco, p.precoPromo, c.quantidade
-                FROM carrinho2 c
+                FROM carrinho c
                 INNER JOIN produto p ON p.id_produto = c.id_produto
                 WHERE c.id_usuario = :u
             ");
