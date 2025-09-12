@@ -37,7 +37,7 @@
             "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemFundo.png",
             "olhos"        => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemOlhos.png",
             "sombrancelhas" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemSombrancelhas.png",
-            "lábios"       => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemBoca.png",
+            "boca"       => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemBoca.png",
             "pele"         => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemPele.png"
         ],
         "perfume" => [
@@ -48,20 +48,20 @@
         ],
         "skincare" => [
             "default"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareFundo.png",
-            "limpeza"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareRosto.png",   
-            "esfoliação"=> "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareCorpo.png",   
-            "hidratação"=> "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareKit.png",     
-            "máscara"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareRosto.png",
-            "protetor"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareCorpo.png",
-            "especiais" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareKit.png"
+            "limpeza"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareLimpeza.png",   
+            "esfoliação"=> "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareEsfoliacao.png",   
+            "hidratação"=> "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareHidratacao.png",     
+            "mascara"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareMascara.png",
+            "protetorsolar"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareProtetorSolar.png",
+            "especiais" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareEspeciais.png"
         ],
         "cabelo" => [
             "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloFundo.png",
-            "dia-a-dia"    => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloShampoo.png",
-            "tratamentos"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloTratamento.png",
-            "estilização"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloCondicionador.png",
-            "especiais"    => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloTratamento.png",
-            "acessórios"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloCondicionador.png"
+            "dia-a-dia"    => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloDiaADia.png",
+            "tratamentos"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloTratamentos.png",
+            "estilização"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloEstilizacao.png",
+            "especiais"    => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloEspeciais.png",
+            "acessórios"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloAcessorios.png"
         ],
         "eletronicos" => [
             "default"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosFundo.png",
