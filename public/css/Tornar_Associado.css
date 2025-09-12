@@ -365,7 +365,7 @@ body {
   filter: drop-shadow(-4px 8px 4px rgba(0, 0, 0, 0.25));
 }
  
- @keyframes gradient {
+@keyframes gradient {
   0% {
     background-position: 0% 50%;
   }
@@ -377,19 +377,6 @@ body {
   }
 }
  
-@keyframes animacaoOnda
-{
-  0%
-  {
-      background-position-x: 100vw;
-  }
-  100%
-  {
-      background-position-x: 0;
-  }
-}
- 
- 
 @keyframes gradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -397,24 +384,20 @@ body {
 }
  
 @media screen and (max-width: 1555px) {
-  .wave.solida {
-    position: static;
-    width: 100vw;
-    height: 250px;
-    background-size: 180px 250px;
-    animation-delay: 0s;
-    overflow-x: hidden;
-  }
-  
+ 
   .promoContentText h2 {
     font-size: 40px;
   }
   .promo-content p {
-    width: 90%;
+    width: 490px;
     font-size: 20px;
   }
+  .karla{
+    padding-top: 80px;
+  }
   .promo-image {
-    width: 500px;
+    height: 600px;
+    width: 400px;
   }
   .nomeKarla {
     font-size: 32px;
@@ -479,10 +462,6 @@ body {
 
 @media screen and (max-width: 900px) {
 
-  .karla{
-    display: none;
-  }
-
   .promo-section {
     flex-direction: column;
     text-align: center;
@@ -491,23 +470,32 @@ body {
   .promo-content {
     flex-direction: column;
     align-items: center;
-    gap: 30px;
   }
   .promoContentText h2 {
-    margin-top: 150px;
+    margin-top: 120px;
     font-size: 28px;
   }
   .promo-content p {
     font-size: 16px;
+    width: 90%;
+  }
+
+  .promo-contentEsquerda{
+    margin-bottom: 10px;
   }
   .promo-image {
-    width: 300px;
+    width: 500px;
+    height: auto;
+  }
+
+  .karla{
+    padding-top: 0px;
   }
   .nomeKarla {
-    font-size: 24px;
+    font-size: 28px;
   }
   .cargoKarla {
-    font-size: 16px;
+    font-size: 18px;
   }
   .commission-table {
     position: static;
@@ -553,6 +541,16 @@ body {
   
 }
 
+@media (max-width: 576px){ /*Celular Vertical*/
+  .promo-image {
+    width: 400px;
+  }
+
+  .promo-contentEsquerda{
+    margin-bottom: 60px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .promoContentText h2 {
     font-size: 22px;
@@ -566,13 +564,5 @@ body {
   .promo-content p {
     font-size: 14px;
   }
-  .promo-image {
-    width: 200px;
-  }
-  .nomeKarla {
-    font-size: 18px;
-  }
-  .cargoKarla {
-    font-size: 14px;
-  }
+
 }
