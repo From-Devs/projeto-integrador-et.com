@@ -1,8 +1,6 @@
 <?php
     require_once __DIR__ . "/../../../public/componentes/CampoInput/camp.php";
-
     require_once __DIR__ . "/../../Controllers/UserController.php";
-
 ?>
 
 <!DOCTYPE html>

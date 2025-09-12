@@ -15,11 +15,10 @@
     $produtoController = new ProdutoController();
     $resultadoProdutos = $produtoController->listar();
     $produtos = $resultadoProdutos['produtos'] ?? [];
- 
     session_start();
-    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
-    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
-    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
  
 <!DOCTYPE html>
@@ -211,7 +210,6 @@
             <i class="fa-solid fa-chevron-right setaSlider setaDireita" id="direita"></i>
         </div>
     </div>
- 
     <?php
     echo createRodape();
     ?>
@@ -227,5 +225,3 @@
     <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
 </body>
 </html>
- 
- 

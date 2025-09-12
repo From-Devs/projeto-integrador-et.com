@@ -37,6 +37,8 @@ class UserController {
         $user = $this->model->getUserByEmail($email);
         if ($user && password_verify($senha, $user['senha'])) {
             $_SESSION['id_usuario'] = $user['id_usuario'];
+            $_SESSION['tipoUsuario'] = $user['tipo'];
+            $_SESSION['login'] = true;
             return ["success" => true, "user" => $user];
         }
         return ["success" => false, "message" => "E-mail ou senha inválidos"];

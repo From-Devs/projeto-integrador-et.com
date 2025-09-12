@@ -1,4 +1,11 @@
 <?php
+    session_start(); // garante que a sessão está ativa
+    $id_usuario = $_SESSION['id_usuario'] ?? null;
+    
+    if (!$id_usuario) {
+        die("Você precisa estar logado para ver os pedidos.");
+    }
+
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";  //importar rodapé
     require __DIR__ . "/../../../public/componentes/botao/botao.php";  //importar rodapé
@@ -11,7 +18,7 @@
     // $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado"; // Descomente essa parte para tipo do usuario = Associado
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
  
-    $id_usuario = 2;
+    
  
     $pedidoController = new PedidoController();
     $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
