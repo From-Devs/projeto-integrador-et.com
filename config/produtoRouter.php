@@ -1,80 +1,71 @@
 <?php
-require_once __DIR__ . "/produtoController.php";
+// public/produtoRouter.php
+header('Content-Type: application/json; charset=utf-8');
+require_once __DIR__ . '/../app/controllers/produtoController.php';
 
 $controller = new ProdutoController();
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["acao"], $_POST["id_produto"])) {
-    $acao = $_POST["acao"];
-    $idProduto = intval($_POST["id_produto"]);
+$method = $_SERVER['REQUEST_METHOD'];
+$action = $_GET['action'] ?? $_POST['action'] ?? null;
 
-    switch ($acao) {
-        // ======== CARRINHO ========
-        case "carrinho":
-            try {
-                $controller->adicionarAoCarrinho($idProduto);
-                header("Location: /projeto-integrador-et.com/app/views/usuario/Meu_Carrinho.php");
-                exit;
-            } catch (Exception $e) {
-                die("Erro ao adicionar ao carrinho: " . $e->getMessage());
-            }
-            break;
+// Em produção você obteria $idUsuario da sessão/autenticação.
+// Para testes locais, permite informar via GET/POST (?user=1)
+$idUsuario = isset($_GET['user']) ? (int)$_GET['user'] : (isset($_POST['user']) ? (int)$_POST['user'] : 1);
 
-        case "atualizar_qtd":
-            if (isset($_POST["quantidade"])) {
-                $qtd = max(1, intval($_POST["quantidade"])); // nunca < 1
-                try {
-                    // se você ainda não implementou no controller, precisa criar atualizarQuantidadeCarrinho()
-                    $controller->atualizarQuantidadeCarrinho($idProduto, $qtd);
-                    header("Location: /projeto-integrador-et.com/app/views/usuario/Meu_Carrinho.php");
-                    exit;
-                } catch (Exception $e) {
-                    die("Erro ao atualizar quantidade: " . $e->getMessage());
-                }
-            }
-            break;
-
-        case "remover_carrinho":
-            try {
-                $controller->removerDoCarrinho($idProduto);
-                header("Location: /projeto-integrador-et.com/app/views/usuario/Meu_Carrinho.php");
-                exit;
-            } catch (Exception $e) {
-                die("Erro ao remover do carrinho: " . $e->getMessage());
-            }
-            break;
-
-        // ======== FAVORITOS ========
-        case "favorito":
-            try {
-                session_start();
-                $idUsuario = $_SESSION['id_usuario'] ?? null;
-
-                if ($idUsuario){
-                    $controller->adicionarAosFavoritos($idProduto, $idUsuario);
-                }
-                
-                header("Location: /projeto-integrador-et.com/app/views/usuario/listaDeDesejos.php");
-                exit;
-            } catch (Exception $e) {
-                die("Erro ao adicionar aos favoritos: " . $e->getMessage());
-            }
-            break;
-
-        case "remover_favorito":
-            try {
-                session_start();  //garante q a sessão está ativa
-                $idUsuario = $_SESSION['id_usuario'] ?? null;
-
-                if ($idUsuario){
-                    $controller->removerDosFavoritos($idProduto, $idUsuario);
-                }
-                
-                header("Location: /projeto-integrador-et.com/app/views/usuario/listaDeDesejos.php");
-                exit;
-            } catch (Exception $e) {
-                die("Erro ao remover dos favoritos: " . $e->getMessage());
-            }
-            break;
+try {
+    if ($method === 'GET' && $action === 'listar') {
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 12;
+        $q = $_GET['q'] ?? null;
+        $sub = isset($_GET['sub']) ? (int)$_GET['sub'] : null;
+        echo json_encode($controller->listar($page, $limit, $q, $sub));
+        exit;
     }
+
+    if ($method === 'GET' && $action === 'detalhes') {
+        $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+        echo json_encode($controller->detalhes($id));
+        exit;
+    }
+
+    if ($method === 'POST' && $action === 'addCarrinho') {
+        $idProduto = (int)($_POST['id_produto'] ?? 0);
+        $qtd = (int)($_POST['qtd'] ?? 1);
+        echo json_encode($controller->adicionarAoCarrinho($idUsuario, $idProduto, $qtd));
+        exit;
+    }
+
+    if ($method === 'POST' && $action === 'updQtd') {
+        $idProduto = (int)($_POST['id_produto'] ?? 0);
+        $qtd = (int)($_POST['qtd'] ?? 1);
+        echo json_encode($controller->atualizarQuantidade($idUsuario, $idProduto, $qtd));
+        exit;
+    }
+
+    if ($method === 'POST' && $action === 'rmCarrinho') {
+        $idProduto = (int)($_POST['id_produto'] ?? 0);
+        echo json_encode($controller->removerDoCarrinho($idUsuario, $idProduto));
+        exit;
+    }
+
+    if ($method === 'GET' && $action === 'verCarrinho') {
+        echo json_encode($controller->listarCarrinho($idUsuario));
+        exit;
+    }
+
+    if ($method === 'POST' && $action === 'criarPedido') {
+        echo json_encode($controller->criarPedido($idUsuario));
+        exit;
+    }
+
+    if ($method === 'GET' && $action === 'meusPedidos') {
+        echo json_encode($controller->listarPedidos($idUsuario));
+        exit;
+    }
+
+    echo json_encode(['error' => 'Ação não encontrada']);
+} catch (Throwable $e) {
+    http_response_code(500);
+    echo json_encode(['error' => $e->getMessage()]);
 }
 ?>

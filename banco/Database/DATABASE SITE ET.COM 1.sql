@@ -101,11 +101,14 @@ CREATE TABLE ListaDesejos(
 	FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
 
-CREATE TABLE Carrinho(
-	id_carrinho INT AUTO_INCREMENT PRIMARY KEY,
-	cep VARCHAR(9) NOT NULL,
-	id_usuario INT NOT NULL,
-	FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
+CREATE TABLE carrinho (
+  id_carrinho int(11) NOT NULL AUTO_INCREMENT,
+  id_usuario int(11) NOT NULL,
+  cep varchar(9) NOT NULL,
+  id_produto int(11) NOT NULL,
+  quantidade int(11) NOT NULL DEFAULT 1,
+  data_adicionado timestamp NOT NULL DEFAULT current_timestamp(),
+  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
 );
 
 CREATE TABLE ProdutoCarrinho(

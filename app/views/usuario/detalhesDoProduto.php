@@ -1,18 +1,62 @@
 <?php
+session_start();
+
 require_once __DIR__ . "/../../../config/database.php";
-$conn = (new Database())->Connect();
+require_once __DIR__ . "/../../../config/produtoController.php";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])) {
+$conn = (new Database())->connect();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['id_usuario'])) {
+    die("Você precisa estar logado para adicionar ao carrinho.");
+}
+
+$id_usuario = $_SESSION['id_usuario'];
+
+// Quando o form for enviado
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_produto'])) {
     $id_produto = intval($_POST['id_produto']);
+    $quantidade = isset($_POST['quantidade']) ? intval($_POST['quantidade']) : 1;
 
-    $sql = "INSERT INTO carrinho2 (id_produto, quantidade) VALUES (:id_produto, 1)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(":id_produto", $id_produto, PDO::PARAM_INT);
+    try {
+        // Verifica se já existe o produto no carrinho do usuário
+        $sql = "SELECT id_carrinho, quantidade 
+                FROM carrinho 
+                WHERE id_usuario = :id_usuario AND id_produto = :id_produto";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([
+            ':id_usuario' => $id_usuario,
+            ':id_produto' => $id_produto
+        ]);
+        $item = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($stmt->execute()) {
-        echo "<script>; window.location.href='Meu_Carrinho.php';</script>";
-    } else {
-        echo "<script>alert('Erro ao adicionar ao carrinho.');</script>";
+        if ($item) {
+            // Se já existe → atualiza quantidade
+            $novaQuantidade = $item['quantidade'] + $quantidade;
+            $update = "UPDATE carrinho 
+                       SET quantidade = :qnt 
+                       WHERE id_carrinho = :id_carrinho";
+            $stmtUpdate = $conn->prepare($update);
+            $stmtUpdate->execute([
+                ':qnt' => $novaQuantidade,
+                ':id_carrinho' => $item['id_carrinho']
+            ]);
+        } else {
+            // Se não existe → insere novo
+            $insert = "INSERT INTO carrinho (id_usuario, cep, id_produto, quantidade) 
+                       VALUES (:id_usuario, '00000000', :id_produto, :qnt)";
+            $stmtInsert = $conn->prepare($insert);
+            $stmtInsert->execute([
+                ':id_usuario' => $id_usuario,
+                ':id_produto' => $id_produto,
+                ':qnt' => $quantidade
+            ]);
+        }
+
+        echo "<script> window.location.href='Meu_Carrinho.php';</script>";
+
+    } catch (PDOException $e) {
+        echo "Erro ao adicionar ao carrinho: " . $e->getMessage();
     }
 }
 ?>
@@ -23,13 +67,15 @@ require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
 require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
-require_once __DIR__ . "/../../../config/produtoController.php";
 
-session_start();
 
-$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
-$login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
+$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Usuário";
+$login = false;
 
+$idUsuario = $_SESSION['id_usuario'] ?? null;
+if (!$idUsuario) {
+    die("Usuário não logado!");
+}
 // carrega produto por id
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $produto = null;
@@ -86,14 +132,11 @@ $subcategoria = $produto['subcategoria'] ?? ($produto['nomeSubcategoria'] ?? '')
 $corPrincipal = $produto['corPrincipal'] ?? ($produto['cor'] ?? '');
 $imgArquivo  = trim($produto['imagem'] ?? '');
 $baseImgPath = "/projeto-integrador-et.com/public/imagens/produto/";
-if ($imgArquivo === '' || strtolower($imgArquivo) === 'null') {
-    $imgPrincipal = $baseImgPath . 'no-image.png';
-} else {
-    $imgPrincipal = $baseImgPath . $imgArquivo;
-}
-$imgAlt1 = $imgPrincipal;
-$imgAlt2 = $imgPrincipal;
-$imgAlt3 = $imgPrincipal;
+
+$img1 = !empty($produto['img1']) ? $baseImgPath . $produto['img1'] : $baseImgPath . 'no-image.png';
+$img2 = !empty($produto['img2']) ? $baseImgPath . $produto['img2'] : $img1;
+$img3 = !empty($produto['img3']) ? $baseImgPath . $produto['img3'] : $img1;
+$imgPrincipal = $img1;
 ?>
 
 <!DOCTYPE html>
@@ -120,23 +163,14 @@ $imgAlt3 = $imgPrincipal;
     
     <div class="container-detalhes">
         <div class="detalhes-principal">
-            <div class="detalhes-imagens">
-                <div class="imagens-lateral">
-                    <div>
-                        <img src="<?php echo htmlspecialchars($imgAlt1); ?>" alt="img-lateral">
-                    </div>
-                    <div>
-                        <img src="<?php echo htmlspecialchars($imgAlt2); ?>" alt="img-lateral">
-                    </div>
-                    <div>
-                        <img src="<?php echo htmlspecialchars($imgAlt3); ?>" alt="img-lateral">
-                    </div>
-                </div>
-                <div class="img-principal">
-                    <div>
-                        <img src="<?php echo htmlspecialchars($imgPrincipal); ?>" alt="img-principal">
-                    </div>
-                </div>
+            <div class="imagens-lateral">
+                <div><img src="<?php echo htmlspecialchars($img1); ?>" alt="img-lateral"></div>
+                <div><img src="<?php echo htmlspecialchars($img2); ?>" alt="img-lateral"></div>
+                <div><img src="<?php echo htmlspecialchars($img3); ?>" alt="img-lateral"></div>
+            </div>
+
+            <div class="img-principal">
+                <div><img src="<?php echo htmlspecialchars($imgPrincipal); ?>" alt="img-principal"></div>
             </div>
             <div class="detalhes-info">
                 <div class="titulo-produto">
