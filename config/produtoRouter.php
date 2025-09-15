@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["acao"], $_POST["id_pr
                 $idUsuario = $_SESSION['id_usuario'] ?? null;
 
                 if ($idUsuario){
-                    $controller->adicionarAosFavoritos($idProduto, $idUsuario);
+                    $controller->adicionarListaDeDesejos($idProduto, $idUsuario);
                 }
                 
                 header("Location: /projeto-integrador-et.com/app/views/usuario/listaDeDesejos.php");
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["acao"], $_POST["id_pr
                 $idUsuario = $_SESSION['id_usuario'] ?? null;
 
                 if ($idUsuario){
-                    $controller->removerDosFavoritos($idProduto, $idUsuario);
+                    $controller->removerListaDeDesejos($idProduto, $idUsuario);
                 }
                 
                 header("Location: /projeto-integrador-et.com/app/views/usuario/listaDeDesejos.php");
