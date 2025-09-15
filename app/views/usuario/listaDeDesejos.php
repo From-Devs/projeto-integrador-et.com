@@ -10,11 +10,9 @@
     require_once __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
 
     session_start();
-    
-    $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
-    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";  // Define o tipo de usuário e o estado de login com base na sessão.
 
-    $login = !empty($_SESSION['id_usuario']); // Uma forma mais confiável de verificar o login
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 
     // Cria uma instância do controlador para buscar os produtos favoritos.
     $controller = new ProdutoController();
