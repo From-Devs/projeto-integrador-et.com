@@ -130,27 +130,72 @@ class Products {
 
             return $res;
         } catch (\Throwable $th) {
-            $this->conn->rollBack();
             echo "Erro ao buscar: " . $th->getMessage();
             return false;
         }
     }
 
-    public function buscarTodosProdutos(){
+    public function buscarTodosProdutos($ordem="", $pesquisa=""){
         try {    
-            $sqlProdutos = "SELECT id_produto as id, nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo as precoPromocional, fgPromocao, qtdEstoque, img1, img2, img3, id_subCategoria, id_cores, id_associado FROM produto ORDER BY id_produto";
-            $db = $this->conn->prepare($sqlProdutos);
-            $db->execute();
-            $res = $db->fetchAll(PDO::FETCH_ASSOC);
-
-            return $res;
+            $sqlProdutos = "SELECT 
+                id_produto as id, 
+                nome, 
+                marca, 
+                descricaoBreve, 
+                descricaoTotal, 
+                preco, 
+                precoPromo as precoPromocional, 
+                fgPromocao, 
+                qtdEstoque, 
+                img1, 
+                img2, 
+                img3, 
+                id_subCategoria, 
+                id_cores, 
+                id_associado 
+            FROM produto";
+    
+            $params = [];
+    
+            //Para concatenar a pesquisa
+            if (!empty($pesquisa)) {
+                $sqlProdutos .= " WHERE nome LIKE :pesquisa";
+                $params[':pesquisa'] = "$pesquisa%";
+            }
+    
+            if (!empty($ordem)) {
+                switch ($ordem) {
+                    case 'ID':
+                        $ordemSql = "id_produto";
+                        break;
+                    case 'Preço':
+                        $ordemSql = "preco";
+                        break;
+                    case 'Qtd. Estoque':
+                        $ordemSql = "qtdEstoque";
+                        break;
+                    default:
+                        $ordemSql = "id_produto";
+                }
+                $sqlProdutos .= " ORDER BY $ordemSql";
+            }
+    
+            $stmt = $this->conn->prepare($sqlProdutos);
+    
+            foreach ($params as $key => $val) {
+                $stmt->bindValue($key, $val, PDO::PARAM_STR);
+            }
+    
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
         } catch (\Throwable $th) {
-            $this->conn->rollBack();
             echo "Erro ao buscar: " . $th->getMessage();
             return false;
         }
-
     }
+    
+    
     public function getAllProdutos(){
         $sql = "SELECT * FROM Produto";
         $stmt = $this->conn->prepare($sql);
