@@ -10,10 +10,10 @@ function filtro($tipo = "", $opcoesSelect = []) {
         $html = '
         <div id="divPesquisarEFiltro">
             <div id="pesquisar">
-                <form action="" class="divTextInput">
+                <div class="divTextInput">
                     <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
                     <button><i class="bx bx-search lupaPesquisarInput"></i></button>
-                </form>
+                </div>
             </div>
             <div id="botoesAssociados">
                 <div id="Solicitações">
@@ -38,10 +38,10 @@ function filtro($tipo = "", $opcoesSelect = []) {
         $html = '
         <div id="divPesquisarEFiltro">
             <div id="pesquisar">
-                <form action="" class="divTextInput">
+                <div class="divTextInput">
                     <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
                     <button><i class="bx bx-search lupaPesquisarInput"></i></button>
-                </form>
+                </div>
             </div>
             <div id="botoesProdutos">
                 <div id="filtro">
@@ -69,14 +69,14 @@ function filtro($tipo = "", $opcoesSelect = []) {
         $html = '
         <div id="divPesquisarEFiltro">
             <div id="pesquisar">
-                <form action="" class="divTextInput">
+                <div class="divTextInput">
                     <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
                     <button><i class="bx bx-search lupaPesquisarInput"></i></button>
-                </form>
+                </div>
             </div>
             <div id="filtro">
                 <select id="botaoOrdenar">
-                    <option value="" selected disabled hidden>Filtro</option>';
+                    <option value="" selected disabled hidden>Ordenar</option>';
 
         foreach ($opcoesSelect as $opcao) {
             $html .= '<option value="' . htmlspecialchars($opcao) . '">' . htmlspecialchars($opcao) . '</option>';

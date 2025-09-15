@@ -23,12 +23,12 @@ require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
 require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
-
 require_once __DIR__ . "/../../../config/produtoController.php";
 
 session_start();
-$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Usuário";
-$login = false;
+
+$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+$login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 
 // carrega produto por id
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;

@@ -61,9 +61,22 @@
 
     verificaELimpaQueryString();
 
+    $parametrosExtras = [];
+
+    if (!empty($_GET['ordem'])) {
+        $parametrosExtras[] = 'ordem=' . urlencode($_GET['ordem']);
+    }
+
+    if (!empty($_GET['pesquisa'])) {
+        $parametrosExtras[] = 'pesquisa=' . urlencode($_GET['pesquisa']);
+    }
+
+    $parametrosExtrasString = implode('&', $parametrosExtras);
+
     $ordem = $_GET['ordem'] ?? null;
+    $pesquisa = $_GET['pesquisa'] ?? null;
     $products = new Products();
-    $produtos = $products->buscarTodosProdutos($ordem);
+    $produtos = $products->buscarTodosProdutos($ordem, $pesquisa);
 
     // // session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
@@ -110,7 +123,7 @@
                         $pagina['paginaAtual'],
                         $pagina['totalPaginas'],
                         'page',
-                        'ordem=' . ($_GET['ordem'] ?? '')
+                        $parametrosExtrasString
                     );
                 ?>
             </div>
