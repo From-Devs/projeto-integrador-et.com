@@ -1,0 +1,243 @@
+/*ESTILIZAÇÃO DOS CARDS*/
+/*CARD 01*/
+
+.cardDesejos:first-child{
+    margin-top: 20px;
+}
+
+.cardDesejos:last-child{
+    margin-bottom: 20px;
+}
+
+.cardDesejos{
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 40px 70vw;
+    height: 122.19px;
+}
+
+.cardDesejos .checkboxes{
+    display: flex;
+}
+
+.cardDesejos .checkboxes input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.cardDesejos .cardColorido{
+    display: grid;
+    grid-template-columns: 180px 200px 450px 300px 180px;
+    align-items: center;
+    height: 122.19px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+    border-radius: 35px;
+}
+
+.cardColorido .cardImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardColorido .cardImg img{
+    height: 105px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.644)); 
+}
+
+.cardColorido .cardPreco{
+    font-weight: 600;
+    font-size: 18px;
+    justify-content: center;
+    margin: auto;
+    
+}
+
+.cardColorido .cardInfo{
+    font-size: 17px;
+    margin: auto;
+    justify-content: center;
+    overflow-wrap: break-word;
+    text-wrap: wrap;
+}
+
+.cardColorido .cardDate{
+    font-size: 17px;
+    justify-content: center;
+    margin: auto;
+}
+
+.cardColorido .buttonsListaDesejos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cardColorido .buttonsListaDesejos .buttonCarrinho,
+.cardColorido .buttonsListaDesejos .buttonLixeira{
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+}
+
+
+
+
+/*RESPONSIVIDADE GERAL*/
+
+/*01*/
+@media (max-width: 1480px){
+    .card-container{
+        max-width: 1072px;
+    }
+}
+
+/*02*/
+@media (max-width: 1080px){
+    .card-container{
+        max-width: 672px;
+        padding: 0 16px;
+    }
+
+    .cardButtons{
+        margin-left: 10px;
+    }
+}
+
+/*03*/
+@media (max-width: 680px){
+    .card-container{
+        padding: 0 10px;
+    }
+
+    .cardButtons{
+        margin-right: 10px;
+    }
+}
+
+/*04*/
+@media (max-width: 410px){
+    .card-container{
+        max-width: 300px;
+    }
+}
+
+
+/*RESPONSIVIDADE CARDS*/
+/*02*/
+@media (max-width: 1080px){
+    /*card01*/
+    .cardDesejos{
+        display: grid;
+        grid-template-columns: 95px auto auto auto auto;
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+    }
+
+    .cardPreco{
+        font-size: 13px;
+    }
+    
+    .cardInfo{
+        font-size: 12px;
+    }
+    
+    .cardDate{
+        font-size: 14px;
+    }
+
+}
+
+/*03*/
+@media (max-width: 680px){
+    /*card01*/
+    .cardDesejos{
+        display: grid;
+        grid-template-columns: 85px auto auto auto auto;
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+        align-items: center;
+    }
+
+    .cardImg img{
+        width: 100px;
+        height: 100px;
+    }
+    
+    .cardPreco{
+        font-size: 13px;
+    }
+        
+    .cardInfo{
+        font-size: 12px;
+        padding: 10px;
+    }
+        
+    .cardDate{
+        font-size: 14px;
+    }
+    
+}
+
+/*04*/
+@media (max-width: 580px){
+    .cards-legend{
+        display: none;
+    }
+
+    .cardDesejos{
+        display: flex;
+        height: auto;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 0px 0px 6.5px inset rgb(110, 110, 110);
+        border-radius: 35px;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    .cardImg img{
+        width: 90px;
+        height: 90px;
+    }
+    
+    .cardPreco{
+        font-size: 13px;
+        position: relative;
+        bottom: 10px;
+    }
+        
+    .cardInfo{
+        position: relative;
+        font-size: 12px;
+        bottom: 12px;
+    }
+        
+    .cardDate{
+        position: relative;
+        font-size: 14px;
+        bottom: 15px;
+    }
+
+    .cardCheck{
+        display: flex;
+        position: relative;
+        bottom: 8px;
+        justify-content: center;
+    }
+
+}
+
+
+
+

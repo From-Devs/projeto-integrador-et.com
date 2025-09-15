@@ -15,7 +15,7 @@
     width: 100%;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    gap: 80px;
+    gap: 90px;
 }
 
 
@@ -59,7 +59,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 1450px;
+    width: 1445px;
 }
 
 .pedidoAndamentoMP .tituloAndamentoMP{
@@ -68,25 +68,20 @@
 }
 
 .pedidoAndamentoMP #produtosAndamento{
+    margin-top: 7px;
     width: 100%;
-    box-sizing: border-box;
-    margin-top: 10px;
-    padding: 15px 20px 20px 20px;
-    max-height: 540px;
+    max-height: 620px;
     overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
-    box-shadow: inset 0px 0px 10px 0px rgba(71, 71, 71, 0.541);
-    gap: 20px;
-    border-radius: 30px;
+    gap: 30px;
 }
 
-.pedidoAndamentoMP #produtosAndamento::-webkit-scrollbar, .pedidosFinalizadosMP #produtosFinalizados::-webkit-scrollbar{
-    margin-left: 5px;
+.pedidoAndamentoMP #produtosAndamento::-webkit-scrollbar{
     width: 5px;                                                  /*scroll da área de produtos a caminho*/
 }
 
-#produtosAndamento::-webkit-scrollbar-thumb, .pedidosFinalizadosMP #produtosFinalizados::-webkit-scrollbar-thumb{
+#produtosAndamento::-webkit-scrollbar-thumb{
     background-color: rgba(0, 0, 0, 0.363);                                   /*style do scroll*/
     border-radius: 10px;
 }
@@ -100,12 +95,11 @@
 .cards-produtoAndamento .data-compra{
     font-size: 15px;
     margin-left: 2px;
-    width: max-content;
 }
 
 .cards-produtoAndamento .cardcoloridoCam{
     margin-top: 10px;
-    /* margin-left: 5px; */
+    margin-left: 5px;
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -122,11 +116,10 @@
     flex-direction: row;
     align-items: center;
     height: 219px;
-    width: 100%;
-    box-sizing: border-box;
+    width: 400px;
     border-radius: 30px;
     padding-right: 40px;
-    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.301);
 }
 
 .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem{
@@ -453,10 +446,9 @@
 }
 
 .pedidosFinalizadosMP #produtosFinalizados{
-    width: 100%;
-    box-sizing: border-box;
+    width: 97%;
     max-height: 540px;
-    margin-top: 10px;
+    margin-top: 15px;
     padding: 15px 20px 20px 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
@@ -468,6 +460,15 @@
     background-color: white;
 }
 
+.pedidosFinalizadosMP #produtosFinalizados::-webkit-scrollbar{
+    width: 5px;                                                  /*scroll da área de produtos a caminho*/
+}
+
+.pedidosFinalizadosMP #produtosFinalizados::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, 0);                                   /*style do scroll*/
+    border-radius: 10px;
+}
+
 #produtosFinalizados .cardProduto-finalizado{
     display: flex;
     flex-direction: column;
@@ -476,7 +477,7 @@
 
 .cardProduto-finalizado .cardcoloridoFin{
     margin-top: 10px;
-    /* margin-left: 10px; */
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -486,11 +487,10 @@
     display: flex;
     flex-direction: column;
     height: 219px;
-    width: 100%;
-    box-sizing: border-box;
+    width: 410px;
     border-radius: 30px;
     padding-right: 30px;
-    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.511);
 }
 
 .cardcoloridoFin .card-info2 .data-entrega{
@@ -836,7 +836,7 @@
 
 
 .conteudoMeusPedidos .linhaInferiorMP{
-    width: 855px;
+    width: 70%;
     height: 3px;
     background-color: black;
     box-shadow:0px 5px 8px 0.1px rgba(0, 0, 0, 0.301);
@@ -1391,9 +1391,7 @@
     .conteudoMeusPedidos .popupMP{
         width: 770px;
     }
-    .popupMP .popupMP-conteudo{
-        height: 570px;              /*pensando*/
-    }
+
     .popupMP .popupMP-conteudo .popupMP-superior{
         width: 770px;
         top: 65px;
@@ -1410,7 +1408,7 @@
         margin-top: 80px;
     }
     .popupMP .popupMP-conteudo .popupMP-inferior{
-        gap: 400px;
+        gap: 200px;
         bottom: 95px;
     }
     .popupMP .popupMP-conteudo .popupMP-linhainferior{
@@ -1467,6 +1465,7 @@
         padding: 7px 12px;
         font-size: 12px;
     }
+    
 
 @media (max-width: 992px){
     .areaSuperiorMP .tituloPrincipalMP{
@@ -1605,6 +1604,12 @@
         font-size: 15px;
         margin: 15px 0 15px 0;
     }
+
+    .popupMP .popupMP-conteudo{
+        height: 570px;
+        width: 95%;
+        overflow-x: ;
+    }
 } 
 
 @media (max-width: 576px){
@@ -1669,3 +1674,50 @@
         margin: 15px 0 12px 0;
     }
 }
+.container {
+    width: 90%;
+    margin: 20px auto;
+  }
+  
+  .titulo {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .pedido-container {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+  }
+  
+  .pedido-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  .pedido-status {
+    background: #f5f5f5;
+    padding: 3px 8px;
+    border-radius: 8px;
+  }
+  
+  .pedido-itens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .pedido-total {
+    text-align: right;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .aviso {
+    font-size: 16px;
+    color: #666;
+  }

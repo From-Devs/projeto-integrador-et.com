@@ -29,7 +29,7 @@
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/vinicius.png","https://github.com/Vini909","https://www.instagram.com/viniciuselionai?igsh=bzF4MmJtdmJ2NTdk","https://www.linkedin.com/in/vinicius-elionai-92ab79361?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app","Vinicius Elionai") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/robert.png","","","","Robert Fernandes") ?>
         <?php echo fotoDev("./../../../public/imagens/fotoNossas/marcos.png","","","","Marcos Paulo") ?>
-        <?php echo fotoDev("./../../../public/imagens/fotoNossas/eduardo.png","https://github.com/thenewgrau","https://www.instagram.com/eduardoserafiim_","https://www.linkedin.com/in/eduardo-serafim-821649305/", "Eduardo Serafim") ?>
+        <?php echo fotoDev("./../../../public/imagens/fotoNossas/eduardo.png","https://github.com/eduardoserafiim","https://www.instagram.com/eduardoserafiim_","https://www.linkedin.com/in/eduardo-serafim-821649305/", "Eduardo Serafim") ?>
     </div>
 </body>
 </html>

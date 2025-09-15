@@ -27,6 +27,7 @@
     margin-bottom: 60px;
     font-size: 50px;
     font-weight: bolder;
+    text-align: center;
 }
 
 hr
@@ -54,7 +55,7 @@ hr
 {
     background-color: black;
     color: white;
-    width: 400px;
+    width: 60%;
     height: 60px;
     font-size: 20px;
     font-weight: bolder;
@@ -106,21 +107,23 @@ hr
 
 #fotoET
 {
-    margin-left: 64px;
-    height: 490px;
+    margin-left: 15%;
+    width: 75%;
+    height: auto;
 }
 
 
 /* PARTE DA ANIMACAO DOS INPUTS */
 
 .formContainer{
+    width: 65%;
     display: flex;
     flex-direction: column;
 }
 
 form
 {
-    width: 460px;
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -201,8 +204,8 @@ section
 section .wave
 {
     position: fixed;
-    left: -2%;
-    width: 100%;
+    left: -15%;
+    width: 130%;
     height: 120px;
     background: url(../imagens/ondas/ondaSolida.png);
     background-size: 1000px 120px;
@@ -212,6 +215,7 @@ section .wave
     opacity: 1;
     animation-delay: 0s;
 }
+
 
 @keyframes animacao
 {
@@ -225,94 +229,35 @@ section .wave
     }
 }
 
-/* PARTE DA RESPONSIVIDADE */
-@media (max-width: 1669px){
-    /* ANIMACAO DA ONDA */
-    section .wave
-    {
-        position: fixed;
-        height: 100px;
-        left: 5%;
-        top: 400px;
-        transform: rotate(90deg) scaleX(-1);
+@media (max-width: 870px){
+    #container{
+        flex-direction: column;
+        justify-content: center;
     }
 
-    /* PARTE ET */
-    #fotoET
-    {
-        height: 500px;
-        margin: 250px 0px 0px 100px;
-    }
-}
-
-
-@media (max-width: 1440px){
-    /* PARTE BRANCA */
-
-    #parteBranca
-    {
-        width: 700px;
+    section .wave{
+        display: none;
     }
 
-
-    /* PARTE ANIMADA ONDA */
-    section
-    {
-        height: 100vh;
+    section{
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        background-color: transparent;
     }
 
-    section .wave
-    {
-        position: fixed;
-        height: 100px;
-        left: 1%;
-        top: 400px;
-        transform: rotate(90deg) scaleX(1);
+    #fotoET{
+        margin-left: 0px;
+        margin-top: 3%;
     }
 
-    /* PARTE PRETA (DIREITA) */
-
-    #fotoET
-    {
-        height: 400px;
-        margin: 250px 0px 0px 100px;
+    picture{
+        width: 100%;
+        text-align: center;
     }
 
-
-
-}
-
-@media (max-width: 1024px)
-{
-    /* parte branca */
-
-    #parteBranca
-    {
-        width: 500px;
+    #bemVindo{   
+        font-size: 40px;
     }
-
-
-    /* parte animacao onda */
-    section
-    {
-        height: 100vh;
-    }
-
-    section .wave
-    {
-        position: fixed;
-        height: 100px;
-        left: 1%;
-        top: 400px;
-        transform: rotate(90deg) scaleX(1);
-    }
-
-    /* PARTE PRETA (DIREITA) */
-
-    #fotoET
-    {
-        height: 300px;
-        margin: 300px 0px 0px 100px;
-    }
-
 }

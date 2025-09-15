@@ -20,7 +20,7 @@ CREATE TABLE Usuario (
 	cpf VARCHAR(14) UNIQUE,
 	data_nascimento DATE,
 	senha VARCHAR(255) NOT NULL,
-	tipo ENUM('cliente', 'associado') NOT NULL,
+	tipo ENUM('Cliente', 'Associado') NOT NULL,
 	foto VARCHAR(100),
 	id_endereco INT,
 	FOREIGN KEY (id_endereco) REFERENCES Endereco(id_endereco)
