@@ -1,71 +1,80 @@
 <?php
-// public/produtoRouter.php
-header('Content-Type: application/json; charset=utf-8');
-require_once __DIR__ . '/../app/controllers/produtoController.php';
+require_once __DIR__ . "/produtoController.php";
 
 $controller = new ProdutoController();
 
-$method = $_SERVER['REQUEST_METHOD'];
-$action = $_GET['action'] ?? $_POST['action'] ?? null;
-
-// Em produção você obteria $idUsuario da sessão/autenticação.
-// Para testes locais, permite informar via GET/POST (?user=1)
-$idUsuario = isset($_GET['user']) ? (int)$_GET['user'] : (isset($_POST['user']) ? (int)$_POST['user'] : 1);
+$action = $_GET['action'] ?? $_POST['action'] ?? $_GET['acao'] ?? $_POST['acao'] ?? null;
+$idUsuario = $_GET['id_usuario'] ?? $_POST['id_usuario'] ?? null;
+$idProduto = $_GET['id_produto'] ?? $_POST['id_produto'] ?? null;
 
 try {
-    if ($method === 'GET' && $action === 'listar') {
-        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 12;
-        $q = $_GET['q'] ?? null;
-        $sub = isset($_GET['sub']) ? (int)$_GET['sub'] : null;
-        echo json_encode($controller->listar($page, $limit, $q, $sub));
-        exit;
-    }
+    switch ($action) {
 
-    if ($method === 'GET' && $action === 'detalhes') {
-        $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-        echo json_encode($controller->detalhes($id));
-        exit;
-    }
+        // ========================
+        // === LISTA DE DESEJOS ===
+        // ========================
+        case "listarFavoritos":
+            if (!$idUsuario) throw new Exception("Usuário não informado");
+            $favoritos = $controller->ListarFavoritos($idUsuario);
+            echo json_encode(["ok" => true, "items" => $favoritos]);
+            break;
 
-    if ($method === 'POST' && $action === 'addCarrinho') {
-        $idProduto = (int)($_POST['id_produto'] ?? 0);
-        $qtd = (int)($_POST['qtd'] ?? 1);
-        echo json_encode($controller->adicionarAoCarrinho($idUsuario, $idProduto, $qtd));
-        exit;
-    }
+        case "adicionarFavorito":
+            if (!$idUsuario || !$idProduto) throw new Exception("Parâmetros inválidos");
+            $res = $controller->adicionarFavorito($idUsuario, $idProduto);
+            echo json_encode($res);
+            break;
 
-    if ($method === 'POST' && $action === 'updQtd') {
-        $idProduto = (int)($_POST['id_produto'] ?? 0);
-        $qtd = (int)($_POST['qtd'] ?? 1);
-        echo json_encode($controller->atualizarQuantidade($idUsuario, $idProduto, $qtd));
-        exit;
-    }
+        case "removerFavorito":
+            if (!$idUsuario || !$idProduto) throw new Exception("Parâmetros inválidos");
+            $res = $controller->removerFavorito($idUsuario, $idProduto);
+            echo json_encode($res);
+            break;
 
-    if ($method === 'POST' && $action === 'rmCarrinho') {
-        $idProduto = (int)($_POST['id_produto'] ?? 0);
-        echo json_encode($controller->removerDoCarrinho($idUsuario, $idProduto));
-        exit;
-    }
+        // ========================
+        // === PRODUTOS ===========
+        // ========================
+        case "listar":
+            $page = $_GET['page'] ?? 1;
+            $limit = $_GET['limit'] ?? 12;
+            $q = $_GET['q'] ?? null;
+            $sub = $_GET['sub'] ?? null;
+            $res = $controller->listar($page, $limit, $q, $sub);
+            echo json_encode(["ok" => true, "data" => $res]);
+            break;
 
-    if ($method === 'GET' && $action === 'verCarrinho') {
-        echo json_encode($controller->listarCarrinho($idUsuario));
-        exit;
-    }
+        case "detalhes":
+            if (!$idProduto) throw new Exception("Produto não informado");
+            $res = $controller->detalhes($idProduto);
+            echo json_encode(["ok" => true, "data" => $res]);
+            break;
 
-    if ($method === 'POST' && $action === 'criarPedido') {
-        echo json_encode($controller->criarPedido($idUsuario));
-        exit;
-    }
+        // ========================
+        // === CARRINHO ===========
+        // ========================
+        case "listarCarrinho":
+            if (!$idUsuario) throw new Exception("Usuário não informado");
+            $res = $controller->listarCarrinho($idUsuario);
+            echo json_encode(["ok" => true, "data" => $res]);
+            break;
 
-    if ($method === 'GET' && $action === 'meusPedidos') {
-        echo json_encode($controller->listarPedidos($idUsuario));
-        exit;
-    }
+        case "adicionarCarrinho":
+            if (!$idUsuario || !$idProduto) throw new Exception("Parâmetros inválidos");
+            $qtd = $_POST['qtd'] ?? 1;
+            $res = $controller->adicionarAoCarrinho($idUsuario, $idProduto, $qtd);
+            echo json_encode($res);
+            break;
 
-    echo json_encode(['error' => 'Ação não encontrada']);
-} catch (Throwable $e) {
-    http_response_code(500);
-    echo json_encode(['error' => $e->getMessage()]);
+        case "removerCarrinho":
+            if (!$idUsuario || !$idProduto) throw new Exception("Parâmetros inválidos");
+            $res = $controller->removerDoCarrinho($idUsuario, $idProduto);
+            echo json_encode($res);
+            break;
+
+        default:
+            echo json_encode(["ok" => false, "msg" => "Ação não encontrada"]);
+    }
+} catch (Exception $e) {
+    echo json_encode(["ok" => false, "msg" => $e->getMessage()]);
 }
 ?>
