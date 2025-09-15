@@ -3,12 +3,11 @@
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
+
+    session_start();
     
-    
-    // session_start();
-    // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
-    $tipoUsuario = $_SESSION['tipo_usuario'] ?? "Associado";
-    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,11 +137,11 @@
             </div>
         </div>
     </div>
+    <div class="commission-table">
+        <h2>Comissões</h2>
+        <p>A Partir de 7%</p>
+    </div>
     <section class="cards-section">
-        <div class="commission-table">
-            <h2>Comissões</h2>
-            <p>A Partir de 7%</p>
-        </div>
         <div class="cards-container">
             <div class="comissionCard" id="maquiagemCard">
                 <div class="comissionCardIdentifier">

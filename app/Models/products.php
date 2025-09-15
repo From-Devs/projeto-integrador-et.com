@@ -31,6 +31,7 @@ class Products {
         $breveDescricao, 
         $preco, 
         $precoPromocional, 
+        $fgPromocao,
         $caracteristicasCompleta, 
         $qtdEstoque, 
         $corPrincipal, 
@@ -71,6 +72,7 @@ class Products {
                     descricaoTotal = :descricaoTotal,
                     preco = :preco,
                     precoPromo = :precoPromo,
+                    fgPromocao = :fgPromocao,
                     qtdEstoque = :qtdEstoque,
                     id_cores = :idCores
                 WHERE id_produto = :idProduto";
@@ -82,6 +84,7 @@ class Products {
             $res->bindParam(":descricaoTotal", $caracteristicasCompleta);
             $res->bindParam(":preco", $preco);
             $res->bindParam(":precoPromo", $precoPromocional);
+            $res->bindParam(":fgPromocao", $fgPromocao);
             $res->bindParam(":qtdEstoque", $qtdEstoque, PDO::PARAM_INT);
             $res->bindParam(":idCores", $idCores, PDO::PARAM_INT);
             $res->bindParam(":idProduto", $id, PDO::PARAM_INT);
@@ -103,6 +106,7 @@ class Products {
             descricaoTotal, 
             preco, 
             precoPromo, 
+            fgPromocao,
             qtdEstoque, 
             img1, 
             img2, 
@@ -134,7 +138,7 @@ class Products {
 
     public function buscarTodosProdutos(){
         try {    
-            $sqlProdutos = "SELECT id_produto as id, nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo as precoPromocional, qtdEstoque, img1, img2, img3, id_subCategoria, id_cores, id_associado FROM produto ORDER BY id_produto";
+            $sqlProdutos = "SELECT id_produto as id, nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo as precoPromocional, fgPromocao, qtdEstoque, img1, img2, img3, id_subCategoria, id_cores, id_associado FROM produto ORDER BY id_produto";
             $db = $this->conn->prepare($sqlProdutos);
             $db->execute();
             $res = $db->fetchAll(PDO::FETCH_ASSOC);
@@ -160,6 +164,7 @@ class Products {
         $breveDescricao, 
         $preco, 
         $precoPromocional, 
+        $fgPromocao,
         $caracteristicasCompleta, 
         $qtdEstoque, 
         $corPrincipal, 
@@ -186,12 +191,12 @@ class Products {
 
             $sql = "INSERT INTO produto(
                         nome, marca, descricaoBreve, descricaoTotal, 
-                        preco, precoPromo, qtdEstoque, 
+                        preco, precoPromo, fgPromocao, qtdEstoque, 
                         img1, img2, img3, 
                         id_subCategoria, id_cores, id_associado
                     ) VALUES(
                         :nome, :marca, :descricaoBreve, :descricaoTotal,
-                        :preco, :precoPromo, :qtdEstoque,
+                        :preco, :precoPromo, :fgPromocao, :qtdEstoque,
                         :img1, :img2, :img3,
                         :idSubCategoria, :idCores, null
                     )";
@@ -203,6 +208,7 @@ class Products {
             $db->bindParam(":descricaoTotal", $caracteristicasCompleta);
             $db->bindParam(":preco", $preco);
             $db->bindParam(":precoPromo", $precoPromocional);
+            $db->bindParam(":fgPromocao", $fgPromocao);
             $db->bindParam(":qtdEstoque", $qtdEstoque);
             $db->bindParam(":img1", $img1);
             $db->bindParam(":img2", $img2);
