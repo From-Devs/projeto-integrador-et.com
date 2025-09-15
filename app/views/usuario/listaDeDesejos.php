@@ -20,7 +20,7 @@
     //pega o id do usuario logado
     $idUsuario = $_SESSION['id_usuario'] ?? null;
     //busca os favoritos
-    $favoritos = $idUsuario ? $controller->ListarFavoritos($idUsuario) : [];  
+    $favoritos = $idUsuario ? $controller->listarListaDeDesejos($idUsuario) : [];  
 
 ?>
 
@@ -74,8 +74,8 @@
                 <label>Selecionar todos</label>
             </div>
             <div class="btnCheck">
-                <button id="adicionarCarrinho" onclick="adicionarAoCarrinho($item['id_produto'])">Adicionar ao Carrinho</button>
-                <button id="excluirSelecionados" onclick="removerDosFavoritos($item['id_produto'])"> Excluir</button>
+                <button id="adicionarCarrinho">Adicionar ao Carrinho</button>
+                <button id="excluirSelecionados"> Excluir</button>
             </div>
         </div>
 
@@ -89,13 +89,14 @@
         <?php
             // Verificação para garantir que o array está populado e para exibir os cards dinamicamente      
             if (!empty($favoritos)) {
+                $produtosListaDesejos = [];
                 foreach ($favoritos as $item) {
                     $preco = $item['preco'];
                     $precoPromo = $item['precoPromo'] ?? null;
-                    $imagem     = !empty($item['imagem']) ? $item['imagem'] : 'no-image.png';
+                    $imagem     = !empty($item['img1']) ? $item['img1'] : 'no-image.png';
                     $dataAdicionado = $item['dataAdd'];
 
-                    $produtosListaDesejos = [
+                    $produtosListaDesejos[] = 
                         createCardListaDeDesejos(
                             $item['id_produto'],
                             $imagem,
@@ -107,18 +108,13 @@
                             $item['hexDegrade1'] ?? "#919191",
                             $item['hexDegrade2'] ?? "#919191",
                             $precoPromo
-                        ),
-                    ];
-
-                    $resultado = paginar($produtosListaDesejos, 16);
-
-                    foreach ($resultado['dados'] as $produtos){
-                        echo $produtos;
-                    }
-
-                    renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
-                    
+                        );
                 }
+                $resultado = paginar($produtosListaDesejos, 10);
+                foreach ($resultado['dados'] as $produtos){
+                    echo $produtos;
+                }                    
+                
             } else {
                 // echo "<p style='text-align: center; margin-top: 2rem;'>Sua lista de desejos está vazia.</p>";
 
@@ -141,11 +137,9 @@
 
                 $resultado = paginar($produtosListaDesejos, 10);
 
-                    foreach ($resultado['dados'] as $produtos){
-                        echo $produtos;
-                    }
-
-                    
+                foreach ($resultado['dados'] as $produtos){
+                    echo $produtos;
+                }
             }
 
             ?>
