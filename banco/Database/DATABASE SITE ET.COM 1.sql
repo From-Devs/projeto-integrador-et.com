@@ -71,6 +71,7 @@ CREATE TABLE Produto(
 	descricaoTotal VARCHAR(255) NOT NULL,
 	preco DECIMAL(10,2) NOT NULL,
 	precoPromo DECIMAL(10,2),
+	fgPromocao boolean,
 	qtdEstoque int NOT NULL,
 	img1 VARCHAR(255),
 	img2 VARCHAR(255),

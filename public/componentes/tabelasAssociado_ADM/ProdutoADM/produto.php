@@ -137,7 +137,7 @@ function tabelaProduto($produtos) {
                         </div>
                         <div class="campo-small chkPromocao">
                             <label>Em promoção:</label>
-                            <input type="checkbox" name="fgPromocao">
+                            <input type="checkbox" name="fgPromocao" value="1">
                         </div>
                     </div>
                     <div class="campos-direita">
@@ -146,7 +146,7 @@ function tabelaProduto($produtos) {
                         <div class="imagem-produto-container">
                             <div class="container-img">
                                 <img src=""
-                                    alt="Produto" class="imagem-produto" id="img-produto1" name="img1">
+                                    alt="Produto" class="imagem-produto" id="img-produto-editar1">
                             </div>
 
                             <label for="upload-produto1" class="icone-cadastrar-label">
@@ -161,7 +161,7 @@ function tabelaProduto($produtos) {
                         <div class="imagem-produto-container">
                             <div class="container-img">
                                 <img src=""
-                                    alt="Produto" class="imagem-produto" id="img-produto2" name="img2">
+                                    alt="Produto" class="imagem-produto" id="img-produto-editar2">
                             </div>
 
                             <label for="upload-produto2" class="icone-cadastrar-label">
@@ -176,7 +176,7 @@ function tabelaProduto($produtos) {
                         <div class="imagem-produto-container">
                             <div class="container-img">
                                 <img src=""
-                                    alt="Produto" class="imagem-produto" id="img-produto3" name="img3">
+                                    alt="Produto" class="imagem-produto" id="img-produto-editar3">
                             </div>
 
                             <label for="upload-produto3" class="icone-cadastrar-label">
