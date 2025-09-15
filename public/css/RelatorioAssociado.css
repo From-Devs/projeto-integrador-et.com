@@ -198,6 +198,21 @@ a
         width: 24px !important;
         height: 24px !important;
     }
+
+    .popUp{
+        width: 250px !important;
+        height: 200px !important;
+        gap: 0px !important;
+    }
+
+    .popUp .botoes-popUp{
+        width: 200px !important;
+        height: 60px !important;
+    }
+
+    .popUp .botoes-popUp .btn-relatorio{
+        font-size: 10px;
+    }
 }
 
 /* RESPONSIVIDADE MOBILE*/
@@ -233,6 +248,21 @@ a
     .cardRelatorio .iconCard img{
         width: 24px !important;
         height: 24px !important;
+    }
+
+    .popUp{
+        width: 300px !important;
+        height: 200px !important;
+        gap: 0px !important;
+    }
+
+    .popUp .botoes-popUp{
+        width: 200px !important;
+        height: 60px !important;
+    }
+
+    .popUp .botoes-popUp .btn-relatorio{
+        font-size: 10px;
     }
 }
 
@@ -270,6 +300,21 @@ a
         width: 24px !important;
         height: 24px !important;
     }
+
+    .popUp{
+        width: 350px !important;
+        height: 200px !important;
+        gap: 0px !important;
+    }
+
+    .popUp .botoes-popUp{
+        width: 200px !important;
+        height: 60px !important;
+    }
+
+    .popUp .botoes-popUp .btn-relatorio{
+        font-size: 10px;
+    }
 }
 
 /* RESPONSIVIDADE TABLET*/
@@ -305,5 +350,20 @@ a
     .cardRelatorio .iconCard img{
         width: 24px !important;
         height: 24px !important;
+    }
+
+    .popUp{
+        width: 350px !important;
+        height: 200px !important;
+        gap: 0px !important;
+    }
+
+    .popUp .botoes-popUp{
+        width: 200px !important;
+        height: 60px !important;
+    }
+
+    .popUp .botoes-popUp .btn-relatorio{
+        font-size: 10px;
     }
 }
