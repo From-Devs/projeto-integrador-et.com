@@ -73,6 +73,10 @@ td
     width: 30px;
 }
 
+.excluir img:hover, .editar img:hover{
+    transform: scale(1.1);
+}
+
 @media (max-width: 800px) {
     td 
     {
