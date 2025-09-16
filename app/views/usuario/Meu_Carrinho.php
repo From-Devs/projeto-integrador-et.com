@@ -1,42 +1,39 @@
 <?php
-// Inclui todos os arquivos de componentes e controllers necessários usando require_once para evitar erros de re-declaração.
-require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
-require_once __DIR__ . "/../../../config/ProdutoController.php";
-require_once __DIR__ . "/../../../public/componentes/header/header.php";
-require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
-require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
-require_once __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php";
-require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
-require_once __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
-require_once __DIR__ . "/../../../public/componentes/ondas/onda.php";
-require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
-require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
+    // Inclui todos os arquivos de componentes e controllers necessários usando require_once para evitar erros de re-declaração.
+    require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
+    require_once __DIR__ . "/../../../config/ProdutoController.php";
+    require_once __DIR__ . "/../../../public/componentes/header/header.php";
+    require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
+    require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require_once __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php";
+    require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
+    require_once __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
+    require_once __DIR__ . "/../../../public/componentes/ondas/onda.php";
+    require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
+    require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
-// Verifica se a sessão já foi iniciada antes de chamar session_start().
-if (session_status() == PHP_SESSION_NONE) {
     session_start();
-}
 
-$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
-$login = false; // Define o estado de login do usuário.
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 
-// Instancia o controller e lista os produtos do carrinho.
-$controller = new ProdutoController();
-$carrinho = $controller->ListarCarrinho();
+    // Instancia o controller e lista os produtos do carrinho.
+    $controller = new ProdutoController();
+    $carrinho = $controller->ListarCarrinho();
 
-// Variáveis para o cálculo do total
-$subtotal = 0;
-$frete = 10.00; // Valor de frete fixo.
-$precosProdutos = [];
+    // Variáveis para o cálculo do total
+    $subtotal = 0;
+    $frete = 10.00; // Valor de frete fixo.
+    $precosProdutos = [];
 
-// Preenche o array de preços para ser usado no JavaScript.
-foreach ($carrinho as $item) {
-    $preco = (float)($item['precoPromo'] ?? $item['preco']);
-    $precosProdutos[] = $preco;
-    $subtotal += $preco; // Soma o preço de cada produto para o subtotal.
-}
+    // Preenche o array de preços para ser usado no JavaScript.
+    foreach ($carrinho as $item) {
+        $preco = (float)($item['precoPromo'] ?? $item['preco']);
+        $precosProdutos[] = $preco;
+        $subtotal += $preco; // Soma o preço de cada produto para o subtotal.
+    }
 
-$total = $subtotal + $frete;
+    $total = $subtotal + $frete;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

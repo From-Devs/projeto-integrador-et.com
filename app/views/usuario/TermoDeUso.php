@@ -2,11 +2,12 @@
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php"; // import do card
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
 
-    // session_start();
-    // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
-    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
-    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+    session_start();
+
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 
 
 ?>
@@ -17,10 +18,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TermosDeUsoPrivacidade</title>
-    <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/TermoDeUso.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/header/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebar/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/rodape/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/TermoDeUso.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
@@ -30,7 +32,7 @@
 <body>
 
     <?php
-    echo createHeader($login,$tipo_usuario); // função que cria o header
+    echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
     
     
@@ -75,8 +77,13 @@
             </div>
   </main>
 
+    <?php
+    echo createRodape();
+    ?>
+
     <script src="../../../public/componentes/header/script.js"></script>
     <script src="../../../public/componentes/sidebar/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
 
 </body>
 </html>

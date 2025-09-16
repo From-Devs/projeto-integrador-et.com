@@ -26,7 +26,7 @@ require_once __DIR__ . "/../popUp/popUp.php";
 require_once __DIR__ . "/../botao/botao.php";
 
     function typeSidebarInterna($tipo_usuario) {
-        $paginaAtual = basename($_SERVER['PHP_SELF']);
+        $paginaAtual = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 
         if ($tipo_usuario == "Associado") {

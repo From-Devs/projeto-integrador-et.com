@@ -90,7 +90,6 @@ body{
     display: grid;
     row-gap: 40px;
     column-gap: 25px;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -105,10 +104,10 @@ body{
     bottom: -100px;
 }
 
+
 @media (max-width: 1750px) {
     .PartedeBaixo {
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
         margin: 0px;
     }
     .Titulo {
@@ -120,6 +119,7 @@ body{
         margin-top: 0px;
     }
 
+
     .Topo {
         height: 400px;
     }
@@ -127,13 +127,11 @@ body{
 @media (max-width: 1320px) {
     .PartedeBaixo {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 }
 @media (max-width: 1050px) {
     .PartedeBaixo {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr ;
         display: column;
         align-self: center;
     }
@@ -143,6 +141,10 @@ body{
     }
 
     .TituloProdutos{
+        margin-left: 2%;
+    }
+
+    .paginacao{
         margin-left: 2%;
     }
 
@@ -156,6 +158,13 @@ body{
         grid-template-columns: 1fr 1fr;
         display: column;
         align-self: center;
+    }
+
+    .paginacao{
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .wave.fantasma {

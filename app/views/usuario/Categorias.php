@@ -117,8 +117,11 @@
     } else {
         $fundoAtual = $fundos[$slugCategoria]["default"];
     }
-    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "associado";
-    $login = false;
+
+    session_start();
+    
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
         
 ?>
 
@@ -150,7 +153,7 @@
 </head>
 <body>
 <?php
-    echo createHeader($login,$tipo_usuario); // função que cria o header
+    echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
     <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
     <div class="Topo" style="background-image: url('<?php echo $fundoAtual; ?>')">
@@ -242,9 +245,12 @@
                         echo $produto;
                     }
 
-                    renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
                 ?>
             </div>
+            <?php
+            renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
+            ?>
+            
         </div>
     </div>
 
