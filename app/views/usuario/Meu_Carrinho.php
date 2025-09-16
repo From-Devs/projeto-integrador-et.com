@@ -11,10 +11,12 @@
     require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
     require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
-$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Usuário";
-$login = isset($_SESSION['id_usuario']);
 
-if (!isset($_SESSION['id_usuario'])) {
+    session_start();
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
+
+if (!$login) {
     die("Você precisa estar logado para ver o carrinho.");
 }
 

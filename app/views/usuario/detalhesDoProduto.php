@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 require_once __DIR__ . "/../../../config/database.php";
 require_once __DIR__ . "/../../../config/produtoController.php";
 require_once __DIR__ . "/../../../public/componentes/header/header.php";
@@ -10,8 +8,9 @@ require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php
 require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
 
 
-$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Usuário";
-$login = false;
+session_start();
+$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+$login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 
 $conn = (new Database())->connect();
 
