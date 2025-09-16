@@ -67,7 +67,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     text-align: center;
     cursor: pointer;
-    background-image: url("/projeto-integrador-et.com/public/imagens/imagensADM/filtro.png");
+    background-image: url("/projeto-integrador-et.com/public/imagens/imagensADM/ordenar-icone.png");
     background-repeat: no-repeat;
     background-size: 35px;
     background-position-x: 150px;
@@ -96,7 +96,7 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    background-color: #3449B6;
+    background-color: #14A166;
     color: white;
     border-radius: 15px;
     width: 200px;
@@ -107,12 +107,22 @@
 }
 
 #botaoAssociados:hover, #botaoSolicitacao:hover {
-    background-color: #3449b6d1;
+    background-color: #14a166d5;
 }
 
 #botoesAssociados, #botoesProdutos{
     display: flex;
     gap: 20px;
+}
+
+.lupaPesquisarInput{
+    padding: 2px;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.lupaPesquisarInput:hover{
+    background-color: rgb(202, 202, 202);
 }
 
 @media (max-width: 1600px) {

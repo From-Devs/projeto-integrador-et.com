@@ -1,14 +1,26 @@
 //______________Parte de deixar colorida o botão do sidebar ao clicar________________
-document.addEventListener("DOMContentLoaded",function(){
+window.addEventListener("pageshow", function() {
     const menuBotoes = document.querySelectorAll(".nav-item");
+    const path = location.pathname.split('/').pop(); // pega o arquivo atual
 
     menuBotoes.forEach(item => {
-        item.addEventListener("click",function(){
-            menuBotoes.forEach(el=>el.classList.remove("active"));
+        const link = item.querySelector("a");
+        if (!link) return;
+        const hrefFile = link.getAttribute("href").split("/").pop();
+
+        if (hrefFile === path) {
+            item.classList.add("active");
+        } else {
+            item.classList.remove("active");
+        }
+
+        // Mantém clique para troca de ativo
+        item.addEventListener("click", function() {
+            menuBotoes.forEach(el => el.classList.remove("active"));
             this.classList.add("active");
         });
     });
-})
+});
 
 
 // ____________________Parte de PopUp e botão______________________________
