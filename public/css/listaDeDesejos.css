@@ -21,18 +21,18 @@ body{
     gap: 8px;
 }
 
-.title{
+.title-container .title{
     display: flex;
     justify-content: center;
 }
 
-.title h1{
+.title-container .title h1{
     font-size: 38px;
     font-weight: 300;
     text-align: center;
 }
 
-.line{
+.title-container .line{
     width: 60%;
     border-bottom: black 2px solid;
 }
@@ -40,15 +40,20 @@ body{
 
     /*RESPONSIVIDADE DO TITULO*/
 
-    @media (max-width: 1050px){
+    @media(max-width:1220px){
+        .title-container{
+            margin-top: 140px;
+        }
+    }
+    @media (max-width: 1110px){
         .title-container{
             margin-top: 130px;
         }
-        .title h1{
+        .title-container .title h1{
             font-size: 34px;
             font-weight: 350;
         }
-        .line{
+        .title-container .line{
             width: 65%;
         }
     }
@@ -57,22 +62,31 @@ body{
             margin-top: 100px;
         }
     }
-    @media (max-width: 750px){
-        .title h1{
-            font-size: 28px;
-            font-weight: 350;
+    @media (max-width: 770px){
+        .title-container .title h1{
+            font-size: 30px;
         }
-        .line{
+        .title-container .line{
             width: 70%;
         }
     }
-    @media (max-width: 507px){
+    @media (max-width: 650px){
+        .title-container .title h1{
+            font-size: 28px;
+        }
+        .title-container .line{
+            width: 75%;
+        }
+    }
+    @media (max-width: 576px){
         .title-container{
             margin-bottom: 20px;
         }
-
-        .cont-legend{
-            display: none;
+        .title-container .title h1{
+            font-size: 26px;
+        }
+        .title-container .line{
+            width: 80%;
         }
     }
 
@@ -82,30 +96,33 @@ body{
 /*ÁREA DE SELECIONAR TODOS OS CHECKBOXES*/
 
 .acoesWrapper{
+    width: 100%;
     height: 65px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
-.acoesSelecionados{
+.acoesWrapper .acoesSelecionados{
+    width: 1270px;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: left;
+    justify-content: baseline;
     position: sticky;
-    margin-left: 350px;
     z-index: 1000;
     gap: 20px;
     
     background-color: transparent;
+    /* background-color: aqua; */
     padding-top: 40px;
+    padding-left: 0;
     
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.acoesSelecionados .inputCheck label{
+.acoesWrapper .acoesSelecionados .inputCheck label{
     margin-left: 10px;
 }
 
@@ -140,17 +157,17 @@ input[type="checkbox"]:checked::before {
     transform: translate(-50%, -50%);
 }
 
-.acoesSelecionados .selecionarTodos{
+.acoesWrapper .acoesSelecionados .selecionarTodos{
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
 }
 
-.acoesSelecionados.ativo{
+.acoesWrapper .acoesSelecionados.ativo{
     visibility: visible;
     opacity: 1;
 }
 
-.acoesSelecionados .btnCheck{
+.acoesWrapper .acoesSelecionados .btnCheck{
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -175,8 +192,54 @@ input[type="checkbox"]:checked::before {
 
 
     /*RESPONSIVIDADE DA ÁREA DE SELECIONADOS*/
-            /*farei depois de fazer a responsividade dos componentes*/
-
+    @media (max-width: 1665px){
+        .acoesWrapper .acoesSelecionados{
+            width: 1180px;
+        }
+    }
+    @media (max-width: 1550px){
+        .acoesWrapper .acoesSelecionados{
+            width: 1080px;
+        }
+    }
+    @media (max-width: 1440px){
+        .acoesWrapper .acoesSelecionados{
+            width: 980px;
+        }
+    }
+    @media (max-width: 1330px){
+        .acoesWrapper .acoesSelecionados{
+            width: 890px;
+        }
+    }
+    @media (max-width: 1220px){
+        .acoesWrapper .acoesSelecionados{
+            width: 800px;
+        }
+    }
+    @media (max-width: 1110px){
+        .acoesWrapper .acoesSelecionados{
+            width: 700px;
+        }
+    }
+    @media (max-width: 990px){
+        .acoesWrapper .acoesSelecionados{
+            width: 600px;
+        }
+    }
+    @media (max-width: 880px){
+        .acoesWrapper .acoesSelecionados{
+            width: 460px;
+        }
+    }
+    @media (max-width: 770px){
+        .acoesWrapper .acoesSelecionados{
+            width: 380px;
+        }
+    }
+    @media (max-width: 650px){
+        .acoesWrapper .acoesSelecionados{width: 320px;}
+    }
 
 
 
@@ -207,7 +270,7 @@ input[type="checkbox"]:checked::before {
 }
 
 .card-container{
-    width: 100%;
+    /* background-color: blueviolet; */
     height: 70vh;
     max-width: 1672px;
     display: flex;
