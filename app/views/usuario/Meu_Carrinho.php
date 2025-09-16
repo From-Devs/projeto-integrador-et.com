@@ -11,61 +11,59 @@
     require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
     require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
-    session_start();
+$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Usuário";
+$login = isset($_SESSION['id_usuario']);
 
-    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
-    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
+if (!isset($_SESSION['id_usuario'])) {
+    die("Você precisa estar logado para ver o carrinho.");
+}
 
-    if (!isset($_SESSION['id_usuario'])) {
-        die("Você precisa estar logado para ver o carrinho.");
-    }
+$id_usuario = $_SESSION['id_usuario'];
 
-    $id_usuario = $_SESSION['id_usuario'];
+// conecta ao banco
+$conn = (new Database())->connect();
 
-    // conecta ao banco
-    $conn = (new Database())->connect();
+// Busca produtos do carrinho
+try {
+    $sql = "SELECT c.id_carrinho, c.quantidade, p.id_produto, p.nome, p.preco, p.precoPromo, p.img1
+            FROM carrinho c
+            JOIN produto p ON p.id_produto = c.id_produto
+            WHERE c.id_usuario = :id_usuario";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':id_usuario' => $id_usuario]);
+    $carrinho = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Erro ao carregar carrinho: " . $e->getMessage());
+}
 
-    // Busca produtos do carrinho
-    try {
-        $sql = "SELECT c.id_carrinho, c.quantidade, p.id_produto, p.nome, p.preco, p.precoPromo, p.img1
-                FROM carrinho c
-                JOIN produto p ON p.id_produto = c.id_produto
-                WHERE c.id_usuario = :id_usuario";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([':id_usuario' => $id_usuario]);
-        $carrinho = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        die("Erro ao carregar carrinho: " . $e->getMessage());
-    }
-
-    // Atualiza quantidades via POST
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['quantidade'])) {
-        foreach ($carrinho as $index => $produto) {
-            $novaQtd = (int)($_POST['quantidade'][$index] ?? $produto['quantidade']);
-            if ($novaQtd > 0) {
-                $sqlUpdate = "UPDATE carrinho SET quantidade = :qtd WHERE id_carrinho = :id";
-                $stmtUpdate = $conn->prepare($sqlUpdate);
-                $stmtUpdate->execute([
-                    ':qtd' => $novaQtd,
-                    ':id' => $produto['id_carrinho']
-                ]);
-                $carrinho[$index]['quantidade'] = $novaQtd;
-            }
+// Atualiza quantidades via POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['quantidade'])) {
+    foreach ($carrinho as $index => $produto) {
+        $novaQtd = (int)($_POST['quantidade'][$index] ?? $produto['quantidade']);
+        if ($novaQtd > 0) {
+            $sqlUpdate = "UPDATE carrinho SET quantidade = :qtd WHERE id_carrinho = :id";
+            $stmtUpdate = $conn->prepare($sqlUpdate);
+            $stmtUpdate->execute([
+                ':qtd' => $novaQtd,
+                ':id' => $produto['id_carrinho']
+            ]);
+            $carrinho[$index]['quantidade'] = $novaQtd;
         }
     }
+}
 
-    // Calcula subtotal e total
-    $subtotal = 0;
-    $precosProdutos = [];
-    foreach ($carrinho as $produto) {
-        $quantidade = $produto['quantidade'] ?? 1;
-        $preco = $produto['precoPromo'] ?? $produto['preco'];
-        $precosProdutos[] = $preco;
-        $subtotal += $preco * $quantidade;
-    }
+// Calcula subtotal e total
+$subtotal = 0;
+$precosProdutos = [];
+foreach ($carrinho as $produto) {
+    $quantidade = $produto['quantidade'] ?? 1;
+    $preco = $produto['precoPromo'] ?? $produto['preco'];
+    $precosProdutos[] = $preco;
+    $subtotal += $preco * $quantidade;
+}
 
-    $frete = 0; // valor inicial do frete
-    $total = $subtotal + $frete;
+$frete = 0; // valor inicial do frete
+$total = $subtotal + $frete;
 ?>
 
 <!DOCTYPE html>

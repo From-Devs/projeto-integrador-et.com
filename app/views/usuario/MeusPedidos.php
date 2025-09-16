@@ -5,20 +5,19 @@
     require __DIR__ . "/../../../public/componentes/popUp/popUp.php";  //importar rodapé
     require_once __DIR__ . '/../../../config/PedidoController.php';
     require_once __DIR__ . '/../../../public/componentes/cardpedido/cardPedido.php';
-
+ 
     session_start(); // garante que a sessão está ativa
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
     $id_usuario = $_SESSION['id_usuario'] ?? null;
-    
+
     if (!$id_usuario) {
         die("Você precisa estar logado para ver os pedidos.");
     }
-
-    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
-    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
  
     $pedidoController = new PedidoController();
     $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
-
+ 
 ?>
  
 <!DOCTYPE html>

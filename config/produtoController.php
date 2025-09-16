@@ -33,7 +33,7 @@ class ProdutoController {
             SELECT 
                 p.id_produto, p.nome, p.marca, p.descricaoBreve, p.preco, p.precoPromo,
                 p.qtdEstoque, p.img1, p.img2, p.img3,
-                s.nome AS subcategoria, c.corPrincipal
+                s.nome AS subcategoria, c.corPrincipal, c.hexDegrade1, c.hexDegrade2
             FROM produto p
             LEFT JOIN subcategoria s ON s.id_subCategoria = p.id_subCategoria
             LEFT JOIN cores c ON c.id_cores = p.id_cores
@@ -42,20 +42,15 @@ class ProdutoController {
             LIMIT :limit OFFSET :offset
         ";
         $stmt = $this->conn->prepare($sql);
-        foreach ($params as $k => $v) {
-            $stmt->bindValue($k, $v);
-        }
+        foreach ($params as $k => $v) $stmt->bindValue($k, $v);
         $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
         $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
         $stmt->execute();
         $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Total de registros
         $countSql = "SELECT COUNT(*) AS total FROM produto p " . $whereSql;
         $stmt2 = $this->conn->prepare($countSql);
-        foreach ($params as $k => $v) {
-            $stmt2->bindValue($k, $v);
-        }
+        foreach ($params as $k => $v) $stmt2->bindValue($k, $v);
         $stmt2->execute();
         $total = (int)$stmt2->fetchColumn();
 
@@ -81,7 +76,7 @@ class ProdutoController {
     public function BuscarProdutoPorId($id) {
         try {
             $sql = "
-                SELECT p.*, s.nome AS subcategoria, c.corPrincipal
+                SELECT p.*, s.nome AS subcategoria, c.corPrincipal, c.hexDegrade1, c.hexDegrade2
                 FROM produto p
                 LEFT JOIN subcategoria s ON p.id_subCategoria = s.id_subCategoria
                 LEFT JOIN cores c ON p.id_cores = c.id_cores
@@ -102,11 +97,23 @@ class ProdutoController {
     // =======================
     public function ListarFavoritos($idUsuario) {
         $sql = "
-            SELECT p.*, f.dataAdd
-            FROM favoritos f
-            INNER JOIN produto p ON p.id_produto = f.id_produto
-            WHERE f.id_usuario = :u
-            ORDER BY f.dataAdd DESC
+            SELECT 
+                l.id_listaDesejos,
+                p.id_produto,
+                p.nome,
+                p.marca,
+                p.preco,
+                p.precoPromo,
+                p.img1 AS imagem,
+                c.corPrincipal,
+                c.hexDegrade1,
+                c.hexDegrade2,
+                l.dataAdd
+            FROM listadesejos l
+            INNER JOIN produto p ON p.id_produto = l.id_produto
+            LEFT JOIN cores c ON c.id_cores = p.id_cores
+            WHERE l.id_usuario = :u
+            ORDER BY l.dataAdd DESC
         ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([':u' => (int)$idUsuario]);
@@ -114,17 +121,39 @@ class ProdutoController {
     }
 
     public function adicionarFavorito($idUsuario, $idProduto) {
-        $sel = $this->conn->prepare("SELECT id FROM favoritos WHERE id_usuario = :u AND id_produto = :p");
-        $sel->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
-        if ($sel->fetch()) return ['ok' => false, 'msg' => 'Produto já está nos favoritos'];
+        if (is_array($idProduto)) {
+            $result = ['ok' => true, 'adicionados' => 0];
+            foreach ($idProduto as $prod) {
+                $res = $this->adicionarFavorito($idUsuario, $prod);
+                if ($res['ok']) $result['adicionados']++;
+            }
+            return $result;
+        }
 
-        $ins = $this->conn->prepare("INSERT INTO favoritos (id_usuario, id_produto, dataAdd) VALUES (:u, :p, NOW())");
+        $sel = $this->conn->prepare("SELECT id_listaDesejos FROM listadesejos WHERE id_usuario = :u AND id_produto = :p");
+        $sel->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
+        if ($sel->fetch()) {
+            return ['ok' => false, 'msg' => 'Produto já está na lista de desejos'];
+        }
+
+        $ins = $this->conn->prepare("
+            INSERT INTO listadesejos (dataAdd, id_usuario, id_produto) 
+            VALUES (NOW(), :u, :p)
+        ");
         $ins->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
         return ['ok' => true];
     }
 
     public function removerFavorito($idUsuario, $idProduto) {
-        $del = $this->conn->prepare("DELETE FROM favoritos WHERE id_usuario = :u AND id_produto = :p");
+        if (is_array($idProduto)) {
+            foreach ($idProduto as $prod) {
+                $del = $this->conn->prepare("DELETE FROM listadesejos WHERE id_usuario = :u AND id_produto = :p");
+                $del->execute([':u' => (int)$idUsuario, ':p' => (int)$prod]);
+            }
+            return ['ok' => true];
+        }
+
+        $del = $this->conn->prepare("DELETE FROM listadesejos WHERE id_usuario = :u AND id_produto = :p");
         $del->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
         return ['ok' => true];
     }
@@ -134,7 +163,7 @@ class ProdutoController {
     // =======================
     public function listarCarrinho($idUsuario) {
         $sql = "
-            SELECT c.id, c.id_produto, c.quantidade, c.data_adicionado,
+            SELECT c.id_carrinho, c.id_produto, c.quantidade, c.data_adicionado,
                    p.nome, p.preco, p.precoPromo, p.img1
             FROM carrinho c
             INNER JOIN produto p ON p.id_produto = c.id_produto
@@ -155,16 +184,28 @@ class ProdutoController {
     }
 
     public function adicionarAoCarrinho($idUsuario, $idProduto, $qtd = 1) {
-        $sel = $this->conn->prepare("SELECT id, quantidade FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
+        if (is_array($idProduto)) {
+            $result = ['ok' => true, 'adicionados' => 0];
+            foreach ($idProduto as $prod) {
+                $res = $this->adicionarAoCarrinho($idUsuario, $prod, $qtd);
+                if ($res['ok']) $result['adicionados']++;
+            }
+            return $result;
+        }
+
+        $sel = $this->conn->prepare("SELECT id_carrinho, quantidade FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
         $sel->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
         $row = $sel->fetch(PDO::FETCH_ASSOC);
 
         if ($row) {
             $novaQtd = (int)$row['quantidade'] + (int)$qtd;
-            $upd = $this->conn->prepare("UPDATE carrinho SET quantidade = :q WHERE id = :id");
-            $upd->execute([':q' => $novaQtd, ':id' => (int)$row['id']]);
+            $upd = $this->conn->prepare("UPDATE carrinho SET quantidade = :q WHERE id_carrinho = :id");
+            $upd->execute([':q' => $novaQtd, ':id' => (int)$row['id_carrinho']]);
         } else {
-            $ins = $this->conn->prepare("INSERT INTO carrinho (id_usuario, id_produto, quantidade, data_adicionado) VALUES (:u, :p, :q, NOW())");
+            $ins = $this->conn->prepare("
+                INSERT INTO carrinho (id_usuario, id_produto, quantidade, data_adicionado) 
+                VALUES (:u, :p, :q, NOW())
+            ");
             $ins->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto, ':q' => (int)$qtd]);
         }
 
@@ -183,6 +224,14 @@ class ProdutoController {
     }
 
     public function removerDoCarrinho($idUsuario, $idProduto) {
+        if (is_array($idProduto)) {
+            foreach ($idProduto as $prod) {
+                $del = $this->conn->prepare("DELETE FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
+                $del->execute([':u' => (int)$idUsuario, ':p' => (int)$prod]);
+            }
+            return ['ok' => true];
+        }
+
         $del = $this->conn->prepare("DELETE FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
         $del->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
         return ['ok' => true];
@@ -192,7 +241,6 @@ class ProdutoController {
     // === Pedidos ===========
     // =======================
     public function criarPedido($idUsuario, $idStatus = 1) {
-        // Valida se tem itens no carrinho
         $chk = $this->conn->prepare("SELECT COUNT(*) FROM carrinho WHERE id_usuario = :u");
         $chk->execute([':u' => (int)$idUsuario]);
         if ((int)$chk->fetchColumn() === 0) {
@@ -219,7 +267,6 @@ class ProdutoController {
         $stmt->execute([':u' => (int)$idUsuario]);
         $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Anexa itens de cada pedido a partir do carrinho do usuário
         foreach ($pedidos as &$p) {
             $it = $this->conn->prepare("
                 SELECT p.id_produto, p.nome, p.img1, p.preco, p.precoPromo, c.quantidade
