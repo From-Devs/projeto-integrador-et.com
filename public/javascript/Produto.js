@@ -26,19 +26,6 @@ document.getElementsByClassName("campos-cadastrar")[0].addEventListener("submit"
     })
     .catch(err => console.error("Erro:", err));
 });        
-        
-// Pesquisa
-const btnPesquisar = document.getElementsByClassName("lupaPesquisarInput")[0];
-const inputPesquisar = document.getElementById("inputPesquisar");
-
-btnPesquisar.addEventListener("click", function() {
-    window.location.href = `?pesquisa=${inputPesquisar.value}`;
-});
-
-// Ordenar a listaa
-document.querySelector("#botaoOrdenar").addEventListener("change", function (){
-    window.location.href = `?ordem=${this.value}`;
-})
 
 function buscarAtributosDoProduto(idProduto) {
     fetch(`http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=BuscarProduto&id=${idProduto}`)

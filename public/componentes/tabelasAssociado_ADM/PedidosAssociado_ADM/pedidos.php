@@ -204,11 +204,13 @@ function tabelaPedidosAssociado($pedidos) {
             $statusClass = $pedido['tipoStatus'] === 'Pago' ? 'statusPago' : 'statusPendente';
         }
 
+        $data = date("d/m/Y - H:i", strtotime($pedido['dataPedido']));
+
         $tabela .= "<tr>
                     <td>{$pedido['id_pedido']}</td>
                     <td>{$pedido['nome']}</td>
                     <td>R$ " . number_format($pedido['precoTotal'], 2, ',', '.') . "</td>
-                    <td>{$pedido['dataPedido']}</td>
+                    <td>{$data}</td>
                     <td><div id='{$statusClass}'><p>{$pedido['tipoStatus']}<p></div></td>
                 </tr>";
         $contador++;

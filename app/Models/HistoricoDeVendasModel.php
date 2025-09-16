@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../../config/database.php';
 
-class PedidosModel{
+class HistoricoDeVendasModel{
     private $conn;
 
     public function __construct() {
@@ -10,44 +10,47 @@ class PedidosModel{
         $this->conn = $db->Connect();
     }
 
-    public function BuscarTodosPedidosAssociado($ordem="", $pesquisa=""){
+    public function BuscarHistoricoDeVendasProdutos($ordem="", $pesquisa=""){
         try {    
-            $sqlPedidos = "SELECT P.id_pedido, 
-            U.nome,
-            P.precoTotal,
-            P.dataPedido,
-            S.tipoStatus
-            FROM Pedido P
-            JOIN usuario U
-                ON P.id_usuario = U.id_usuario
-            JOIN status S
-                ON P.id_status = S.id_status";
+            $sqlHvP = "SELECT PP.id_pedido_produto, 
+            PROD.nome as nomeProduto,
+            PED.dataPedido as dataVenda,
+            PROD.preco,
+            PP.quantidade
+            FROM PEDIDOPRODUTO PP
+            JOIN PRODUTO PROD
+                ON PP.id_produto = PROD.id_produto
+            JOIN PEDIDO PED
+                ON PP.id_pedido = PED.id_pedido";
             $params = [];
     
             //Para concatenar a pesquisa
             if (!empty($pesquisa)) {
-                $sqlPedidos .= " WHERE nome LIKE :pesquisa";
+                $sqlHvP .= " WHERE nome LIKE :pesquisa";
                 $params[':pesquisa'] = "$pesquisa%";
             }
     
             if (!empty($ordem)) {
                 switch ($ordem) {
                     case 'ID':
-                        $ordemSql = "id_pedido";
+                        $ordemSql = "id_pedido_produto";
                         break;
                     case 'Preço':
-                        $ordemSql = "precoTotal";
+                        $ordemSql = "preco";
                         break;
                     case 'Data':
-                        $ordemSql = "dataPedido";
+                        $ordemSql = "dataVenda";
+                        break;
+                    case 'Quantidade':
+                        $ordemSql = "quantidade";
                         break;
                     default:
                         $ordemSql = "id_pedido";
                 }
-                $sqlPedidos .= " ORDER BY $ordemSql";
+                $sqlHvP .= " ORDER BY $ordemSql";
             }
     
-            $stmt = $this->conn->prepare($sqlPedidos);
+            $stmt = $this->conn->prepare($sqlHvP);
     
             foreach ($params as $key => $val) {
                 $stmt->bindValue($key, $val, PDO::PARAM_STR);

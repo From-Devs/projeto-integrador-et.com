@@ -84,6 +84,14 @@ CREATE TABLE Produto(
 	FOREIGN KEY (id_associado) REFERENCES Usuario(id_usuario)
 );
 
+CREATE TABLE pedidoProduto( 
+	id_pedido_produto int PRIMARY KEY AUTO_INCREMENT, 
+	quantidade int NOT NULL, 
+	id_pedido int, id_Produto int, 
+	FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido), 
+	FOREIGN KEY (id_Produto) REFERENCES produto(id_Produto) 
+)
+
 CREATE TABLE Estoque(
 	id_estoque INT AUTO_INCREMENT PRIMARY KEY,
 	qnt INT NOT NULL,
