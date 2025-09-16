@@ -88,7 +88,9 @@ $total = $subtotal + $frete;
 <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/carouselPopUp/styles.css">
 <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popup/styles.css">
 <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/paginaPrincipal.css">
+
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <?php echo createHeader($login, $tipoUsuario); ?>
