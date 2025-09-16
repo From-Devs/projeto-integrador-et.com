@@ -88,3 +88,36 @@ btnAdicionarcarrinho.addEventListener('click', () => {
             form.submit();
         }
     })
+
+    function adicionarAListaDeDesejos(idProduto) {
+        fetch('/projeto-integrador-et.com/app/config/listaDesejosRouter.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: `acao=adicionar&id_produto=${idProduto}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'sucesso') {
+                abrirPopUpFavorito(); 
+            } else {
+                alert(data.mensagem);
+            }
+        });
+    }
+    
+    function removerDosFavoritos(idProduto) {
+        fetch('/projeto-integrador-et.com/app/config/listaDesejosRouter.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: `acao=remover&id_produto=${idProduto}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'sucesso') {
+                location.reload(); 
+            } else {
+                alert(data.mensagem);
+            }
+        });
+    }
+    

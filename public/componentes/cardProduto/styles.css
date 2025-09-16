@@ -89,6 +89,12 @@
     border: solid 2px #000000;
     right: 10px;
     cursor: pointer;
+    transition: border 0.3s, background 0.3s;
+}
+
+.coracaoFofo.liked {
+    border: solid 2px rgb(250, 64, 64);
+    background-color: rgb(250, 64, 64);
 }
 
 .balaoDesejos{
@@ -124,6 +130,11 @@
     height: 24px;
     user-select: none;
     pointer-events: none;
+    transition: filter 0.3s;
+}
+
+.coracaoFofo.liked .coracaoImg {
+    filter: brightness(0) invert(1);
 }
 
 .contentDeBaixo{
