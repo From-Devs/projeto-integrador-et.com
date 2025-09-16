@@ -14,7 +14,7 @@ $testeConexao = $userController->teste();
 
 $acao = $_GET["acao"] ?? '';
 
-if (!in_array($acao, ['', 'create', 'update', 'delete', 'getUser', 'login', 'update_password', 'save_adress'])) {
+if (!in_array($acao, ['', 'create', 'update', 'delete', 'getUser', 'login', 'update_password', 'save_adress', 'logout'])) {
     header("Location: ../app/views/usuario/TelaErro.php");
     exit();
 }
@@ -154,6 +154,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 header("Location: ../app/views/usuario/Login.php?erro=credenciais_invalidas");
                 exit;
             }
+            break;
+
+        case "logout":
+            session_start();
+            session_unset();
+            session_destroy();
+            
+            header("Location: ../app/views/usuario/paginaPrincipal.php");
+            exit;
             break;
 
         case "save_adress":

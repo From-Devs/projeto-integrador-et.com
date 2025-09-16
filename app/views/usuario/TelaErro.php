@@ -4,11 +4,10 @@
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
 
     session_start();
-    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
-    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
-    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
 
-    
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
+
     $errorCode = "404";
     $errorDescription = "Página não encontrada";
 

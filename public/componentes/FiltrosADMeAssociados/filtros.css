@@ -115,6 +115,16 @@
     gap: 20px;
 }
 
+.lupaPesquisarInput{
+    padding: 2px;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.lupaPesquisarInput:hover{
+    background-color: rgb(202, 202, 202);
+}
+
 @media (max-width: 1600px) {
     #inputPesquisar {
         font-size: 16px

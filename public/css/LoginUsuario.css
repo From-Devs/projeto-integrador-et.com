@@ -127,7 +127,7 @@ form
     box-sizing: border-box;
 }
 
-.email-input
+.email-input, .recoverPassword-input
 {
     position: relative;
     font-weight: bolder;
@@ -140,7 +140,7 @@ form
     font-weight: bolder;
 }
 
-.email-input label, .senha-input label
+.email-input label, .senha-input label, .recoverPassword-input label
 {
     position: absolute;
     bottom: 5px;
@@ -157,6 +157,7 @@ form
     width: 100%;
     padding: 5px;
     border: 0;
+    background: transparent;
     border-bottom: 2px solid black;
     outline: 0;
     font-size: 20px;
@@ -216,6 +217,70 @@ section .wave
     animation-delay: 0s;
 }
 
+#esqueciSenha{
+    border: 0;
+    background: transparent;
+    width: max-content;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.topoPopUp{
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tituloPopUp{
+    font-size: 28px;
+}
+
+.fecharPopUp{
+    display: block;
+    align-self: auto;
+}
+
+.tituloPopUp{
+    width: max-content;
+}
+
+.wrapperPopUp{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.recoverPasswordButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 19px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s;
+    padding: 8px 10px;
+    border: 0;
+    color: #ffffff;
+    align-self: flex-end;
+
+    i {
+        font-size: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.recoverPasswordButton:hover{
+    transform: scale(1.05);
+}
+
+.recoverPasswordButtonText{
+    color: rgb(255, 255, 255);
+}
 
 @keyframes animacao
 {

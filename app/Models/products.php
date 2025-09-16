@@ -135,40 +135,66 @@ class Products {
         }
     }
 
-    public function buscarTodosProdutos($ordem=""){
+    public function buscarTodosProdutos($ordem="", $pesquisa=""){
         try {    
-            switch ($ordem) {
-                case 'ID':
-                    $ordem = "id_produto";
-                    break;
-                case 'Preço':
-                    $ordem = "preco";
-                    break;
-                case 'Qtd. Estoque':
-                    $ordem = "qtdEstoque";
-                    break;            
-                default:
-                    $ordem = "id_produto";
-                    break;
+            $sqlProdutos = "SELECT 
+                id_produto as id, 
+                nome, 
+                marca, 
+                descricaoBreve, 
+                descricaoTotal, 
+                preco, 
+                precoPromo as precoPromocional, 
+                fgPromocao, 
+                qtdEstoque, 
+                img1, 
+                img2, 
+                img3, 
+                id_subCategoria, 
+                id_cores, 
+                id_associado 
+            FROM produto";
+    
+            $params = [];
+    
+            //Para concatenar a pesquisa
+            if (!empty($pesquisa)) {
+                $sqlProdutos .= " WHERE nome LIKE :pesquisa";
+                $params[':pesquisa'] = "$pesquisa%";
             }
-
-            $sqlProdutos = "SELECT id_produto as id, nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo as precoPromocional, fgPromocao, qtdEstoque, img1, img2, img3, id_subCategoria, id_cores, id_associado FROM produto ORDER BY $ordem";
-            $db = $this->conn->prepare($sqlProdutos);
-            $db->execute();
-            $res = $this->conn->query($sqlProdutos);
-
-            if($res && $res->rowCount() > 0){
-                return $db->fetchAll(PDO::FETCH_ASSOC);
-            }else{
-                return [];
+    
+            if (!empty($ordem)) {
+                switch ($ordem) {
+                    case 'ID':
+                        $ordemSql = "id_produto";
+                        break;
+                    case 'Preço':
+                        $ordemSql = "preco";
+                        break;
+                    case 'Qtd. Estoque':
+                        $ordemSql = "qtdEstoque";
+                        break;
+                    default:
+                        $ordemSql = "id_produto";
+                }
+                $sqlProdutos .= " ORDER BY $ordemSql";
             }
-
+    
+            $stmt = $this->conn->prepare($sqlProdutos);
+    
+            foreach ($params as $key => $val) {
+                $stmt->bindValue($key, $val, PDO::PARAM_STR);
+            }
+    
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
         } catch (\Throwable $th) {
             echo "Erro ao buscar: " . $th->getMessage();
             return false;
         }
-
     }
+    
     
     public function getAllProdutos(){
         $sql = "SELECT * FROM Produto";
