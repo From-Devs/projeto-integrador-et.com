@@ -85,5 +85,6 @@
     echo PopUpComImagemETitulo("popup","popUp_Botoes/img-pessoa.png","100px","Cadastro Enviado para Validação","Entraremos em contato via WhatsApp após validar",$btt);
     ?>
     <script src="../../../public/componentes/popup/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/editarDados.js"></script>
 </body>
 </html>
