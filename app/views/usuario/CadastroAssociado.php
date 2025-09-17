@@ -51,7 +51,18 @@
                 <h1>Alterar foto de perfil</h1>
     
                 <div class="profileIconWrapper">
-                    <img src="../../../public/imagens/user-icon.png" alt="User Profile" class="profile-pic" id="avatarPreview">
+                    <?php
+                    // Se existir imagem no banco, mostra ela, senão mostra o ícone padrão
+                    $avatarPath = !empty($user['foto']) 
+                        ? "/projeto-integrador-et.com/" . $user['foto'] 
+                        : "/projeto-integrador-et.com/public/imagens/user-icon.png";
+                    ?>
+                    
+                    <img src="<?= htmlspecialchars($avatarPath) ?>" 
+                        alt="User Profile" 
+                        class="profile-pic" 
+                        id="avatarPreview">
+
                     <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" onchange="previewFile()"/>
                     <label for="avatar"><i class='bx bx-image-alt'></i></label>
                 </div>
