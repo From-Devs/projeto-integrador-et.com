@@ -117,7 +117,6 @@ body{
     gap: 20px;
     
     background-color: transparent;
-    /* background-color: blueviolet; */
     padding-left: 0;
     
     visibility: hidden;
@@ -344,7 +343,6 @@ body{
         .acoesWrapper .acoesSelecionados{
             width: 440px;
             margin-left: 60px;
-            /* background-color: aqua; */
         }
         .acoesWrapper .acoesSelecionados .inputCheck{
             height: 40px;
@@ -443,25 +441,25 @@ body{
     position: relative;
 }
 
-.degradeTopo, .degradeBaixo{
+.container .degradeTopo, 
+.container .degradeBaixo{
     position: absolute;
     z-index: 10;
     height: 15px;
     width: 100%;
 }
 
-.degradeTopo{
+.container .degradeTopo{
     background-image: linear-gradient(to bottom, rgba(255, 255, 255), rgba(255, 255, 255, 0.932), rgba(255, 255, 255, 0.832), rgba(255, 255, 255, 0.632), rgba(255, 255, 255, 0.432), rgba(255, 255, 255, 0.232), rgba(255, 255, 255, 0));
     top: 0;
 }
 
-.degradeBaixo{
+.container .degradeBaixo{
     background-image: linear-gradient(to top, rgba(255, 255, 255), rgba(255, 255, 255, 0.932), rgba(255, 255, 255, 0.832), rgba(255, 255, 255, 0.632), rgba(255, 255, 255, 0.432), rgba(255, 255, 255, 0.232), rgba(255, 255, 255, 0));
     bottom: 0;
 }
 
-.card-container{
-    /* background-color: blueviolet; */
+.container .card-container{
     height: 70vh;
     max-width: 1672px;
     display: flex;
@@ -472,11 +470,11 @@ body{
     z-index: 1;
 }
 
-.card-container::-webkit-scrollbar{
+.container .card-container::-webkit-scrollbar{
    display: none;
 }
 
-.card-container::-webkit-scrollbar-thumb{
+.container .card-container::-webkit-scrollbar-thumb{
     background-color: transparent;
     border-radius: 5px;
 }
@@ -484,25 +482,31 @@ body{
 
     /*RESPONSIVIADE DESSA ÁREA*/
 
-    
-    @media (max-width: 680px){
-        .card-container{
-            padding: 0 10px;
-        }
-    
-        .cardButtons{
-            margin-right: 10px;
+    @media (max-width: 1220px){
+        .container .card-container{
+            height: 65vh;
         }
     }
-
-    /*04*/
-    @media (max-width: 410px){
-        .card-container{
-            max-width: 300px;
+    @media (max-width: 990px){
+        .container .card-container{
+            height: 60vh;
         }
     }
-
-
+    @media (max-width: 880px){
+        .container .card-container{
+            height: 55vh;
+        }
+    }
+    @media (max-width: 650px){
+        .container .card-container{
+            height: 50vh;
+        }
+    }
+    @media (max-width: 576px){
+        .container .card-container{
+            height: 45vh;
+        }
+    }
 
 
 
@@ -520,3 +524,26 @@ body{
     flex-direction: column;
     align-items: center;
 }
+
+
+    /*RESPONSIVIADE DESSA ÁREA*/
+    @media (max-width: 1220px){
+        .line2{
+            margin-top: 90px;
+        }
+    }
+    @media (max-width: 990px){
+        .line2{
+            margin-top: 80px;
+        }
+    }
+    @media (max-width: 880px){
+        .line2{
+            margin-top: 70px;
+        }
+    }
+    @media (max-width: 650px){
+        .line2{
+            margin-top: 60px;
+        }
+    }
