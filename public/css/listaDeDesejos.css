@@ -63,6 +63,9 @@ body{
         }
     }
     @media (max-width: 770px){
+        .title-container{
+            margin-top: 120px;
+        }
         .title-container .title h1{
             font-size: 30px;
         }
@@ -108,13 +111,13 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: baseline;
+    align-items: end;
     position: sticky;
     z-index: 1000;
     gap: 20px;
     
     background-color: transparent;
-    /* background-color: aqua; */
-    padding-top: 40px;
+    /* background-color: blueviolet; */
     padding-left: 0;
     
     visibility: hidden;
@@ -122,13 +125,21 @@ body{
     transition: opacity 0.3s ease;
 }
 
-.acoesWrapper .acoesSelecionados .inputCheck label{
-    margin-left: 10px;
+.acoesWrapper .acoesSelecionados .inputCheck{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
 
-input[type="checkbox"] {
-    width: 15px;
-    height: 15px;
+.acoesWrapper .acoesSelecionados .inputCheck label{
+    font-family: 'Montserrat', sans-serif;
+    font-size:15px;
+}
+
+.acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
     text-align: center;
     transform: scale(1.5);
     vertical-align: middle;
@@ -141,25 +152,24 @@ input[type="checkbox"] {
     box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
 
-input[type="checkbox"]:checked {
+.acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"]:checked {
     background-color: #A6A6A6;
     color: white; 
 }
 
-input[type="checkbox"]:checked::before {
-    content: url("../imagens/check.png");
-    width: 16px;
-    height: 16px;
+.acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"]:checked::before {
+    content: "";
+    background-image: url("../imagens/check.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-repeat: center;
+    width: 14px;
+    height: 14px;
     align-self: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.acoesWrapper .acoesSelecionados .selecionarTodos{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
 }
 
 .acoesWrapper .acoesSelecionados.ativo{
@@ -180,7 +190,8 @@ input[type="checkbox"]:checked::before {
     font-family: 'Montserrat', sans-serif;
     border: 1px solid black;
     border-radius: 30px;
-    padding: 4px 16px;
+    padding: 0 16px;
+    height: 30px;
     background-color: transparent;
 }
 
@@ -213,32 +224,212 @@ input[type="checkbox"]:checked::before {
         }
     }
     @media (max-width: 1220px){
+        .acoesWrapper{
+            height: 50px;
+        }
         .acoesWrapper .acoesSelecionados{
             width: 800px;
         }
+        .acoesWrapper .acoesSelecionados .inputCheck{
+            height: 28px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck label{
+            font-size: 14px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"] {
+            width: 13px;
+            height: 13px;  
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"]:checked::before {
+            width: 13px;
+            height: 13px;
+        }
+        .acoesSelecionados .btnCheck #adicionarCarrinho,
+        .acoesSelecionados .btnCheck #excluirSelecionados{
+            font-size: 14px;
+            padding: 0 15px;
+            height: 28px;
+        }
     }
     @media (max-width: 1110px){
+        .acoesWrapper{
+            height: 45px;
+        }
         .acoesWrapper .acoesSelecionados{
             width: 700px;
+            gap: 17px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck{
+            height: 26px;
+            gap: 13px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck label{
+            font-size: 13px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"] {
+            width: 12px;
+            height: 12px;  
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"]:checked::before {
+            width: 12px;
+            height: 12px;
+        }
+        .acoesWrapper .acoesSelecionados .btnCheck{
+            gap: 15px;
+        }
+        .acoesSelecionados .btnCheck #adicionarCarrinho,
+        .acoesSelecionados .btnCheck #excluirSelecionados{
+            font-size: 13px;
+            padding: 0 14px;
+            height: 26px;
         }
     }
     @media (max-width: 990px){
+        .acoesWrapper{
+            height: 40px;
+        }
         .acoesWrapper .acoesSelecionados{
             width: 600px;
+            gap: 15px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck{
+            height: 23px;
+            gap: 13px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck label{
+            font-size: 12px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"] {
+            width: 11px;
+            height: 11px;  
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"]:checked::before {
+            width: 11px;
+            height: 11px;
+        }
+        .acoesWrapper .acoesSelecionados .btnCheck{
+            gap: 11px;
+        }
+        .acoesSelecionados .btnCheck #adicionarCarrinho,
+        .acoesSelecionados .btnCheck #excluirSelecionados{
+            font-size: 12px;
+            padding: 0 12px;
+            height: 23px;
         }
     }
     @media (max-width: 880px){
         .acoesWrapper .acoesSelecionados{
             width: 460px;
         }
+        .acoesWrapper .acoesSelecionados .inputCheck label{
+            font-size: 14px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"] {
+            width: 12px;
+            height: 12px;  
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"]:checked::before {
+            width: 12px;
+            height: 12px;
+        }
+        .acoesSelecionados .btnCheck #adicionarCarrinho,
+        .acoesSelecionados .btnCheck #excluirSelecionados{
+            font-size: 14px;
+        }
     }
     @media (max-width: 770px){
+        .acoesWrapper{
+            height: 60px;
+        }
         .acoesWrapper .acoesSelecionados{
-            width: 380px;
+            width: 440px;
+            margin-left: 60px;
+            /* background-color: aqua; */
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck{
+            height: 40px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck label{
+            font-size: 15px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"] {
+            width: 13px;
+            height: 13px;  
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"]:checked::before {
+            width: 13px;
+            height: 13px;
+        }
+        .acoesWrapper .acoesSelecionados .btnCheck{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 13px;
+        }
+        .acoesSelecionados .btnCheck #adicionarCarrinho,
+        .acoesSelecionados .btnCheck #excluirSelecionados{
+            font-size: 15px;
+            height: 40px;
+            line-height: 1;
+        }
+        .acoesSelecionados .btnCheck #adicionarCarrinho{
+            width: 130px;
         }
     }
     @media (max-width: 650px){
-        .acoesWrapper .acoesSelecionados{width: 320px;}
+        .acoesWrapper .acoesSelecionados{
+            width: 380px;
+            gap: 17px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck{
+            height: 38px;
+            gap: 11px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck label{
+            font-size: 14px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"] {
+            width: 12px;
+            height: 12px;  
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck input[type="checkbox"]:checked::before {
+            width: 12px;
+            height: 12px;
+        }
+        .acoesWrapper .acoesSelecionados .btnCheck{
+            gap: 12px;
+        }
+        .acoesSelecionados .btnCheck #adicionarCarrinho,
+        .acoesSelecionados .btnCheck #excluirSelecionados{
+            font-size: 14px;
+            height: 38px;
+        }
+        .acoesSelecionados .btnCheck #adicionarCarrinho{
+            width: 120px;
+        }
+    }
+    @media (max-width: 576px){
+        .acoesWrapper{
+            height: 40px;
+        }
+        .acoesWrapper .acoesSelecionados{
+            width: 340px;
+            gap: 14px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck{
+            height: 36px;
+        }
+        .acoesWrapper .acoesSelecionados .inputCheck label{
+            font-size: 13px;
+        }
+        .acoesSelecionados .btnCheck #adicionarCarrinho,
+        .acoesSelecionados .btnCheck #excluirSelecionados{
+            font-size: 13px;
+            height: 36px;
+        }
+        .acoesSelecionados .btnCheck #adicionarCarrinho{
+            width: 110px;
+        }
     }
 
 
@@ -255,17 +446,17 @@ input[type="checkbox"]:checked::before {
 .degradeTopo, .degradeBaixo{
     position: absolute;
     z-index: 10;
-    height: 20px;
+    height: 15px;
     width: 100%;
 }
 
 .degradeTopo{
-    background-image: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255), rgba(255, 255, 255, 0.932), rgba(255, 255, 255, 0.832), rgba(255, 255, 255, 0.632), rgba(255, 255, 255, 0.432), rgba(255, 255, 255, 0.232), rgba(255, 255, 255, 0));
     top: 0;
 }
 
 .degradeBaixo{
-    background-image: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(to top, rgba(255, 255, 255), rgba(255, 255, 255, 0.932), rgba(255, 255, 255, 0.832), rgba(255, 255, 255, 0.632), rgba(255, 255, 255, 0.432), rgba(255, 255, 255, 0.232), rgba(255, 255, 255, 0));
     bottom: 0;
 }
 
@@ -276,7 +467,7 @@ input[type="checkbox"]:checked::before {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
     overflow: auto;
     z-index: 1;
 }
@@ -293,25 +484,7 @@ input[type="checkbox"]:checked::before {
 
     /*RESPONSIVIADE DESSA ÁREA*/
 
-    /* @media (max-width: 1480px){
-        .card-container{
-            max-width: 1072px;
-        }
-    } */
     
-    /*02*/
-    /* @media (max-width: 1080px){
-        .card-container{
-            max-width: 672px;
-            padding: 0 16px;
-        }
-    
-        .cardButtons{
-            margin-left: 10px;
-        }
-    } */
-    
-    /*03*/
     @media (max-width: 680px){
         .card-container{
             padding: 0 10px;

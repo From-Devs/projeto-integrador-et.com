@@ -19,7 +19,7 @@
                 <div class='cardColorido'  style='background: linear-gradient(to right, $corprincipal, $corhexdegrade1, $corhexdegrade2,#FFFFFF 85%);'>
                     <div class='cardImg'>
                         <img src='/projeto-integrador-et.com/public/imagens/produtos/$imagemProd/fotoSemFundo.png' alt='$nome'>
-                        //<img src='/projeto-integrador-et.com/public/uploads/$imagemProd' alt='$nome'>
+                        <!--<img src='/projeto-integrador-et.com/public/uploads/$imagemProd' alt='$nome'>-->
                     </div>
                     <div class='cardConteudo'>
                         <div class='precoinfo'>
