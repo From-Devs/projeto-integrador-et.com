@@ -102,8 +102,8 @@ CREATE TABLE ListaDesejos(
 	FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
 
-CREATE TABLE carrinho (
-  id_carrinho int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE Carrinho (
+  id_carrinho int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_usuario int(11) NOT NULL,
   cep varchar(9) NOT NULL,
   id_produto int(11) NOT NULL,
@@ -203,6 +203,17 @@ CREATE TABLE Personalizacao(
 	FOREIGN KEY (id_prodDestaque) REFERENCES ProdDestaque(id_prodDestaque),
 	FOREIGN KEY (id_carousel) REFERENCES Carousel(id_carousel)
 );
+
+-- Associado
+
+CREATE TABLE SolicitacaoDeAssociado (
+    id_solicitacao INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL UNIQUE,
+    sobreProdutos TEXT,
+    CONSTRAINT fk_usuario FOREIGN KEY (id_usuario) 
+        REFERENCES Usuario(id_usuario)
+        ON DELETE CASCADE
+) ENGINE=InnoDB;
 
  -- Triggers
  -- Atualizar Estoque

@@ -8,8 +8,6 @@
     $controller = new UserController(); 
     $user = $controller->getLoggedUser();
     
-    session_start();
-    
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
     $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 

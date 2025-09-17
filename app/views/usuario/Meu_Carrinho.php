@@ -1,26 +1,26 @@
 <?php
-session_start();
+    require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
+    require_once __DIR__ . "/../../../config/ProdutoController.php";
+    require_once __DIR__ . "/../../../public/componentes/header/header.php";
+    require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
+    require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require_once __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php";
+    require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
+    require_once __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
+    require_once __DIR__ . "/../../../public/componentes/ondas/onda.php";
+    require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
+    require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
-$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Usuário";
-$login = isset($_SESSION['id_usuario']);
 
-if (!isset($_SESSION['id_usuario'])) {
+    session_start();
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
+
+if (!$login) {
     die("Você precisa estar logado para ver o carrinho.");
 }
 
 $id_usuario = $_SESSION['id_usuario'];
-
-require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
-require_once __DIR__ . "/../../../config/ProdutoController.php";
-require_once __DIR__ . "/../../../public/componentes/header/header.php";
-require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
-require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
-require_once __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php";
-require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
-require_once __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
-require_once __DIR__ . "/../../../public/componentes/ondas/onda.php";
-require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
-require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
 // conecta ao banco
 $conn = (new Database())->connect();
@@ -88,7 +88,9 @@ $total = $subtotal + $frete;
 <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/carouselPopUp/styles.css">
 <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popup/styles.css">
 <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/paginaPrincipal.css">
+
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <?php echo createHeader($login, $tipoUsuario); ?>
