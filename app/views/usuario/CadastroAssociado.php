@@ -83,7 +83,7 @@
         <h1 class="textAreaTitle">Escreva sobre seus produtos</h1>
 
         <div class="embaixo">
-            <textarea class="caixa_texto" name="" id="" cols="30" rows="10"></textarea>
+            <textarea class="caixa_texto" name="sobreProdutos" id="" cols="30" rows="10"></textarea>
             <div class="botoes">
                 <div class="checkbox">
                     <input type="checkbox" name="termos" id="termos"> 
