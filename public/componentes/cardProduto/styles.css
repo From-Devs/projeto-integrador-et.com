@@ -26,6 +26,7 @@
 .buraquinho{
     position: absolute;
     background-color: white;
+    box-shadow: inset rgba(0, 0, 0, 0.35) 0px 6px 3px;
     border-radius: 100%;
     width: 9px;
     height: 9px;
@@ -33,18 +34,46 @@
     top: 4px;
 }
 
-.ticketMaldito{
+.ticketContainer{
     position: absolute;
-    transform: scale(0.5);
-    right: 240px;
-    bottom: 5px;
+    left: -35px;
+    top: 10px;
+    z-index: 5;
     visibility: hidden;
     user-select: none;
     pointer-events: none;
 }
 
-.cardProduto.desconto .ticketMaldito{
+.ticketDesconto{
+    width: 54px;
+    right: 240px;
+    overflow: visible;
+    padding-bottom: 5px;
+}
+
+.cardProduto.desconto .ticketContainer{
     visibility: visible;
+}
+
+.descontoTextContainer{
+    width: 40px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    top: 41px;
+    left: 3px;
+    rotate: -68deg;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.descontoOffText{
+    font-size: 7px;
+    height: min-content;
+    margin-bottom: 1.5px;
+    font-weight: 600;
 }
 
 .coracaoFofo{

@@ -1,25 +1,25 @@
 <?php
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";  //importar rodapé
+    require __DIR__ . "/../../../public/componentes/botao/botao.php";  //importar rodapé
+    require __DIR__ . "/../../../public/componentes/popUp/popUp.php";  //importar rodapé
     require_once __DIR__ . '/../../../config/PedidoController.php';
     require_once __DIR__ . '/../../../public/componentes/cardpedido/cardPedido.php';
+ 
+    session_start(); // garante que a sessão está ativa
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
+    $id_usuario = $_SESSION['id_usuario'] ?? null;
 
-    require_once "/xampp/htdocs/projeto-integrador-et.com/public/componentes/botao/botao.php";
-    require_once "/xampp/htdocs/projeto-integrador-et.com/public/componentes/popUp/popUp.php";
-
-    // session_start();
-    $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente'; // Descomente essa parte para tipo do usuario = Usuário
-    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado"; // Descomente essa parte para tipo do usuario = Associado
-    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
-
-    $id_usuario = 2;
-
+    if (!$id_usuario) {
+        die("Você precisa estar logado para ver os pedidos.");
+    }
+ 
     $pedidoController = new PedidoController();
-    $pedidos = $pedidoController->ListarPedidosAgrupados($id_usuario);
-
-
+    $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
+ 
 ?>
-
+ 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popUp/styles.css">
     <!-- link para icones e outros -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght…" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
 </head>
@@ -50,7 +50,7 @@
         <h1 class="tituloPrincipalMP">MEUS PEDIDOS</h1>
         <div class="linhaSuperiorTituloMP"></div>
     </div>
-
+ 
     <!-- Pedidos em andamento -->
     <section class="pedidoAndamentoMP">
         <h2 class="tituloAndamentoMP">Em Andamento</h2>
@@ -59,41 +59,33 @@
                 <p class="aviso">Você ainda não possui pedidos.</p>
             <?php else: ?>
                 <?php foreach ($pedidos as $pedido): ?>
-                    <?php if ($pedido['tipoStatus'] !== 'Finalizado'): ?>
-                        <?php renderCardPedido($pedido); ?>
-                    <?php endif; ?>
-                <?php endforeach; ?>
+            <?php if ($pedido['tipoStatus'] !== 'Finalizado'): ?>
+                <?php renderCardPedido($pedido, 'Andamento'); ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
             <?php endif; ?>
         </div>
     </section>
-
+ 
     <!-- Pedidos finalizados -->
     <section class="pedidosFinalizadosMP">
-        <h2 class="tituloFinalizadoMP">Finalizado</h2>
-        <div id="produtosFinalizados">
+    <h2 class="tituloFinalizadoMP">Finalizado</h2>
+    <div id="produtosFinalizados">
+        <?php if ($pedidos): ?>
             <?php foreach ($pedidos as $pedido): ?>
                 <?php if ($pedido['tipoStatus'] === 'Finalizado'): ?>
-                    <?php foreach ($pedido['itens'] as $item): ?>
-                        <div class="produtoMP">
-                            <img class="imagemProdutoMP" src="<?php echo $item['imagem']; ?>" alt="<?php echo $item['nome']; ?>">
-                            <div class="infoProdutoMP">
-                                <span class="nomeProdutoMP"><?php echo $item['nome']; ?></span>
-                                <span class="descricaoProdutoMP"><?php echo $item['descricaoBreve']; ?></span>
-                                <span class="qtdProdutoMP">Qtd: <?php echo $item['qntProduto']; ?></span>
-                                <span class="precoProdutoMP">R$ <?php echo number_format($item['preco'], 2, ',', '.'); ?></span>
-                                <span class="subtotalProdutoMP">Subtotal: R$ <?php echo number_format($item['subtotal'], 2, ',', '.'); ?></span>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=<?php echo $item['id_produto']; ?>" class="verMaisMP">Ver Mais</a>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
+                    <?php renderCardPedido($pedido, 'Finalizado'); ?>
                 <?php endif; ?>
             <?php endforeach; ?>
-        </div>
-    </section>
-
+        <?php else: ?>
+            <p class="aviso">Você ainda não possui pedidos finalizados.</p>
+        <?php endif; ?>
+    </div>
+</section>
+ 
     <div class="linhaInferiorMP"></div>
 </div>
-
+ 
             <!-- PopUp mostrando todos os pedidos efetuados na compra -->
         <dialog class="popupMP" id="popupMP">
             <div class="popupMP-conteudo">
@@ -113,8 +105,8 @@
                 <div class="popupMP-linhainferior"></div>
             </div>
         </dialog>
-
-        
+ 
+       
         <dialog class="popupMPFinalizado" id="popupMPFinalizado">
             <div class="popupMP-conteudoFi">
                 <div class="popupMP-superior">
@@ -129,11 +121,11 @@
                 <div class="popupMP-inferior">
                     <div class="popupMP-ProdutosFi" id="popupMP-ProdutosFi"></div>
                 </div>
-                
+               
                 <div class="popupMP-linhainferior"></div>
             </div>
         </dialog>
-
+ 
         <dialog class="popupAvaliarProduto" id="popupAvaliarProduto">
             <div class="popupAva-conteudo">
                 <span class="popupAva-titulo">Avaliação de Produto</span>
@@ -163,10 +155,10 @@
                 </div>
             </div>
         </dialog>
-
-
+ 
+ 
          
-
+ 
         <div class="linhaInferiorMP"></div>
     </div>
     <footer>
@@ -174,10 +166,12 @@
             echo createRodape()
         ?>
     </footer>
-
+ 
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/MeusPedidos.js"></script>
 </body>
 </html>
+ 
+ 

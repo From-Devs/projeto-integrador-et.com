@@ -7,9 +7,9 @@
 
     $controller = new UserController(); 
     $user = $controller->getLoggedUser();
-    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
-    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
-    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
 
 <!DOCTYPE html>
@@ -30,10 +30,13 @@
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
     <title>Minha Conta</title>
 </head>
+<!-- botaoPersonalizadoRedirect("Sim","btn-red", "app/views/usuario/paginaPrincipal.php","90px","40px","20px"); -->
 <body>
     <?php
     $botao1 = botaoPersonalizadoOnClick("Não","btn-white",'fecharPopUp("popUpDeleteProfileConfirm")',"90px","40px","20px");
-    $botao2 = botaoPersonalizadoRedirect("Sim","btn-red", "app/views/usuario/paginaPrincipal.php","90px","40px","20px");
+    $botao2 =   '<button type="submit" form="formApagarConta" class="btn btn-red" style="width: 90px; height:40px; font-size: 20px;">
+                        <img src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-cancelar.png" alt="img-cancelar" class="img-cancelar">Sim
+                </button>';
     echo createHeader($login,$tipoUsuario); // função que cria o header
     echo PopUpConfirmar("popUpDeleteProfileConfirm","Tem certeza que quer apagar sua conta?",$botao1,$botao2,"500px");
     ?>
@@ -45,8 +48,13 @@
         </div>
         <section class="conta-container">
             <div class="profile-card">
-
-                <img src="../../../public/imagens/user-icon.png" alt="User Profile" class="profile-pic">
+                <?php
+                // Caminho salvo no banco, ex: "public/uploads/1756329425_nome.jpg"
+                $avatarPath = !empty($user['foto']) 
+                    ? "/projeto-integrador-et.com/" . $user['foto'] 
+                    : "/projeto-integrador-et.com/public/imagens/user-icon.png";
+                ?>
+                <img src="<?= $avatarPath ?>" alt="Avatar" class="profile-pic">
 
             
                 <div class="dadosUsuario">
@@ -58,31 +66,34 @@
                         </div>
                         <div class="dadosText" id="content-email">
                             <p><strong>Email:</strong></p>
-                            <span id="email"><?= htmlspecialchars($user['email'] ?? "-"); ?></span>
+                            <span id="email"><?= htmlspecialchars($user['email'] ?? ""); ?></span>
                         </div>
                         <div class="dadosText" id="content-nasc">
                             <p><strong>Data de nascimento:</strong></p>
-                            <span><?= htmlspecialchars($user['data_nascimento'] ?? "-"); ?></span>
+                            <span id='nascSpan'><?= htmlspecialchars($user['data_nascimento'] ?? ""); ?></span>
                         </div>
                         <div class="dadosText" id="content-cpf">
                             <p><strong>CPF:</strong></p>
-                            <span><?= htmlspecialchars($user['cpf'] ?? "-"); ?></span>
+                            <span><?= htmlspecialchars($user['cpf'] ?? ""); ?></span>
                         </div>
                         <div class="dadosText" id="content-phone">
                             <p><strong>Telefone:</strong></p>
-                            <span><?= htmlspecialchars($user['telefone'] ?? "-"); ?></span>
+                            <span><?= htmlspecialchars($user['telefone'] ?? ""); ?></span>
                         </div>
                         <div class="dadosText" id="content-type">
                             <p><strong>Tipo de conta:</strong></p>
-                            <span><?= htmlspecialchars($user['tipo'] ?? "-"); ?></span>
+                            <span><?= htmlspecialchars($user['tipo'] ?? ""); ?></span>
                         </div>
                     </div>
                 </form>
-                    <div class="dadosAcoesContainer">
-                        <button class="delete-profile-button btn-red" onclick='abrirPopUp("popUpDeleteProfileConfirm")'>
+                <div class="dadosAcoesContainer">
+                    <form action="../../../router/UserRoutes.php?acao=delete" method="POST" id="formApagarConta">
+                    <input type="hidden" name="delete_id" value="<?= htmlspecialchars($user['id_usuario'] ?? ''); ?>">    
+                        <button class="delete-profile-button btn-red" type="button" onclick='abrirPopUp("popUpDeleteProfileConfirm")'>
                             <p id="edit-profile-text">Apagar conta</p>
                             <i class='bx bx-trash'></i>
                         </button>
+                    </form>    
 
                         <button class="edit-profile-button btn-black" id="botaoEdit">
                             <p id="edit-profile-text">Editar dados</p>
@@ -138,6 +149,14 @@
     </main>
 
     <script>
+        const nascSpan = document.getElementById("nascSpan");
+        const valor = nascSpan.textContent;
+
+        if (valor && valor.includes("-")) {
+            const [ano, mes, dia] = valor.split("-");
+            nascSpan.textContent = `${dia}/${mes}/${ano}`;
+        }
+
         const botaoEdit = document.getElementById("botaoEdit").addEventListener('click', function(){
             window.location.href = 'editarPerfil.php';
         });

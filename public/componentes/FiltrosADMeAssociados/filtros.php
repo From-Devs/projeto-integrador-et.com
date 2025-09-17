@@ -1,14 +1,19 @@
 ﻿<?php
 
+require_once __DIR__ . "/../../../app/Models/products.php";
+$products = new Products();
+
+$subCategorias = $products->getAllSubcategorias();
+
 function filtro($tipo = "", $opcoesSelect = []) {
     if ($tipo == "associado") {
         $html = '
         <div id="divPesquisarEFiltro">
             <div id="pesquisar">
-                <form action="" class="divTextInput">
+                <div class="divTextInput">
                     <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
                     <button><i class="bx bx-search lupaPesquisarInput"></i></button>
-                </form>
+                </div>
             </div>
             <div id="botoesAssociados">
                 <div id="Solicitações">
@@ -33,15 +38,15 @@ function filtro($tipo = "", $opcoesSelect = []) {
         $html = '
         <div id="divPesquisarEFiltro">
             <div id="pesquisar">
-                <form action="" class="divTextInput">
+                <div class="divTextInput">
                     <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
                     <button><i class="bx bx-search lupaPesquisarInput"></i></button>
-                </form>
+                </div>
             </div>
             <div id="botoesProdutos">
                 <div id="filtro">
                     <select id="botaoOrdenar">
-                        <option value="" selected disabled hidden>Filtro</option>';
+                        <option value="" selected disabled hidden>Ordenar</option>';
         
         foreach ($opcoesSelect as $opcao) {
             $html .= '<option value="' . htmlspecialchars($opcao) . '">' . htmlspecialchars($opcao) . '</option>';
@@ -64,14 +69,14 @@ function filtro($tipo = "", $opcoesSelect = []) {
         $html = '
         <div id="divPesquisarEFiltro">
             <div id="pesquisar">
-                <form action="" class="divTextInput">
+                <div class="divTextInput">
                     <input id="inputPesquisar" type="text" placeholder="Pesquisar Produto...">
                     <button><i class="bx bx-search lupaPesquisarInput"></i></button>
-                </form>
+                </div>
             </div>
             <div id="filtro">
                 <select id="botaoOrdenar">
-                    <option value="" selected disabled hidden>Filtro</option>';
+                    <option value="" selected disabled hidden>Ordenar</option>';
 
         foreach ($opcoesSelect as $opcao) {
             $html .= '<option value="' . htmlspecialchars($opcao) . '">' . htmlspecialchars($opcao) . '</option>';
@@ -86,6 +91,8 @@ function filtro($tipo = "", $opcoesSelect = []) {
     }
 }
     echo PopUpComImagemETitulo("popUpCadastro","popUp_Botoes/img-confirmar.png","120px","Cadastro realizado com sucesso!");
+    echo PopUpComImagemETitulo("popUpEdicao","popUp_Botoes/img-confirmar.png","120px","Edição realizada com sucesso!");
+    echo PopUpComImagemETitulo("popUpRemocao","popUp_Botoes/img-confirmar.png","120px","Produto removido com sucesso!");
     echo PopUpConfirmar("popUpErro", "Preencha todos os campos!");
 ?>
 
@@ -98,47 +105,53 @@ function filtro($tipo = "", $opcoesSelect = []) {
             <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
         </button>
     </div>
-    <form class="campos-cadastrar" action="http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto" method="post" enctype="multipart/form-data">
+    <form class="campos-cadastrar" enctype="multipart/form-data">
         <div>
             <div class="campo">
-                <label>Nome:</label>
+                <label>Nome: *</label>
                 <input type="text" name="nome">
             </div>
             <div class="campo">
-                <label>Marca:</label>
+                <label>Marca: *</label>
                 <input type="text" name="marca">
             </div>
             <div class="campo">
-                <label>Subcategoria:</label>
+                <label>Subcategoria: *</label>
                 <select id="ddlCategoria" name="subCategoria">
-                    <option value="teste">Pele</option>
-                    <option value="teste">Olhos</option>
-                    <option value="teste">Boca</option>
-                    <option value="teste">Sobrancelhas</option>
+                    <option value="" disabled selected>Selecione uma subcategoria</option>
+                    <?php
+                        foreach ($subCategorias as $sc) {
+                            ?>
+                            <option value="<?php echo htmlspecialchars($sc['id_subCategoria']); ?>">
+                                <?php echo htmlspecialchars($sc['nome']); ?>
+                            </option>
+                            <?php
+                        }
+                        ?>
                 </select>
             </div>
         </div>
         <div class="campo campo-large">
-            <label>Breve descrição:</label>
+            <label>Breve descrição: *</label>
             <textarea cols="30" rows="10" name="breveDescricao"></textarea>
         </div>
         <div class="divisao-esquerda">
             <div class="campos-esquerda">
-                <!-- <div class="campo campo-small">
-                    <label>Código do Produto:</label>
-                    <input type="text">
-                </div> -->
                 <div class="campo campo-small">
-                    <label>Quantidade no estoque:</label>
+                    <label>Quantidade no estoque: *</label>
                     <input type="number" name="qtdEstoque">
                 </div>
                 <div class="campo campo-small">
-                    <label>Preço:</label>
+                    <label>Preço: *</label>
                     <input type="number" step="0.01" name="preco">
                 </div>
                 <div class="campo campo-small">
-                    <label>Preço Promocional:</label>
+                    <label>Preço Promocional: *</label>
                     <input type="number" step="0.01" name="precoPromocional">
+                </div>
+                <div class="campo-small chkPromocao">
+                    <label>Em promoção:</label>
+                    <input type="checkbox" name="fgPromocao">
                 </div>
             </div>
             <div class="campos-direita">
@@ -192,26 +205,22 @@ function filtro($tipo = "", $opcoesSelect = []) {
                 <div class="cores-produto">
                     <div>
                         <input type="color" class="cor" name="corPrincipal">
-                        <span class="span-cor">Cor principal</span>
+                        <span class="span-cor">Cor principal *</span>
                     </div>
                     <div>
                         <input type="color" class="cor" name="deg1">
-                        <span class="span-cor">Deg. 1</span>
+                        <span class="span-cor">Deg. 1 *</span>
                     </div>
                     <div>
                         <input type="color" class="cor" name="deg2">
-                        <span class="span-cor">Deg. 2</span>
-                    </div>
-                    <div>
-                        <input type="color" class="cor" name="deg3">
-                        <span class="span-cor">Deg. 3</span>
+                        <span class="span-cor">Deg. 2 *</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container-campos-large">
             <div class="campo campo-large">
-                <label>Características Completa:</label>
+                <label>Características Completa: *</label>
                 <textarea cols="30" rows="10" name="caracteristicasCompleta"></textarea>
             </div>
             <div class="div-btn">

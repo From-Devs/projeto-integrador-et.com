@@ -3,24 +3,23 @@
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
+
+    session_start();
     
-    
-    // session_start();
-    // $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Cliente';
-    $tipoUsuario = $_SESSION['tipo_usuario'] ?? "Associado";
-    $login = false; // Estado de login do usuário (false = deslogado / true = logado)
+    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/Tornar_Associado.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/rodape/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/header/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebar/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/ondas/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/Tornar_Associado.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -41,7 +40,7 @@
             <div class="promo-contentEsquerda">
                 <div class="promoContentText">
                     <h2>Torne-se um(a) associado(a) ET!</h2>
-                    <p>Seja bem-vindo ao programa de marketing de associados da nossa empresa ETCOM. O Programa de Associados ETCOM ajuda vendedores, editores e blogueiros a monetizarem seus sites.</p>
+                    <p>Seja bem-vindo ao programa de associados da nossa empresa ET.COM No Programa de Associados ET.COM, você publica nossos produtos e recebe comissões!</p>
                 </div>
                 <div class="botoesContainer">
                     <?php
@@ -138,11 +137,11 @@
             </div>
         </div>
     </div>
+    <div class="commission-table">
+        <h2>Comissões</h2>
+        <p>A Partir de 7%</p>
+    </div>
     <section class="cards-section">
-        <div class="commission-table">
-            <h2>Comissões</h2>
-            <p>A Partir de 7%</p>
-        </div>
         <div class="cards-container">
             <div class="comissionCard" id="maquiagemCard">
                 <div class="comissionCardIdentifier">
@@ -200,7 +199,7 @@
             </div>
 
         </div>
-        <p class="comissionText">Seja bem-vindo ao programa de marketing de afiliados da nossa empresa ET.COM. O Programa de Associados ET.COM ajuda criadores de conteúdo, editores e blogueiros a monetizarem seus sites. Com milhões de produtos e diversos programas disponíveis no ET.COM, os associados podem usar ferramentas simples de criação de links para direcionar o público às suas recomendações e faturar com compras e programas qualificados.</p>
+        <p class="comissionText">Bem-vindo ao Programa de Associados ET.COM! Aqui você tem a oportunidade de vender nossos produtos e ganhar comissões exclusivas a cada venda realizada. É simples e rápido, você se associa, divulga e começa a lucrar junto com a gente.</p>
     </section>
 
     <!-- <div class="cardRedirectWrapper"> -->
@@ -208,7 +207,7 @@
             <img src="/projeto-integrador-et.com/public/imagens/ET/LogoPreta1.png" alt="" class="logoCardRedirect">
             <span></span>
             <div>
-                <h1>Recomende Produtos. Ganhe Rendas.</h1>
+                <h1>Recomende Produtos e Ganhe Comissões.</h1>
                 <?php
                 echo botaoPersonalizadoRedirect("Associar-se","btn-black","app/views/usuario/CadastroAssociado.php","270px","95px","30px")
                 ?>
