@@ -16,6 +16,16 @@ function filtro($tipo = "", $opcoesSelect = []) {
                 </div>
             </div>
             <div id="botoesAssociados">
+                <div id="filtro">
+                        <select id="botaoOrdenar">
+                            <option value="" selected disabled hidden>Ordenar</option>';
+            foreach ($opcoesSelect as $opcao) {
+                $html .= '<option value="' . htmlspecialchars($opcao) . '">' . htmlspecialchars($opcao) . '</option>';
+            }
+
+            $html .= '
+                        </select>
+                    </div>
                 <div id="Solicitações">
                     <a href="?tipo=solicitacao">
                         <button id="botaoSolicitacao">

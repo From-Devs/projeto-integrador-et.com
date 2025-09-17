@@ -22,10 +22,10 @@
                         <tbody>
                             <?php foreach ($listaAssociados as $associado): ?>
                                 <tr>
-                                    <td><?php echo $associado['id']; ?></td>
+                                    <td><?php echo $associado['id_usuario']; ?></td>
                                     <td><?php echo $associado['nome']; ?></td>
                                     <td><?php echo $associado['email']; ?></td>
-                                    <td><?php echo $associado['cidade']; ?></td>
+                                    <td><?= "{$associado['cidade']} - {$associado['estado']}" ?></td>
                                     <td><?php echo $associado['telefone']; ?></td>
                                     <!-- Adicione aqui botões ou ações se quiser -->
                                 </tr>
@@ -36,7 +36,7 @@
             </div>
             <?php
         }elseif($nome == 'solicitacao'){
-            echo PopUpConfirmar("popUpMotivo", "", null, null, null, "white", "red", "1.2rem");
+            echo PopUpConfirmar("popUpMotivo", "", null, null, "300px", "white", "red", "1.2rem");
             ?>
             <div id="lista">
             <table id="tabelaVendas">
@@ -72,10 +72,10 @@
                         echo PopUpComInput("popUpCancelar", "Deseja realmente NÃO VALIDAR esse associado?", "Motivo...", $btnSimCancelar, $btnNao);
                         ?> 
                         <tr>
-                            <td><?php echo $associado['id']?></td>
+                            <td><?php echo $associado['id_usuario']?></td>
                             <td><?php echo $associado['nome']?></td>
                             <td><?php echo $associado['email']?></td>
-                            <td><?php echo $associado['cidade']?></td>
+                            <td><?= "{$associado['cidade']} - {$associado['estado']}" ?></td>
                             <td>
                             <div class='verticalizacao'>
                                 <button class='validarButton' onclick="botaoClicado = this; abrirPopUp('popUpConfirmar')">
