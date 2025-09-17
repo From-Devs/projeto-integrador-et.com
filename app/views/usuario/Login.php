@@ -52,7 +52,7 @@
                     <input type="password" name="senha" class="input" id="senha" required>
                     <label for="senha">Senha</label>
                 </div>
-                <button id='esqueciSenha' onClick='abrirPopUp("popUpRecuperarSenha")'>Esqueceu a senha?</button>
+                <button type="button" id='esqueciSenha' onClick='abrirPopUp("popUpRecuperarSenha")'>Esqueceu a senha?</button>
             </form>
             <button id="botaoEntrar" type="submit" form="formContainer">Entrar</button>
             <div id="cadastro">

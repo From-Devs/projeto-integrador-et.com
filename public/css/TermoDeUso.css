@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+  
     font-family: "Montserrat", sans-serif;
 }
   
@@ -26,6 +26,7 @@
     padding: 30px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
+    box-sizing: border-box;
 }
 
 .termos-box h2 {

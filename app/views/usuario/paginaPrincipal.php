@@ -9,26 +9,25 @@
     require __DIR__ . "/../../../public/componentes/carousel/carousel.php";
     require __DIR__ . "/../../../public/componentes/popup/popUp.php";
     require_once __DIR__ . "../../../../public/componentes/pesquisaHeader/pesquisaHeader.php";
-
+ 
     // == ADIÇÃO: carregar produtos do banco ==
     require_once __DIR__ . "/../../../config/ProdutoController.php";
     $produtoController = new ProdutoController();
-    $resultadoProdutos = $produtoController->ListarProdutos();
+    $resultadoProdutos = $produtoController->listar();
     $produtos = $resultadoProdutos['produtos'] ?? [];
-
     session_start();
 
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
     $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
-
+ 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Et.com</title>
-    
+   
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/sliderProdutos.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/header/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
@@ -42,7 +41,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/carouselPopUp/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popup/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/paginaPrincipal.css">
-
+ 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
@@ -52,14 +51,14 @@
     <?php
     echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
-
+ 
     <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
-
+ 
     <div class="carouselContainer" id="carousel">
-        
+       
         <div class="carouselBackground" id="carouselBackground"></div>
         <div class="bubble-background" id="bubble-background"></div>
-        
+       
         <?php
         echo createHeader($login,$tipoUsuario,1);
         ?>
@@ -81,7 +80,7 @@
         </div>
     </div>
     <div class="degradeParaHeader"></div>
-
+ 
     <div class="linkCategorias">
         <a class="botaoCategoria botao1" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem">            
             <div class="containerIconeCategoria">
@@ -126,7 +125,7 @@
             <p class="tituloCategoria">Corporal</p>            
         </a>
     </div>
-
+ 
     <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Lançamentos</p>
@@ -152,12 +151,12 @@
             <i class="fa-solid fa-chevron-right setaSlider setaDireita" id="direita"></i>
         </div>
     </div>
-
+ 
     <?php
     // echo createProdutoDestaque("Hidratante Corporal Milk","Nivea",20,"milk.png","rgb(0, 0, 145)","rgb(75, 75, 226)","rgb(0, 0, 57)");
     echo createProdutoDestaque();
     ?>
-
+ 
     <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Ofertas Imperdíveis</p>
@@ -184,7 +183,7 @@
             <i class="fa-solid fa-chevron-right setaSlider setaDireita" id="direita"></i>
         </div>
     </div>
-
+ 
     <div class="sessaoProdutos">
         <div class="tituloSessao">
             <p class="titulo">Mais Vendidos</p>
@@ -211,11 +210,10 @@
             <i class="fa-solid fa-chevron-right setaSlider setaDireita" id="direita"></i>
         </div>
     </div>
-
     <?php
     echo createRodape();
     ?>
-
+ 
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/cardLancamento/script.js"></script>
