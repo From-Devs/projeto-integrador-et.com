@@ -1,7 +1,12 @@
 <?php require __DIR__."../../../../public/componentes/cadastassociado/InputsCadastrAssoc.php";
     require_once __DIR__."../../../../public/componentes/botao/botao.php";
     require_once __DIR__."../../../../public/componentes/popup/popUp.php"; 
-    require __DIR__."/../../../public/componentes/CampoInput/camp.php"
+    require __DIR__."/../../../public/componentes/CampoInput/camp.php";
+    require_once __DIR__ . "/../../../router/UserRoutes.php";
+    require_once __DIR__ . "/../../Controllers/UserController.php";
+
+    $controller = new UserController(); 
+    $user = $controller->getLoggedUser();
     
 ?>
 <!DOCTYPE html>
@@ -35,7 +40,7 @@
     </div>
     <div class="Cadastro">
         <!-- Área branca -->
-    <form class="formAssociado" action="" method="post" id="form">
+    <form class="formAssociado" action="" method="POST" id="form">
         <h1>Edite seus dados (Opicional)</h1>
         <div class= "p">
             <p class = "p1">*</p>
@@ -55,11 +60,11 @@
             <div class="dadosWrapper">
                 <div class="dados">
                     <!-- Área com todos os campos (pra mudar algum input, vai pra campos.php) -->
-                    <?php echo Camp("Nome Completo:") ?>
-                    <?php echo Camp("Email:") ?>
-                    <?php echo Camp("Data de Nascimento:","date") ?>
-                    <?php echo Camp("Telefone:") ?>
-                    <?php echo Camp("CPF:") ?>
+                    <?php echo Camp("Nome Completo:", "text", "nome", "campo", $user["nome"] ?? "") ?>
+                    <?php echo Camp("Email:", "email", "email", "campo", $user["email"] ?? "") ?>
+                    <?php echo Camp("Data de Nascimento:", "date", "data_nascimento", "campo", $user["data_nascimento"] ?? "") ?>
+                    <?php echo Camp("Telefone:", "text", "telefone", "campo", $user["telefone"] ?? "") ?>
+                    <?php echo Camp("CPF:", "text", "cpf", "campo", $user["cpf"] ?? "") ?>
                 </div>
             </div>
             
