@@ -1,137 +1,102 @@
 <?php
-require_once __DIR__ . "/../app/Controllers/ProdutoController.php";
-$produtoController = new ProdutoController();
+require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/CoresModel.php';
 
-function ValidaCampos() {
-    $camposObrigatorios = [
-        "nome", "marca", "breveDescricao", "qtdEstoque",
-        "preco", "precoPromocional", "caracteristicasCompleta",
-        "corPrincipal", "deg1", "deg2", "subCategoria"
-    ];
+class ProdutoModel {
+    protected PDO $conn;
+    protected string $table;
+    protected string $primaryKey;
 
-    foreach ($camposObrigatorios as $campo) {
-        if (!isset($_POST[$campo]) || trim($_POST[$campo]) === "") {
+    public function __construct(string $table = 'produto', string $primaryKey = 'id_produto') {
+        $db = new Database();
+        $this->conn = $db->Connect();
+        $this->table = $table;
+        $this->primaryKey = $primaryKey;
+    }
+
+    public function criarProduto(array $dados, array $files): bool {
+        try {
+            $this->conn->beginTransaction();
+
+            // 1. Criar cores
+            $stmtCores = $this->conn->prepare(
+                "INSERT INTO cores (corPrincipal, hexDegrade1, hexDegrade2)
+                 VALUES (:corPrincipal, :hex1, :hex2)"
+            );
+            $stmtCores->execute([
+                ':corPrincipal' => $dados['corPrincipal'],
+                ':hex1' => $dados['hex1'],
+                ':hex2' => $dados['hex2']
+            ]);
+            $idCores = $this->conn->lastInsertId();
+
+            // 2. Salvar imagens
+            $imagem1 = $this->salvarImagem('img1', $files) ?? 'uploads/default.jpg';
+            $imagem2 = $this->salvarImagem('img2', $files);
+            $imagem3 = $this->salvarImagem('img3', $files);
+
+            // 3. Inserir produto
+            $stmtProduto = $this->conn->prepare(
+                "INSERT INTO produto 
+                 (nome, marca, descricaoBreve, descricaoTotal, preco, precoPromo, qtdEstoque,
+                  img1, img2, img3, id_subCategoria, id_cores, id_associado, fgPromocao)
+                 VALUES
+                 (:nome, :marca, :descricaoBreve, :descricaoTotal, :preco, :precoPromo, :qtdEstoque,
+                  :img1, :img2, :img3, :id_subCategoria, :id_cores, :id_associado, :fgPromocao)"
+            );
+
+            $resposta = $stmtProduto->execute([
+                ':nome' => $dados['nome'],
+                ':marca' => $dados['marca'],
+                ':descricaoBreve' => $dados['descricaoBreve'],
+                ':descricaoTotal' => $dados['descricaoTotal'],
+                ':preco' => $dados['preco'],
+                ':precoPromo' => $dados['precoPromo'],
+                ':qtdEstoque' => $dados['qtdEstoque'],
+                ':img1' => $imagem1,
+                ':img2' => $imagem2,
+                ':img3' => $imagem3,
+                ':id_subCategoria' => $dados['id_subCategoria'],
+                ':id_cores' => $idCores,
+                ':id_associado' => $dados['id_associado'] ?? null,
+                ':fgPromocao' => $dados['fgPromocao']
+            ]);
+
+            if ($resposta) {
+                $this->conn->commit();
+                return true;
+            }
+
+            $this->conn->rollBack();
+            return false;
+
+        } catch (\Throwable $e) {
+            $this->conn->rollBack();
+            error_log("Erro ao criar produto: " . $e->getMessage());
             return false;
         }
     }
 
-    if (!is_numeric($_POST["qtdEstoque"]) || !is_numeric($_POST["preco"]) || !is_numeric($_POST["precoPromocional"])) {
-        return false;
+    private function salvarImagem(string $inputName, array $files, string $diretorio = 'public/uploads'): ?string {
+        if (!isset($files[$inputName]) || $files[$inputName]['error'] !== UPLOAD_ERR_OK) return null;
+        $arquivo = $files[$inputName];
+        $ext = strtolower(pathinfo($arquivo['name'], PATHINFO_EXTENSION));
+        if (!in_array($ext, ['jpg','jpeg','png','gif'])) return null;
+
+        $nomeArquivo = time() . '_' . bin2hex(random_bytes(5)) . '.' . $ext;
+        $caminhoDestino = __DIR__ . '/../../' . $diretorio . '/' . $nomeArquivo;
+        if (!is_dir(dirname($caminhoDestino))) mkdir(dirname($caminhoDestino), 0777, true);
+        if (!move_uploaded_file($arquivo['tmp_name'], $caminhoDestino)) return null;
+        return $diretorio . '/' . $nomeArquivo;
     }
 
-    $temImagem = 
-    (isset($_FILES["img1"]) && $_FILES["img1"]["size"] > 0) ||
-    (isset($_FILES["img2"]) && $_FILES["img2"]["size"] > 0) ||
-    (isset($_FILES["img3"]) && $_FILES["img3"]["size"] > 0);
-
-    if (!$temImagem) {
-        return false;
+    public function getAllSubCategorias(): array {
+        $stmt = $this->conn->query("SELECT * FROM subcategoria");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    return true;
-}
-
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    switch ($_GET["acao"]) {
-        case 'CadastrarProduto':
-            $fgPromocao = isset($_POST["fgPromocao"]) ? 1 : 0;
-
-            if(ValidaCampos()){
-                $resultado = $produtoController->cadastrarProduto(
-                    $_POST["nome"],
-                    $_POST["marca"],
-                    $_POST["breveDescricao"],
-                    $_POST["preco"],
-                    $_POST["precoPromocional"],
-                    $fgPromocao,
-                    $_POST["caracteristicasCompleta"],
-                    $_POST["qtdEstoque"],
-                    $_POST["corPrincipal"],
-                    $_POST["deg1"],
-                    $_POST["deg2"]
-                );
-
-            if ($resultado) {
-                echo json_encode([
-                    "sucesso" => true,
-                    "mensagem" => "Produto cadastrado com sucesso"
-                ]);
-            } else {
-                echo json_encode([
-                    "sucesso" => false,
-                    "mensagem" => "Erro ao cadastrar produto"
-                ]);
-            }
-        
-            } else {
-                echo json_encode([
-                    "sucesso" => false,
-                    "mensagem" => "Campos inválidos ou imagens não enviadas"
-                ]);
-            }
-            break;
-
-        case 'EditarProduto':
-            $fgPromocao = isset($_POST["fgPromocao"]) ? 1 : 0;
-
-            $resultado = $produtoController->EditarProduto(
-                $_POST["id_produto"],
-                $_POST["nome"],
-                $_POST["marca"],
-                $_POST["breveDescricao"],
-                $_POST["preco"],
-                $_POST["precoPromocional"],
-                $fgPromocao,
-                $_POST["caracteristicasCompleta"],
-                $_POST["qtdEstoque"],
-                $_POST["corPrincipal"],
-                $_POST["deg1"],
-                $_POST["deg2"]
-            );
-
-            if($resultado){
-                header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=EditarProduto");
-            }else{
-                header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=EditarProduto");
-            }
-            
-            break;
-
-        case 'RemoverProduto':
-            $resultado = $produtoController->RemoverProduto($_POST["id"]);
-
-            if($resultado){
-                header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=RemoverProduto");
-            }else{
-                header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=RemoverProduto");
-            }
-
-            break;
-        default:
-            echo "Nao encontrei nada";
-            break;
-    }
-}else{
-    switch ($_GET["acao"]) {
-        case 'BuscarProduto':
-            if (isset($_GET['id'])) {
-                $res = $produtoController->buscarProdutoPeloId($_GET['id']);
-                header('Content-Type: application/json');
-                echo json_encode($res);
-            } else {
-                echo json_encode(['erro' => 'ID do produto não informado']);
-            }
-            break;
-
-        case 'ListarSubCategorias':
-            header('Content-Type: application/json; charset=utf-8');
-            $res = $produtoController->capturarSubCategorias();
-            echo json_encode($res);
-            exit;
-            break;
-        default:
-            echo "Nao encontrei nada";
-            break;
+    public function getAllCategorias(): array {
+        $stmt = $this->conn->query("SELECT * FROM categoria");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
