@@ -95,7 +95,7 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
                 );
             }
 
-            $resultado = paginar($produtosListaDesejos, 16);
+            $resultado = paginar($produtosListaDesejos, 10);
             foreach ($resultado['dados'] as $produtos){
                 echo $produtos;
             }
@@ -106,7 +106,7 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
     </div>     
 </div>
 
-<div class="paginação" style="width: 100%; justify-items: center;">
+<div class="paginacao" style="width: 100%; justify-items: center;">
     <?php if (!empty($favoritos)) renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']); ?>
 </div>
 
