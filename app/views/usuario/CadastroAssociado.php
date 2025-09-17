@@ -60,11 +60,11 @@
             <div class="dadosWrapper">
                 <div class="dados">
                     <!-- Área com todos os campos (pra mudar algum input, vai pra campos.php) -->
-                    <?php echo Camp("Nome Completo:", "text", "nome", "campo", $user["nome"]) ?>
-                    <?php echo Camp("Email:", "email", "email", "campo", $user["email"]) ?>
-                    <?php echo Camp("Data de Nascimento:", "date", "data_nascimento", "campo", $user["data_nascimento"]) ?>
-                    <?php echo Camp("Telefone:", "text", "telefone", "campo", $user["telefone"]) ?>
-                    <?php echo Camp("CPF:", "text", "cpf", "campo", $user["cpf"]) ?>
+                    <?php echo Camp("Nome Completo:", "text", "nome", "campo", $user["nome"] ?? "") ?>
+                    <?php echo Camp("Email:", "email", "email", "campo", $user["email"] ?? "") ?>
+                    <?php echo Camp("Data de Nascimento:", "date", "data_nascimento", "campo", $user["data_nascimento"] ?? "") ?>
+                    <?php echo Camp("Telefone:", "text", "telefone", "campo", $user["telefone"] ?? "") ?>
+                    <?php echo Camp("CPF:", "text", "cpf", "campo", $user["cpf"] ?? "") ?>
                 </div>
             </div>
             
