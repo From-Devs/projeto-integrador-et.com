@@ -220,16 +220,12 @@ $imgPrincipal = $img1;
     
     
     <!-- Parte modificada: Adicionei um formulário para que o clique no botão de coração envie os dados. -->
-    <form action="/projeto-integrador-et.com/config/produtoRouter.php" method="POST">
-        <!-- Este campo esconde o ID do produto, mas o envia junto com o formulário. -->
-        <input type="hidden" name="id_produto" value="<?php echo htmlspecialchars($id); ?>">
-        <!-- Este campo informa ao router que a ação é para "favorito". -->
-        <input type="hidden" name="acao" value="favorito">
-        <!-- O botão agora submete o formulário, enviando os dados. -->
-        <button type="submit" class="botao-fav">
-            <i class='fa-solid fa-heart coracaoDetalhes'></i>
-        </button>
-    </form>
+                            <form method="POST" action="/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito">
+                                <input type="hidden" name="id_usuario" value="<?= $_SESSION['id_usuario'] ?>">
+                                <input type="hidden" name="id_produto" value="<?= $produto['id_produto'] ?>">
+                                <button type="submit">Adicionar aos Favoritos</button>
+                            </form>
+
 
                         </div>
                     </div>
