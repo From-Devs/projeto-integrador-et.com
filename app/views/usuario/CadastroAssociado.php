@@ -2,7 +2,7 @@
     require_once __DIR__."../../../../public/componentes/botao/botao.php";
     require_once __DIR__."../../../../public/componentes/popup/popUp.php"; 
     require __DIR__."/../../../public/componentes/CampoInput/camp.php";
-    require_once __DIR__ . "/../../../router/UserRoutes.php";
+    require_once __DIR__ . "/../../../router/assocRouter.php";
     require_once __DIR__ . "/../../Controllers/UserController.php";
 
     $controller = new UserController(); 
@@ -40,7 +40,7 @@
     </div>
     <div class="Cadastro">
         <!-- Área branca -->
-    <form class="formAssociado" action="" method="POST" id="form">
+    <form class="formAssociado" action="../../../router/assocRouter.php?acao=assoc_request" method="POST" id="form">
         <h1>Edite seus dados (Opicional)</h1>
         <div class= "p">
             <p class = "p1">*</p>
@@ -90,7 +90,7 @@
                     <label class="termos" for="termos"> Concordo com os <a href="./TermoDeUso.php">Termos de Uso e Privacidade</a></label>
                 </div>
                 
-                <button class="botaoConfirmar" type="button" onclick="abrirPopUp('popup')"><b>Confirmar</b></button>
+                <button class="botaoConfirmar" type="submit" onclick="return abrirPopUp('popup')"><b>Confirmar</b></button>
             </div>
         </div>
     </form>
@@ -102,5 +102,12 @@
     ?>
     <script src="../../../public/componentes/popup/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/editarDados.js"></script>
+    <?php if (isset($_GET['sucesso']) && $_GET['sucesso'] === 'send_request'): ?>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                abrirPopUp('popup');
+            });
+        </script>
+    <?php endif; ?>
 </body>
 </html>
