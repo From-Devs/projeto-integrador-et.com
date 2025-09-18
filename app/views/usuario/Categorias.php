@@ -25,7 +25,7 @@
             "Tipos" => ["Dia-A-Dia", "Tratamentos", "Estilização", "Especiais", "Acessórios"],
         ],
         "Eletronicos" => [
-            "Acessórios" => ["Cabelos", "Pincel", "Esponja"],
+            "Tipos" => ["Cabelos", "Pincel", "Esponja"],
         ],
         "Corporal" => [
             "Produtos" => ["Body Splash", "Óleos", "Creme", "Protetor"],
@@ -37,7 +37,7 @@
             "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemFundo.png",
             "olhos"        => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemOlhos.png",
             "sombrancelhas" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemSombrancelhas.png",
-            "lábios"       => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemBoca.png",
+            "boca"       => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemBoca.png",
             "pele"         => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemPele.png"
         ],
         "perfume" => [
@@ -48,39 +48,39 @@
         ],
         "skincare" => [
             "default"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareFundo.png",
-            "limpeza"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareRosto.png",   
-            "esfoliação"=> "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareCorpo.png",   
-            "hidratação"=> "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareKit.png",     
-            "máscara"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareRosto.png",
-            "protetor"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareCorpo.png",
-            "especiais" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareKit.png"
+            "limpeza"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareLimpeza.png",   
+            "esfoliação"=> "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareEsfoliacao.png",   
+            "hidratação"=> "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareHidratacao.png",     
+            "mascara"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareMascara.png",
+            "protetorsolar"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareProtetorSolar.png",
+            "especiais" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareEspeciais.png"
         ],
         "cabelo" => [
             "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloFundo.png",
-            "dia-a-dia"    => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloShampoo.png",
-            "tratamentos"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloTratamento.png",
-            "estilização"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloCondicionador.png",
-            "especiais"    => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloTratamento.png",
-            "acessórios"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloCondicionador.png"
+            "dia-a-dia"    => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloDiaADia.png",
+            "tratamentos"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloTratamentos.png",
+            "estilização"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloEstilizacao.png",
+            "especiais"    => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloEspeciais.png",
+            "acessorios"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloAcessorios.png"
         ],
         "eletronicos" => [
             "default"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosFundo.png",
-            "cabelos"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosSecador.png",
-            "pincel"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosChapinha.png",
-            "esponja"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosBarbeador.png"
+            "cabelo"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosCabelos.png",
+            "pincel"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosPincel.png",
+            "esponja"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosEsponja.png"
         ],
         "corporal" => [
             "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalFundo.png",
-            "body splash"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalHidratante.png",
-            "óleos"        => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalOleo.png",
-            "creme"        => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalHidratante.png",
-            "protetor"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalEsfoliante.png"
+            "bodysplash"  => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalBodySplash.png",
+            "oleos"        => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalOleos.png",
+            "cremes"        => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalCreme.png",
+            "protetores"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalProtetor.png"
         ],
         "ofertas" => [
-            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalFundo.png"
+            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/OfertasFundo.png"
         ],
         "mais_vendidos" => [
-            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalFundo.png"
+            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaisVendidosFundo.png"
         ]
     ];
 
