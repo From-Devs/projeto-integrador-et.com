@@ -209,27 +209,52 @@ class ProdutoController {
     }
 
     public function adicionarAoCarrinho($idUsuario, $idProduto, $qtd = 1) {
-        $idProduto = (int)$idProduto;
         $idUsuario = (int)$idUsuario;
-
-        if (!$this->BuscarProdutoPorId($idProduto)) {
-            return ['ok' => false, 'msg' => 'Produto não encontrado'];
+    
+        if (!$idUsuario) {
+            return ['ok' => false, 'msg' => 'ID do usuário inválido'];
         }
-
-        $sel = $this->conn->prepare("SELECT id_carrinho, quantidade FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
-        $sel->execute([':u' => $idUsuario, ':p' => $idProduto]);
-        $row = $sel->fetch(PDO::FETCH_ASSOC);
-
-        if ($row) {
-            $novaQtd = (int)$row['quantidade'] + (int)$qtd;
-            $upd = $this->conn->prepare("UPDATE carrinho SET quantidade = :q WHERE id_carrinho = :id");
-            $upd->execute([':q' => $novaQtd, ':id' => (int)$row['id_carrinho']]);
+    
+        if (is_array($idProduto)) {
+            $idProduto = array_map('intval', $idProduto);
+            foreach ($idProduto as $p) {
+                if (!$this->BuscarProdutoPorId($p)) continue;
+    
+                // Verifica se já está no carrinho
+                $sel = $this->conn->prepare("SELECT id_carrinho, quantidade FROM carrinho WHERE id_usuario = ? AND id_produto = ?");
+                $sel->execute([$idUsuario, $p]);
+                $row = $sel->fetch(PDO::FETCH_ASSOC);
+    
+                if ($row) {
+                    $novaQtd = (int)$row['quantidade'] + (int)$qtd;
+                    $upd = $this->conn->prepare("UPDATE carrinho SET quantidade = ? WHERE id_carrinho = ?");
+                    $upd->execute([$novaQtd, (int)$row['id_carrinho']]);
+                } else {
+                    $ins = $this->conn->prepare("INSERT INTO carrinho (id_usuario, id_produto, quantidade, data_adicionado) VALUES (?, ?, ?, NOW())");
+                    $ins->execute([$idUsuario, $p, (int)$qtd]);
+                }
+            }
         } else {
-            $ins = $this->conn->prepare("INSERT INTO carrinho (id_usuario, id_produto, quantidade, data_adicionado) VALUES (:u, :p, :q, NOW())");
-            $ins->execute([':u' => $idUsuario, ':p' => $idProduto, ':q' => (int)$qtd]);
+            $idProduto = (int)$idProduto;
+            if (!$this->BuscarProdutoPorId($idProduto)) {
+                return ['ok' => false, 'msg' => 'Produto não encontrado'];
+            }
+    
+            $sel = $this->conn->prepare("SELECT id_carrinho, quantidade FROM carrinho WHERE id_usuario = ? AND id_produto = ?");
+            $sel->execute([$idUsuario, $idProduto]);
+            $row = $sel->fetch(PDO::FETCH_ASSOC);
+    
+            if ($row) {
+                $novaQtd = (int)$row['quantidade'] + (int)$qtd;
+                $upd = $this->conn->prepare("UPDATE carrinho SET quantidade = ? WHERE id_carrinho = ?");
+                $upd->execute([$novaQtd, (int)$row['id_carrinho']]);
+            } else {
+                $ins = $this->conn->prepare("INSERT INTO carrinho (id_usuario, id_produto, quantidade, data_adicionado) VALUES (?, ?, ?, NOW())");
+                $ins->execute([$idUsuario, $idProduto, (int)$qtd]);
+            }
         }
-
-        return ['ok' => true];
+    
+        return ['ok' => true, 'msg' => 'Produto(s) adicionado(s) ao carrinho'];
     }
 
     public function atualizarQuantidade($idUsuario, $idProduto, $qtd) {
