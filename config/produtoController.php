@@ -74,9 +74,15 @@ class ProdutoController {
     }
 
     public function BuscarProdutoPorId($id) {
+        $id = (int)$id;
+        if ($id <= 0) return null;
+    
         try {
             $sql = "
-                SELECT p.*, s.nome AS subcategoria, c.corPrincipal, c.hexDegrade1, c.hexDegrade2
+                SELECT 
+                    p.*, 
+                    s.nome AS subcategoria, 
+                    c.corPrincipal, c.hexDegrade1, c.hexDegrade2
                 FROM produto p
                 LEFT JOIN subcategoria s ON p.id_subCategoria = s.id_subCategoria
                 LEFT JOIN cores c ON p.id_cores = c.id_cores
@@ -84,14 +90,15 @@ class ProdutoController {
                 LIMIT 1
             ";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+            $stmt->bindValue(":id", $id, PDO::PARAM_INT);
             $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
+            $produto = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $produto ?: null;
         } catch (PDOException $e) {
             return null;
         }
     }
-
+    
     // =======================
     // === Favoritos =========
     // =======================
@@ -121,41 +128,59 @@ class ProdutoController {
     }
 
     public function adicionarFavorito($idUsuario, $idProduto) {
-        if (is_array($idProduto)) {
-            $result = ['ok' => true, 'adicionados' => 0];
-            foreach ($idProduto as $prod) {
-                $res = $this->adicionarFavorito($idUsuario, $prod);
-                if ($res['ok']) $result['adicionados']++;
-            }
-            return $result;
+        $idProduto = (int)$idProduto;
+        $idUsuario = (int)$idUsuario;
+
+        if ($idProduto <= 0 || $idUsuario <= 0) {
+            return ['ok' => false, 'msg' => 'IDs inválidos'];
+        }
+
+        if (!$this->BuscarProdutoPorId($idProduto)) {
+            return ['ok' => false, 'msg' => 'Produto não encontrado'];
         }
 
         $sel = $this->conn->prepare("SELECT id_listaDesejos FROM listadesejos WHERE id_usuario = :u AND id_produto = :p");
-        $sel->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
+        $sel->execute([':u' => $idUsuario, ':p' => $idProduto]);
         if ($sel->fetch()) {
             return ['ok' => false, 'msg' => 'Produto já está na lista de desejos'];
         }
 
         $ins = $this->conn->prepare("
-            INSERT INTO listadesejos (dataAdd, id_usuario, id_produto) 
-            VALUES (NOW(), :u, :p)
+            INSERT INTO listadesejos (dataAdd, id_usuario, id_produto)
+            VALUES (CURDATE(), :u, :p)
         ");
-        $ins->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
-        return ['ok' => true];
+        $ok = $ins->execute([':u' => $idUsuario, ':p' => $idProduto]);
+
+        return ['ok' => $ok];
     }
 
     public function removerFavorito($idUsuario, $idProduto) {
-        if (is_array($idProduto)) {
-            foreach ($idProduto as $prod) {
-                $del = $this->conn->prepare("DELETE FROM listadesejos WHERE id_usuario = :u AND id_produto = :p");
-                $del->execute([':u' => (int)$idUsuario, ':p' => (int)$prod]);
-            }
-            return ['ok' => true];
+        $idUsuario = (int)$idUsuario;
+    
+        if (!$idUsuario) {
+            return ['ok' => false, 'msg' => 'ID do usuário inválido'];
         }
-
-        $del = $this->conn->prepare("DELETE FROM listadesejos WHERE id_usuario = :u AND id_produto = :p");
-        $del->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
-        return ['ok' => true];
+    
+        if (is_array($idProduto)) {
+            $idProduto = array_map('intval', $idProduto);
+            if (empty($idProduto)) {
+                return ['ok' => false, 'msg' => 'Nenhum produto selecionado'];
+            }
+            $placeholders = implode(',', array_fill(0, count($idProduto), '?'));
+            $sql = "DELETE FROM listadesejos WHERE id_usuario = ? AND id_produto IN ($placeholders)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(array_merge([$idUsuario], $idProduto));
+        } else {
+            $idProduto = (int)$idProduto;
+            if ($idProduto <= 0) {
+                return ['ok' => false, 'msg' => 'ID do produto inválido'];
+            }
+            $sql = "DELETE FROM listadesejos WHERE id_usuario = ? AND id_produto = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$idUsuario, $idProduto]);
+        }
+    
+        return ['ok' => true, 'msg' => 'Produto(s) removido(s) da lista de desejos'];
     }
 
     // =======================
@@ -184,17 +209,15 @@ class ProdutoController {
     }
 
     public function adicionarAoCarrinho($idUsuario, $idProduto, $qtd = 1) {
-        if (is_array($idProduto)) {
-            $result = ['ok' => true, 'adicionados' => 0];
-            foreach ($idProduto as $prod) {
-                $res = $this->adicionarAoCarrinho($idUsuario, $prod, $qtd);
-                if ($res['ok']) $result['adicionados']++;
-            }
-            return $result;
+        $idProduto = (int)$idProduto;
+        $idUsuario = (int)$idUsuario;
+
+        if (!$this->BuscarProdutoPorId($idProduto)) {
+            return ['ok' => false, 'msg' => 'Produto não encontrado'];
         }
 
         $sel = $this->conn->prepare("SELECT id_carrinho, quantidade FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
-        $sel->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
+        $sel->execute([':u' => $idUsuario, ':p' => $idProduto]);
         $row = $sel->fetch(PDO::FETCH_ASSOC);
 
         if ($row) {
@@ -202,11 +225,8 @@ class ProdutoController {
             $upd = $this->conn->prepare("UPDATE carrinho SET quantidade = :q WHERE id_carrinho = :id");
             $upd->execute([':q' => $novaQtd, ':id' => (int)$row['id_carrinho']]);
         } else {
-            $ins = $this->conn->prepare("
-                INSERT INTO carrinho (id_usuario, id_produto, quantidade, data_adicionado) 
-                VALUES (:u, :p, :q, NOW())
-            ");
-            $ins->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto, ':q' => (int)$qtd]);
+            $ins = $this->conn->prepare("INSERT INTO carrinho (id_usuario, id_produto, quantidade, data_adicionado) VALUES (:u, :p, :q, NOW())");
+            $ins->execute([':u' => $idUsuario, ':p' => $idProduto, ':q' => (int)$qtd]);
         }
 
         return ['ok' => true];
@@ -224,14 +244,6 @@ class ProdutoController {
     }
 
     public function removerDoCarrinho($idUsuario, $idProduto) {
-        if (is_array($idProduto)) {
-            foreach ($idProduto as $prod) {
-                $del = $this->conn->prepare("DELETE FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
-                $del->execute([':u' => (int)$idUsuario, ':p' => (int)$prod]);
-            }
-            return ['ok' => true];
-        }
-
         $del = $this->conn->prepare("DELETE FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
         $del->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
         return ['ok' => true];
