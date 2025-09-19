@@ -14,7 +14,7 @@ $testeConexao = $userController->teste();
 
 $acao = $_GET["acao"] ?? '';
 
-if (!in_array($acao, ['', 'create', 'update', 'delete', 'getUser', 'login', 'update_password', 'save_adress', 'logout'])) {
+if (!in_array($acao, ['', 'create', 'update', 'delete', 'getUser', 'login', 'update_password', 'save_adress', 'logout', 'assoc_request'])) {
     header("Location: ../app/views/usuario/TelaErro.php");
     exit();
 }
@@ -191,6 +191,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             break;
 
         }
+
+        case "assoc_request":
+            if (isset($_SESSION['id_usuario'])) {
+                $id = $_SESSION['id_usuario'];
+                $userOld = $userController->getUserById($id);
+
+                $postData = [
+                    'nome'            => $_POST['nome'] ?? '',
+                    'email'           => $_POST['email'] ?? '',
+                    'telefone'        => $_POST['telefone'] ?? '',
+                    'cpf'             => $_POST['cpf'] ?? '',
+                    'data_nascimento' => $_POST['data_nascimento'] ?? '',
+                    'foto'            => $userOld['foto'] ?? null,
+                    'sobreProdutos'   => $_POST['sobreProdutos'] ?? ''
+                ];
+
+                if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
+                    $postData['foto'] = $userController->saveAvatar($_FILES['avatar']);
+                }
+
+                $responseUpdate = $UserController->assocRequest($id, $postData);
+
+                header("Location: ../app/views/usuario/Tornar_Associado.php?sucesso=send_request");
+                exit;
+            }
+            break;
 
 
     }

@@ -2,7 +2,7 @@
     require_once __DIR__."../../../../public/componentes/botao/botao.php";
     require_once __DIR__."../../../../public/componentes/popup/popUp.php"; 
     require __DIR__."/../../../public/componentes/CampoInput/camp.php";
-    require_once __DIR__ . "/../../../router/assocRouter.php";
+    require_once __DIR__ . "/../../../router/UserRoutes.php";
     require_once __DIR__ . "/../../Controllers/UserController.php";
 
     $controller = new UserController(); 
@@ -40,7 +40,7 @@
     </div>
     <div class="Cadastro">
         <!-- Área branca -->
-    <form class="formAssociado" action="../../../router/assocRouter.php?acao=assoc_request" method="POST" id="form">
+    <form class="formAssociado" action="../../../router/UserRoutes.php?acao=assoc_request" method="POST" id="form">
         <h1>Edite seus dados (Opicional)</h1>
         <div class= "p">
             <p class = "p1">*</p>
