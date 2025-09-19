@@ -190,8 +190,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
             break;
 
-        }
-
         case "assoc_request":
             if (isset($_SESSION['id_usuario'])) {
                 $id = $_SESSION['id_usuario'];
@@ -211,15 +209,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $postData['foto'] = $userController->saveAvatar($_FILES['avatar']);
                 }
 
-                $responseUpdate = $UserController->assocRequest($id, $postData);
+                $responseUpdate = $userController->assocRequest($id, $postData);
 
                 header("Location: ../app/views/usuario/Tornar_Associado.php?sucesso=send_request");
                 exit;
             }
             break;
+        
+}
 
-
-    }
+}
 
 
 if ($acao === 'getUser') {
