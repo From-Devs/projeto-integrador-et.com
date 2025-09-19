@@ -12,56 +12,28 @@
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
 
     $categoriasPorTela = [ 
-        "Maquiagem" => [
-            "Tipos" => ["Olhos", "Sombrancelhas","Boca","Pele"],
-        ],
-        "Perfume" => [
-            "Gênero" => ["Feminino", "Masculino", "Unissex"],
-        ],
-        "SkinCare" => [
-            "Tipos" => ["Limpeza", "Esfoliação", "Hidratação", "Máscara", "Protetor Solar", "Especiais"],
-        ],
-        "Cabelos" => [
-            "Tipos" => ["Dia-A-Dia", "Tratamentos", "Estilização", "Especiais", "Acessórios"],
-        ],
-        "Eletronicos" => [
-            "Tipos" => ["Cabelos", "Pincel", "Esponja"],
-        ],
-        "Corporal" => [
-            "Produtos" => ["Body Splash", "Óleos", "Creme", "Protetor"],
-        ],
+        "Maquiagem" => ["Tipos" => ["Olhos", "Sombrancelhas","Boca","Pele"]],
+        "Perfume"   => ["Gênero" => ["Feminino", "Masculino", "Unissex"]],
+        "SkinCare"  => ["Tipos" => ["Limpeza", "Esfoliação", "Hidratação", "Máscara", "Protetor Solar", "Especiais"]],
+        "Cabelos"   => ["Tipos" => ["Dia-A-Dia", "Tratamentos", "Estilização", "Especiais", "Acessórios"]],
+        "Eletronicos" => ["Tipos" => ["Cabelos", "Pincel", "Esponja"]],
+        "Corporal"  => ["Produtos" => ["Body Splash", "Óleos", "Creme", "Protetor"]],
     ];
-
+    
     $fundos = [
-        "maquiagem" => [
-            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemFundo.png",
-        ],
-        "perfume" => [
-            "default"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/PerfumeFundo.png",
-        ],
-        "skincare" => [
-            "default"   => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareFundo.png",
-        ],
-        "cabelo" => [
-            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloFundo.png",
-        ],
-        "eletronicos" => [
-            "default"     => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosFundo.png",
-        ],
-        "corporal" => [
-            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalFundo.png",
-        ],
-        "ofertas" => [
-            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/OfertasFundo.png"
-        ],
-        "mais_vendidos" => [
-            "default"      => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaisVendidosFundo.png"
-        ]
+        "maquiagem" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemFundo.png"],
+        "perfume"   => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/PerfumeFundo.png"],
+        "skincare"  => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareFundo.png"],
+        "cabelo"   => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloFundo.png"], 
+        "eletronicos" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosFundo.png"],
+        "corporal"  => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalFundo.png"],
+        "ofertas"   => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/OfertasFundo.png"],
+        "mais_vendidos" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaisVendidosFundo.png"],
     ];
-
+    
     $slugCategoria = $_GET['tela'] ?? "maquiagem"; 
     $slugSub       = $_GET['sub'] ?? "default";    
-
+    
     function renderSomenteSubcategoriasDB($id_categoria) {
         require_once __DIR__ . "/../../Models/categoria.php";
         $subcategorias = CategoriaModel::getSubcategorias($id_categoria);
@@ -83,17 +55,10 @@
             ';
         }
     }
-
+    
     $telaAtual = str_replace("_"," ", ucfirst($slugCategoria));
     $subAtual  = $slugSub !== "default" ? ucfirst($slugSub) : "";
-
-    if (isset($fundos[$slugCategoria][$slugSub])) {
-        $fundoAtual = $fundos[$slugCategoria][$slugSub];
-    } else {
-        $fundoAtual = $fundos[$slugCategoria]["default"];
-    }
-
-    session_start();
+    $fundoAtual = $fundos[$slugCategoria][$slugSub] ?? $fundos[$slugCategoria]["default"];
     
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
     $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
