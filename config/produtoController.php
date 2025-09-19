@@ -1,183 +1,284 @@
 <?php
-require_once __DIR__ . "/database.php";
+// app/controllers/produtoController.php
+require_once __DIR__ . '/../config/database.php';
 
 class ProdutoController {
-    private $conn;
+    private PDO $conn;
 
     public function __construct() {
-        $database = new Database();
-        $this->conn = $database->Connect();
+        $db = new Database();
+        $this->conn = $db->connect();
     }
 
-    /**
-     * Lista todos os produtos do banco de dados.
-     * @return array Um array contendo o status e os produtos encontrados.
-     */
-    public function ListarProdutos() {
-        try {
-            $sql = "
-                SELECT p.id_produto, p.nome, p.marca, p.descricaoBreve, p.descricaoTotal,
-                       p.preco, p.precoPromo, p.imagem,
-                       c.corPrincipal, c.hexDegrade1, c.hexDegrade2, c.hexDegrade3
-                FROM produto p
-                LEFT JOIN cores c ON p.id_cores = c.id_cores
-                ORDER BY p.id_produto DESC
-            ";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute();
-            $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // =======================
+    // === Produtos ==========
+    // =======================
+    public function listar($page = 1, $limit = 12, $q = null, $sub = null) {
+        $offset = max(0, ($page - 1) * $limit);
+        $where = [];
+        $params = [];
 
-            return ["status" => "success", "produtos" => $produtos];
-
-        } catch (PDOException $e) {
-            return ["status" => "error", "mensagem" => "Erro ao listar produtos: " . $e->getMessage()];
+        if (!empty($q)) {
+            $where[] = "(p.nome LIKE :q OR p.marca LIKE :q OR p.descricaoBreve LIKE :q)";
+            $params[':q'] = "%{$q}%";
         }
+        if (!empty($sub)) {
+            $where[] = "p.id_subCategoria = :sub";
+            $params[':sub'] = (int)$sub;
+        }
+
+        $whereSql = $where ? "WHERE " . implode(" AND ", $where) : "";
+
+        $sql = "
+            SELECT 
+                p.id_produto, p.nome, p.marca, p.descricaoBreve, p.preco, p.precoPromo,
+                p.qtdEstoque, p.img1, p.img2, p.img3,
+                s.nome AS subcategoria, c.corPrincipal, c.hexDegrade1, c.hexDegrade2
+            FROM produto p
+            LEFT JOIN subcategoria s ON s.id_subCategoria = p.id_subCategoria
+            LEFT JOIN cores c ON c.id_cores = p.id_cores
+            $whereSql
+            ORDER BY p.id_produto DESC
+            LIMIT :limit OFFSET :offset
+        ";
+        $stmt = $this->conn->prepare($sql);
+        foreach ($params as $k => $v) $stmt->bindValue($k, $v);
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+        $stmt->execute();
+        $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $countSql = "SELECT COUNT(*) AS total FROM produto p " . $whereSql;
+        $stmt2 = $this->conn->prepare($countSql);
+        foreach ($params as $k => $v) $stmt2->bindValue($k, $v);
+        $stmt2->execute();
+        $total = (int)$stmt2->fetchColumn();
+
+        return ['items' => $items, 'total' => $total, 'page' => (int)$page, 'limit' => (int)$limit];
     }
 
-    /**
-     * Busca um produto por seu ID.
-     * @param int $id O ID do produto a ser buscado.
-     * @return array|null O produto encontrado ou null se não for encontrado.
-     */
+    public function detalhes($id) {
+        $sql = "
+            SELECT 
+                p.*, s.nome AS subcategoria, c.corPrincipal, c.hexDegrade1, c.hexDegrade2
+            FROM produto p
+            LEFT JOIN subcategoria s ON s.id_subCategoria = p.id_subCategoria
+            LEFT JOIN cores c ON c.id_cores = p.id_cores
+            WHERE p.id_produto = :id
+            LIMIT 1
+        ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(':id', (int)$id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function BuscarProdutoPorId($id) {
         try {
             $sql = "
-                SELECT p.id_produto, p.nome, p.marca, p.descricaoBreve, p.descricaoTotal,
-                       p.preco, p.precoPromo, p.imagem,
-                       c.corPrincipal, c.hexDegrade1, c.hexDegrade2, c.hexDegrade3,
-                       s.nome AS subcategoria
+                SELECT p.*, s.nome AS subcategoria, c.corPrincipal, c.hexDegrade1, c.hexDegrade2
                 FROM produto p
-                LEFT JOIN cores c ON p.id_cores = c.id_cores
                 LEFT JOIN subcategoria s ON p.id_subCategoria = s.id_subCategoria
+                LEFT JOIN cores c ON p.id_cores = c.id_cores
                 WHERE p.id_produto = :id
+                LIMIT 1
             ";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             $stmt->execute();
-            $produto = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-            return $produto;
+            return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             return null;
         }
     }
-    
-    /**
-     * Adiciona um produto ao carrinho ou aumenta sua quantidade.
-     * @param int $idProduto O ID do produto a ser adicionado.
-     * @return bool Retorna true em caso de sucesso, false em caso de falha.
-     */
-    public function adicionarAoCarrinho($idProduto) {
-        try {
-            // Assumimos que o carrinho com ID 1 já existe para fins de demonstração
-            // Em uma aplicação real, o carrinho estaria associado a um usuário logado.
-            $idCarrinho = 1;
 
-            $sql = "INSERT INTO carrinho2 (id_carrinho, id_produto, quantidade) VALUES (:idCarrinho, :idProduto, 1)
-                    ON DUPLICATE KEY UPDATE quantidade = quantidade + 1";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindValue(':idCarrinho', $idCarrinho, PDO::PARAM_INT);
-            $stmt->bindValue(':idProduto', $idProduto, PDO::PARAM_INT);
-            return $stmt->execute();
-        } catch (Exception $e) {
-            return false;
-        }
-    }
-
-    /**
-     * Lista os produtos que estão no carrinho.
-     * @return array Um array contendo os produtos do carrinho.
-     */
-    public function ListarCarrinho() {
-        try {
-            $sql = "SELECT c.id, p.id_produto, p.nome, p.preco, p.precoPromo, c.quantidade, p.imagem
-                    FROM carrinho2 c
-                    JOIN produto p ON c.id_produto = p.id_produto";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute();
-    
-            // Como está usando PDO, o fetch é assim:
-            $carrinho = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-            return $carrinho;
-        } catch (Exception $e) {
-            error_log("Erro ao listar carrinho: " . $e->getMessage());
-            return [];
-        }
-    }
-    
-    /**
-     * Remove um produto do carrinho.
-     * @param int $idProduto O ID do produto a ser removido.
-     * @return bool Retorna true em caso de sucesso, false em caso de falha.
-     */
-    public function removerDoCarrinho($idCarrinhoItem) {
-        try {
-            $sql = "DELETE FROM carrinho2 WHERE id = :id";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindValue(':id', $idCarrinhoItem, PDO::PARAM_INT);
-            return $stmt->execute();
-        } catch (Exception $e) {
-            return false;
-        }
-    }
-    
-    /**
-     * Adiciona um produto aos favoritos ou ignora se já existir.
-     * @param int $idProduto O ID do produto a ser adicionado.
-     * @return bool Retorna true em caso de sucesso, false em caso de falha.
-     */
-    public function adicionarAosFavoritos($idProduto, $idUsuario) {
-        try {
-            $sql = "INSERT IGNORE INTO favoritos (id_usuario, id_produto) VALUES (:idUsuario, :idProduto)";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
-            $stmt->bindValue(':idProduto', $idProduto, PDO::PARAM_INT);
-            return $stmt->execute();
-        } catch (Exception $e) {
-            return false;
-        }
-    }
-
-    /**
-     * Lista os produtos que estão nos favoritos.
-     * @return array Um array contendo os produtos favoritos.
-     */
+    // =======================
+    // === Favoritos =========
+    // =======================
     public function ListarFavoritos($idUsuario) {
-        try {
-            $sql = "
-                SELECT p.*, ld.dataAdd, co.corPrincipal, co.hexDegrade1, co.hexDegrade2, co.hexDegrade3
-                FROM ListaDesejos ld
-                JOIN produto p ON ld.id_produto = p.id_produto
-                LEFT JOIN Cores co ON p.id_cores = co.id_cores
-                WHERE ld.id_usuario = :idUsuario
-            ";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
-            $stmt->execute();
-            $favoritos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            return $favoritos;
-        } catch (PDOException $e) {
-            // Em caso de erro, retorne um array vazio
-            return [];
-        }
+        $sql = "
+            SELECT 
+                l.id_listaDesejos,
+                p.id_produto,
+                p.nome,
+                p.marca,
+                p.preco,
+                p.precoPromo,
+                p.img1 AS imagem,
+                c.corPrincipal,
+                c.hexDegrade1,
+                c.hexDegrade2,
+                l.dataAdd
+            FROM listadesejos l
+            INNER JOIN produto p ON p.id_produto = l.id_produto
+            LEFT JOIN cores c ON c.id_cores = p.id_cores
+            WHERE l.id_usuario = :u
+            ORDER BY l.dataAdd DESC
+        ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':u' => (int)$idUsuario]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /**
-     * Remove um produto dos favoritos.
-     * @param int $idProduto O ID do produto a ser removido.
-     * @return bool Retorna true em caso de sucesso, false em caso de falha.
-     */
-    public function removerDosFavoritos($idProduto, $idUsuario) {
-        try {
-            $sql = "DELETE FROM ListaDesejos WHERE id_produto = :idProduto AND id_usuario = :idUsuario";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindValue(':idProduto', $idProduto, PDO::PARAM_INT);
-            $stmt->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
-            return $stmt->execute();
-        } catch (Exception $e) {
-            return false;
+    public function adicionarFavorito($idUsuario, $idProduto) {
+        if (is_array($idProduto)) {
+            $result = ['ok' => true, 'adicionados' => 0];
+            foreach ($idProduto as $prod) {
+                $res = $this->adicionarFavorito($idUsuario, $prod);
+                if ($res['ok']) $result['adicionados']++;
+            }
+            return $result;
         }
+
+        $sel = $this->conn->prepare("SELECT id_listaDesejos FROM listadesejos WHERE id_usuario = :u AND id_produto = :p");
+        $sel->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
+        if ($sel->fetch()) {
+            return ['ok' => false, 'msg' => 'Produto já está na lista de desejos'];
+        }
+
+        $ins = $this->conn->prepare("
+            INSERT INTO listadesejos (dataAdd, id_usuario, id_produto) 
+            VALUES (NOW(), :u, :p)
+        ");
+        $ins->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
+        return ['ok' => true];
+    }
+
+    public function removerFavorito($idUsuario, $idProduto) {
+        if (is_array($idProduto)) {
+            foreach ($idProduto as $prod) {
+                $del = $this->conn->prepare("DELETE FROM listadesejos WHERE id_usuario = :u AND id_produto = :p");
+                $del->execute([':u' => (int)$idUsuario, ':p' => (int)$prod]);
+            }
+            return ['ok' => true];
+        }
+
+        $del = $this->conn->prepare("DELETE FROM listadesejos WHERE id_usuario = :u AND id_produto = :p");
+        $del->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
+        return ['ok' => true];
+    }
+
+    // =======================
+    // === Carrinho ==========
+    // =======================
+    public function listarCarrinho($idUsuario) {
+        $sql = "
+            SELECT c.id_carrinho, c.id_produto, c.quantidade, c.data_adicionado,
+                   p.nome, p.preco, p.precoPromo, p.img1
+            FROM carrinho c
+            INNER JOIN produto p ON p.id_produto = c.id_produto
+            WHERE c.id_usuario = :u
+            ORDER BY c.data_adicionado DESC
+        ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':u' => (int)$idUsuario]);
+        $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $total = 0.0;
+        foreach ($items as $it) {
+            $valor = $it['precoPromo'] !== null ? (float)$it['precoPromo'] : (float)$it['preco'];
+            $total += $valor * (int)$it['quantidade'];
+        }
+
+        return ['items' => $items, 'total' => $total];
+    }
+
+    public function adicionarAoCarrinho($idUsuario, $idProduto, $qtd = 1) {
+        if (is_array($idProduto)) {
+            $result = ['ok' => true, 'adicionados' => 0];
+            foreach ($idProduto as $prod) {
+                $res = $this->adicionarAoCarrinho($idUsuario, $prod, $qtd);
+                if ($res['ok']) $result['adicionados']++;
+            }
+            return $result;
+        }
+
+        $sel = $this->conn->prepare("SELECT id_carrinho, quantidade FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
+        $sel->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
+        $row = $sel->fetch(PDO::FETCH_ASSOC);
+
+        if ($row) {
+            $novaQtd = (int)$row['quantidade'] + (int)$qtd;
+            $upd = $this->conn->prepare("UPDATE carrinho SET quantidade = :q WHERE id_carrinho = :id");
+            $upd->execute([':q' => $novaQtd, ':id' => (int)$row['id_carrinho']]);
+        } else {
+            $ins = $this->conn->prepare("
+                INSERT INTO carrinho (id_usuario, id_produto, quantidade, data_adicionado) 
+                VALUES (:u, :p, :q, NOW())
+            ");
+            $ins->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto, ':q' => (int)$qtd]);
+        }
+
+        return ['ok' => true];
+    }
+
+    public function atualizarQuantidade($idUsuario, $idProduto, $qtd) {
+        if ((int)$qtd <= 0) {
+            $del = $this->conn->prepare("DELETE FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
+            $del->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
+        } else {
+            $upd = $this->conn->prepare("UPDATE carrinho SET quantidade = :q WHERE id_usuario = :u AND id_produto = :p");
+            $upd->execute([':q' => (int)$qtd, ':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
+        }
+        return ['ok' => true];
+    }
+
+    public function removerDoCarrinho($idUsuario, $idProduto) {
+        if (is_array($idProduto)) {
+            foreach ($idProduto as $prod) {
+                $del = $this->conn->prepare("DELETE FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
+                $del->execute([':u' => (int)$idUsuario, ':p' => (int)$prod]);
+            }
+            return ['ok' => true];
+        }
+
+        $del = $this->conn->prepare("DELETE FROM carrinho WHERE id_usuario = :u AND id_produto = :p");
+        $del->execute([':u' => (int)$idUsuario, ':p' => (int)$idProduto]);
+        return ['ok' => true];
+    }
+
+    // =======================
+    // === Pedidos ===========
+    // =======================
+    public function criarPedido($idUsuario, $idStatus = 1) {
+        $chk = $this->conn->prepare("SELECT COUNT(*) FROM carrinho WHERE id_usuario = :u");
+        $chk->execute([':u' => (int)$idUsuario]);
+        if ((int)$chk->fetchColumn() === 0) {
+            return ['ok' => false, 'msg' => 'Carrinho vazio'];
+        }
+
+        $sql = "INSERT INTO pedido (id_usuario, id_status, dataPedido) VALUES (:u, :s, NOW())";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':u' => (int)$idUsuario, ':s' => (int)$idStatus]);
+        $idPedido = (int)$this->conn->lastInsertId();
+
+        return ['ok' => true, 'id_pedido' => $idPedido];
+    }
+
+    public function listarPedidos($idUsuario) {
+        $sql = "
+            SELECT pe.id_pedido, pe.dataPedido, st.tipoStatus
+            FROM pedido pe
+            INNER JOIN status st ON st.id_status = pe.id_status
+            WHERE pe.id_usuario = :u
+            ORDER BY pe.dataPedido DESC, pe.id_pedido DESC
+        ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':u' => (int)$idUsuario]);
+        $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($pedidos as &$p) {
+            $it = $this->conn->prepare("
+                SELECT p.id_produto, p.nome, p.img1, p.preco, p.precoPromo, c.quantidade
+                FROM carrinho c
+                INNER JOIN produto p ON p.id_produto = c.id_produto
+                WHERE c.id_usuario = :u
+            ");
+            $it->execute([':u' => (int)$idUsuario]);
+            $p['itens'] = $it->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        return $pedidos;
     }
 }
+?>

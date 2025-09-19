@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     'cpf'             => $_POST['cpf'] ?? '',
                     'data_nascimento' => $_POST['data_nascimento'] ?? '',
                     'senha'           => $senha,
-                    'tipo'            => $_POST['tipo'] ?? 'cliente',
+                    'tipo'            => $_POST['tipo'] ?? 'Cliente',
                     'foto'            => null,
                     'id_endereco'     => null
                 ];
