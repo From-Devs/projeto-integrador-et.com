@@ -479,6 +479,12 @@ body{
     border-radius: 5px;
 }
 
+.paginacao{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
 
     /*RESPONSIVIADE DESSA ÁREA*/
 
