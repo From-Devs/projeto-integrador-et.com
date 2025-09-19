@@ -18,14 +18,14 @@ class AssociadosModel{
                     ON U.id_endereco = E.id_endereco
             WHERE U.tipo = 'associado'";
             
-            // if($tipo_tabela == "solicitacao"){
-            //     $sqlAssociados = "SELECT id_usuario, U.nome, U.email, E.cidade, E.estado
-            //         FROM usuario U
-            //         JOIN endereco E
-            //             ON U.id_endereco = E.id_endereco
-            //         JOIN SolicitacaoDeAssociado SU
-            //             ON U.id_usuario = SU.id_usuario";
-            // }
+            if($tipo_tabela == "solicitacao"){
+                $sqlAssociados = "SELECT U.id_usuario, U.nome, U.email, E.cidade, E.estado, SU.sobreProdutos
+                    FROM usuario U
+                    JOIN endereco E
+                        ON U.id_endereco = E.id_endereco
+                    JOIN SolicitacaoDeAssociado SU
+                        ON U.id_usuario = SU.id_usuario";
+            }
 
             $params = [];
     

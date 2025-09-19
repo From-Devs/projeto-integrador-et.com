@@ -113,3 +113,10 @@ tr {
     overflow-wrap: break-word;
     max-width: 100%;
 }
+
+.btnSobreProduto{
+    padding: 10px;
+    border: 1px;
+    border-radius: 50%;
+    cursor: pointer;
+}

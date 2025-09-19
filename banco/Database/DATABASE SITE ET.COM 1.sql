@@ -136,16 +136,14 @@ CREATE TABLE Status(
 	tipoStatus VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE Pedido(
-	id_pedido INT AUTO_INCREMENT PRIMARY KEY,
-	id_usuario INT NOT NULL,
-	id_carrinho INT NOT NULL,
-	id_status INT NOT NULL,
-	dataPedido DATETIME NOT NULL,
-	FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
-	FOREIGN KEY (id_carrinho) REFERENCES Carrinho(id_carrinho),
-	FOREIGN KEY (id_status) REFERENCES Status(id_status)
-);
+CREATE TABLE `pedido` (
+  `id_pedido` int(11) NOT NULL,
+  `precoTotal` decimal(10,0) DEFAULT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_carrinho` int(11) DEFAULT NULL,
+  `id_status` int(11) NOT NULL,
+  `dataPedido` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE HistoricoDeVenda(
 	id_historicoDeVenda INT AUTO_INCREMENT PRIMARY KEY,
@@ -218,6 +216,7 @@ CREATE TABLE SolicitacaoDeAssociado (
     id_solicitacao INT AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL UNIQUE,
     sobreProdutos TEXT,
+	motivoDoRecuso varchar(500)
     CONSTRAINT fk_usuario FOREIGN KEY (id_usuario) 
         REFERENCES Usuario(id_usuario)
         ON DELETE CASCADE
