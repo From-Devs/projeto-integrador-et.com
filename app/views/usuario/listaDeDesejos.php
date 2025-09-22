@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../../../config/ProdutoController.php";
+require_once __DIR__ . "/../../../config/produtoController.php";
 require_once __DIR__ . "/../../../config/database.php";
 require_once __DIR__ . "/../../../public/componentes/header/header.php"; 
 require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
@@ -78,7 +78,8 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
                 $precoPromo = $item['precoPromo'] ?? null;
 
                 // Usa img1 direto do banco e fallback para default.png
-                $imagem = !empty($item['img1']) ? $item['img1'] : 'default.png';
+                $imagem = isset($item['img1']) ? trim($item['img1']) : 'default.png';
+
                 $dataAdicionado = $item['dataAdd'];
 
                 $produtosListaDesejos[] = createCardListaDeDesejos(
@@ -101,6 +102,8 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
             }
         } else {
             echo "<p style='text-align: center; margin-top: 2rem;'>Sua lista de desejos está vazia.</p>";
+
+            
         }
         ?>
     </div>     
