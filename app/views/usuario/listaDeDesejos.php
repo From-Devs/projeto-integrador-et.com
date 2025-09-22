@@ -233,6 +233,23 @@ btnExcluirSelecionados.addEventListener('click', () => {
         abrirPopUp("confirmacao");
 });
 
+// Event delegation para ícones dentro do container
+cardContainer.addEventListener('click', (e) => {
+    const carrinhoBtn = e.target.closest('.icon-carrinho');
+    const lixeiraBtn = e.target.closest('.icon-lixeira');
+
+    if (carrinhoBtn) {
+        idProduto = carrinhoBtn.dataset.id;
+        enviarAcaoAjax('adicionarCarrinho', [idProduto]);
+    }
+
+    if (lixeiraBtn) {
+        idProduto = lixeiraBtn.dataset.id;
+        idsSelecionados = [];
+        abrirPopUp("confirmacao");
+    }
+});
+
 function confExcl(){
     if(idsSelecionados.length > 0){
         enviarAcaoAjax('removerFavorito', idsSelecionados);
@@ -243,23 +260,6 @@ function confExcl(){
 
     fecharPopUp("confirmacao");
 }
-
-// Event delegation para ícones dentro do container
-cardContainer.addEventListener('click', (e) => {
-    const carrinhoBtn = e.target.closest('.icon-carrinho');
-    const lixeiraBtn = e.target.closest('.icon-lixeira');
-
-    if (carrinhoBtn) {
-        const idProduto = carrinhoBtn.dataset.id;
-        enviarAcaoAjax('adicionarCarrinho', [idProduto]);
-    }
-
-    if (lixeiraBtn) {
-        idProduto = lixeiraBtn.dataset.id;
-
-        abrirPopUp("confirmacao");
-    }
-});
 
 
 </script>
