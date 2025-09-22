@@ -45,7 +45,10 @@ $favoritos = $idUsuario ? $controller->ListarFavoritos($idUsuario) : [];
 
 <?php 
 echo createHeader($login, $tipoUsuario); 
-echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px");
+$botao1 = botaoPersonalizadoOnClick("Sim","btn-green",'confExcl()',"90px","40px","20px");
+$botao2 = botaoPersonalizadoRedirect("Não","btn-white", "","90px","40px","20px");
+echo PopUpConfirmar("confirmacao", "Deseja Excluir?", $botao2, $botao1, "300px", "white", "", "1.7rem");
+echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmacao\")");
 ?>
 
 <div class="title-container">
@@ -61,7 +64,7 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
         </div>
         <div class="btnCheck">
             <button id="adicionarCarrinho">Adicionar ao Carrinho</button>
-            <button id="excluirSelecionados">Excluir</button>
+            <button id="excluirSelecionados" onclick="teste()">Excluir</button>
         </div>
     </div>
 </div>
@@ -211,6 +214,9 @@ async function enviarAcaoAjax(action, idsProdutos) {
     }
 }
 
+let idsSelecionados = [];
+let idProduto = null;
+
 // Botões principais
 btnAdicionarCarrinho.addEventListener('click', () => {
     const idsSelecionados = Array.from(checkboxes)
@@ -220,10 +226,11 @@ btnAdicionarCarrinho.addEventListener('click', () => {
 });
 
 btnExcluirSelecionados.addEventListener('click', () => {
-    const idsSelecionados = Array.from(checkboxes)
+    idsSelecionados = Array.from(checkboxes)
         .filter(cb => cb.checked)
         .map(cb => cb.dataset.id);
-    enviarAcaoAjax('removerFavorito', idsSelecionados);
+
+        abrirPopUp("confirmacao");
 });
 
 // Event delegation para ícones dentro do container
@@ -232,15 +239,29 @@ cardContainer.addEventListener('click', (e) => {
     const lixeiraBtn = e.target.closest('.icon-lixeira');
 
     if (carrinhoBtn) {
-        const idProduto = carrinhoBtn.dataset.id;
+        idProduto = carrinhoBtn.dataset.id;
         enviarAcaoAjax('adicionarCarrinho', [idProduto]);
     }
 
     if (lixeiraBtn) {
-        const idProduto = lixeiraBtn.dataset.id;
-        enviarAcaoAjax('removerFavorito', [idProduto]);
+        idProduto = lixeiraBtn.dataset.id;
+        idsSelecionados = [];
+        abrirPopUp("confirmacao");
     }
 });
+
+function confExcl(){
+    if(idsSelecionados.length > 0){
+        enviarAcaoAjax('removerFavorito', idsSelecionados);
+        
+    }else if(idProduto){
+        enviarAcaoAjax('removerFavorito', [idProduto]);
+    }
+
+    fecharPopUp("confirmacao");
+}
+
+
 </script>
 
 </body>
