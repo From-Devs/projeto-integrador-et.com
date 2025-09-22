@@ -6,5 +6,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl:"http://localhost/projeto-integrador-et.com/app/views/usuario/"
+    // baseUrl:"http://localhost/projeto-integrador-et.com/app/views/associado/"
+    // baseUrl:"http://localhost/projeto-integrador-et.com/app/views/adm/"
   },
 });

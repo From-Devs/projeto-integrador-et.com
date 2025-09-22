@@ -25,7 +25,6 @@ describe('Cadastro Tela', () => {
   cy.get("#termos").click()
   cy.get(".botaoConfirmar").click()
 
-  // depois do clique, pegar a URL atual e ler o parâmetro
   cy.url().then((currentUrl) => {
     const urlObj = new URL(currentUrl)
     const erro = urlObj.searchParams.get('erro')

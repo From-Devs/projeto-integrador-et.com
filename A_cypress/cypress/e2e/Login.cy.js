@@ -14,14 +14,14 @@ describe('Login Tela', () => {
         cy.viewport(1920, 1080) 
         cy.visit('/Login.php')
         cy.get("#esqueciSenha").click()
-        cy.get("#recoverPassword").type("")
+        cy.get("#recoverPassword").type("a@a")
         cy.get(".recoverPasswordButtonText").click()
         cy.get("#email").type("a@a")
         cy.get("#senha").type("123")
         cy.get("#botaoEntrar").click()
       })
 
-    it('Login teste semSenha', () => {
+    it('Login teste SemSenha', () => {
         cy.viewport(1920, 1080) 
         cy.visit('/Login.php')
         cy.get("#email").type("a@a")
