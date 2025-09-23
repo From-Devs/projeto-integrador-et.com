@@ -1,82 +1,4 @@
-﻿let botaoClicado = null;
-
-function preencheValidar(popUpId) {
-    if (!botaoClicado) return;
-
-    const parent = botaoClicado.closest('.verticalizacao');
-    const validarButton = parent.querySelector('.validarButton');
-    const cancelarButton = parent.querySelector('.cancelarButton');
-    cancelarButton.disabled = false;
-
-    validarButton.classList.add("marcarValido");
-    cancelarButton.classList.remove("marcarCancelar");
-
-    const popUp = document.getElementById(popUpId);
-    if (!popUp) return;
-    popUp.close();
-
-    const linha = botaoClicado.closest("tr");
-    const motivo = linha.querySelector(".motivo");
-    const motivoHeader = document.querySelector(".motivo-header");
-
-    if (verificaSeTemMotivo(linha)) {
-        motivo.style.display = "none";
-        motivoHeader.style.display = "none";
-    } else {
-        motivo.style.display = "table-cell";
-        motivoHeader.style.display = "table-cell";
-    }
-
-    botaoClicado = null;
-    validarButton.disabled = true;
-}
-
-function preencheCancelar(popUpId) {
-    if (!botaoClicado) return;
-    
-    const popUp = document.getElementById(popUpId);
-    if (!popUp) return;
-    
-    const textareaPopUp = popUp.querySelector("textarea");
-    if (!textareaPopUp) return;
-    
-    if (textareaPopUp.value.trim() === "") {
-        textareaPopUp.style.border = "1px solid red";
-        return;
-    }
-    console.log(botaoClicado);
-    console.log(textareaPopUp);
-    console.log(popUp);
-
-    const parent = botaoClicado.closest('.verticalizacao');
-    const validarButton = parent.querySelector('.validarButton');
-    const cancelarButton = parent.querySelector('.cancelarButton');
-    validarButton.disabled = false;
-
-    cancelarButton.classList.add("marcarCancelar");
-    validarButton.classList.remove("marcarValido");
-
-    popUp.close();
-
-    const linha = botaoClicado.closest("tr");
-    const motivo = linha.querySelector(".motivo");
-    const motivoHeader = document.querySelector(".motivo-header");
-
-    motivo.setAttribute("data-motivo", textareaPopUp.value.trim());
-    motivo.style.display = "table-cell";
-    motivoHeader.style.display = "table-cell";
-
-    textareaPopUp.value = "";
-    botaoClicado = null;
-    cancelarButton.disabled = true;
-}
-
-function verificaSeTemMotivo(linha) {
-    const motivo = linha.querySelector(".motivo");
-    return motivo && motivo.style.display !== "none";
-}
-
-function abrirMotivo(botao) {
+﻿function abrirMotivo(botao) {
     const motivo = botao.closest("td").getAttribute("data-motivo");
     const popUp = document.querySelector(".popUpMotivo");
     if (!popUp) return;
@@ -86,4 +8,66 @@ function abrirMotivo(botao) {
 
     textoPopUp.textContent = motivo;
     abrirPopUp("popUpMotivo");
+}
+
+async function ValidarAssociado(idUsuario){
+    const popUpSucesso = document.getElementsByClassName("popUpValidou")[0];
+    const popUpConfirmar = document.getElementsByClassName(`popUpConfirmar_${idUsuario}`)[0];
+
+    try {
+        const resposta = await fetch("http://localhost/projeto-integrador-et.com/router/AssociadosRouter.php?acao=ValidarAssociado", { 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({idUsuario: idUsuario})
+        });
+
+        const validou = await resposta.json();
+
+        if(validou === true){
+            popUpConfirmar.close()
+            abrirPopUp("popUpValidou");
+
+            popUpSucesso.addEventListener("close", function(){
+                window.location.reload();
+            })
+        } else {
+            console.error("Falha ao validar", validou);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+async function recusarAssociado(idUsuario){
+    const popUpSucesso = document.getElementsByClassName("popUpRecusou")[0];
+    const popUpConfirmar = document.getElementsByClassName(`popUpCancelar_${idUsuario}`)[0];
+    const valorTextArea = document.querySelector(`.popUpCancelar_${idUsuario} textarea`).value;
+
+    try {
+        const resposta = await fetch("http://localhost/projeto-integrador-et.com/router/AssociadosRouter.php?acao=recusarAssociado", { 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({idUsuario: idUsuario, motivo: valorTextArea})
+        });
+
+        const invalidou = await resposta.json();
+
+        if(invalidou === true){
+            popUpConfirmar.close()
+            abrirPopUp("popUpRecusou");
+
+            popUpSucesso.addEventListener("close", function(){
+                window.location.reload();
+            })
+        } else {
+            console.error("Falha ao validar", invalidou);
+        }
+    } catch (error) {
+        console.error(error);
+    }
 }

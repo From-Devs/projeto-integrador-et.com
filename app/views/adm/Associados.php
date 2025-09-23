@@ -75,8 +75,8 @@
                 renderPaginacaoMaisDeUmaQueryString(
                     $pagina['paginaAtual'],
                     $pagina['totalPaginas'],
-                    $parametrosExtrasString
-                );
+                    "tipo=$tipo_tabela&" . $parametrosExtrasString
+                );                
                 
                 // if($tipo_tabela == 'solicitacao'){
                 //     $dados = [

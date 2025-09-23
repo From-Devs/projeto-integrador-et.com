@@ -12,6 +12,14 @@ class AssociadosController{
     public function BuscarTodosAssociados($tipo_tabela, $ordem="", $pesquisa=""){
         return $this->AssociadosModel->BuscarTodosAssociados($tipo_tabela, $ordem, $pesquisa);
     }
+
+    public function ValidarAssociado($idUsuario){
+        return $this->AssociadosModel->ValidarAssociado($idUsuario);
+    }
+
+    public function recusarAssociado($idUsuario, $motivo){
+        return $this->AssociadosModel->recusarAssociado($idUsuario, $motivo);
+    }
 }
 
 ?>

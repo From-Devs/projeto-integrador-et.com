@@ -52,7 +52,10 @@ function associadosTabela($nome, $listaAssociados){
             <div class="tabela-body">
                 <table id="tabelaVendas">
                     <tbody>
-                        <?php foreach ($listaAssociados as $associado):
+                        <?php 
+                        echo PopUpComImagemETitulo("popUpValidou","popUp_Botoes/img-confirmar.png","120px","Associado validado com sucesso!");
+                        echo PopUpComImagemETitulo("popUpRecusou","popUp_Botoes/img-cancelar.png","120px","Associado recusado com sucesso!");
+                        foreach ($listaAssociados as $associado):
                             $userId = $associado['id_usuario'];
                             echo "<!-- UserId: $userId -->\n";
 
@@ -60,7 +63,7 @@ function associadosTabela($nome, $listaAssociados){
                             $btnSimValidar = botaoPersonalizadoOnClick(
                                 "Sim",
                                 "btn-black",
-                                "preencheValidar(\"popUpConfirmar_$userId\")",
+                                "ValidarAssociado($userId)",
                                 "100px",
                                 "35px"
                             );
@@ -74,14 +77,15 @@ function associadosTabela($nome, $listaAssociados){
                             $btnSimCancelar = botaoPersonalizadoOnClick(
                                 "Confirmar",
                                 "btn-black",
-                                "preencheCancelar(\"popUpCancelar_$userId\")",
+                                "recusarAssociado($userId)",
                                 "100px",
                                 "35px"
                             );
 
                             // PopUps únicos por usuário
                             echo PopUpConfirmar("popUpConfirmar_$userId", "Deseja realmente VALIDAR esse associado?", $btnSimValidar, $btnNao);
-                            echo PopUpConfirmar("popUpSobreProduto_$userId", $associado['sobreProdutos']);
+                            echo PopUpConfirmar("popUpSobreProduto_$userId", $associado['nome']." - ".$associado['cidade']."/".$associado['estado'].":\n\n\"".$associado['sobreProdutos']."\"");
+                            echo PopUpConfirmar("motivoRecuso_$userId", $associado['motivoDoRecuso']);
                             echo PopUpComInput("popUpCancelar_$userId", "Deseja realmente NÃO VALIDAR esse associado?", "Motivo...", $btnSimCancelar, $btnNao);
                         ?>
                         <tr>
@@ -100,9 +104,15 @@ function associadosTabela($nome, $listaAssociados){
                                     <button class='btnSobreProduto' onclick="botaoClicado = this; abrirPopUp('popUpSobreProduto_<?= $userId ?>')">
                                         <img src='/projeto-integrador-et.com/public/imagens/associado/chat-icone.png' alt='img-chat' title="Visualizar mensagem do associado">
                                     </button>
+                                    <button 
+                                        class='btnMotivoRecuso' 
+                                        style="display: <?= !empty($associado['motivoDoRecuso']) ? 'block' : 'none' ?>" 
+                                        onclick="botaoClicado = this; abrirPopUp('motivoRecuso_<?= $userId ?>')">
+                                        <img src='/projeto-integrador-et.com/public/imagens/associado/chat-icone.png' alt='img-chat' title="Visualizar motivo do recuso">
+                                    </button>
                                 </div>
                             </td>
-                            <td class="motivo" style="display: none;" data-motivo="">
+                            <td class="motivo_<?= $userId ?>" style="display: none;" data-motivo="">
                                 <button onclick="abrirMotivo(this)">
                                     <img src="/projeto-integrador-et.com/public/imagens/associado/chat-icone.png" alt="chat-icone">
                                 </button>
