@@ -18,44 +18,44 @@
         <div class="parteBranca">
             
             <!--Logo-->
-            <img src="/projeto-integrador-et.com/public/imagens/ET/LogoPreta1.png" alt="logo" class="logo">
-        
+            
             <button id="voltarSair" onclick="history.back()">
                 <i class='fas fa-chevron-left'></i>
                 <p id="voltar" href="./paginaPrincipal.php">Voltar</p>          
             </button> 
             <!--Campos-->    
-            <form method="POST" action="../../../router/UserRoutes.php?acao=create">
-                <div class="containerForm">
-                    <h1>Informe seus dados</h1>
-                    <div class= "p">
-                        <p class = "p1">*</p>
-                        <p class= "p2">PREENCHIMENTO OBRIGATÓRIO</p>
-                    </div>
-                    <div class="id">
-                        <?php echo Camp("Nome Completo", "text", "nome") ?>
-                        <?php echo Camp("Email", "email", "email") ?>
-                        <?php echo Camp("Data de Nascimento", "date", "data_nascimento") ?>
-                        <?php echo Camp("Telefone", "text", "telefone") ?>
-                        <?php echo Camp("Senha", "password", "senha") ?>
-                        <?php echo Camp("CPF", "text", "cpf") ?>
-                        <?php echo Camp("Confirmar Senha", "password", "confirmar_senha") ?>
-                    </div>
-
-                    <!--Termos de uso e botões-->
             
-                    <div class="low">
-                            
-                        <div class="checkbox">
-                            <input type="checkbox" name="termos" id="termos"> 
-                            <label class="termos" for="termos"> Concordo com os <a href="./TermoDeUso.php">Termos de Uso e Privacidade</a></label>
-                        </div>
-                            
-                        <button class="botaoConfirmar" type="submit" >Confirmar</button>
-                                    
+            <form class="containerForm" method="POST" action="../../../router/UserRoutes.php?acao=create">
+                <img src="/projeto-integrador-et.com/public/imagens/ET/LogoPreta1.png" alt="logo" class="logo">
+                <h1>Informe seus dados</h1>
+                <div class= "p">
+                    <p class = "p1">*</p>
+                    <p class= "p2">PREENCHIMENTO OBRIGATÓRIO</p>
+                </div>
+                <div class="id">
+                    <?php echo Camp("Nome Completo", "text", "nome") ?>
+                    <?php echo Camp("Email", "email", "email") ?>
+                    <?php echo Camp("Data de Nascimento", "date", "data_nascimento") ?>
+                    <?php echo Camp("Telefone", "text", "telefone") ?>
+                    <?php echo Camp("Senha", "password", "senha") ?>
+                    <?php echo Camp("CPF", "text", "cpf") ?>
+                    <?php echo Camp("Confirmar Senha", "password", "confirmar_senha") ?>
+                </div>
+
+                <!--Termos de uso e botões-->
+        
+                <div class="low">
+                        
+                    <div class="checkbox">
+                        <input type="checkbox" name="termos" id="termos"> 
+                        <label class="termos" for="termos"> Concordo com os <a href="./TermoDeUso.php">Termos de Uso e Privacidade</a></label>
                     </div>
+                        
+                    <button class="botaoConfirmar" type="submit" >Confirmar</button>
+                                
                 </div>
             </form>
+
         </div>
 
         <!--Ondas-->

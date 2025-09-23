@@ -72,7 +72,6 @@ btnExcluirSelecionados.addEventListener('click', () => {
     const idsSelecionados = Array.from(checkboxes)
         .filter(cb => cb.checked)
         .map(cb => cb.dataset.id);
-    enviarFormulario('removerFavorito', idsSelecionados);
 });
 
 // Event delegation para ícones
