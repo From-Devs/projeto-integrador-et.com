@@ -166,7 +166,7 @@ $imgPrincipal = $img1;
             </div>
 
             <div class="img-principal">
-                <div><img src="<?php echo htmlspecialchars($imgPrincipal); ?>" alt="img-principal"></div>
+                <div><img id='img-principal' src="<?php echo htmlspecialchars($imgPrincipal); ?>" alt="img-principal"></div>
             </div>
             <div class="detalhes-info">
                 <div class="titulo-produto">
@@ -215,18 +215,6 @@ $imgPrincipal = $img1;
                                     Adicionar ao Carrinho
                                 </button>
                             </form>
-                        </div>
-                        <div class="div-favorito-e-carrinho">
-    
-    
-    <!-- Parte modificada: Adicionei um formulário para que o clique no botão de coração envie os dados. -->
-                            <form method="POST" action="/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito">
-                                <input type="hidden" name="id_usuario" value="<?= $_SESSION['id_usuario'] ?>">
-                                <input type="hidden" name="id_produto" value="<?= $produto['id_produto'] ?>">
-                                <button type="submit">Adicionar aos Favoritos</button>
-                            </form>
-
-
                         </div>
                     </div>
                 </div>
@@ -400,5 +388,16 @@ $imgPrincipal = $img1;
     <script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
+
+    <script>
+        const imgPrinc = document.getElementById('img-principal');
+        const imgLater = document.querySelectorAll('.imagens-lateral img');
+
+        imgLater.forEach(img => {
+            img.addEventListener('click', () => {
+                imgPrinc.src = img.src;
+            });
+        });
+    </script>
 </body>
 </html>
