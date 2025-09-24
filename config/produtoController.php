@@ -111,7 +111,7 @@ class ProdutoController {
                 p.marca,
                 p.preco,
                 p.precoPromo,
-                p.img1 AS imagem,
+                p.img1,
                 c.corPrincipal,
                 c.hexDegrade1,
                 c.hexDegrade2,
