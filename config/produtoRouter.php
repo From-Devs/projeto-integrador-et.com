@@ -29,10 +29,14 @@ try {
 
         case "adicionarFavorito":
             if (!$idUsuario || !$idProduto) throw new Exception("Parâmetros inválidos");
-            if (is_array($idProduto)) $idProduto = array_map('intval', $idProduto);
-            else $idProduto = (int)$idProduto;
+            if (is_array($idProduto)) {
+                $idProduto = array_map('intval', $idProduto);
+            } else {
+                $idProduto = (int)$idProduto;
+            }
+        
             $res = $controller->adicionarFavorito((int)$idUsuario, $idProduto);
-            echo json_encode($res);
+            echo json_encode($res); //  retorna JSON
             break;
 
         case "removerFavorito":
@@ -72,7 +76,7 @@ try {
 
         case "adicionarCarrinho":
             if (!$idUsuario || !$idProduto) throw new Exception("Parâmetros inválidos");
-            $qtd = $_POST['qtd'] ?? 1;
+            $qtd = isset($_POST['quantidade']) ? (int)$_POST['quantidade'] : 1;
             if (is_array($idProduto)) $idProduto = array_map('intval', $idProduto);
             else $idProduto = (int)$idProduto;
             $res = $controller->adicionarAoCarrinho((int)$idUsuario, $idProduto, $qtd);
