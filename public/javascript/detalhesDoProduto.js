@@ -2,14 +2,14 @@ let contador = 1;
 const maxValor = 1000;
 const minValor = 1;
 
-const valorDisplay = document.getElementById('valor');
 const quantidadeInput = document.getElementById('quantidadeInput');
 
+// Atualiza o input com o valor do contador
 function atualizarValor() {
-    valorDisplay.textContent = contador;
-    quantidadeInput.value = contador; // atualiza o hidden
+    quantidadeInput.value = contador;
 }
 
+// Botão +
 document.getElementById('aumentar').addEventListener('click', () => {
     if (contador < maxValor) {
         contador++;
@@ -17,6 +17,7 @@ document.getElementById('aumentar').addEventListener('click', () => {
     }
 });
 
+// Botão -
 document.getElementById('diminuir').addEventListener('click', () => {
     if (contador > minValor) {
         contador--;
@@ -24,25 +25,49 @@ document.getElementById('diminuir').addEventListener('click', () => {
     }
 });
 
-// inicializa valor correto
+// Permitir digitar diretamente no input
+quantidadeInput.addEventListener('input', () => {
+    // Deixa o input vazio se o usuário apagar
+    if (quantidadeInput.value === '') return;
+
+    let val = parseInt(quantidadeInput.value) || minValor;
+    if (val > maxValor) val = maxValor;
+    contador = val;
+});
+
+// Valida quando o input perde o foco
+quantidadeInput.addEventListener('blur', () => {
+    if (quantidadeInput.value === '' || parseInt(quantidadeInput.value) < minValor) {
+        contador = minValor;
+    } else if (parseInt(quantidadeInput.value) > maxValor) {
+        contador = maxValor;
+    } else {
+        contador = parseInt(quantidadeInput.value);
+    }
+    atualizarValor();
+});
+
+// Inicializa valor correto
 atualizarValor();
 
-// AJAX para adicionar ao carrinho sem pop-up
+// AJAX para adicionar ao carrinho
 document.getElementById('formCarrinho').addEventListener('submit', function(e){
     e.preventDefault();
 
     const formData = new FormData(this);
+    formData.set('quantidade', contador); // garante que a quantidade seja enviada
 
     fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarCarrinho', {
         method: 'POST',
         body: formData
     })
-    .then(response => response.json()) // o router deve retornar JSON {"ok":true}
+    .then(response => response.json())
     .then(data => {
-        if (!data.ok) {
+        if (data.ok) {
+            alert(`Produto adicionado ao carrinho! Quantidade: ${contador}`);
+        } else {
             alert('Erro ao adicionar ao carrinho: ' + (data.msg || 'Tente novamente.'));
         }
-        // Se quiser, você pode atualizar o contador ou a interface do carrinho aqui
     })
     .catch(err => console.error(err));
 });
