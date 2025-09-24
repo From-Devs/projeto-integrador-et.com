@@ -460,7 +460,8 @@ body{
 }
 
 .container .card-container{
-    height: 70vh;
+    max-height: 70vh;
+    min-height: 20vh;
     max-width: 1672px;
     display: flex;
     flex-direction: column;
