@@ -251,11 +251,12 @@ $imgPrincipal = $img1;
                     </div>
                     <div class="botoes-detalhes">
                         <div class="btn-juntos">
-                            <div class="qtd-produtos">
-                                <button type="button" id="diminuir">-</button>
-                                <span id="valor">1</span>
-                                <button type="button" id="aumentar">+</button>
-                            </div>
+                        <div class="qtd-produtos">
+                            <button type="button" id="diminuir">-</button>
+                            <input type="text" id="quantidadeInput" value="1">
+                            <button type="button" id="aumentar">+</button>
+                        </div>
+
                             <form id="formCarrinho" method="post">
                                 <input type="hidden" name="id_produto" value="<?php echo $produto['id_produto']; ?>">
                                 <input type="hidden" name="quantidade" id="quantidadeInput" value="1">
