@@ -204,26 +204,6 @@ $imgPrincipal = $img1;
                             </abbr>
                         </form>
 
-                        <script>
-                        document.getElementById('formFavorito').addEventListener('submit', function(e) {
-                            e.preventDefault(); // Evita o recarregamento da página
-                            const formData = new FormData(this);
-
-                            fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito', {
-                                method: 'POST',
-                                body: formData
-                            })
-                            .then(response => response.json()) // o router deve retornar JSON {"ok":true}
-                            .then(data => {
-                                if (data.ok) {
-                                    abrirPopUp('popUpFavorito');
-                                } else {
-                                    alert('Erro: ' + (data.msg || 'Não foi possível adicionar aos favoritos'));
-                                }
-                            })
-                            .catch(err => console.error(err));
-                        });
-                        </script>
 
                     </div>
                     <div class="sub-titulo-produto">

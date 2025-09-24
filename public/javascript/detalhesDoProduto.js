@@ -27,12 +27,16 @@ document.getElementById('diminuir').addEventListener('click', () => {
 
 // Permitir digitar diretamente no input
 quantidadeInput.addEventListener('input', () => {
-    // Deixa o input vazio se o usuário apagar
+    // Permite campo vazio para digitar novo número
     if (quantidadeInput.value === '') return;
 
-    let val = parseInt(quantidadeInput.value) || minValor;
-    if (val > maxValor) val = maxValor;
-    contador = val;
+    // Só aceita números válidos
+    let val = parseInt(quantidadeInput.value.replace(/\D/g, '')) || '';
+    if (val !== '') {
+        if (val > maxValor) val = maxValor;
+        if (val < minValor) val = minValor;
+        contador = val;
+    }
 });
 
 // Valida quando o input perde o foco
