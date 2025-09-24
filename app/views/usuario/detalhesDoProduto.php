@@ -171,13 +171,55 @@ $imgPrincipal = $img1;
             <div class="detalhes-info">
                 <div class="titulo-produto">
                     <div class="titulo">
-                        <h3><?php echo htmlspecialchars($nome); ?></h3>
-                        <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
-                        <abbr class="abbr-favoritos" title="Adicionar aos favoritos" onclick="abrirPopUp('popUpFavorito')">
-                            <button class="imgCoracao">
-                                <img src='/projeto-integrador-et.com/public/imagens/produto/coracao-detalhes-produto.png' alt='Coração'>
-                            </button>
-                        </abbr>
+                    <h3><?php echo htmlspecialchars($nome); ?></h3>
+
+                        <!-- Pop-up de confirmação -->
+                        <?php 
+                        echo PopUpComImagemETitulo(
+                            "popUpFavorito", 
+                            "/popUp_Botoes/img-favorito.png", 
+                            "160px", 
+                            "Adicionado à Lista de Desejos!", 
+                            "", 
+                            "", 
+                            "", 
+                            "352px"
+                        );
+                        ?>
+
+                        <!-- Formulário + botão de coração -->
+                        <form id="formFavorito" method="POST">
+                            <input type="hidden" name="id_usuario" value="<?= $_SESSION['id_usuario'] ?>">
+                            <input type="hidden" name="id_produto" value="<?= $produto['id_produto'] ?>">
+
+                            <abbr class="abbr-favoritos" title="Adicionar aos favoritos">
+                                <button type="submit" class="imgCoracao">
+                                    <img src='/projeto-integrador-et.com/public/imagens/produto/coracao-detalhes-produto.png' alt='Coração'>
+                                </button>
+                            </abbr>
+                        </form>
+
+                        <script>
+                        document.getElementById('formFavorito').addEventListener('submit', function(e) {
+                            e.preventDefault(); // Evita o recarregamento da página
+                            const formData = new FormData(this);
+
+                            fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito', {
+                                method: 'POST',
+                                body: formData
+                            })
+                            .then(response => response.json()) // o router deve retornar JSON {"ok":true}
+                            .then(data => {
+                                if (data.ok) {
+                                    abrirPopUp('popUpFavorito');
+                                } else {
+                                    alert('Erro: ' + (data.msg || 'Não foi possível adicionar aos favoritos'));
+                                }
+                            })
+                            .catch(err => console.error(err));
+                        });
+                        </script>
+
                     </div>
                     <div class="sub-titulo-produto">
                         <span class="preco-produto">
@@ -219,12 +261,7 @@ $imgPrincipal = $img1;
                         <div class="div-favorito-e-carrinho">
     
     
-    <!-- Parte modificada: Adicionei um formulário para que o clique no botão de coração envie os dados. -->
-                            <form method="POST" action="/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito">
-                                <input type="hidden" name="id_usuario" value="<?= $_SESSION['id_usuario'] ?>">
-                                <input type="hidden" name="id_produto" value="<?= $produto['id_produto'] ?>">
-                                <button type="submit">Adicionar aos Favoritos</button>
-                            </form>
+
 
 
                         </div>
