@@ -61,7 +61,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_produto'])) {
             ]);
         }
 
-        echo "<script> window.location.href='Meu_Carrinho.php';</script>";
+        echo json_encode([
+            'ok' => true,
+            'mensagem' => 'Produto adicionado ao carrinho',
+            'quantidade' => $quantidade
+        ]);
+        exit;
 
     } catch (PDOException $e) {
         echo "Erro ao adicionar ao carrinho: " . $e->getMessage();
@@ -247,16 +252,24 @@ $imgPrincipal = $img1;
                     <div class="botoes-detalhes">
                         <div class="btn-juntos">
                             <div class="qtd-produtos">
-                                <button onclick="diminuirQtdProduto()">-</button>
+                                <button type="button" id="diminuir">-</button>
                                 <span id="valor">1</span>
-                                <button onclick="aumentarQtdProduto()">+</button>
+                                <button type="button" id="aumentar">+</button>
                             </div>
-                            <form method="post">
+                            <form id="formCarrinho" method="post">
                                 <input type="hidden" name="id_produto" value="<?php echo $produto['id_produto']; ?>">
-                                <button type="submit" name="adicionar_carrinho" class="btn btn-success">
+                                <input type="hidden" name="quantidade" id="quantidadeInput" value="1">
+                                <button type="submit" class="btn btn-success">
                                     Adicionar ao Carrinho
                                 </button>
                             </form>
+
+                            <!-- Pop-up de confirmação -->
+                            <div id="popUpCarrinho" class="popUp" style="display:none;">
+                                <img src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-confirmar.png" alt="Sucesso">
+                                <p>Produto adicionado ao carrinho!</p>
+                            </div>
+
                         </div>
                         <div class="div-favorito-e-carrinho">
     

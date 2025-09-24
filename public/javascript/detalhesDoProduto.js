@@ -2,54 +2,47 @@ let contador = 1;
 const maxValor = 1000;
 const minValor = 1;
 
-function aumentarQtdProduto() {
+const valorDisplay = document.getElementById('valor');
+const quantidadeInput = document.getElementById('quantidadeInput');
+
+function atualizarValor() {
+    valorDisplay.textContent = contador;
+    quantidadeInput.value = contador; // atualiza o hidden
+}
+
+document.getElementById('aumentar').addEventListener('click', () => {
     if (contador < maxValor) {
         contador++;
         atualizarValor();
     }
-}
+});
 
-function diminuirQtdProduto() {
+document.getElementById('diminuir').addEventListener('click', () => {
     if (contador > minValor) {
         contador--;
         atualizarValor();
     }
-}
+});
 
-function atualizarValor() {
-    document.getElementById('valor').textContent = contador;
-}
+// inicializa valor correto
+atualizarValor();
 
-function abrirFiltro(){
-    let filtro = document.querySelector(".div-ordenar div");
-    let btnOrdenar = document.getElementsByClassName("btn-ordenar")[0];
-    filtro.classList.toggle("filtro-ordenar");
+// AJAX para adicionar ao carrinho sem pop-up
+document.getElementById('formCarrinho').addEventListener('submit', function(e){
+    e.preventDefault();
 
-    btnOrdenar.addEventListener("click", () => {
-        filtro.classList.toggle("filtro-ordenar");
+    const formData = new FormData(this);
+
+    fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarCarrinho', {
+        method: 'POST',
+        body: formData
     })
-}
-
-document.getElementById("ordenar").addEventListener("change", function() {
-    let container = document.querySelector(".container-avaliacoes");
-    let avaliacoes = Array.from(container.getElementsByClassName("avaliacao"));
-
-    avaliacoes.sort((a, b) => {
-        let dataA = new Date(a.querySelector(".data-avaliacao span").innerText.split("/").reverse().join("-"));
-        let dataB = new Date(b.querySelector(".data-avaliacao span").innerText.split("/").reverse().join("-"));
-
-        let estrelasA = parseInt(a.querySelector(".avaliacao-usuario").src.match(/avaliacao-(\d+)\.png/)[1]);
-        let estrelasB = parseInt(b.querySelector(".avaliacao-usuario").src.match(/avaliacao-(\d+)\.png/)[1]);
-
-        if (this.value === "maisRecentes") {
-            return dataB - dataA;
-        } else if (this.value === "maisAntigas") {
-            return dataA - dataB; 
-        } else if (this.value === "maisRelevantes") {
-            return estrelasB - estrelasA;
+    .then(response => response.json()) // o router deve retornar JSON {"ok":true}
+    .then(data => {
+        if (!data.ok) {
+            alert('Erro ao adicionar ao carrinho: ' + (data.msg || 'Tente novamente.'));
         }
-        return 0;
-    });
-
-    avaliacoes.forEach(avaliacao => container.appendChild(avaliacao));
+        // Se quiser, você pode atualizar o contador ou a interface do carrinho aqui
+    })
+    .catch(err => console.error(err));
 });
