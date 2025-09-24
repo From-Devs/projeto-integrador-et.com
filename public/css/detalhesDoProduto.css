@@ -48,7 +48,7 @@ a {
     align-items: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
-    
+
     cursor: pointer;
     padding: 50px;
     border-radius: 20px;
@@ -227,8 +227,15 @@ a {
     align-items: center;
     border: 1px solid gray;
     border-radius: 20px;
-    padding: 5px 10px;
+    padding-left: 5px;
+    padding-right: 5px;
     gap: 30px;
+}
+
+.qtd-produtos input{
+    text-align: center;
+    width: auto;
+    height: 43px;
 }
 
 .qtd-produtos button {
