@@ -20,10 +20,12 @@ script (final do HTML):
 Pode ser necessário trocar o caminho dos styles e scripts dependendo de onde a página estiver
 
 -->
-
 <?php
 require __DIR__ . '/../sidebar/sidebarHeader.php'; // import do componente da sidebar
 require __DIR__ . '/../pesquisaHeader/pesquisaHeader.php'; // import do componente da sidebar
+require __DIR__ . "/../../../app/Controllers/UserController.php";
+$controller = new UserController(); 
+$user = $controller->getLoggedUser();
 
 function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
                                             // $login (sujeito a mudança): é o estado de login do usuário, true pra logado e false para deslogado
@@ -41,6 +43,13 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
     ';
     }
 
+    // icone user
+    $controller = new UserController(); 
+    $user = $controller->getLoggedUser();   
+    $a = !empty($user['foto']) 
+    ? "/projeto-integrador-et.com/" . $user['foto'] 
+    : "/projeto-integrador-et.com/public/imagens/header/perfil.png";
+    
     if($tipo == 0){
         // Abaixo é o código do header que vai pro HTML, ele usa a função de criar a sidebar de outro componente.
         return "
@@ -67,9 +76,6 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
                     <img class='lupaHeader' src='/projeto-integrador-et.com/public/imagens/header/lupa.png' alt=''>
                     <a href='/projeto-integrador-et.com/app/views/usuario/listaDeDesejos.php'><img src='/projeto-integrador-et.com/public/imagens/header/coracao.png' alt=''></a>
                     <a href='/projeto-integrador-et.com/app/views/usuario/Meu_Carrinho.php'><img src='/projeto-integrador-et.com/public/imagens/header/carrinho.png' alt=''></a>
-                    <img class='perfilHeader' src='/projeto-integrador-et.com/public/imagens/header/perfil.png' alt=''>
-                </div>
-                <div class='menuConta'>
                     $botao1
                     $botao2
                 </div>
@@ -92,7 +98,6 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
                 </a>
     
             </div>
-    
             ".createPesquisaHeader()."
     
             <div class='direito'>
@@ -100,7 +105,7 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
                     <img class='lupaHeader' src='/projeto-integrador-et.com/public/imagens/header/lupa.png' alt=''>
                     <a href='/projeto-integrador-et.com/app/views/usuario/listaDeDesejos.php'><img src='/projeto-integrador-et.com/public/imagens/header/coracao.png' alt=''></a>
                     <a href='/projeto-integrador-et.com/app/views/usuario/Meu_Carrinho.php'><img src='/projeto-integrador-et.com/public/imagens/header/carrinho.png' alt=''></a>
-                    <img class='perfilHeader' src='/projeto-integrador-et.com/public/imagens/header/perfil.png' alt=''>
+                    <img class='perfilHeader' src='$a' alt=''>
                 </div>
                 <div class='menuConta'>
                     $botao1
