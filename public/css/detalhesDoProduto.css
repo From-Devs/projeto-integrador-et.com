@@ -225,17 +225,19 @@ a {
 .qtd-produtos {
     display: flex;
     align-items: center;
+    justify-content: center;
     border: 1px solid gray;
     border-radius: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
     gap: 30px;
 }
 
 .qtd-produtos input{
     text-align: center;
-    width: auto;
+    width: 30%;
     height: 43px;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
 }
 
 .qtd-produtos button {
