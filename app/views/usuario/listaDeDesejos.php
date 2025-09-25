@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../../../config/ProdutoController.php";
+require_once __DIR__ . "/../../../config/produtoController.php";
 require_once __DIR__ . "/../../../config/database.php";
 require_once __DIR__ . "/../../../public/componentes/header/header.php"; 
 require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
@@ -78,7 +78,8 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
                 $precoPromo = $item['precoPromo'] ?? null;
 
                 // Usa img1 direto do banco e fallback para default.png
-                $imagem = !empty($item['img1']) ? $item['img1'] : 'default.png';
+                $imagem = isset($item['img1']) ? trim($item['img1']) : 'default.png';
+
                 $dataAdicionado = $item['dataAdd'];
 
                 $produtosListaDesejos[] = createCardListaDeDesejos(
@@ -95,7 +96,7 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
                 );
             }
 
-            $resultado = paginar($produtosListaDesejos, 16);
+            $resultado = paginar($produtosListaDesejos, 10);
             foreach ($resultado['dados'] as $produtos){
                 echo $produtos;
             }
@@ -106,7 +107,7 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
     </div>     
 </div>
 
-<div class="paginação" style="width: 100%; justify-items: center;">
+<div class="paginacao" style="width: 100%; justify-items: center;">
     <?php if (!empty($favoritos)) renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']); ?>
 </div>
 
@@ -144,104 +145,8 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
 <script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
 <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
+<script src="/projeto-integrador-et.com/public/javascript/listaDeDesejos.js"></script>
 
-<!-- Script da Lista de Desejos com AJAX -->
-<script>
-const checkboxes = document.querySelectorAll('.cardCheckbox');
-const acoesCheckbox = document.getElementById('acoesSelecionados');
-const selecionarTodos = document.getElementById('selecionarTodos');
-const btnAdicionarCarrinho = document.getElementById('adicionarCarrinho');
-const btnExcluirSelecionados = document.getElementById('excluirSelecionados');
-const cardContainer = document.getElementById('cardContainer');
-const usuarioId = document.body.dataset.usuarioId;
-
-// Atualiza barra de ações
-function atualizarBarra() {
-    const algumSelecionado = Array.from(checkboxes).some(cb => cb.checked);
-    acoesCheckbox.classList.toggle("ativo", algumSelecionado);
-    acoesCheckbox.style.display = algumSelecionado ? 'flex' : 'none';
-    selecionarTodos.checked = Array.from(checkboxes).every(cb => cb.checked);
-}
-
-checkboxes.forEach(cb => cb.addEventListener('change', atualizarBarra));
-
-selecionarTodos.addEventListener('change', () => {
-    checkboxes.forEach(cb => cb.checked = selecionarTodos.checked);
-    atualizarBarra();
-});
-
-// Função genérica para enviar requisição POST via fetch
-async function enviarAcaoAjax(action, idsProdutos) {
-    if (!usuarioId) { 
-        alert("Você precisa estar logado!"); 
-        return; 
-    }
-    if (!idsProdutos.length) return;
-
-    const formData = new FormData();
-    formData.append('action', action);
-    formData.append('id_usuario', usuarioId);
-    idsProdutos.forEach(id => formData.append('id_produto[]', id));
-
-    try {
-        const response = await fetch('/projeto-integrador-et.com/config/produtoRouter.php', {
-            method: 'POST',
-            body: formData
-        });
-        const result = await response.json();
-
-        if (result.ok) {
-            if (action === 'removerFavorito') {
-                idsProdutos.forEach(id => {
-                    const card = document.querySelector(`.cardDesejos[data-id='${id}']`);
-                    if (card) card.remove();
-                });
-                atualizarBarra();
-            }
-
-            if (action === 'adicionarCarrinho') {
-                alert("Produto(s) adicionado(s) ao carrinho!");
-            }
-        } else {
-            alert(result.msg || "Erro ao processar ação.");
-        }
-    } catch (err) {
-        console.error(err);
-        alert("Erro de conexão com o servidor.");
-    }
-}
-
-// Botões principais
-btnAdicionarCarrinho.addEventListener('click', () => {
-    const idsSelecionados = Array.from(checkboxes)
-        .filter(cb => cb.checked)
-        .map(cb => cb.dataset.id);
-    enviarAcaoAjax('adicionarCarrinho', idsSelecionados);
-});
-
-btnExcluirSelecionados.addEventListener('click', () => {
-    const idsSelecionados = Array.from(checkboxes)
-        .filter(cb => cb.checked)
-        .map(cb => cb.dataset.id);
-    enviarAcaoAjax('removerFavorito', idsSelecionados);
-});
-
-// Event delegation para ícones dentro do container
-cardContainer.addEventListener('click', (e) => {
-    const carrinhoBtn = e.target.closest('.icon-carrinho');
-    const lixeiraBtn = e.target.closest('.icon-lixeira');
-
-    if (carrinhoBtn) {
-        const idProduto = carrinhoBtn.dataset.id;
-        enviarAcaoAjax('adicionarCarrinho', [idProduto]);
-    }
-
-    if (lixeiraBtn) {
-        const idProduto = lixeiraBtn.dataset.id;
-        enviarAcaoAjax('removerFavorito', [idProduto]);
-    }
-});
-</script>
 
 </body>
 </html>
