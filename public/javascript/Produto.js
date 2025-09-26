@@ -51,6 +51,10 @@ function buscarAtributosDoProduto(idProduto) {
             form.querySelector('input[name="corPrincipal"]').value = data[0].corPrincipal || "#000000";
             form.querySelector('input[name="deg1"]').value = data[0].hex1 || "#000000";
             form.querySelector('input[name="deg2"]').value = data[0].hex2 || "#000000";
+
+            const chkPromo = form.querySelector('input[name="fgPromocao"]');
+            const inputPromo = form.querySelector('input[name="precoPromocional"]');
+            inputPromo.disabled = !chkPromo.checked;
             
             carregarSubCategorias(
                 form.querySelector('select[name="subCategoria"]'),
@@ -108,4 +112,13 @@ function carregarSubCategorias(select, idSelecionado = null) {
             });
         })
         .catch(err => console.error(err));
+}
+
+function mudarFgPromo(chkPromo){
+    const inputPromo = chkPromo.form.querySelector('input[name="precoPromocional"]');
+    if (chkPromo.checked) {
+        inputPromo.disabled = false;
+    } else {
+        inputPromo.disabled = true; 
+    }
 }
