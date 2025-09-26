@@ -29,10 +29,14 @@ try {
 
         case "adicionarFavorito":
             if (!$idUsuario || !$idProduto) throw new Exception("Parâmetros inválidos");
-            if (is_array($idProduto)) $idProduto = array_map('intval', $idProduto);
-            else $idProduto = (int)$idProduto;
+            if (is_array($idProduto)) {
+                $idProduto = array_map('intval', $idProduto);
+            } else {
+                $idProduto = (int)$idProduto;
+            }
+        
             $res = $controller->adicionarFavorito((int)$idUsuario, $idProduto);
-            echo json_encode($res);
+            echo json_encode($res); //  retorna JSON
             break;
 
         case "removerFavorito":
