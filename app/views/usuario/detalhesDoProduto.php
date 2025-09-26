@@ -61,7 +61,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_produto'])) {
             ]);
         }
 
-        echo "<script> window.location.href='Meu_Carrinho.php';</script>";
+        echo json_encode([
+            'ok' => true,
+            'mensagem' => 'Produto adicionado ao carrinho',
+            'quantidade' => $quantidade
+        ]);
+        exit;
 
     } catch (PDOException $e) {
         echo "Erro ao adicionar ao carrinho: " . $e->getMessage();
@@ -166,7 +171,7 @@ $imgPrincipal = $img1;
             </div>
 
             <div class="img-principal">
-                <div><img src="<?php echo htmlspecialchars($imgPrincipal); ?>" alt="img-principal"></div>
+                <div><img id='img-principal' src="<?php echo htmlspecialchars($imgPrincipal); ?>" alt="img-principal"></div>
             </div>
             <div class="detalhes-info">
                 <div class="titulo-produto">
@@ -199,26 +204,6 @@ $imgPrincipal = $img1;
                             </abbr>
                         </form>
 
-                        <script>
-                        document.getElementById('formFavorito').addEventListener('submit', function(e) {
-                            e.preventDefault(); // Evita o recarregamento da página
-                            const formData = new FormData(this);
-
-                            fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito', {
-                                method: 'POST',
-                                body: formData
-                            })
-                            .then(response => response.json()) // o router deve retornar JSON {"ok":true}
-                            .then(data => {
-                                if (data.ok) {
-                                    abrirPopUp('popUpFavorito');
-                                } else {
-                                    alert('Erro: ' + (data.msg || 'Não foi possível adicionar aos favoritos'));
-                                }
-                            })
-                            .catch(err => console.error(err));
-                        });
-                        </script>
 
                     </div>
                     <div class="sub-titulo-produto">
@@ -246,17 +231,26 @@ $imgPrincipal = $img1;
                     </div>
                     <div class="botoes-detalhes">
                         <div class="btn-juntos">
-                            <div class="qtd-produtos">
-                                <button onclick="diminuirQtdProduto()">-</button>
-                                <span id="valor">1</span>
-                                <button onclick="aumentarQtdProduto()">+</button>
-                            </div>
-                            <form method="post">
+                        <div class="qtd-produtos">
+                            <button type="button" id="diminuir">-</button>
+                            <input type="text" id="quantidadeInput" value="1">
+                            <button type="button" id="aumentar">+</button>
+                        </div>
+
+                            <form id="formCarrinho" method="post">
                                 <input type="hidden" name="id_produto" value="<?php echo $produto['id_produto']; ?>">
-                                <button type="submit" name="adicionar_carrinho" class="btn btn-success">
+                                <input type="hidden" name="quantidade" id="quantidadeInput" value="1">
+                                <button type="submit" class="btn btn-success">
                                     Adicionar ao Carrinho
                                 </button>
                             </form>
+
+                            <!-- Pop-up de confirmação -->
+                            <div id="popUpCarrinho" class="popUp" style="display:none;">
+                                <img src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-confirmar.png" alt="Sucesso">
+                                <p>Produto adicionado ao carrinho!</p>
+                            </div>
+
                         </div>
                         <div class="div-favorito-e-carrinho">
     
@@ -437,5 +431,16 @@ $imgPrincipal = $img1;
     <script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
+
+    <script>
+        const imgPrinc = document.getElementById('img-principal');
+        const imgLater = document.querySelectorAll('.imagens-lateral img');
+
+        imgLater.forEach(img => {
+            img.addEventListener('click', () => {
+                imgPrinc.src = img.src;
+            });
+        });
+    </script>
 </body>
 </html>
