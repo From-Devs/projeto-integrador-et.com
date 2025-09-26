@@ -33,7 +33,7 @@ body{
 }
 
 .title-container .line{
-    width: 60%;
+    width: 65%;
     border-bottom: black 2px solid;
 }
 
@@ -520,7 +520,7 @@ body{
 /*ÁREA DE SUGESTÃO*/
 
 .line2{
-    width: 75%;
+    width: 65%;
     border-bottom: black 3px solid;
     margin-top: 100px;
 }
