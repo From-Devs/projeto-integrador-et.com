@@ -163,6 +163,12 @@ $total = $subtotal + $frete;
                 </tr>
             </tfoot>
         </table>
+
+        <div class="tudo">
+            <p>Selecionar Tudo:</p>
+            <input type="checkbox">
+        </div>
+
         <div class="button-container">
             <button type="submit">Atualizar Quantidades</button>
             <button type="button" onclick="abrirPopup()">Realizar Pedido</button>

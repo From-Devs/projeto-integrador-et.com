@@ -3,20 +3,42 @@ const acoesCheckbox = document.getElementById('acoesSelecionados');
 const selecionarTodos = document.getElementById('selecionarTodos');
 const btnAdicionarCarrinho = document.getElementById('adicionarCarrinho');
 const btnExcluirSelecionados = document.getElementById('excluirSelecionados');
+const cardContainer = document.getElementById('cardContainer');
 const usuarioId = document.body.dataset.usuarioId;
 
-// Atualiza barra de ações
-function atualizarBarra() {
-    const algumSelecionado = Array.from(checkboxes).some(cb => cb.checked);
-    acoesCheckbox.classList.toggle("ativo", algumSelecionado);
-    acoesCheckbox.style.display = algumSelecionado ? 'flex' : 'none';
-    selecionarTodos.checked = Array.from(checkboxes).every(cb => cb.checked);
+//buscar sempre os checkboxes atuais
+function getCheckboxes() {
+    return document.querySelectorAll('.cardCheckbox');
 }
 
-checkboxes.forEach(cb => cb.addEventListener('change', atualizarBarra));
+function atualizarBarra() {
+    const checkboxes = getCheckboxes();
+    const algumSelecionado = Array.from(checkboxes).some(cb => cb.checked);
 
+    acoesCheckbox.classList.toggle("ativo", algumSelecionado);
+    acoesCheckbox.style.display = algumSelecionado ? 'flex' : 'none';
+
+    // só marca "selecionar todos" se houver checkboxes e todos estiverem marcados
+    selecionarTodos.checked = algumSelecionado && Array.from(checkboxes).every(cb => cb.checked);
+}
+
+//retorna lista de IDs selecionados
+function getSelecionados() {
+    return Array.from(getCheckboxes())
+        .filter(cb => cb.checked)
+        .map(cb => cb.dataset.id);
+}
+
+//delegação para eventos de checkboxes individuais
+document.addEventListener("change", (e) => {
+    if (e.target.classList.contains("cardCheckbox")) {
+        atualizarBarra();
+    }
+});
+
+// Selecionar todos
 selecionarTodos.addEventListener('change', () => {
-    checkboxes.forEach(cb => cb.checked = selecionarTodos.checked);
+    getCheckboxes().forEach(cb => cb.checked = selecionarTodos.checked);
     atualizarBarra();
 });
 
@@ -39,20 +61,22 @@ async function enviarFormulario(action, idsProdutos) {
             body: formData
         });
         const data = await res.json();
-        if (!data.ok) alert(data.msg || "Erro ao processar a ação");
-        else {
+
+        if (!data.ok) {
+            alert(data.msg || "Erro ao processar a ação");
+        } else {
             // Atualizar a página ou cards conforme necessário
             if (action === 'removerFavorito') {
                 idsProdutos.forEach(id => {
                     const card = document.querySelector(`.card[data-id="${id}"]`);
                     if (card) card.remove();
                 });
+                atualizarBarra();
+                
             }
-            // Caso queira adicionar feedback de carrinho
             if (action === 'adicionarCarrinho') {
                 alert("Produto(s) adicionados ao carrinho!");
             }
-            atualizarBarra();
         }
     } catch (err) {
         console.error(err);
@@ -62,21 +86,12 @@ async function enviarFormulario(action, idsProdutos) {
 
 // Botões principais
 btnAdicionarCarrinho.addEventListener('click', () => {
-    const idsSelecionados = Array.from(checkboxes)
-        .filter(cb => cb.checked)
-        .map(cb => cb.dataset.id);
-    enviarFormulario('adicionarCarrinho', idsSelecionados);
+    enviarFormulario('adicionarCarrinho', getSelecionados());
 });
 
 btnExcluirSelecionados.addEventListener('click', () => {
-    const idsSelecionados = Array.from(checkboxes)
-        .filter(cb => cb.checked)
-        .map(cb => cb.dataset.id);
-    enviarFormulario('removerFavorito', idsSelecionados);
+    enviarFormulario('removerFavorito', getSelecionados());
 });
-
-// Event delegation para ícones
-const cardContainer = document.querySelector('.card-container');
 
 cardContainer.addEventListener('click', (e) => {
     const carrinhoBtn = e.target.closest('.icon-carrinho');
@@ -92,3 +107,25 @@ cardContainer.addEventListener('click', (e) => {
         enviarFormulario('removerFavorito', [idProduto]);
     }
 });
+
+
+//levar para a página de detalhes do produto pelo id
+const card = document.querySelectorAll(".cardDesejos");
+
+card.forEach(item => {
+    const atalhoMaisDetalhes = item.querySelector('#atalhoMaisDetalhes')
+
+    atalhoMaisDetalhes.addEventListener('click', function(){
+        window.location.href = '/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php'
+    })
+
+    
+})
+
+
+
+
+
+
+
+

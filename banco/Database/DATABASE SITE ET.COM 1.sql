@@ -204,6 +204,17 @@ CREATE TABLE Personalizacao(
 	FOREIGN KEY (id_carousel) REFERENCES Carousel(id_carousel)
 );
 
+-- Associado
+
+CREATE TABLE SolicitacaoDeAssociado (
+    id_solicitacao INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL UNIQUE,
+    sobreProdutos TEXT,
+    CONSTRAINT fk_usuario FOREIGN KEY (id_usuario) 
+        REFERENCES Usuario(id_usuario)
+        ON DELETE CASCADE
+) ENGINE=InnoDB;
+
  -- Triggers
  -- Atualizar Estoque
  
