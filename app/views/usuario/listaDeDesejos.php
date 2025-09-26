@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../../../config/ProdutoController.php";
+require_once __DIR__ . "/../../../config/produtoController.php";
 require_once __DIR__ . "/../../../config/database.php";
 require_once __DIR__ . "/../../../public/componentes/header/header.php"; 
 require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
@@ -45,10 +45,7 @@ $favoritos = $idUsuario ? $controller->ListarFavoritos($idUsuario) : [];
 
 <?php 
 echo createHeader($login, $tipoUsuario); 
-$botao1 = botaoPersonalizadoOnClick("Sim","btn-green",'confExcl()',"90px","40px","20px");
-$botao2 = botaoPersonalizadoRedirect("Não","btn-white", "","90px","40px","20px");
-echo PopUpConfirmar("confirmacao", "Deseja Excluir?", $botao2, $botao1, "300px", "white", "", "1.7rem");
-echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmacao\")");
+echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px");
 ?>
 
 <div class="title-container">
@@ -64,7 +61,7 @@ echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmac
         </div>
         <div class="btnCheck">
             <button id="adicionarCarrinho">Adicionar ao Carrinho</button>
-            <button id="excluirSelecionados" onclick="teste()">Excluir</button>
+            <button id="excluirSelecionados">Excluir</button>
         </div>
     </div>
 </div>
@@ -81,7 +78,8 @@ echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmac
                 $precoPromo = $item['precoPromo'] ?? null;
 
                 // Usa img1 direto do banco e fallback para default.png
-                $imagem = !empty($item['img1']) ? $item['img1'] : 'default.png';
+                $imagem = isset($item['img1']) ? trim($item['img1']) : 'default.png';
+
                 $dataAdicionado = $item['dataAdd'];
 
                 $produtosListaDesejos[] = createCardListaDeDesejos(
@@ -98,7 +96,7 @@ echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmac
                 );
             }
 
-            $resultado = paginar($produtosListaDesejos, 16);
+            $resultado = paginar($produtosListaDesejos, 10);
             foreach ($resultado['dados'] as $produtos){
                 echo $produtos;
             }
@@ -109,7 +107,7 @@ echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmac
     </div>     
 </div>
 
-<div class="paginação" style="width: 100%; justify-items: center;">
+<div class="paginacao" style="width: 100%; justify-items: center;">
     <?php if (!empty($favoritos)) renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']); ?>
 </div>
 
@@ -147,122 +145,8 @@ echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmac
 <script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
 <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
+<script src="/projeto-integrador-et.com/public/javascript/listaDeDesejos.js"></script>
 
-<!-- Script da Lista de Desejos com AJAX -->
-<script>
-const checkboxes = document.querySelectorAll('.cardCheckbox');
-const acoesCheckbox = document.getElementById('acoesSelecionados');
-const selecionarTodos = document.getElementById('selecionarTodos');
-const btnAdicionarCarrinho = document.getElementById('adicionarCarrinho');
-const btnExcluirSelecionados = document.getElementById('excluirSelecionados');
-const cardContainer = document.getElementById('cardContainer');
-const usuarioId = document.body.dataset.usuarioId;
-
-// Atualiza barra de ações
-function atualizarBarra() {
-    const algumSelecionado = Array.from(checkboxes).some(cb => cb.checked);
-    acoesCheckbox.classList.toggle("ativo", algumSelecionado);
-    acoesCheckbox.style.display = algumSelecionado ? 'flex' : 'none';
-    selecionarTodos.checked = Array.from(checkboxes).every(cb => cb.checked);
-}
-
-checkboxes.forEach(cb => cb.addEventListener('change', atualizarBarra));
-
-selecionarTodos.addEventListener('change', () => {
-    checkboxes.forEach(cb => cb.checked = selecionarTodos.checked);
-    atualizarBarra();
-});
-
-// Função genérica para enviar requisição POST via fetch
-async function enviarAcaoAjax(action, idsProdutos) {
-    if (!usuarioId) { 
-        alert("Você precisa estar logado!"); 
-        return; 
-    }
-    if (!idsProdutos.length) return;
-
-    const formData = new FormData();
-    formData.append('action', action);
-    formData.append('id_usuario', usuarioId);
-    idsProdutos.forEach(id => formData.append('id_produto[]', id));
-
-    try {
-        const response = await fetch('/projeto-integrador-et.com/config/produtoRouter.php', {
-            method: 'POST',
-            body: formData
-        });
-        const result = await response.json();
-
-        if (result.ok) {
-            if (action === 'removerFavorito') {
-                idsProdutos.forEach(id => {
-                    const card = document.querySelector(`.cardDesejos[data-id='${id}']`);
-                    if (card) card.remove();
-                });
-                atualizarBarra();
-            }
-
-            if (action === 'adicionarCarrinho') {
-                alert("Produto(s) adicionado(s) ao carrinho!");
-            }
-        } else {
-            alert(result.msg || "Erro ao processar ação.");
-        }
-    } catch (err) {
-        console.error(err);
-        alert("Erro de conexão com o servidor.");
-    }
-}
-
-let idsSelecionados = [];
-let idProduto = null;
-
-// Botões principais
-btnAdicionarCarrinho.addEventListener('click', () => {
-    const idsSelecionados = Array.from(checkboxes)
-        .filter(cb => cb.checked)
-        .map(cb => cb.dataset.id);
-    enviarAcaoAjax('adicionarCarrinho', idsSelecionados);
-});
-
-btnExcluirSelecionados.addEventListener('click', () => {
-    idsSelecionados = Array.from(checkboxes)
-        .filter(cb => cb.checked)
-        .map(cb => cb.dataset.id);
-
-        abrirPopUp("confirmacao");
-});
-
-// Event delegation para ícones dentro do container
-cardContainer.addEventListener('click', (e) => {
-    const carrinhoBtn = e.target.closest('.icon-carrinho');
-    const lixeiraBtn = e.target.closest('.icon-lixeira');
-
-    if (carrinhoBtn) {
-        idProduto = carrinhoBtn.dataset.id;
-        enviarAcaoAjax('adicionarCarrinho', [idProduto]);
-    }
-
-    if (lixeiraBtn) {
-        idProduto = lixeiraBtn.dataset.id;
-        idsSelecionados = [];
-        abrirPopUp("confirmacao");
-    }
-});
-
-function confExcl(){
-    if(idsSelecionados.length > 0){
-        enviarAcaoAjax('removerFavorito', idsSelecionados);
-        
-    }else if(idProduto){
-        enviarAcaoAjax('removerFavorito', [idProduto]);
-    }
-
-    fecharPopUp("confirmacao");
-}
-
-
-</script>
 
 </body>
 </html>

@@ -111,7 +111,7 @@ class ProdutoController {
                 p.marca,
                 p.preco,
                 p.precoPromo,
-                p.img1 AS imagem,
+                p.img1,
                 c.corPrincipal,
                 c.hexDegrade1,
                 c.hexDegrade2,
@@ -130,29 +130,30 @@ class ProdutoController {
     public function adicionarFavorito($idUsuario, $idProduto) {
         $idProduto = (int)$idProduto;
         $idUsuario = (int)$idUsuario;
-
+    
         if ($idProduto <= 0 || $idUsuario <= 0) {
-            return ['ok' => false, 'msg' => 'IDs inválidos'];
+            return ['ok' => false];
         }
-
+    
         if (!$this->BuscarProdutoPorId($idProduto)) {
-            return ['ok' => false, 'msg' => 'Produto não encontrado'];
+            return ['ok' => false];
         }
-
+    
         $sel = $this->conn->prepare("SELECT id_listaDesejos FROM listadesejos WHERE id_usuario = :u AND id_produto = :p");
         $sel->execute([':u' => $idUsuario, ':p' => $idProduto]);
         if ($sel->fetch()) {
-            return ['ok' => false, 'msg' => 'Produto já está na lista de desejos'];
+            return ['ok' => false]; // já existe, mas sem mensagem
         }
-
+    
         $ins = $this->conn->prepare("
             INSERT INTO listadesejos (dataAdd, id_usuario, id_produto)
             VALUES (CURDATE(), :u, :p)
         ");
         $ok = $ins->execute([':u' => $idUsuario, ':p' => $idProduto]);
-
+    
         return ['ok' => $ok];
     }
+    
 
     public function removerFavorito($idUsuario, $idProduto) {
         $idUsuario = (int)$idUsuario;
