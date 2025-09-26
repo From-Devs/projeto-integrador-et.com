@@ -467,6 +467,32 @@ option {
     flex-direction: column;
     align-items: center;
 }
+/* Estrelas de avaliação */
+.estrela {
+    color: #ccc; /* cinza por padrão */
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 2px;
+}
+
+.estrela.ativa {
+    color: gold; /* estrelas preenchidas */
+}
+.estrelas-media .estrela {
+    font-size: 20px;
+    color: #ccc; /* cor das estrelas vazias */
+    margin-right: 2px;
+}
+
+.estrelas-media .estrela.cheia {
+    color: #FFD700; /* cor das estrelas cheias */
+}
+
+.estrelas-media .estrela.meia {
+    background: linear-gradient(90deg, #FFD700 50%, #ccc 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 @keyframes bounce {
     0%, 100% {

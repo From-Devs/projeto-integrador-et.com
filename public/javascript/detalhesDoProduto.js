@@ -75,3 +75,16 @@ document.getElementById('formCarrinho').addEventListener('submit', function(e){
     })
     .catch(err => console.error(err));
 });
+
+// Parte de avaliações por estrelas
+const estrelasForm = document.querySelectorAll('.input-estrela .estrela');
+const notaInput = document.querySelector('.input-estrela input[name="nota"]');
+
+estrelasForm.forEach(star => {
+    star.addEventListener('click', () => {
+        const valor = star.getAttribute('data-nota');
+        notaInput.value = valor;
+        estrelasForm.forEach(s => s.classList.remove('ativa'));
+        for(let i=0; i<valor; i++) estrelasForm[i].classList.add('ativa');
+    });
+});

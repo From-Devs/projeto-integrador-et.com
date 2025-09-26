@@ -95,6 +95,29 @@ if (!$produto) {
     echo "</body></html>";
     exit;
 }
+// === Salvar avaliação ===
+if (isset($_POST['enviar_avaliacao']) && isset($_SESSION['id_usuario'])) {
+    $nota = intval($_POST['nota']);
+    $comentario = trim($_POST['comentario']);
+    $id_usuario = $_SESSION['id_usuario'];
+
+    if ($nota >= 1 && $nota <= 5 && !empty($comentario)) {
+        $stmt = $conn->prepare("INSERT INTO avaliacoes (id_usuario, id_produto, nota, comentario) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$id_usuario, $produto['id_produto'], $nota, $comentario]);
+        $msg = "Avaliação enviada com sucesso!";
+    } else {
+        $msg = "Preencha todos os campos corretamente.";
+    }
+}
+
+// === Buscar avaliações ===
+$stmt = $conn->prepare("SELECT a.*, u.nome 
+                        FROM avaliacoes a
+                        JOIN usuario u ON a.id_usuario = u.id_usuario
+                        WHERE a.id_produto = ?
+                        ORDER BY a.data_avaliacao DESC");
+$stmt->execute([$produto['id_produto']]);
+$avaliacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // prepara dados
 $nome        = $produto['nome'] ?? '';
@@ -103,6 +126,7 @@ $descBreve   = $produto['descricaoBreve'] ?? '';
 $descTotal   = $produto['descricaoTotal'] ?? '';
 $preco       = (float)($produto['preco'] ?? 0);
 $precoPromo  = (float)($produto['precoPromo'] ?? 0);
+
 
 // Busca subcategoria/cor caso não tenham vindo do controller
 if (empty($subcategoria) || empty($corPrincipal)) {
@@ -139,6 +163,7 @@ $img2 = !empty($produto['img2']) ? $baseImgPath . $produto['img2'] : $img1;
 $img3 = !empty($produto['img3']) ? $baseImgPath . $produto['img3'] : $img1;
 $imgPrincipal = $img1;
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -215,10 +240,22 @@ $imgPrincipal = $img1;
                                 R$ <?php echo number_format($preco, 2, ',', '.'); ?>
                             <?php endif; ?>
                         </span>
+                        <?php
+                        $totalAvaliacoes = count($avaliacoes);
+                        $somaNotas = array_sum(array_column($avaliacoes, 'nota'));
+                        $media = $totalAvaliacoes ? round($somaNotas / $totalAvaliacoes, 1) : 0;
+                        ?>
                         <abbr title="Avaliações" class="avaliacao-descricao">
                             <a href="#all-avaliacoes">
-                                <img src="/projeto-integrador-et.com/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
-                                <span class="qtd-reviews">(10 reviews)</span>
+                                <div class="estrelas-media">
+                                    <?php 
+                                    for($i=1; $i<=5; $i++):
+                                        $classe = ($i <= floor($media)) ? 'cheia' : (($i - $media < 1) ? 'meia' : 'vazia');
+                                    ?>
+                                        <span class="estrela <?= $classe ?>">★</span>
+                                    <?php endfor; ?>
+                                </div>
+                                <span class="qtd-reviews">(<?php echo $totalAvaliacoes; ?> reviews)</span>
                             </a>
                         </abbr>
                     </div>
@@ -295,10 +332,17 @@ $imgPrincipal = $img1;
             <div class="titulo-avaliacoes">
                 <div class="titulo-aval">
                     <h1>Avaliações</h1>
-                    <img src="/projeto-integrador-et.com/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
+                    <div class="estrelas-media">
+                        <?php for($i=1; $i<=5; $i++): 
+                            $classe = ($i <= floor($media)) ? 'cheia' : (($i - $media < 1) ? 'meia' : 'vazia');
+                        ?>
+                            <span class="estrela <?= $classe ?>">★</span>
+                        <?php endfor; ?>
+                        <span class="qtd-reviews">(<?php echo $totalAvaliacoes; ?> reviews)</span>
+                    </div>
                 </div>
                 <div class="qtd-respostas">
-                    <h2>4 respostas obtidas</h2>
+                    <h2><?php echo count($avaliacoes); ?> respostas obtidas</h2>
                 </div>
                 <select name="ordenar" id="ordenar">
                     <option value="" disabled selected>Ordenar por</option>
@@ -307,91 +351,63 @@ $imgPrincipal = $img1;
                     <option value="maisAntigas">Mais antigas</option>
                 </select>
             </div>
+
+            <!-- Formulário de Avaliação -->
+            <?php if (isset($msg)) echo "<p style='color:green'>$msg</p>"; ?>
+            <?php if (isset($_SESSION['id_usuario'])): ?>
+                <form method="POST" style="margin:1rem 0;">
+                <label>Nota:</label>
+                <div class="input-estrela">
+                    <?php for($i=1; $i<=5; $i++): ?>
+                        <span class="estrela" data-nota="<?= $i ?>">★</span>
+                    <?php endfor; ?>
+                    <input type="hidden" name="nota" required>
+                </div><br><br>
+
+
+                    <label>Comentário:</label><br>
+                    <textarea name="comentario" rows="3" cols="50" required></textarea><br><br>
+
+                    <button type="submit" name="enviar_avaliacao" class="btn btn-success">Enviar Avaliação</button>
+                </form>
+            <?php else: ?>
+                <p><a href="/projeto-integrador-et.com/app/views/usuario/login.php">Faça login</a> para avaliar este produto.</p>
+            <?php endif; ?>
+
             <div class="container-avaliacoes">
-                <div class="avaliacao">
-                    <div class="container-nome-usuario">
-                        <h3 class="nome-usuario">Maria Silva</h3>
-                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/public/imagens/produto/avaliacao-5.png" alt="img-avaliacao">
-                    </div>
-                    <div class="data-avaliacao">
-                        <span>10/01/2024</span>
-                    </div>
-                    <div class="descricao-avaliacao">
-                        <p>Produto excelente, recomendo!</p>
-                    </div>
-                    <div class="pergunta-avaliacao">
-                        <span>Esta avaliação foi útil?</span>
-                        <div class="btns-pergunta">
-                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
-                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
-                            ?>
+                <?php if ($avaliacoes): ?>
+                    <?php foreach ($avaliacoes as $av): ?>
+                        <div class="avaliacao">
+                            <div class="container-nome-usuario">
+                                <h3 class="nome-usuario"><?php echo htmlspecialchars($av['nome']); ?></h3>
+                                <span class="avaliacao-usuario">
+                                    <?php echo str_repeat("⭐", $av['nota']); ?>
+                                </span>
+                            </div>
+                            <div class="data-avaliacao">
+                                <span><?php echo date("d/m/Y", strtotime($av['data_avaliacao'])); ?></span>
+                            </div>
+                            <div class="descricao-avaliacao">
+                                <p><?php echo nl2br(htmlspecialchars($av['comentario'])); ?></p>
+                            </div>
+                            <div class="pergunta-avaliacao">
+                                <span>Esta avaliação foi útil?</span>
+                                <div class="btns-pergunta">
+                                    <?php 
+                                    echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
+                                    echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
+                                    ?>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <!-- (demais avaliações mantidas do seu template) -->
-                <div class="avaliacao">
-                    <div class="container-nome-usuario">
-                        <h3 class="nome-usuario">Nícolas Eloy</h3>
-                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/public/imagens/produto/avaliacao-2.png" alt="img-avaliacao">
-                    </div>
-                    <div class="data-avaliacao">
-                        <span>25/12/2024</span>
-                    </div>
-                    <div class="descricao-avaliacao">
-                        <p>Muito bom custo-benefício.</p>
-                    </div>
-                    <div class="pergunta-avaliacao">
-                        <span>Esta avaliação foi útil?</span>
-                        <div class="btns-pergunta">
-                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
-                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
-                            ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="avaliacao">
-                    <div class="container-nome-usuario">
-                        <h3 class="nome-usuario">Marcos Rosa</h3>
-                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
-                    </div>
-                    <div class="data-avaliacao">
-                        <span>03/08/2024</span>
-                    </div>
-                    <div class="descricao-avaliacao">
-                        <p>Atendeu minhas expectativas.</p>
-                    </div>
-                    <div class="pergunta-avaliacao">
-                        <span>Esta avaliação foi útil?</span>
-                        <div class="btns-pergunta">
-                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
-                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
-                            ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="avaliacao">
-                    <div class="container-nome-usuario">
-                        <h3 class="nome-usuario">Evandro Marques</h3>
-                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/public/imagens/produto/avaliacao-3.png" alt="img-avaliacao">
-                    </div>
-                    <div class="data-avaliacao">
-                        <span>01/01/2024</span>
-                    </div>
-                    <div class="descricao-avaliacao">
-                        <p>Chegou rapidinho e bem embalado.</p>
-                    </div>
-                    <div class="pergunta-avaliacao">
-                        <span>Esta avaliação foi útil?</span>
-                        <div class="btns-pergunta">
-                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
-                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
-                            ?>
-                        </div>
-                    </div>
-                </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>Seja o primeiro a avaliar este produto!</p>
+                <?php endif; ?>
             </div>
         </div>
     </div>
+
 
     <div class="sliderContainer">
         <div class="sessaoProdutos">
