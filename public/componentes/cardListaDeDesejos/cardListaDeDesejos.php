@@ -33,7 +33,7 @@ function createCardListaDeDesejos(
                 <input type='checkbox' class='cardCheckbox' data-id='{$id_produto}'>
             </div>
             <div class='cardColorido' style='background: linear-gradient(to right, {$corprincipal}, {$corhexdegrade1}, {$corhexdegrade2}, #FFFFFF 85%);'>
-                <div class='cardImg'>
+                <div class='cardImg' id='atalhoMaisDetalhes'>
                     <img src='{$imagemPath}' alt='".htmlspecialchars($nome, ENT_QUOTES)."'>
                 </div>
                 <div class='cardConteudo'>
