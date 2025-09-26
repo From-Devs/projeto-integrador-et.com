@@ -5,7 +5,7 @@ $produtoController = new ProdutoController();
 function ValidaCampos($acao) {
     $camposObrigatorios = [
         "nome", "marca", "breveDescricao", "qtdEstoque",
-        "preco", "precoPromocional", "caracteristicasCompleta",
+        "preco", "caracteristicasCompleta",
         "corPrincipal", "deg1", "deg2", "subCategoria"
     ];
 
@@ -15,7 +15,7 @@ function ValidaCampos($acao) {
         }
     }
 
-    if (!is_numeric($_POST["qtdEstoque"]) || !is_numeric($_POST["preco"]) || !is_numeric($_POST["precoPromocional"])) {
+    if (!is_numeric($_POST["qtdEstoque"]) || !is_numeric($_POST["preco"])) {
         return false;
     }
 
@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $_POST["marca"],
                     $_POST["breveDescricao"],
                     $_POST["preco"],
-                    $_POST["precoPromocional"],
+                    isset($_POST["precoPromocional"]),
                     $fgPromocao,
                     $_POST["caracteristicasCompleta"],
                     $_POST["qtdEstoque"],
