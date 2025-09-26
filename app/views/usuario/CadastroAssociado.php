@@ -40,7 +40,7 @@
     </div>
     <div class="Cadastro">
         <!-- Área branca -->
-    <form class="formAssociado" action="" method="POST" id="form">
+    <form class="formAssociado" action="../../../router/UserRoutes.php?acao=assoc_request" method="POST" id="form">
         <h1>Edite seus dados (Opicional)</h1>
         <div class= "p">
             <p class = "p1">*</p>
@@ -83,14 +83,14 @@
         <h1 class="textAreaTitle">Escreva sobre seus produtos</h1>
 
         <div class="embaixo">
-            <textarea class="caixa_texto" name="" id="" cols="30" rows="10"></textarea>
+            <textarea class="caixa_texto" name="sobreProdutos" id="" cols="30" rows="10"></textarea>
             <div class="botoes">
                 <div class="checkbox">
                     <input type="checkbox" name="termos" id="termos"> 
                     <label class="termos" for="termos"> Concordo com os <a href="./TermoDeUso.php">Termos de Uso e Privacidade</a></label>
                 </div>
                 
-                <button class="botaoConfirmar" type="button" onclick="abrirPopUp('popup')"><b>Confirmar</b></button>
+                <button class="botaoConfirmar" type="submit" onclick="return abrirPopUp('popup')"><b>Confirmar</b></button>
             </div>
         </div>
     </form>
@@ -102,5 +102,12 @@
     ?>
     <script src="../../../public/componentes/popup/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/editarDados.js"></script>
+    <?php if (isset($_GET['sucesso']) && $_GET['sucesso'] === 'send_request'): ?>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                abrirPopUp('popup');
+            });
+        </script>
+    <?php endif; ?>
 </body>
 </html>
