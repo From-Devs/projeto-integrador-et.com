@@ -41,6 +41,7 @@
 
     <div id="container">
         <div id="parteBranca">
+            <img id="fotoETPreta" src="/projeto-integrador-et.com/public/imagens/ET/LogoPreta1.png" alt="">
             <h1 id="bemVindo">BEM-VINDO!</h1>
 
             <form class="formContainer" id="formContainer" method="POST" action="../../../router/UserRoutes.php?acao=login">
@@ -67,7 +68,6 @@
         <section>
             <div class='wave solida'></div>
             <picture>
-                <source media="(max-width: 870px)" srcset="/projeto-integrador-et.com/public/imagens/ET/LogoPreta1.png">
                 <img id="fotoET" src="/projeto-integrador-et.com/public/imagens/ET/LogoBranca1.png" alt="">
             </picture>
         </section>

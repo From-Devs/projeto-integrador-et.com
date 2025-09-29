@@ -4,7 +4,7 @@
 function PopUpConfirmar($id, $texto, $botao1 = "", $botao2 = "", $largura="auto", $corFundo="white", $corFonte="black", $tamanhoFonte="1.5rem"){
     return "
     <dialog class='$id popUpDialog'>
-    <div class='popUp' style='width: $largura; background-color: $corFundo;'>
+    <div class='popUp' style='min-width: $largura; background-color: $corFundo;'>
             <button class='fecharPopUp' onclick=\"fecharPopUp('$id')\">
                 <img class='icone-fechar' src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
             </button>
