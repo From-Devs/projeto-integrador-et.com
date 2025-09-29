@@ -46,6 +46,11 @@ $favoritos = $idUsuario ? $controller->ListarFavoritos($idUsuario) : [];
 <?php 
 echo createHeader($login, $tipoUsuario); 
 echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px");
+
+$botao1 = botaoPersonalizadoOnClick("Sim","btn-green",'exclProd()',"90px","40px","20px");
+$botao2 = botaoPersonalizadoRedirect("Não","btn-white", "","90px","40px","20px");
+echo PopUpConfirmar("confirmacao", "Deseja Excluir?", $botao2, $botao1, "300px", "white", "", "1.7rem");
+echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmacao\")");
 ?>
 
 <div class="title-container">
@@ -146,6 +151,65 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
 <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
 <script src="/projeto-integrador-et.com/public/javascript/listaDeDesejos.js"></script>
+
+<script>
+    let idsExcluir = [];
+    let idProduto = null;
+
+    // Botões principais
+    btnAdicionarCarrinho.addEventListener('click', () => {
+        enviarFormulario('adicionarCarrinho', getSelecionados());
+    });
+
+    btnExcluirSelecionados.addEventListener('click', () => {
+        idsExcluir = getSelecionados();
+        abrirPopUp("confirmacao")
+    });
+
+    cardContainer.addEventListener('click', (e) => {
+        const lixeiraBtn = e.target.closest('.icon-lixeira');
+        if (lixeiraBtn) {
+            idProduto = lixeiraBtn.dataset.id;
+            abrirPopUp("confirmacao");
+        }
+
+        const carrinhoBtn = e.target.closest('.icon-carrinho');
+        if (carrinhoBtn) {
+            const idCarrinho = carrinhoBtn.dataset.id;
+            enviarFormulario('adicionarCarrinho', [idCarrinho]);
+        }
+    
+    });
+
+    function exclProd(){
+        if(idProduto){
+            enviarFormulario('removerFavorito', [idProduto]);
+            idProduto = null;
+            fecharPopUp("confirmacao");
+
+        }else if(idsExcluir.length > 0){
+            enviarFormulario('removerFavorito', idsExcluir);
+            idsExcluir = [];
+            fecharPopUp("confirmacao");
+        }
+    }
+
+
+
+    //levar para a página de detalhes do produto pelo id
+    const card = document.querySelectorAll(".cardDesejos");
+
+    card.forEach(item => {
+        const atalhoMaisDetalhes = item.querySelector('#atalhoMaisDetalhes');
+        const idProd = item.getAttribute('data-id');
+
+        atalhoMaisDetalhes.addEventListener('click', function(){
+            window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProd}`;
+        });
+
+        
+    })
+</script>
 
 
 </body>

@@ -84,44 +84,9 @@ async function enviarFormulario(action, idsProdutos) {
     }
 }
 
-// Botões principais
-btnAdicionarCarrinho.addEventListener('click', () => {
-    enviarFormulario('adicionarCarrinho', getSelecionados());
-});
-
-btnExcluirSelecionados.addEventListener('click', () => {
-    enviarFormulario('removerFavorito', getSelecionados());
-});
-
-cardContainer.addEventListener('click', (e) => {
-    const carrinhoBtn = e.target.closest('.icon-carrinho');
-    const lixeiraBtn = e.target.closest('.icon-lixeira');
-
-    if (carrinhoBtn) {
-        const idProduto = carrinhoBtn.dataset.id;
-        enviarFormulario('adicionarCarrinho', [idProduto]);
-    }
-
-    if (lixeiraBtn) {
-        const idProduto = lixeiraBtn.dataset.id;
-        enviarFormulario('removerFavorito', [idProduto]);
-    }
-});
 
 
-//levar para a página de detalhes do produto pelo id
-const card = document.querySelectorAll(".cardDesejos");
 
-card.forEach(item => {
-    const atalhoMaisDetalhes = item.querySelector('#atalhoMaisDetalhes');
-    const idProd = item.getAttribute('data-id');
-
-    atalhoMaisDetalhes.addEventListener('click', function(){
-        window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProd}`;
-    });
-
-    
-})
 
 
 
