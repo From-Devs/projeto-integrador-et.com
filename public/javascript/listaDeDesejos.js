@@ -113,11 +113,12 @@ cardContainer.addEventListener('click', (e) => {
 const card = document.querySelectorAll(".cardDesejos");
 
 card.forEach(item => {
-    const atalhoMaisDetalhes = item.querySelector('#atalhoMaisDetalhes')
+    const atalhoMaisDetalhes = item.querySelector('#atalhoMaisDetalhes');
+    const idProd = item.getAttribute('data-id');
 
     atalhoMaisDetalhes.addEventListener('click', function(){
-        window.location.href = '/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php'
-    })
+        window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProd}`;
+    });
 
     
 })
