@@ -617,6 +617,38 @@
     }
 
 
+/*Popup para confirmar a eliminação do produto */
+
+/* .popUpDialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+.popUp{
+    display: flex;
+    width: 400px;
+}
 
 
+.popUp .texto-popUp{
+    margin-bottom: 10px;
+    font-weight: 600;
+    flex-wrap: wrap;
+}
 
+.popUp .botoes-popUp{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 30px;
+    border-radius: 20%;
+    margin-bottom: 20px;
+}
+
+
+.popUp .botoes-popUp .btn-white:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}

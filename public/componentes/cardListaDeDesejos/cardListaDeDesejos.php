@@ -11,6 +11,7 @@ function createCardListaDeDesejos(
     $corhexdegrade2 = "#919191", 
     $precoPromo = null
 ){
+
     // Preço com ou sem promoção
     if (!empty($precoPromo) && $precoPromo < $preco){
         $precoCarrinho = "
@@ -26,6 +27,9 @@ function createCardListaDeDesejos(
     // Caminho da imagem: usa diretamente a pasta 'produto'
     $imagemPath = !empty($imagemProd) ? "/projeto-integrador-et.com/public/imagens/produto/{$imagemProd}" : "/projeto-integrador-et.com/public/imagens/produto/default.png";
 
+    //Botões do pop-up
+    $btnExcluir = botaoPersonalizadoOnClick('Sim','btn-white','enviarFormulario("removerFavorito", ['.$id_produto.'])','60px','30px');
+    $btnCancelar = botaoPersonalizadoOnClick('Não','btn-white','fecharPopUp("popupSair")', '60px', '30px');
 
     return "
         <div class='cardDesejos card' data-id='{$id_produto}'>
@@ -49,9 +53,11 @@ function createCardListaDeDesejos(
                             <button class='buttonCarrinho icon-carrinho' data-id='{$id_produto}'>
                                 <i class='fa-solid fa-cart-shopping'></i>
                             </button>
-                            <button class='buttonLixeira icon-lixeira' data-id='{$id_produto}'>
+                            <button class='buttonLixeira icon-lixeira' data-id='{$id_produto}' onclick=\"abrirPopUp('popupSair')\">
                                 <i class='fa-solid fa-trash-can'></i>
+                                
                             </button>
+                            "   . PopUpConfirmar('popupSair','Deseja eliminar este produto da sua lista de desejos?',$btnExcluir,$btnCancelar,'500px','white','black') . " 
                         </div>  
                     </div>
                 </div>

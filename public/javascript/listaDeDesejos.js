@@ -102,10 +102,10 @@ cardContainer.addEventListener('click', (e) => {
         enviarFormulario('adicionarCarrinho', [idProduto]);
     }
 
-    if (lixeiraBtn) {
-        const idProduto = lixeiraBtn.dataset.id;
-        enviarFormulario('removerFavorito', [idProduto]);
-    }
+    // if (lixeiraBtn) {
+    //     const idProduto = lixeiraBtn.dataset.id;
+    //     enviarFormulario('removerFavorito', [idProduto]);
+    // }
 });
 
 
