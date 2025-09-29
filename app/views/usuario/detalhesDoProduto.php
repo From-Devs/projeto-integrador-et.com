@@ -6,30 +6,30 @@ require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
 require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
-
-
+ 
+ 
 session_start();
 $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
 $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
-
+ 
 $conn = (new Database())->connect();
-
+ 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['id_usuario'])) {
     die("Você precisa estar logado para adicionar ao carrinho.");
 }
-
+ 
 $id_usuario = $_SESSION['id_usuario'];
-
+ 
 // Quando o form for enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_produto'])) {
     $id_produto = intval($_POST['id_produto']);
     $quantidade = isset($_POST['quantidade']) ? intval($_POST['quantidade']) : 1;
-
+ 
     try {
         // Verifica se já existe o produto no carrinho do usuário
-        $sql = "SELECT id_carrinho, quantidade 
-                FROM carrinho 
+        $sql = "SELECT id_carrinho, quantidade
+                FROM carrinho
                 WHERE id_usuario = :id_usuario AND id_produto = :id_produto";
         $stmt = $conn->prepare($sql);
         $stmt->execute([
@@ -37,12 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_produto'])) {
             ':id_produto' => $id_produto
         ]);
         $item = $stmt->fetch(PDO::FETCH_ASSOC);
-
+ 
         if ($item) {
             // Se já existe → atualiza quantidade
             $novaQuantidade = $item['quantidade'] + $quantidade;
-            $update = "UPDATE carrinho 
-                       SET quantidade = :qnt 
+            $update = "UPDATE carrinho
+                       SET quantidade = :qnt
                        WHERE id_carrinho = :id_carrinho";
             $stmtUpdate = $conn->prepare($update);
             $stmtUpdate->execute([
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_produto'])) {
             ]);
         } else {
             // Se não existe → insere novo
-            $insert = "INSERT INTO carrinho (id_usuario, cep, id_produto, quantidade) 
+            $insert = "INSERT INTO carrinho (id_usuario, cep, id_produto, quantidade)
                        VALUES (:id_usuario, '00000000', :id_produto, :qnt)";
             $stmtInsert = $conn->prepare($insert);
             $stmtInsert->execute([
@@ -60,19 +60,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_produto'])) {
                 ':qnt' => $quantidade
             ]);
         }
-
+ 
         echo json_encode([
             'ok' => true,
             'mensagem' => 'Produto adicionado ao carrinho',
             'quantidade' => $quantidade
         ]);
         exit;
-
+ 
     } catch (PDOException $e) {
         echo "Erro ao adicionar ao carrinho: " . $e->getMessage();
     }
 }
-
+ 
 $idUsuario = $_SESSION['id_usuario'] ?? null;
 if (!$idUsuario) {
     die("Usuário não logado!");
@@ -80,12 +80,12 @@ if (!$idUsuario) {
 // carrega produto por id
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $produto = null;
-
+ 
 if ($id > 0) {
     $produtoController = new ProdutoController();
     $produto = $produtoController->BuscarProdutoPorId($id);
 }
-
+ 
 if (!$produto) {
     // produto não encontrado
     echo "<!DOCTYPE html><html lang='pt-br'><head><meta charset='UTF-8'><title>Produto</title></head><body>";
@@ -95,30 +95,7 @@ if (!$produto) {
     echo "</body></html>";
     exit;
 }
-// === Salvar avaliação ===
-if (isset($_POST['enviar_avaliacao']) && isset($_SESSION['id_usuario'])) {
-    $nota = intval($_POST['nota']);
-    $comentario = trim($_POST['comentario']);
-    $id_usuario = $_SESSION['id_usuario'];
-
-    if ($nota >= 1 && $nota <= 5 && !empty($comentario)) {
-        $stmt = $conn->prepare("INSERT INTO avaliacoes (id_usuario, id_produto, nota, comentario) VALUES (?, ?, ?, ?)");
-        $stmt->execute([$id_usuario, $produto['id_produto'], $nota, $comentario]);
-        $msg = "Avaliação enviada com sucesso!";
-    } else {
-        $msg = "Preencha todos os campos corretamente.";
-    }
-}
-
-// === Buscar avaliações ===
-$stmt = $conn->prepare("SELECT a.*, u.nome 
-                        FROM avaliacoes a
-                        JOIN usuario u ON a.id_usuario = u.id_usuario
-                        WHERE a.id_produto = ?
-                        ORDER BY a.data_avaliacao DESC");
-$stmt->execute([$produto['id_produto']]);
-$avaliacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+ 
 // prepara dados
 $nome        = $produto['nome'] ?? '';
 $marca       = $produto['marca'] ?? '';
@@ -126,8 +103,7 @@ $descBreve   = $produto['descricaoBreve'] ?? '';
 $descTotal   = $produto['descricaoTotal'] ?? '';
 $preco       = (float)($produto['preco'] ?? 0);
 $precoPromo  = (float)($produto['precoPromo'] ?? 0);
-
-
+ 
 // Busca subcategoria/cor caso não tenham vindo do controller
 if (empty($subcategoria) || empty($corPrincipal)) {
     try {
@@ -151,42 +127,41 @@ if (empty($subcategoria) || empty($corPrincipal)) {
     } catch (Throwable $e) { /* silencioso */ }
 }
 $temPromo    = $precoPromo > 0 && $precoPromo < $preco;
-
-
+ 
+ 
 $subcategoria = $produto['subcategoria'] ?? ($produto['nomeSubcategoria'] ?? '');
 $corPrincipal = $produto['corPrincipal'] ?? ($produto['cor'] ?? '');
 $imgArquivo  = trim($produto['imagem'] ?? '');
 $baseImgPath = "/projeto-integrador-et.com/public/imagens/produto/";
-
+ 
 $img1 = !empty($produto['img1']) ? $baseImgPath . $produto['img1'] : $baseImgPath . 'no-image.png';
 $img2 = !empty($produto['img2']) ? $baseImgPath . $produto['img2'] : $img1;
 $img3 = !empty($produto['img3']) ? $baseImgPath . $produto['img3'] : $img1;
 $imgPrincipal = $img1;
 ?>
-
-
+ 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css"> 
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popup/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/header/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebar/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/cardProduto/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/rodape/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/sliderProdutos.css">
-
+ 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/detalhesDoProduto.css">
-    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght…" rel="stylesheet">
     <title>Detalhes do produto</title>
 </head>
 <body>
     <?php echo createHeader($login, $tipoUsuario) ?>
-    
+   
     <div class="container-detalhes">
         <div class="detalhes-principal">
             <div class="imagens-lateral">
@@ -194,7 +169,7 @@ $imgPrincipal = $img1;
                 <div><img src="<?php echo htmlspecialchars($img2); ?>" alt="img-lateral"></div>
                 <div><img src="<?php echo htmlspecialchars($img3); ?>" alt="img-lateral"></div>
             </div>
-
+ 
             <div class="img-principal">
                 <div><img id='img-principal' src="<?php echo htmlspecialchars($imgPrincipal); ?>" alt="img-principal"></div>
             </div>
@@ -202,34 +177,34 @@ $imgPrincipal = $img1;
                 <div class="titulo-produto">
                     <div class="titulo">
                     <h3><?php echo htmlspecialchars($nome); ?></h3>
-
+ 
                         <!-- Pop-up de confirmação -->
-                        <?php 
+                        <?php
                         echo PopUpComImagemETitulo(
-                            "popUpFavorito", 
-                            "/popUp_Botoes/img-favorito.png", 
-                            "160px", 
-                            "Adicionado à Lista de Desejos!", 
-                            "", 
-                            "", 
-                            "", 
+                            "popUpFavorito",
+                            "/popUp_Botoes/img-favorito.png",
+                            "160px",
+                            "Adicionado à Lista de Desejos!",
+                            "",
+                            "",
+                            "",
                             "352px"
                         );
                         ?>
-
+ 
                         <!-- Formulário + botão de coração -->
                         <form id="formFavorito" method="POST">
                             <input type="hidden" name="id_usuario" value="<?= $_SESSION['id_usuario'] ?>">
                             <input type="hidden" name="id_produto" value="<?= $produto['id_produto'] ?>">
-
+ 
                             <abbr class="abbr-favoritos" title="Adicionar aos favoritos">
                                 <button type="submit" class="imgCoracao">
                                     <img src='/projeto-integrador-et.com/public/imagens/produto/coracao-detalhes-produto.png' alt='Coração'>
                                 </button>
                             </abbr>
                         </form>
-
-
+ 
+ 
                     </div>
                     <div class="sub-titulo-produto">
                         <span class="preco-produto">
@@ -240,22 +215,10 @@ $imgPrincipal = $img1;
                                 R$ <?php echo number_format($preco, 2, ',', '.'); ?>
                             <?php endif; ?>
                         </span>
-                        <?php
-                        $totalAvaliacoes = count($avaliacoes);
-                        $somaNotas = array_sum(array_column($avaliacoes, 'nota'));
-                        $media = $totalAvaliacoes ? round($somaNotas / $totalAvaliacoes, 1) : 0;
-                        ?>
                         <abbr title="Avaliações" class="avaliacao-descricao">
                             <a href="#all-avaliacoes">
-                                <div class="estrelas-media">
-                                    <?php 
-                                    for($i=1; $i<=5; $i++):
-                                        $classe = ($i <= floor($media)) ? 'cheia' : (($i - $media < 1) ? 'meia' : 'vazia');
-                                    ?>
-                                        <span class="estrela <?= $classe ?>">★</span>
-                                    <?php endfor; ?>
-                                </div>
-                                <span class="qtd-reviews">(<?php echo $totalAvaliacoes; ?> reviews)</span>
+                                <img src="/projeto-integrador-et.com/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
+                                <span class="qtd-reviews">(10 reviews)</span>
                             </a>
                         </abbr>
                     </div>
@@ -273,7 +236,7 @@ $imgPrincipal = $img1;
                             <input type="text" id="quantidadeInput" value="1">
                             <button type="button" id="aumentar">+</button>
                         </div>
-
+ 
                             <form id="formCarrinho" method="post">
                                 <input type="hidden" name="id_produto" value="<?php echo $produto['id_produto']; ?>">
                                 <input type="hidden" name="quantidade" id="quantidadeInput" value="1">
@@ -281,33 +244,33 @@ $imgPrincipal = $img1;
                                     Adicionar ao Carrinho
                                 </button>
                             </form>
-
+ 
                             <!-- Pop-up de confirmação -->
                             <div id="popUpCarrinho" class="popUp" style="display:none;">
                                 <img src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-confirmar.png" alt="Sucesso">
                                 <p>Produto adicionado ao carrinho!</p>
                             </div>
-
+ 
                         </div>
                         <div class="div-favorito-e-carrinho">
-    
-    
-
-
-
+   
+   
+ 
+ 
+ 
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+ 
         <div class="btn-ir-descricao">
             <button onclick="document.querySelector('.description-box').scrollIntoView({ behavior: 'smooth' });">
                 Ver mais detalhes do produto ↓
             </button>
         </div>
     </div>
-
+ 
     <div class="description-box">
         <div class="description-header">
             <h2>DESCRIÇÃO</h2>
@@ -318,7 +281,7 @@ $imgPrincipal = $img1;
 <!-- Campos extras podem ser preenchidos dinamicamente se existirem no banco -->
             </p>
         </div>
-        
+       
         <h3>Características: </h3>
         <ul>
             <li><?php echo nl2br(htmlspecialchars($descTotal ?: $descBreve)); ?></p>
@@ -326,23 +289,16 @@ $imgPrincipal = $img1;
             <li>Cor principal: <strong><?php echo htmlspecialchars($corPrincipal ?: 'Não definida'); ?></strong></li>
         </ul>
     </div>
-
+ 
     <div id="all-avaliacoes">
         <div class="avaliacoes">
             <div class="titulo-avaliacoes">
                 <div class="titulo-aval">
                     <h1>Avaliações</h1>
-                    <div class="estrelas-media">
-                        <?php for($i=1; $i<=5; $i++): 
-                            $classe = ($i <= floor($media)) ? 'cheia' : (($i - $media < 1) ? 'meia' : 'vazia');
-                        ?>
-                            <span class="estrela <?= $classe ?>">★</span>
-                        <?php endfor; ?>
-                        <span class="qtd-reviews">(<?php echo $totalAvaliacoes; ?> reviews)</span>
-                    </div>
+                    <img src="/projeto-integrador-et.com/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
                 </div>
                 <div class="qtd-respostas">
-                    <h2><?php echo count($avaliacoes); ?> respostas obtidas</h2>
+                    <h2>4 respostas obtidas</h2>
                 </div>
                 <select name="ordenar" id="ordenar">
                     <option value="" disabled selected>Ordenar por</option>
@@ -351,64 +307,92 @@ $imgPrincipal = $img1;
                     <option value="maisAntigas">Mais antigas</option>
                 </select>
             </div>
-
-            <!-- Formulário de Avaliação -->
-            <?php if (isset($msg)) echo "<p style='color:green'>$msg</p>"; ?>
-            <?php if (isset($_SESSION['id_usuario'])): ?>
-                <form method="POST" style="margin:1rem 0;">
-                <label>Nota:</label>
-                <div class="input-estrela">
-                    <?php for($i=1; $i<=5; $i++): ?>
-                        <span class="estrela" data-nota="<?= $i ?>">★</span>
-                    <?php endfor; ?>
-                    <input type="hidden" name="nota" required>
-                </div><br><br>
-
-
-                    <label>Comentário:</label><br>
-                    <textarea name="comentario" rows="3" cols="50" required></textarea><br><br>
-
-                    <button type="submit" name="enviar_avaliacao" class="btn btn-success">Enviar Avaliação</button>
-                </form>
-            <?php else: ?>
-                <p><a href="/projeto-integrador-et.com/app/views/usuario/login.php">Faça login</a> para avaliar este produto.</p>
-            <?php endif; ?>
-
             <div class="container-avaliacoes">
-                <?php if ($avaliacoes): ?>
-                    <?php foreach ($avaliacoes as $av): ?>
-                        <div class="avaliacao">
-                            <div class="container-nome-usuario">
-                                <h3 class="nome-usuario"><?php echo htmlspecialchars($av['nome']); ?></h3>
-                                <span class="avaliacao-usuario">
-                                    <?php echo str_repeat("⭐", $av['nota']); ?>
-                                </span>
-                            </div>
-                            <div class="data-avaliacao">
-                                <span><?php echo date("d/m/Y", strtotime($av['data_avaliacao'])); ?></span>
-                            </div>
-                            <div class="descricao-avaliacao">
-                                <p><?php echo nl2br(htmlspecialchars($av['comentario'])); ?></p>
-                            </div>
-                            <div class="pergunta-avaliacao">
-                                <span>Esta avaliação foi útil?</span>
-                                <div class="btns-pergunta">
-                                    <?php 
-                                    echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
-                                    echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
-                                    ?>
-                                </div>
-                            </div>
+                <div class="avaliacao">
+                    <div class="container-nome-usuario">
+                        <h3 class="nome-usuario">Maria Silva</h3>
+                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/public/imagens/produto/avaliacao-5.png" alt="img-avaliacao">
+                    </div>
+                    <div class="data-avaliacao">
+                        <span>10/01/2024</span>
+                    </div>
+                    <div class="descricao-avaliacao">
+                        <p>Produto excelente, recomendo!</p>
+                    </div>
+                    <div class="pergunta-avaliacao">
+                        <span>Esta avaliação foi útil?</span>
+                        <div class="btns-pergunta">
+                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
+                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
+                            ?>
                         </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <p>Seja o primeiro a avaliar este produto!</p>
-                <?php endif; ?>
+                    </div>
+                </div>
+                <!-- (demais avaliações mantidas do seu template) -->
+                <div class="avaliacao">
+                    <div class="container-nome-usuario">
+                        <h3 class="nome-usuario">Nícolas Eloy</h3>
+                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/public/imagens/produto/avaliacao-2.png" alt="img-avaliacao">
+                    </div>
+                    <div class="data-avaliacao">
+                        <span>25/12/2024</span>
+                    </div>
+                    <div class="descricao-avaliacao">
+                        <p>Muito bom custo-benefício.</p>
+                    </div>
+                    <div class="pergunta-avaliacao">
+                        <span>Esta avaliação foi útil?</span>
+                        <div class="btns-pergunta">
+                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
+                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="avaliacao">
+                    <div class="container-nome-usuario">
+                        <h3 class="nome-usuario">Marcos Rosa</h3>
+                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/public/imagens/produto/avaliacao-4.png" alt="img-avaliacao">
+                    </div>
+                    <div class="data-avaliacao">
+                        <span>03/08/2024</span>
+                    </div>
+                    <div class="descricao-avaliacao">
+                        <p>Atendeu minhas expectativas.</p>
+                    </div>
+                    <div class="pergunta-avaliacao">
+                        <span>Esta avaliação foi útil?</span>
+                        <div class="btns-pergunta">
+                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
+                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="avaliacao">
+                    <div class="container-nome-usuario">
+                        <h3 class="nome-usuario">Evandro Marques</h3>
+                        <img class="avaliacao-usuario" src="/projeto-integrador-et.com/public/imagens/produto/avaliacao-3.png" alt="img-avaliacao">
+                    </div>
+                    <div class="data-avaliacao">
+                        <span>01/01/2024</span>
+                    </div>
+                    <div class="descricao-avaliacao">
+                        <p>Chegou rapidinho e bem embalado.</p>
+                    </div>
+                    <div class="pergunta-avaliacao">
+                        <span>Esta avaliação foi útil?</span>
+                        <div class="btns-pergunta">
+                            <?php echo botaoPersonalizadoOnClick("Sim", "btn-black", "foiUtil()", "60px", "20px", "0.9rem");
+                            echo botaoPersonalizadoOnClick("Não", "btn-white", "naoFoiUtil()", "60px", "20px", "0.9rem");
+                            ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-
+ 
     <div class="sliderContainer">
         <div class="sessaoProdutos">
             <div class="tituloSessao">
@@ -436,22 +420,22 @@ $imgPrincipal = $img1;
             </div>
         </div>
     </div>
-
-    <?php 
-    echo createRodape(); 
+ 
+    <?php
+    echo createRodape();
     ?>
-
+ 
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/detalhesDoProduto.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
-
+ 
     <script>
         const imgPrinc = document.getElementById('img-principal');
         const imgLater = document.querySelectorAll('.imagens-lateral img');
-
+ 
         imgLater.forEach(img => {
             img.addEventListener('click', () => {
                 imgPrinc.src = img.src;
@@ -460,3 +444,5 @@ $imgPrincipal = $img1;
     </script>
 </body>
 </html>
+ 
+ 
