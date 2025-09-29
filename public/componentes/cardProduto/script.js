@@ -16,8 +16,9 @@ document.addEventListener("DOMContentLoaded", function(){
               coracaoForm = item.querySelector('.formFavoritoCard'),
               coracaoImg = coracaoForm ? coracaoForm.querySelector('.coracaoImg') : null,
               botaoComprar = item.querySelector(".botaoComprarCardProduto"),
-              botaoAnimacao = item.childNodes[7].childNodes[12],
-              imagemCardProdutoPadrao = item.childNodes[5];
+              botaoAnimacao = item.childNodes[13].childNodes[12],
+              coracaoBotao = item.childNodes[5],
+              imagemCardProdutoPadrao = item.childNodes[11];
 
         item.style.background = "linear-gradient(35deg, "+ cores[1] +" 30%, "+ cores[2] +" 100%)";
         botaoComprar.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
@@ -31,10 +32,10 @@ document.addEventListener("DOMContentLoaded", function(){
         });
 
         if (coracaoForm && coracaoImg) {
-            item.addEventListener("mouseenter", function(){
+            coracaoBotao.addEventListener("mouseenter", function(){
                 balao.style.display = "block";
             });
-            item.addEventListener("mouseleave", function(){
+            coracaoBotao.addEventListener("mouseleave", function(){
                 balao.style.display = "none";
             });
 
