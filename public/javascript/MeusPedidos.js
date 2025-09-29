@@ -1,4 +1,6 @@
-// JS de cores (mantém cores dinâmicas nos cards)
+// ========================
+// === CORES DINÂMICAS ===
+// ========================
 document.querySelectorAll('.produtoMP, .cards-produtoAndamento, .cardProduto-finalizado').forEach(card => {
     const id = card.dataset.id;
     if(!id) return;
@@ -10,7 +12,11 @@ document.querySelectorAll('.produtoMP, .cards-produtoAndamento, .cardProduto-fin
     }
 });
 
+// ========================
 // === POPUP DE AVALIAÇÃO ===
+// ========================
+let avaliacaoSelecionada = 0;
+
 function abrirPopupAvaliacao(imagemProduto, nomeProduto, marcaProduto) {
     const dialog = document.getElementById("popupAvaliarProduto");
     document.getElementById("popupAva-imagemProduto").src = imagemProduto;
@@ -19,13 +25,13 @@ function abrirPopupAvaliacao(imagemProduto, nomeProduto, marcaProduto) {
     if (!dialog.open) dialog.showModal();
 }
 
-let avaliacaoSelecionada = 0;
 function atualizarEstrelas(valor) {
     const estrelas = document.querySelectorAll("#popupAvaliarProduto .estrela");
     estrelas.forEach((estrela, index) => {
         estrela.classList.toggle("selecionada", index < valor);
     });
 }
+
 document.querySelectorAll("#popupAvaliarProduto .estrela").forEach((estrela, index) => {
     estrela.addEventListener("click", () => {
         const valor = index + 1;
@@ -33,6 +39,7 @@ document.querySelectorAll("#popupAvaliarProduto .estrela").forEach((estrela, ind
         atualizarEstrelas(avaliacaoSelecionada);
     });
 });
+
 function enviarAvaliacao() {
     const texto = document.getElementById("popupAva-textoAvaliacao").value;
     if(avaliacaoSelecionada === 0) { alert("Selecione pelo menos 1 estrela."); return; }
@@ -40,84 +47,132 @@ function enviarAvaliacao() {
     alert("Avaliação enviada com sucesso!");
     fecharPopupAvaliacao();
 }
+
 function fecharPopupAvaliacao() {
     const dialog = document.getElementById("popupAvaliarProduto");
     if(dialog && dialog.open) dialog.close();
 }
 
-// === POPUP DOS CARDS ===
-document.querySelectorAll(".verMais, .maisInfo").forEach(botao => {
-    botao.addEventListener("click", e => {
-        const card = e.target.closest("[data-id]");
-        if(!card) return;
+// ========================
+// === POPUPS DOS CARDS EXISTENTES ===
+// ========================
 
-        // Dados do card
-        const nome = card.querySelector(".nomeProdutoMP")?.innerText || '';
-        const descricao = card.querySelector(".descricaoProdutoMP")?.innerText || '';
-        const quantidade = card.querySelector(".qtdProdutoMP")?.innerText.replace('Qtd: ','') || '1';
-        const subtotal = card.querySelector(".subtotalProdutoMP")?.innerText.replace('Subtotal: R$ ','') || '0';
-        const imagem = card.querySelector("img")?.src || '';
-        const dataCompra = card.querySelector(".data-compra")?.innerText || '';
+// Produtos em andamento
+document.querySelectorAll(".cards-produtoAndamento").forEach(card => {
+    card.addEventListener("click", () => {
+        const popupProdutos = document.getElementById("popupMP-Produtos");
+        popupProdutos.innerHTML = ""; // limpar popup
 
-        // Define qual popup abrir
-        const isFinalizado = card.classList.contains("cardProduto-finalizado");
+        const produtos = [card]; // só um card por vez, você pode adaptar se houver múltiplos produtos agrupados
 
-        if(isFinalizado) {
-            const popupProdutosFi = document.getElementById("popupMP-ProdutosFi");
-            if(!popupProdutosFi) return;
-            popupProdutosFi.innerHTML = `
-                <div class="cardpopup">
-                    <div class="card-recolhido">
-                        <div class="cardpopup-Superior"> 
-                            <span class="cardpopup-Status">Finalizado</span>
-                            <span class="cardpopup-Quantidade">${quantidade}x</span>
-                        </div>
-                        <div class="cardpopup-conteudo">
-                            <img class="cardpopup-imagem" src="${imagem}" height="100px">
-                            <div class="cardpopup-infos">
-                                <span class="cardpopup-Titulo">${nome}</span>
-                                <span class="cardpopup-Descricao">${descricao}</span>
-                                <div class="preco-total">
-                                    <span class="cardpopup-PrecoTotal">R$ ${parseFloat(subtotal).toFixed(2)}</span>
-                                </div>
+        let totalCompra = 0;
+
+        produtos.forEach(p => {
+            const nome = p.querySelector(".nomeProdutoMP")?.innerText || '';
+            const descricao = p.querySelector(".descricaoProdutoMP")?.innerText || '';
+            const quantidade = parseInt(p.querySelector(".qtdProdutoMP")?.innerText.replace('Qtd: ','') || '1');
+            const subtotal = parseFloat(p.querySelector(".subtotalProdutoMP")?.innerText.replace('Subtotal: R$ ','') || '0');
+            const imagem = p.querySelector("img")?.src || '';
+            const dataCompra = p.querySelector(".data-compra")?.innerText || '';
+
+            const miniCard = document.createElement("div");
+            miniCard.classList.add("cardMini");
+            miniCard.innerHTML = `
+                <div class="card-recolhido">
+                    <div class="cardMini-Superior">
+                        <span class="cardMini-Status">Em Andamento</span>
+                        <span class="cardMini-Quantidade">${quantidade}x</span>
+                    </div>
+                    <div class="cardMini-conteudo">
+                        <img class="cardMini-imagem" src="${imagem}" height="100px">
+                        <div class="cardMini-infos">
+                            <span class="cardMini-Titulo">${nome}</span>
+                            <div class="preco-total">
+                                <span class="cardMini-PrecoTotal">R$ ${subtotal.toFixed(2)}</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            `;
-            document.getElementById("popupMP-DataEntrega").innerText = dataCompra;
-            document.getElementById("popupMPFinalizado").showModal();
-        } else {
-            const popupProdutos = document.getElementById("popupMP-Produtos");
-            if(!popupProdutos) return;
-            popupProdutos.innerHTML = `
-                <div class="cardMini">
-                    <div class="card-recolhido">
-                        <div class="cardMini-Superior"> 
-                            <span class="cardMini-Status">Em Andamento</span>
-                            <span class="cardMini-Quantidade">${quantidade}x</span>
-                        </div>
-                        <div class="cardMini-conteudo">
-                            <img class="cardMini-imagem" src="${imagem}" height="100px">
-                            <div class="cardMini-infos">
-                                <span class="cardMini-Titulo">${nome}</span>
-                                <span class="cardMini-Descricao">${descricao}</span>
-                                <div class="preco-total">
-                                    <span class="cardMini-PrecoTotal">R$ ${parseFloat(subtotal).toFixed(2)}</span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="card-expandido" style="height: 420px;">
+                    <span class="card-titulo">DESCRIÇÃO</span>
+                    <div class="card-linhasuperior"></div>
+                    <img class="cardMini-imagem" src="${imagem}" height="130px">
+                    <div class="card-linhainferior"></div>
+                    <div class="detalhes-info" style="gap:5px;">
+                        <span class="detalhes-titulo">${nome}</span>
+                        <span class="detalhes-quantidade">Quantidade: ${quantidade} produtos</span>
+                        <span class="detalhes-precoTotal">Subtotal: R$ ${subtotal.toFixed(2)}</span>
                     </div>
                 </div>
             `;
-            document.getElementById("popupMP-DataCompra").innerText = dataCompra;
-            document.getElementById("popupMP-Total").innerText = "Total: R$ " + parseFloat(subtotal).toFixed(2);
-            document.getElementById("popupMP").showModal();
-        }
+            popupProdutos.appendChild(miniCard);
+            totalCompra += subtotal;
+        });
+
+        document.getElementById("popupMP-DataCompra").innerText = produtos[0].querySelector(".data-compra")?.innerText || '';
+        document.getElementById("popupMP-Total").innerText = "Total: R$ " + totalCompra.toFixed(2);
+        document.getElementById("popupMP").showModal();
     });
 });
 
-// === FECHAR POPUPS ===
+// Produtos finalizados
+document.querySelectorAll(".cardProduto-finalizado").forEach(card => {
+    card.addEventListener("click", () => {
+        const popupProdutosFi = document.getElementById("popupMP-ProdutosFi");
+        popupProdutosFi.innerHTML = ""; // limpar popup
+
+        const produtos = [card];
+
+        produtos.forEach(p => {
+            const nome = p.querySelector(".nomeProdutoMP")?.innerText || '';
+            const descricao = p.querySelector(".descricaoProdutoMP")?.innerText || '';
+            const quantidade = parseInt(p.querySelector(".qtdProdutoMP")?.innerText.replace('Qtd: ','') || '1');
+            const subtotal = parseFloat(p.querySelector(".subtotalProdutoMP")?.innerText.replace('Subtotal: R$ ','') || '0');
+            const imagem = p.querySelector("img")?.src || '';
+            const dataEntrega = p.querySelector(".data-entrega")?.innerText || '';
+
+            const cardpopup = document.createElement("div");
+            cardpopup.classList.add("cardpopup");
+            cardpopup.innerHTML = `
+                <div class="card-recolhido">
+                    <div class="cardpopup-Superior">
+                        <span class="cardpopup-Status">Concluído</span>
+                        <span class="cardpopup-Quantidade">${quantidade}x</span>
+                    </div>
+                    <div class="cardpopup-conteudo">
+                        <img class="cardpopup-imagem" src="${imagem}">
+                        <div class="cardpopup-infos">
+                            <span class="cardpopup-Titulo">${nome}</span>
+                            <div class="preco-total">
+                                <span class="cardpopup-PrecoTotal">R$ ${subtotal.toFixed(2)}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-expandido">
+                    <span class="card-titulo2">DETALHES DO PEDIDO</span>
+                    <div class="detalhes-info" style="gap:5px;">
+                        <span class="detalhes-status">Status: <span style="color: green;">Concluído</span></span>
+                        <span class="detalhes-quantidade">Quantidade: ${quantidade} produtos</span>
+                    </div>
+                    <div class="detalhes-botoes">
+                        <a class="comprarNvmtBtn" href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php">Comprar Novamente</a>
+                        <button class="avaliarBtn">Avaliar</button>
+                    </div>
+                </div>
+            `;
+            popupProdutosFi.appendChild(cardpopup);
+
+            const btnAvaliar = cardpopup.querySelector(".avaliarBtn");
+            btnAvaliar.addEventListener("click", () => abrirPopupAvaliacao(imagem, nome, ""));
+        });
+
+        document.getElementById("popupMP-DataEntrega").innerText = produtos[0].querySelector(".data-entrega")?.innerText || '';
+        document.getElementById("popupMPFinalizado").showModal();
+    });
+});
+
+// ==================== FECHAR POPUPS ====================
 document.querySelectorAll(".icone-fechar button").forEach(botao => {
     botao.addEventListener("click", () => {
         const dialog = botao.closest("dialog");
