@@ -10,7 +10,7 @@ document.querySelectorAll('.produtoMP, .cards-produtoAndamento, .cardProduto-fin
     }
 });
 
-// Funções de popup / avaliação
+// === POPUP DE AVALIAÇÃO ===
 function abrirPopupAvaliacao(imagemProduto, nomeProduto, marcaProduto) {
     const dialog = document.getElementById("popupAvaliarProduto");
     document.getElementById("popupAva-imagemProduto").src = imagemProduto;
@@ -45,52 +45,26 @@ function fecharPopupAvaliacao() {
     if(dialog && dialog.open) dialog.close();
 }
 
-// === POPUPS DOS CARDS DO BANCO ===
+// === POPUP DOS CARDS ===
 document.querySelectorAll(".verMais, .maisInfo").forEach(botao => {
     botao.addEventListener("click", e => {
-        const card = e.target.closest('.cards-produtoAndamento, .cardProduto-finalizado');
+        const card = e.target.closest("[data-id]");
         if(!card) return;
-        const idProduto = card.dataset.id;
-        
-        // Coletar dados do card
+
+        // Dados do card
         const nome = card.querySelector(".nomeProdutoMP")?.innerText || '';
         const descricao = card.querySelector(".descricaoProdutoMP")?.innerText || '';
-        const quantidade = card.querySelector(".qtdProdutoMP")?.innerText.replace('Qtd: ','') || 1;
-        const preco = card.querySelector(".precoProdutoMP")?.innerText.replace('R$ ','') || 0;
-        const subtotal = card.querySelector(".subtotalProdutoMP")?.innerText.replace('Subtotal: R$ ','') || 0;
+        const quantidade = card.querySelector(".qtdProdutoMP")?.innerText.replace('Qtd: ','') || '1';
+        const subtotal = card.querySelector(".subtotalProdutoMP")?.innerText.replace('Subtotal: R$ ','') || '0';
         const imagem = card.querySelector("img")?.src || '';
+        const dataCompra = card.querySelector(".data-compra")?.innerText || '';
 
-        // Preencher popup de Andamento
-        const popupProdutos = document.getElementById("popupMP-Produtos");
-        if(popupProdutos) {
-            popupProdutos.innerHTML = `
-                <div class="cardMini">
-                    <div class="card-recolhido">
-                        <div class="cardMini-Superior"> 
-                            <span class="cardMini-Status">Em Andamento</span>
-                            <span class="cardMini-Quantidade">${quantidade}x</span>
-                        </div>
-                        <div class="cardMini-conteudo">
-                            <img class="cardMini-imagem" src="${imagem}" height="100px">
-                            <div class="cardMini-infos">
-                                <span class="cardMini-Titulo">${nome}</span>
-                                <span class="cardMini-Descricao">${descricao}</span>
-                                <div class="preco-total">
-                                    <span class="cardMini-PrecoTotal">R$ ${parseFloat(subtotal).toFixed(2)}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            document.getElementById("popupMP-DataCompra").innerText = card.querySelector(".data-compra")?.innerText || '';
-            document.getElementById("popupMP-Total").innerText = "Total: R$ " + parseFloat(subtotal).toFixed(2);
-            document.getElementById("popupMP").showModal();
-        }
+        // Define qual popup abrir
+        const isFinalizado = card.classList.contains("cardProduto-finalizado");
 
-        // Preencher popup de Finalizado
-        const popupProdutosFi = document.getElementById("popupMP-ProdutosFi");
-        if(popupProdutosFi && card.classList.contains("cardProduto-finalizado")) {
+        if(isFinalizado) {
+            const popupProdutosFi = document.getElementById("popupMP-ProdutosFi");
+            if(!popupProdutosFi) return;
             popupProdutosFi.innerHTML = `
                 <div class="cardpopup">
                     <div class="card-recolhido">
@@ -111,13 +85,39 @@ document.querySelectorAll(".verMais, .maisInfo").forEach(botao => {
                     </div>
                 </div>
             `;
-            document.getElementById("popupMP-DataEntrega").innerText = card.querySelector(".data-compra")?.innerText || '';
+            document.getElementById("popupMP-DataEntrega").innerText = dataCompra;
             document.getElementById("popupMPFinalizado").showModal();
+        } else {
+            const popupProdutos = document.getElementById("popupMP-Produtos");
+            if(!popupProdutos) return;
+            popupProdutos.innerHTML = `
+                <div class="cardMini">
+                    <div class="card-recolhido">
+                        <div class="cardMini-Superior"> 
+                            <span class="cardMini-Status">Em Andamento</span>
+                            <span class="cardMini-Quantidade">${quantidade}x</span>
+                        </div>
+                        <div class="cardMini-conteudo">
+                            <img class="cardMini-imagem" src="${imagem}" height="100px">
+                            <div class="cardMini-infos">
+                                <span class="cardMini-Titulo">${nome}</span>
+                                <span class="cardMini-Descricao">${descricao}</span>
+                                <div class="preco-total">
+                                    <span class="cardMini-PrecoTotal">R$ ${parseFloat(subtotal).toFixed(2)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById("popupMP-DataCompra").innerText = dataCompra;
+            document.getElementById("popupMP-Total").innerText = "Total: R$ " + parseFloat(subtotal).toFixed(2);
+            document.getElementById("popupMP").showModal();
         }
     });
 });
 
-// Fechar popups
+// === FECHAR POPUPS ===
 document.querySelectorAll(".icone-fechar button").forEach(botao => {
     botao.addEventListener("click", () => {
         const dialog = botao.closest("dialog");
