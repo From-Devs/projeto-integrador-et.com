@@ -109,6 +109,20 @@ cardContainer.addEventListener('click', (e) => {
 });
 
 
+//levar para a página de detalhes do produto pelo id
+const card = document.querySelectorAll(".cardDesejos");
+
+card.forEach(item => {
+    const atalhoMaisDetalhes = item.querySelector('#atalhoMaisDetalhes');
+    const idProd = item.getAttribute('data-id');
+
+    atalhoMaisDetalhes.addEventListener('click', function(){
+        window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProd}`;
+    });
+
+    
+})
+
 
 
 

@@ -1,35 +1,40 @@
-describe('Cadastro Tela', () => {
-  const data = {
-    "id": 1,
-    "id": 1,
-    "id": 1,
-    "id": 1,
-    "id": 1,
-  }
-  it('Cadastro teste Realizado Correto', () => {
-    cy.viewport(1920, 1080) 
-    cy.visit('/CadastroUsuario.php')
-    cy.get("#nome").type("teste")
-    cy.get("#data_nascimento").type("2007-12-15")
-    cy.get("#senha").type("123")
-    cy.get("#confirmar_senha").type("123")
-    cy.get("#email").type("teste@teste")
-    cy.get("#telefone").type("679925-6895")
-    cy.get("#cpf").type("485.565.455-75")
-    cy.get("#termos").click()
-    cy.get(".botaoConfirmar").click()
-  })
-  it('Cadastro teste Realizado Incorreto 01', () => {
-    cy.viewport(1920, 1080) 
-    cy.visit('/CadastroUsuario.php')
-    cy.get("#nome").type("teste")
-    cy.get("#data_nascimento").type("2007-12-15")
-    cy.get("#senha").type("123")
-    cy.get("#confirmar_senha").type("123")
-    cy.get("#email").type("teste@teste")
-    cy.get("#telefone").type("679925-6895")
-    cy.get("#cpf").type("485.565.455-75")
-    cy.get("#termos").click()
-    cy.get(".botaoConfirmar").click()
-  })
+describe('Login Tela', () => {
+    it('Login teste Realizado Correto', () => {
+      cy.viewport(1920, 1080) 
+      cy.visit('/Login.php')
+      cy.get("#esqueciSenha").click()
+      cy.get("#recoverPassword").type("a@a")
+      cy.get(".recoverPasswordButtonText").click()
+      cy.get("#email").type("a@a")
+      cy.get("#senha").type("123")
+      cy.get("#botaoEntrar").click()
+    })
+
+    it('Login teste SemRecoverSenha', () => {
+        cy.viewport(1920, 1080) 
+        cy.visit('/Login.php')
+        cy.get("#esqueciSenha").click()
+        cy.get("#recoverPassword").type("a@a")
+        cy.get(".recoverPasswordButtonText").click()
+        cy.get("#email").type("a@a")
+        cy.get("#senha").type("123")
+        cy.get("#botaoEntrar").click()
+      })
+
+    it('Login teste SemSenha', () => {
+        cy.viewport(1920, 1080) 
+        cy.visit('/Login.php')
+        cy.get("#email").type("a@a")
+        cy.get("#senha").type(" ")
+        cy.get("#botaoEntrar").click()
+
+        cy.url().then((currentUrl) => {
+            const urlObj = new URL(currentUrl)
+            const erro = urlObj.searchParams.get('erro')
+            cy.log('Erro encontrado:', erro)
+            console.log('Erro encontrado:', erro)
+            
+            expect(erro).to.not.be.null
+        })
+    })
 })

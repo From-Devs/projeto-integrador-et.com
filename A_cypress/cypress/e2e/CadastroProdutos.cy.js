@@ -1,0 +1,18 @@
+describe('Login Tela', () => {
+    it('Login teste Realizado Tudo Correto', () => {
+      cy.viewport(1920, 1080) 
+      cy.visit('/ProdutosAssociado.php')
+      cy.get(":nth-child(1) > .nav-link").click()
+      cy.get(":nth-child(2) > .nav-link").click()
+      cy.get(":nth-child(1) > .nav-link").click()
+      cy.get(":nth-child(3) > .nav-link").click()
+      cy.get(":nth-child(1) > .nav-link").click()
+      cy.get(":nth-child(4) > .nav-link").click()
+      cy.get(":nth-child(1) > .nav-link").click()
+      cy.get(":nth-child(5) > .nav-link").click()
+      cy.get(":nth-child(2) > .nav-link").click()
+      cy.get("#inputPesquisar").type("SLAPOHAAAAAAA")
+      cy.get("#botaoAssociados").click()
+      cy.get(":nth-child(1) > :nth-child(1) > [name='nome']").type("KKKKKKKKKKKKKKKKKKKKKKKKK")
+    })
+})
