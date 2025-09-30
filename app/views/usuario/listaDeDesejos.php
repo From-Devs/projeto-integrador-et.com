@@ -153,62 +153,7 @@ echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmac
 <script src="/projeto-integrador-et.com/public/javascript/listaDeDesejos.js"></script>
 
 <script>
-    let idsExcluir = [];
-    let idProduto = null;
 
-    // Botões principais
-    btnAdicionarCarrinho.addEventListener('click', () => {
-        enviarFormulario('adicionarCarrinho', getSelecionados());
-    });
-
-    btnExcluirSelecionados.addEventListener('click', () => {
-        idsExcluir = getSelecionados();
-        abrirPopUp("confirmacao")
-    });
-
-    cardContainer.addEventListener('click', (e) => {
-        const lixeiraBtn = e.target.closest('.icon-lixeira');
-        if (lixeiraBtn) {
-            idProduto = lixeiraBtn.dataset.id;
-            abrirPopUp("confirmacao");
-        }
-
-        const carrinhoBtn = e.target.closest('.icon-carrinho');
-        if (carrinhoBtn) {
-            const idCarrinho = carrinhoBtn.dataset.id;
-            enviarFormulario('adicionarCarrinho', [idCarrinho]);
-        }
-    
-    });
-
-    function exclProd(){
-        if(idProduto){
-            enviarFormulario('removerFavorito', [idProduto]);
-            idProduto = null;
-            fecharPopUp("confirmacao");
-
-        }else if(idsExcluir.length > 0){
-            enviarFormulario('removerFavorito', idsExcluir);
-            idsExcluir = [];
-            fecharPopUp("confirmacao");
-        }
-    }
-
-
-
-    //levar para a página de detalhes do produto pelo id
-    const card = document.querySelectorAll(".cardDesejos");
-
-    card.forEach(item => {
-        const atalhoMaisDetalhes = item.querySelector('#atalhoMaisDetalhes');
-        const idProd = item.getAttribute('data-id');
-
-        atalhoMaisDetalhes.addEventListener('click', function(){
-            window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProd}`;
-        });
-
-        
-    })
 </script>
 
 
