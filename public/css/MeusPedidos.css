@@ -154,7 +154,7 @@
 
     /*______________Pop-up Meus Pedidos________________*/
 
-    .conteudoMeusPedidos .popupMP{
+    .popupMP{
         border: none;
         background: transparent;
         animation: fadein 0.5s ease-in-out forwards;
@@ -169,7 +169,7 @@
         overflow: auto;
     }
 
-    .conteudoMeusPedidos .popupMP::backdrop{
+    .popupMP::backdrop{
         background-color: rgba(121, 121, 121, 0.5);
     }
 
@@ -434,7 +434,7 @@
 
 
 /*_________________________________ÁREA DE PEDIDOS FINALIZADOS_______________________________*/
-.conteudoMeusPedidos .pedidosFinalizadosMP{
+.pedidosFinalizadosMP{
     display: flex;
     flex-direction: column;
     width: 1450px;
@@ -539,7 +539,7 @@
 
     /*______________Pop-up Meus Pedidos________________*/
 
-    .conteudoMeusPedidos .popupMPFinalizado{
+    .popupMPFinalizado{
         border: none;
         background: transparent;
         animation: fadein 0.5s ease-in-out forwards;
@@ -848,7 +848,7 @@
 
 
 /*                  Parte de avaliação                  */
-.conteudoMeusPedidos .popupAvaliarProduto {
+ .popupAvaliarProduto {
     border: none;
     border-radius: 10px;
     background: transparent;

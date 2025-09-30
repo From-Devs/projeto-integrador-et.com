@@ -209,3 +209,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+function enviarAvaliacao() {
+    const texto = document.getElementById("popupAva-textoAvaliacao").value;
+  
+    if (avaliacaoSelecionada === 0) {
+      alert("Por favor, selecione pelo menos 1 estrela.");
+      return;
+    }
+  
+    console.log("Avaliação enviada:");
+    console.log("Estrelas:", avaliacaoSelecionada);
+    console.log("Texto:", texto);
+  
+    alert("Avaliação enviada com sucesso!");
+    fecharPopupAvaliacao();
+  }
+  
+  function fecharAvaliacao() {
+    const dialog = document.getElementById("popupAvaliarProduto");
+    if (dialog && dialog.open) {
+      dialog.close();
+    }
+  }
