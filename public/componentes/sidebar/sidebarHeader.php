@@ -42,8 +42,8 @@ function createSidebar($tipoUsuario, $login){ // Sidebar de teste, depois trocar
                                 </div>
                             </div>
                             <ul class="submenu">
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub=pele"><li><p class="submenu_link">Pele</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub=olhos"><li><p class="submenu_link">Olhos</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub%5B%5D=Pele"><li><p class="submenu_link">Pele</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub%5B%5D=Boca"><li><p class="submenu_link">Olhos</p></li></a>
                                 <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub=boca"><li><p class="submenu_link">Boca</p></li></a>
                                 <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=maquiagem&sub=sombrancelhas"><li><p class="submenu_link">Sombrancelhas</p></li></a>
                             </ul>

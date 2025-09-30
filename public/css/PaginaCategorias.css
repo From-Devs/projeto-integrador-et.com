@@ -78,7 +78,8 @@ body{
     padding: 20px 0px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* centraliza horizontalmente */
+    gap: 20px; /* espaço entre Produtos e Filtros */
 }
 
 .PartedeCima h3{
