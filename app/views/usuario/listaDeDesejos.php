@@ -46,6 +46,11 @@ $favoritos = $idUsuario ? $controller->ListarFavoritos($idUsuario) : [];
 <?php 
 echo createHeader($login, $tipoUsuario); 
 echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px");
+
+$botao1 = botaoPersonalizadoOnClick("Sim","btn-green",'exclProd()',"90px","40px","20px");
+$botao2 = botaoPersonalizadoRedirect("Não","btn-white", "","90px","40px","20px");
+echo PopUpConfirmar("confirmacao", "Deseja Excluir?", $botao2, $botao1, "300px", "white", "", "1.7rem");
+echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmacao\")");
 ?>
 
 <div class="title-container">
@@ -146,6 +151,10 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
 <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
 <script src="/projeto-integrador-et.com/public/javascript/listaDeDesejos.js"></script>
+
+<script>
+
+</script>
 
 
 </body>
