@@ -95,7 +95,7 @@ a {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    max-width: 800px;
+    max-width: 700px;
 }
 
 .titulo-produto {
