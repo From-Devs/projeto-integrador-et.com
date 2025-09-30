@@ -156,10 +156,10 @@ tfoot {
 .cor1 {
   width: 100px;
   height: auto;
-  background-color: #000000;
+  background-color: rgb(88, 88, 88);
   border-radius: 15px;
   margin-right: 0px;
-  box-shadow: inset 0px 0px 20px #a2a2a2;
+  box-shadow: inset 0px 0px 20px #000000;
 }
 .cor2{
   text-align: center;
