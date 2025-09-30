@@ -24,7 +24,7 @@ function dadosInforRelatorios($nomeDiv,$icone, $titulo, $nomePopUp, $alt=''){
 
         <h2 class='textCard'>$titulo</h1>
  
-        <div class='iconCard'>
+        <div class='iconCard' style='background-color: white'>
             <img src='$icone' alt='$alt'>
         </div>
 

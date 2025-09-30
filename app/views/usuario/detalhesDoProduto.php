@@ -61,7 +61,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_produto'])) {
             ]);
         }
 
-        echo "<script> window.location.href='Meu_Carrinho.php';</script>";
+        echo json_encode([
+            'ok' => true,
+            'mensagem' => 'Produto adicionado ao carrinho',
+            'quantidade' => $quantidade
+        ]);
+        exit;
 
     } catch (PDOException $e) {
         echo "Erro ao adicionar ao carrinho: " . $e->getMessage();
@@ -166,18 +171,40 @@ $imgPrincipal = $img1;
             </div>
 
             <div class="img-principal">
-                <div><img src="<?php echo htmlspecialchars($imgPrincipal); ?>" alt="img-principal"></div>
+                <div><img id='img-principal' src="<?php echo htmlspecialchars($imgPrincipal); ?>" alt="img-principal"></div>
             </div>
             <div class="detalhes-info">
                 <div class="titulo-produto">
                     <div class="titulo">
-                        <h3><?php echo htmlspecialchars($nome); ?></h3>
-                        <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px")?>
-                        <abbr class="abbr-favoritos" title="Adicionar aos favoritos" onclick="abrirPopUp('popUpFavorito')">
-                            <button class="imgCoracao">
-                                <img src='/projeto-integrador-et.com/public/imagens/produto/coracao-detalhes-produto.png' alt='Coração'>
-                            </button>
-                        </abbr>
+                    <h3><?php echo htmlspecialchars($nome); ?></h3>
+
+                        <!-- Pop-up de confirmação -->
+                        <?php 
+                        echo PopUpComImagemETitulo(
+                            "popUpFavorito", 
+                            "/popUp_Botoes/img-favorito.png", 
+                            "160px", 
+                            "Adicionado à Lista de Desejos!", 
+                            "", 
+                            "", 
+                            "", 
+                            "352px"
+                        );
+                        ?>
+
+                        <!-- Formulário + botão de coração -->
+                        <form id="formFavorito" method="POST">
+                            <input type="hidden" name="id_usuario" value="<?= $_SESSION['id_usuario'] ?>">
+                            <input type="hidden" name="id_produto" value="<?= $produto['id_produto'] ?>">
+
+                            <abbr class="abbr-favoritos" title="Adicionar aos favoritos">
+                                <button type="submit" class="imgCoracao">
+                                    <img src='/projeto-integrador-et.com/public/imagens/produto/coracao-detalhes-produto.png' alt='Coração'>
+                                </button>
+                            </abbr>
+                        </form>
+
+
                     </div>
                     <div class="sub-titulo-produto">
                         <span class="preco-produto">
@@ -204,27 +231,31 @@ $imgPrincipal = $img1;
                     </div>
                     <div class="botoes-detalhes">
                         <div class="btn-juntos">
-                            <div class="qtd-produtos">
-                                <button onclick="diminuirQtdProduto()">-</button>
-                                <span id="valor">1</span>
-                                <button onclick="aumentarQtdProduto()">+</button>
-                            </div>
-                            <form method="post">
+                        <div class="qtd-produtos">
+                            <button type="button" id="diminuir">-</button>
+                            <input type="text" id="quantidadeInput" value="1">
+                            <button type="button" id="aumentar">+</button>
+                        </div>
+
+                            <form id="formCarrinho" method="post">
                                 <input type="hidden" name="id_produto" value="<?php echo $produto['id_produto']; ?>">
-                                <button type="submit" name="adicionar_carrinho" class="btn btn-success">
+                                <input type="hidden" name="quantidade" id="quantidadeInput" value="1">
+                                <button type="submit" class="btn btn-success">
                                     Adicionar ao Carrinho
                                 </button>
                             </form>
+
+                            <!-- Pop-up de confirmação -->
+                            <div id="popUpCarrinho" class="popUp" style="display:none;">
+                                <img src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-confirmar.png" alt="Sucesso">
+                                <p>Produto adicionado ao carrinho!</p>
+                            </div>
+
                         </div>
                         <div class="div-favorito-e-carrinho">
     
     
-    <!-- Parte modificada: Adicionei um formulário para que o clique no botão de coração envie os dados. -->
-                            <form method="POST" action="/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito">
-                                <input type="hidden" name="id_usuario" value="<?= $_SESSION['id_usuario'] ?>">
-                                <input type="hidden" name="id_produto" value="<?= $produto['id_produto'] ?>">
-                                <button type="submit">Adicionar aos Favoritos</button>
-                            </form>
+
 
 
                         </div>
@@ -400,5 +431,16 @@ $imgPrincipal = $img1;
     <script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
+
+    <script>
+        const imgPrinc = document.getElementById('img-principal');
+        const imgLater = document.querySelectorAll('.imagens-lateral img');
+
+        imgLater.forEach(img => {
+            img.addEventListener('click', () => {
+                imgPrinc.src = img.src;
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,108 +1,131 @@
 <?php
-    require_once __DIR__."/../../popup/popUp.php";
-    require_once __DIR__."/../../botao/botao.php";
+require_once __DIR__."/../../popup/popUp.php";
+require_once __DIR__."/../../botao/botao.php";
 
-    function associadosTabela($nome, $listaAssociados){
-        if($nome == 'associado'){
-            ?>
-            <div id="lista">
-                <table id="tabelaVendas">
-                    <thead id="barraCima">
-                        <tr>
-                            <th id="th1" scope="col">ID</th>
-                            <th id="th2" scope="col">Nome</th>
-                            <th id="th3" scope="col">E-mail</th>
-                            <th id="th4" scope="col">Cidade</th>
-                            <th id="th5" scope="col">Telefone</th>
-                        </tr>
-                    </thead>
-                </table>
-                <div class="tabela-body">
-                    <table id="tabelaVendas">
-                        <tbody>
-                            <?php foreach ($listaAssociados as $associado): ?>
-                                <tr>
-                                    <td><?php echo $associado['id']; ?></td>
-                                    <td><?php echo $associado['nome']; ?></td>
-                                    <td><?php echo $associado['email']; ?></td>
-                                    <td><?php echo $associado['cidade']; ?></td>
-                                    <td><?php echo $associado['telefone']; ?></td>
-                                    <!-- Adicione aqui botões ou ações se quiser -->
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <?php
-        }elseif($nome == 'solicitacao'){
-            echo PopUpConfirmar("popUpMotivo", "", null, null, null, "white", "red", "1.2rem");
-            ?>
-            <div id="lista">
+function associadosTabela($nome, $listaAssociados){
+    if($nome == 'associado'){
+        ?>
+        <div id="lista">
             <table id="tabelaVendas">
                 <thead id="barraCima">
                     <tr>
-                        <th id="th1" scope="col">ID</th>
-                        <th id="th2" scope="col">Nome</th>
-                        <th id="th3" scope="col">E-mail</th>
-                        <th id="th4" scope="col">Cidade</th>
-                        <th id="th5" scope="col">Validar</th>
-                        <th class="motivo-header" style="display: none;"></th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Cidade</th>
+                        <th scope="col">Telefone</th>
                     </tr>
                 </thead>
             </table>
             <div class="tabela-body">
                 <table id="tabelaVendas">
                     <tbody>
-                    <?php foreach ($listaAssociados as $associado): 
-                        $btnSimValidar = botaoPersonalizadoOnClick("Sim", "btn-black", "preencheValidar()", "100px", "35px");
-
-                        $btnNao = botaoPersonalizadoOnClick("Cancelar", "btn-white", "fecharPopUp()", "100px", "35px");
-
-                        echo PopUpConfirmar("popUpConfirmar", "Deseja realmente VALIDAR esse associado?", $btnSimValidar, $btnNao);
-
-                        
-                        $btnSimCancelar = botaoPersonalizadoOnClick(
-                            "Confirmar",
-                            "btn-black",
-                            'preencheCancelar()',
-                            "100px",
-                            "35px"
-                        );
-                        echo PopUpComInput("popUpCancelar", "Deseja realmente NÃO VALIDAR esse associado?", "Motivo...", $btnSimCancelar, $btnNao);
-                        ?> 
-                        <tr>
-                            <td><?php echo $associado['id']?></td>
-                            <td><?php echo $associado['nome']?></td>
-                            <td><?php echo $associado['email']?></td>
-                            <td><?php echo $associado['cidade']?></td>
-                            <td>
-                            <div class='verticalizacao'>
-                                <button class='validarButton' onclick="botaoClicado = this; abrirPopUp('popUpConfirmar')">
-                                <img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage'>
-                                </button>
-                                <button class='cancelarButton' onclick="botaoClicado = this; abrirPopUp('popUpCancelar')">
-                                    <img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage'>
-                                </button>
-                            </div>
-                            </td>
-                            <td class="motivo" style="display: none;" data-motivo="">
-                                <button onclick="abrirMotivo(this)">
-                                    <img src="/projeto-integrador-et.com/public/imagens/associado/chat-icone.png" alt="chat-icone">
-                                </button>
-                            </td>
-
-                        </tr>
-                    <?php endforeach?>
-                        
+                        <?php foreach ($listaAssociados as $associado): ?>
+                            <tr>
+                                <td><?= $associado['id_usuario'] ?></td>
+                                <td><?= $associado['nome'] ?></td>
+                                <td><?= $associado['email'] ?></td>
+                                <td><?= "{$associado['cidade']} - {$associado['estado']}" ?></td>
+                                <td><?= $associado['telefone'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
         </div>
         <?php
-    }else{
+    } elseif($nome == 'solicitacao'){
+        ?>
+        <div id="lista">
+            <table id="tabelaVendas">
+                <thead id="barraCima">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Cidade</th>
+                        <th scope="col">Validar</th>
+                        <th class="motivo-header" style="display: none;">Motivo</th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="tabela-body">
+                <table id="tabelaVendas">
+                    <tbody>
+                        <?php 
+                        echo PopUpComImagemETitulo("popUpValidou","popUp_Botoes/img-confirmar.png","120px","Associado validado com sucesso!");
+                        echo PopUpComImagemETitulo("popUpRecusou","popUp_Botoes/img-cancelar.png","120px","Associado recusado com sucesso!");
+                        foreach ($listaAssociados as $associado):
+                            $userId = $associado['id_usuario'];
+                            echo "<!-- UserId: $userId -->\n";
+
+                            // Botões
+                            $btnSimValidar = botaoPersonalizadoOnClick(
+                                "Sim",
+                                "btn-black",
+                                "ValidarAssociado($userId)",
+                                "100px",
+                                "35px"
+                            );
+                            $btnNao = botaoPersonalizadoOnClick(
+                                "Cancelar",
+                                "btn-white",
+                                "fecharPopUp()",
+                                "100px",
+                                "35px"
+                            );
+                            $btnSimCancelar = botaoPersonalizadoOnClick(
+                                "Confirmar",
+                                "btn-black",
+                                "recusarAssociado($userId)",
+                                "100px",
+                                "35px"
+                            );
+
+                            // PopUps únicos por usuário
+                            echo PopUpConfirmar("popUpConfirmar_$userId", "Deseja realmente VALIDAR esse associado?", $btnSimValidar, $btnNao);
+                            echo PopUpConfirmar("popUpSobreProduto_$userId", $associado['nome']." - ".$associado['cidade']."/".$associado['estado'].":\n\n\"".$associado['sobreProdutos']."\"");
+                            echo PopUpConfirmar("motivoRecuso_$userId", $associado['motivoDoRecuso']);
+                            echo PopUpComInput("popUpCancelar_$userId", "Deseja realmente NÃO VALIDAR esse associado?", "Motivo...", $btnSimCancelar, $btnNao);
+                        ?>
+                        <tr>
+                            <td><?= $userId ?></td>
+                            <td><?= $associado['nome'] ?></td>
+                            <td><?= $associado['email'] ?></td>
+                            <td><?= "{$associado['cidade']} - {$associado['estado']}" ?></td>
+                            <td>
+                                <div class='verticalizacao'>
+                                    <button class='validarButton' onclick="botaoClicado = this; abrirPopUp('popUpConfirmar_<?= $userId ?>')">
+                                        <img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage' title="Aprovar">
+                                    </button>
+                                    <button class='cancelarButton' onclick="botaoClicado = this; abrirPopUp('popUpCancelar_<?= $userId ?>')">
+                                        <img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage' title="Recusar">
+                                    </button>
+                                    <button class='btnSobreProduto' onclick="botaoClicado = this; abrirPopUp('popUpSobreProduto_<?= $userId ?>')">
+                                        <img src='/projeto-integrador-et.com/public/imagens/associado/chat-icone.png' alt='img-chat' title="Visualizar mensagem do associado">
+                                    </button>
+                                    <button 
+                                        class='btnMotivoRecuso' 
+                                        style="display: <?= !empty($associado['motivoDoRecuso']) ? 'block' : 'none' ?>" 
+                                        onclick="botaoClicado = this; abrirPopUp('motivoRecuso_<?= $userId ?>')">
+                                        <img src='/projeto-integrador-et.com/public/imagens/associado/chat-icone.png' alt='img-chat' title="Visualizar motivo do recuso">
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="motivo_<?= $userId ?>" style="display: none;" data-motivo="">
+                                <button onclick="abrirMotivo(this)">
+                                    <img src="/projeto-integrador-et.com/public/imagens/associado/chat-icone.png" alt="chat-icone">
+                                </button>
+                            </td>
+                        </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <?php
+    } else {
         echo "Você precisa informar a função qual é o tipo de tabela.";
     }
 }
-
 ?>

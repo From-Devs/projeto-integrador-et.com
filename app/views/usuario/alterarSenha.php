@@ -33,10 +33,6 @@
 <body>
     <?php
     echo createHeader($login,$tipoUsuario); // função que cria o header
-    $botao1 = botaoPersonalizadoOnClick("Não","btn-white",'fecharPopUp("confirmacao")',"90px","40px","20px");
-    $botao2 = botaoPersonalizadoRedirect("Sim","btn-green", "app/views/usuario/paginaPrincipal.php","90px","40px","20px");
-    echo PopUpConfirmar("confirmacao", "Deseja Alterar Senha?", $botao1, $botao2, "300px", "white", "", "1.7rem");
-    echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmacao\")");
 
     echo PopUpComImagemETitulo("popUpAtencao", "/popUp_Botoes/atencao.png", "160px", "Preencha Todos os Campos!", "", "", "", "352px");
     ?>

@@ -113,3 +113,24 @@ tr {
     overflow-wrap: break-word;
     max-width: 100%;
 }
+
+.btnSobreProduto, .btnMotivoRecuso{
+    padding: 10px;
+    border: 1px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btnMotivoRecuso{
+    border: 1px solid red;
+}
+
+.img-popUp img {
+    background-color: green;
+    border-radius: 50%;
+}
+
+.popUpRecusou .img-popUp img{
+    background-color: rgb(202, 61, 61);
+    border-radius: 50%;
+}

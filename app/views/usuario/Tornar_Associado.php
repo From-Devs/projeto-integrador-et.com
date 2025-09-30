@@ -70,70 +70,131 @@
     
     <div class="carousel-container">
         <div class="associadoTitle">
-            <h2>Associados:</h2>
+            <h2>Marcas parceiras:</h2>
         </div>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
+        <div class="carousel-track">
                 <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/DeWatermark.ai_1721330090347 (1) 2.png" class="d-block w-100" alt="Karla">
-                    <div class="name">Karla</div>
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/oboticario.png" alt="Oboticário"> 
                 </div>
+
                 <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/png-transparent-man-standing-while-wearing-blue-dress-shirt-man-man-people-candle-canon-thumbnail (2) 2.png" class="d-block w-100" alt="Lucas">
-                    <div class="name">Lucas</div>
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/hinode.jpg" alt="Hinode"> 
                 </div>
-                <div class="carousel-item active">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/images (2) 2.png" class="d-block w-100" alt="Marcos">
-                    <div class="name">Marcos</div>
-                </div>
+
                 <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/png-transparent-man-standing-while-wearing-blue-dress-shirt-man-man-people-candle-canon-thumbnail (2) 2.png" class="d-block w-100" alt="Jose">
-                    <div class="name">Jose</div>
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/bocarosa.webp" alt="Boca Rosa"> 
                 </div>
+
                 <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/manoel-gomes (1) 4.png" class="d-block w-100" alt="Manoel">
-                    <div class="name">Manoel</div>
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/taiff.jpg" alt="Taiff"> 
                 </div>
+
                 <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/DeWatermark.ai_1721330090347 (1) 2.png" class="d-block w-100" alt="Karla">
-                    <div class="name">Karla</div>
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/lancome.svg" alt="Lancome">
                 </div>
+
                 <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/png-transparent-man-standing-while-wearing-blue-dress-shirt-man-man-people-candle-canon-thumbnail (2) 2.png" class="d-block w-100" alt="Lucas">
-                    <div class="name">Lucas</div>
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/loreal.jpg" alt="Loreal">
                 </div>
-                <div class="carousel-item active">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/images (2) 2.png" class="d-block w-100" alt="Marcos">
-                    <div class="name">Marcos</div>
-                </div>
+
                 <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/png-transparent-man-standing-while-wearing-blue-dress-shirt-man-man-people-candle-canon-thumbnail (2) 2.png" class="d-block w-100" alt="Jose">
-                    <div class="name">Jose</div>
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/vult.webp" alt="Vult">
                 </div>
+
                 <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/manoel-gomes (1) 4.png" class="d-block w-100" alt="Manoel">
-                    <div class="name">Manoel</div>
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/vichy.svg" alt="Vichy">
                 </div>
+
                 <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/DeWatermark.ai_1721330090347 (1) 2.png" class="d-block w-100" alt="Karla">
-                    <div class="name">Karla</div>
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/wepink.png" alt="WePink">
                 </div>
+
                 <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/png-transparent-man-standing-while-wearing-blue-dress-shirt-man-man-people-candle-canon-thumbnail (2) 2.png" class="d-block w-100" alt="Lucas">
-                    <div class="name">Lucas</div>
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/jequiti.png" alt="Jequiti">
                 </div>
-                <div class="carousel-item active">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/images (2) 2.png" class="d-block w-100" alt="Marcos">
-                    <div class="name">Marcos</div>
-                </div>
+
                 <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/png-transparent-man-standing-while-wearing-blue-dress-shirt-man-man-people-candle-canon-thumbnail (2) 2.png" class="d-block w-100" alt="Jose">
-                    <div class="name">Jose</div>
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/eudora.png" alt="Eudora">
                 </div>
+
                 <div class="carousel-item">
-                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/manoel-gomes (1) 4.png" class="d-block w-100" alt="Manoel">
-                    <div class="name">Manoel</div>
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/avon.png" alt="Avon">
                 </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/salonline.png" alt="Salonline">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/wella.jpg" alt="Wella">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/tresemme.png" alt="TRESemmé">
+                </div>
+                
+
+                <!-- DUPLICAÇÃO PARA DAR O LOOP -->
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/oboticario.png" alt="Oboticário">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/hinode.jpg" alt="Hinode">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/bocarosa.webp" alt="Boca Rosa">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/taiff.jpg" alt="Taiff">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/lancome.svg" alt="Lancome">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/loreal.jpg" alt="Loreal">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/vult.webp" alt="Vult">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/vichy.svg" alt="Vichy">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/wepink.png" alt="WePink">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/jequiti.png" alt="Jequiti">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/eudora.png" alt="Eudora">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/avon.png" alt="Avon">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/salonline.png" alt="Salonline">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/wella.jpg" alt="Wella">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/projeto-integrador-et.com/public/imagens/TornarAssociado/tresemme.png" alt="TRESemmé">
+                </div>
+
             </div>
         </div>
     </div>

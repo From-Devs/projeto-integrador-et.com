@@ -1,89 +1,73 @@
-﻿let botaoClicado = null;
-
-function preencheValidar() {
-    if (!botaoClicado) return;  
-    
-    const parent = botaoClicado.closest('.verticalizacao');
-    const validarButton = parent.querySelector('.validarButton');
-    const cancelarButton = parent.querySelector('.cancelarButton');
-    cancelarButton.disabled = false
-
-    validarButton.classList.add("marcarValido");
-    cancelarButton.classList.remove("marcarCancelar");
-    
-    
-    const popUp = document.getElementsByClassName("popUpConfirmar")[0];
-    popUp.close();
-    
-    const linha = botaoClicado.closest("tr");
-    const motivo = linha.querySelector(".motivo");
-    const motivoHeader = document.querySelector(".motivo-header");
-    
-    if(verificaSeTemMotivo()){
-        motivo.style.display = "none";
-        motivoHeader.style.display = "none";
-    }else{
-        motivo.style.display = "table-cell";
-        motivoHeader.style.display = "table-cell";
-    }
-    
-    botaoClicado = null;
-    validarButton.disabled =true
-}
-
-function preencheCancelar() {
-    if (!botaoClicado) return;
-    
-    const textareaPopUp = document.querySelector(".textarea-popUp textarea");
-    
-    if (textareaPopUp.value.trim() === "") {
-        textareaPopUp.style.border = "1px solid red";
-    } else {
-        const parent = botaoClicado.closest('.verticalizacao');
-        const validarButton = parent.querySelector('.validarButton');
-        const cancelarButton = parent.querySelector('.cancelarButton');
-        validarButton.disabled =  false;
-        
-        cancelarButton.classList.add("marcarCancelar");
-        validarButton.classList.remove("marcarValido");
-        
-        const popUp = document.getElementsByClassName("popUpCancelar")[0];
-        popUp.close();
-
-        
-        const linha = botaoClicado.closest("tr");
-        const motivo = linha.querySelector(".motivo");
-        const motivoHeader = document.querySelector(".motivo-header");
-        
-        motivo.setAttribute("data-motivo", textareaPopUp.value.trim());
-        
-        motivo.style.display = "table-cell";
-        motivoHeader.style.display = "table-cell";
-        
-        textareaPopUp.value = "";
-        botaoClicado = null;
-        cancelarButton.disabled = true;
-    }
-}
-
-
-function verificaSeTemMotivo(){
-    const motivo = document.getElementsByClassName("motivo")[0];
-
-    if(motivo.style.display === "none"){
-        return  false;
-    }else{
-        return true;
-    }
-}
-
-function abrirMotivo(botao){
+﻿function abrirMotivo(botao) {
     const motivo = botao.closest("td").getAttribute("data-motivo");
+    const popUp = document.querySelector(".popUpMotivo");
+    if (!popUp) return;
 
-    const popUp = document.getElementsByClassName("popUpMotivo")[0];
     const textoPopUp = popUp.querySelector(".texto-popUp");
+    if (!textoPopUp) return;
 
     textoPopUp.textContent = motivo;
-
     abrirPopUp("popUpMotivo");
+}
+
+async function ValidarAssociado(idUsuario){
+    const popUpSucesso = document.getElementsByClassName("popUpValidou")[0];
+    const popUpConfirmar = document.getElementsByClassName(`popUpConfirmar_${idUsuario}`)[0];
+
+    try {
+        const resposta = await fetch("http://localhost/projeto-integrador-et.com/router/AssociadosRouter.php?acao=ValidarAssociado", { 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({idUsuario: idUsuario})
+        });
+
+        const validou = await resposta.json();
+
+        if(validou === true){
+            popUpConfirmar.close()
+            abrirPopUp("popUpValidou");
+
+            popUpSucesso.addEventListener("close", function(){
+                window.location.reload();
+            })
+        } else {
+            console.error("Falha ao validar", validou);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+async function recusarAssociado(idUsuario){
+    const popUpSucesso = document.getElementsByClassName("popUpRecusou")[0];
+    const popUpConfirmar = document.getElementsByClassName(`popUpCancelar_${idUsuario}`)[0];
+    const valorTextArea = document.querySelector(`.popUpCancelar_${idUsuario} textarea`).value;
+
+    try {
+        const resposta = await fetch("http://localhost/projeto-integrador-et.com/router/AssociadosRouter.php?acao=recusarAssociado", { 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({idUsuario: idUsuario, motivo: valorTextArea})
+        });
+
+        const invalidou = await resposta.json();
+
+        if(invalidou === true){
+            popUpConfirmar.close()
+            abrirPopUp("popUpRecusou");
+
+            popUpSucesso.addEventListener("close", function(){
+                window.location.reload();
+            })
+        } else {
+            console.error("Falha ao validar", invalidou);
+        }
+    } catch (error) {
+        console.error(error);
+    }
 }

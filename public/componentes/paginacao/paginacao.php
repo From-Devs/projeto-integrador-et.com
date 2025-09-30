@@ -47,6 +47,9 @@ function renderPaginacao($paginaAtual, $totalPaginas, $nomeParametro = 'page', $
 
 
 function paginarMaisDeUmaQueryString($dados, $itensPorPagina = 10) {
+    if (!is_array($dados)) {
+        $dados = [];
+    }
     $totalItens = count($dados);
     $totalPaginas = ceil($totalItens / $itensPorPagina);
 

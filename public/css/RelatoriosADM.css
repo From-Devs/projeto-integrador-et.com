@@ -164,6 +164,206 @@ a
 
 }
 
-@media (max-width: 520px){ /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
+/* RESPONSIVIDADE MOBILE MAX 320PX */
+@media (max-width: 320px){
+    #titulo{
+        margin-left: 50px;
+    }
 
+    #container{
+        margin-top: 60px;
+    }
+
+    #geralInformacoes{
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    #geralInformacoes div{
+        width: 250px;
+        height: 100px;
+    }
+
+    #geralInformacoes h2{
+        font-size: 1rem;
+    }
+
+    .cardRelatorio .iconCard{
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .cardRelatorio .iconCard img{
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .popUp{
+        width: 250px !important;
+        height: 200px !important;
+        gap: 0px !important;
+    }
+
+    .popUp .botoes-popUp{
+        width: 200px !important;
+        height: 60px !important;
+    }
+
+    .popUp .botoes-popUp .btn-relatorio{
+        font-size: 10px;
+    }
+}
+
+/* RESPONSIVIDADE MOBILE*/
+@media (min-width: 321px) and (max-width: 375px){
+    #titulo{
+        margin-left: 50px;
+    }
+
+    #container{
+        margin-top: 60px;
+    }
+
+    #geralInformacoes{
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    #geralInformacoes div{
+        width: 300px;
+        height: 100px;
+    }
+
+    #geralInformacoes h2{
+        font-size: 1rem;
+    }
+
+    .cardRelatorio .iconCard{
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .cardRelatorio .iconCard img{
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .popUp{
+        width: 300px !important;
+        height: 200px !important;
+        gap: 0px !important;
+    }
+
+    .popUp .botoes-popUp{
+        width: 200px !important;
+        height: 60px !important;
+    }
+
+    .popUp .botoes-popUp .btn-relatorio{
+        font-size: 10px;
+    }
+}
+
+/* RESPONSIVIDADE MOBILE*/
+@media (min-width: 376px) and (max-width: 425px){
+    #titulo{
+        margin-left: 50px;
+    }
+
+    #container{
+        margin-top: 60px;
+    }
+
+    #geralInformacoes{
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    #geralInformacoes div{
+        width: 340px;
+        height: 100px;
+    }
+
+    #geralInformacoes h2{
+        font-size: 1rem;
+    }
+
+    .cardRelatorio .iconCard{
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .cardRelatorio .iconCard img{
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .popUp{
+        width: 350px !important;
+        height: 200px !important;
+        gap: 0px !important;
+    }
+
+    .popUp .botoes-popUp{
+        width: 200px !important;
+        height: 60px !important;
+    }
+
+    .popUp .botoes-popUp .btn-relatorio{
+        font-size: 10px;
+    }
+}
+
+/* RESPONSIVIDADE TABLET*/
+@media (min-width: 426px) and (max-width: 768px){
+    #titulo{
+        margin-left: 50px;
+    }
+
+    #container{
+        margin-top: 60px;
+    }
+
+    #geralInformacoes{
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    #geralInformacoes div{
+        width: 340px;
+        height: 100px;
+    }
+
+    #geralInformacoes h2{
+        font-size: 1rem;
+    }
+
+    .cardRelatorio .iconCard{
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .cardRelatorio .iconCard img{
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .popUp{
+        width: 350px !important;
+        height: 200px !important;
+        gap: 0px !important;
+    }
+
+    .popUp .botoes-popUp{
+        width: 200px !important;
+        height: 60px !important;
+    }
+
+    .popUp .botoes-popUp .btn-relatorio{
+        font-size: 10px;
+    }
 }

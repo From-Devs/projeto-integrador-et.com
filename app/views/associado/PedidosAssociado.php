@@ -1,15 +1,34 @@
 <?php
 
-include __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/PedidosAssociado_ADM/pedidos.php";
-require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
-require_once __DIR__ . "/./../../../public/componentes/popup/popUp.php";
-require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
-require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
-require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
-require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
+    include __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/PedidosAssociado_ADM/pedidos.php";
+    require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
+    require_once __DIR__ . "/./../../../public/componentes/popup/popUp.php";
+    require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
+    require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
+    require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
+    require __DIR__ . "/../../Controllers/PedidosController.php";
 
-// // session_start();
-$tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
+
+    $parametrosExtras = [];
+
+    if (!empty($_GET['ordem'])) {
+        $parametrosExtras[] = 'ordem=' . urlencode($_GET['ordem']);
+    }
+
+    if (!empty($_GET['pesquisa'])) {
+        $parametrosExtras[] = 'pesquisa=' . urlencode($_GET['pesquisa']);
+    }
+
+    $parametrosExtrasString = implode('&', $parametrosExtras);
+
+    $ordem = $_GET['ordem'] ?? null;
+    $pesquisa = $_GET['pesquisa'] ?? null;
+    $pedidosController = new PedidosController();
+    $pedidos = $pedidosController->BuscarTodosPedidosAssociado($ordem, $pesquisa);
+
+    // // session_start();
+    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 ?>
 
 <!DOCTYPE html>
@@ -46,26 +65,16 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
                     <h1 id="tituloH1">Pedidos</h1>
                 </div>
                 <?php
-                    $pedidos = [
-                        ['nomeCliente' => 'Guilherme Nantes', 'nomeProduto' => 'Hidratante Natura +8', 'preco' => 44.99, 'data' => '20/06/2024', 'status' => 'Pago'],
-                        ['nomeCliente' => 'João Pedro', 'nomeProduto' => 'Base Líquida', 'preco' => 666.99, 'data' => '30/03/2024', 'status' => 'Pago'],
-                        ['nomeCliente' => 'Daniel Fagundes', 'nomeProduto' => 'Body Splash', 'preco' => 42.91, 'data' => '19/08/2024', 'status' => 'Pago'],
-                        ['nomeCliente' => 'Henrico Queiroz', 'nomeProduto' => 'Colônia Coffe Woman', 'preco' => 39.99, 'data' => '17/08/2024', 'status' => 'Pendente'],
-                        ['nomeCliente' => 'Cecíliano Ferraz', 'nomeProduto' => 'Kit Skincare Completo', 'preco' => 120.00, 'data' => '22/01/2024', 'status' => 'Pendente'],
-                        ['nomeCliente' => 'Felipe Sales', 'nomeProduto' => 'Césio Líquido', 'preco' => 23.50, 'data' => '12/08/2024', 'status' => 'Pago'],
-                        ['nomeCliente' => 'Bruna Lima', 'nomeProduto' => 'Máscara Capilar', 'preco' => 34.90, 'data' => '10/04/2024', 'status' => 'Pago'],
-                        ['nomeCliente' => 'Renata Souza', 'nomeProduto' => 'Sabonete Esfoliante', 'preco' => 19.90, 'data' => '05/05/2024', 'status' => 'Pendente'],
-                        ['nomeCliente' => 'Lucas Martins', 'nomeProduto' => 'Shampoo Revitalizante', 'preco' => 27.45, 'data' => '14/06/2024', 'status' => 'Pago'],
-                        ['nomeCliente' => 'Carla Dias', 'nomeProduto' => 'Perfume Femme Nuit', 'preco' => 89.90, 'data' => '28/02/2024', 'status' => 'Pendente'],
-                        ['nomeCliente' => 'Thiago Ramos', 'nomeProduto' => 'Kit Barbear', 'preco' => 58.00, 'data' => '03/03/2024', 'status' => 'Pago'],
-                        ['nomeCliente' => 'Natalia Barros', 'nomeProduto' => 'Hidratante Corporal', 'preco' => 29.99, 'data' => '12/07/2024', 'status' => 'Pendente']
-                        ];
-        
-                        $resultado = paginar($pedidos, 7);
+                    $pagina = paginar($pedidos, 7);
 
-                        echo tabelaPedidosAssociado($resultado['dados']);
+                    echo tabelaPedidosAssociado($pagina['dados']);
 
-                        renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
+                    renderPaginacao(
+                        $pagina['paginaAtual'],
+                        $pagina['totalPaginas'],
+                        'page',
+                        $parametrosExtrasString
+                    );
                 ?>
             </div>
         </div>
@@ -74,5 +83,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
     <script src="/projeto-integrador-et.com/public/javascript/Associados.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/FiltroQueryString.js"></script>
 </body>
 </html>
