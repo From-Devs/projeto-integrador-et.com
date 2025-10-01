@@ -87,6 +87,9 @@ CREATE TABLE Produto(
 		ALTER TABLE Produto
 		ADD COLUMN tamanho VARCHAR(30) DEFAULT NULL;
 
+		ALTER TABLE Produto
+		MODIFY descricaoTotal TEXT NOT NULL;  --Para ter mais detalhes na descrição total do produto
+
 
 CREATE TABLE pedidoProduto( 
 	id_pedido_produto int PRIMARY KEY AUTO_INCREMENT, 
