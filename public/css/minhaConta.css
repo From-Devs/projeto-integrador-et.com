@@ -30,7 +30,7 @@ main{
 } .line{
     background-color: black;
     width: 70%;
-    height: 1px;
+    height: 2px;
 }
 
 .dadosUsuario{
