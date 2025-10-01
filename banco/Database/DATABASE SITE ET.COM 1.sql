@@ -69,7 +69,7 @@ CREATE TABLE Produto(
 	marca VARCHAR(255) NOT NULL,
 	descricaoBreve VARCHAR(255) NOT NULL,
 	descricaoTotal VARCHAR(255) NOT NULL,
-	tamanho VARCHAR(30) DEFAULT NULL;
+	tamanho VARCHAR(30) DEFAULT NULL,
 	preco DECIMAL(10,2) NOT NULL,
 	precoPromo DECIMAL(10,2),
 	fgPromocao boolean,
