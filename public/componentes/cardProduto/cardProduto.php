@@ -21,20 +21,20 @@ function createCardProduto($marca = "Marca", $nomeProduto = "Nome do Produto", $
                 <div class='corDegrade2' style='color: $corDegrade2;'></div>
             </div>
     
-            <div class='coisaDeCima'>
-                <span class='balaoDesejos'>Adicionar a Lista de desejos</span>
-                <i class='coracaoFofo'>
-                    <img class='coracaoImg' src='/projeto-integrador-et.com/public/imagens/produtoCard/coracao.png' alt='Coração'>
-                </i>
-                <div class='ticketContainer'>
-                    <img class ='ticketDesconto' src='/projeto-integrador-et.com/public/imagens/produtoCard/ticket2.png' alt='ticket'>
-                    <div class='descontoTextContainer'>
-                        <p class='descontoPorcento'>$porcentagem%</p>
-                        <p class='descontoOffText'>FF</p>
-                    </div>
+
+            <span class='balaoDesejos'>Adicionar a Lista de desejos</span>
+            <i class='coracaoFofo'>
+                <img class='coracaoImg' src='/projeto-integrador-et.com/public/imagens/produtoCard/coracao.png' alt='Coração'>
+            </i>
+            <div class='ticketContainer'>
+                <img class ='ticketDesconto' src='/projeto-integrador-et.com/public/imagens/produtoCard/ticket2.png' alt='ticket'>
+                <div class='descontoTextContainer'>
+                    <p class='descontoPorcento'>$porcentagem%</p>
+                    <p class='descontoOffText'>FF</p>
                 </div>
-                <i class='buraquinho'></i>
             </div>
+            <i class='buraquinho'></i>
+
     
             <img class='imagemMaldita' src='/projeto-integrador-et.com/public/imagens/produtos/$imagemProduto/fotoSemFundo.png' alt=''>
     
@@ -61,20 +61,18 @@ function createCardProduto($marca = "Marca", $nomeProduto = "Nome do Produto", $
             <div class='corDegrade2' style='color: $corDegrade2;'></div>
         </div>
 
-        <div class='coisaDeCima'>
-            <span class='balaoDesejos'>Adicionar a Lista de desejos</span>
-            <i class='coracaoFofo'>
-                <img class='coracaoImg' src='/projeto-integrador-et.com/public/imagens/produtoCard/coracao.png' alt='Coração'>
-            </i>
-            <div class='ticketContainer'>
-                <img class ='ticketDesconto' src='/projeto-integrador-et.com/public/imagens/produtoCard/ticket2.png' alt='ticket'>
-                <div class='descontoTextContainer'>
-                    <p class='descontoPorcento'></p>
-                    <p class='descontoOffText'>FF</p>
-                </div>
+        <span class='balaoDesejos'>Adicionar a Lista de desejos</span>
+        <i class='coracaoFofo'>
+            <img class='coracaoImg' src='/projeto-integrador-et.com/public/imagens/produtoCard/coracao.png' alt='Coração'>
+        </i>
+        <div class='ticketContainer'>
+            <img class ='ticketDesconto' src='/projeto-integrador-et.com/public/imagens/produtoCard/ticket2.png' alt='ticket'>
+            <div class='descontoTextContainer'>
+                <p class='descontoPorcento'></p>
+                <p class='descontoOffText'>FF</p>
             </div>
-            <i class='buraquinho'></i>
         </div>
+        <i class='buraquinho'></i>
 
         <img class='imagemMaldita' src='/projeto-integrador-et.com/public/imagens/produtos/$imagemProduto/fotoSemFundo.png' alt=''>
 

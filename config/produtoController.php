@@ -112,6 +112,7 @@ class ProdutoController {
                 p.preco,
                 p.precoPromo,
                 p.img1,
+                p.tamanho,
                 c.corPrincipal,
                 c.hexDegrade1,
                 c.hexDegrade2,

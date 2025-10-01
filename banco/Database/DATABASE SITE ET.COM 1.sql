@@ -84,6 +84,10 @@ CREATE TABLE Produto(
 	FOREIGN KEY (id_associado) REFERENCES Usuario(id_usuario)
 );
 
+		ALTER TABLE Produto
+		ADD COLUMN tamanho VARCHAR(30) DEFAULT NULL;
+
+
 CREATE TABLE pedidoProduto( 
 	id_pedido_produto int PRIMARY KEY AUTO_INCREMENT, 
 	quantidade int NOT NULL, 
@@ -119,6 +123,10 @@ CREATE TABLE Carrinho (
   data_adicionado timestamp NOT NULL DEFAULT current_timestamp(),
   FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
 );
+
+		ALTER TABLE Carrinho
+		DROP COLUMN cep;
+
 
 CREATE TABLE ProdutoCarrinho(
 	id_prodCarrinho INT AUTO_INCREMENT PRIMARY KEY,
