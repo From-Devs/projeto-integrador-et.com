@@ -94,6 +94,7 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
                     $preco,
                     $item['marca'],
                     $item['nome'],
+                    $item['tamanho'],
                     $dataAdicionado,
                     $item['corPrincipal'] ?? "#919191",
                     $item['hexDegrade1'] ?? "#919191",
