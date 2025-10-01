@@ -140,6 +140,7 @@
 }
 
 .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
+    text-align: left;
     border: none;
     background-color: transparent;
     font-size: 14px;

@@ -96,6 +96,7 @@ foreach ($carrinho as $produto) {
 
 <main>
     <h1 class="Meio">MEU CARRINHO</h1>
+    <div class="line"><div></div></div>
     <form method="post">
         <table>
             <thead>
