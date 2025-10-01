@@ -55,17 +55,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['quantidade'])) {
 }
 
 // Calcula subtotal e total
-$subtotal = 0;
+$total = 0;
 $precosProdutos = [];
 foreach ($carrinho as $produto) {
     $quantidade = $produto['quantidade'] ?? 1;
     $preco = $produto['precoPromo'] ?? $produto['preco'];
     $precosProdutos[] = $preco;
-    $subtotal += $preco * $quantidade;
+    $total += $preco * $quantidade;
 }
 
-$frete = 0; // valor inicial do frete
-$total = $subtotal + $frete;
 ?>
 
 <!DOCTYPE html>
@@ -176,10 +174,7 @@ function calcularTotal() {
         subtotal += subtotalItem;
         document.getElementById(`subtotal-item-${index}`).innerText = 'R$ ' + subtotalItem.toFixed(2).replace('.', ',');
     });
-    const frete = parseFloat(document.getElementById('frete').innerText.replace('R$ ', '').replace(',', '.'));
-    const total = subtotal + frete;
-    document.getElementById('subtotal').innerText = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
-    document.getElementById('total').innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
+    document.getElementById('total').innerText = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
 }
 
 function incrementQuantity(index) {
