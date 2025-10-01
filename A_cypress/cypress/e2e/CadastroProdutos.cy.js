@@ -15,7 +15,6 @@ describe('Login Tela', () => {
       cy.get("#botaoAssociados").click()
       cy.get(":nth-child(1) > :nth-child(1) > [name='nome']").type("KKKKKKKKKKKKKKKKKKKKKKKKK")
       cy.get(":nth-child(1) > :nth-child(2) > [name='marca']").type("KKKKKKKKKKKKKKKKKKKKKKKKK")
-      // cy.get(':nth-child(1) > :nth-child(3) > [name="subCategoria"]').click()
       cy.get(".campos-cadastrar > .divisao-esquerda > .campos-esquerda > :nth-child(1) > [name='qtdEstoque']").type("1000")
       cy.get(".campos-cadastrar > .divisao-esquerda > .campos-esquerda > :nth-child(2) > [name='preco']").type("999")
       cy.get('.campos-cadastrar > .divisao-esquerda > .campos-esquerda > :nth-child(3) > [name="precoPromocional"]').type("500")
