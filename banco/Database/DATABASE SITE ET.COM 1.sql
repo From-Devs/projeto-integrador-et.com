@@ -90,7 +90,7 @@ CREATE TABLE pedidoProduto(
 	id_pedido int, id_Produto int, 
 	FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido), 
 	FOREIGN KEY (id_Produto) REFERENCES produto(id_Produto) 
-)
+);
 
 CREATE TABLE Estoque(
 	id_estoque INT AUTO_INCREMENT PRIMARY KEY,
@@ -216,7 +216,7 @@ CREATE TABLE SolicitacaoDeAssociado (
     id_solicitacao INT AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL UNIQUE,
     sobreProdutos TEXT,
-	motivoDoRecuso varchar(500)
+	motivoDoRecuso varchar(500),
     CONSTRAINT fk_usuario FOREIGN KEY (id_usuario) 
         REFERENCES Usuario(id_usuario)
         ON DELETE CASCADE
