@@ -75,5 +75,26 @@ document.getElementById('formCarrinho').addEventListener('submit', function(e){
     })
     .catch(err => console.error(err));
 });
- 
+document.getElementById('ordenar').addEventListener('change', function() {
+    const valor = this.value;
+    const container = document.querySelector('.container-avaliacoes');
+    const avaliacoes = Array.from(container.querySelectorAll('.avaliacao'));
+
+    avaliacoes.sort((a, b) => {
+        const dataA = new Date(a.querySelector('.data-avaliacao span').textContent.split('/').reverse().join('-'));
+        const dataB = new Date(b.querySelector('.data-avaliacao span').textContent.split('/').reverse().join('-'));
+
+        if (valor === 'maisRecentes') {
+            return dataB - dataA; // do mais recente para o mais antigo
+        } else if (valor === 'maisAntigas') {
+            return dataA - dataB; // do mais antigo para o mais recente
+        }
+        return 0;
+    });
+
+    // Remove avaliações do container e adiciona na nova ordem
+    container.innerHTML = '';
+    avaliacoes.forEach(a => container.appendChild(a));
+});
+
  

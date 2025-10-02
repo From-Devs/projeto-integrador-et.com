@@ -211,11 +211,19 @@ document.addEventListener("DOMContentLoaded", () => {
             if(dialog) dialog.close();
         });
     });
+    
 
 });
 document.getElementById("popupAva-imagemProduto").addEventListener("click", () => {
     const idProduto = document.getElementById("popupAva-imagemProduto").dataset.id;
     if (idProduto) {
         window.location.href = "/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=" + idProduto;
+    }
+});
+document.getElementById("popupAva-imagemProduto").addEventListener("click", (e) => {
+    e.preventDefault(); // previne qualquer ação padrão
+    const idProduto = e.currentTarget.dataset.id;
+    if (idProduto) {
+        window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProduto}`;
     }
 });
