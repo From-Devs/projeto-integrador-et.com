@@ -70,7 +70,7 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
         <span class="data-entrega" style=""><?= $dataEntrega; ?></span>
         <span class="statusProdutoMP">Concluído</span>
 
-        <div class="cardcoloridoFin" style="border-radius:25px;">
+        <div class="cardcoloridoFin" style="border-radius:25px; overflow:hidden; position:relative;">
             <div class="card-info2" style="
                 width: 100%;
                 height: 100%
@@ -94,7 +94,15 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
                     <span class="precoProdutoMP" style="font-size:18px; font-weight:bold; color:#222;">R$ <?= number_format($item['preco'], 2, ',', '.'); ?></span>
                     <span class="qtdProdutoMP" style="font-size:18px; font-weight:500; color:#222;">Qtd: <?= $item['quantidade'] ?? 1; ?></span>
                     <!--<span class="subtotalProdutoMP">Subtotal: R$ <?= number_format($subtotal, 2, ',', '.'); ?></span>-->
-                    <button style="background-color: white; border: none; width: 150px; height: auto; padding: 10px; border-radius: 10px">Mais Informações</button>
+                    <button style="text-align: left;
+                                border: none;
+                                background-color: transparent;
+                                text-decoration: underline;
+                                cursor: pointer;
+                                font-size:18px;
+                                font-weight:bold;
+                                color:#222;"
+                    >Mais Informações</button>
                 </div>
             </div>
         </div>

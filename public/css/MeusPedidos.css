@@ -459,6 +459,7 @@
     border: none;
     box-shadow: inset 0px 0px 10px 0px rgba(71, 71, 71, 0.541);
     background-color: white;
+    filter: drop-shadow();
 }
 
 .pedidosFinalizadosMP #produtosFinalizados::-webkit-scrollbar{
