@@ -617,6 +617,45 @@
     }
 
 
+/*Popup para confirmar a eliminação do produto */
+
+/* .popUpDialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+.popUp{
+    display: flex;
+    width: 400px;
+}
+
+.popUp .fecharPopUp .icone-fechar{
+    display: none;
+}
 
 
+.popUp .texto-popUp{
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
 
+.popUp .botoes-popUp{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+    border-radius: 20%;
+    margin-bottom: 15px;
+}
+
+.btn-red {
+    color: white;
+}
+
+/* 
+.popUp .botoes-popUp .btn-white:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+} */

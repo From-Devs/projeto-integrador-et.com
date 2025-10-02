@@ -69,6 +69,7 @@ CREATE TABLE Produto(
 	marca VARCHAR(255) NOT NULL,
 	descricaoBreve VARCHAR(255) NOT NULL,
 	descricaoTotal VARCHAR(255) NOT NULL,
+	tamanho VARCHAR(30) DEFAULT NULL,
 	preco DECIMAL(10,2) NOT NULL,
 	precoPromo DECIMAL(10,2),
 	fgPromocao boolean,
@@ -84,13 +85,9 @@ CREATE TABLE Produto(
 	FOREIGN KEY (id_associado) REFERENCES Usuario(id_usuario)
 );
 
-CREATE TABLE pedidoProduto( 
-	id_pedido_produto int PRIMARY KEY AUTO_INCREMENT, 
-	quantidade int NOT NULL, 
-	id_pedido int, id_Produto int, 
-	FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido), 
-	FOREIGN KEY (id_Produto) REFERENCES produto(id_Produto) 
-)
+		ALTER TABLE Produto
+		MODIFY descricaoTotal TEXT NOT NULL;  --Para ter mais detalhes na descrição total do produto
+
 
 CREATE TABLE Estoque(
 	id_estoque INT AUTO_INCREMENT PRIMARY KEY,
@@ -120,6 +117,10 @@ CREATE TABLE Carrinho (
   FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
 );
 
+		ALTER TABLE Carrinho
+		DROP COLUMN cep;
+
+
 CREATE TABLE ProdutoCarrinho(
 	id_prodCarrinho INT AUTO_INCREMENT PRIMARY KEY,
 	id_carrinho INT NOT NULL,
@@ -137,13 +138,21 @@ CREATE TABLE Status(
 );
 
 CREATE TABLE `pedido` (
-  `id_pedido` int(11) NOT NULL,
+  `id_pedido` int(11) NOT NULL PRIMARY KEY,
   `precoTotal` decimal(10,0) DEFAULT NULL,
   `id_usuario` int(11) NOT NULL,
   `id_carrinho` int(11) DEFAULT NULL,
   `id_status` int(11) NOT NULL,
   `dataPedido` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE pedidoProduto( 
+	id_pedido_produto int PRIMARY KEY AUTO_INCREMENT, 
+	quantidade int NOT NULL, 
+	id_pedido int, id_Produto int, 
+	FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido), 
+	FOREIGN KEY (id_Produto) REFERENCES Produto(id_produto) 
+);
 
 CREATE TABLE HistoricoDeVenda(
 	id_historicoDeVenda INT AUTO_INCREMENT PRIMARY KEY,
@@ -216,7 +225,7 @@ CREATE TABLE SolicitacaoDeAssociado (
     id_solicitacao INT AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL UNIQUE,
     sobreProdutos TEXT,
-	motivoDoRecuso varchar(500)
+	motivoDoRecuso varchar(500),
     CONSTRAINT fk_usuario FOREIGN KEY (id_usuario) 
         REFERENCES Usuario(id_usuario)
         ON DELETE CASCADE
