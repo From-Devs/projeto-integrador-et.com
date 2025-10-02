@@ -1,15 +1,14 @@
 /*ESTILIZAÇÃO DOS CARDS*/
 
 .cardDesejos:first-child{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .cardDesejos:last-child{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .cardDesejos{
-    width: 86%;
     height: 122.19px;
     display: flex;
     flex-direction: row;
@@ -27,8 +26,36 @@
     width: 20px;
     height: 20px;
     transform: scale(1.5);
+    text-align: center;
+    vertical-align: middle;
+    appearance: none;
+    background-color: #A6A6A6;
+    border-radius: 20%;
     cursor: pointer;
+    display: inline-block;
+    position: relative;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
+
+.cardDesejos .checkboxes input[type="checkbox"]:checked {
+    background-color: #A6A6A6;
+    color: white; 
+}
+.cardDesejos .checkboxes input[type="checkbox"]:checked::before {
+    content: "";
+    background-image: url("../../imagens/check.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+    /* align-self: center; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 .cardDesejos .cardColorido{
     display: grid;
@@ -73,6 +100,14 @@
         .cardDesejos{
             height: 115px;
         }
+        .cardDesejos .checkboxes input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+        .cardDesejos .checkboxes input[type="checkbox"]:checked::before {
+            width: 18px;
+            height: 18px;
+        }
         .cardDesejos .cardColorido{
             grid-template-columns: 130px 770px;
             height: 115px;
@@ -91,6 +126,14 @@
     @media (max-width: 880px){              /*Versão Tablet */
         .cardDesejos{
             height: 200px;
+        }
+        .cardDesejos .checkboxes input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+        }
+        .cardDesejos .checkboxes input[type="checkbox"]:checked::before {
+            width: 22px;
+            height: 22px;
         }
         .cardDesejos .cardColorido{
             grid-template-columns: 140px 420px;
@@ -574,6 +617,45 @@
     }
 
 
+/*Popup para confirmar a eliminação do produto */
+
+/* .popUpDialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+.popUp{
+    display: flex;
+    width: 400px;
+}
+
+.popUp .fecharPopUp .icone-fechar{
+    display: none;
+}
 
 
+.popUp .texto-popUp{
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
 
+.popUp .botoes-popUp{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+    border-radius: 20%;
+    margin-bottom: 15px;
+}
+
+.btn-red {
+    color: white;
+}
+
+/* 
+.popUp .botoes-popUp .btn-white:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+} */

@@ -107,7 +107,7 @@ $total = $subtotal + $frete;
                     <th></th>
                     <th>Preço</th>
                     <th>Quantia</th>
-                    <th class="radius2">Subtotal</th>
+                    <th class="radius2">Total</th>
                 </tr>
             </thead>
             <tbody>
@@ -145,27 +145,20 @@ $total = $subtotal + $frete;
             </tbody>
             <tfoot>
                 <tr>
-                    <td class='cor3' colspan="5">Subtotal:</td>
-                    <td class="total-value" id="subtotal">R$ <?= number_format($subtotal, 2, ',', '.') ?></td>
-                </tr>
-                <tr>
-                    <td class='cor3' colspan="2">
-                        <label for="cep">Frete: </label>
-                        <input class="redondo" type="text" id="cep" name="cep" placeholder="Digite seu CEP">
-                        <button type="button" class="botaoCalcular" onclick="calcularTotal()">Calcular</button>
-                    </td>
-                    <td></td><td></td><td></td>
-                    <td><span class="total-value" id="frete">R$ <?= number_format($frete, 2, ',', '.') ?></span></td>
-                </tr>
-                <tr>
                     <td class='cor3' colspan="5">Total:</td>
                     <td class="total-value" id="total">R$ <?= number_format($total, 2, ',', '.') ?></td>
                 </tr>
             </tfoot>
         </table>
+
+        <div class="tudo">
+            <p>Selecionar Tudo:</p>
+            <input type="checkbox">
+        </div>
+
         <div class="button-container">
-            <button type="submit">Atualizar Quantidades</button>
-            <button type="button" onclick="abrirPopup()">Realizar Pedido</button>
+            <button type="submit">Realizar Pedido</button>
+            <button type="button" onclick="abrirPopup()">Excluir</button>
         </div>
     </form>
 </main>

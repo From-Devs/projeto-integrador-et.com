@@ -131,60 +131,75 @@ function tabelaProduto($produtos) {
                             <label>Preço:</label>
                             <input type="text" name="preco">
                         </div>
-                        <div class="campo campo-small">
-                            <label>Preço Promocional:</label>
-                            <input type="text" name="precoPromocional">
-                        </div>
                         <div class="campo-small chkPromocao">
                             <label>Em promoção:</label>
-                            <input type="checkbox" name="fgPromocao" value="1">
+                            <input type="checkbox" name="fgPromocao" value="1" onchange="mudarFgPromo(this)">
+                        </div>
+                        <div class="campo campo-small">
+                            <label>Preço Promocional:</label>
+                            <input type="text" step="0.01" name="precoPromocional">
                         </div>
                     </div>
                     <div class="campos-direita">
-                <div class="galeria-produtos">
-                    <div class="item-produto">
-                        <div class="imagem-produto-container">
-                            <div class="container-img">
-                                <img src=""
-                                    alt="Produto" class="imagem-produto" id="img-produto-editar1">
-                            </div>
+                    <div class="galeria-produtos">
+                    <div class="container-item-produto">
+                        <div class="item-produto">
+                            <div class="imagem-produto-container">
+                                <div class="container-img">
+                                    <img src=""
+                                        alt="Produto" class="imagem-produto" id="img-produto-editar1" name="img1">
+                                </div>
 
-                            <label for="upload-produto1" class="icone-cadastrar-label">
-                                <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
-                                    alt="Editar Produto" class="icone-cadastrar">
-                            </label>
-                            <input type="file" id="upload-produto1" name="img1" class="input-file" data-img-id="img-produto1" accept="image/*">
+                                <label for="upload-produto1" class="icone-cadastrar-label">
+                                    <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
+                                        alt="Editar Produto" class="icone-cadastrar">
+                                </label>
+                                <input type="file" id="upload-produto1" name="img1" class="input-file" data-img-id="img-produto1" accept="image/*">
                             </div>
+                        </div>
+                        <div class="lgd-img">
+                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-ajuda.png" alt="img-ajuda" title="Aqui vai a IMAGEM SEM FUNDO">
+                        </div>
                     </div>
 
-                    <div class="item-produto">
-                        <div class="imagem-produto-container">
-                            <div class="container-img">
-                                <img src=""
-                                    alt="Produto" class="imagem-produto" id="img-produto-editar2">
-                            </div>
+                    <div class="container-item-produto">
+                        <div class="item-produto">
+                            <div class="imagem-produto-container">
+                                <div class="container-img">
+                                    <img src=""
+                                        alt="Produto" class="imagem-produto" id="img-produto-editar2" name="img2">
+                                </div>
 
-                            <label for="upload-produto2" class="icone-cadastrar-label">
-                                <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
-                                    alt="Editar Produto" class="icone-cadastrar">
-                            </label>
-                            <input type="file" id="upload-produto2" name="img2" class="input-file" data-img-id="img-produto2" accept="image/*">
+                                <label for="upload-produto2" class="icone-cadastrar-label">
+                                    <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
+                                        alt="Editar Produto" class="icone-cadastrar">
+                                </label>
+                                <input type="file" id="upload-produto2" name="img2" class="input-file" data-img-id="img-produto2" accept="image/*">
                             </div>
+                        </div>
+                        <div class="lgd-img">
+                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-ajuda.png" alt="img-ajuda" title="Aqui vai a IMAGEM DE LANÇAMENTO">
+                        </div>
                     </div>
 
-                    <div class="item-produto">
-                        <div class="imagem-produto-container">
-                            <div class="container-img">
-                                <img src=""
-                                    alt="Produto" class="imagem-produto" id="img-produto-editar3">
-                            </div>
+                    <div class="container-item-produto">
+                        <div class="item-produto">
+                            <div class="imagem-produto-container">
+                                <div class="container-img">
+                                    <img src=""
+                                        alt="Produto" class="imagem-produto" id="img-produto-editar3" name="img3">
+                                </div>
 
-                            <label for="upload-produto3" class="icone-cadastrar-label">
-                                <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
-                                    alt="Editar Produto" class="icone-cadastrar">
-                            </label>
-                            <input type="file" id="upload-produto3" name="img3" class="input-file" data-img-id="img-produto3" accept="image/*">
+                                <label for="upload-produto3" class="icone-cadastrar-label">
+                                    <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
+                                        alt="Editar Produto" class="icone-cadastrar">
+                                </label>
+                                <input type="file" id="upload-produto3" name="img3" class="input-file" data-img-id="img-produto3" accept="image/*">
                             </div>
+                        </div>
+                        <div class="lgd-img">
+                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-ajuda.png" alt="img-ajuda" title="Aqui vai a IMAGEM EXTRA (OPCIONAL)">
+                        </div>
                     </div>
                 </div>
 

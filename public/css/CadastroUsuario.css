@@ -233,10 +233,14 @@ section .wave.wave1
 
 /**/
 
-@media (max-width: 1550px){
+@media (max-width: 1700px){
     .id{
-        column-gap: 170px;
+        column-gap: 150px;
     }
+}
+
+@media (max-width: 1550px){
+
 }
 
 
@@ -261,15 +265,7 @@ section .wave.wave1
     .id{
         row-gap: 12px;
     }
-
-    .logo {
-        height: 10%;
-        bottom: 0px;
-        left: 32px;
-    }
 }
-
-/**/
 
 @media (max-width: 650px){
     section{
@@ -284,41 +280,17 @@ section .wave.wave1
         display: none;
     }
 
-    .containerForm{
-        width: 100%;
-    }
-
     .parteBranca{
         width: 100%;
         height: 100vh;
-        padding-top: 15px;
-        padding-left: 45px;
-        padding-right: 45px;
     }
 
-    /**/
-
-    h1 {
-        font-size: 24px;
-    }
-
-    .p2 {
-        font-size: 9px;
+    .containerForm{
+        width: 80%;
     }
 
     .checkbox label {
         font-size: 14px;
-    }
-
-    #voltar {
-        font-size: 16px;
-    }
-
-    /**/
-
-
-    form{
-        padding: 20px;
     }
 
     .campo-campo-container input{
@@ -329,85 +301,45 @@ section .wave.wave1
         width: 80%;
     }
 
+    .logo{
+        display: flex;
+        justify-self: center;
+        position: static;
+        bottom: 0;
+        left: 0;
+        height: 120px;
+        margin-bottom: 10px;
+    }
+
 }
 
-
-
-/*@media (max-width: 1024px) {
-    .id {
-        grid-template-columns: 1fr;
-        column-gap: 0;
+@media (max-width: 415px){
+    h1{
+        font-size: 26px;
+        text-align: center;
     }
 
-    .campo-campo-container input {
-        width: 100%;
-    }
-
-    .none {
-        display: none;
-    }
-
-    .checkbox {
-        font-size: 14px;
-        flex-direction: row;
+    .p{
+        text-align: center;
+        justify-content: center;
         align-items: center;
+        font-size: 12px;
     }
 
-    .botaoConfirmar {
-        margin-top: 20px;
-        width: 100%;
-        font-size: 24px;
-        height: 50px;
-    }
-
-    .voltarSair {
-        margin: 40px auto 0;
-        justify-content: flex-start;
-    }
-
-}*/
-
-/*@media (max-width: 600px) {
-    .logo {
-        width: 80px;
-        height: 80px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    .p2 {
-        font-size: 9px;
-    }
-
-    .checkbox {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .checkbox label {
-        font-size: 14px;
-    }
-
-    .low {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .voltarSair {
-        flex-direction: row;
-        justify-content: flex-start;
-    }
-
-    #voltar {
+    .campo-campo-container label {
+        position: absolute;
+        left: 0px;
+        top: 10px;
         font-size: 16px;
+        color: rgb(0, 0, 0);
+        transition: 0.2s ease-in-out;
+        pointer-events: none;
+    }
+    
+    .campo-campo-container input:focus + label,
+    .campo-campo-container input:valid + label {
+        top: -15px;
+        font-size: 16px;
+        color: black;
     }
 }
-
-@media (max-width: 1024px) {
-    section,
-    .wave {
-        display: none;
-    }
-}*/
