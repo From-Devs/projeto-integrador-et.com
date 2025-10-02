@@ -319,5 +319,28 @@ class ProdutoController {
 
         return $pedidos;
     }
+    public function avaliarProduto($idUsuario, $idProduto, $nota, $comentario) {
+        try {
+            $sql = "INSERT INTO avaliacoes (id_usuario, id_produto, nota, comentario, data_avaliacao) 
+                    VALUES (:u, :p, :n, :c, NOW())";
+            $stmt = $this->conn->prepare($sql);
+            $ok = $stmt->execute([
+                ':u' => (int)$idUsuario,
+                ':p' => (int)$idProduto,
+                ':n' => (int)$nota,
+                ':c' => $comentario
+            ]);
+    
+            if ($ok) {
+                return ["success" => true, "msg" => "Avaliação registrada com sucesso"];
+            } else {
+                return ["success" => false, "msg" => "Erro ao salvar avaliação"];
+            }
+        } catch (PDOException $e) {
+            return ["success" => false, "msg" => "Erro no banco: " . $e->getMessage()];
+        }
+    }
 }
+
 ?>
+
