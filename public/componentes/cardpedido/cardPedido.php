@@ -67,10 +67,10 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
 
         <?php else: ?>
         <!-- Card finalizado -->
-        <span class="data-entrega"><?= $dataEntrega; ?></span>
+        <span class="data-entrega" style=""><?= $dataEntrega; ?></span>
         <span class="statusProdutoMP">Concluído</span>
 
-        <div class="cardcoloridoFin" style="">
+        <div class="cardcoloridoFin" style="border-radius:25px;">
             <div class="card-info2" style="
                 width: 100%;
                 height: 100%
@@ -78,9 +78,9 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
                 flex-direction:row; 
                 align-items:center; 
                 justify-content:flex-start;
-                padding: 0px 0px 0px 20px;
+                padding: 0px 0px 0px 0px;
                 border-radius:25px;
-                box-shadow:0 0px 10px rgba(0,0,0,0.1);
+                box-shadow: inset 0px 0px 10px rgb(129, 129, 129);
             ">
                 <div class="card-imagem2" style="display: felx; 120px;">
                     <img src="/projeto-integrador-et.com/public/imagens/produto/<?= $imagemProduto; ?>" 

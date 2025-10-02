@@ -31,6 +31,7 @@ CREATE TABLE Administrador(
 	senha VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL
 );
+
 CREATE TABLE `avaliacoes` (
   `id_avaliacao` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
