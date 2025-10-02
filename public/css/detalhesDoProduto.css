@@ -538,4 +538,23 @@ option {
         font-size: 1.6rem;
     }
 }
- 
+.estrelas-media i,
+.estrelas-usuario i {
+    font-size: 1.2rem;
+    margin-right: 2px;
+}
+.estrelas-media i {
+    color: #FFD700;          /* Cor da estrela */
+    border-radius: 3px;
+    padding: 2px;
+    margin-right: 2px;
+}
+.fa-star{
+    -webkit-text-stroke: 1px black;
+}
+.fa-star-half-o{
+    -webkit-text-stroke: 1px black;
+}
+.fa-star-o{
+    -webkit-text-stroke: 1px black;
+}
