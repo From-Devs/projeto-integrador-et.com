@@ -30,7 +30,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 
     <?php
         echo createSidebarInterna($tipo_usuario);
-        echo createContaAssociadoADM("Associado");
+        echo createContaAssociadoADM("Associado",11);
     ?>
 
     <!-- aqui acaba o lado esquerdo -->
