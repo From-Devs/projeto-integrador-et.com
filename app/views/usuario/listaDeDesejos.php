@@ -16,6 +16,9 @@ $login = $_SESSION['login'] ?? false;
 $controller = new ProdutoController();
 $idUsuario = $_SESSION['id_usuario'] ?? null;
 $favoritos = $idUsuario ? $controller->ListarFavoritos($idUsuario) : [];
+
+$btnExcluirSelecionados = botaoPersonalizadoOnClick('Sim','btn-green','enviarFormulario("removerFavorito", getSelecionados()); fecharPopUp("removerSelecionados")','85px','40px','18px');
+$btnCancelarExclusão = botaoPersonalizadoOnClick('Não','btn-red','fecharPopUp("removerSelecionados")','85px','40px','18px');
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -46,11 +49,6 @@ $favoritos = $idUsuario ? $controller->ListarFavoritos($idUsuario) : [];
 <?php 
 echo createHeader($login, $tipoUsuario); 
 echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px");
-
-$botao1 = botaoPersonalizadoOnClick("Sim","btn-green",'exclProd()',"90px","40px","20px");
-$botao2 = botaoPersonalizadoRedirect("Não","btn-white", "","90px","40px","20px");
-echo PopUpConfirmar("confirmacao", "Deseja Excluir?", $botao2, $botao1, "300px", "white", "", "1.7rem");
-echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmacao\")");
 ?>
 
 <div class="title-container">
@@ -67,6 +65,9 @@ echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmac
         <div class="btnCheck">
             <button id="adicionarCarrinho">Adicionar ao Carrinho</button>
             <button id="excluirSelecionados">Excluir</button>
+            <?php 
+                echo PopUpConfirmar('removerSelecionados','Deseja eliminar <span id="idProdutosSelecionados">0</span> produto(s) da sua lista de desejos?',$btnExcluirSelecionados,$btnCancelarExclusão,'500px');
+            ?>
         </div>
     </div>
 </div>
@@ -93,6 +94,7 @@ echo botaoPersonalizadoOnClick("Confirmar", "btn-green", "abrirPopUp(\"confirmac
                     $preco,
                     $item['marca'],
                     $item['nome'],
+                    $item['tamanho'],
                     $dataAdicionado,
                     $item['corPrincipal'] ?? "#919191",
                     $item['hexDegrade1'] ?? "#919191",
