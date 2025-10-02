@@ -1,9 +1,12 @@
 <?php
 function renderCardPedido($pedido, $tipo = 'Andamento') {
     $dataCompra = date('d/m/Y', strtotime($pedido['dataPedido']));
+    $dataEntrega = !empty($pedido['dataEntrega']) ? date('d/m/Y', strtotime($pedido['dataEntrega'])) : '';
 
-    // Definir classe do card dependendo do tipo
-    $classeCard = $tipo === 'Finalizado' ? 'cardProduto-finalizado produtoMP' : 'cards-produtoAndamento produtoMP';
+    // Define classes externas que o JS espera
+    $classeCard = $tipo === 'Finalizado' 
+        ? 'cardProduto-finalizado produtoMP' 
+        : 'cards-produtoAndamento produtoMP';
 
     foreach ($pedido['itens'] as $item): 
         $imagemProduto = !empty($item['imagem']) 
@@ -11,21 +14,29 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
             : 'imagem-padrao.jpg';
         $descricao = $item['descricaoBreve'] ?? $item['categoria'] ?? '';
         $subtotal = $item['preco'] * ($item['quantidade'] ?? 1);
-    ?>
-
+?>
     <div class="<?= $classeCard; ?>" 
          data-id="<?= $item['id_produto']; ?>"
+         data-pedido-id="<?= $pedido['id_pedido']; ?>"
          data-nome="<?= htmlspecialchars($item['nome']); ?>"
          data-marca="<?= htmlspecialchars($item['marca'] ?? ''); ?>"
          data-quantidade="<?= $item['quantidade'] ?? 1; ?>"
          data-preco="<?= $item['preco']; ?>"
          data-descricao="<?= htmlspecialchars($descricao); ?>"
          data-imagem="/projeto-integrador-et.com/public/imagens/produto/<?= $imagemProduto; ?>"
-         style="position:relative;">
+         data-categoria="<?= htmlspecialchars($item['categoria'] ?? ''); ?>"
+         data-rua="<?= htmlspecialchars($pedido['endereco_rua'] ?? ''); ?>"
+         data-numero="<?= htmlspecialchars($pedido['endereco_numero'] ?? ''); ?>"
+         data-bairro="<?= htmlspecialchars($pedido['endereco_bairro'] ?? ''); ?>"
+         data-cidade="<?= htmlspecialchars($pedido['endereco_cidade'] ?? ''); ?>"
+         data-estado="<?= htmlspecialchars($pedido['endereco_estado'] ?? ''); ?>"
+         data-horario="<?= htmlspecialchars($pedido['horarioEntrega'] ?? ''); ?>"
+         style="position:relative; cursor:pointer;">
+
+        <span class="data-compra"><?= $dataCompra; ?></span>
 
         <?php if($tipo !== 'Finalizado'): ?>
-        <span class="data-compra">Data de compra: <?= $dataCompra; ?></span>
-
+        <!-- Card em andamento -->
         <div class="cardcoloridoCam" style="border-radius:25px; overflow:hidden; position:relative;">
             <div class="card-info" style="
                 width: 100%;
@@ -53,8 +64,11 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
                 
             </div>
         </div>
+
         <?php else: ?>
-        <span class="data-compra">Data de entrega: <?= $dataCompra; ?></span>
+        <!-- Card finalizado -->
+        <span class="data-entrega"><?= $dataEntrega; ?></span>
+        <span class="statusProdutoMP">Concluído</span>
 
         <div class="cardcoloridoFin" style="">
             <div class="card-info2" style="
@@ -86,7 +100,7 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
         </div>
         <?php endif; ?>
     </div>
-
-<?php endforeach;
+<?php 
+    endforeach;
 }
 ?>
