@@ -18,12 +18,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // === POPUP DE AVALIAÇÃO ===
     // ========================
     let avaliacaoSelecionada = 0;
+    let produtoAvaliado = null;
 
-    function abrirPopupAvaliacao(imagemProduto, nomeProduto, marcaProduto) {
+    function abrirPopupAvaliacao(imagemProduto, nomeProduto, marcaProduto, idProduto) {
         const dialog = document.getElementById("popupAvaliarProduto");
         document.getElementById("popupAva-imagemProduto").src = imagemProduto;
         document.getElementById("popupAva-imagemProduto").alt = nomeProduto;
+        document.getElementById("popupAva-imagemProduto").dataset.id = idProduto; // guardar id produto
         document.getElementById("popupAva-nomeProduto").innerText = marcaProduto + " " + nomeProduto;
+        avaliacaoSelecionada = 0;
+        atualizarEstrelas(0);
         if (!dialog.open) dialog.showModal();
     }
 
@@ -44,16 +48,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function enviarAvaliacao() {
         const texto = document.getElementById("popupAva-textoAvaliacao").value;
-        if(avaliacaoSelecionada === 0) { alert("Selecione pelo menos 1 estrela."); return; }
-        console.log("Avaliação enviada:", avaliacaoSelecionada, texto);
-        alert("Avaliação enviada com sucesso!");
-        fecharPopupAvaliacao();
+        const idProduto = document.getElementById("popupAva-imagemProduto").dataset.id;
+        const idUsuario = document.body.dataset.usuario; // precisa vir do PHP no <body>
+
+        if(avaliacaoSelecionada === 0) {
+            alert("Selecione pelo menos 1 estrela.");
+            return;
+        }
+
+        fetch("/projeto-integrador-et.com/config/produtoRouter.php", {
+            method: "POST",
+            headers: {"Content-Type": "application/x-www-form-urlencoded"},
+            body: new URLSearchParams({
+                acao: "avaliarProduto",
+                id_usuario: idUsuario,
+                id_produto: idProduto,
+                nota: avaliacaoSelecionada,
+                comentario: texto
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert(data.msg);
+            if(data.success) fecharPopupAvaliacao();
+        })
+        .catch(err => console.error("Erro ao enviar avaliação:", err));
     }
 
     function fecharPopupAvaliacao() {
         const dialog = document.getElementById("popupAvaliarProduto");
         if(dialog && dialog.open) dialog.close();
     }
+
+    // Expor funções para os botões
+    window.enviarAvaliacao = enviarAvaliacao;
+    window.fecharPopupAvaliacao = fecharPopupAvaliacao;
 
     // ========================
     // === POPUP DOS CARDS ===
@@ -72,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const quantidade = parseInt(p.querySelector(".qtdProdutoMP")?.innerText.replace('Qtd: ','') || '1');
                 const subtotal = parseFloat(p.querySelector(".subtotalProdutoMP")?.innerText.replace('Subtotal: R$ ','') || '0');
                 const imagem = p.querySelector("img")?.src || '';
-                const dataCompra = p.querySelector(".data-compra")?.innerText || '';
 
                 const miniCard = document.createElement("div");
                 miniCard.classList.add("cardMini");
@@ -92,23 +120,11 @@ document.addEventListener("DOMContentLoaded", () => {
                             </div>
                         </div>
                     </div>
-                    <div class="card-expandido" style="height: 420px;">
-                        <span class="card-titulo">DESCRIÇÃO</span>
-                        <div class="card-linhasuperior"></div>
-                        <img class="cardMini-imagem" src="${imagem}" height="130px">
-                        <div class="card-linhainferior"></div>
-                        <div class="detalhes-info" style="gap:5px;">
-                            <span class="detalhes-titulo">${nome}</span>
-                            <span class="detalhes-quantidade">Quantidade: ${quantidade} produtos</span>
-                            <span class="detalhes-precoTotal">Subtotal: R$ ${subtotal.toFixed(2)}</span>
-                        </div>
-                    </div>
                 `;
                 popupProdutos.appendChild(miniCard);
                 totalCompra += subtotal;
             });
 
-            document.getElementById("popupMP-DataCompra").innerText = produtos[0].querySelector(".data-compra")?.innerText || '';
             document.getElementById("popupMP-Total").innerText = "Total: R$ " + totalCompra.toFixed(2);
             document.getElementById("popupMP").showModal();
         });
@@ -116,13 +132,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Produtos finalizados
     document.querySelectorAll(".cardProduto-finalizado").forEach(card2 => {
-
-        // Abrir popup ao clicar no card
         card2.addEventListener("click", () => {
             const popupProdutosFi = document.getElementById("popupMP-ProdutosFi");
-            popupProdutosFi.innerHTML = ""; // limpar popup
+            popupProdutosFi.innerHTML = "";
 
-            const produtos = [card2]; // array de produtos, pode ser expandido se necessário
+            const produtos = [card2];
 
             produtos.forEach(p => {
                 const nome = p.querySelector(".nomeProdutoMP")?.innerText || '';
@@ -132,14 +146,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const dataEntrega = p.querySelector(".data-entrega")?.innerText || '';
                 const dataCompra = p.querySelector(".data-compra")?.innerText || '';
                 const status = p.querySelector(".statusProdutoMP")?.innerText || 'Concluído';
-                const endereco = {
-                    rua: p.dataset.rua || '',
-                    numero: p.dataset.numero || '',
-                    bairro: p.dataset.bairro || '',
-                    cidade: p.dataset.cidade || '',
-                    estado: p.dataset.estado || '',
-                    horarioEntrega: p.dataset.horario || ''
-                };
+                const idProduto = p.dataset.id || '';
+                const marca = p.dataset.marca || '';
+
                 const precoTotal2 = subtotal * quantidade;
 
                 const cardpopup = document.createElement("div");
@@ -166,15 +175,11 @@ document.addEventListener("DOMContentLoaded", () => {
                             <span class="detalhes-status">Status: <span style="color: green;">${status}</span></span>
                             <span class="detalhes-dataCompra">Data de Compra: <span style="font-weight: 500;">${dataCompra}</span></span>
                             <span class="detalhes-dataEntrega">Data de Entrega: <span style="font-weight: 500;">${dataEntrega}</span></span>
-                            <span class="detalhes-endereco">Foi entregue às ${endereco.horarioEntrega} no endereço <span style="font-weight: 500;">${endereco.rua} ${endereco.numero}</span>, bairro ${endereco.bairro}. ${endereco.cidade}, ${endereco.estado}.</span>
                         </div>
                         <span class="card-titulo2">DESCRIÇÃO DO PRODUTO</span>
-                        <div class="card-linhasuperior"></div>
                         <img class="cardpopup-imagem" src="${imagem}">
-                        <div class="card-linhainferior"></div>
                         <div class="detalhes-info" style="gap:5px;">
                             <span class="detalhes-titulo">${nome}</span>
-                            <span class="detalhes-categoria">${p.dataset.categoria || ''}</span>
                             <span class="detalhes-quantidade">Quantidade: ${quantidade} produtos</span>
                             <span class="detalhes-preco">Preço Unitário: R$ ${subtotal.toFixed(2)}</span>
                             <span class="detalhes-precoTotal">Preço Total: R$ ${precoTotal2.toFixed(2)}</span>
@@ -189,11 +194,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const btnAvaliar = cardpopup.querySelector(".avaliarBtn");
                 btnAvaliar.addEventListener("click", () => {
-                    abrirPopupAvaliacao(imagem, nome, p.dataset.marca || '');
+                    abrirPopupAvaliacao(imagem, nome, marca, idProduto);
                 });
             });
 
-            document.getElementById("popupMP-DataEntrega").innerText = "Data da entrega: " + (produtos[0].querySelector(".data-entrega")?.innerText || '');
             document.getElementById("popupMPFinalizado").showModal();
         });
     });
@@ -209,25 +213,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-function enviarAvaliacao() {
-    const texto = document.getElementById("popupAva-textoAvaliacao").value;
-  
-    if (avaliacaoSelecionada === 0) {
-      alert("Por favor, selecione pelo menos 1 estrela.");
-      return;
+document.getElementById("popupAva-imagemProduto").addEventListener("click", () => {
+    const idProduto = document.getElementById("popupAva-imagemProduto").dataset.id;
+    if (idProduto) {
+        window.location.href = "/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=" + idProduto;
     }
-  
-    console.log("Avaliação enviada:");
-    console.log("Estrelas:", avaliacaoSelecionada);
-    console.log("Texto:", texto);
-  
-    alert("Avaliação enviada com sucesso!");
-    fecharPopupAvaliacao();
-  }
-  
-  function fecharAvaliacao() {
-    const dialog = document.getElementById("popupAvaliarProduto");
-    if (dialog && dialog.open) {
-      dialog.close();
-    }
-  }
+});

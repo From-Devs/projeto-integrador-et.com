@@ -31,6 +31,14 @@ CREATE TABLE Administrador(
 	senha VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL
 );
+CREATE TABLE `avaliacoes` (
+  `id_avaliacao` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_produto` int(11) NOT NULL,
+  `nota` int(11) NOT NULL CHECK (`nota` between 1 and 5),
+  `comentario` text DEFAULT NULL,
+  `data_avaliacao` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Personalização e categorias
 
