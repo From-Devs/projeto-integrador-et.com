@@ -85,6 +85,9 @@ CREATE TABLE Produto(
 	FOREIGN KEY (id_associado) REFERENCES Usuario(id_usuario)
 );
 
+		ALTER TABLE Produto
+		MODIFY descricaoTotal TEXT NOT NULL;  --Para ter mais detalhes na descrição total do produto
+
 
 CREATE TABLE Estoque(
 	id_estoque INT AUTO_INCREMENT PRIMARY KEY,
