@@ -200,7 +200,7 @@ function tabelaPedidosADM($pedidos) {
                 <tr>
                     <th id='bordaEsquerda' scope='col'>ID</th>
                     <th id='th2' scope='col'>Nome Cliente</th>
-                    <th id='th3' scope='col'>Preço</th>
+                    <th id='th3' scope='col'>Total</th>
                     <th id='th4' scope='col'>Data</th>
                     <th id='bordaDireita' scope='col'>Status Pagamento</th>
                     <th id='bordaDireita' scope='col'></th>
@@ -212,9 +212,8 @@ function tabelaPedidosADM($pedidos) {
             <table id='tabelaVendas'>
                 <tbody>";
 
-    $contador = 1;
     foreach ($pedidos as $pedido) {
-        echo popUpCurto("popUpStatus", "Status alterado com sucesso!", "green", "white", "");
+        echo popUpCurto("popUpStatus", "Status alterado com sucesso!", "green", "white", "/popUp_Botoes/img-confirmar.png");
         if(isset($pedido['tipoStatus']) && $pedido['tipoStatus'] != ""){
             $statusClass = $pedido['tipoStatus'] === 'Pago' ? 'statusPago' : 'statusPendente';
         }
@@ -233,10 +232,9 @@ function tabelaPedidosADM($pedidos) {
                         </button>
                     </td>
                     <td>
-                        <button class='tresPontos' onclick='abrirPopUp(\"modalDetalhesDoPedido{$contador}\")'><img src='/projeto-integrador-et.com/public/imagens/imagensADM/tresPontos.png' alt='img-tresPontos'></button>
+                        <button class='tresPontos' onclick='abrirPopUpDetalhes({$pedido['id_pedido']})'><img src='/projeto-integrador-et.com/public/imagens/imagensADM/tresPontos.png' alt='img-tresPontos'></button>
                     </td>
                 </tr>";
-        $contador++;
     }
 
     $tabela .= "    </tbody>
@@ -246,6 +244,7 @@ function tabelaPedidosADM($pedidos) {
 
     return $tabela;
 }
+
 
 function tabelaPedidosAssociado($pedidos) {
     $tabela = "<div id='lista'>
@@ -266,9 +265,7 @@ function tabelaPedidosAssociado($pedidos) {
             <table id='tabelaVendas'>
                 <tbody>";
 
-    $contador = 1;
     foreach ($pedidos as $pedido) {
-        echo popUpCurto("popUpStatus", "Status alterado com sucesso!", "green", "white", "");
         if(isset($pedido['tipoStatus']) && $pedido['tipoStatus'] != ""){
             $statusClass = $pedido['tipoStatus'] === 'Pago' ? 'statusPago' : 'statusPendente';
         }
@@ -285,7 +282,6 @@ function tabelaPedidosAssociado($pedidos) {
                         <button>teste entrega</button>
                     </td>
                 </tr>";
-        $contador++;
     }
 
     $tabela .= "    </tbody>
@@ -295,7 +291,3 @@ function tabelaPedidosAssociado($pedidos) {
 
     return $tabela;
 }
-
-?>
-
-<script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>

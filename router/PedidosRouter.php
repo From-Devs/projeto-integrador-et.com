@@ -22,6 +22,13 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             echo json_encode($res);
             break;
 
+        case 'BuscarProdutosDoPedido':
+            $idPedido = $_GET['idPedido'] ?? '';
+            $res = $pedidosController->BuscarProdutosDoPedido($idPedido);
+            header('Content-Type: application/json');
+            echo json_encode($res);
+            break;
+
         default:
             echo "Nao encontrei nada";
             break;

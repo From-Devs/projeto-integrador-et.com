@@ -17,6 +17,10 @@ class PedidosController{
     public function BuscarTodosPedidosADM($ordem="", $pesquisa=""){
         return $this->pedidosModel->BuscarTodosPedidosADM($ordem, $pesquisa);
     }
+
+    public function BuscarProdutosDoPedido($idPedido){
+        return $this->pedidosModel->BuscarProdutosDoPedido($idPedido);
+    }
 }
 
 ?>
