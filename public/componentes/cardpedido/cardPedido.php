@@ -56,7 +56,7 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
         <?php else: ?>
         <span class="data-compra">Data de entrega: <?= $dataCompra; ?></span>
 
-        <div class="cardcoloridoFin" style="border-radius:25px; overflow:hidden; position:relative;">
+        <div class="cardcoloridoFin" style="">
             <div class="card-info2" style="
                 width: 100%;
                 height: 100%
