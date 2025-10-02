@@ -93,7 +93,7 @@ function resumoFinal($detalhesPedidos) {
 }
 
 
-function tabelaPedidosADM($pedidos) {
+/*function tabelaPedidosADM($pedidos) {
     $tabela = "<div id='lista'>
         <table id='tabelaVendas'>
             <thead id='barraCima'>
@@ -134,9 +134,9 @@ function tabelaPedidosADM($pedidos) {
             </div>
             <div id="componenteTabelaProdutos">
                 <?php 
-                $resultado = paginar($pedido['detalhesPedido'], 1, 'pageProdutos'.$contador);
-                echo detalhesPedidos($resultado['dados']);
-                renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas'], 'pageProdutos'.$contador);
+                // $resultado = paginar($pedido['detalhesPedido'], 1, 'pageProdutos'.$contador);
+                // echo detalhesPedidos($resultado['dados']);
+                // renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas'], 'pageProdutos'.$contador);
                 ?>
             </div>
 
@@ -145,25 +145,93 @@ function tabelaPedidosADM($pedidos) {
                 <div id="componenteTotaisAssociados">
                     <h3>Total a pagar:</h3>
                     <?php 
-                    $resultado = paginar($pedido['infoPagamentos'], 5, 'pagePagamentos'.$contador);
-                    echo tabelaTotaisAssociado($resultado['dados']);
-                    renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas'], 'pagePagamentos'.$contador);
+                    // $resultado = paginar($pedido['infoPagamentos'], 5, 'pagePagamentos'.$contador);
+                    // echo tabelaTotaisAssociado($resultado['dados']);
+                    // renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas'], 'pagePagamentos'.$contador);
                     ?>
                 </div>
                 <div id="componenteResumoFinal">
-                    <?php echo resumoFinal($pedido['detalhesPedido']); ?>
+                    <?php 
+                    // echo resumoFinal($pedido['detalhesPedido']); 
+                    ?>
                 </div>
             </div>
         </dialog>
         <?php
         $statusClass = $pedido['status'] === 'Pago' ? 'statusPago' : 'statusPendente';
 
+        echo popUpCurto("popUpStatus", "Status alterado com sucesso!", "green", "white");
+        
+        if(isset($pedido['tipoStatus']) && $pedido['tipoStatus'] != ""){
+            $statusClass = $pedido['tipoStatus'] === 'Pago' ? 'statusPago' : 'statusPendente';
+        }
+        
         $tabela .= "<tr>
                     <td>{$contador}</td>
                     <td>{$pedido['nomeCliente']}</td>
                     <td>R$ " . number_format($pedido['preco'], 2, ',', '.') . "</td>
                     <td>{$pedido['data']}</td>
-                    <td><div id='{$statusClass}'>{$pedido['status']}</div></td>
+                    <td>
+                        <button id='{$statusClass}' class='btnStatus' 
+                            onclick='mudarStatus(this, {$pedido["id_pedido"]})'>
+                            <p>{$pedido['tipoStatus']}</p>
+                        </button>
+                    </td>
+                    <td>
+                        <button class='tresPontos' onclick='abrirPopUp(\"modalDetalhesDoPedido{$contador}\")'><img src='/projeto-integrador-et.com/public/imagens/imagensADM/tresPontos.png' alt='img-tresPontos'></button>
+                    </td>
+                </tr>";
+        $contador++;
+    }
+
+    $tabela .= "    </tbody>
+            </table>
+        </div>
+    </div>";
+
+    return $tabela;
+}*/
+
+
+function tabelaPedidosADM($pedidos) {
+    $tabela = "<div id='lista'>
+        <table id='tabelaVendas'>
+            <thead id='barraCima'>
+                <tr>
+                    <th id='bordaEsquerda' scope='col'>ID</th>
+                    <th id='th2' scope='col'>Nome Cliente</th>
+                    <th id='th3' scope='col'>Preço</th>
+                    <th id='th4' scope='col'>Data</th>
+                    <th id='bordaDireita' scope='col'>Status Pagamento</th>
+                    <th id='bordaDireita' scope='col'></th>
+                </tr>
+            </thead>
+        </table>
+
+        <div class='tabela-body'>
+            <table id='tabelaVendas'>
+                <tbody>";
+
+    $contador = 1;
+    foreach ($pedidos as $pedido) {
+        echo popUpCurto("popUpStatus", "Status alterado com sucesso!", "green", "white", "");
+        if(isset($pedido['tipoStatus']) && $pedido['tipoStatus'] != ""){
+            $statusClass = $pedido['tipoStatus'] === 'Pago' ? 'statusPago' : 'statusPendente';
+        }
+
+        $data = date("d/m/Y - H:i", strtotime($pedido['dataPedido']));
+
+        $tabela .= "<tr>
+                    <td>{$pedido['id_pedido']}</td>
+                    <td>{$pedido['nome']}</td>
+                    <td>R$ " . number_format($pedido['precoTotal'], 2, ',', '.') . "</td>
+                    <td>{$data}</td>
+                    <td>
+                        <button id='{$statusClass}' class='btnStatus' 
+                            onclick='mudarStatus(this, {$pedido["id_pedido"]})'>
+                            <p>{$pedido['tipoStatus']}</p>
+                        </button>
+                    </td>
                     <td>
                         <button class='tresPontos' onclick='abrirPopUp(\"modalDetalhesDoPedido{$contador}\")'><img src='/projeto-integrador-et.com/public/imagens/imagensADM/tresPontos.png' alt='img-tresPontos'></button>
                     </td>
@@ -179,7 +247,6 @@ function tabelaPedidosADM($pedidos) {
     return $tabela;
 }
 
-
 function tabelaPedidosAssociado($pedidos) {
     $tabela = "<div id='lista'>
         <table id='tabelaVendas'>
@@ -189,7 +256,8 @@ function tabelaPedidosAssociado($pedidos) {
                     <th id='th2' scope='col'>Nome Cliente</th>
                     <th id='th3' scope='col'>Preço</th>
                     <th id='th4' scope='col'>Data</th>
-                    <th id='bordaDireita' scope='col'>Status</th>
+                    <th id='bordaDireita' scope='col'>Status Pagamento</th>
+                    <th id='bordaDireita' scope='col'>Status Entrega</th>
                 </tr>
             </thead>
         </table>
@@ -200,6 +268,7 @@ function tabelaPedidosAssociado($pedidos) {
 
     $contador = 1;
     foreach ($pedidos as $pedido) {
+        echo popUpCurto("popUpStatus", "Status alterado com sucesso!", "green", "white", "");
         if(isset($pedido['tipoStatus']) && $pedido['tipoStatus'] != ""){
             $statusClass = $pedido['tipoStatus'] === 'Pago' ? 'statusPago' : 'statusPendente';
         }
@@ -212,6 +281,9 @@ function tabelaPedidosAssociado($pedidos) {
                     <td>R$ " . number_format($pedido['precoTotal'], 2, ',', '.') . "</td>
                     <td>{$data}</td>
                     <td><div id='{$statusClass}'><p>{$pedido['tipoStatus']}<p></div></td>
+                    <td>
+                        <button>teste entrega</button>
+                    </td>
                 </tr>";
         $contador++;
     }

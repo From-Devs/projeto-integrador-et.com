@@ -13,11 +13,9 @@ class AssociadosModel{
     public function BuscarTodosAssociados($tipo_tabela, $ordem="", $pesquisa=""){
         try {
             $sqlAssociados = "SELECT id_usuario, U.nome, U.email, E.cidade, E.estado, U.telefone
-                FROM usuario U
-                JOIN endereco E
-                    ON U.id_endereco = E.id_endereco
-            WHERE U.tipo = 'associado' 
-            OR U.tipo = 'Associado'";
+            FROM usuario U
+            JOIN endereco E ON U.id_endereco = E.id_endereco
+            WHERE (U.tipo = 'associado' OR U.tipo = 'Associado')";
             
             if($tipo_tabela == "solicitacao"){
                 $sqlAssociados = "SELECT U.id_usuario, U.nome, U.email, U.TIPO, E.cidade, E.estado, SA.sobreProdutos, SA.motivoDoRecuso
@@ -32,13 +30,14 @@ class AssociadosModel{
             $params = [];
     
             if (!empty($pesquisa)) {
-                if ($tipo_tabela == "solicitacao") {
-                    $sqlAssociados .= " WHERE U.nome LIKE :pesquisa";
-                } else {
+                if (strpos($sqlAssociados, 'WHERE') !== false) {
                     $sqlAssociados .= " AND U.nome LIKE :pesquisa";
+                } else {
+                    $sqlAssociados .= " WHERE U.nome LIKE :pesquisa";
                 }
                 $params[':pesquisa'] = "$pesquisa%";
             }
+            
     
             if (!empty($ordem)) {
                 switch ($ordem) {
@@ -112,6 +111,26 @@ class AssociadosModel{
             $this->conn->commit();
             return true;
     
+        } catch (\Throwable $th) {
+            $this->conn->rollBack();
+            echo "Erro ao recusar associado: " . $th->getMessage();
+            return false;
+        }
+    }
+
+    public function mudarStatus($novoStatus, $idPedido){
+        try {
+            $this->conn->beginTransaction();
+
+            $sqlStatus = "UPDATE PEDIDO SET ID_STATUS = :idStatus WHERE ID_PEDIDO = :idPedido";
+            $stmtStatus = $this->conn->prepare($sqlStatus);
+            $stmtStatus->bindValue(":idStatus", $novoStatus, PDO::PARAM_INT);
+            $stmtStatus->bindValue(":idPedido", $idPedido, PDO::PARAM_INT);
+            $stmtStatus->execute();
+            $this->conn->commit();
+
+            return true;
+
         } catch (\Throwable $th) {
             $this->conn->rollBack();
             echo "Erro ao recusar associado: " . $th->getMessage();

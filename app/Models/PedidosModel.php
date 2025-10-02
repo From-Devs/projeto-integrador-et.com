@@ -10,7 +10,7 @@ class PedidosModel{
         $this->conn = $db->Connect();
     }
 
-    public function BuscarTodosPedidosAssociado($ordem="", $pesquisa=""){
+    public function BuscarTodosPedidos($ordem="", $pesquisa=""){
         try {    
             $sqlPedidos = "SELECT P.id_pedido, 
             U.nome,
@@ -41,6 +41,9 @@ class PedidosModel{
                     case 'Data':
                         $ordemSql = "dataPedido";
                         break;
+                    case 'Status':
+                        $ordemSql = "S.id_status";
+                        break;
                     default:
                         $ordemSql = "id_pedido";
                 }
@@ -61,6 +64,7 @@ class PedidosModel{
             return false;
         }
     }
+
 }
 
 ?>
