@@ -211,6 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if(dialog) dialog.close();
         });
     });
+    
 
 });
 document.getElementById("popupAva-imagemProduto").addEventListener("click", () => {

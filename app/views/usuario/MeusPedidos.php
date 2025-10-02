@@ -140,7 +140,7 @@ $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
                 <textarea class="popupAva-textoAvaliacao" id="popupAva-textoAvaliacao" placeholder="Escreva aqui sua avaliação..."></textarea>
                 <div class="botoesfinal">
                     <button class="enviarAvaliacaoBtn" onclick="enviarAvaliacao()">Enviar Avaliação</button>
-                    <button class="cancelarAvaliacaoBtn" onclick="fecharAvaliacao()">Fechar</button>
+                    <button class="cancelarAvaliacaoBtn" onclick="fecharPopupAvaliacao()">Fechar</button>
                 </div>
             </div>
         </div>
