@@ -83,6 +83,7 @@ class ProdutoController {
             $deg2
         );
     }
+    
 
     // public function EditarProduto(
     //     $id_produto,

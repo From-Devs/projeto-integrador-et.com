@@ -45,127 +45,122 @@
         echo createHeader($login,$tipoUsuario); // função que cria o header
     ?>
    <div class="conteudoMeusPedidos">
-    <!-- Parte Superior da Página -->
-    <div class="areaSuperiorMP">
-        <h1 class="tituloPrincipalMP">MEUS PEDIDOS</h1>
-        <div class="linhaSuperiorTituloMP"></div>
-    </div>
- 
-    <!-- Pedidos em andamento -->
-    <section class="pedidoAndamentoMP">
-        <h2 class="tituloAndamentoMP">Em Andamento</h2>
-        <div id="produtosAndamento">
-            <?php if (!$pedidos): ?>
-                <p class="aviso">Você ainda não possui pedidos.</p>
-            <?php else: ?>
-                <?php foreach ($pedidos as $pedido): ?>
-            <?php if ($pedido['tipoStatus'] !== 'Finalizado'): ?>
-                <?php renderCardPedido($pedido, 'Andamento'); ?>
-            <?php endif; ?>
-        <?php endforeach; ?>
-            <?php endif; ?>
+        <!-- Parte Superior da Página -->
+        <div class="areaSuperiorMP">
+            <div class="tituloPrincipalMP"><h1>MEUS PEDIDOS</h1></div>
+            <div class="linhaSuperiorTituloMP"></div>
         </div>
-    </section>
- 
-    <!-- Pedidos finalizados -->
-    <section class="pedidosFinalizadosMP">
-    <h2 class="tituloFinalizadoMP">Finalizado</h2>
-    <div id="produtosFinalizados">
-        <?php if ($pedidos): ?>
-            <?php foreach ($pedidos as $pedido): ?>
-                <?php if ($pedido['tipoStatus'] === 'Finalizado'): ?>
-                    <?php renderCardPedido($pedido, 'Finalizado'); ?>
+    
+        <!-- Pedidos em andamento -->
+        <section class="pedidoAndamentoMP">
+            <h2 class="tituloAndamentoMP">Em Andamento</h2>
+            <div id="produtosAndamento">
+                <?php if (!$pedidos): ?>
+                    <p class="aviso">Você ainda não possui pedidos.</p>
+                <?php else: 
+                        foreach ($pedidos as $pedido):
+                            if ($pedido['tipoStatus'] !== 'Finalizado'):
+                                renderCardPedido($pedido, 'Andamento'); 
+                                endif; 
+                            endforeach; 
+                    endif; ?>
+            </div>
+        </section>
+    
+        <!-- Pedidos finalizados -->
+        <section class="pedidosFinalizadosMP">
+            <h2 class="tituloFinalizadoMP">Finalizado</h2>
+            <div id="produtosFinalizados">
+                <?php if ($pedidos):
+                    foreach ($pedidos as $pedido):
+                        if ($pedido['tipoStatus'] === 'Finalizado'):
+                            renderCardPedido($pedido, 'Finalizado');
+                        endif;
+                    endforeach;
+                else: ?>
+                    <p class="aviso">Você ainda não possui pedidos finalizados.</p>
                 <?php endif; ?>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p class="aviso">Você ainda não possui pedidos finalizados.</p>
-        <?php endif; ?>
-    </div>
-</section>
- 
-    <div class="linhaInferiorMP"></div>
-</div>
- 
-            <!-- PopUp mostrando todos os pedidos efetuados na compra -->
-        <dialog class="popupMP" id="popupMP">
-            <div class="popupMP-conteudo">
-                <div class="popupMP-superior">
-                    <div class="popupMP-linhasuperior"></div>
-                    <div class='icone-fechar'>
-                            <button class='bx bx-x'></button>
-                        </div>
-                </div>
-                <div class="popupMP-main">
-                    <div class="popupMP-Produtos" id="popupMP-Produtos"></div>
-                </div>
-                <div class="popupMP-inferior">
-                    <span class="popupMP-DataCompra" id="popupMP-DataCompra"></span>
-                    <span class="popupMP-Total" id="popupMP-Total"></span>
-                </div>
-                <div class="popupMP-linhainferior"></div>
             </div>
-        </dialog>
- 
-       
-        <dialog class="popupMPFinalizado" id="popupMPFinalizado">
-            <div class="popupMP-conteudoFi">
-                <div class="popupMP-superior">
-                    <div class="popupMP-linhasuperior"></div>
-                    <div class='icone-fechar'>
-                        <button class='bx bx-x'></button>
-                    </div>
-                </div>
-                <div class="popupMP-data">
-                    <span class="popupMP-DataEntrega" id="popupMP-DataEntrega"></span>
-                </div>
-                <div class="popupMP-inferior">
-                    <div class="popupMP-ProdutosFi" id="popupMP-ProdutosFi"></div>
-                </div>
-               
-                <div class="popupMP-linhainferior"></div>
-            </div>
-        </dialog>
- 
-        <dialog class="popupAvaliarProduto" id="popupAvaliarProduto">
-            <div class="popupAva-conteudo">
-                <span class="popupAva-titulo">Avaliação de Produto</span>
-                <div class="produto-info-avaliacao">
-                    <a class="produto-ir" href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php">
-                        <img class="popupAva-imagemProduto" id="popupAva-imagemProduto" src="" alt="Imagem do produto" />
-                        <span class="popupAva-nomeProduto" id="popupAva-nomeProduto"></span>
-                    </a>
-                </div>
-                <div class="popupAva-main">
-                    <div class="avaliando">
-                        <span class="popupAva-titulo">Avalie este produto</span>
-                        <div class="estrelas">
-                            <button class="estrela" data-avaliacao="1">&#9733;</button>
-                            <button class="estrela" data-avaliacao="2">&#9733;</button>
-                            <button class="estrela" data-avaliacao="3">&#9733;</button>
-                            <button class="estrela" data-avaliacao="4">&#9733;</button>
-                            <button class="estrela" data-avaliacao="5">&#9733;</button>
-                        </div>
-                    </div>
-                    <div class="partefinal">
-                        <textarea class="popupAva-textoAvaliacao" id="popupAva-textoAvaliacao" placeholder="Escreva aqui sua avaliação..."></textarea>
-                        <div class="botoesfinal">
-                            <button class="enviarAvaliacaoBtn" onclick="enviarAvaliacao()">Enviar Avaliação</button>
-                            <button class="cancelarAvaliacaoBtn" onclick="fecharAvaliacao()">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </dialog>
- 
- 
-         
- 
+        </section>
+    
         <div class="linhaInferiorMP"></div>
     </div>
-    <footer>
-        <?php  
-            echo createRodape()
-        ?>
-    </footer>
+ 
+        <!-- PopUp mostrando todos os pedidos efetuados na compra -->
+    <dialog class="popupMP" id="popupMP">
+        <div class="popupMP-conteudo">
+            <div class="popupMP-superior">
+                <div class="popupMP-linhasuperior"></div>
+                <div class='icone-fechar'>
+                        <button class='bx bx-x'></button>
+                    </div>
+            </div>
+            <div class="popupMP-main">
+                <div class="popupMP-Produtos" id="popupMP-Produtos"></div>
+            </div>
+            <div class="popupMP-inferior">
+                <span class="popupMP-DataCompra" id="popupMP-DataCompra"></span>
+                <span class="popupMP-Total" id="popupMP-Total"></span>
+            </div>
+            <div class="popupMP-linhainferior"></div>
+        </div>
+    </dialog>
+
+    
+    <dialog class="popupMPFinalizado" id="popupMPFinalizado">
+        <div class="popupMP-conteudoFi">
+            <div class="popupMP-superior">
+                <div class="popupMP-linhasuperior"></div>
+                <div class='icone-fechar'>
+                    <button class='bx bx-x'></button>
+                </div>
+            </div>
+            <div class="popupMP-data">
+                <span class="popupMP-DataEntrega" id="popupMP-DataEntrega"></span>
+            </div>
+            <div class="popupMP-inferior">
+                <div class="popupMP-ProdutosFi" id="popupMP-ProdutosFi"></div>
+            </div>
+            
+            <div class="popupMP-linhainferior"></div>
+        </div>
+    </dialog>
+
+    <dialog class="popupAvaliarProduto" id="popupAvaliarProduto">
+        <div class="popupAva-conteudo">
+            <span class="popupAva-titulo">Avaliação de Produto</span>
+            <div class="produto-info-avaliacao">
+                <a class="produto-ir" href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php">
+                    <img class="popupAva-imagemProduto" id="popupAva-imagemProduto" src="" alt="Imagem do produto" />
+                    <span class="popupAva-nomeProduto" id="popupAva-nomeProduto"></span>
+                </a>
+            </div>
+            <div class="popupAva-main">
+                <div class="avaliando">
+                    <span class="popupAva-titulo">Avalie este produto</span>
+                    <div class="estrelas">
+                        <button class="estrela" data-avaliacao="1">&#9733;</button>
+                        <button class="estrela" data-avaliacao="2">&#9733;</button>
+                        <button class="estrela" data-avaliacao="3">&#9733;</button>
+                        <button class="estrela" data-avaliacao="4">&#9733;</button>
+                        <button class="estrela" data-avaliacao="5">&#9733;</button>
+                    </div>
+                </div>
+                <div class="partefinal">
+                    <textarea class="popupAva-textoAvaliacao" id="popupAva-textoAvaliacao" placeholder="Escreva aqui sua avaliação..."></textarea>
+                    <div class="botoesfinal">
+                        <button class="enviarAvaliacaoBtn" onclick="enviarAvaliacao()">Enviar Avaliação</button>
+                        <button class="cancelarAvaliacaoBtn" onclick="fecharAvaliacao()">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <div class="linhaInferiorMP"></div>
+
+    <?php  
+        echo createRodape()
+    ?>
  
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>

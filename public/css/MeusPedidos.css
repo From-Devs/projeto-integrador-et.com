@@ -24,35 +24,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 29px;
+    gap: 8px;
+    margin-top: 150px;
+    width: 100%;
 }
 
 .areaSuperiorMP .tituloPrincipalMP{
-    margin-top: 133px;
-    font-size: 48px;
+    display: flex;
+    justify-content: center;
+}
+
+.areaSuperiorMP .tituloPrincipalMP h1{
+    font-size: 38px;
     font-weight: 300;
+    text-align: center;
 }
 
 .areaSuperiorMP .linhaSuperiorTituloMP{   /*Linha de enfeite que fica abaixo do titulo*/
-    width: 1350px;
-    height: 3px;
-    background-color: black;
+    width: 65%;
+    border-bottom: black 2px solid;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*_________________________________ÁREA DE PEDIDOS EM ANDAMENTO_____________________________*/
 .conteudoMeusPedidos .pedidoAndamentoMP{
