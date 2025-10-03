@@ -7,6 +7,12 @@
 
     $controller = new UserController(); 
     $user = $controller->getLoggedUser();
+
+     // bloqueia o acesso direto do usuário e manda pro login
+     if (!$user) {
+        header("Location: ./Login.php");
+        exit;
+     }
     
 ?>
 <!DOCTYPE html>

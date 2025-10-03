@@ -1,6 +1,3 @@
-const closeButton = document.getElementsByClassName("icone-fechar")[0];
-
-
 function abrirPopUp(id){
   console.log("Abriu: ", id);
     const dialogClass = document.getElementsByClassName(id)[0];

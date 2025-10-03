@@ -53,6 +53,7 @@
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    /* display: none; */
 }
 
 .direito .botoes{ /* Div onde os icones estão agrupados */
@@ -68,7 +69,9 @@
     cursor: pointer;
     user-select: none;
 }
-
+.direito .botoes .perfilHeader{
+    border-radius: 30px;
+}
 .direito .botoes a{ /* Icones individualmente */
     height: 48px;
 }
