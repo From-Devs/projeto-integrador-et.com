@@ -127,7 +127,7 @@
         
         <div class="aVenda">
                 <div class="PartedeCima">
-                    <div class="titulo-filtro-wrapper">
+
                         <h3 class="TituloProdutos">Produtos</h3>
 
                         <div class="filtroSeparado">
@@ -143,7 +143,7 @@
                                 ?>
                             </div>
                         </div>
-                    </div>
+
                 </div>
         
             <div class="PartedeBaixo">
