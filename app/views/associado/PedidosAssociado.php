@@ -1,4 +1,5 @@
 <?php
+session_start();
 
     include __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/PedidosAssociado_ADM/pedidos.php";
     require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
@@ -8,7 +9,10 @@
     require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
     require __DIR__ . "/../../Controllers/PedidosController.php";
-
+    require_once __DIR__ . "/../../Controllers/UserController.php";
+    $controller = new UserController();
+    $user = $controller->getLoggedUser();
+    
     $parametrosExtras = [];
 
     if (!empty($_GET['ordem'])) {
