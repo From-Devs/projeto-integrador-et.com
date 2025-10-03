@@ -53,7 +53,7 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
 
 <div class="title-container">
     <div class="title"><h1>MINHA LISTA DE DESEJOS</h1></div>
-    <center><div class="line"></div></center>
+    <div class="line"></div>
 </div>
 
 <div class="acoesWrapper">

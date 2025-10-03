@@ -137,14 +137,14 @@ CREATE TABLE Status(
 	tipoStatus VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE `pedido` (
-  `id_pedido` int(11) NOT NULL PRIMARY KEY,
-  `precoTotal` decimal(10,0) DEFAULT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_carrinho` int(11) DEFAULT NULL,
-  `id_status` int(11) NOT NULL,
-  `dataPedido` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE Pedido(
+  id_pedido INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  precoTotal decimal(10,0) DEFAULT NULL,
+  id_usuario INT NOT NULL,
+  id_carrinho INT DEFAULT NULL,
+  id_status INT NOT NULL,
+  dataPedido datetime NOT NULL
+);
 
 CREATE TABLE pedidoProduto( 
 	id_pedido_produto int PRIMARY KEY AUTO_INCREMENT, 
@@ -229,7 +229,7 @@ CREATE TABLE SolicitacaoDeAssociado (
     CONSTRAINT fk_usuario FOREIGN KEY (id_usuario) 
         REFERENCES Usuario(id_usuario)
         ON DELETE CASCADE
-) ENGINE=InnoDB;
+);
 
  -- Triggers
  -- Atualizar Estoque
