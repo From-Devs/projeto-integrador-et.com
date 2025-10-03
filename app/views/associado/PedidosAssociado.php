@@ -55,7 +55,7 @@ session_start();
 <body>
     <?php
         echo createSidebarInterna($tipo_usuario);
-        echo createContaAssociadoADM("Associado");
+        echo createContaAssociadoADM("Associado",$user);
     ?>
 
     <div class="main">
