@@ -69,5 +69,9 @@ class UserController {
     public function saveOrUpdateEndereco($id_usuario, $dadosEndereco){
         return $this->model->saveOrUpdateEndereco($id_usuario, $dadosEndereco);
     }
+
+    public function assocRequest($id, $data) {
+        return $this->model->sendAssociadoRequest($id, $data);
+    }
 }
 ?>

@@ -9,7 +9,7 @@ $categoriasPorTela = [
     "SkinCare" => [
         "Tipos" => ["Limpeza", "Esfoliação", "Hidratação", "Máscara", "Protetor Solar", "Especiais"],
     ],
-    "Cabelos" => [
+    "Cabelo" => [
         "Tipos" => ["Dia-A-Dia", "Tratamentos", "Estilização", "Especiais", "Acessórios"],
     ],
     "Eletronicos" => [
