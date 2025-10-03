@@ -9,7 +9,6 @@
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
     require __DIR__ . "/../../Controllers/PedidosController.php";
 
-
     $parametrosExtras = [];
 
     if (!empty($_GET['ordem'])) {

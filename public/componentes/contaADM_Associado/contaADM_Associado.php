@@ -1,8 +1,5 @@
 <?php
-function createContaAssociadoADM($tipo = "ADM"){
-    require_once __DIR__ . "/../../../app/Controllers/UserController.php";
-    $conexao = new UserController();
-    $user = $conexao->getUserById(11);
+function createContaAssociadoADM($tipo = "ADM",$user){
     $avatarPath = !empty($user['foto']) 
     ? "/projeto-integrador-et.com/" . $user['foto'] 
     : "/projeto-integrador-et.com/public/imagens/user-icon.png";

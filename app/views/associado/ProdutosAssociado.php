@@ -77,7 +77,7 @@
     $pesquisa = $_GET['pesquisa'] ?? null;
     $products = new Products();
     $produtos = $products->buscarTodosProdutos($ordem, $pesquisa);
-
+    
     // // session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 ?>
