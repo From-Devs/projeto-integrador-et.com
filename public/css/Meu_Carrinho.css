@@ -10,11 +10,17 @@ body {
 }
 main {
   margin: 0 auto;
-  max-width: 1200px;
+  width: 100%;
+  border: red solid;
 
 }
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 table {
-  width: 100%;
+  max-width: 1200px;
   border-collapse: collapse;
   margin-bottom: 20px;
 
