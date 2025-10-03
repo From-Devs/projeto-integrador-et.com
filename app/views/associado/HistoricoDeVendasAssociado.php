@@ -1,4 +1,5 @@
 <?php
+session_start();
     require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
     require_once __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/HistoricoVendasAssociado/hv.php";
     require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
@@ -7,6 +8,10 @@
     require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
     require __DIR__ . "/../../Controllers/HistoricoDeVendasController.php";
+    require_once __DIR__ . "/../../Controllers/UserController.php";
+    $controller = new UserController();
+    $user = $controller->getLoggedUser();
+
 
     $parametrosExtras = [];
 
@@ -25,7 +30,6 @@
     $historicoDeVendasController = new HistoricoDeVendasController();
     $vendas = $historicoDeVendasController->BuscarHistoricoDeVendasProdutos($ordem, $pesquisa);
 
-    // session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 ?>
 
@@ -52,7 +56,7 @@
 <body>
     <?php
         echo createSidebarInterna($tipo_usuario);
-        echo createContaAssociadoADM("Associado");
+        echo createContaAssociadoADM("Associado",$user);
     ?>
     
     <div class="main">
