@@ -25,7 +25,7 @@
     $ordem = $_GET['ordem'] ?? null;
     $pesquisa = $_GET['pesquisa'] ?? null;
     $pedidosController = new PedidosController();
-    $pedidos = $pedidosController->BuscarTodosPedidosAssociado($ordem, $pesquisa);
+    $pedidos = $pedidosController->BuscarTodosPedidos($ordem, $pesquisa);
 
     // // session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
@@ -58,14 +58,14 @@
     <div class="main">
         <div id="container">
            
-            <?php echo filtro("Filtro", ["ID", "Preço", "Data"])?>
+            <?php echo filtro("Filtro", ["ID", "Preço", "Data", "Status"])?>
             
             <div class="listaContainer">
                 <div id="titulo">
                     <h1 id="tituloH1">Pedidos</h1>
                 </div>
                 <?php
-                    $pagina = paginar($pedidos, 7);
+                    $pagina = paginar($pedidos, 5);
 
                     echo tabelaPedidosAssociado($pagina['dados']);
 

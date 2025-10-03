@@ -94,9 +94,34 @@ CREATE TABLE Produto(
 	FOREIGN KEY (id_associado) REFERENCES Usuario(id_usuario)
 );
 
-		ALTER TABLE Produto
-		MODIFY descricaoTotal TEXT NOT NULL;  --Para ter mais detalhes na descrição total do produto
+ALTER TABLE Produto
+MODIFY descricaoTotal TEXT NOT NULL;  --Para ter mais detalhes na descrição total do produto
 
+CREATE TABLE Status(
+	id_status INT AUTO_INCREMENT PRIMARY KEY,	
+	tipoStatus VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE pedido (
+  id_pedido INT PRIMARY KEY AUTO_INCREMENT,
+  precoTotal DECIMAL(10, 2) DEFAULT NULL,
+  id_usuario INT NOT NULL,
+  id_carrinho INT DEFAULT NULL,
+  id_status INT NOT NULL,
+  dataPedido DATETIME NOT NULL,
+  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
+  FOREIGN KEY (id_carrinho) REFERENCES Carrinho(id_carrinho),
+  FOREIGN KEY (id_status) REFERENCES Status(id_status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+CREATE TABLE pedidoProduto( 
+	id_pedido_produto int PRIMARY KEY AUTO_INCREMENT, 
+	quantidade int NOT NULL, 
+	id_pedido int, id_produto int, 
+	FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido), 
+	FOREIGN KEY (id_produto) REFERENCES produto(id_produto) 
+);
 
 CREATE TABLE Estoque(
 	id_estoque INT AUTO_INCREMENT PRIMARY KEY,
@@ -126,8 +151,8 @@ CREATE TABLE Carrinho (
   FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
 );
 
-		ALTER TABLE Carrinho
-		DROP COLUMN cep;
+ALTER TABLE Carrinho
+DROP COLUMN cep;
 
 
 CREATE TABLE ProdutoCarrinho(
@@ -140,28 +165,6 @@ CREATE TABLE ProdutoCarrinho(
 );
 
 -- Pedidos e histórico
-
-CREATE TABLE Status(
-	id_status INT AUTO_INCREMENT PRIMARY KEY,	
-	tipoStatus VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE Pedido(
-  id_pedido INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  precoTotal decimal(10,0) DEFAULT NULL,
-  id_usuario INT NOT NULL,
-  id_carrinho INT DEFAULT NULL,
-  id_status INT NOT NULL,
-  dataPedido datetime NOT NULL
-);
-
-CREATE TABLE pedidoProduto( 
-	id_pedido_produto int PRIMARY KEY AUTO_INCREMENT, 
-	quantidade int NOT NULL, 
-	id_pedido int, id_Produto int, 
-	FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido), 
-	FOREIGN KEY (id_Produto) REFERENCES Produto(id_produto) 
-);
 
 CREATE TABLE HistoricoDeVenda(
 	id_historicoDeVenda INT AUTO_INCREMENT PRIMARY KEY,
