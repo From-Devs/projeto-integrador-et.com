@@ -3,17 +3,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // ========================
     // === CORES DINÂMICAS ===
     // ========================
-    document.querySelectorAll('.produtoMP, .cards-produtoAndamento, .cardProduto-finalizado').forEach(card => {
-        const id = card.dataset.id;
-        if(!id) return;
-        const hash = id.toString().split('').reduce((a,b)=>a+b.charCodeAt(0),0);
-        const cor = `#${(hash*123456 % 0xFFFFFF).toString(16).padStart(6,'0')}`;
+    document.querySelectorAll('.cards-produtoAndamento, .cardProduto-finalizado').forEach(card => {
+        const hex1 = card.dataset.hex1 || '#cccccc'; // fallback
+        const hex2 = card.dataset.hex2 || '#999999';
+    
         const cardColorido = card.querySelector(".cardcoloridoCam, .cardcoloridoFin");
         if (cardColorido) {
-            cardColorido.style.background = `linear-gradient(135deg, ${cor}33, ${cor}aa)`;
+            cardColorido.style.background = `linear-gradient(135deg, ${hex1}, ${hex2})`;
         }
     });
-
+    
     // ========================
     // === POPUP DE AVALIAÇÃO ===
     // ========================
@@ -211,11 +210,19 @@ document.addEventListener("DOMContentLoaded", () => {
             if(dialog) dialog.close();
         });
     });
+    
 
 });
 document.getElementById("popupAva-imagemProduto").addEventListener("click", () => {
     const idProduto = document.getElementById("popupAva-imagemProduto").dataset.id;
     if (idProduto) {
         window.location.href = "/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=" + idProduto;
+    }
+});
+document.getElementById("popupAva-imagemProduto").addEventListener("click", (e) => {
+    e.preventDefault(); // previne qualquer ação padrão
+    const idProduto = e.currentTarget.dataset.id;
+    if (idProduto) {
+        window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProduto}`;
     }
 });
