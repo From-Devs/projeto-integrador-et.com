@@ -7,7 +7,7 @@ require_once __DIR__ . '/../../../config/PedidoController.php';
 require_once __DIR__ . '/../../../public/componentes/cardpedido/cardPedido.php';
 
 session_start();
-$tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
+$tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Não logado';
 $login = $_SESSION['login'] ?? false;
 $id_usuario = $_SESSION['id_usuario'] ?? null;
 
@@ -147,9 +147,8 @@ $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
     </div>
 </dialog>
 
-<footer>
-    <?php echo createRodape(); ?>
-</footer>
+
+<?php echo createRodape(); ?>
 
 <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
