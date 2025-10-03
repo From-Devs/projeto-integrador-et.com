@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
             cores.push(corValor);
         }
             
-        const balao = item.childNodes[3].childNodes[1],
+        const balao = item.childNodes[3],
               coracaoForm = item.querySelector('.formFavoritoCard'),
               coracaoImg = coracaoForm ? coracaoForm.querySelector('.coracaoImg') : null,
               botaoComprar = item.querySelector(".botaoComprarCardProduto"),
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(){
             item.style.filter = "drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.35))";
         });
 
-        if (coracaoForm && coracaoImg) {
+        // if (coracaoForm && coracaoImg) {
             coracaoBotao.addEventListener("mouseenter", function(){
                 balao.style.display = "block";
             });
@@ -39,26 +39,26 @@ document.addEventListener("DOMContentLoaded", function(){
                 balao.style.display = "none";
             });
 
-            coracaoForm.addEventListener('submit', function(e){
-                e.preventDefault(); // evita reload
-                const formData = new FormData(this);
+        //     coracaoForm.addEventListener('submit', function(e){
+        //         e.preventDefault(); // evita reload
+        //         const formData = new FormData(this);
 
-                fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if(data.ok){
-                        coracaoImg.classList.add('liked'); // animação coração
-                        abrirPopUp('popUpFavorito');
-                    } else {
-                        alert('Erro ao adicionar aos favoritos: ' + (data.msg || 'Tente novamente'));
-                    }
-                })
-                .catch(err => console.error(err));
-            });
-        }
+        //         fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito', {
+        //             method: 'POST',
+        //             body: formData
+        //         })
+        //         .then(res => res.json())
+        //         .then(data => {
+        //             if(data.ok){
+        //                 coracaoImg.classList.add('liked'); // animação coração
+        //                 abrirPopUp('popUpFavorito');
+        //             } else {
+        //                 alert('Erro ao adicionar aos favoritos: ' + (data.msg || 'Tente novamente'));
+        //             }
+        //         })
+        //         .catch(err => console.error(err));
+        //     });
+        // }
 
         imagemCardProdutoPadrao.addEventListener('click', function(e){
             window.location.href = '/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php'

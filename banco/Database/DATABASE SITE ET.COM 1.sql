@@ -99,6 +99,15 @@ CREATE TABLE Status(
 	tipoStatus VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE Carrinho (
+  id_carrinho int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_usuario int(11) NOT NULL,
+  id_produto int(11) NOT NULL,
+  quantidade int(11) NOT NULL DEFAULT 1,
+  data_adicionado timestamp NOT NULL DEFAULT current_timestamp(),
+  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
+);
+
 CREATE TABLE Pedido (
   id_pedido INT PRIMARY KEY AUTO_INCREMENT,
   precoTotal DECIMAL(10, 2) DEFAULT NULL,
@@ -137,14 +146,6 @@ CREATE TABLE ListaDesejos(
 	FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
 
-CREATE TABLE Carrinho (
-  id_carrinho int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  id_usuario int(11) NOT NULL,
-  id_produto int(11) NOT NULL,
-  quantidade int(11) NOT NULL DEFAULT 1,
-  data_adicionado timestamp NOT NULL DEFAULT current_timestamp(),
-  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
-);
 
 CREATE TABLE ProdutoCarrinho(
 	id_prodCarrinho INT AUTO_INCREMENT PRIMARY KEY,
