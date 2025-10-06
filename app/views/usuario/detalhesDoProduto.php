@@ -244,6 +244,34 @@ $avaliacoes = $produtoController->BuscarAvaliacoesPorProduto($id);
             </div>
         </div>
     </div>
+
+    <div class="sliderContainer">
+        <div class="sessaoProdutos">
+            <div class="tituloSessao">
+                <p class="titulo">Produtos similares</p>
+            </div>
+            <div class="frameSlider">
+                <i class="fa-solid fa-chevron-left setaSlider setaEsquerda" id="esquerda"></i>
+                <div class="degradeEsquerda"></div>
+                <div class="frameProdutos">
+                    <div class="containerProdutos">
+                        <?php
+                        echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                        echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                        echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                        echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                        echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
+                        echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
+                        echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
+                        echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                        ?>
+                    </div>
+                </div>
+                <div class="degradeDireita"></div>
+                <i class="fa-solid fa-chevron-right setaSlider setaDireita" id="direita"></i>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php echo createRodape(); ?>

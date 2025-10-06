@@ -450,6 +450,7 @@
     border: none;
     box-shadow: inset 0px 0px 10px 0px rgba(71, 71, 71, 0.541);
     background-color: white;
+    filter: drop-shadow();
 }
 
 .pedidosFinalizadosMP #produtosFinalizados::-webkit-scrollbar{
@@ -829,15 +830,9 @@
 
 .conteudoMeusPedidos .linhaInferiorMP{
     width: 70%;
-    height: 3px;
+    height: 2px;
     background-color: black;
-    box-shadow:0px 5px 8px 0.1px rgba(0, 0, 0, 0.301);
 }
-
-
-
-
-
 
 /*                  Parte de avaliação                  */
  .popupAvaliarProduto {

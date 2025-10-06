@@ -65,5 +65,29 @@ function PopUpComInput($id, $texto, $placeholder, $botao1 = "", $botao2 = "", $l
         ";
 }
 
+function PopUpCurto($id, $texto, $corFundo, $corFonte, $caminhoImagem="", $botao1="", $botao2="", $tamanhoFonte="14px"){
+    return "
+    <dialog class='$id popUpDialogCurto'>
+        <div class='popUpCurto' style='background-color: $corFundo;'>
+            <div class='barra-tempo'></div>
+            <div class='container-principalCurto'>"
+            .(!empty($caminhoImagem) ? "
+                <div class='img-popUpCurto'>
+                    <img src='/projeto-integrador-et.com/public/imagens/$caminhoImagem' alt='img-popUpCurto'>
+                </div>" : "")
+            ."
+                <div>
+                    <p class='texto-popUpCurto' style='font-size: $tamanhoFonte; color: $corFonte;'>$texto</p>
+                </div>
+            </div>
+            ".((!empty($botao1) || !empty($botao2)) ? "
+            <div class='container-botoesCurto'>
+                <div class='botoes-popUpCurto'>
+                    $botao1 $botao2
+                </div>
+            </div>" : "")
+        ."</div>
+    </dialog>";
+}
 
 ?>
