@@ -1,5 +1,5 @@
 <?php
-function createContaAssociadoADM($tipo = "ADM",$user){
+function createContaAssociadoADM($tipo = "ADM",$user = ""){
     $avatarPath = !empty($user['foto']) 
     ? "/projeto-integrador-et.com/" . $user['foto'] 
     : "/projeto-integrador-et.com/public/imagens/user-icon.png";
