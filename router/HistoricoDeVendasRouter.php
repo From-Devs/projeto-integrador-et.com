@@ -6,7 +6,7 @@ $historicoDeVendasController = new HistoricoDeVendasController();
 
 if($_SERVER["REQUEST_METHOD"] == "GET"){
     switch ($_GET["acao"]) {
-        case 'BuscarTodosPedidosAssociado':
+        case 'BuscarTodosPedidos':
             $ordem = $_GET['ordem'] ?? '';
             $pesquisa = $_GET['pesquisa'] ?? '';
             $res = $historicoDeVendasController->BuscarHistoricoDeVendasProdutos($ordem, $pesquisa);
