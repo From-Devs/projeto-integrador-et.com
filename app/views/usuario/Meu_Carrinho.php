@@ -55,17 +55,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['quantidade'])) {
 }
 
 // Calcula subtotal e total
-$subtotal = 0;
+$total = 0;
 $precosProdutos = [];
 foreach ($carrinho as $produto) {
     $quantidade = $produto['quantidade'] ?? 1;
     $preco = $produto['precoPromo'] ?? $produto['preco'];
     $precosProdutos[] = $preco;
-    $subtotal += $preco * $quantidade;
+    $total += $preco * $quantidade;
 }
 
-$frete = 0; // valor inicial do frete
-$total = $subtotal + $frete;
 ?>
 
 <!DOCTYPE html>
@@ -98,6 +96,8 @@ $total = $subtotal + $frete;
 
 <main>
     <h1 class="Meio">MEU CARRINHO</h1>
+    <div class="line"><div></div></div>
+    
     <form method="post">
         <table>
             <thead>
@@ -148,18 +148,28 @@ $total = $subtotal + $frete;
                     <td class='cor3' colspan="5">Total:</td>
                     <td class="total-value" id="total">R$ <?= number_format($total, 2, ',', '.') ?></td>
                 </tr>
+
+                <tr class="tudo">
+                    <td>Selecionar Tudo:</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="padding: 0px 0px 0px 60px;"><input type="checkbox" style="margin: 0px;"></td>
+                </tr>
+
+                <tr>
+                    <td style="border: none;">
+                        <div class="button-container" style="">
+                            <button type="submit">Realizar Pedido</button>
+                            <button type="button" onclick="abrirPopup()">Excluir</button>
+                        </div>
+                    </td>
+                </tr>
             </tfoot>
         </table>
 
-        <div class="tudo">
-            <p>Selecionar Tudo:</p>
-            <input type="checkbox">
-        </div>
 
-        <div class="button-container">
-            <button type="submit">Realizar Pedido</button>
-            <button type="button" onclick="abrirPopup()">Excluir</button>
-        </div>
     </form>
 </main>
 
@@ -176,10 +186,7 @@ function calcularTotal() {
         subtotal += subtotalItem;
         document.getElementById(`subtotal-item-${index}`).innerText = 'R$ ' + subtotalItem.toFixed(2).replace('.', ',');
     });
-    const frete = parseFloat(document.getElementById('frete').innerText.replace('R$ ', '').replace(',', '.'));
-    const total = subtotal + frete;
-    document.getElementById('subtotal').innerText = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
-    document.getElementById('total').innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
+    document.getElementById('total').innerText = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
 }
 
 function incrementQuantity(index) {

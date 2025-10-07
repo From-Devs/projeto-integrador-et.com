@@ -3,23 +3,31 @@
   padding: 0;
   font-family: 'Montserrat', sans-serif;
 }
+
 body {
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
   font-weight: 400;
 }
-main {
-  margin: 0 auto;
-  max-width: 1200px;
 
-}
-table {
+main {
   width: 100%;
+}
+
+form{
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  max-width: 1200px;
   border-collapse: collapse;
   margin-bottom: 20px;
-
-  
 }
+
 th, td {
   padding: 20px;
   /* text-align: left; */
@@ -78,15 +86,22 @@ tfoot {
 }
 .Meio {
   display: block;
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-bottom: 2px solid #000000;
   padding-bottom: 8px;
-  margin-bottom: 50px;
   margin-top: 150px;
   font-size: 38px;
   font-weight: 300;
+}
+.line{
+  display: flex;
+  justify-content: center;
+}
+.line div{
+  width: 65%;
+  border-bottom: 2px solid #000000;
+  margin-bottom: 50px;
 }
 .frete-container {
   display: flex;
@@ -101,11 +116,8 @@ tfoot {
 .button-container {
   display: flex;
   justify-content: flex-start;
-  width: 100%;
-  margin: 0 auto;
+  width: auto;
   gap: 20px;
-  padding-left: 0;
-  margin-top: 20px;
 }
 
 .botaoCalcular{
@@ -156,10 +168,10 @@ tfoot {
 .cor1 {
   width: 100px;
   height: auto;
-  background-color: #000000;
+  background-color: rgb(88, 88, 88);
   border-radius: 15px;
   margin-right: 0px;
-  box-shadow: inset 0px 0px 20px #a2a2a2;
+  box-shadow: inset 0px 0px 20px #000000;
 }
 .cor2{
   text-align: center;
@@ -538,19 +550,4 @@ tbody td:nth-child(3) {
       width: 100%;
       font-size: 14px;
   }
-}
-
-/**/
-
-.tudo{
-  display: flex;
-  justify-content: space-between;
-  border-radius: 10px;
-  width: auto;
-  height: auto;
-  padding: 20px;
-  box-shadow: inset 0px 0px 5px;
-  
-  font-weight: bold;
-  background-color: transparent;
 }
