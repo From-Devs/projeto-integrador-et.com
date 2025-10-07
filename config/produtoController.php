@@ -244,6 +244,20 @@ class ProdutoController {
         return ['ok' => true];
     }
 
+    public function removerSelecionadosDoCarrinho($idUsuario, array $idsProduto) {
+        if (empty($idsProduto)) {
+            return ['ok' => false, 'msg' => 'Nenhum produto selecionado'];
+        }
+    
+        $placeholders = implode(',', array_fill(0, count($idsProduto), '?'));
+        $sql = "DELETE FROM carrinho WHERE id_usuario = ? AND id_produto IN ($placeholders)";
+        $stmt = $this->conn->prepare($sql);
+        $params = array_merge([(int)$idUsuario], array_map('intval', $idsProduto));
+        $stmt->execute($params);
+    
+        return ['ok' => true, 'msg' => 'Produtos removidos do carrinho'];
+    }
+    
     // =======================
     // === Pedidos ===========
     // =======================

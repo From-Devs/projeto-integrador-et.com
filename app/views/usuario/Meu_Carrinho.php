@@ -1,20 +1,19 @@
 <?php
-    require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
-    require_once __DIR__ . "/../../../config/ProdutoController.php";
-    require_once __DIR__ . "/../../../public/componentes/header/header.php";
-    require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
-    require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
-    require_once __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php";
-    require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
-    require_once __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
-    require_once __DIR__ . "/../../../public/componentes/ondas/onda.php";
-    require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
-    require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
+require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
+require_once __DIR__ . "/../../../config/ProdutoController.php";
+require_once __DIR__ . "/../../../public/componentes/header/header.php";
+require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
+require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
+require_once __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php";
+require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
+require_once __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
+require_once __DIR__ . "/../../../public/componentes/ondas/onda.php";
+require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
+require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
-
-    session_start();
-    $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
-    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
+session_start();
+$tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
+$login = $_SESSION['login'] ?? false;
 
 if (!$login) {
     die("Você precisa estar logado para ver o carrinho.");
@@ -38,22 +37,6 @@ try {
     die("Erro ao carregar carrinho: " . $e->getMessage());
 }
 
-// Atualiza quantidades via POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['quantidade'])) {
-    foreach ($carrinho as $index => $produto) {
-        $novaQtd = (int)($_POST['quantidade'][$index] ?? $produto['quantidade']);
-        if ($novaQtd > 0) {
-            $sqlUpdate = "UPDATE carrinho SET quantidade = :qtd WHERE id_carrinho = :id";
-            $stmtUpdate = $conn->prepare($sqlUpdate);
-            $stmtUpdate->execute([
-                ':qtd' => $novaQtd,
-                ':id' => $produto['id_carrinho']
-            ]);
-            $carrinho[$index]['quantidade'] = $novaQtd;
-        }
-    }
-}
-
 // Calcula subtotal e total
 $total = 0;
 $precosProdutos = [];
@@ -63,7 +46,6 @@ foreach ($carrinho as $produto) {
     $precosProdutos[] = $preco;
     $total += $preco * $quantidade;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -110,7 +92,7 @@ foreach ($carrinho as $produto) {
                     <th class="radius2">Total</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="carrinhoBody" data-precos='<?= json_encode($precosProdutos) ?>'>
             <?php if (!empty($carrinho)): ?>
                 <?php foreach ($carrinho as $index => $produto): 
                     $quantidade = $produto['quantidade'] ?? 1;
@@ -118,9 +100,9 @@ foreach ($carrinho as $produto) {
                     $subtotalProduto = $preco * $quantidade;
                     $imagem = $produto['img1'] ?? 'no-image.png';
                 ?>
-                <tr>
+                <tr class="linhaCarrinho" data-id="<?= $produto['id_produto'] ?>">
                     <td>
-                        <input class='check' type='checkbox' name='selecionar[<?= $index ?>]'>
+                    <input type="checkbox" class="checkbox-individual" data-id="...">
                         <img class='cor1' src='/projeto-integrador-et.com/public/imagens/produto/<?= $imagem ?>' alt='<?= $produto['nome'] ?>' width='50'>
                         <span class='produto-nome'><?= $produto['nome'] ?></span>
                     </td>
@@ -129,9 +111,9 @@ foreach ($carrinho as $produto) {
                     <td class='cor2'>R$ <?= number_format($preco, 2, ',', '.') ?></td>
                     <td class='quantityColumn'>
                         <div class='quantity-container'>
-                            <button type='button' class='quantity-btn' onclick='decrementQuantity(<?= $index ?>)'>-</button>
-                            <input type='number' name='quantidade[<?= $index ?>]' value='<?= $quantidade ?>' min='1' class='quantity-input'>
-                            <button type='button' class='quantity-btn' onclick='incrementQuantity(<?= $index ?>)'>+</button>
+                            <button type='button' onclick='decrementarQuantidade(<?= $index ?>)'>-</button>
+                            <input type='number' name='quantidade[<?= $index ?>]' value='<?= $quantidade ?>' min='1'>
+                            <button type='button' onclick='incrementarQuantidade(<?= $index ?>)'>+</button>
                         </div>
                     </td>
                     <td class='cor2' id='subtotal-item-<?= $index ?>'>R$ <?= number_format($subtotalProduto, 2, ',', '.') ?></td>
@@ -143,6 +125,7 @@ foreach ($carrinho as $produto) {
                 </tr>
             <?php endif; ?>
             </tbody>
+
             <tfoot>
                 <tr>
                     <td class='cor3' colspan="5">Total:</td>
@@ -155,61 +138,23 @@ foreach ($carrinho as $produto) {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td style="padding: 0px 0px 0px 60px;"><input type="checkbox" style="margin: 0px;"></td>
+                    <td style="padding: 0px 0px 0px 60px;">
+                        <input type="checkbox" id="selecionarTodos">
+                    </td>
                 </tr>
 
                 <tr>
-                    <td style="border: none;">
-                        <div class="button-container" style="">
+                    <td style="border: none;" colspan="6">
+                        <div class="button-container">
                             <button type="submit">Realizar Pedido</button>
-                            <button type="button" onclick="abrirPopup()">Excluir</button>
+                            <button type="button" id="btnExcluirSelecionados">Excluir selecionados</button>
                         </div>
                     </td>
                 </tr>
             </tfoot>
         </table>
-
-
     </form>
 </main>
-
-<script>
-const precosProdutos = <?= json_encode($precosProdutos); ?>;
-
-function calcularTotal() {
-    let subtotal = 0;
-    const quantidades = document.querySelectorAll('input[name^="quantidade"]');
-    quantidades.forEach((input, index) => {
-        const quantidade = parseInt(input.value) || 0;
-        const preco = parseFloat(precosProdutos[index]);
-        const subtotalItem = quantidade * preco;
-        subtotal += subtotalItem;
-        document.getElementById(`subtotal-item-${index}`).innerText = 'R$ ' + subtotalItem.toFixed(2).replace('.', ',');
-    });
-    document.getElementById('total').innerText = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
-}
-
-function incrementQuantity(index) {
-    const input = document.querySelector(`input[name='quantidade[${index}]']`);
-    input.value = parseInt(input.value) + 1;
-    calcularTotal();
-}
-
-function decrementQuantity(index) {
-    const input = document.querySelector(`input[name='quantidade[${index}]']`);
-    if (input.value > 1) {
-        input.value = parseInt(input.value) - 1;
-        calcularTotal();
-    }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    calcularTotal();
-    document.querySelectorAll('input[name^="quantidade"]').forEach(input => {
-        input.addEventListener('input', calcularTotal);
-    });
-});
-</script>
 
 <?php echo createRodape(); ?>
 <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
@@ -217,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
 <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
+<script src="/projeto-integrador-et.com/public/javascript/Meu_Carrinho.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
 </body>
 </html>
