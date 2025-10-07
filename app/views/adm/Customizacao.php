@@ -6,6 +6,10 @@ require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php";
 require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
+require_once __DIR__ . "/../../Controllers/ProdutoController.php";
+
+$listaProdutos = new ProdutoController();
+$listaProdutos = $listaProdutos->pegarTodosProdutos();
 
 // session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
@@ -61,31 +65,13 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             </div>
 
             <div class="listaProdutos">
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
-                <div class="itemLista">BATOM LÍQUIDO MATTIFY DAZZLE</div>
+                <?=
+                foreach($listaProdutos as $produto){
+                ?>
+                <div class="itemLista"><?= $produto['nome'] ?></div>
+                <?=
+                }
+                ?>
             </div>
         </div>
     </dialog>

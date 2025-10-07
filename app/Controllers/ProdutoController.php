@@ -25,6 +25,10 @@ class ProdutoController {
         return $this->produtoModel->getAllSubcategorias();
     }
 
+    public function pegarTodosProdutos(){
+        return $this->produtoModel->getAllProdutos();
+    }
+
     public function cadastrarProduto(
         $nome, 
         $marca, 
