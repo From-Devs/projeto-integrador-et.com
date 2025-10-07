@@ -119,7 +119,7 @@ foreach ($carrinho as $produto) {
                     $imagem = $produto['img1'] ?? 'no-image.png';
                 ?>
                 <tr>
-                    <td>
+                    <td class="prod">
                         <input class='check' type='checkbox' name='selecionar[<?= $index ?>]'>
                         <img class='cor1' src='/projeto-integrador-et.com/public/imagens/produto/<?= $imagem ?>' alt='<?= $produto['nome'] ?>' width='50'>
                         <span class='produto-nome'><?= $produto['nome'] ?></span>
@@ -144,7 +144,7 @@ foreach ($carrinho as $produto) {
             <?php endif; ?>
             </tbody>
             <tfoot>
-                <tr>
+                <tr class="tot" style="padding: 0px">
                     <td class='cor3' colspan="5">Total:</td>
                     <td class="total-value" id="total">R$ <?= number_format($total, 2, ',', '.') ?></td>
                 </tr>
@@ -155,11 +155,11 @@ foreach ($carrinho as $produto) {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td style="padding: 0px 0px 0px 60px;"><input type="checkbox" style="margin: 0px;"></td>
+                    <td><input type="checkbox" style="margin: 0px;"></td>
                 </tr>
 
                 <tr>
-                    <td style="border: none;">
+                    <td class="bot" style="border: none;">
                         <div class="button-container" style="">
                             <button type="submit">Realizar Pedido</button>
                             <button type="button" onclick="abrirPopup()">Excluir</button>
