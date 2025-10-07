@@ -157,13 +157,19 @@ foreach ($carrinho as $produto) {
                     <td></td>
                     <td style="padding: 0px 0px 0px 60px;"><input type="checkbox" style="margin: 0px;"></td>
                 </tr>
+
+                <tr>
+                    <td style="border: none;">
+                        <div class="button-container" style="">
+                            <button type="submit">Realizar Pedido</button>
+                            <button type="button" onclick="abrirPopup()">Excluir</button>
+                        </div>
+                    </td>
+                </tr>
             </tfoot>
         </table>
 
-        <div class="button-container">
-            <button type="submit">Realizar Pedido</button>
-            <button type="button" onclick="abrirPopup()">Excluir</button>
-        </div>
+
     </form>
 </main>
 
