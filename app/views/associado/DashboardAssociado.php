@@ -5,8 +5,11 @@ require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sideba
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
+require_once __DIR__ . "/../../Controllers/UserController.php";
 
-// session_start();
+session_start();
+$controller = new UserController();
+$user = $controller->getLoggedUser();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 ?>
  
@@ -30,7 +33,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 
     <?php
         echo createSidebarInterna($tipo_usuario);
-        echo createContaAssociadoADM("Associado");
+        echo createContaAssociadoADM("Associado",$user);
     ?>
 
     <!-- aqui acaba o lado esquerdo -->

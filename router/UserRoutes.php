@@ -75,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     'telefone' => $_POST['telefone'] ?? '',
                     'cpf' => $_POST['cpf'] ?? '',
                     'data_nascimento' => $_POST['data_nascimento'] ?? '',
+                    'tipo' => $userOld['tipo'],
                     'foto' => $userOld['foto'], 
                     'id_endereco' => $userOld['id_endereco']
                 ];
@@ -135,6 +136,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 } catch (Exception $e) {
                     $responseDelete = ["success" => false, "message" => "Erro ao deletar: " . $e->getMessage()];
                 }
+
+                session_start();
+                session_unset();
+                session_destroy();
 
                 header("Location: ../app/views/usuario/Login.php?sucesso=eliel_deletado");
                 exit;
@@ -202,8 +207,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     'cpf'             => $_POST['cpf'] ?? '',
                     'data_nascimento' => $_POST['data_nascimento'] ?? '',
                     'foto'            => $userOld['foto'] ?? null,
+                    'tipo'            => $userOld['tipo'],
                     'sobreProdutos'   => $_POST['sobreProdutos'] ?? ''
                 ];
+
+                $postData['foto'] = $userOld['foto'];
 
                 if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
                     $postData['foto'] = $userController->saveAvatar($_FILES['avatar']);

@@ -1,4 +1,5 @@
 <?php
+session_start();
     require_once __DIR__ . "/../../Models/products.php";
     require_once __DIR__ . "/./../../../public/componentes/popup/popUp.php";
     require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
@@ -6,6 +7,9 @@
     require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
     require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
+    require_once __DIR__ . "/../../Controllers/UserController.php";
+    $controller = new UserController();
+    $user = $controller->getLoggedUser();
 
     function verificaELimpaQueryString(){
         if (isset($_GET['status']) && $_GET['status'] == 'sucesso') {
@@ -77,7 +81,7 @@
     $pesquisa = $_GET['pesquisa'] ?? null;
     $products = new Products();
     $produtos = $products->buscarTodosProdutos($ordem, $pesquisa);
-
+    
     // // session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 ?>
@@ -104,7 +108,7 @@
 <body>
     <?php
         echo createSidebarInterna($tipo_usuario);
-        echo createContaAssociadoADM("Associado");
+        echo createContaAssociadoADM("Associado",$user);
     ?>
     
     <div class="main">

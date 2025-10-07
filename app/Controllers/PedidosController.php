@@ -9,8 +9,17 @@ class PedidosController{
         $this->pedidosModel = new PedidosModel();
     }
 
-    public function BuscarTodosPedidosAssociado($ordem="", $pesquisa=""){
-        return $this->pedidosModel->BuscarTodosPedidosAssociado($ordem, $pesquisa);
+    public function BuscarTodosPedidos($ordem="", $pesquisa=""){
+        return $this->pedidosModel->BuscarTodosPedidos($ordem, $pesquisa);
+    }
+
+
+    public function BuscarTodosPedidosADM($ordem="", $pesquisa=""){
+        return $this->pedidosModel->BuscarTodosPedidosADM($ordem, $pesquisa);
+    }
+
+    public function BuscarProdutosDoPedido($idPedido){
+        return $this->pedidosModel->BuscarProdutosDoPedido($idPedido);
     }
 }
 

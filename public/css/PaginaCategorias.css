@@ -57,10 +57,6 @@ body{
     margin-top: 64px;
 }
 
-.filtro-botao, .form{
-    width: 100%;
-}
-
 .aVenda {
     display: flex;
     flex-direction: column;

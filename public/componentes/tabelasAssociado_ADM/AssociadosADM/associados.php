@@ -85,7 +85,7 @@ function associadosTabela($nome, $listaAssociados){
                             // PopUps únicos por usuário
                             echo PopUpConfirmar("popUpConfirmar_$userId", "Deseja realmente VALIDAR esse associado?", $btnSimValidar, $btnNao);
                             echo PopUpConfirmar("popUpSobreProduto_$userId", $associado['nome']." - ".$associado['cidade']."/".$associado['estado'].":\n\n\"".$associado['sobreProdutos']."\"");
-                            echo PopUpConfirmar("motivoRecuso_$userId", $associado['motivoDoRecuso']);
+                            echo PopUpConfirmar("motivoRecuso_$userId", $associado['motivoDoRecuso'], null, null, "300px");
                             echo PopUpComInput("popUpCancelar_$userId", "Deseja realmente NÃO VALIDAR esse associado?", "Motivo...", $btnSimCancelar, $btnNao);
                         ?>
                         <tr>

@@ -1,4 +1,5 @@
 <?php
+header("Content-Type: application/json; charset=UTF-8");
 require_once __DIR__ . "/produtoController.php";
 session_start();
 
@@ -17,7 +18,6 @@ if (is_string($idProduto) && str_starts_with($idProduto, '[')) {
 
 try {
     switch ($action) {
-
         // ========================
         // === LISTA DE DESEJOS ===
         // ========================
@@ -34,9 +34,8 @@ try {
             } else {
                 $idProduto = (int)$idProduto;
             }
-        
             $res = $controller->adicionarFavorito((int)$idUsuario, $idProduto);
-            echo json_encode($res); //  retorna JSON
+            echo json_encode($res);
             break;
 
         case "removerFavorito":
@@ -91,10 +90,20 @@ try {
             echo json_encode($res);
             break;
 
+        // ========================
+        // === AVALIAÇÃO ==========
+        // ========================
+        case "avaliarProduto":
+            if (!$idUsuario || !$idProduto) throw new Exception("Parâmetros inválidos");
+            $nota       = $_POST["nota"] ?? null;
+            $comentario = $_POST["comentario"] ?? "";
+            $res = $controller->avaliarProduto((int)$idUsuario, (int)$idProduto, (int)$nota, $comentario);
+            echo json_encode($res);
+            break;
+
         default:
             echo json_encode(["ok" => false, "msg" => "Ação não encontrada"]);
     }
 } catch (Exception $e) {
     echo json_encode(["ok" => false, "msg" => $e->getMessage()]);
 }
-?>

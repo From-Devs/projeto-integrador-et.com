@@ -48,6 +48,21 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
                 echo json_encode(['erro' => 'idUsuario não informado']);
             }
             break;
+
+        case 'mudarStatus':
+            $json = file_get_contents('php://input');
+            $data = json_decode($json, true);
+            $novoStatus = $data['novoStatus'] ?? null;
+            $idPedido = $data['idPedido'] ?? null;
+        
+            if ($idPedido) {
+                $res = $associadosController->mudarStatus($novoStatus, $idPedido);
+                header('Content-Type: application/json');
+                echo json_encode($res);
+            } else {
+                echo json_encode(['erro' => 'idUsuario não informado']);
+            }
+            break;
         
 
         default:

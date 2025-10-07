@@ -20,6 +20,10 @@ class AssociadosController{
     public function recusarAssociado($idUsuario, $motivo){
         return $this->AssociadosModel->recusarAssociado($idUsuario, $motivo);
     }
+
+    public function mudarStatus($novoStatus, $idPedido){
+        return $this->AssociadosModel->mudarStatus($novoStatus, $idPedido);
+    }
 }
 
 ?>
