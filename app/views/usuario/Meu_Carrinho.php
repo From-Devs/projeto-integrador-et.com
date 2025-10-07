@@ -97,6 +97,7 @@ foreach ($carrinho as $produto) {
 <main>
     <h1 class="Meio">MEU CARRINHO</h1>
     <div class="line"><div></div></div>
+    
     <form method="post">
         <table>
             <thead>
@@ -147,13 +148,17 @@ foreach ($carrinho as $produto) {
                     <td class='cor3' colspan="5">Total:</td>
                     <td class="total-value" id="total">R$ <?= number_format($total, 2, ',', '.') ?></td>
                 </tr>
+
+                <tr class="tudo">
+                    <td>Selecionar Tudo:</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="padding: 0px 0px 0px 60px;"><input type="checkbox" style="margin: 0px;"></td>
+                </tr>
             </tfoot>
         </table>
-
-        <div class="tudo">
-            <p>Selecionar Tudo:</p>
-            <input type="checkbox">
-        </div>
 
         <div class="button-container">
             <button type="submit">Realizar Pedido</button>
