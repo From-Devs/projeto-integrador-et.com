@@ -65,12 +65,17 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             </div>
 
             <div class="listaProdutos">
-                <?=
+                <?php
                 foreach($listaProdutos as $produto){
                 ?>
-                <div class="itemLista"><?= $produto['nome'] ?></div>
-                <?=
-                }
+                <div
+                    class="itemLista"
+                    data-id="<?= $produto['id_produto'] ?>"
+                >
+                    <?= $produto['nome'] ?>
+                </div>
+                <?php
+                };
                 ?>
             </div>
         </div>
