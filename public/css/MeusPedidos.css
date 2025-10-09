@@ -810,7 +810,8 @@
         }
 
         .cardpopup:hover .card-expandido .detalhes-botoes .avaliarBtn,
-        .cardpopup:hover .card-expandido .detalhes-botoes .comprarNvmtBtn{
+        .cardpopup:hover .card-expandido .detalhes-botoes .comprarNvmtBtn,
+        .cardpopup:hover .card-expandido .detalhes-botoes .devolverBtn{
             padding: 9px 14px;
             border-radius: 20px;
             border: 2px solid rgb(202, 202, 202);

@@ -186,6 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="detalhes-botoes">
                             <a class="comprarNvmtBtn" href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php">Comprar Novamente</a>
                             <button class="avaliarBtn">Avaliar</button>
+                            <button class="devolverBtn">Avaliar</button>
                         </div>
                     </div>
                 `;
