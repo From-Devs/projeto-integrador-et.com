@@ -12,31 +12,67 @@ $pdo = $db->Connect();
 $tipo = $_GET['tipo'] ?? 'receita';
 
 // cabeçalho do PDF 
+
 $html = "
 <style>
-    body { font-family: Arial, sans-serif; font-size: 12px; }
-    h1 { text-align: center; color: #000000ff; }
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
-    th { background-color: #f2f2f2; }
-    tr:nth-child(even) { background-color: #f9f9f9; }
-    tr:hover { background-color: #e0f7fa; }
-    td.valor { font-weight: bold; color: #d32f2f; }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12px;
+        color: #333;
+        margin: 20px;
+    }
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #3498db;
+        color: white;
+        font-weight: bold;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    tr:hover {
+        background-color: #eaf2f8;
+    }
+    td.valor {
+        font-weight: bold;
+        color: #e74c3c;
+    }
 </style>
 ";
 
+
 $html .= "<h1>Relatório: " . ucfirst($tipo) . "</h1>";
 $html .= "<table>";
-$html .= "<tr>
-            <th>ID</th>
-            <th>Nome / Descrição</th>
-            <th>Detalhes</th>
-          </tr>";
+// $html .= "<tr>
+//             <th>ID</th>
+//             <th>Nome / Descrição</th>
+//             <th>Detalhes</th>
+//           </tr>";
 
 switch ($tipo) {
 
     case 'receita':
         $stmt = $pdo->query("SELECT relaRec_id, lucro, prejuizo FROM RelatorioDeReceitas");
+        $html .= "<tr>
+            <th>ID</th>
+            <th>Lucro</th>
+            <th>Prejuízo</th>
+          </tr>";
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $html .= "<tr>
                         <td>{$row['relaRec_id']}</td>
