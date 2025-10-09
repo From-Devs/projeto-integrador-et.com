@@ -19,9 +19,9 @@ function detalhesPedidos($detalhesPedidos) {
     
     foreach ($detalhesPedidos as $item) {
         $html .= '<tr>
-            <td>' . $item['idProduto'] . '</td>
+            <td>' . $item['id_produto'] . '</td>
             <td>' . $item['nomeProduto'] . '</td>
-            <td>' . $item['associado'] . '</td>
+            <td>' . $item['nomeUsuario'] . '</td>
             <td style="color: green;">R$ ' . number_format($item['preco'], 2, ',', '.') . '</td>
             <td>' . $item['quantidade'] . '</td>
         </tr>';
@@ -68,7 +68,7 @@ function tabelaTotaisAssociado($infoPagamentos) {
 }
 
 function resumoFinal($detalhesPedidos) {
-    $subtotal = array_sum(array_column($detalhesPedidos, 'preco'));
+    $subtotal = array_sum(array_map('floatval', array_column($detalhesPedidos, 'preco')));
 
     $html = '<div class="resumo-final" style="margin-top: 1em;">
         <table>
@@ -194,7 +194,8 @@ function resumoFinal($detalhesPedidos) {
 
 
 function tabelaPedidosADM($pedidos) {
-    $tabela = "<div id='lista'>
+    ?>
+    <div id='lista'>
         <table id='tabelaVendas'>
             <thead id='barraCima'>
                 <tr>
@@ -210,39 +211,65 @@ function tabelaPedidosADM($pedidos) {
 
         <div class='tabela-body'>
             <table id='tabelaVendas'>
-                <tbody>";
+                <tbody>
 
-    foreach ($pedidos as $pedido) {
+    <?php foreach ($pedidos as $pedido): 
         echo popUpCurto("popUpStatus", "Status alterado com sucesso!", "green", "white", "/popUp_Botoes/img-confirmar.png");
         if(isset($pedido['tipoStatus']) && $pedido['tipoStatus'] != ""){
             $statusClass = $pedido['tipoStatus'] === 'Pago' ? 'statusPago' : 'statusPendente';
         }
+        ?>
+        <tr>
+            <td><?= $pedido['id_pedido'] ?></td>
+            <td><?= htmlspecialchars($pedido['nome']) ?></td>
+            <td>R$ <?= number_format($pedido['precoTotal'], 2, ',', '.') ?></td>
+            <td><?= date("d/m/Y - H:i", strtotime($pedido['dataPedido'])) ?></td>
+            <td>
+                <button id="<?= $statusClass?>" class="btnStatus" onclick="mudarStatus(this, <?= $pedido['id_pedido'] ?>)">
+                    <p><?= $pedido['tipoStatus'] ?></p>
+                </button>
+            </td>
+            <td>
+                <button class="tresPontos" onclick="abrirPopUp('modalDetalhesDoPedido<?= $pedido['id_pedido'] ?>')">
+                    <img src="/projeto-integrador-et.com/public/imagens/imagensADM/tresPontos.png" alt="Abrir Detalhes">
+                </button>
+            </td>
+        </tr>
 
-        $data = date("d/m/Y - H:i", strtotime($pedido['dataPedido']));
+        <!-- MODAL DE DETALHES -->
+        <dialog id="modalDetalhesDoPedido<?= $pedido['id_pedido'] ?>" class="modalDetalhesDoPedido">
+            <div class="containerHeader">
+                <div class="containerFechar">
+                    <button class="btn-fechar" onclick="fecharPopUp('modalDetalhesDoPedido<?= $pedido['id_pedido'] ?>')">
+                        <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="Fechar">
+                    </button>
+                </div>
+                <div class="headerDetalhes">
+                    <h1>Detalhes do Pedido</h1>
+                    <div class="dadosHeader">
+                        <h3>Data do Pedido: <?= date("d/m/Y", strtotime($pedido['dataPedido'])) ?></h3>
+                        <h3>Produtos: <?= count($pedido['detalhesPedido']) ?></h3>
+                    </div>
+                </div>
+            </div>
 
-        $tabela .= "<tr>
-                    <td>{$pedido['id_pedido']}</td>
-                    <td>{$pedido['nome']}</td>
-                    <td>R$ " . number_format($pedido['precoTotal'], 2, ',', '.') . "</td>
-                    <td>{$data}</td>
-                    <td>
-                        <button id='{$statusClass}' class='btnStatus' 
-                            onclick='mudarStatus(this, {$pedido["id_pedido"]})'>
-                            <p>{$pedido['tipoStatus']}</p>
-                        </button>
-                    </td>
-                    <td>
-                        <button class='tresPontos' onclick='abrirPopUpDetalhes({$pedido['id_pedido']})'><img src='/projeto-integrador-et.com/public/imagens/imagensADM/tresPontos.png' alt='img-tresPontos'></button>
-                    </td>
-                </tr>";
-    }
+            <div id="componenteTabelaProdutos">
+                <?= detalhesPedidos($pedido['detalhesPedido']) ?>
+            </div>
 
-    $tabela .= "    </tbody>
+            <div class="containerBaixo">
+                <div id="componenteResumoFinal">
+                    <?= resumoFinal($pedido['detalhesPedido']) ?>
+                </div>
+            </div>
+        </dialog>
+    <?php endforeach; ?>
+
+                </tbody>
             </table>
         </div>
-    </div>";
-
-    return $tabela;
+    </div>
+    <?php
 }
 
 
@@ -277,7 +304,7 @@ function tabelaPedidosAssociado($pedidos) {
                     <td>{$pedido['nome']}</td>
                     <td>R$ " . number_format($pedido['precoTotal'], 2, ',', '.') . "</td>
                     <td>{$data}</td>
-                    <td><div id='{$statusClass}'><p>{$pedido['tipoStatus']}<p></div></td>
+                    <td><div id='{$statusClass}'><p>{$pedido['tipoStatus']}</p></div></td>
                     <td>
                         <button>teste entrega</button>
                     </td>

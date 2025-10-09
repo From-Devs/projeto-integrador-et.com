@@ -48,12 +48,10 @@ class PedidosModel{
     
             $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-            // Agora adiciona os produtos e pagamentos para cada pedido
             foreach ($pedidos as &$pedido) {
                 $idPedido = $pedido['id_pedido'];
                 $pedido['detalhesPedido'] = $this->BuscarProdutosDoPedido($idPedido);
     
-                // Se você tiver um método BuscarInfoPagamentos:
                 // $pedido['infoPagamentos'] = $this->BuscarInfoPagamentos($idPedido);
             }
     
