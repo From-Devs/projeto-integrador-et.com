@@ -11,10 +11,7 @@ class CustomizacaoModel {
      * Inicializa a conexão com o banco de dados usando PDO.
      */
     public function __construct() {
-        $db = new Database();
-        $this->conn = $db->Connect();
-        $this->conn->setAtribute(PDO::ATTR_ERRMODE, PDO::ATTR_ERRMODE_EXCEPTION);
-        $this->conn->setAtribute(PDO::ATTR_DEFAULT_FETCH_MODE, POD::FETCH_ASSOC);
+        $this->conn = Database::getConnection();
     }
     /**
      * teessrsrsrs.
@@ -23,12 +20,12 @@ class CustomizacaoModel {
      * @return array Retorna ['success' => bool, 'message' => string, 'id' => ?int]
      * @throws Exception Em caso de erro na transação ou validação.
      */
-    // crud
     public function create(){
 
     }
     public function read(){
-    
+        $stmt = $this->conn->prepare("SELECT * FROM `usuario`");
+        return $stmt->fetchAll()
     }
     public function update(){
 
@@ -39,3 +36,4 @@ class CustomizacaoModel {
     
 }
 ?>
+
