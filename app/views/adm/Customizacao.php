@@ -442,5 +442,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/trocarCorDegradeCarousel.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/trocarCorLancamento.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/dragEDrop.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/customizacao/listaDeProdutos.js"></script>
 </body>
 </html> 

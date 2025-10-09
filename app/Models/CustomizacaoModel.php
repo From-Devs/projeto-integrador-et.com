@@ -13,27 +13,10 @@ class CustomizacaoModel {
     public function __construct() {
         $this->conn = Database::getConnection();
     }
-    /**
-     * teessrsrsrs.
-     * @param array $tipo Dtsfsdfsdfsfd
-     * @param array $tipa2 adsdadadadsd
-     * @return array Retorna ['success' => bool, 'message' => string, 'id' => ?int]
-     * @throws Exception Em caso de erro na transação ou validação.
-     */
-    public function create(){
-
-    }
     public function read(){
         $stmt = $this->conn->prepare("SELECT * FROM `usuario`");
         return $stmt->fetchAll()
     }
-    public function update(){
-
-    }
-    public function delete(){
-
-    }
-    
 }
 ?>
 

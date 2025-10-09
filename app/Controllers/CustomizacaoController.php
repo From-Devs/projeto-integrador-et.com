@@ -7,8 +7,12 @@ class CustomizacaoController
     public function index(){
         $model = new CustomizacaoModel()
         // get alguma coisa
-        $teste = $model->read()
-        require_once __DIR__ "CustomizacaoController.php"
+        $usuarios = $model->read()
+
+        
+        echo "<pre>";
+        print_r($usuarios);
+        echo "</pre>";
     }
 }
 ?>
