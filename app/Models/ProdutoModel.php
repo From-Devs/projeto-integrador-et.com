@@ -3,6 +3,17 @@
 
 require_once __DIR__ . '/../../config/database.php';
 
+// Definir constantes para upload
+if (!defined('ALLOWED_EXTENSIONS')) {
+    define('ALLOWED_EXTENSIONS', ['jpg', 'jpeg', 'png', 'gif']);
+}
+if (!defined('UPLOAD_DIR')) {
+    define('UPLOAD_DIR', __DIR__ . '/../../public/uploads/');
+}
+if (!defined('MAX_FILE_SIZE')) {
+    define('MAX_FILE_SIZE', 5 * 1024 * 1024); // 5MB
+}
+
 /**
  * Classe ProdutoModel
  * Gerencia operações CRUD para produtos, incluindo cores e imagens, com suporte a transações PDO.
@@ -33,6 +44,20 @@ class ProdutoModel
     public function create(array $data, array $files = []): array
     {
         try {
+            // Validação básica
+            $requiredFields = ['nome', 'marca', 'preco', 'qtdEstoque', 'id_subCategoria', 'corPrincipal'];
+            foreach ($requiredFields as $field) {
+                if (empty($data[$field])) {
+                    throw new Exception("O campo '$field' é obrigatório.");
+                }
+            }
+            if ($data['preco'] < 0) {
+                throw new Exception('O preço deve ser um número positivo.');
+            }
+            if ($data['qtdEstoque'] < 0) {
+                throw new Exception('O estoque deve ser um número não negativo.');
+            }
+
             $this->conn->beginTransaction();
 
             // Inserir cores
@@ -41,7 +66,7 @@ class ProdutoModel
                 VALUES (:corPrincipal, :hex1, :hex2)"
             );
             $stmtCores->execute([
-                ':corPrincipal' => $data['corPrincipal'] ?? '',
+                ':corPrincipal' => $data['corPrincipal'],
                 ':hex1' => $data['hex1'] ?? null,
                 ':hex2' => $data['hex2'] ?? null
             ]);
@@ -69,14 +94,14 @@ class ProdutoModel
                 ':descricaoTotal' => $data['descricaoTotal'] ?? null,
                 ':preco' => $data['preco'],
                 ':precoPromo' => $data['precoPromo'] ?? 0,
-                ':fgPromocao' => $data['fgPromocao'] ?? 0,
-                ':qtdEstoque' => $data['qtdEstoque'],
+                ':fgPromocao' => isset($data['fgPromocao']) ? (int)$data['fgPromocao'] : 0,
+                ':qtdEstoque' => (int)$data['qtdEstoque'],
                 ':img1' => $img1,
                 ':img2' => $img2,
                 ':img3' => $img3,
-                ':id_subCategoria' => $data['id_subCategoria'] ?? null,
+                ':id_subCategoria' => (int)$data['id_subCategoria'],
                 ':id_cores' => $idCores,
-                ':id_associado' => $data['id_associado'] ?? null
+                ':id_associado' => isset($data['id_associado']) ? (int)$data['id_associado'] : null
             ];
 
             if ($stmtProduto->execute($params)) {
@@ -113,6 +138,20 @@ class ProdutoModel
     public function editarProduto(int $id, array $data, array $files = []): array
     {
         try {
+            // Validação básica
+            $requiredFields = ['nome', 'marca', 'preco', 'qtdEstoque', 'id_subCategoria', 'corPrincipal'];
+            foreach ($requiredFields as $field) {
+                if (empty($data[$field])) {
+                    throw new Exception("O campo '$field' é obrigatório.");
+                }
+            }
+            if ($data['preco'] < 0) {
+                throw new Exception('O preço deve ser um número positivo.');
+            }
+            if ($data['qtdEstoque'] < 0) {
+                throw new Exception('O estoque deve ser um número não negativo.');
+            }
+
             $this->conn->beginTransaction();
 
             // Buscar produto para obter imagens antigas
@@ -134,7 +173,7 @@ class ProdutoModel
                 WHERE id_cores = :idCores"
             );
             $stmtCores->execute([
-                ':corPrincipal' => $data['corPrincipal'] ?? '',
+                ':corPrincipal' => $data['corPrincipal'],
                 ':hex1' => $data['hex1'] ?? null,
                 ':hex2' => $data['hex2'] ?? null,
                 ':idCores' => $idCores
@@ -177,13 +216,13 @@ class ProdutoModel
                 ':descricaoTotal' => $data['descricaoTotal'] ?? null,
                 ':preco' => $data['preco'],
                 ':precoPromo' => $data['precoPromo'] ?? 0,
-                ':fgPromocao' => $data['fgPromocao'] ?? 0,
-                ':qtdEstoque' => $data['qtdEstoque'],
+                ':fgPromocao' => isset($data['fgPromocao']) ? (int)$data['fgPromocao'] : 0,
+                ':qtdEstoque' => (int)$data['qtdEstoque'],
                 ':img1' => $img1,
                 ':img2' => $img2,
                 ':img3' => $img3,
-                ':id_subCategoria' => $data['id_subCategoria'] ?? null,
-                ':id_associado' => $data['id_associado'] ?? null,
+                ':id_subCategoria' => (int)$data['id_subCategoria'],
+                ':id_associado' => isset($data['id_associado']) ? (int)$data['id_associado'] : null,
                 ':id' => $id
             ];
 
@@ -325,6 +364,22 @@ class ProdutoModel
     }
 
     /**
+     * Retorna todas as subcategorias disponíveis.
+     * @return array Lista de subcategorias.
+     */
+    public function getAllSubcategorias(): array
+    {
+        try {
+            $stmt = $this->conn->prepare("SELECT id_subCategoria, nome FROM subcategoria");
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            error_log("Erro ao buscar subcategorias: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    /**
      * Salva uma imagem no servidor e retorna o caminho relativo.
      * @param string $inputName Nome do input do arquivo ($_FILES).
      * @param array $files Array $_FILES.
@@ -337,9 +392,16 @@ class ProdutoModel
             return null;
         }
 
-        $ext = strtolower(pathinfo($files[$inputName]['name'], PATHINFO_EXTENSION));
-        if (!in_array($ext, ALLOWED_EXTENSIONS)) {
-            throw new Exception("Extensão de arquivo '$ext' não permitida para $inputName.");
+        $file = $files[$inputName];
+        $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+        $allowedMimes = ['image/jpeg', 'image/png', 'image/gif'];
+
+        // Validar tamanho e tipo MIME
+        if ($file['size'] > MAX_FILE_SIZE) {
+            throw new Exception("Arquivo '$inputName' excede o tamanho máximo de " . (MAX_FILE_SIZE / 1024 / 1024) . "MB.");
+        }
+        if (!in_array($file['type'], $allowedMimes) || !in_array($ext, ALLOWED_EXTENSIONS)) {
+            throw new Exception("Extensão ou tipo de arquivo '$ext' não permitido para '$inputName'.");
         }
 
         $nomeArquivo = time() . '_' . bin2hex(random_bytes(5)) . '.' . $ext;
@@ -349,8 +411,8 @@ class ProdutoModel
             mkdir(UPLOAD_DIR, 0777, true);
         }
 
-        if (!move_uploaded_file($files[$inputName]['tmp_name'], $caminhoDestino)) {
-            throw new Exception("Falha ao salvar a imagem $inputName.");
+        if (!move_uploaded_file($file['tmp_name'], $caminhoDestino)) {
+            throw new Exception("Falha ao salvar a imagem '$inputName'.");
         }
 
         return 'public/uploads/' . $nomeArquivo;
@@ -363,7 +425,13 @@ class ProdutoModel
      */
     private function deletarImagem(string $caminhoRelativo): bool
     {
-        $caminhoAbsoluto = __DIR__ . '/../../' . $caminhoRelativo;
+        // Garantir que o caminho está dentro do diretório de uploads
+        if (strpos($caminhoRelativo, 'public/uploads/') !== 0) {
+            error_log("Tentativa de deletar imagem fora do diretório permitido: $caminhoRelativo");
+            return false;
+        }
+
+        $caminhoAbsoluto = UPLOAD_DIR . basename($caminhoRelativo);
         if (file_exists($caminhoAbsoluto) && is_file($caminhoAbsoluto)) {
             return unlink($caminhoAbsoluto);
         }

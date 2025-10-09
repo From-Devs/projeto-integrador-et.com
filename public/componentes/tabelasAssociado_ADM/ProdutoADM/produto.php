@@ -1,45 +1,57 @@
 <?php
-    require_once __DIR__."/../../popup/popUp.php";
-    require_once __DIR__."/../../botao/botao.php";
-    require_once __DIR__ . "/../../../../app/Models/products.php";
+require_once __DIR__ . "/../../popup/popUp.php";
+require_once __DIR__ . "/../../botao/botao.php";
 
-    function tabelaProdutoAdm($produtos){
-        ?>
-        <div id="lista">
+// Função para a tabela de produtos (admin)
+function tabelaProdutoAdm() {
+    // Dados fictícios para teste
+    $produtos = [
+        ['nome' => 'Produto Exemplo 1', 'sku' => 'SKU001'],
+        ['nome' => 'Produto Exemplo 2', 'sku' => 'SKU002'],
+    ];
+    ?>
+    <div id="lista">
+        <table id="tabelaVendas">
+            <thead id="barraCima">
+                <tr>
+                    <th id="th2" scope="col">Produto</th>
+                    <th id="th3" scope="col">Associados</th>
+                    <th id="th4" scope="col">SKU</th>
+                </tr>
+            </thead>
+        </table>
+
+        <div class="tabela-body">
             <table id="tabelaVendas">
-                <thead id="barraCima">
-                    <tr>
-                        <th id="th2" scope="col">Produto</th>
-                        <th id="th3" scope="col">Associados</sth>
-                        <th id="th4" scope="col">SKU</th>
-                    </tr>
-                </thead>
+                <tbody>
+                    <?php foreach ($produtos as $produto): ?>
+                        <tr style="height: 80px;">
+                            <td><?= htmlspecialchars($produto['nome']) ?></td>
+                            <td class="td-lista-associados">
+                                <button onclick="window.location.href = '/projeto-integrador-et.com/app/views/adm/Associados.php'" class="btn-lista-associados">
+                                    <span>Ver Associados</span>
+                                    <img width="30px" src="/projeto-integrador-et.com/public/imagens/imagensADM/img-lista.png" alt="img-lista-associados">
+                                </button>
+                            </td>
+                            <td><?= htmlspecialchars($produto['sku']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
             </table>
-
-            <div class="tabela-body">
-                <table id="tabelaVendas">
-                    <tbody>
-                        <?php foreach ($produtos as $produto): ?>
-                            <tr style="height: 80px;">
-                                <td><?= htmlspecialchars($produto['nome']) ?></td>
-                                <td class="td-lista-associados">
-                                    <button onclick="window.location.href = '/projeto-integrador-et.com/app/views/adm/Associados.php'" class="btn-lista-associados">
-                                        <span>Ver Associados</span>
-                                        <img width="30px" src="/projeto-integrador-et.com/public/imagens/imagensADM/img-lista.png" alt="img-lista-associados">
-                                    </button>
-                                </td>
-                                <td><?= htmlspecialchars($produto['sku']) ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
         </div>
-        <?php
-    }
+    </div>
+    <?php
+}
+
+// Função para a tabela de produtos (geral)
+function tabelaProduto() {
+    echo PopUpComImagemETitulo("popUpSalvar", "popUp_Botoes/img-confirmar.png", "120px", "Edição salva com sucesso!");
     
-function tabelaProduto($produtos) {
-    echo PopUpComImagemETitulo("popUpSalvar","popUp_Botoes/img-confirmar.png","120px","Edição salva com sucesso!");
+    // Dados fictícios para teste
+    $produtos = [
+        ['id' => 1, 'nome' => 'Produto Exemplo 1', 'preco' => 100.00, 'precoPromocional' => 80.00, 'qtdEstoque' => 50],
+        ['id' => 2, 'nome' => 'Produto Exemplo 2', 'preco' => 200.00, 'precoPromocional' => 150.00, 'qtdEstoque' => 30],
+    ];
     ?>
     <div id="lista">
         <table id="tabelaVendas">
@@ -64,16 +76,14 @@ function tabelaProduto($produtos) {
                             <td><?= htmlspecialchars($produto['nome']) ?></td>
                             <td>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></td>
                             <td>R$ <?= number_format($produto['precoPromocional'], 2, ',', '.') ?></td>
-                            <td><?= $produto['qtdEstoque']?></td>
+                            <td><?= $produto['qtdEstoque'] ?></td>
                             <td>
                                 <div class="acoes-tabela">
                                     <?php
-
-                                    $popUpId = "popUpExcluir_".$produto['id'];
-                                    $btnSim = botaoPersonalizadoOnClick("Sim", "btn-black", "removerProduto(".$produto['id'].")", "100px");
+                                    $popUpId = "popUpExcluir_" . $produto['id'];
+                                    $btnSim = botaoPersonalizadoOnClick("Sim", "btn-black", "removerProduto(" . $produto['id'] . ")", "100px");
                                     $btnNao = botaoPersonalizadoOnClick("Não", "btn-white", "", "100px");
-                                    echo PopUpConfirmar($popUpId, "Deseja excluir o produto selecionado?", $btnSim, $btnNao, "400px");?>
-
+                                    echo PopUpConfirmar($popUpId, "Deseja excluir o produto selecionado?", $btnSim, $btnNao, "400px"); ?>
                                     <div class="excluir" onclick="abrirPopUp('<?= $popUpId ?>')">
                                         <img src="/projeto-integrador-et.com/public/imagens/associado/img-excluir.png" alt="img-excluir">
                                     </div>
@@ -96,9 +106,7 @@ function tabelaProduto($produtos) {
                 </button>
             </div>
             <form class="campos-editar" action="http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=EditarProduto" method="post">
-                <!-- conteúdo do formulário como no original -->
                 <input type="hidden" name="id_produto">
-
                 <div>
                     <div class="campo">
                         <label>Nome:</label>
@@ -111,7 +119,8 @@ function tabelaProduto($produtos) {
                     <div class="campo">
                         <label>Subcategoria:</label>
                         <select id="ddlCategoria" name="subCategoria">
-                            
+                            <option value="">Selecione</option>
+                            <option value="1">Subcategoria Exemplo</option>
                         </select>
                     </div>
                 </div>
@@ -141,83 +150,71 @@ function tabelaProduto($produtos) {
                         </div>
                     </div>
                     <div class="campos-direita">
-                    <div class="galeria-produtos">
-                    <div class="container-item-produto">
-                        <div class="item-produto">
-                            <div class="imagem-produto-container">
-                                <div class="container-img">
-                                    <img src=""
-                                        alt="Produto" class="imagem-produto" id="img-produto-editar1" name="img1">
+                        <div class="galeria-produtos">
+                            <div class="container-item-produto">
+                                <div class="item-produto">
+                                    <div class="imagem-produto-container">
+                                        <div class="container-img">
+                                            <img src="" alt="Produto" class="imagem-produto" id="img-produto-editar1" name="img1">
+                                        </div>
+                                        <label for="upload-produto1" class="icone-cadastrar-label">
+                                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png" alt="Editar Produto" class="icone-cadastrar">
+                                        </label>
+                                        <input type="file" id="upload-produto1" name="img1" class="input-file" data-img-id="img-produto1" accept="image/*">
+                                    </div>
                                 </div>
-
-                                <label for="upload-produto1" class="icone-cadastrar-label">
-                                    <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
-                                        alt="Editar Produto" class="icone-cadastrar">
-                                </label>
-                                <input type="file" id="upload-produto1" name="img1" class="input-file" data-img-id="img-produto1" accept="image/*">
+                                <div class="lgd-img">
+                                    <img src="/projeto-integrador-et.com/public/imagens/associado/img-ajuda.png" alt="img-ajuda" title="Aqui vai a IMAGEM SEM FUNDO">
+                                </div>
+                            </div>
+                            <div class="container-item-produto">
+                                <div class="item-produto">
+                                    <div class="imagem-produto-container">
+                                        <div class="container-img">
+                                            <img src="" alt="Produto" class="imagem-produto" id="img-produto-editar2" name="img2">
+                                        </div>
+                                        <label for="upload-produto2" class="icone-cadastrar-label">
+                                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png" alt="Editar Produto" class="icone-cadastrar">
+                                        </label>
+                                        <input type="file" id="upload-produto2" name="img2" class="input-file" data-img-id="img-produto2" accept="image/*">
+                                    </div>
+                                </div>
+                                <div class="lgd-img">
+                                    <img src="/projeto-integrador-et.com/public/imagens/associado/img-ajuda.png" alt="img-ajuda" title="Aqui vai a IMAGEM DE LANÇAMENTO">
+                                </div>
+                            </div>
+                            <div class="container-item-produto">
+                                <div class="item-produto">
+                                    <div class="imagem-produto-container">
+                                        <div class="container-img">
+                                            <img src="" alt="Produto" class="imagem-produto" id="img-produto-editar3" name="img3">
+                                        </div>
+                                        <label for="upload-produto3" class="icone-cadastrar-label">
+                                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png" alt="Editar Produto" class="icone-cadastrar">
+                                        </label>
+                                        <input type="file" id="upload-produto3" name="img3" class="input-file" data-img-id="img-produto3" accept="image/*">
+                                    </div>
+                                </div>
+                                <div class="lgd-img">
+                                    <img src="/projeto-integrador-et.com/public/imagens/associado/img-ajuda.png" alt="img-ajuda" title="Aqui vai a IMAGEM EXTRA (OPCIONAL)">
+                                </div>
                             </div>
                         </div>
-                        <div class="lgd-img">
-                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-ajuda.png" alt="img-ajuda" title="Aqui vai a IMAGEM SEM FUNDO">
-                        </div>
-                    </div>
-
-                    <div class="container-item-produto">
-                        <div class="item-produto">
-                            <div class="imagem-produto-container">
-                                <div class="container-img">
-                                    <img src=""
-                                        alt="Produto" class="imagem-produto" id="img-produto-editar2" name="img2">
-                                </div>
-
-                                <label for="upload-produto2" class="icone-cadastrar-label">
-                                    <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
-                                        alt="Editar Produto" class="icone-cadastrar">
-                                </label>
-                                <input type="file" id="upload-produto2" name="img2" class="input-file" data-img-id="img-produto2" accept="image/*">
+                        <div class="cores-produto">
+                            <div>
+                                <input type="color" class="cor" name="corPrincipal">
+                                <span class="span-cor">Cor principal *</span>
+                            </div>
+                            <div>
+                                <input type="color" class="cor" name="deg1">
+                                <span class="span-cor">Deg. 1 *</span>
+                            </div>
+                            <div>
+                                <input type="color" class="cor" name="deg2">
+                                <span class="span-cor">Deg. 2 *</span>
                             </div>
                         </div>
-                        <div class="lgd-img">
-                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-ajuda.png" alt="img-ajuda" title="Aqui vai a IMAGEM DE LANÇAMENTO">
-                        </div>
                     </div>
-
-                    <div class="container-item-produto">
-                        <div class="item-produto">
-                            <div class="imagem-produto-container">
-                                <div class="container-img">
-                                    <img src=""
-                                        alt="Produto" class="imagem-produto" id="img-produto-editar3" name="img3">
-                                </div>
-
-                                <label for="upload-produto3" class="icone-cadastrar-label">
-                                    <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
-                                        alt="Editar Produto" class="icone-cadastrar">
-                                </label>
-                                <input type="file" id="upload-produto3" name="img3" class="input-file" data-img-id="img-produto3" accept="image/*">
-                            </div>
-                        </div>
-                        <div class="lgd-img">
-                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-ajuda.png" alt="img-ajuda" title="Aqui vai a IMAGEM EXTRA (OPCIONAL)">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cores-produto">
-                    <div>
-                        <input type="color" class="cor" name="corPrincipal">
-                        <span class="span-cor">Cor principal *</span>
-                    </div>
-                    <div>
-                        <input type="color" class="cor" name="deg1">
-                        <span class="span-cor">Deg. 1 *</span>
-                    </div>
-                    <div>
-                        <input type="color" class="cor" name="deg2">
-                        <span class="span-cor">Deg. 2 *</span>
-                    </div>
-                </div>
-                </div>  
                 </div>
                 <div class="container-campos-large">
                     <div class="campo campo-large">
@@ -233,7 +230,4 @@ function tabelaProduto($produtos) {
     </div>
     <?php
 }
-
-
-
 ?>
