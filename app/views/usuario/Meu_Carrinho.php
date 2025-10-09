@@ -120,9 +120,11 @@ foreach ($carrinho as $produto) {
                 ?>
                 <tr>
                     <td class="prod">
-                        <input class='check' type='checkbox' name='selecionar[<?= $index ?>]'>
-                        <img class='cor1' src='/projeto-integrador-et.com/public/imagens/produto/<?= $imagem ?>' alt='<?= $produto['nome'] ?>' width='50'>
-                        <span class='produto-nome'><?= $produto['nome'] ?></span>
+                        <div class="conteudo_td">
+                            <input class='check' type='checkbox' name='selecionar[<?= $index ?>]'>
+                            <img class='cor1' src='/projeto-integrador-et.com/public/imagens/produto/<?= $imagem ?>' alt='<?= $produto['nome'] ?>' width='50'>
+                            <span class='produto-nome'><?= $produto['nome'] ?></span>
+                        </div>
                     </td>
                     <td></td>
                     <td></td>

@@ -276,145 +276,159 @@ input[type="checkbox"]:checked::before {
 }
 
 @media screen and (max-width: 430px) {
-.produto-nome{
-  display: none;
-}
+  .prod{
+    padding: 10px;
+  }
 
-.tot{
-  display: flex;
-  height: 70px;
-  justify-content: center;
-  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
-}
+  .conteudo_td{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.tudo{
-  display: flex;
-  height: 50px;
-  justify-content: space-between;
-  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
-}
+  .prod img{
+    margin: 0px;
+  }
 
-main {
-  margin: 0 10px;
-  padding: 10px;
-}
+  .prod input{
+    margin: 0px;
+  }
 
-.Meio {
-  width: 100%;
-  font-size: 18px;
-  margin-top: 100px;
-}
+  .produto-nome{
+    display: none;
+  }
 
-table, .table1 {
-  width: 100%;
-  overflow-x: auto;
-  display: table;
-  font-size: 13px;
-}
+  .tot{
+    display: flex;
+    height: 70px;
+    justify-content: center;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+  }
 
-thead {
-  background-color: #1C1C1C;
-}
+  .tudo{
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+  }
 
-thead th {
-  font-size: 12px;
-  padding: 8px;
-  background-color: #1C1C1C !important;
-  color: white !important;
-  text-align: center;
-  word-break: break-word;
-}
+  main {
+    margin: 0 10px;
+    padding: 10px;
+  }
 
-tbody tr {
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-  padding: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
+  .Meio {
+    width: 100%;
+    font-size: 18px;
+    margin-top: 100px;
+  }
 
-td{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border: none;
-}
+  table, .table1 {
+    width: 90%;
+    overflow-x: auto;
+    display: table;
+    font-size: 13px;
+  }
 
-.cor1 {
-  width: 50px;
-  height: auto;
-  border-radius: 10px;
-}
+  thead {
+    background-color: #1C1C1C;
+    border-radius: 5px;
+  }
 
-.produto-nome {
-  font-size: 14px;
-  margin-left: 5px;
-  flex: 1;
-}
+  thead th {
+    font-size: 12px;
+    padding: 8px;
+    background-color: #1C1C1C !important;
+    color: white !important;
+    text-align: center;
+    word-break: break-word;
+  }
 
-.quantity-container {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
+  tbody tr {
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
 
-.quantity-btn {
-  width: 24px;
-  height: 24px;
-  font-size: 14px;
-}
+  td{
+    display: flex;
+    align-items: center;
+    border: none;
+  }
 
-.quantity-input {
-  width: 36px;
-  height: 24px;
-  font-size: 13px;
-  text-align: center;
-}
+  .cor1 {
+    width: 50px;
+    height: auto;
+    border-radius: 10px;
+  }
 
-.bot{
-  display: flex;
-  justify-content: center;
-}
+  .produto-nome {
+    font-size: 14px;
+    margin-left: 5px;
+    flex: 1;
+  }
 
-.button-container {
-  width: 90%;
-  flex-direction: column;
-  gap: 10px;
-  align-items: stretch;
-  margin-top: 20px;
-}
+  .quantity-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
 
-.button-container button {
-  width: 100%;
-  font-size: 14px;
-  padding: 12px;
-}
+  .quantity-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
 
-.redondo {
-  width: 100%;
-  margin-top: 10px;
-}
+  .quantity-input {
+    width: 36px;
+    height: 24px;
+    font-size: 13px;
+    text-align: center;
+  }
 
-.total-value {
-  font-size: 16px;
-}
+  .bot{
+    display: flex;
+    justify-content: center;
+  }
 
-input[type="checkbox"] {
-  transform: scale(1.2);
-  margin-right: 8px;
-}
+  .button-container {
+    width: 90%;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    margin-top: 20px;
+  }
+
+  .button-container button {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .redondo {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .total-value {
+    font-size: 16px;
+  }
+
+  input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 8px;
+  }
 }
 
 
