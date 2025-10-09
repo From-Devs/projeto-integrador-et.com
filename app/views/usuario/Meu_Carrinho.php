@@ -170,8 +170,6 @@ foreach ($carrinho as $produto) {
                 </tr>
             </tfoot>
         </table>
-
-
     </form>
 </main>
 
