@@ -1,6 +1,6 @@
 <?php
 // app/controllers/produtoController.php
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/database.php';
 
 class ProdutoController {
     private PDO $conn;

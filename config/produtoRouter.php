@@ -5,29 +5,36 @@ require_once __DIR__ . '/produtoController.php';
 header('Content-Type: application/json; charset=utf-8');
 
 $controller = new ProdutoController();
-$action = $_GET['action'] ?? null;
 
-// id do usuário logado (ajuste conforme seu sistema)
+// Pegando a action via GET ou POST
+$action = $_GET['action'] ?? $_POST['action'] ?? null;
+
+// id do usuário logado
 $idUsuario = $_SESSION['id_usuario'] ?? 1;
+
+// Função auxiliar para pegar os IDs enviados
+function getIdsProdutos() {
+    $ids = $_POST['id_produto'] ?? $_GET['id_produto'] ?? [];
+    if (!is_array($ids)) {
+        $ids = [$ids];
+    }
+    return array_map('intval', $ids);
+}
 
 switch ($action) {
 
     // ===============================
-    // === EXCLUIR SELECIONADOS =====
+    // === EXCLUIR SELECIONADOS DO CARRINHO =====
     // ===============================
     case 'excluirSelecionados':
-        $data = json_decode(file_get_contents("php://input"), true);
-        $ids = $data['ids'] ?? [];
-
+        $ids = getIdsProdutos();
         if (empty($ids)) {
             echo json_encode(['ok' => false, 'msg' => 'Nenhum produto selecionado']);
             exit;
         }
-
         $resultado = $controller->removerSelecionadosDoCarrinho($idUsuario, $ids);
         echo json_encode($resultado);
         break;
-
 
     // ===============================
     // === LISTAR CARRINHO ==========
@@ -36,7 +43,6 @@ switch ($action) {
         $resultado = $controller->listarCarrinho($idUsuario);
         echo json_encode($resultado);
         break;
-
 
     // ===============================
     // === REMOVER ITEM ÚNICO =======
@@ -51,38 +57,91 @@ switch ($action) {
         echo json_encode($resultado);
         break;
 
-
     // ===============================
     // === ADICIONAR AO CARRINHO ====
     // ===============================
     case 'adicionar':
-        $data = json_decode(file_get_contents("php://input"), true);
-        $idProduto = $data['id_produto'] ?? null;
-        $qtd = $data['quantidade'] ?? 1;
-        if (!$idProduto) {
+        $ids = getIdsProdutos();
+        $qtd = $_POST['quantidade'] ?? 1;
+        if (empty($ids)) {
             echo json_encode(['ok' => false, 'msg' => 'Produto inválido']);
             exit;
         }
-        $resultado = $controller->adicionarAoCarrinho($idUsuario, $idProduto, $qtd);
-        echo json_encode($resultado);
+        foreach ($ids as $idProduto) {
+            $controller->adicionarAoCarrinho($idUsuario, $idProduto, $qtd);
+        }
+        echo json_encode(['ok' => true, 'msg' => 'Produto(s) adicionado(s) ao carrinho']);
         break;
-
 
     // ===============================
     // === ATUALIZAR QUANTIDADE =====
     // ===============================
     case 'atualizarQuantidade':
-        $data = json_decode(file_get_contents("php://input"), true);
-        $idProduto = $data['id_produto'] ?? null;
-        $qtd = $data['quantidade'] ?? null;
-        if (!$idProduto || $qtd === null) {
+        $ids = getIdsProdutos();
+        $qtd = $_POST['quantidade'] ?? null;
+        if (empty($ids) || $qtd === null) {
             echo json_encode(['ok' => false, 'msg' => 'Dados inválidos']);
             exit;
         }
-        $resultado = $controller->atualizarQuantidade($idUsuario, $idProduto, $qtd);
+        foreach ($ids as $idProduto) {
+            $controller->atualizarQuantidade($idUsuario, $idProduto, $qtd);
+        }
+        echo json_encode(['ok' => true]);
+        break;
+
+    // ===============================
+    // === ADICIONAR FAVORITO =======
+    // ===============================
+    case 'adicionarFavorito':
+        $ids = getIdsProdutos();
+        if (empty($ids)) {
+            echo json_encode(['ok' => false, 'msg' => 'Produto inválido']);
+            exit;
+        }
+
+        $msgs = [];
+        $ok = true;
+        foreach ($ids as $idProduto) {
+            $res = $controller->adicionarFavorito($idUsuario, $idProduto);
+            if (!$res['ok']) {
+                $ok = false;
+                $msgs[] = $res['msg'] ?? 'Produto já na lista de desejos';
+            }
+        }
+
+        echo json_encode([
+            'ok' => $ok,
+            'msg' => $ok ? 'Produto adicionado à Lista de Desejos' : implode(', ', $msgs)
+        ]);
+        break;
+
+    // ===============================
+    // === REMOVER FAVORITO ==========
+    // ===============================
+    case 'removerFavorito':
+        $ids = getIdsProdutos();
+        if (empty($ids)) {
+            echo json_encode(['ok' => false, 'msg' => 'Nenhum produto selecionado']);
+            exit;
+        }
+        $resultado = $controller->removerFavorito($idUsuario, $ids);
         echo json_encode($resultado);
         break;
 
+    // ===============================
+    // === ADICIONAR AO CARRINHO (Lista de Desejos)
+    // ===============================
+    case 'adicionarCarrinho':
+        $ids = getIdsProdutos();
+        if (empty($ids)) {
+            echo json_encode(['ok' => false, 'msg' => 'Nenhum produto selecionado']);
+            exit;
+        }
+        foreach ($ids as $idProduto) {
+            $controller->adicionarAoCarrinho($idUsuario, $idProduto, 1);
+        }
+        echo json_encode(['ok' => true, 'msg' => 'Produto(s) adicionado(s) ao carrinho']);
+        break;
 
     // ===============================
     // === DEFAULT ==================
