@@ -87,6 +87,11 @@ class ProdutoController {
             $deg2
         );
     }
+
+    public function pesquisarHeader($termo)
+    {
+        return $this->produtoModel->pesquisarProdutos($termo);
+    }
     
 
     // public function EditarProduto(
