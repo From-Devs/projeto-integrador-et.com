@@ -100,11 +100,13 @@ foreach ($carrinho as $produto) {
                     $subtotalProduto = $preco * $quantidade;
                     $imagem = $produto['img1'] ?? 'no-image.png';
                 ?>
-                <tr class="linhaCarrinho" data-id="<?= $produto['id_produto'] ?>">
-                    <td>
-                    <input type="checkbox" class="checkbox-individual" data-id="...">
-                        <img class='cor1' src='/projeto-integrador-et.com/public/imagens/produto/<?= $imagem ?>' alt='<?= $produto['nome'] ?>' width='50'>
-                        <span class='produto-nome'><?= $produto['nome'] ?></span>
+                <tr>
+                    <td class="prod">
+                        <div class="conteudo_td">
+                            <input class='check' type='checkbox' name='selecionar[<?= $index ?>]'>
+                            <img class='cor1' src='/projeto-integrador-et.com/public/imagens/produto/<?= $imagem ?>' alt='<?= $produto['nome'] ?>' width='50'>
+                            <span class='produto-nome'><?= $produto['nome'] ?></span>
+                        </div>
                     </td>
                     <td></td>
                     <td></td>
@@ -127,7 +129,7 @@ foreach ($carrinho as $produto) {
             </tbody>
 
             <tfoot>
-                <tr>
+                <tr class="tot" style="padding: 0px">
                     <td class='cor3' colspan="5">Total:</td>
                     <td class="total-value" id="total">R$ <?= number_format($total, 2, ',', '.') ?></td>
                 </tr>
@@ -138,14 +140,12 @@ foreach ($carrinho as $produto) {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td style="padding: 0px 0px 0px 60px;">
-                        <input type="checkbox" id="selecionarTodos">
-                    </td>
+                    <td><input type="checkbox" style="margin: 0px;"></td>
                 </tr>
 
                 <tr>
-                    <td style="border: none;" colspan="6">
-                        <div class="button-container">
+                    <td class="bot" style="border: none;">
+                        <div class="button-container" style="">
                             <button type="submit">Realizar Pedido</button>
                             <button type="button" id="btnExcluirSelecionados">Excluir selecionados</button>
                         </div>
