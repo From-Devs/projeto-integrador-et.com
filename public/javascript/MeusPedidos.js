@@ -184,9 +184,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             <span class="detalhes-precoTotal">Preço Total: R$ ${precoTotal2.toFixed(2)}</span>
                         </div>
                         <div class="detalhes-botoes">
-                            <a class="comprarNvmtBtn" href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php">Comprar Novamente</a>
+                            <a class="comprarNvmtBtn" href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php">Comprar Nov.</a>
                             <button class="avaliarBtn">Avaliar</button>
-                            <button class="devolverBtn">Avaliar</button>
+                            <button class="devolverBtn">Devolver</button>
                         </div>
                     </div>
                 `;
