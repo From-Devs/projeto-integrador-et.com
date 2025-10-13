@@ -5,7 +5,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: "Montserrat",serif;
+    font-family: "Montserrat", serif;
 }
 
 .conteudoMeusPedidos{
@@ -29,12 +29,7 @@
     width: 100%;
 }
 
-.areaSuperiorMP .tituloPrincipalMP{
-    display: flex;
-    justify-content: center;
-}
-
-.areaSuperiorMP .tituloPrincipalMP h1{
+.tituloPrincipalMP{
     font-size: 38px;
     font-weight: 300;
     text-align: center;
