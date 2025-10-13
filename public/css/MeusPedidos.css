@@ -66,6 +66,9 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
     gap: 30px;
+    box-shadow: inset 0px 0px 10px 0px rgba(71, 71, 71, 0.541);
+    border-radius: 30px;
+    padding: 15px 20px 20px 20px;
 }
 
 .pedidoAndamentoMP #produtosAndamento::-webkit-scrollbar{
@@ -438,19 +441,16 @@
 }
 
 .pedidosFinalizadosMP #produtosFinalizados{
-    width: 97%;
-    max-height: 540px;
-    margin-top: 15px;
-    padding: 15px 20px 20px 20px;
+    margin-top: 7px;
+    width: 100%;
+    max-height: 620px;
+    overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
-    overflow-y: auto;
-    gap: 20px;
-    border-radius: 30px;
-    border: none;
+    gap: 30px;
     box-shadow: inset 0px 0px 10px 0px rgba(71, 71, 71, 0.541);
-    background-color: white;
-    filter: drop-shadow();
+    border-radius: 30px;
+    padding: 15px 20px 20px 20px;
 }
 
 .pedidosFinalizadosMP #produtosFinalizados::-webkit-scrollbar{
