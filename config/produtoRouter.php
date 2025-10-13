@@ -27,13 +27,29 @@ switch ($action) {
     // === EXCLUIR SELECIONADOS DO CARRINHO =====
     // ===============================
     case 'excluirSelecionados':
+        // 🔹 Compatível com requisições via fetch JSON (Meu_Carrinho.js)
+        $input = file_get_contents('php://input');
+        if (!empty($input)) {
+            $data = json_decode($input, true);
+            if (isset($data['ids'])) {
+                $_POST['id_produto'] = $data['ids'];
+            }
+        }
+
         $ids = getIdsProdutos();
         if (empty($ids)) {
             echo json_encode(['ok' => false, 'msg' => 'Nenhum produto selecionado']);
             exit;
         }
-        $resultado = $controller->removerSelecionadosDoCarrinho($idUsuario, $ids);
-        echo json_encode($resultado);
+
+        // 🔹 Compatível com o novo método do controller
+        if (method_exists($controller, 'excluirSelecionados')) {
+            $resultado = $controller->excluirSelecionados($ids, $idUsuario);
+        } else {
+            $resultado = $controller->removerSelecionadosDoCarrinho($idUsuario, $ids);
+        }
+
+        echo json_encode(is_array($resultado) ? $resultado : ['ok' => (bool)$resultado]);
         break;
 
     // ===============================
@@ -63,13 +79,28 @@ switch ($action) {
     case 'adicionar':
         $ids = getIdsProdutos();
         $qtd = $_POST['quantidade'] ?? 1;
+
+        // 🔹 Compatível com fetch JSON (Meu_Carrinho.js)
+        $input = file_get_contents('php://input');
+        if (!empty($input)) {
+            $data = json_decode($input, true);
+            if (isset($data['id_produto'])) {
+                $ids = [$data['id_produto']];
+            }
+            if (isset($data['quantidade'])) {
+                $qtd = $data['quantidade'];
+            }
+        }
+
         if (empty($ids)) {
             echo json_encode(['ok' => false, 'msg' => 'Produto inválido']);
             exit;
         }
+
         foreach ($ids as $idProduto) {
             $controller->adicionarAoCarrinho($idUsuario, $idProduto, $qtd);
         }
+
         echo json_encode(['ok' => true, 'msg' => 'Produto(s) adicionado(s) ao carrinho']);
         break;
 

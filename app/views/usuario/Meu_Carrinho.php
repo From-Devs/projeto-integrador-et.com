@@ -100,25 +100,31 @@ foreach ($carrinho as $produto) {
                     $subtotalProduto = $preco * $quantidade;
                     $imagem = $produto['img1'] ?? 'no-image.png';
                 ?>
-                <tr>
+                <tr class="linhaCarrinho" data-id="<?= $produto['id_produto'] ?>">
                     <td class="prod">
                         <div class="conteudo_td">
-                            <input class='check' type='checkbox' name='selecionar[<?= $index ?>]'>
-                            <img class='cor1' src='/projeto-integrador-et.com/public/imagens/produto/<?= $imagem ?>' alt='<?= $produto['nome'] ?>' width='50'>
-                            <span class='produto-nome'><?= $produto['nome'] ?></span>
+                            <!-- Checkbox individual atualizado -->
+                            <input 
+                                class="checkbox-individual check" 
+                                type="checkbox" 
+                                data-id="<?= $produto['id_produto'] ?>"
+                                name="selecionar[<?= $index ?>]"
+                            >
+                            <img class="cor1" src="/projeto-integrador-et.com/public/imagens/produto/<?= $imagem ?>" alt="<?= $produto['nome'] ?>" width="50">
+                            <span class="produto-nome"><?= $produto['nome'] ?></span>
                         </div>
                     </td>
                     <td></td>
                     <td></td>
-                    <td class='cor2'>R$ <?= number_format($preco, 2, ',', '.') ?></td>
-                    <td class='quantityColumn'>
-                        <div class='quantity-container'>
-                            <button type='button' onclick='decrementarQuantidade(<?= $index ?>)'>-</button>
-                            <input type='number' name='quantidade[<?= $index ?>]' value='<?= $quantidade ?>' min='1'>
-                            <button type='button' onclick='incrementarQuantidade(<?= $index ?>)'>+</button>
+                    <td class="cor2">R$ <?= number_format($preco, 2, ',', '.') ?></td>
+                    <td class="quantityColumn">
+                        <div class="quantity-container">
+                            <button type="button" onclick="decrementarQuantidade(<?= $index ?>)">-</button>
+                            <input type="number" name="quantidade[<?= $index ?>]" value="<?= $quantidade ?>" min="1">
+                            <button type="button" onclick="incrementarQuantidade(<?= $index ?>)">+</button>
                         </div>
                     </td>
-                    <td class='cor2' id='subtotal-item-<?= $index ?>'>R$ <?= number_format($subtotalProduto, 2, ',', '.') ?></td>
+                    <td class="cor2" id="subtotal-item-<?= $index ?>">R$ <?= number_format($subtotalProduto, 2, ',', '.') ?></td>
                 </tr>
                 <?php endforeach; ?>
             <?php else: ?>
@@ -130,17 +136,20 @@ foreach ($carrinho as $produto) {
 
             <tfoot>
                 <tr class="tot" style="padding: 0px">
-                    <td class='cor3' colspan="5">Total:</td>
+                    <td class="cor3" colspan="5">Total:</td>
                     <td class="total-value" id="total">R$ <?= number_format($total, 2, ',', '.') ?></td>
                 </tr>
 
+                <!-- Checkbox "Selecionar Todos" atualizado -->
                 <tr class="tudo">
                     <td>Selecionar Tudo:</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><input type="checkbox" style="margin: 0px;"></td>
+                    <td>
+                        <input type="checkbox" id="selecionarTodos" style="margin: 0px;">
+                    </td>
                 </tr>
 
                 <tr>
