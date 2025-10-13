@@ -6,7 +6,7 @@ class PedidoController {
 
     public function __construct() {
         $db = new Database();
-        $this->conn = $db->connect(); // certifique-se que é connect() (minúsculo)
+        $this->conn = $db->Connect(); // certifique-se que é connect() (minúsculo)
     }
 
     /**

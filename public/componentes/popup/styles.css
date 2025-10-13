@@ -65,16 +65,15 @@
     height: 20px;
 }
 
-
-
 .popUpDialogCurto {
     border: none;
     padding: 0;
     margin: 10px 0px;
     background: transparent;
-    width: auto;
+    /* width: auto; */
     max-width: 90%;
     left: 50%;
+    transform: translate(-50%, 0%);
     animation: fadeIn 0.3s ease;
 }
 
@@ -88,19 +87,19 @@
     outline: none;
     background: transparent;
 }
-
   
 .popUpCurto {
     display: flex;
     flex-direction: column;
     justify-content: space-between;  
+    overflow: hidden;
     gap: 10px;
     border-radius: 12px;
     padding: 0px 0px 10px 0px;
     color: white;
     font-family: Arial, sans-serif;
     min-width: 250px;
-    max-width: 400px;
+    max-width: 450px;
 }
   
 .container-principalCurto {
@@ -108,9 +107,10 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    padding: 0 10px;
 }
   
-.img-popUpCurto img {
+.img-popUpCurto {
     width: 40px;
     height: 40px;
     object-fit: cover;
@@ -118,8 +118,8 @@
 }
   
 .texto-popUpCurto {
+    font-family: "Montserrat", sans-serif;
     margin: 0;
-    line-height: 1.4;
     font-weight: 500;
 }
 
@@ -149,7 +149,8 @@
     height: 7px;
     background-color: rgba(255,255,255,0.7);
     width: 100%;
-    border-radius: 5px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
     margin-top: 0px;
     transform-origin: left;
 }
@@ -159,13 +160,13 @@
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-40px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translate(-50%, -40px); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
 } 
   
 @keyframes fadeOut {
-    from { opacity: 1; transform: translateY(0); }
-    to   { opacity: 0; transform: translateY(-40px); }
+    from { opacity: 1; transform: translate(-50%, 0); }
+    to   { opacity: 0; transform: translateY(-50%, -40px); }
 }
   
 .popUpDialogCurto[open]::backdrop {

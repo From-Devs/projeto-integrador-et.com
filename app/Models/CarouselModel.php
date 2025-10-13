@@ -2,61 +2,71 @@
 // model/carousel.php    
 require_once __DIR__ . '/../../config/database.php';
 
-class CarroselModel {
-  private PDO $conn;    
-  // costrutor
-  public function __construct(){
-    $this->conn = Database::getConnection(); // new Database()
-  };
+class CarouselModel {
+    private PDO $conn;
 
-  public function createCarousel($id_carrosel,$id_produto,$id_coresSubs):array{
-    $stmt = $this->conn->prepare("INSERT INTO carousel ( id_carousel, id_produto, id_coresSubs) VALUES (:id_carousel, :id_produto, :id_coresSubs)");
-    return $stmt->execuite([
-      ":id_carousel" => $id_carousel,
-      ":id_produto" => $id_produto, 
-      ":id_coresSubs " => $id_coresSubs 
-    ]);
-    
-  };
-  
-  public function EditCarousel($id,$id_carousel,$id_produto,$id_coresSubs):array{
-    $stmt = $this->conn->prepare("UPDATE carousel SET id_carousel=:id_carousel, id_produto=:id_produto, id_coresSubs=:id_coresSubs WHERE id=:id ");
-    return $stmt->execute([
-        "id" => $id,
-        ":id_carousel" => $id_carousel,
-        ":id_produto" => $id_produto, 
-        ":id_coresSubs " => $id_coresSubs 
-    ])
-  } 
-  
-  public function RemoveCarousel($id):bool {
-    try{
-        $stmt = $this->conn->prepare("DELETE * FROM carousel WHERE id_carousel = :id");
-        return $stmt->execute([
-        ":id" => $id
-        ]);
-      } catch (\Throwable $th) {
-        echo "Erro ao buscar: " . $th->getMessage();
-        return false;
-    };
-  };
+    // 🔹 Construtor
+    public function __construct() {
+        // Corrigido: precisa instanciar a classe Database
+        $db = new Database();
+        $this->conn = $db->connect();
+    }
 
-  public function getElementById($id):array{
-    try{
-        $stmt = $this->conn->prepare("SELECT * FROM carousel WHERE id_carousel = :id");
+    // 🔹 Criar novo registro
+    public function createCarousel(array $data): bool {
+        $stmt = $this->conn->prepare("
+            INSERT INTO carousel (id_carousel, id_produto, id_coresSubs)
+            VALUES (:id_carousel, :id_produto, :id_coresSubs)
+        ");
+
         return $stmt->execute([
-            ":id" => $id
+            ":id_carousel" => $id_carousel,
+            ":id_produto" => $id_produto,
+            ":id_coresSubs" => $id_coresSubs
         ]);
-        return $stmt->fecth(PDO::FETCH_ASSOC);
-      } catch (\Throwable $th) {
-        echo "Erro ao buscar: " . $th->getMessage();
-        return false;
-      };
-  };
-  
-  public function getAll(){
-    $stmt = $this->conn->prepare("SELECT * FROM carousel WHERE id_carousel");
-    return $stmt->fecthAll(PDO::FETCH_ASSOC);
-  }
+    }
+
+    // 🔹 Editar registro existente
+    public function create(array $data): bool {
+      $stmt = $this->conn->prepare("
+          INSERT INTO carousel (id_carousel, id_produto, id_coresSubs)
+          VALUES (:id_carousel, :id_produto, :id_coresSubs)
+      ");
+
+      return $stmt->execute([
+          ":id_carousel" => $data['id_carousel'],
+          ":id_produto" => $data['id_produto'],
+          ":id_coresSubs" => $data['id_coresSubs']
+      ]);
+    } 
+    // 🔹 Remover registro
+    public function removeCarousel($id): bool {
+        try {
+            // Corrigido: DELETE não usa "*"
+            $stmt = $this->conn->prepare("DELETE FROM carousel WHERE id_carousel = :id");
+            return $stmt->execute([":id" => $id]);
+        } catch (Throwable $th) {
+            echo "Erro ao deletar: " . $th->getMessage();
+            return false;
+        }
+    }
+
+    // 🔹 Buscar por ID
+    public function getElementById($id): array|bool {
+        try {
+            $stmt = $this->conn->prepare("SELECT * FROM carousel WHERE id_carousel = :id");
+            $stmt->execute([":id" => $id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (Throwable $th) {
+            echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
+    }
+
+    // 🔹 Buscar todos
+    public function getAll(): array {
+        $stmt = $this->conn->query("SELECT * FROM carousel");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>
