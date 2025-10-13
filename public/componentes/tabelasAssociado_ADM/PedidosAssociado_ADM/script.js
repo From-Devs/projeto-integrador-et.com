@@ -17,6 +17,12 @@ async function mudarStatus(btnId, idPedido){
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const modalAberto = localStorage.getItem('modalAberto');
+    if(modalAberto){
+        const modal = document.getElementById(modalAberto);
+        if(modal) modal.showModal();
+    }
+
     if(sessionStorage.getItem("abrirPopUpStatus") === "true"){
         abrirPopUpCurto("popUpStatus");
         sessionStorage.removeItem("abrirPopUpStatus");
