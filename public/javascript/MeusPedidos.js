@@ -119,6 +119,23 @@ document.addEventListener("DOMContentLoaded", () => {
                             </div>
                         </div>
                     </div>
+
+                    <div class="card-expandido">
+                        <span class="card-titulo">DESCRIÇÃO</span>
+                        <div class="card-linhasuperior"></div>
+                        <img class="cardMini-imagem" src="${imagem}" height="130px">
+                        <div class="card-linhainferior"></div>
+                        <div class="detalhes-info" style="gap: 10px;">
+                            <span class="detalhes-titulo">${nome}</span>
+                            <span class="detalhes-status">Status: <span style="color: red;">${status}</span></span>
+                            <span class="detalhes-categoria">Categoria:</span>
+                            <span class="detalhes-preco" style="margin-bottom: 20px; font-size:12px; font-weight:500;">Preço: R$ ${subtotal.toFixed(2)}</span>
+                        </div>
+                        <div style="display: flex; gap: 5px">
+                            <a href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php" class="detalhes-botao">Comprar Novamente</a>
+                            <button class="cancelarBtn">Cancelar</button>
+                        </div>
+                    </div>
                 `;
                 popupProdutos.appendChild(miniCard);
                 totalCompra += subtotal;

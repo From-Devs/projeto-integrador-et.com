@@ -822,6 +822,16 @@
             color: black;
         }
 
+        .cancelarBtn{
+            padding: 9px 14px;
+            border-radius: 20px;
+            border: 2px solid rgb(202, 202, 202);
+            background-color: rgb(202, 202, 202);
+            font-size: 13px;
+            text-decoration: none;
+            color: black;
+        }
+
         .cardpopup:hover .card-expandido .detalhes-botoes .avaliarBtn:hover,
         .cardpopup:hover .card-expandido .detalhes-botoes .comprarNvmtBtn:hover{
             background-color: rgb(255, 255, 255);
@@ -1451,7 +1461,6 @@
         margin-bottom: 0px;
     }
     .cardMini:hover .card-expandido .detalhes-botao{
-        padding: 7px 12px;
         font-size: 12px;
     }
     
