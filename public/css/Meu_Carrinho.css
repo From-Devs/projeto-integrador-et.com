@@ -194,7 +194,7 @@ tfoot {
   justify-content: center;
   gap: 5px;
 }
-.quantity-btn {
+.quant-btn {
   background-color: #1c1c1c;
   color: white;
   border: 1px solid #ccc;
@@ -207,7 +207,7 @@ tfoot {
   cursor: pointer;
   font-size: 18px;
 }
-.quantity-input {
+.quant {
   width: 50px;
   text-align: center;
   border: 1px solid #ccc;
@@ -374,13 +374,13 @@ input[type="checkbox"]:checked::before {
     gap: 4px;
   }
 
-  .quantity-btn {
+  .quant-btn {
     width: 24px;
     height: 24px;
     font-size: 14px;
   }
 
-  .quantity-input {
+  .quant {
     width: 36px;
     height: 24px;
     font-size: 13px;

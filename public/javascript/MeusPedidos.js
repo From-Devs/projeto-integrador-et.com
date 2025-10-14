@@ -4,8 +4,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // === CORES DINÂMICAS ===
     // ========================
     document.querySelectorAll('.cards-produtoAndamento, .cardProduto-finalizado').forEach(card => {
-        const hex1 = card.dataset.hex1 || '#cccccc'; // fallback
-        const hex2 = card.dataset.hex2 || '#999999';
+        const cores =[
+            ["#FAD0C4", "#FFD1FF"],  
+            ["#A1C4FD", "#C2E9FB"],  
+            ["#FFDEE9", "#B5FFFC"],  
+            ["#FEE9B2", "#FBC2EB"],  
+            ["#C9FFBF", "#FFAFBD"],  
+            ["#D4FC79", "#96E6A1"],  
+            ["#FBC2EB", "#A6C1EE"],  
+            ["#FFD3A5", "#FD6585"],  
+            ["#E0C3FC", "#8EC5FC"],  
+            ["#FFF1EB", "#ACE0F9"],  
+            ["#FBD3E9", "#BB377D"],  
+            ["#C2FFD8", "#465EFB"],  
+            ["#F6D365", "#FDA085"],  
+            ["#E8CBC0", "#636FA4"],  
+            ["#FEE140", "#FA709A"]
+        ];
+
+        const [hex1, hex2] = cores[Math.floor(Math.random() * cores.length)];
     
         const cardColorido = card.querySelector(".cardcoloridoCam, .cardcoloridoFin");
         if (cardColorido) {

@@ -50,7 +50,7 @@ $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
     <!-- Pedidos em andamento -->
     <section class="pedidoAndamentoMP">
         <h2 class="tituloAndamentoMP">Em Andamento</h2>
-        <div id="produtosAndamento" style="width: auto;">
+        <div id="produtosAndamento" style="width: auto; gap:20px">
             <?php if (!$pedidos): ?>
                 <p class="aviso">Você ainda não possui pedidos.</p>
             <?php else: ?>

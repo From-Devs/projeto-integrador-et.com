@@ -119,9 +119,9 @@ foreach ($carrinho as $produto) {
                     <td class="cor2">R$ <?= number_format($preco, 2, ',', '.') ?></td>
                     <td class="quantityColumn">
                         <div class="quantity-container">
-                            <button type="button" onclick="decrementarQuantidade(<?= $index ?>)">-</button>
-                            <input type="number" name="quantidade[<?= $index ?>]" value="<?= $quantidade ?>" min="1">
-                            <button type="button" onclick="incrementarQuantidade(<?= $index ?>)">+</button>
+                            <button class="quant-btn" type="button" onclick="decrementarQuantidade(<?= $index ?>)">-</button>
+                            <input class="quant" type="number" name="quantidade[<?= $index ?>]" value="<?= $quantidade ?>" min="1">
+                            <button class="quant-btn" type="button" onclick="incrementarQuantidade(<?= $index ?>)">+</button>
                         </div>
                     </td>
                     <td class="cor2" id="subtotal-item-<?= $index ?>">R$ <?= number_format($subtotalProduto, 2, ',', '.') ?></td>
