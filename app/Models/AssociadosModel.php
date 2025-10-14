@@ -14,15 +14,15 @@ class AssociadosModel{
         try {
             $sqlAssociados = "SELECT id_usuario, U.nome, U.email, E.cidade, E.estado, U.telefone
             FROM usuario U
-            JOIN endereco E ON U.id_endereco = E.id_endereco
+            LEFT JOIN endereco E ON U.id_endereco = E.id_endereco
             WHERE (U.tipo = 'associado' OR U.tipo = 'Associado')";
             
             if($tipo_tabela == "solicitacao"){
                 $sqlAssociados = "SELECT U.id_usuario, U.nome, U.email, U.TIPO, E.cidade, E.estado, SA.sobreProdutos, SA.motivoDoRecuso
                     FROM usuario U
-                    JOIN endereco E
+                    LEFT JOIN endereco E
                         ON U.id_endereco = E.id_endereco
-                    JOIN solicitacaodeassociado SA
+                    LEFT JOIN solicitacaodeassociado SA
                     	ON U.id_usuario = SA.id_usuario
                     WHERE U.TIPO = 'Cliente'";
             }

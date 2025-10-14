@@ -77,14 +77,16 @@ $avaliacoes = $produtoController->BuscarAvaliacoesPorProduto($id);
 
 <div class="container-detalhes">
     <div class="detalhes-principal">
-        <div class="imagens-lateral">
-            <div><img src="<?= htmlspecialchars($img1) ?>" alt="img-lateral"></div>
-            <div><img src="<?= htmlspecialchars($img2) ?>" alt="img-lateral"></div>
-            <div><img src="<?= htmlspecialchars($img3) ?>" alt="img-lateral"></div>
-        </div>
+        <div class="boxFotos">
+            <div class="imagens-lateral">
+                <div><img src="<?= htmlspecialchars($img1) ?>" alt="img-lateral"></div>
+                <div><img src="<?= htmlspecialchars($img2) ?>" alt="img-lateral"></div>
+                <div><img src="<?= htmlspecialchars($img3) ?>" alt="img-lateral"></div>
+            </div>
 
-        <div class="img-principal">
-            <div><img id='img-principal' src="<?= htmlspecialchars($imgPrincipal) ?>" alt="img-principal"></div>
+            <div class="img-principal">
+                <div><img id='img-principal' src="<?= htmlspecialchars($imgPrincipal) ?>" alt="img-principal"></div>
+            </div>
         </div>
 
         <div class="detalhes-info">

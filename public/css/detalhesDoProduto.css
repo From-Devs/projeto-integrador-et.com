@@ -19,6 +19,12 @@ a {
     flex-wrap: wrap;
     padding: 40px 20px;
 }
+
+.boxFotos{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 15px;
+}
  
 /* Parte superior */
 .detalhes-principal {
@@ -43,10 +49,10 @@ a {
 .imagens-lateral div {
     display: flex;
     width: 120px;
-    height: 150px;
+    height: 130px;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
  
     cursor: pointer;
@@ -67,7 +73,7 @@ a {
 .img-principal {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 }
  
 .img-principal div {
