@@ -64,7 +64,7 @@ tr {
     gap: 15px;
 }
 
-.validarButton, .cancelarButton {
+.validarButton, .cancelarButton, .btnSobreProduto, .btnMotivoRecuso {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,4 +133,46 @@ tr {
 .popUpRecusou .img-popUp img{
     background-color: rgb(202, 61, 61);
     border-radius: 50%;
+}
+
+@media (max-width: 1500px) {
+    .verticalizacao{
+        gap: 0px;
+    }
+
+    .validarButton, .cancelarButton, .btnSobreProduto, .btnMotivoRecuso {
+        width: 35px;
+        height: 35px;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: #fff;
+    }
+    
+    .validarButton img, 
+    .cancelarButton img, 
+    .btnSobreProduto img, 
+    .btnMotivoRecuso img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .validarButton:hover {
+        background-color: rgb(200, 255, 180);
+    }
+    
+    .cancelarButton:hover {
+        background-color: rgb(255, 180, 180);
+    }
+}
+
+@media (max-width: 600px) {
+    .verticalizacao{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
 }

@@ -1,5 +1,9 @@
 <?php
-function createContaAssociadoADM($tipo = "ADM"){
+function createContaAssociadoADM($tipo = "ADM",$user = ""){
+    $avatarPath = !empty($user['foto']) 
+    ? "/projeto-integrador-et.com/" . $user['foto'] 
+    : "/projeto-integrador-et.com/public/imagens/user-icon.png";
+
     if($tipo == "ADM"){
         return "
         <div class='componenteConta'>
@@ -15,10 +19,10 @@ function createContaAssociadoADM($tipo = "ADM"){
         return "
         <div class='componenteConta'>
             <div class='fotoUserWrapper'>
-                <img id='fotoUser' src='https://preview.redd.it/which-meme-image-of-joker-is-going-to-be-turned-into-a-v0-qgt2ljdpsbzc1.jpg?width=640&crop=smart&auto=webp&s=58b0fbeed2d91a608cf2507d5575f7dd8ea65e19' alt='userIMG'>
+                <img id='fotoUser' src='". $avatarPath ."' alt='userIMG'>
             </div>
             <div class='textContaContainer'>
-                <p id='textUser'>Wellinton R.</p>
+                <p id='textUser'>". ($user["nome"] ?? "usuário") ."</p>
                 <p id='textCargo'>Associado ET</p>
             </div>
         </div>
