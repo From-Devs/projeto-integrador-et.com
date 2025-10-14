@@ -169,6 +169,11 @@
     to   { opacity: 0; transform: translateY(-50%, -40px); }
 }
   
+.popUpDialogCurto::backdrop {
+    display: none;
+    background: transparent;
+}
+
 .popUpDialogCurto[open]::backdrop {
     background: transparent;
 }
