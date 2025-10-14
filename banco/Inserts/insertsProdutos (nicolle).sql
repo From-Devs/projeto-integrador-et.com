@@ -1,17 +1,22 @@
 
 INSERT INTO usuario (id_usuario,nome,email,telefone,cpf,data_nascimento,senha,tipo,foto,id_endereco)
 VALUES 
-(1,"Nicolle de Moura Zaleski","nicolle.m.zaleski@gmail.com","67 99168-3535","123.456.789-10","2001-12-19","nicolle","Cliente",null,null),
-(4,"Ozzy Osbourne","ozzyosbourne@gmail.com","(67) 66666-6666","666.666.666-66","1948-12-03","morcego","Associado",null,null);
+(2,"Ozzy Osbourne","ozzyosbourne@gmail.com","(67) 66666-6666","666.666.666-66","1948-12-03","morcego","Associado",null,null);
+(3,"Eliana Giardini","elianagiardini@gmail.com","(21) 99384-7383","111.111.111-11","1990-06-30","associada","Associado",null,null);
+(4,"Michael Hehe","rusbejackson@gmail.com","(11) 99823-6372","222.222.222-22","2002-09-24","associade","Associado",null,null);
 
 		-- Ambos eu cadastrei pelo site mesmo, então a senha está criptografada
 
+
+
+----Obsevação: <<TODOS>> os produtos estão inseridos entre associados do id 2,3, e 4.
+--------------- POR FAVOR, ATENTEM-SE AOS IDs!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 -- INSERTS JÁ REALIZADOS:
 
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
-(1,'#3E7FD9','#133285','#3F7FD9');
+(1,'#133285','#3E7FD9','#4f8de4ff');
 
 INSERT INTO Produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES
@@ -33,11 +38,11 @@ Modo de Uso:
 
 Aviso:
 Uso externo. Não é indicado para uso no rosto. Não é protetor solar. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças. Este é um produto cosmético, não ingerir.',
-23.90,22.70,1,50,'milk-1.png','milk-2.webp','milk-3.webp',24,1,4);
+23.90,22.70,1,50,'milk-1.png','milk-2.webp','milk-3.webp',24,1,2);
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
-(2, '#31BADA','#00728C','#31BADA');
+(2,'#00728C', '#25abc9ff','#50cce7ff');
 
 INSERT INTO Produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES
@@ -61,14 +66,14 @@ Orientações ao consumidor:
 Uso Externo. Produto Cosmético. Não comestível. Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas.
 Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Uso adulto. Produto para perfumar e desodorizar a pele.
 Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.',
-69.90,null,0,'20','biscoito.png','biscoito-2.png','biscoito-3.png',22,2,4);
+69.90,null,0,'20','biscoito.png','biscoito-2.png','biscoito-3.png',22,2,3);
 
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
-(3, '#DBA980','#72543A','#E4B186');
+(3, '#72543A','#bd8f66ff','#eec6a4ff');
 
 INSERT INTO Produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES
@@ -112,7 +117,7 @@ Amadeirado Ambarado Couro.
 
 Como Usar:
 Borrife a fragrância nas áreas onde há maior circulação do sangue, como o pescoço, dobras do cotovelo e atrás das orelhas.",
-209.90,179.90,1,50,"coffee.png","coffee-2.jpg","coffee-3.jpg",6,4,4);
+209.90,179.90,1,50,"coffee.png","coffee-2.jpg","coffee-3.jpg",6,4,3);
 
 
 
@@ -157,7 +162,7 @@ Orientações ao consumidor:
 Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Produto para perfumar e desodorizar a pele.
 
 Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.",
-89.90,null,0,40,"bodysplash-deleite.png","bodysplash-deleite-2.webp","bodysplash-deleite-3.webp",23,6,4);
+89.90,null,0,40,"bodysplash-deleite.png","bodysplash-deleite-2.webp","bodysplash-deleite-3.webp",23,6,3);
 
 
 
@@ -182,7 +187,7 @@ Como Usar:
 Aplicar em todo o corpo, após o banho ou sempre que desejar.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.",
-139.90,null,0,15,"lily.png","lily-2.webp","lily-3.webp",25,7,4);
+139.90,null,0,15,"lily.png","lily-2.webp","lily-3.webp",25,7,2);
 
 
 
@@ -203,7 +208,7 @@ Após a higienização dos cabelos, retire o excesso de umidade e distribua a M�
 
 Ingredientes:
 AQUA, BEHENAMIDOPROPYL DIMETHYLAMINE, BEHENTRIMONIUM METHOSULFATE and CETEARYL ALCOHOL, BENZYL ALCOHOL and BENZOIC ACID and SORBIC ACID and GLYCERIN, CAPRYLIC/CAPRIC TRIGLYCERIDE, CETEARYL ALCOHOL, CETYL ESTERS, COPAIFERA OFFICINALIS (BALSAM COPAIBA) RESIN and PASSIFLORA EDULIS SEED OIL, LACTIC ACID, PARFUM, PROPYLENE GLYCOL, SACCHAROMYCES/XYLINUM/BLACK TEA FERMENT and GLYCERIN and HYDROXYETHYLCELLULOSE",
-64.90,60.90,1,40,"lola-danos-vorazes.png","lola-danos-vorazes-2.webp","lola-danos-vorazes-3.webp",12,8,4);
+64.90,60.90,1,40,"lola-danos-vorazes.png","lola-danos-vorazes-2.webp","lola-danos-vorazes-3.webp",12,8,2);
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -227,7 +232,7 @@ Modo de uso:
 1- Aplique o shampoo nos cabelos molhados e massageie o couro cabeludo até formar espuma;
 2- Enxágue bem e repita a aplicação se necessário;
 3- Para melhores resultados, utilize o condicionador da linha.",
-69.90,49.90,1,30,"shampoo-protect-color-brae.png","shampoo-protect-color-brae-2.webp","shampoo-protect-color-brae-3.webp",14,9,4);
+69.90,49.90,1,30,"shampoo-protect-color-brae.png","shampoo-protect-color-brae-2.webp","shampoo-protect-color-brae-3.webp",14,9,2);
 
 
 
@@ -252,7 +257,7 @@ Modo de uso:
 1- Após lavar com o shampoo, aplique o condicionador nos cabelos úmidos, do comprimento às pontas;
 2- Deixe agir por alguns minutos;
 3- Enxágue bem e finalize como preferir.",
-79.0,52.90,1,30,"condicionador-protect-color-brae.png","condicionador-protect-color-brae-2.webp","condicionador-protect-color-brae-3.webp",14,10,4);
+79.0,52.90,1,30,"condicionador-protect-color-brae.png","condicionador-protect-color-brae-2.webp","condicionador-protect-color-brae-3.webp",14,10,2);
 
 
 
@@ -279,7 +284,7 @@ Modo de uso:
 2- Aplique a máscara nos cabelos úmidos, do comprimento às pontas;
 3- Deixe agir por 5 minutos;
 4- Enxágue bem e, para um cuidado completo, finalize com o condicionador da linha.",
-99.90,54.90,1,30,"mascara-color-protect-brae.png","mascara-color-protect-brae-2.webp","mascara-color-protect-brae-3.webp",14,11,4);
+99.90,54.90,1,30,"mascara-color-protect-brae.png","mascara-color-protect-brae-2.webp","mascara-color-protect-brae-3.webp",14,11,2);
 
 
 
@@ -300,7 +305,7 @@ Brae stages Color Protect - Condicionador Proteção da Cor 250ml
 Condicionador para cabelos coloridos. Condiciona de forma eficaz, promove maciez, luminosidade e proteção prolongada da cor, além de ajudar no desembaraço e selar as cutículas.
 Brae stages Color Protect - Máscara Proteção da Cor 200g
 Máscara de tratamento para cabelos coloridos. Possui ação antioxidante, hidrata, promove maciez, luminosidade e proteção prolongada da cor, além de proporcionar brilho.",
-249.70,137.34,1,10,"kit-color-protect.png","kit-color-protect-2.webp","kit-color-protect-3.webp",14,12,4);
+249.70,137.34,1,10,"kit-color-protect.png","kit-color-protect-2.webp","kit-color-protect-3.webp",14,12,2);
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -399,7 +404,7 @@ Pirâmide Olfativa
 Notas de Topo: Cassis ou Groselha Preta, Laranja, Tangerina, Cássia, Toranja e Bergamota;
 Notas de Coração: Damasco, Lírio, Jasmin, Lírio-do-vale e Rosa;
 Notas de Fundo: Âmbar, Fava Tonka, Baunilha, Cedro da Virgínia e Almíscar.",
-189.90,119.90,1,30,"amor-amor.png","amor-amor-2.jpg","amor-amor-3.webp",5,16,4);
+189.90,119.90,1,30,"amor-amor.png","amor-amor-2.jpg","amor-amor-3.webp",5,16,3);
 
 
 
@@ -444,7 +449,7 @@ Para aplicação da Máscara Pigmentante Medusa seu cabelo precisa estar em uma 
 · Se tirado no banho o produto pode manchar a pele;
 · Faça um teste de mecha antes da aplicação do produto no cabelo inteiro.
 ",
-64.50,54.82,1,30,"kamaleao-color-medusa.png","kamaleao-color-medusa-2.jpg","kamaleao-color-medusa-3.jpg",17,17,4);
+64.50,54.82,1,30,"kamaleao-color-medusa.png","kamaleao-color-medusa-2.jpg","kamaleao-color-medusa-3.jpg",17,17,3);
 
 
 
@@ -490,14 +495,14 @@ Avisos:
 . Se tirado no banho o produto pode manchar a pele;
 . Faça um teste de mecha antes da aplicação do produto no cabelo inteiro.
 ",
-64.50,54.82,1,30,"carpa-kamaleao-color.png","carpa-kamaleao-color-2.jpg","carpa-kamaleao-color-3.jpg",17,18,4);
+64.50,54.82,1,30,"carpa-kamaleao-color.png","carpa-kamaleao-color-2.jpg","carpa-kamaleao-color-3.jpg",17,18,3);
 
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(19,"#6f1105","#c46220","#efd08d");
+(19,"#6f1105","#c46220","#e4aa84ff");
 
 INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -513,14 +518,14 @@ Aplique na pele limpa e umedecida após o banho e massageie levemente. Se deseja
 
 Composição:
 Petrolato Líquido, Lecitina, Perfume, Lauromacrogol 400, Octildodecanol, Óleo de Amêndoas, Óleo da Semente de Corylus avellana, Fenoxietanol, Adipato de Dibutila, Cumarina, Limoneno, Etilexilglicerina, Tetra-Di-T-Butil Hidróxi-Hidrocinamato de Pentaeritritila, Linalol, Citral.",
-13.49,null,0,14,"oleo-avela-paixao.png","oleo-avela-paixao-2.jpg","oleo-avela-paixao-3.jpg",24,19,4);
+13.49,null,0,14,"oleo-avela-paixao.png","oleo-avela-paixao-2.jpg","oleo-avela-paixao-3.jpg",24,19,2);
 
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(20,"#6e0313","#bd021f","#efd08d");
+(20,"#6e0313","#bd021f","#f1556cff");
 
 INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -553,14 +558,14 @@ Manter fora do alcance das crianças.
 Não ingerir. 
 Em caso de contato acidental com os olhos enxaguar abundantemente com água. 
 Em caso de irritação suspenda o uso e procure orientação médica.",
-27.79,null,0,30,"oleo-ameixarubi-paixao.png","oleo-ameixarubi-paixao-2.webp","oleo-ameixarubi-paixao-3.webp",24,20,4);
+27.79,null,0,30,"oleo-ameixarubi-paixao.png","oleo-ameixarubi-paixao-2.webp","oleo-ameixarubi-paixao-3.webp",24,20,2);
 
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(21,"#121734","#283256","#efd08d");
+(21,"#283256","#3e56adff","#6281f1ff");
 
 INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocaoqtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -593,14 +598,14 @@ Manter fora do alcance das crianças.
 Não ingerir.
 Em caso de contato acidental com os olhos enxaguar abundantemente com água.
 Em caso de irritação suspenda o uso e procure orientação médica.",
-14.20,null,0,15,"oleo-rosasbrancas-paixao.png","oleo-rosasbrancas-paixao-2.webp","oleo-rosasbrancas-paixao-3.webp",24,21,4);
+14.20,null,0,15,"oleo-rosasbrancas-paixao.png","oleo-rosasbrancas-paixao-2.webp","oleo-rosasbrancas-paixao-3.webp",24,21,2);
 
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(22,"#7c0023","#b5254b","#96af33");
+(22,"#7c0023","#b5254b","#e95078ff");
 
 INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -644,3 +649,260 @@ POLYISOBUTENE/POLIISOBUTENO, PHENOXYETHANOL/FENOXIETANOL, CAPRYLIC/CAPRIC TRIGLY
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES 
+(24,"#801d31","#c45269","#ec8b9fff");
+
+INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+(24,"Gloss Cherry","Vizzela",null,
+"O Cherry Gloss com Chaveiro tem um tom vermelho cereja translúcido que realça a cor natural dos lábios com um leve toque avermelhado.",
+"Sua fórmula cremosa e confortável proporciona um efeito delicado, com aroma suave de cereja, sem escorrer e garantindo hidratação duradoura. Pode ser usado sozinho para um visual natural ou sobre o batom para um brilho extra. O resultado são lábios mais volumosos, hidratados e com a cor cherry que conquistou tantas fãs. Agora na versão gloss com chaveiro, para estar sempre com você, enriquecido com ácido hialurônico e vitamina E, que promovem hidratação prolongada e proteção aos lábios. 
+
+Como usar:
+Aplique o cherry gloss diretamente nos lábios com o aplicador.
+Use sozinho para um brilho natural ou por cima do batom para um efeito espelhado ainda mais intenso.
+
+Características do produto:
+Cor única e acabamento glossy acompanha chaveiro hidratação intensa acabamento confortável nos lábios não pegajoso fácil de aplicar ácido hialurônico e vitamina e dermatologicamente testado vegano cruelty free sem parabenos.
+
+Composição:
+hydrogenated polyisobutene/poliisobuteno hidrogenado, polyisobutene/poliisobuteno, paraffinum liquidum/parafina líquida, ethylene/propylene/styrene copolymer/copólímero de etileno/propileno/estireno, butylene/ethylene/styrene copolymer/copólímero de butileno/etileno/estireno, ethylhexyl metoxyccinamate/octinoxato, octyldodecanol/octildodecanol, parfum/perfume, ethylhexyl palmitate/palmitato de etilexila, ci 15880/corante vermelho 15880, phenoxyethanol/fenoxietanol, tocopheryl acetate/acetato de tocoferila, ci 15850/corante vermelho 15850/benzotriazolyl dodecyl p-cresol/benzotriazolyl dodecyl p-cresol, butylene glycol/butileno glicol, silica dimethyl silylate/silica dimethyl silylate, caprylyl glycol/caprililglicol, hexylene glycol/hexileno glicol, sodium hyaluronate/hialuronato de sódio.",
+69.90,null,0,20,"gloss-cherry-vizzela.png","gloss-cherry-vizzela-2.webp","gloss-cherry-vizzela-3.webp",3,64,4);
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES 
+(25,"#33c4fdff","#9cd2ffff","rgba(191, 225, 253, 1)");
+
+INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+(25,"Perfume Infantil Blue","Giovanna Baby","50ml",
+"Blue Giovanna Baby Deo Colônia. Blue é um perfume Giovanna Baby infantil. Fragrância que representa as doces lembranças que merecem ser recordadas todos os dias.",
+"Uma Releitura da embalagem, um ar de sofisticação, uma saudade. Tantas histórias vividas com Giovanna Baby Blue, lembranças doces que merecem ser recordadas todos os dias.
+A colônia Blue de Giovanna Baby é composta por notas frescas associadas a um singelo bouquet floral de Jasmim, rosa e ylang-ylang em perfeita harmonia com fundo musk, vanilla, powdery enriquecido por um complexo amadeirado. 
+
+Pirâmide Olfativa:
+Topo: Jasmim.
+Corpo: Rosa e Ylang-ylang.
+Fundo: Musk, Vanilla e Powdery.
+
+Ocasião:
+Para todos os momentos do dia a dia.
+
+Precauções:
+Evite contato com os olhos. Caso aconteça enxague abundantemente. Não aplicar sobre a pele ferida ou irritada. Em caso de irritação ou alergia, suspenda o uso e procure orientação médica. Manter fora do alcance das crianças. Uso externo. PRODUTO DE USO ADULTO.
+
+Composição:
+Álcool etílico; caprilato de poliglicerila-3; perfume; água; benzoato de benzila; butilfenil metilpropional; cumarina; alfa-isometil ionona; limoneno; linalol.
+
+Dica de Uso:
+Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colônia e espalhe na região que deseja perfumar do seu corpo. Dê preferência as áreas como punho, pulso e pescoço para privilegiar a difusão da fragrância. Pode ser usada também como desodorante.",
+90.33,77.90,1,23,"giovanna-baby-blue.webp","giovanna-baby-blue-2.webp","giovanna-baby-blue-3.webp",8,25,3);
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES 
+(26,"#ffaaeaff","#fcc0edff","#fad3f0ff");
+
+INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+(26,"Perfume Infantil Classic","Giovanna Baby","50ml",
+"Classic Giovanna Baby Eau de Cologne. Perfume Classic infantil floral Giovanna Baby. Fragrância que mescla notas frescas, delicadas e harmoniosas.",
+"Perfume Classic Giovanna Baby é seguro para ser usado diretamente na pele de crianças de todas as idades e garante uma sensação de relaxamento após o uso. Traz notas de rosa chá combinada com o jasmim e o frescor do muguet. Já o fundo é encorpado pelo sândalo com um exclusivo toque de Musk.
+
+Pirâmide Olfativa:
+Topo: Lavanda, Rosa Chá.
+Corpo: Jasmim e Muguet.
+Fundo: Sândalo e Musk.
+
+Ocasião:
+Para todos os momentos do dia.
+
+Precauções:
+Evite contato com os olhos. Caso aconteça enxague abundantemente. Não aplicar sobre a pele ferida ou irritada. Em caso de irritação ou alergia, suspenda o uso e procure orientação médica. Manter fora do alcance das crianças. Uso externo. PRODUTO DE USO ADULTO.
+
+Composição:
+Álcool etílico; caprilato de poliglicerila-3; perfume; água; benzoato de benzila; butilfenil metilpropional; citral; citronelol; cumarina; geraniol; limoneno; linalol.
+
+Dica de Uso:
+Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colônia e espalhe na região que deseja perfumar do seu corpo. Dê preferência as áreas como punho, pulso e pescoço para privilegiar a difusão da fragrância. Pode ser usada também como desodorante.",
+90.33,77.90,1,40,"giovanna-baby-pink.webp","giovanna-baby-pink-2.webp","giovanna-baby-pink-3.webp",8,26,3);
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(27,"#d8d759","#fafa85ff","#fafab1ff");
+
+INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+(27,"Limpador Facial","Sallve","300ml",
+"Gel de limpeza que remove maquiagem leve e limpa profundamente sem repuxar. Com niacinamida, extrato de moringa e livre de sulfatos.",
+"Gel-espuma, livre de sulfatos, que limpa profundamente sem deixar a pele repuxando. Além de limpar, sua combinação de ativos auxilia a manter a hidratação da pele e é compatível com peles sensíveis.
+
+Como usar:
+1- Coloque sobre as mãos úmidas uma pequena quantidade do Limpador Facial;
+2- Esfregue as mãos até formar uma espuma cremosa;
+3- Aplique a espuma no rosto também úmido, inclusive na área dos olhos, massageando suavemente com movimentos circulares;
+4- Enxágue com água em abundância e sinta na pele uma limpeza profunda com toque macio. 
+
+Quando usar: 
+Pela manhã, à noite ou quando quiser.",
+79.90,null,0,30,"limpador-facial-sallve.png","limpador-facial-sallve-2.webp","limpador-facial-sallve-3.webp",9,27,4),
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(28,"#763b8d","#a65ec2ff","#d18aecff");
+
+INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+(28,"Limpador Enzimático em Pó","Sallve","30g",
+"Limpador em pó que forma uma espuma cremosa para limpar e esfoliar a pele em um só passo, diariamente. Renova a pele e reduz cravos em 7 dias.",
+"Um limpador enzimático em pó, que forma uma espuma cremosa com sensorial macio. Une limpeza e uma poderosa esfoliação enzimática em um só passo, promovendo uma renovação diária eficaz mas gentil, sem ressecar. 
+Com papaína e argila branca, já no primeiro uso limpa profundamente, uniformiza a textura, deixa a pele macia e viçosa e com aparência de poros reduzida. 
+Ele também ajuda no controle da oleosidade, desobstrui poros e reduz a incidência de cravos em 7 dias. 
+
+Como usar:
+1- Coloque uma pequena quantidade nas mãos (vire de 5 a 8 vezes o frasco), acrescente um pouco de água e esfregue bem, até formar uma espuma cremosa;
+2- Aplique a mistura na pele úmida do rosto, evitando a área dos olhos, e massageie suavemente com movimentos circulares. Deixe o produto na pele por até um minuto para intensificar a ação enzimática;
+3- Em seguida, enxágue com água em abundância. 
+
+Use no máximo uma vez por dia. 
+Durante o dia, utilize protetor solar. 
+Agite antes de usar.",
+79.90,null,0,20,"limpador-enzimatico-sallve.png","limpador-enzimatico-sallve-2.webp","limpador-enzimatico-sallve-3.webp",9,28,4);
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(29,"#735f9c","#9f85d3ff","#cdb6fcff");
+
+INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+(29,"Esfoliante Enzimático","Sallve","70g",
+"Esfoliante facial com 3 tipos de esfoliação, incluindo enzimas de romã e partículas de bambu. Remove cravos e células mortas, deixando a pele renovada e radiante desde o primeiro uso e sem agredir a pele.",
+"Com uma fórmula que combina 3 tipos de esfoliação: a física, a química e a enzimática. 
+Possui em sua composição enzimas de romã e partículas de bambu, que remove progressivamente os cravos e as células mortas sem agredir a pele. 
+Os alfa-hidroxiácidos (AHA) ajudam a renovar a pele, melhorando a textura e a deixando com mais brilho. Já as enzimas são responsáveis por “digerir” o acúmulo de células mortas na superfície da pele, que promove uniformização e viço. 
+
+Como usar:
+1- Limpe o rosto com seu produto de limpeza facial.
+2- Seque a pele para melhor efeito.
+3- Coloque uma pequena quantidade do esfoliante enzimatico nas mãos e massageie com delicadeza, em movimentos circulares e evitando a área dos olhos.
+4- Enxágue com água em abundância, removendo todo o produto, e sinta na pele uma limpeza profunda com toque macio.
+5- Use no máximo 2 vezes por semana, em dias alternados.",
+74.90,null,0,20,"esfoliante-facial-sallve.png","esfoliante-facial-sallve-2.webp","esfoliante-facial-sallve-3.webp",10,29,4);
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(30,"#678ec2","#7faae2ff","#a8ccfcff");
+
+INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+(30,"Hidratante Firmador e Ácido Hialurônico","Sallve","40g",
+"Hidratante facial em gel com textura leve e de rápida absorção, ideal para peles mistas e oleosas. Contém Ácido hialurônico e fermentados vegetais na sua fórmula que controlam a oleosidade da pele.",
+"É um hidratante em gel com textura leve e de rápida absorção. Pensado para uso diário principalmente em peles mistas e oleosas, mas que pode trazer benefícios para todos os tipos de pele. 
+
+Com 8 formas e 3 diferentes pesos moleculares de ácido hialurônico, pantenol e fermentados vegetais, garante hidratação por até 48h, hidrata as diferentes camadas da pele e ajuda a amenizar a aparência de linhas finas. Já o cogumelo fu ling age para aumentar a luminosidade e o viço da pele.
+
+Como usar:
+1- Aplique ao redor da área dos olhos e em todo o rosto até o pescoço, massageando em movimentos ascendentes até a total absorção do produto.
+2- Você pode usar pela manhã, à noite ou quando quiser, sempre sobre a pele limpa.",
+89.90,null,0,20,"hidratante-firmador-sallve.png","hidratante-firmador-sallve-2.webp","hidratante-firmador-sallve-3.webp",11,30,4);
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(31,"#2de8f9","#5eedfaff","#99f5fdff");
+
+INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+(31,"Super Pró-Colágeno 10%","Sallve","30ml",
+"Sérum com 10% de peptídeos que atuam na síntese de colágeno para uma pele mais firme, com mais volume e contornos mais definidos.",
+"É um sérum super concentrado pensado para quem deseja aumentar a firmeza da pele.
+Com 10% de peptídeos Matrixyl, peptídeos de cobre e ácido hialurônico, atua diretamente em todas as etapas da síntese de colágeno, o que contribui para aumentar o preechimento, a elasticidade e a sustentação da pele. O resultado é uma fórmula de alta performance que desacelera e reverte sinais do tempo, melhorando a definição de contornos da mandíbula, pescoço e colo.
+Um tratamento poderoso que pode ser usado 1 vez ao dia, pela manhã ou à noite.
+
+Como usar:
+1- Aplique de 2 a 3 gotas no rosto e pescoço, massageando até a completa absorção. Pode ser usado pela manhã ou à noite;
+2- Durante o dia, use protetor solar.
+
+Observação: 
+Durante a primeira semana de uso, aplique pequenas quantidades de produto, em dias alternados.
+Não aplique nas pálpebras, nos cantos externos do nariz e da boca nem na pele irritada ou lesionada.",
+129.90,89.90,1,20,"super-pro-colageno-10-sallve-frontal.png","super-pro-colageno-10-sallve-frontal-inclinado.webp","super-pro-colageno-10-sallve-textura-aplicacao-gotas.webp",11,31,4);
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(32,"#cb9e74","#e5b68aff","#f7cea7ff");
+
+INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+(32,"Antioxidante Hidratante Vitamina C","Sallve","35g",
+"Sérum-gel antioxidante com nano vitamina C 10% para uma pele radiante. Controla a oleosidade da pele, previne linhas de expressão e manchas e diminui o inchaço de olheiras de cansaço.",
+"É sérum-gel formulado com Nano Vitamina C a 10%, o que o torna altamente eficaz em proporcionar uma pele radiante e saudável. Ele simplifica sua rotina de cuidados com a pele, proporcionando hidratação equilibrada, controlando a oleosidade e reduzindo a ocorrência de cravos. Além disso, é eficaz na prevenção de linhas finas e na melhoria da aparência de manchas, olheiras e bolsas nos olhos.
+
+Como usar:
+1- Lave o rosto com seu limpador facial.
+2- Aplique a Vitamina C Antioxidante Hidratante, 3 a 4 gotinhas são uma boa medida.
+3- Espere secar antes de passar seus outros produtos de cuidados com a pele ou seu protetor solar.
+
+Observações:
+Esse uso pode render em torno de 120 aplicações, de 3 a 4 meses de uso.",
+99.90,null,0,20,"antioxidante-hidratante.png","antioxidante-hidratante-2.webp","antioxidante-hidratante-3.webp",11,32,4);
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(33,"#794599","#b672e0ff","#daaaf8ff");
+
+INSERT INTO produto (id_produto,nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+(33,"Máscara Antirresseca","Sallve","30g",
+"Para acordar a pele e amenizar os sinais de cansaço; reduzir o inchaço e bolsas nos olhos, amenizar até as olheiras de cansaço.",
+"É uma máscara criada pra acordar sua pele e amenizar os sinais de cansaço. Com textura em gel que não resseca, leva na composição a Taurina e o Extrato de Café, ingredientes poderosos pra ativar a microcirculação desinchando o rosto, olheiras de cansaço e iluminando a pele; a Aloe Vera e os Fermentados Vegetais que juntos potencializam a hidratação e acalmam a pele deixando uma sensação deliciosa em apenas 15 minutos de uso.
+
+Por que ativar a Circulação: 
+Cansaço, insônia e noites mal dormidas podem refletir na pele, com sinais como a desidratação, aparência opaca e inchaços. ativar a circulação reduz a aparência inchada e devolve a luminosidade da pele. 
+
+Por que fermentados: 
+Em um processo biotecnológico, os substratos vegetais são fermentados para desenvolverem ativos com propriedades multifuncionais como as funções calmantes, hidratantes e antioxidantes.
+
+Como usar: 
+1- Limpe o rosto com seu produto de limpeza facial.
+2- Seque a pele para melhor efeito.
+3- Aplique uma camada generosa da Máscara Antirressaca ao redor da área dos olhos e em todo o rosto.
+4- Deixe agir por 15 minutos.
+5- Enxágue com água ou remova apenas o excesso e sinta sua pele refrescada e iluminada.
+
+Dica preciosa: 
+Esfoliar levemente a pele antes potencializ o efeito de qualquer máscara de tratamento.
+Quando usar:
+Até 3 vezes por semana, em dias alternados.",
+69.90,null,0,30,"mascara-antirresseca.png","mascara-antirresseca-2.webp","mascara-antirresseca-3.webp",12,33,4);
+
+
+
