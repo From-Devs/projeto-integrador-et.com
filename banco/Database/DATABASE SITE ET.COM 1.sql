@@ -137,14 +137,17 @@ CREATE TABLE Status(
 	tipoStatus VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE `pedido` (
-  `id_pedido` int(11) NOT NULL PRIMARY KEY,
-  `precoTotal` decimal(10,0) DEFAULT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_carrinho` int(11) DEFAULT NULL,
-  `id_status` int(11) NOT NULL,
-  `dataPedido` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE pedido (
+    id_pedido int(11) NOT NULL PRIMARY KEY,
+    precoTotal decimal(10,0) DEFAULT NULL,
+    id_usuario int(11) NOT NULL,
+    id_carrinho int(11) DEFAULT NULL,
+    id_status int(11) NOT NULL,
+    dataPedido datetime NOT NULL,
+    CONSTRAINT pedido_ibfk_1 FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario), 
+    CONSTRAINT pedido_ibfk_2 FOREIGN KEY (id_carrinho) REFERENCES Carrinho(id_carrinho),
+    CONSTRAINT pedido_ibfk_3 FOREIGN KEY (id_status) REFERENCES Status(id_status)
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE pedidoProduto( 
 	id_pedido_produto int PRIMARY KEY AUTO_INCREMENT, 
