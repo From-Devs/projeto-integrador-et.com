@@ -12,12 +12,11 @@ class CarouselModel {
     // 🔹 CREATE - criar novo registro
     public function create(array $data): bool {
         $stmt = $this->conn->prepare("
-            INSERT INTO carousel (id_carousel, id_produto, id_coresSubs)
-            VALUES (:id_carousel, :id_produto, :id_coresSubs)
+            INSERT INTO carousel (id_produto, id_coresSubs)
+            VALUES (:id_produto, :id_coresSubs)
         ");
 
         return $stmt->execute([
-            ":id_carousel" => $data['id_carousel'],
             ":id_produto" => $data['id_produto'],
             ":id_coresSubs" => $data['id_coresSubs']
         ]);

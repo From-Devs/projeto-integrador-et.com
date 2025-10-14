@@ -59,7 +59,6 @@ echo $controller->getAll(); // string precisa da json_decode
 
 // Criar
 $new = $controller->create([
-    "id_carousel" => 1,
     "id_produto" => 7,
     "id_coresSubs" => 1
 ]);
