@@ -1,49 +1,81 @@
 <?php
-// controller/CarouselController.php
 require_once __DIR__ . "/../Models/CarouselModel.php";
 
 class CarouselController {
-    private $carouselModel;
+    private CarouselModel $carouselModel;
 
     public function __construct() {
         $this->carouselModel = new CarouselModel();
     }
-    public function getAll(): bool {
-        $carousels = $this->carouselModel->getAll();
-        header('Content-Type: application/json');
-        return json_encode($carousels); 
-    }
-    public function delete(int $id): bool {
-        header('Content-Type: application/json');
-        return $this->carouselModel->deleteById($id);  
-    }
-    public function create(array $data): bool {
-        if (!isset($data["id_carousel"],$data["id_produto"],$data["id_coresSubs"])){ 
-            throw new InvalidArgumentExceptione("Dados insuficientes para criar o carrossel."); 
-        }
-        return $this->carouselModel->create($data);
-    }
-    
-    public function update(int $id, int $date): array{
-        if (!$id || empty($data)) {
-            return false;
-        };
-        return $this->carouselModel->updateById($id, $data);
-    }
-    public function getId(int $id): array{
-        return $this->carouselModel->getById($id);
-    }
-};
 
-// 🔹 Teste rápido  
+    public function getAll(): string {
+        $carousels = $this->carouselModel->getAll();
+        // passar a array via include ?
+        // pode ser por que ia ficar como ja pasando,
+        // mais um principal a adequaçao.
+        header('Content-Type: application/json');
+        return json_encode($carousels);
+    }
+    public function getById(int $id): string {
+        $carousel = $this->carouselModel->getElementById($id);
+        header('Content-Type: application/json');
+        return json_encode($carousel ?: []);
+    }
+
+    public function create(array $data): bool {
+        try {
+            return $this->carouselModel->create($data);
+        } catch (Throwable $e) {
+            echo "Erro ao criar: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    public function update(int $id, array $data): bool {
+        try {
+            return $this->carouselModel->update($id, $data);
+        } catch (Throwable $e) {
+            echo "Erro ao atualizar: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    public function delete(int $id): bool {
+        try {
+            return $this->carouselModel->remove($id);
+        } catch (Throwable $e) {
+            echo "Erro ao deletar: " . $e->getMessage();
+            return false;
+        }
+    }
+}
+
+// 🔹 Testes rápidos
 $controller = new CarouselController();
-$all = $controller->getAll();
-print_r($all);
-echo $all
+
+// Listar todos
+echo $controller->getAll(); // string precisa da json_decode
+// para voltar ser uma array
+
+// Criar
 $new = $controller->create([
     "id_carousel" => 1,
     "id_produto" => 7,
     "id_coresSubs" => 1
 ]);
-print_r($new); // true ou false
+var_dump($new); // true or false
+
+// Atualizar
+$update = $controller->update(1, [
+    "id_produto" => 8,
+    "id_coresSubs" => 2
+]);
+var_dump($update);// true or false
+
+// Buscar por ID
+echo $controller->getById(1); // string
+
+// Deletar
+$deleted = $controller->delete(1);
+var_dump($deleted);
 ?>
