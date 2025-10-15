@@ -1,80 +1,79 @@
 <?php
 require_once __DIR__ . "/../Models/CarouselModel.php";
+require_once __DIR__ . "/../Models/CoresSubModel.php";
 
 class CarouselController {
     private CarouselModel $carouselModel;
+    private CoresSubModel $coresModel;
 
     public function __construct() {
         $this->carouselModel = new CarouselModel();
+        $this->coresModel = new CoresSubModel();
     }
 
-    public function getAll(): string {
-        $carousels = $this->carouselModel->getAll();
-        // passar a array via include ?
-        // pode ser por que ia ficar como ja pasando,
-        // mais um principal a adequaçao.
-        header('Content-Type: application/json');
-        return json_encode($carousels);
-    }
-    public function getById(int $id): string {
-        $carousel = $this->carouselModel->getElementById($id);
-        header('Content-Type: application/json');
-        return json_encode($carousel ?: []);
-    }
-
-    public function create(array $data): bool {
+    // 🔹 Listar todos os slots (máximo 3)
+    public function getAll(): array {
         try {
-            return $this->carouselModel->create($data);
+            return [
+                'carousels' => $this->carouselModel->getAll(),
+                'cores' => $this->coresModel->getAll()
+            ];
         } catch (Throwable $e) {
-            echo "Erro ao criar: " . $e->getMessage();
-            return false;
+            echo "Erro ao listar: " . $e->getMessage();
+            return [];
         }
     }
 
-    public function update(int $id, array $data): bool {
+    // 🔹 Buscar slot por ID
+    public function getById(int $id): ?array {
         try {
-            return $this->carouselModel->update($id, $data);
+            $carousel = $this->carouselModel->getElementById($id);
+            if (!$carousel) return null;
+
+            $cores = $this->coresModel->getElementById($carousel['id_coresSubs'] ?? 0);
+            return [
+                'carousel' => $carousel,
+                'cores' => $cores
+            ];
         } catch (Throwable $e) {
-            echo "Erro ao atualizar: " . $e->getMessage();
-            return false;
+            echo "Erro ao buscar: " . $e->getMessage();
+            return null;
         }
     }
 
+    // 🔹 Atualizar produto no slot
+    public function updateSlot(int $id, array $data): bool {
+        return $this->carouselModel->update($id, [
+            'id_produto' => $data['id_produto'],
+            'id_coresSubs' => $data['id_coresSubs']
+        ]);
+    }
+
+    // 🔹 Atualizar cores do slot
+    public function updateSlotColors(int $id, array $data): bool {
+        return $this->coresModel->update($id, [
+            'corEspecial' => $data['corEspecial'],
+            'hexDegrade1' => $data['hexDegrade1'],
+            'hexDegrade2' => $data['hexDegrade2'],
+            'hexDegrade3' => $data['hexDegrade3'],
+        ]);
+    }
+
+    // 🔹 Deletar (opcional, mas provavelmente não vai usar)
     public function delete(int $id): bool {
-        try {
-            return $this->carouselModel->remove($id);
-        } catch (Throwable $e) {
-            echo "Erro ao deletar: " . $e->getMessage();
-            return false;
-        }
+        return $this->carouselModel->remove($id);
     }
 }
 
 // 🔹 Testes rápidos
 $controller = new CarouselController();
+print_r($controller->getAll());
 
-// Listar todos
-echo $controller->getAll(); // string precisa da json_decode
-// para voltar ser uma array
-
-// Criar
-$new = $controller->create([
-    "id_produto" => 7,
-    "id_coresSubs" => 1
+// Atualizar slot 1 com novo produto e cores
+$controller->updateSlot(1, ['id_produto' => 5, 'id_coresSubs' => 2]);
+$controller->updateSlotColors(2, [
+    'corEspecial' => '#FF0000',
+    'hexDegrade1' => '#111111',
+    'hexDegrade2' => '#222222',
+    'hexDegrade3' => '#333333',
 ]);
-var_dump($new); // true or false
-
-// Atualizar
-$update = $controller->update(1, [
-    "id_produto" => 8,
-    "id_coresSubs" => 2
-]);
-var_dump($update);// true or false
-
-// Buscar por ID
-echo $controller->getById(1); // string
-
-// Deletar
-$deleted = $controller->delete(1);
-var_dump($deleted);
-?>
