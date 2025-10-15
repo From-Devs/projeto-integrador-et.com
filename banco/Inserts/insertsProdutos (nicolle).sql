@@ -18,7 +18,7 @@ VALUES
 
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
-(1,'#133285','#3E7FD9','#4f8de4ff');
+(1,'#133285','#1256b5','#5394ee');
 
 INSERT INTO Produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES
@@ -504,7 +504,7 @@ Avisos:
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(19,"#6f1105","#c46220","#e4aa84ff");
+(19,"#833c0c","#c46220","#eeb087");
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -567,7 +567,7 @@ Em caso de irritação suspenda o uso e procure orientação médica.",
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(21,"#283256","#3e56adff","#6281f1ff");
+(21,"#283256","#495a97","#8094e5");
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocaoqtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
