@@ -391,6 +391,35 @@ class Products {
         }
         return null;
     }
+
+    public function getOfertasImperdiveis($limit = 8) {
+        $sql = "SELECT * FROM produto WHERE fgPromocao = 1 ORDER BY RAND() LIMIT :limite";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(":limite", (int)$limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Mais vendidos: baseado na quantidadeVendida
+    public function getMaisVendidos($limit = 8) {
+        $sql = "SELECT * FROM produto ORDER BY quantidadeVendida DESC LIMIT ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $limit);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // Relacionados: mesma categoria ou marca
+    public function getRelacionados($categoria, $marca, $idAtual, $limit = 8) {
+        $sql = "SELECT * FROM produto 
+                WHERE id_produto != ? 
+                AND (categoria = ? OR marca = ?) 
+                ORDER BY RAND() LIMIT ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("issi", $idAtual, $categoria, $marca, $limit);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
     
 }
 ?>
