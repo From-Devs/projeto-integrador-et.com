@@ -174,8 +174,8 @@
                         echo createCardProduto(
                             $produto['marca'],
                             $produto['nome'],
-                            $produto['preco_promocional'] ?? $produto['preco'],
-                            $produto['imagem'],
+                            $produto['precoPromo'] ?? $produto['preco'],
+                            $produto['img1'],
                             $produto['fgPromocao'],
                             $produto['preco'],
                             $produto['corPrincipal'] ?? "#000",
