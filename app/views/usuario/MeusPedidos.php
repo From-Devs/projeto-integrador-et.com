@@ -51,7 +51,7 @@ $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
     <!-- Pedidos em andamento -->
     <section class="pedidoAndamentoMP">
         <h2 class="tituloAndamentoMP">Em Andamento</h2>
-        <div id="produtosAndamento" style="width: auto; gap:20px">
+        <div id="produtosAndamento" style="width: auto; padding: 20px;">
             <?php if (!$pedidos): ?>
                 <p class="aviso">Você ainda não possui pedidos.</p>
             <?php else: ?>
@@ -79,7 +79,7 @@ $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
     <!-- Pedidos finalizados -->
     <section class="pedidosFinalizadosMP">
         <h2 class="tituloFinalizadoMP">Finalizado</h2>
-        <div id="produtosFinalizados" style="width: auto;">
+        <div id="produtosFinalizados" style="width: auto; padding: 20px;">
             <?php if ($pedidos): ?>
                 <?php foreach ($pedidos as $pedido): ?>
                     <?php if ($pedido['tipoStatus'] === 'Finalizado'): ?>

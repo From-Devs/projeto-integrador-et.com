@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <span class="detalhes-precoTotal">Preço Total: R$ ${precoTotal2.toFixed(2)}</span>
                     </div>
                     <div class="detalhes-botoes">
-                        <button class="comprarNovamenteBtn" data-id="${idProduto}">Comprar Novamente</button>
+                        <button class="comprarNovamenteBtn" data-id="${idProduto}">Comprar Nov.</button>
                         <button class="avaliarBtn" data-id="${idProduto}" data-nome="${nome}" data-marca="${marca}" data-imagem="${imagem}">Avaliar</button>
                         <button class="devolverBtn">Devolver</button>
                     </div>
