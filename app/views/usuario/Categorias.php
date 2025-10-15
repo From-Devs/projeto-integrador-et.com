@@ -151,7 +151,7 @@
 
                 // --- NOVO CÓDIGO DE BUSCA (Verificado e Corrigido) ---
                 // Certifique-se que o caminho para Products.php está correto
-                require_once __DIR__ . "/../../Models/Products.php"; 
+                require_once __DIR__ . "/../../Models/productscategoria.php"; 
                 $productModel = new Products();
 
                 // $slugCategoria e $subSelecionados já estão definidos acima
