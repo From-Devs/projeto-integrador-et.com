@@ -379,6 +379,72 @@ class Products {
         }
         return null;
     }
+
+    public function getProdutosFiltrados(string $slugCategoria, array $nomesSubcategorias = []) {
+        try {
+            // 1. Obter o ID da Categoria principal
+            $id_categoria = $this->categoriaModel->getIdBySlug($slugCategoria);
+            
+            if (!$id_categoria) {
+                return []; // Categoria não encontrada
+            }
+
+            // 2. Query Base
+            // Tabela 'produto' e JOIN para pegar as cores associadas
+            $sql = "SELECT p.*, c.nome as corPrincipal, c.hex1, c.hex2 
+                    FROM produto p
+                    LEFT JOIN cores c ON p.id_cor_associado = c.id_cores
+                    WHERE 1=1"; 
+
+            $params = [];
+            
+            // 3. Aplicação dos Filtros de Subcategoria
+            if (!empty($nomesSubcategorias)) {
+                
+                // Obter os IDs das subcategorias pelos nomes selecionados
+                $ids_subcategorias = $this->categoriaModel->getIdsSubcategoriasByNomes($nomesSubcategorias);
+                
+                if (empty($ids_subcategorias)) {
+                    return []; // Nenhum produto encontrado com esses filtros
+                }
+
+                // Cria a string de placeholders para o IN (segurança contra injeção de SQL)
+                $placeholders_in = implode(',', array_fill(0, count($ids_subcategorias), '?'));
+
+                $sql .= " AND p.id_subCategoria IN ({$placeholders_in})";
+                $params = array_merge($params, $ids_subcategorias);
+                
+            } else {
+                 // 4. Se não há filtros (mostrar todos os produtos da Categoria principal)
+                 
+                 // Buscamos todas as subcategorias ligadas à Categoria principal
+                 $subcategorias_categoria = $this->categoriaModel->getSubcategoriasBySlug($slugCategoria);
+                 
+                 // Extrai apenas os IDs
+                 $ids_sub_categoria_principal = array_column($subcategorias_categoria, 'id_subCategoria');
+
+                 if (empty($ids_sub_categoria_principal)) {
+                    return []; 
+                 }
+                 
+                 // Cria a string de placeholders para o IN com todos os IDs
+                 $placeholders_cat = implode(',', array_fill(0, count($ids_sub_categoria_principal), '?'));
+                 $sql .= " AND p.id_subCategoria IN ({$placeholders_cat})";
+                 $params = array_merge($params, $ids_sub_categoria_principal);
+            }
+            
+            // 5. Preparar e Executar
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute($params);
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (\Throwable $th) {
+            error_log("Erro ao buscar produtos filtrados: " . $th->getMessage());
+            // Em ambiente de desenvolvimento, você pode adicionar: throw $th;
+            return false;
+        }
+    }
     
 }
 ?>

@@ -146,59 +146,53 @@
 
                 </div>
         
-            <div class="PartedeBaixo">
-                <?php
+                <div class="PartedeBaixo">
+            <?php
 
-                    $produtos = [
-                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
-    
-                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
-    
-                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
-    
-                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
+                // --- NOVO CÓDIGO DE BUSCA (Verificado e Corrigido) ---
+                // Certifique-se que o caminho para Products.php está correto
+                require_once __DIR__ . "/../../Models/Products.php"; 
+                $productModel = new Products();
 
-                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
-    
-                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
-    
-                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
-    
-                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
-                    ];
+                // $slugCategoria e $subSelecionados já estão definidos acima
+                $produtosDB = $productModel->getProdutosFiltrados($slugCategoria, $subSelecionados);
 
+                $produtos = [];
 
-                    $resultado = paginar($produtos, 16);
+                if ($produtosDB === false) {
+                    echo "<p>Houve um erro ao buscar os produtos.</p>";
+                } elseif (empty($produtosDB)) {
+                    echo "<p>Nenhum produto encontrado para os filtros selecionados.</p>";
+                } else {
+                    foreach ($produtosDB as $produto) {
+                        // Mapeia os dados do banco para a sua função de card
+                        $desconto = (floatval($produto['preco']) > floatval($produto['precoPromo']) && floatval($produto['preco']) > 0) 
+                                        ? round(100 - (floatval($produto['precoPromo']) / floatval($produto['preco']) * 100))
+                                        : 0;
 
-                    foreach ($resultado['dados'] as $produto){
-                        echo $produto;
+                        $produtos[] = createCardProduto(
+                            $produto['marca'],
+                            $produto['nome'],
+                            $produto['preco'], // Deve ser o preço SEM desconto para o card, se $produto['fgPromocao'] for o preço promocional
+                            $produto['img1'], // Usando img1 como nome/slug da imagem
+                            $produto['fgPromocao'], // Se for true/1, o preço com desconto será exibido
+                            $desconto, // Porcentagem de desconto
+                            $produto['corPrincipal'], 
+                            $produto['hex1'],
+                            $produto['hex2']
+                        );
                     }
+                }
+                // --- FIM NOVO CÓDIGO DE BUSCA ---
 
-                ?>
+
+                $resultado = paginar($produtos, 16);
+
+                foreach ($resultado['dados'] as $produto){
+                    echo $produto;
+                }
+
+            ?>
             </div>
             <?php
             renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
