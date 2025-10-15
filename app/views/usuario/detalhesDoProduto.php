@@ -12,10 +12,6 @@ $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
 $login = $_SESSION['login'] ?? false; 
 $id_usuario = $_SESSION['id_usuario'] ?? null;
 
-if (!$id_usuario) {
-    die("Você precisa estar logado para ver este produto.");
-}
-
 $conn = (new Database())->connect();
 
 // Carrega produto por ID
