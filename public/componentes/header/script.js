@@ -2,15 +2,19 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
 
     // declaração de variáveis
     const header = document.querySelectorAll(".headerUsuario");
+    const LoginVerific = document.getElementById('LoginVerific').innerHTML;
+    const botaoSidebarMeusPedidos = document.getElementById('botaoSidebarMeusPedidos');
 
     header.forEach(item => {
         const pesquisa = item.childNodes[3];
         const input = item.childNodes[3].childNodes[1];
         const lupa = item.childNodes[5].childNodes[1].childNodes[1];
+        const favHeaderBotao = item.childNodes[5].childNodes[1].childNodes[3];
+        const carrinhoBotaoHeader = item.childNodes[5].childNodes[1].childNodes[5];
         const perfil = item.childNodes[5].childNodes[1].childNodes[7];
         const menuConta = item.childNodes[5].childNodes[3];
         const botaoMenu = item.childNodes[1].childNodes[1];
-        const botaoMenuMobile = document.getElementById('menu-toggle-mobile')
+        const botaoMenuMobile = document.getElementById('menu-toggle-mobile');
         const menu = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
 
@@ -53,6 +57,30 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
                 pesquisa.className = "pesquisaHeader open";
                 item.className = "headerUsuario pesquisaOpen";
                 menuConta.style.display = "none";
+            }
+        })
+
+        favHeaderBotao.addEventListener("click", function(){
+            if (LoginVerific == "true"){
+                window.location.href = 'listaDeDesejos.php';
+            }else{
+                abrirPopUpCurto("popUpErroDelogado", 2000);
+            }
+        })
+        
+        carrinhoBotaoHeader.addEventListener("click", function(){
+            if (LoginVerific == "true"){
+                window.location.href = 'Meu_Carrinho.php';
+            }else{
+                abrirPopUpCurto("popUpErroDelogado", 2000);
+            }
+        })
+
+        botaoSidebarMeusPedidos.addEventListener("click", function(){
+            if (LoginVerific == "true"){
+                window.location.href = 'meusPedidos.php';
+            }else{
+                abrirPopUpCurto("popUpErroDelogado", 2000);
             }
         })
         

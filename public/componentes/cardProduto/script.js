@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
    
     const cards = document.querySelectorAll(".cardProduto");
+    const LoginVerific = document.getElementById('LoginVerific').innerHTML;
 
     cards.forEach(item => {
         let cor = item.childNodes[1],
@@ -79,7 +80,11 @@ document.addEventListener("DOMContentLoaded", function(){
             botaoAnimacao.style.animationName = "";
         });
         botaoComprar.addEventListener('click', function(){
-            window.location.href = '/projeto-integrador-et.com/app/views/usuario/Meu_Carrinho.php'
+            if (LoginVerific == "true"){
+                window.location.href = 'Meu_Carrinho.php';
+            }else{
+                abrirPopUpCurto("popUpErroDelogado", 2000);
+            }
         });
     });
 

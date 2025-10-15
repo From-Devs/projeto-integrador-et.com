@@ -1,13 +1,23 @@
 document.addEventListener("DOMContentLoaded", function(){
     
     const card = document.querySelectorAll(".lancamentoFuncional");
+    const LoginVerific = document.getElementById('LoginVerific').innerHTML;
 
     card.forEach(item => {
         let cor = item.childNodes[5],
             style = window.getComputedStyle(cor),
             corValor = style.getPropertyValue('color');
 
-        const botaoMaisDetalhes = item.querySelector('.botaoMaisDetalhesCardLancamento')
+        const botaoMaisDetalhes = item.querySelector('.botaoMaisDetalhesCardLancamento');
+        const botaoComprar = item.querySelector('.botaoComprarCardLancamento');
+
+        botaoComprar.addEventListener('click', function(){
+            if (LoginVerific == "true"){
+                window.location.href = 'Meu_Carrinho.php';
+            }else{
+                abrirPopUpCurto("popUpErroDelogado", 2000);
+            }
+        })
 
         botaoMaisDetalhes.addEventListener('click', function(){
             window.location.href = '/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php'

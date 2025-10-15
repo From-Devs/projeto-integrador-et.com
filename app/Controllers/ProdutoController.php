@@ -25,6 +25,10 @@ class ProdutoController {
         return $this->produtoModel->getAllSubcategorias();
     }
 
+    public function pegarTodosProdutos(){
+        return $this->produtoModel->getAllProdutos();
+    }
+
     public function cadastrarProduto(
         $nome, 
         $marca, 
@@ -82,6 +86,11 @@ class ProdutoController {
             $deg1, 
             $deg2
         );
+    }
+
+    public function pesquisarHeader($termo)
+    {
+        return $this->produtoModel->pesquisarProdutos($termo);
     }
     
 

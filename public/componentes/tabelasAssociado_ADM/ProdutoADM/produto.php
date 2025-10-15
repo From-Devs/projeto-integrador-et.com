@@ -101,15 +101,15 @@ function tabelaProduto($produtos) {
 
                 <div>
                     <div class="campo">
-                        <label>Nome:</label>
-                        <input type="text" name="nome">
+                        <label for="nomeEditar">Nome:</label>
+                        <input type="text" name="nome" id="nomeEditar">
                     </div>
                     <div class="campo">
-                        <label>Marca:</label>
-                        <input type="text" name="marca">
+                        <label for="marcaEditar">Marca:</label>
+                        <input type="text" name="marca" id="marcaEditar">
                     </div>
                     <div class="campo">
-                        <label>Subcategoria:</label>
+                        <label for="ddlCategoria">Subcategoria:</label>
                         <select id="ddlCategoria" name="subCategoria">
                             
                         </select>
@@ -117,27 +117,27 @@ function tabelaProduto($produtos) {
                 </div>
                 <div>
                     <div class="campo campo-large">
-                        <label>Breve descrição:</label>
-                        <textarea cols="30" rows="10" name="breveDescricao"></textarea>
+                        <label for="breveDescricaoEditar">Breve descrição:</label>
+                        <textarea cols="30" rows="10" name="breveDescricao" id="breveDescricaoEditar"></textarea>
                     </div>
                 </div>
                 <div class="divisao-esquerda">
                     <div class="campos-esquerda">
                         <div class="campo campo-small">
-                            <label>Quantidade no estoque:</label>
-                            <input type="text" name="qtdEstoque">
+                            <label for="qtdEstoqueEditar">Quantidade no estoque:</label>
+                            <input type="text" name="qtdEstoque" id="qtdEstoqueEditar">
                         </div>
                         <div class="campo campo-small">
-                            <label>Preço:</label>
-                            <input type="text" name="preco">
+                            <label for="precoEditar">Preço:</label>
+                            <input type="text" name="preco" id="precoEditar">
                         </div>
                         <div class="campo-small chkPromocao">
-                            <label>Em promoção:</label>
-                            <input type="checkbox" name="fgPromocao" value="1" onchange="mudarFgPromo(this)">
+                            <label for="fgPromocaoEditar">Em promoção:</label>
+                            <input type="checkbox" name="fgPromocao" id="fgPromocaoEditar" value="1" onchange="mudarFgPromo(this)">
                         </div>
                         <div class="campo campo-small">
-                            <label>Preço Promocional:</label>
-                            <input type="text" step="0.01" name="precoPromocional">
+                            <label for="precoPromocionalEditar">Preço Promocional:</label>
+                            <input type="text" step="0.01" name="precoPromocional" id="precoPromocionalEditar">
                         </div>
                     </div>
                     <div class="campos-direita">
@@ -221,8 +221,8 @@ function tabelaProduto($produtos) {
                 </div>
                 <div class="container-campos-large">
                     <div class="campo campo-large">
-                        <label>Características Completa: *</label>
-                        <textarea cols="30" rows="10" name="caracteristicasCompleta"></textarea>
+                        <label for="caracteristicasCompletaEditar">Características Completa: *</label>
+                        <textarea cols="30" rows="10" name="caracteristicasCompleta" id="caracteristicasCompletaEditar"></textarea>
                     </div>
                     <div class="div-btn">
                         <button class="btn-concluir-edicao" type="submit">Concluír edição</button>
