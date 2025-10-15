@@ -69,15 +69,15 @@ switch ($tipo) {
     case 'receita':
         $stmt = $pdo->query("SELECT relaRec_id, lucro, prejuizo FROM RelatorioDeReceitas");
         $html .= "<tr>
-            <th>ID</th>
-            <th>Lucro</th>
-            <th>Prejuízo</th>
-          </tr>";
+                    <th>ID</th>
+                    <th>Lucro</th>
+                    <th>Prejuízo</th>
+                  </tr>";
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $html .= "<tr>
                         <td>{$row['relaRec_id']}</td>
-                        <td>Lucro: <span class='valor'>R$ {$row['lucro']}</span></td>
-                        <td>Prejuízo: <span class='valor'>R$ {$row['prejuizo']}</span></td>
+                        <td class='valor'>R$ {$row['lucro']}</td>
+                        <td class='valor'>R$ {$row['prejuizo']}</td>
                       </tr>";
         }
         break;
@@ -88,15 +88,22 @@ switch ($tipo) {
             FROM Produto p
             JOIN Usuario u ON u.id_usuario = p.id_associado
         ");
+        $html .= "<tr>
+                    <th>ID</th>
+                    <th>Produto</th>
+                    <th>Marca</th>
+                    <th>Associado</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                  </tr>";
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $html .= "<tr>
                         <td>{$row['id_produto']}</td>
-                        <td>{$row['nome']} ({$row['marca']})</td>
-                        <td>
-                            Associado: {$row['associado']}<br>
-                            Preço: <span class='valor'>R$ {$row['preco']}</span><br>
-                            Estoque: {$row['qtdEstoque']}
-                        </td>
+                        <td>{$row['nome']}</td>
+                        <td>{$row['marca']}</td>
+                        <td>{$row['associado']}</td>
+                        <td class='valor'>R$ {$row['preco']}</td>
+                        <td>{$row['qtdEstoque']}</td>
                       </tr>";
         }
         break;
@@ -109,15 +116,20 @@ switch ($tipo) {
             JOIN Produto p ON p.id_produto = c.id_produto
             WHERE c.data_adicionado < (NOW() - INTERVAL 7 DAY)
         ");
+        $html .= "<tr>
+                    <th>ID Carrinho</th>
+                    <th>Cliente</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Data Adicionado</th>
+                  </tr>";
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $html .= "<tr>
                         <td>{$row['id_carrinho']}</td>
                         <td>{$row['cliente']}</td>
-                        <td>
-                            {$row['produto']}<br>
-                            Quantidade: {$row['quantidade']}<br>
-                            Adicionado em: {$row['data_adicionado']}
-                        </td>
+                        <td>{$row['produto']}</td>
+                        <td>{$row['quantidade']}</td>
+                        <td>{$row['data_adicionado']}</td>
                       </tr>";
         }
         break;
@@ -130,14 +142,19 @@ switch ($tipo) {
         ");
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $html .= "<tr>
-                    <td colspan='2'>Saldo Total de Produtos em Destaque</td>
+                    <th>Descrição</th>
+                    <th>Saldo Total</th>
+                  </tr>";
+        $html .= "<tr>
+                    <td>Produtos em Destaque</td>
                     <td class='valor'>R$ " . number_format($row['saldo_total'], 2, ',', '.') . "</td>
                   </tr>";
         break;
 
     default:
-        $html .= "<tr><td colspan='3'>Nenhum dado encontrado.</td></tr>";
+        $html .= "<tr><td colspan='6'>Nenhum dado encontrado.</td></tr>";
 }
+    
 
 $html .= "</table>";
 
