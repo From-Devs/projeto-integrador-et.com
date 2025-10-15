@@ -1401,11 +1401,11 @@
     }
 
     .popupMP .popupMP-conteudo .popupMP-superior{
-        width: 60%;
+        width: 100%;
         top: 65px;
     }
     .popupMP-conteudo .popupMP-superior .popupMP-linhasuperior{
-        width: 610px;
+        width: 60%;
     }
     /* .popupMP-conteudo .popupMP-superior .bx-x{
         margin-left: 20px;
@@ -1423,7 +1423,7 @@
         bottom: 95px;
     }
     .popupMP .popupMP-conteudo .popupMP-linhainferior{
-        width: 60%;
+        width: 80%;
         bottom: 80px;
     }
     .popupMP-inferior .popupMP-Total{
@@ -1683,6 +1683,7 @@
         margin: 15px 0 12px 0;
     }
 }
+
 .container {
     width: 90%;
     margin: 20px auto;
