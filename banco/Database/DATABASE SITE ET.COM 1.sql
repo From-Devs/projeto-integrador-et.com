@@ -38,7 +38,9 @@ CREATE TABLE Avaliacoes (
   id_produto int(11) NOT NULL,
   nota int(11) NOT NULL CHECK (`nota` between 1 and 5),
   comentario text DEFAULT NULL,
-  data_avaliacao timestamp NOT NULL DEFAULT current_timestamp()
+  data_avaliacao timestamp NOT NULL DEFAULT current_timestamp(),
+  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
+  FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
 
 -- Personalização e categorias
