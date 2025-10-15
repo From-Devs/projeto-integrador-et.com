@@ -132,19 +132,13 @@ class ProdutoController {
         $idProduto = (int)$idProduto;
         $idUsuario = (int)$idUsuario;
     
-        if ($idProduto <= 0 || $idUsuario <= 0) {
-            return ['ok' => false];
-        }
+        if ($idProduto <= 0 || $idUsuario <= 0) return ['ok' => false];
     
-        if (!$this->BuscarProdutoPorId($idProduto)) {
-            return ['ok' => false];
-        }
+        if (!$this->BuscarProdutoPorId($idProduto)) return ['ok' => false];
     
         $sel = $this->conn->prepare("SELECT id_listaDesejos FROM listadesejos WHERE id_usuario = :u AND id_produto = :p");
         $sel->execute([':u' => $idUsuario, ':p' => $idProduto]);
-        if ($sel->fetch()) {
-            return ['ok' => false];
-        }
+        if ($sel->fetch()) return ['ok' => false];
     
         $ins = $this->conn->prepare("INSERT INTO listadesejos (dataAdd, id_usuario, id_produto) VALUES (CURDATE(), :u, :p)");
         $ok = $ins->execute([':u' => $idUsuario, ':p' => $idProduto]);
@@ -154,7 +148,6 @@ class ProdutoController {
 
     public function removerFavorito($idUsuario, $idProduto) {
         $idUsuario = (int)$idUsuario;
-    
         if (!$idUsuario) return ['ok' => false, 'msg' => 'ID do usuário inválido'];
 
         if (is_array($idProduto)) {
@@ -202,7 +195,6 @@ class ProdutoController {
 
     public function adicionarAoCarrinho($idUsuario, $idProduto, $qtd = 1) {
         $idUsuario = (int)$idUsuario;
-    
         if (!$idUsuario) return ['ok' => false, 'msg' => 'ID do usuário inválido'];
 
         $produtos = is_array($idProduto) ? $idProduto : [$idProduto];
@@ -245,9 +237,7 @@ class ProdutoController {
     }
 
     public function removerSelecionadosDoCarrinho($idUsuario, array $idsProduto) {
-        if (empty($idsProduto)) {
-            return ['ok' => false, 'msg' => 'Nenhum produto selecionado'];
-        }
+        if (empty($idsProduto)) return ['ok' => false, 'msg' => 'Nenhum produto selecionado'];
     
         $placeholders = implode(',', array_fill(0, count($idsProduto), '?'));
         $sql = "DELETE FROM carrinho WHERE id_usuario = ? AND id_produto IN ($placeholders)";
@@ -256,23 +246,6 @@ class ProdutoController {
         $stmt->execute($params);
     
         return ['ok' => true, 'msg' => 'Produtos removidos do carrinho'];
-    }
-
-    // ===================================
-    // === NOVO: EXCLUIR SELECIONADOS ====
-    // ===================================
-    public function excluirSelecionados(array $ids, int $idUsuario): bool {
-        if (empty($ids)) return false;
-        try {
-            $placeholders = str_repeat('?,', count($ids) - 1) . '?';
-            $sql = "DELETE FROM carrinho WHERE id_usuario = ? AND id_produto IN ($placeholders)";
-            $stmt = $this->conn->prepare($sql);
-            $params = array_merge([$idUsuario], $ids);
-            return $stmt->execute($params);
-        } catch (PDOException $e) {
-            error_log("Erro ao excluir selecionados: " . $e->getMessage());
-            return false;
-        }
     }
 
     // =======================

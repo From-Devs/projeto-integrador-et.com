@@ -29,18 +29,18 @@ document.addEventListener("DOMContentLoaded", () => {
             cardColorido.style.background = `linear-gradient(135deg, ${hex1}, ${hex2})`;
         }
     });
-    
+
     // ========================
     // === POPUP DE AVALIAÇÃO ===
     // ========================
     let avaliacaoSelecionada = 0;
-    let produtoAvaliado = null;
 
     function abrirPopupAvaliacao(imagemProduto, nomeProduto, marcaProduto, idProduto) {
         const dialog = document.getElementById("popupAvaliarProduto");
-        document.getElementById("popupAva-imagemProduto").src = imagemProduto;
-        document.getElementById("popupAva-imagemProduto").alt = nomeProduto;
-        document.getElementById("popupAva-imagemProduto").dataset.id = idProduto; // guardar id produto
+        const img = document.getElementById("popupAva-imagemProduto");
+        img.src = imagemProduto;
+        img.alt = nomeProduto;
+        img.dataset.id = idProduto;
         document.getElementById("popupAva-nomeProduto").innerText = marcaProduto + " " + nomeProduto;
         avaliacaoSelecionada = 0;
         atualizarEstrelas(0);
@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function enviarAvaliacao() {
         const texto = document.getElementById("popupAva-textoAvaliacao").value;
         const idProduto = document.getElementById("popupAva-imagemProduto").dataset.id;
-        const idUsuario = document.body.dataset.usuario; // precisa vir do PHP no <body>
 
         if(avaliacaoSelecionada === 0) {
             alert("Selecione pelo menos 1 estrela.");
@@ -76,8 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
             method: "POST",
             headers: {"Content-Type": "application/x-www-form-urlencoded"},
             body: new URLSearchParams({
-                acao: "avaliarProduto",
-                id_usuario: idUsuario,
+                action: "avaliarProduto",
                 id_produto: idProduto,
                 nota: avaliacaoSelecionada,
                 comentario: texto
@@ -86,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(res => res.json())
         .then(data => {
             alert(data.msg);
-            if(data.success) fecharPopupAvaliacao();
+            if(data.ok) fecharPopupAvaliacao();
         })
         .catch(err => console.error("Erro ao enviar avaliação:", err));
     }
@@ -96,140 +94,147 @@ document.addEventListener("DOMContentLoaded", () => {
         if(dialog && dialog.open) dialog.close();
     }
 
-    // Expor funções para os botões
     window.enviarAvaliacao = enviarAvaliacao;
     window.fecharPopupAvaliacao = fecharPopupAvaliacao;
 
     // ========================
-    // === POPUP DOS CARDS ===
+    // === POPUP CARDS EM ANDAMENTO ===
     // ========================
-
-    // Produtos em andamento
     document.querySelectorAll(".cards-produtoAndamento").forEach(card => {
         card.addEventListener("click", () => {
             const popupProdutos = document.getElementById("popupMP-Produtos");
             popupProdutos.innerHTML = "";
-            const produtos = [card];
-            let totalCompra = 0;
+            const nome = card.dataset.nome || '';
+            const quantidade = parseInt(card.dataset.quantidade) || 1;
+            const subtotal = parseFloat(card.dataset.preco) || 0;
+            const imagem = card.querySelector("img")?.src || '';
+            const status = card.dataset.status || 'Em Andamento';
+            const idProduto = card.dataset.id || '';
+            const marca = card.dataset.marca || '';
+            const precoTotal = subtotal * quantidade;
 
-            produtos.forEach(p => {
-                const nome = p.querySelector(".nomeProdutoMP")?.innerText || '';
-                const quantidade = parseInt(p.querySelector(".qtdProdutoMP")?.innerText.replace('Qtd: ','') || '1');
-                const subtotal = parseFloat(p.querySelector(".subtotalProdutoMP")?.innerText.replace('Subtotal: R$ ','') || '0');
-                const imagem = p.querySelector("img")?.src || '';
-
-                const miniCard = document.createElement("div");
-                miniCard.classList.add("cardMini");
-                miniCard.innerHTML = `
-                    <div class="card-recolhido">
-                        <div class="cardMini-Superior">
-                            <span class="cardMini-Status">Em Andamento</span>
-                            <span class="cardMini-Quantidade">${quantidade}x</span>
-                        </div>
-                        <div class="cardMini-conteudo">
-                            <img class="cardMini-imagem" src="${imagem}" height="100px">
-                            <div class="cardMini-infos">
-                                <span class="cardMini-Titulo">${nome}</span>
-                                <div class="preco-total">
-                                    <span class="cardMini-PrecoTotal">R$ ${subtotal.toFixed(2)}</span>
-                                </div>
+            const miniCard = document.createElement("div");
+            miniCard.classList.add("cardMini");
+            miniCard.innerHTML = `
+                <div class="card-recolhido">
+                    <div class="cardMini-Superior">
+                        <span class="cardMini-Status">Em Andamento</span>
+                        <span class="cardMini-Quantidade">${quantidade}x</span>
+                    </div>
+                    <div class="cardMini-conteudo">
+                        <img class="cardMini-imagem" src="${imagem}" height="100px">
+                        <div class="cardMini-infos">
+                            <span class="cardMini-Titulo">${nome}</span>
+                            <div class="preco-total">
+                                <span class="cardMini-PrecoTotal">R$ ${precoTotal.toFixed(2)}</span>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="card-expandido">
-                        <span class="card-titulo">DESCRIÇÃO</span>
-                        <div class="card-linhasuperior"></div>
-                        <img class="cardMini-imagem" src="${imagem}" height="130px">
-                        <div class="card-linhainferior"></div>
-                        <div class="detalhes-info" style="gap: 10px;">
-                            <span class="detalhes-titulo">${nome}</span>
-                            <span class="detalhes-status">Status: <span style="color: red;">${status}</span></span>
-                            <span class="detalhes-categoria">Categoria:</span>
-                            <span class="detalhes-preco" style="margin-bottom: 20px; font-size:12px; font-weight:500;">Preço: R$ ${subtotal.toFixed(2)}</span>
-                        </div>
-                        <div style="display: flex; gap: 5px">
-                            <a href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php" class="detalhes-botao">Comprar Novamente</a>
-                            <button class="cancelarBtn">Cancelar</button>
-                        </div>
+                <div class="card-expandido">
+                    <span class="card-titulo">DESCRIÇÃO</span>
+                    <div class="card-linhasuperior"></div>
+                    <img class="cardMini-imagem" src="${imagem}" height="130px">
+                    <div class="card-linhainferior"></div>
+                    <div class="detalhes-info" style="gap: 10px;">
+                        <span class="detalhes-titulo">${nome}</span>
+                        <span class="detalhes-status">Status: <span style="color: red;">${status}</span></span>
+                        <span class="detalhes-categoria">Categoria: ${card.dataset.categoria || 'Não definida'}</span>
+                        <span class="detalhes-preco" style="margin-bottom: 20px; font-size:12px; font-weight:500;">Preço: R$ ${subtotal.toFixed(2)}</span>
                     </div>
-                `;
-                popupProdutos.appendChild(miniCard);
-                totalCompra += subtotal;
-            });
-
-            document.getElementById("popupMP-Total").innerText = "Total: R$ " + totalCompra.toFixed(2);
+                    <div style="display: flex; gap: 5px">
+                        <button class="comprarNovamenteBtn" data-id="${idProduto}">Comprar Novamente</button>
+                        <button class="cancelarBtn">Cancelar</button>
+                    </div>
+                </div>
+            `;
+            popupProdutos.appendChild(miniCard);
+            document.getElementById("popupMP-Total").innerText = "Total: R$ " + precoTotal.toFixed(2);
             document.getElementById("popupMP").showModal();
+
+            miniCard.querySelector(".comprarNovamenteBtn").addEventListener("click", () => {
+                window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProduto}`;
+            });
         });
     });
 
-    // Produtos finalizados
+    // ========================
+    // === POPUP CARDS FINALIZADOS ===
+    // ========================
     document.querySelectorAll(".cardProduto-finalizado").forEach(card2 => {
         card2.addEventListener("click", () => {
             const popupProdutosFi = document.getElementById("popupMP-ProdutosFi");
             popupProdutosFi.innerHTML = "";
 
-            const produtos = [card2];
+            const nome = card2.dataset.nome || '';
+            const quantidade = parseInt(card2.dataset.quantidade) || 1;
+            const subtotal = parseFloat(card2.dataset.preco) || 0;
+            const imagem = card2.querySelector("img")?.src || '';
+            const dataEntrega = card2.dataset.dataEntrega || '';
+            const dataCompra = card2.dataset.dataCompra || '';
+            const status = card2.dataset.status || 'Concluído';
+            const idProduto = card2.dataset.id || '';
+            const marca = card2.dataset.marca || '';
+            const precoTotal2 = subtotal * quantidade;
 
-            produtos.forEach(p => {
-                const nome = p.querySelector(".nomeProdutoMP")?.innerText || '';
-                const quantidade = parseInt(p.querySelector(".qtdProdutoMP")?.innerText.replace('Qtd: ','') || '1');
-                const subtotal = parseFloat(p.querySelector(".subtotalProdutoMP")?.innerText.replace('Subtotal: R$ ','') || '0');
-                const imagem = p.querySelector("img")?.src || '';
-                const dataEntrega = p.querySelector(".data-entrega")?.innerText || '';
-                const dataCompra = p.querySelector(".data-compra")?.innerText || '';
-                const status = p.querySelector(".statusProdutoMP")?.innerText || 'Concluído';
-                const idProduto = p.dataset.id || '';
-                const marca = p.dataset.marca || '';
-
-                const precoTotal2 = subtotal * quantidade;
-
-                const cardpopup = document.createElement("div");
-                cardpopup.classList.add("cardpopup");
-                cardpopup.innerHTML = `
-                    <div class="card-recolhido">
-                        <div class="cardpopup-Superior">
-                            <span class="cardpopup-Status">${status}</span>
-                            <span class="cardpopup-Quantidade">${quantidade}x</span>
-                        </div>
-                        <div class="cardpopup-conteudo">
-                            <img class="cardpopup-imagem" src="${imagem}">
-                            <div class="cardpopup-infos">
-                                <span class="cardpopup-Titulo">${nome}</span>
-                                <div class="preco-total">
-                                    <span class="cardpopup-PrecoTotal">R$ ${parseFloat(precoTotal2).toFixed(2)}</span>
-                                </div>
+            const cardpopup = document.createElement("div");
+            cardpopup.classList.add("cardpopup");
+            cardpopup.innerHTML = `
+                <div class="card-recolhido">
+                    <div class="cardpopup-Superior">
+                        <span class="cardpopup-Status">${status}</span>
+                        <span class="cardpopup-Quantidade">${quantidade}x</span>
+                    </div>
+                    <div class="cardpopup-conteudo">
+                        <img class="cardpopup-imagem" src="${imagem}">
+                        <div class="cardpopup-infos">
+                            <span class="cardpopup-Titulo">${nome}</span>
+                            <div class="preco-total">
+                                <span class="cardpopup-PrecoTotal">R$ ${precoTotal2.toFixed(2)}</span>
                             </div>
                         </div>
                     </div>
-                    <div class="card-expandido">
-                        <span class="card-titulo">DETALHES DO PEDIDO</span>
-                        <div class="detalhes-envio" style="gap:5px;">
-                            <span class="detalhes-status">Status: <span style="color: green;">${status}</span></span>
-                            <span class="detalhes-dataCompra">Data de Compra: <span style="font-weight: 500;">${dataCompra}</span></span>
-                            <span class="detalhes-dataEntrega">Data de Entrega: <span style="font-weight: 500;">${dataEntrega}</span></span>
-                        </div>
-                        <span class="card-titulo2">DESCRIÇÃO DO PRODUTO</span>
-                        <img class="cardpopup-imagem" src="${imagem}">
-                        <div class="detalhes-info" style="gap:5px;">
-                            <span class="detalhes-titulo">${nome}</span>
-                            <span class="detalhes-quantidade">Quantidade: ${quantidade} produtos</span>
-                            <span class="detalhes-preco">Preço Unitário: R$ ${subtotal.toFixed(2)}</span>
-                            <span class="detalhes-precoTotal">Preço Total: R$ ${precoTotal2.toFixed(2)}</span>
-                        </div>
-                        <div class="detalhes-botoes">
-                            <a class="comprarNvmtBtn" href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php">Comprar Nov.</a>
-                            <button class="avaliarBtn">Avaliar</button>
-                            <button class="devolverBtn">Devolver</button>
-                        </div>
+                </div>
+                <div class="card-expandido">
+                    <span class="card-titulo">DETALHES DO PEDIDO</span>
+                    <div class="detalhes-envio" style="gap:5px;">
+                        <span class="detalhes-status">Status: <span style="color: green;">${status}</span></span>
+                        <span class="detalhes-dataCompra">Data de Compra: <span style="font-weight: 500;">${dataCompra}</span></span>
+                        <span class="detalhes-dataEntrega">Data de Entrega: <span style="font-weight: 500;">${dataEntrega}</span></span>
                     </div>
-                `;
-                popupProdutosFi.appendChild(cardpopup);
+                    <span class="card-titulo2">DESCRIÇÃO DO PRODUTO</span>
+                    <img class="cardpopup-imagem" src="${imagem}">
+                    <div class="detalhes-info" style="gap:5px;">
+                        <span class="detalhes-titulo">${nome}</span>
+                        <span class="detalhes-quantidade">Quantidade: ${quantidade}</span>
+                        <span class="detalhes-preco">Preço Unitário: R$ ${subtotal.toFixed(2)}</span>
+                        <span class="detalhes-precoTotal">Preço Total: R$ ${precoTotal2.toFixed(2)}</span>
+                    </div>
+                    <div class="detalhes-botoes">
+                        <button class="comprarNovamenteBtn" data-id="${idProduto}">Comprar Novamente</button>
+                        <button class="avaliarBtn" data-id="${idProduto}" data-nome="${nome}" data-marca="${marca}" data-imagem="${imagem}">Avaliar</button>
+                        <button class="devolverBtn">Devolver</button>
+                    </div>
+                </div>
+            `;
+            popupProdutosFi.appendChild(cardpopup);
 
-                const btnAvaliar = cardpopup.querySelector(".avaliarBtn");
-                btnAvaliar.addEventListener("click", () => {
-                    abrirPopupAvaliacao(imagem, nome, marca, idProduto);
-                });
+            // Comprar novamente
+            cardpopup.querySelector(".comprarNovamenteBtn").addEventListener("click", (e) => {
+                const id = e.currentTarget.dataset.id;
+                if(id) window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${id}`;
+            });
+
+            // Avaliar
+            cardpopup.querySelector(".avaliarBtn").addEventListener("click", (e) => {
+                const btn = e.currentTarget;
+                abrirPopupAvaliacao(
+                    btn.dataset.imagem,
+                    btn.dataset.nome,
+                    btn.dataset.marca,
+                    btn.dataset.id
+                );
             });
 
             document.getElementById("popupMPFinalizado").showModal();
@@ -245,19 +250,14 @@ document.addEventListener("DOMContentLoaded", () => {
             if(dialog) dialog.close();
         });
     });
-    
 
-});
-document.getElementById("popupAva-imagemProduto").addEventListener("click", () => {
-    const idProduto = document.getElementById("popupAva-imagemProduto").dataset.id;
-    if (idProduto) {
-        window.location.href = "/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=" + idProduto;
-    }
-});
-document.getElementById("popupAva-imagemProduto").addEventListener("click", (e) => {
-    e.preventDefault(); // previne qualquer ação padrão
-    const idProduto = e.currentTarget.dataset.id;
-    if (idProduto) {
-        window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProduto}`;
-    }
+    // Redirecionamento ao clicar na imagem do produto no popup de avaliação
+    document.getElementById("popupAva-imagemProduto").addEventListener("click", (e) => {
+        e.preventDefault();
+        const idProduto = e.currentTarget.dataset.id;
+        if (idProduto) {
+            window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProduto}`;
+        }
+    });
+
 });

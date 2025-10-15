@@ -21,34 +21,43 @@ function getIdsProdutos() {
     return array_map('intval', $ids);
 }
 
+// Captura JSON enviado no corpo da requisição
+$input = file_get_contents('php://input');
+if (!empty($input)) {
+    $data = json_decode($input, true);
+    if (isset($data['id_produto'])) {
+        $_POST['id_produto'] = $data['id_produto'];
+    }
+    if (isset($data['ids'])) {
+        $_POST['id_produto'] = $data['ids'];
+    }
+    if (isset($data['quantidade'])) {
+        $_POST['quantidade'] = $data['quantidade'];
+    }
+    if (isset($data['nota'])) {
+        $_POST['nota'] = $data['nota'];
+    }
+    if (isset($data['comentario'])) {
+        $_POST['comentario'] = $data['comentario'];
+    }
+}
+
 switch ($action) {
 
     // ===============================
     // === EXCLUIR SELECIONADOS DO CARRINHO =====
     // ===============================
     case 'excluirSelecionados':
-        // 🔹 Compatível com requisições via fetch JSON (Meu_Carrinho.js)
-        $input = file_get_contents('php://input');
-        if (!empty($input)) {
-            $data = json_decode($input, true);
-            if (isset($data['ids'])) {
-                $_POST['id_produto'] = $data['ids'];
-            }
-        }
-
         $ids = getIdsProdutos();
         if (empty($ids)) {
             echo json_encode(['ok' => false, 'msg' => 'Nenhum produto selecionado']);
             exit;
         }
-
-        // 🔹 Compatível com o novo método do controller
         if (method_exists($controller, 'excluirSelecionados')) {
             $resultado = $controller->excluirSelecionados($ids, $idUsuario);
         } else {
             $resultado = $controller->removerSelecionadosDoCarrinho($idUsuario, $ids);
         }
-
         echo json_encode(is_array($resultado) ? $resultado : ['ok' => (bool)$resultado]);
         break;
 
@@ -64,7 +73,7 @@ switch ($action) {
     // === REMOVER ITEM ÚNICO =======
     // ===============================
     case 'removerItem':
-        $id = $_GET['id'] ?? null;
+        $id = $_GET['id'] ?? $_POST['id'] ?? null;
         if (!$id) {
             echo json_encode(['ok' => false, 'msg' => 'ID do produto não informado']);
             exit;
@@ -79,28 +88,13 @@ switch ($action) {
     case 'adicionar':
         $ids = getIdsProdutos();
         $qtd = $_POST['quantidade'] ?? 1;
-
-        // 🔹 Compatível com fetch JSON (Meu_Carrinho.js)
-        $input = file_get_contents('php://input');
-        if (!empty($input)) {
-            $data = json_decode($input, true);
-            if (isset($data['id_produto'])) {
-                $ids = [$data['id_produto']];
-            }
-            if (isset($data['quantidade'])) {
-                $qtd = $data['quantidade'];
-            }
-        }
-
         if (empty($ids)) {
             echo json_encode(['ok' => false, 'msg' => 'Produto inválido']);
             exit;
         }
-
         foreach ($ids as $idProduto) {
             $controller->adicionarAoCarrinho($idUsuario, $idProduto, $qtd);
         }
-
         echo json_encode(['ok' => true, 'msg' => 'Produto(s) adicionado(s) ao carrinho']);
         break;
 
@@ -129,7 +123,6 @@ switch ($action) {
             echo json_encode(['ok' => false, 'msg' => 'Produto inválido']);
             exit;
         }
-
         $msgs = [];
         $ok = true;
         foreach ($ids as $idProduto) {
@@ -139,7 +132,6 @@ switch ($action) {
                 $msgs[] = $res['msg'] ?? 'Produto já na lista de desejos';
             }
         }
-
         echo json_encode([
             'ok' => $ok,
             'msg' => $ok ? 'Produto adicionado à Lista de Desejos' : implode(', ', $msgs)
@@ -172,6 +164,21 @@ switch ($action) {
             $controller->adicionarAoCarrinho($idUsuario, $idProduto, 1);
         }
         echo json_encode(['ok' => true, 'msg' => 'Produto(s) adicionado(s) ao carrinho']);
+        break;
+
+    // ===============================
+    // === AVALIAR PRODUTO ==========
+    // ===============================
+    case 'avaliarProduto':
+        $idProduto = $_POST['id_produto'] ?? null;
+        $nota = $_POST['nota'] ?? null;
+        $comentario = $_POST['comentario'] ?? '';
+        if (!$idProduto || !$nota) {
+            echo json_encode(['ok' => false, 'msg' => 'Dados inválidos para avaliação']);
+            exit;
+        }
+        $resultado = $controller->avaliarProduto($idUsuario, intval($idProduto), intval($nota), $comentario);
+        echo json_encode($resultado);
         break;
 
     // ===============================
