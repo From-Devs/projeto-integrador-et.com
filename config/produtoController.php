@@ -9,7 +9,6 @@ class ProdutoController {
         $db = new Database();
         $this->conn = $db->connect();
     }
-
     // =======================
     // === Produtos ==========
     // =======================
