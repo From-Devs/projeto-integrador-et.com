@@ -180,7 +180,8 @@
                             $produto['preco'],
                             $produto['corPrincipal'] ?? "#000",
                             $produto['corDegrade1'] ?? "#000",
-                            $produto['corDegrade2'] ?? "#333"
+                            $produto['corDegrade2'] ?? "#333",
+                            $produto['id_produto']
                         );
                     }
                     ?>
