@@ -61,8 +61,9 @@ document.addEventListener("DOMContentLoaded", function(){
         //     });
         // }
 
-        imagemCardProdutoPadrao.addEventListener('click', function(e){
-            window.location.href = '/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php'
+        imagemCardProdutoPadrao.addEventListener('click', e => {
+            const id = item.getAttribute('data-id');
+            window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${id}`;
         });
         imagemCardProdutoPadrao.addEventListener('mousedown', function(e){
             e.preventDefault();
