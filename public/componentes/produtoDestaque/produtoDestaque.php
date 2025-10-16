@@ -12,8 +12,8 @@ function createProdutoDestaque($nome = "KIT LANCÔME LASH IDÔLE", $marca = "LAN
                 <h2 class='marcaProduto'>$marca</h2>
                 <h1 class='precoProduto'>$preco</h1>
                 <div class='botoesProdutoDestaque'>
-                    <button class='btn btn-black' style='width:262px; height:67px;font-size:20px;'>Comprar</button>
-                    <button class='btn btn-white' style='width:262px; height:67px;font-size:20px;'>Ver Detalhes</button>
+                    <button id='botaoComprarProdutoDestaque' class='btn btn-black' style='width:262px; height:67px;font-size:20px;'>Comprar</button>
+                    <button id='botaoDetalhesProdutoDestaque' class='btn btn-white' style='width:262px; height:67px;font-size:20px;'>Ver Detalhes</button>
                 </div>
             </div>
         </div>

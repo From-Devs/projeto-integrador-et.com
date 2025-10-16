@@ -91,7 +91,6 @@ body{
 .card{
     display: flex;
     justify-content: center;
-
     margin-top: 130px;
 }
 
@@ -117,7 +116,6 @@ body{
     background-repeat: no-repeat;
     z-index: -1;
     border-radius: 20px;
-
     filter: blur(1px);
 }
 
