@@ -45,7 +45,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 1445px;
+    width: 80%;
 }
 
 .pedidoAndamentoMP .tituloAndamentoMP{
@@ -172,7 +172,6 @@
         height: 820px;
         padding: 15px;
         border-radius: 20px;
-        border: none;
         box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
         background-color: white;
     }
@@ -184,11 +183,11 @@
         align-items: center;
         position: fixed;
         top: 85px;
-        width: 1450px;
+        width: 80%;
     }
 
     .popupMP-conteudo .popupMP-superior .popupMP-linhasuperior{
-        width: 1200px;
+        width: 100%;
         height: 1px;
         background: linear-gradient(to right, rgb(255, 255, 255), rgba(0, 0, 0, 0.144), rgba(0, 0, 0, 0.76), rgb(0,0,0), rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.144), rgb(255, 255, 255));
         margin-left: 22px;
@@ -209,7 +208,7 @@
     }
 
     .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
-        width: 1150px;
+        width: 100%;
         height: 600px;
         margin-top: 60px;
         display: flex;
@@ -218,7 +217,6 @@
         flex-wrap: wrap;
         gap: 20px;
         overflow-y: auto;
-        border: none;
     }
 
     .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos:focus{
@@ -273,7 +271,6 @@
 
         .cardMini .card-recolhido .cardMini-Superior .cardMini-Status{
             font-size: 14px;
-            color: red;
             text-align: left;
             margin: 10px 0 0 20px ; 
             height: 14px;
@@ -384,11 +381,11 @@
                     /*-------fora mini card-------*/
 
     .popupMP .popupMP-conteudo .popupMP-inferior{
+        width: 80%;
         display: flex;
-        flex-direction: row;
+        justify-content: right;
         position: fixed;
         bottom: 140px;
-        gap: 1000px;
     }
 
     .popupMP-inferior .popupMP-DataCompra{
@@ -403,7 +400,7 @@
 
     .popupMP .popupMP-conteudo .popupMP-linhainferior{
         align-items: center;
-        width: 1200px;
+        width: 80%;
         height: 1px;
         background: linear-gradient(to right, rgb(255,255,255), rgba(0, 0, 0, 0.144), rgba(0, 0, 0, 0.76), rgb(0,0,0), rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.144), rgb(255,255,255));
         bottom: 100px;
@@ -428,7 +425,7 @@
 .pedidosFinalizadosMP{
     display: flex;
     flex-direction: column;
-    width: 1450px;
+    width: 80%;
 }
 
 .pedidosFinalizadosMP .tituloFinalizadoMP{          /*coloquei na responsividade*/
@@ -978,711 +975,18 @@
 
 /*_____________________________RESPONSIVIDADE___________________________*/
 
-@media (max-width: 1525px){
-    /*Parte superior do titulo e linha*/
-    .conteudoMeusPedidos{
-        gap: 80px;
-    }
-    .conteudoMeusPedidos .areaSuperiorMP{
-        gap: 20px;
-    }
-    .areaSuperiorMP .tituloPrincipalMP{
-        font-size: 40px;
-    }
-    .areaSuperiorMP .linhaSuperiorTituloMP{
-        width: 1160px;
-    }
-
-    /*Parte de cards*/
-    .conteudoMeusPedidos .pedidoAndamentoMP{
-        width: 1220px;
-    }
-    .pedidoAndamentoMP #produtosAndamento{
-        width: 1220px;
-        max-height: 550px; 
-        gap: 20px; 
-    }
-    #produtosFinalizados .cardProduto-finalizado,
-    #produtosAndamento .cards-produtoAndamento{
-        height: 210px;           
-    }
-    .cards-produtoAndamento .cardcoloridoCam{
-        margin-top: 8px;
-        gap: 10px;              
-    }
-    .cards-produtoAndamento .cardcoloridoCam .linhaverticalcard{
-        height: 172px;
-    }
-    .cards-produtoAndamento .cardcoloridoCam .card-info{
-        height: 172px;
-        width: 360px;
-        padding-right: 12px;
-    }
-    .cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img,
-    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
-        height: 100px;
-    }
-
-    .conteudoMeusPedidos .pedidosFinalizadosMP{
-        width: 1225px;
-    }
-    .pedidosFinalizadosMP #produtosFinalizados{
-        width: 1201px;
-        max-height: 470px;
-        padding: 20px 10px 20px 10px;
-        gap: 2px;
-    }
-    .cardProduto-finalizado .cardcoloridoFin .card-info2{
-        height: 190px;
-        width: 360px;
-        padding-right: 22px;
-    }
-
-    /*Pop-up Andamento*/
-    .conteudoMeusPedidos .popupMP{
-        width: 1165px;
-    }
-    .popupMP .popupMP-conteudo{
-        height: 770px;
-    }
-    .popupMP .popupMP-conteudo .popupMP-superior{
-        width: 1165px;
-        top: 80px;
-    }
-    .popupMP-conteudo .popupMP-superior .popupMP-linhasuperior{
-        width: 900px;
-    }
-    .popupMP-conteudo .popupMP-superior .bx-x{
-        margin-left: 30px;
-    }
-    .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
-        width: 920px;
-        height: 600px;
-        margin-top: 90px;
-    }
-    .popupMP .popupMP-conteudo .popupMP-inferior{
-        gap: 730px;
-        bottom: 110px;
-    }
-    .popupMP .popupMP-conteudo .popupMP-linhainferior{
-        width: 900px;
-        bottom: 90px;
-    }
-    .cardMini .card-recolhido .cardMini-Superior,
-    .popupMP-main .popupMP-Produtos .cardMini{
-        width: 290px;
-    }
-    .cardMini .card-recolhido .cardMini-conteudo .cardMini-infos{
-        font-size: 15px;
-    }
-    .cardMini:hover .card-expandido .detalhes-info,
-    .cardMini:hover .card-expandido .card-linhasuperior,
-    .cardMini:hover .card-expandido .card-linhainferior{
-        width: 230px;
-    }
-}
-
-
-@media (max-width: 1380px){
-    /*Parte superior do titulo e linha*/
-    .conteudoMeusPedidos{
-        gap: 65px;
-    }
-    .conteudoMeusPedidos .areaSuperiorMP{
-        gap: 10px;
-    }
-    .areaSuperiorMP .tituloPrincipalMP{
-        font-size: 38px;
-    }
-    .areaSuperiorMP .linhaSuperiorTituloMP{
-        width: 1000px;
-        height: 2px;
-    }
-
-    /*Parte dos cards*/
-    .conteudoMeusPedidos .pedidoAndamentoMP{
-        width: 1040px;
-    }
-    .pedidosFinalizadosMP .tituloFinalizadoMP,
-    .pedidoAndamentoMP .tituloAndamentoMP{
-        font-size: 33px;
-        font-weight: 600;
-    }
-    .pedidoAndamentoMP #produtosAndamento{
-        width: 1040px;
-        max-height: 450px;
-        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));   
-        gap: 15px;
-    }
-    #produtosAndamento .cards-produtoAndamento{
-        height: 190px;   
-    }
-    .cards-produtoAndamento .data-compra{
-        font-size: 14px;
-    }
-    .cards-produtoAndamento .cardcoloridoCam .card-info{
-        width: 295px;
-    }
-
-    .conteudoMeusPedidos .pedidosFinalizadosMP{
-        width: 1045px;
-    }
-    .pedidosFinalizadosMP #produtosFinalizados{
-        width: 1026px;
-        max-height: 430px;
-        padding: 20px 5px 20px 11px;
-        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
-    }
-    #produtosFinalizados .cardProduto-finalizado{
-        height: 200px;
-    }
-    .cardProduto-finalizado .cardcoloridoFin .card-info2{
-        height: 180px;
-        width: 300px;
-        padding-right: 20px;
-    }
-    .cardcoloridoFin .card-info2 .data-entrega{
-        font-size: 14px;
-        margin-bottom: 15px;
-    }
-    .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card{
-        font-size: 15px;
-    }
-   
-    /*Pop-up Andamento*/
-    .conteudoMeusPedidos .popupMPFinalizado,
-    .conteudoMeusPedidos .popupMP{
-        width: 1020px;
-    }
-    .popupMPFinalizado .popupMP-conteudoFi,
-    .popupMP .popupMP-conteudo{
-        max-height: 640px;
-    }
-    .popupMPFinalizado .popupMP-conteudoFi .popupMP-superior,
-    .popupMP .popupMP-conteudo .popupMP-superior{
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        top: 75px;
-    }
-    .popupMPFinalizado .popupMP-conteudoFi .popupMP-superior .popupMP-linhasuperior,
-    .popupMP-conteudo .popupMP-superior .popupMP-linhasuperior{
-        width: 60%;
-    }
-    .popupMPFinalizado .popupMP-conteudoFi .popupMP-superior .bx-x,
-    .popupMP-conteudo .popupMP-superior .bx-x{
-        margin-left: 0px;
-    }
-    .popupMPFinalizado .popupMP-conteudoFi .popupMP-data{
-        top: 100px;
-    }
-    .popupMP-conteudoFi .popupMP-inferior .popupMP-ProdutosFi{
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        height: 460px;
-        margin-top: 20px;
-    }
-    .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
-        width: 820px;
-        height: 460px;
-        margin-top: 100px;
-    }
-    .popupMP .popupMP-conteudo .popupMP-inferior{
-        gap: 600px;
-    }
-    .popupMPFinalizado .popupMP-conteudoFi .popupMP-linhainferior,
-    .popupMP .popupMP-conteudo .popupMP-linhainferior{
-        width: 80%;
-        bottom: 80px;
-    }
-    .cardpopup .card-recolhido .cardpopup-Superior,
-    .popupMP-inferior .popupMP-ProdutosFi .cardpopup,
-    .cardMini .card-recolhido .cardMini-Superior,
-    .popupMP-main .popupMP-Produtos .cardMini{
-        width: 330px;
-    }
-    .cardMini .card-recolhido .cardMini-conteudo .cardMini-infos{
-        font-size: 16px;
-    }
-    .cardpopup .card-recolhido .cardpopup-conteudo .cardpopup-infos
-    .cardMini:hover .card-expandido .detalhes-info,
-    .cardMini:hover .card-expandido .card-linhasuperior,
-    .cardMini:hover .card-expandido .card-linhainferior{
-        width: 270px;
-    }
-    .popupMP-inferior .popupMP-Total{
-        font-size: 14px;
-    }
-
-    
-}
-
-@media (max-width: 1150px){
-    /*Parte superior do titulo e linha*/
-    .conteudoMeusPedidos{
-        gap: 55px;
-    }
-    .conteudoMeusPedidos .areaSuperiorMP{
-        gap: 8px;
-    }
-    .areaSuperiorMP .tituloPrincipalMP{
-        font-size: 35px;
-    }
-    .areaSuperiorMP .linhaSuperiorTituloMP{
-        width: 880px;              
-    }
-
-    /*Parte dos cards*/
-    .conteudoMeusPedidos .pedidoAndamentoMP{
-        width: 890px;
-    }
-    .pedidosFinalizadosMP .tituloFinalizadoMP,
-    .pedidoAndamentoMP .tituloAndamentoMP{
-        font-size: 30px;
-        font-weight: 500;
-    }
-    .pedidoAndamentoMP #produtosAndamento{
-        width: 890px;
-        grid-template-columns: repeat(auto-fill, minmax(400px,1fr));   
-        gap: 20px;
-    }
-    #produtosAndamento .cards-produtoAndamento{
-        height: 195px;   
-    }
-    .cards-produtoAndamento .data-compra{
-        font-size: 14px;
-    }
-    .cards-produtoAndamento .cardcoloridoCam{
-        gap: 12px;              
-    }
-    .cards-produtoAndamento .cardcoloridoCam .linhaverticalcard{
-        height: 167px;
-    }
-    .cards-produtoAndamento .cardcoloridoCam .card-info{
-        height: 167px;
-        width: 385px;
-        padding-right: 20px;
-    }
-    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
-        height: 110px;
-    }
-
-    .conteudoMeusPedidos .pedidosFinalizadosMP{
-        width: 895px;
-    }
-    .pedidosFinalizadosMP #produtosFinalizados{
-        width: 873px;
-        max-height: 470px;
-        padding: 20px 10px 20px 8px;
-        grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
-    }
-    #produtosFinalizados .cardProduto-finalizado{
-        height: 230px;
-    }
-    .cardProduto-finalizado .cardcoloridoFin .card-info2{
-        height: 210px;
-        width: 395px;
-        padding-right: 25px;
-    }
-    .cardcoloridoFin .card-info2 .data-entrega{
-        font-size: 15px;
-    }
-    .cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img{
-        height: 120px;
-    }
-    .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card{
-        font-size: 16px;
-    }
-
-    /*Pop-up Andamento*/
-    .conteudoMeusPedidos .popupMP{
-        width: 870px;
-    }
-    .popupMP .popupMP-conteudo{
-        height: 570px;
-    }
-    .popupMP .popupMP-conteudo .popupMP-superior{
-        width: 870px;
-        top: 70px;
-    }
-    .popupMP-conteudo .popupMP-superior .popupMP-linhasuperior{
-        width: 710px;
-    }
-    .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
-        width: 710px;
-        height: 400px;
-    }
-    .popupMP .popupMP-conteudo .popupMP-inferior{
-        gap: 450px;
-    }
-    .popupMP .popupMP-conteudo .popupMP-linhainferior{
-        width: 710px;
-        bottom: 85px;
-    }
-    .cardMini .card-recolhido .cardMini-Superior,
-    .popupMP-main .popupMP-Produtos .cardMini{
-        width: 320px;
-    }
-    .cardMini:hover .card-expandido .detalhes-info,
-    .cardMini:hover .card-expandido .card-linhasuperior,
-    .cardMini:hover .card-expandido .card-linhainferior{
-        width: 260px;
-    }
-}
-
 @media (max-width: 1000px){
-    /*Parte superior do titulo e linha*/
-    .areaSuperiorMP .tituloPrincipalMP{
-        font-size: 33px;
-    }
-    .areaSuperiorMP .linhaSuperiorTituloMP{
-        width: 780px;              
+    .popupMP-superior{
+        width: 60% !important;
     }
 
-    /*Parte dos cards*/
-    .conteudoMeusPedidos .pedidoAndamentoMP{
-        width: 790px;
-    }
-    .pedidosFinalizadosMP .tituloFinalizadoMP,
-    .pedidoAndamentoMP .tituloAndamentoMP{
-        font-size: 28px;
-    }
-    .pedidoAndamentoMP #produtosAndamento{
-        width: 790px;
-        max-height: 470px;
-        grid-template-columns: repeat(auto-fill, minmax(335px,1fr));   
-    }
-    #produtosFinalizados .cardProduto-finalizado,
-    #produtosAndamento .cards-produtoAndamento{
-        height: 200px;   
-    }
-    .cards-produtoAndamento .cardcoloridoCam{
-        gap: 10px;              
-    }
-    .cards-produtoAndamento .cardcoloridoCam .linhaverticalcard{
-        height: 170px;
-    }
-    .cards-produtoAndamento .cardcoloridoCam .card-info{
-        height: 170px;
-        width: 340px;
-        padding-right: 20px;
-    }
-    .cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img,
-    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
-        height: 100px;
-    }
-
-    .conteudoMeusPedidos .pedidosFinalizadosMP{
-        width: 795px;
-    }
-    .pedidosFinalizadosMP #produtosFinalizados{
-        width: 776px;
-        max-height: 440px;
-        padding: 20px 1px 20px 2px;
-        grid-template-columns: repeat(auto-fill, minmax(335px,1fr));
-    }
-    .cardProduto-finalizado .cardcoloridoFin .card-info2{
-        height: 180px;
-        width: 340px;
-        padding-right: 20px;
-    }
-    .cardcoloridoFin .card-info2 .data-entrega{
-        font-size: 14px;
-        margin-bottom: 13px;
-    }
-    .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card{
-        font-size: 15px;
-    }
-
-    /*Pop-up Andamento*/
-    .conteudoMeusPedidos .popupMP{
-        width: 770px;
-    }
-
-    .popupMP .popupMP-conteudo .popupMP-superior{
-        width: 100%;
-        top: 65px;
-    }
-    .popupMP-conteudo .popupMP-superior .popupMP-linhasuperior{
-        width: 60%;
-    }
-    /* .popupMP-conteudo .popupMP-superior .bx-x{
-        margin-left: 20px;
-    } */
-    .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
-        width: 100%;
-        height: 430px;
-        margin-top: 80px;
-    }
     .popupMP .popupMP-conteudo .popupMP-inferior{
-        display: flex;
-        justify-content: right;
-        width: 60%;
-        gap: 200px;
-        bottom: 95px;
-    }
-    .popupMP .popupMP-conteudo .popupMP-linhainferior{
-        width: 80%;
-        bottom: 80px;
-    }
-    .popupMP-inferior .popupMP-Total{
-        font-size: 14px;
-    }
-}
-    .popupMP-main .popupMP-Produtos .cardMini{
-        width: 280px;
-    }
-    .popupMP-main .popupMP-Produtos .cardMini .card-recolhido{
-        height: 140px;
-    }
-    .cardMini .card-recolhido .cardMini-Superior{
-        width: 280px;
-        margin-bottom: 5px;
-    }
-    .cardMini .card-recolhido .cardMini-Superior .cardMini-Status,
-    .cardMini .card-recolhido .cardMini-Superior .cardMini-Quantidade{
-        font-size: 13px;
-        height: 13px;
-    }
-    .cardMini .card-recolhido .cardMini-conteudo .cardMini-imagem{
-        height: 90px;
-    }
-    .cardMini .card-recolhido .cardMini-conteudo .cardMini-infos{
-        font-size: 15px;
-    }
-    .popupMP-main .popupMP-Produtos .cardMini:hover{
-        height: 400px;
-    }
-    .cardMini:hover .card-expandido .card-titulo{
-        margin-top: 30px;
-    }
-    .cardMini:hover .card-expandido .detalhes-info{
-        width: 220px;
-        gap: 4px;
-    }
-    .cardMini:hover .card-expandido .card-linhasuperior{
-        width: 220px;
-        margin-top: 5px;
-    }
-    .cardMini:hover .card-expandido .card-linhainferior{
-        width: 220px;
-        margin-bottom: 5px;
-    }
-    .cardMini:hover .card-expandido .detalhes-info .detalhes-precoTotal{
-        margin-bottom: 0px;
-    }
-    .cardMini:hover .card-expandido .detalhes-botao{
-        font-size: 12px;
-    }
-    
-
-@media (max-width: 992px){
-    .areaSuperiorMP .tituloPrincipalMP{
-        margin-top: 110px;
+        width: 70%;
     }
 }
 
-@media (max-width: 900px){
-    /*Parte superior do titulo e linha*/
-    .areaSuperiorMP .tituloPrincipalMP{
-        font-size: 30px;
-    }
-    .areaSuperiorMP .linhaSuperiorTituloMP{
-        width: 670px;              
-    }
 
-    /*Parte dos cards*/
-    .conteudoMeusPedidos .pedidoAndamentoMP{
-        width: 700px;
-    }
-    .pedidosFinalizadosMP .tituloFinalizadoMP,
-    .pedidoAndamentoMP .tituloAndamentoMP{
-        font-size: 26px;
-    }
-    .pedidoAndamentoMP #produtosAndamento{
-        width: 700px;
-        max-height: 510px;
-        grid-template-columns: repeat(auto-fill, minmax(310px,1fr));  
-    }
-    .cards-produtoAndamento .data-compra{
-        font-size: 13px;
-    }
-    .cards-produtoAndamento .cardcoloridoCam .card-info{
-        width: 310px;
-    }
-    .cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img,
-    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
-        height: 100px;
-    }
-    .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card,
-    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .informacoes-card{
-        font-size: 14px;
-    }
-    .cardcoloridoFin .card-info2  .cardcolestrutura .maisInfo,
-    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
-        font-size: 13px;
-    }
 
-    .conteudoMeusPedidos .pedidosFinalizadosMP{
-        width: 705px;
-    }
-    .pedidosFinalizadosMP #produtosFinalizados{
-        width: 687px;
-        max-height: 400px;
-        padding: 14px 9px 20px 7px;
-        grid-template-columns: repeat(auto-fill, minmax(310px,1fr));
-    }
-    #produtosFinalizados .cardProduto-finalizado{
-        height: 190px;
-    }
-    .cardProduto-finalizado .cardcoloridoFin .card-info2{
-        height: 175px;
-        width: 305px;
-        padding-right: 20px;
-    }
-    .cardcoloridoFin .card-info2 .data-entrega{
-        font-size: 13px;
-        margin: 12px 0 15px 0;
-    }
-}
-
-@media (max-width: 768px){
-    /*Parte superior do titulo e linha*/
-    .areaSuperiorMP .tituloPrincipalMP{
-        font-size: 35px;
-    }
-    .areaSuperiorMP .linhaSuperiorTituloMP{
-        width: 478px;              
-    }
-
-    /*Parte dos cards*/
-    .conteudoMeusPedidos .pedidoAndamentoMP{
-        width: 470px;
-    }
-    .pedidoAndamentoMP #produtosAndamento{
-        width: 470px;
-        max-height: 510px;
-        grid-template-columns: repeat(auto-fill, minmax(400px,1fr));   
-    }
-    #produtosFinalizados .cardProduto-finalizado,
-    #produtosAndamento .cards-produtoAndamento{
-        height: 220px;   
-    }
-    .cards-produtoAndamento .data-compra{
-        font-size: 14px;
-    }
-    .cards-produtoAndamento .cardcoloridoCam{
-        gap: 15px;
-    }
-    .cards-produtoAndamento .cardcoloridoCam .linhaverticalcard{
-        height: 190px;
-    }
-    .cards-produtoAndamento .cardcoloridoCam .card-info{
-        width: 415px;
-        height: 190px;
-        padding-right: 20px;
-    }
-    .cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img,
-    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
-        height: 120px;
-    }
-    .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card,
-    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .informacoes-card{
-        font-size: 16px;
-    }
-    .cardcoloridoFin .card-info2  .cardcolestrutura .maisInfo,
-    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
-        font-size: 14px;
-    }
-
-    .conteudoMeusPedidos .pedidosFinalizadosMP{
-        width: 475px;
-    }
-    .pedidosFinalizadosMP #produtosFinalizados{
-        width: 454px;
-        max-height: 470px;
-        padding: 14px 11px 20px 7px;
-        grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
-    }
-    .cardProduto-finalizado .cardcoloridoFin .card-info2{
-        height: 200px;
-        width: 415px;
-        padding-right: 25px;
-    }
-    .cardcoloridoFin .card-info2 .data-entrega{
-        font-size: 15px;
-        margin: 15px 0 15px 0;
-    }
-
-    .popupMP .popupMP-conteudo{
-        height: 570px;
-        width: 95%;
-    }
-} 
-
-@media (max-width: 576px){
-    /*Parte superior do titulo e linha*/
-    .conteudoMeusPedidos{
-        gap: 40px;
-    }
-    .areaSuperiorMP .linhaSuperiorTituloMP{
-        width: 380px;              
-    }
-
-    /*Parte dos cards*/
-    .conteudoMeusPedidos .pedidoAndamentoMP{
-        width: 370px;
-    }
-    .pedidoAndamentoMP #produtosAndamento{
-        width: 370px;
-        max-height: 490px;
-        grid-template-columns: repeat(auto-fill, minmax(350px,1fr));   
-    }
-    #produtosFinalizados .cardProduto-finalizado,
-    #produtosAndamento .cards-produtoAndamento{
-        height: 210px;   
-    }
-    .cards-produtoAndamento .cardcoloridoCam .linhaverticalcard{
-        height: 170px;
-    }
-    .cards-produtoAndamento .cardcoloridoCam .card-info{
-        width: 350px;
-        height: 170px;
-        padding-right: 20px;
-    }
-    .cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img,
-    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
-        height: 110px;
-    }
-    .cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card,
-    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .informacoes-card{
-        font-size: 15px;
-    }
-    .cardcoloridoFin .card-info2  .cardcolestrutura .maisInfo,
-    .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
-        font-size: 13px;
-    }
-
-    .conteudoMeusPedidos .pedidosFinalizadosMP{
-        width: 375px;
-    }
-    .pedidosFinalizadosMP #produtosFinalizados{
-        width: 362px;
-        max-height: 430px;
-        padding: 14px 10px 20px 2px;
-        grid-template-columns: repeat(auto-fill, minmax(330px,1fr));
-    }
-    .cardProduto-finalizado .cardcoloridoFin .card-info2{
-        height: 190px;
-        width: 330px;
-        padding-right: 20px;
-    }
-    .cardcoloridoFin .card-info2 .data-entrega{
-        font-size: 14px;
-        margin: 15px 0 12px 0;
-    }
-}
 
 .container {
     width: 90%;
