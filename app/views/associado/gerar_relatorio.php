@@ -80,8 +80,8 @@ switch ($tipo) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $html .= "<tr>
                         <td>{$row['relaRec_id']}</td>
-                        <td class='valor'>R$ {$row['lucro']}</td>
-                        <td class='valor'>R$ {$row['prejuizo']}</td>
+                        <td class='valorLucro'>R$ {$row['lucro']}</td>
+                        <td class='valorPrejuizo'>R$ {$row['prejuizo']}</td>
                       </tr>";
         }
         break;
