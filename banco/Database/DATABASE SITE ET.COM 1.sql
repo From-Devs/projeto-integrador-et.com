@@ -141,7 +141,7 @@ CREATE TABLE Estoque(
 
 CREATE TABLE ListaDesejos(
 	id_listaDesejos INT AUTO_INCREMENT PRIMARY KEY,
-	dataAdd DATE NOT NULL,
+	dataAdd timestamp NOT NULL DEFAULT current_timestamp(),
 	id_usuario INT NOT NULL,
 	id_produto INT NOT NULL,
 	FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),

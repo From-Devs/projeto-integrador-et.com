@@ -145,7 +145,7 @@ class ProdutoController {
             return ['ok' => false];
         }
     
-        $ins = $this->conn->prepare("INSERT INTO listadesejos (dataAdd, id_usuario, id_produto) VALUES (CURDATE(), :u, :p)");
+        $ins = $this->conn->prepare("INSERT INTO listadesejos (dataAdd, id_usuario, id_produto) VALUES (NOW(), :u, :p)");
         $ok = $ins->execute([':u' => $idUsuario, ':p' => $idProduto]);
     
         return ['ok' => $ok];
