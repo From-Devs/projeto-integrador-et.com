@@ -70,14 +70,13 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
         <!-- Card finalizado -->
         <span class="data-entrega" style=""><?= $dataEntrega; ?></span>
         <span class="statusProdutoMP">Concluído</span>
-        <div class="cardcoloridoFin" style="border-radius:25px; overflow:hidden; position:relative;">
+        <div class="cardcoloridoFin" style="border-radius:25px; overflow:hidden; position:relative; border: red solid;">
             <div class="card-info2" style="
+                display: grid;
+                grid-template-columns: 160px auto;
                 width: 100%;
                 height: 100%
-                display:flex;
-                flex-direction:row;
-                align-items:center;
-                justify-content:flex-start;
+                align-items: center;
                 padding: 0px 0px 0px 0px;
                 border-radius:25px;
                 box-shadow: inset 0px 0px 10px rgb(129, 129, 129);
