@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
    
     const cards = document.querySelectorAll(".cardProduto");
+    const LoginVerific = document.getElementById('LoginVerific').innerHTML;
 
     cards.forEach(item => {
         let cor = item.childNodes[1],
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(){
             cores.push(corValor);
         }
             
-        const balao = item.childNodes[3].childNodes[1],
+        const balao = item.childNodes[3],
               coracaoForm = item.querySelector('.formFavoritoCard'),
               coracaoImg = coracaoForm ? coracaoForm.querySelector('.coracaoImg') : null,
               botaoComprar = item.querySelector(".botaoComprarCardProduto"),
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
             item.style.filter = "drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.35))";
         });
 
-        if (coracaoForm && coracaoImg) {
+        // if (coracaoForm && coracaoImg) {
             coracaoBotao.addEventListener("mouseenter", function(){
                 balao.style.display = "block";
             });
@@ -39,29 +40,30 @@ document.addEventListener("DOMContentLoaded", function(){
                 balao.style.display = "none";
             });
 
-            coracaoForm.addEventListener('submit', function(e){
-                e.preventDefault(); // evita reload
-                const formData = new FormData(this);
+        //     coracaoForm.addEventListener('submit', function(e){
+        //         e.preventDefault(); // evita reload
+        //         const formData = new FormData(this);
 
-                fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if(data.ok){
-                        coracaoImg.classList.add('liked'); // animação coração
-                        abrirPopUp('popUpFavorito');
-                    } else {
-                        alert('Erro ao adicionar aos favoritos: ' + (data.msg || 'Tente novamente'));
-                    }
-                })
-                .catch(err => console.error(err));
-            });
-        }
+        //         fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito', {
+        //             method: 'POST',
+        //             body: formData
+        //         })
+        //         .then(res => res.json())
+        //         .then(data => {
+        //             if(data.ok){
+        //                 coracaoImg.classList.add('liked'); // animação coração
+        //                 abrirPopUp('popUpFavorito');
+        //             } else {
+        //                 alert('Erro ao adicionar aos favoritos: ' + (data.msg || 'Tente novamente'));
+        //             }
+        //         })
+        //         .catch(err => console.error(err));
+        //     });
+        // }
 
-        imagemCardProdutoPadrao.addEventListener('click', function(e){
-            window.location.href = '/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php'
+        imagemCardProdutoPadrao.addEventListener('click', e => {
+            const id = item.getAttribute('data-id');
+            window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${id}`;
         });
         imagemCardProdutoPadrao.addEventListener('mousedown', function(e){
             e.preventDefault();
@@ -79,7 +81,11 @@ document.addEventListener("DOMContentLoaded", function(){
             botaoAnimacao.style.animationName = "";
         });
         botaoComprar.addEventListener('click', function(){
-            window.location.href = '/projeto-integrador-et.com/app/views/usuario/Meu_Carrinho.php'
+            if (LoginVerific == "true"){
+                window.location.href = 'Meu_Carrinho.php';
+            }else{
+                abrirPopUpCurto("popUpErroDelogado", 2000);
+            }
         });
     });
 

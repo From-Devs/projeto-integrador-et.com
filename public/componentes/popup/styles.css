@@ -64,3 +64,117 @@
     width: 20px;
     height: 20px;
 }
+
+.popUpDialogCurto {
+    border: none;
+    padding: 0;
+    margin: 10px 0px;
+    background: transparent;
+    /* width: auto; */
+    max-width: 90%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    animation: fadeIn 0.3s ease;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.popUpDialogCurto[open]::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.popUpDialog, 
+.popUpDialogCurto {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+  
+.popUpCurto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+    overflow: hidden;
+    gap: 10px;
+    border-radius: 12px;
+    padding: 0px 0px 10px 0px;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-width: 250px;
+    max-width: 450px;
+}
+  
+.container-principalCurto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 10px;
+}
+  
+.img-popUpCurto {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+  
+.texto-popUpCurto {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    font-weight: 700;
+}
+
+.container-botoesCurto {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+  
+  .botoes-popUpCurto button {
+    display: inline-flex;
+    width: auto;
+    margin-left: 10px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+  
+.botoes-popUpCurto button:hover {
+    filter: brightness(0.9);
+}
+
+.barra-tempo {
+    height: 7px;
+    background-color: rgba(255,255,255,0.7);
+    width: 100%;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    margin-top: 0px;
+    transform-origin: left;
+}
+  
+.fadeOut {
+    animation: fadeOut 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -40px); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
+} 
+  
+@keyframes fadeOut {
+    from { opacity: 1; transform: translate(-50%, 0); }
+    to   { opacity: 0; transform: translateY(-50%, -40px); }
+}
+  
+.popUpDialogCurto::backdrop {
+    display: none;
+    background: transparent;
+}
+
+.popUpDialogCurto[open]::backdrop {
+    background: transparent;
+}

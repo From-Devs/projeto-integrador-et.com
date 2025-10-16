@@ -25,6 +25,10 @@ class ProdutoController {
         return $this->produtoModel->getAllSubcategorias();
     }
 
+    public function pegarTodosProdutos(){
+        return $this->produtoModel->getAllProdutos();
+    }
+
     public function cadastrarProduto(
         $nome, 
         $marca, 
@@ -82,6 +86,23 @@ class ProdutoController {
             $deg1, 
             $deg2
         );
+    }
+
+    public function pesquisarHeader($termo)
+    {
+        return $this->produtoModel->pesquisarProdutos($termo);
+    }
+
+    public function getOfertasImperdiveis() {
+        return $this->produtoModel->getOfertasImperdiveis();
+    }
+
+    public function getMaisVendidos() {
+        return $this->produtoModel->getMaisVendidos();
+    }
+
+    public function getRelacionados($categoria, $marca, $idAtual) {
+        return $this->produtoModel->getRelacionados($categoria, $marca, $idAtual);
     }
     
 

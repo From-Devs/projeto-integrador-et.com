@@ -135,6 +135,18 @@ class Products {
         }
     }
 
+    public function pesquisarProdutosHeader($termo)
+    {
+        $sql = "SELECT p.id_produto, p.nome, p.marca, p.preco, p.img1
+                FROM Produto p
+                WHERE p.nome LIKE :termo OR p.marca LIKE :termo
+                ORDER BY p.nome ASC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(':termo', "%$termo%");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function buscarTodosProdutos($ordem="", $pesquisa=""){
         try {    
             $sqlProdutos = "SELECT 
@@ -378,6 +390,46 @@ class Products {
             }
         }
         return null;
+    }
+
+    public function getOfertasImperdiveis($limit = 8) {
+        $sql = "
+        SELECT 
+            p.*, 
+            c.corPrincipal, 
+            c.hexDegrade1 AS corDegrade1, 
+            c.hexDegrade2 AS corDegrade2
+        FROM produto p
+        LEFT JOIN cores c ON p.id_cores = c.id_cores
+        WHERE p.fgPromocao = 1
+        ORDER BY RAND()
+        LIMIT :limite
+        ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(":limite", (int)$limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Mais vendidos: baseado na quantidadeVendida
+    public function getMaisVendidos($limit = 8) {
+        $sql = "SELECT * FROM produto ORDER BY quantidadeVendida DESC LIMIT :limite";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param(":limite", $limit);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Relacionados: mesma categoria ou marca
+    public function getRelacionados($categoria, $marca, $idAtual, $limit = 8) {
+        $sql = "SELECT * FROM produto 
+                WHERE id_produto != ? 
+                AND (categoria = ? OR marca = ?) 
+                ORDER BY RAND() LIMIT ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("issi", $idAtual, $categoria, $marca, $limit);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
     
 }

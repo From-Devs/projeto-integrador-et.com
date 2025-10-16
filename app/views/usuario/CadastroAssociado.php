@@ -46,7 +46,7 @@
     </div>
     <div class="Cadastro">
         <!-- Área branca -->
-    <form class="formAssociado" action="../../../router/UserRoutes.php?acao=assoc_request" method="POST" id="form">
+    <form class="formAssociado" method="POST" action="../../../router/UserRoutes.php?acao=assoc_request" id="form" enctype="multipart/form-data">
         <h1>Edite seus dados (Opicional)</h1>
         <div class= "p">
             <p class = "p1">*</p>
@@ -64,7 +64,7 @@
                         : "/projeto-integrador-et.com/public/imagens/user-icon.png";
                     ?>
                     
-                    <img src="<?= htmlspecialchars($avatarPath) ?>" 
+                    <img src="<?= $avatarPath ?>" 
                         alt="User Profile" 
                         class="profile-pic" 
                         id="avatarPreview">
@@ -96,15 +96,28 @@
                     <label class="termos" for="termos"> Concordo com os <a href="./TermoDeUso.php">Termos de Uso e Privacidade</a></label>
                 </div>
                 
-                <button class="botaoConfirmar" type="submit" onclick="return abrirPopUp('popup')"><b>Confirmar</b></button>
+                <!-- Botão corrigido -->
+                <button class="botaoConfirmar" type="submit"><b>Confirmar</b></button>
             </div>
         </div>
     </form>
     
     </div>
     </div>
-    <?php $btt = botaoPersonalizadoRedirect("Voltar à Tela de início","btn-white","app/views/usuario/paginaPrincipal.php");
-    echo PopUpComImagemETitulo("popup","popUp_Botoes/img-pessoa.png","100px","Cadastro Enviado para Validação","Entraremos em contato via WhatsApp após validar",$btt);
+    <?php 
+    $btt = botaoPersonalizadoRedirect(
+        "Voltar à Tela de início",
+        "btn-white",
+        "app/views/usuario/paginaPrincipal.php"
+    );
+    echo PopUpComImagemETitulo(
+        "popup",
+        "popUp_Botoes/img-pessoa.png",
+        "100px",
+        "Cadastro Enviado para Validação",
+        "Entraremos em contato via WhatsApp após validar",
+        $btt
+    );
     ?>
     <script src="../../../public/componentes/popup/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/editarDados.js"></script>
