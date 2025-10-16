@@ -48,7 +48,11 @@ $html = "
     tr:hover {
         background-color: #eaf2f8;
     }
-    td.valor {
+    td.valorLucro {
+        font-weight: bold;
+        color: #148a10ff;
+    }
+    td.valorPrejuizo {
         font-weight: bold;
         color: #e74c3c;
     }
