@@ -32,6 +32,17 @@ CREATE TABLE Administrador(
 	email VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE Avaliacoes (
+  id_avaliacao int(11) NOT NULL,
+  id_usuario int(11) NOT NULL,
+  id_produto int(11) NOT NULL,
+  nota int(11) NOT NULL CHECK (`nota` between 1 and 5),
+  comentario text DEFAULT NULL,
+  data_avaliacao timestamp NOT NULL DEFAULT current_timestamp(),
+  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
+  FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
+);
+
 -- Personalização e categorias
 
 CREATE TABLE Cores( 
@@ -68,7 +79,8 @@ CREATE TABLE Produto(
 	nome VARCHAR(255) NOT NULL,
 	marca VARCHAR(255) NOT NULL,
 	descricaoBreve VARCHAR(255) NOT NULL,
-	descricaoTotal VARCHAR(255) NOT NULL,
+	descricaoTotal TEXT NOT NULL,
+	tamanho VARCHAR(30) DEFAULT NULL,
 	preco DECIMAL(10,2) NOT NULL,
 	precoPromo DECIMAL(10,2),
 	fgPromocao boolean,
@@ -84,13 +96,39 @@ CREATE TABLE Produto(
 	FOREIGN KEY (id_associado) REFERENCES Usuario(id_usuario)
 );
 
+CREATE TABLE Status(
+	id_status INT AUTO_INCREMENT PRIMARY KEY,	
+	tipoStatus VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Carrinho (
+  id_carrinho int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_usuario int(11) NOT NULL,
+  id_produto int(11) NOT NULL,
+  quantidade int(11) NOT NULL DEFAULT 1,
+  data_adicionado timestamp NOT NULL DEFAULT current_timestamp(),
+  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
+);
+
+CREATE TABLE Pedido (
+  id_pedido INT PRIMARY KEY AUTO_INCREMENT,
+  precoTotal DECIMAL(10, 2) DEFAULT NULL,
+  id_usuario INT NOT NULL,
+  id_carrinho INT DEFAULT NULL,
+  id_status INT NOT NULL,
+  dataPedido DATETIME NOT NULL,
+  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
+  FOREIGN KEY (id_carrinho) REFERENCES Carrinho(id_carrinho),
+  FOREIGN KEY (id_status) REFERENCES Status(id_status)
+);
+
 CREATE TABLE pedidoProduto( 
-	id_pedido_produto int PRIMARY KEY AUTO_INCREMENT, 
-	quantidade int NOT NULL, 
-	id_pedido int, id_Produto int, 
+	id_pedido_produto INT PRIMARY KEY AUTO_INCREMENT, 
+	quantidade INT NOT NULL, 
+	id_pedido INT, id_produto INT, 
 	FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido), 
-	FOREIGN KEY (id_Produto) REFERENCES produto(id_Produto) 
-)
+	FOREIGN KEY (id_produto) REFERENCES produto(id_produto) 
+);
 
 CREATE TABLE Estoque(
 	id_estoque INT AUTO_INCREMENT PRIMARY KEY,
@@ -110,15 +148,6 @@ CREATE TABLE ListaDesejos(
 	FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
 
-CREATE TABLE Carrinho (
-  id_carrinho int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  id_usuario int(11) NOT NULL,
-  cep varchar(9) NOT NULL,
-  id_produto int(11) NOT NULL,
-  quantidade int(11) NOT NULL DEFAULT 1,
-  data_adicionado timestamp NOT NULL DEFAULT current_timestamp(),
-  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
-);
 
 CREATE TABLE ProdutoCarrinho(
 	id_prodCarrinho INT AUTO_INCREMENT PRIMARY KEY,
@@ -130,20 +159,6 @@ CREATE TABLE ProdutoCarrinho(
 );
 
 -- Pedidos e histórico
-
-CREATE TABLE Status(
-	id_status INT AUTO_INCREMENT PRIMARY KEY,	
-	tipoStatus VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE `pedido` (
-  `id_pedido` int(11) NOT NULL,
-  `precoTotal` decimal(10,0) DEFAULT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_carrinho` int(11) DEFAULT NULL,
-  `id_status` int(11) NOT NULL,
-  `dataPedido` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE HistoricoDeVenda(
 	id_historicoDeVenda INT AUTO_INCREMENT PRIMARY KEY,
@@ -216,11 +231,11 @@ CREATE TABLE SolicitacaoDeAssociado (
     id_solicitacao INT AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL UNIQUE,
     sobreProdutos TEXT,
-	motivoDoRecuso varchar(500)
+	motivoDoRecuso varchar(500),
     CONSTRAINT fk_usuario FOREIGN KEY (id_usuario) 
         REFERENCES Usuario(id_usuario)
         ON DELETE CASCADE
-) ENGINE=InnoDB;
+);
 
  -- Triggers
  -- Atualizar Estoque

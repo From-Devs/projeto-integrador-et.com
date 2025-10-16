@@ -1,13 +1,21 @@
 <?php 
+    session_start();
+    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 
-require __DIR__ . "/../../../public/componentes/componentesADM_Associado/componentesADM_Associado.php";
-require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
-require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
-require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
-require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
+    if($tipo_usuario != "Associado" || !isset($_SESSION['id_usuario'])){
+        header("Location: /projeto-integrador-et.com/app/views/usuario/Login.php?erro=acesso_negado");
+        exit();
+    }
 
-// session_start();
-$tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
+    require __DIR__ . "/../../../public/componentes/componentesADM_Associado/componentesADM_Associado.php";
+    require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
+    require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
+    require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
+    require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
+    require_once __DIR__ . "/../../Controllers/UserController.php";
+
+    $controller = new UserController();
+    $user = $controller->getLoggedUser();
 ?>
  
 <!DOCTYPE html>
@@ -30,7 +38,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'Associado';
 
     <?php
         echo createSidebarInterna($tipo_usuario);
-        echo createContaAssociadoADM("Associado");
+        echo createContaAssociadoADM("Associado",$user);
     ?>
 
     <!-- aqui acaba o lado esquerdo -->

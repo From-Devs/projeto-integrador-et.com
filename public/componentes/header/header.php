@@ -24,9 +24,18 @@ Pode ser necessário trocar o caminho dos styles e scripts dependendo de onde a 
 <?php
 require __DIR__ . '/../sidebar/sidebarHeader.php'; // import do componente da sidebar
 require __DIR__ . '/../pesquisaHeader/pesquisaHeader.php'; // import do componente da sidebar
+require __DIR__ . "/../../../app/Controllers/UserController.php";
+
 
 function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
-                                            // $login (sujeito a mudança): é o estado de login do usuário, true pra logado e false para deslogado
+    $popUpCurtoLogin = popUpCurto("popUpErroDelogado", "Cadastre ou entre em uma conta para realizar essa ação.", "red", "white", "/popUp_Botoes/img-cancelar.png");
+    $controller = new UserController(); 
+    $user = $controller->getLoggedUser();
+    $userEstaLogado = $login ? "true" : "false";
+    $a = !empty($user['foto']) 
+    ? "/projeto-integrador-et.com/" . $user['foto'] 
+    : "/projeto-integrador-et.com/public/imagens/header/perfil.png";
+    // $login (sujeito a mudança): é o estado de login do usuário, true pra logado e false para deslogado
     if ($login == false){                   // $tipoUsuario (sujeito a mudança): é o tipo de conta, associado ou usuario (veja como funciona na teste.php)
         $botao1 = botaoPersonalizadoRedirect('Cadastrar-se', 'btn-white', 'app/views/usuario/CadastroUsuario.php', '155px', '44px', '16px');           
         $botao2 = botaoPersonalizadoRedirect('Entrar', 'btn-white', 'app/views/usuario/Login.php', '155px', '44px', '16px');
@@ -34,19 +43,21 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
         $botao1 = botaoPersonalizadoRedirect('Minha Conta', 'btn-white', 'app/views/usuario/minhaConta.php', '155px', '44px', '16px');
         $botao2 = '
         <form method="POST" action="../../../router/UserRoutes.php?acao=logout">
-            <button type="submit" class="btn btn-white" style="width:155px; height:44px; font-size:16px;">
-                Sair
-            </button>
+        <button type="submit" class="btn btn-white" style="width:155px; height:44px; font-size:16px;">
+        Sair
+        </button>
         </form>
-    ';
+        ';
     }
 
     if($tipo == 0){
+        
         // Abaixo é o código do header que vai pro HTML, ele usa a função de criar a sidebar de outro componente.
         return "
         ".createSidebar($tipoUsuario, $login)."
+        $popUpCurtoLogin
         <header class='headerUsuario' id='headerUsuario'>
-            
+
             <div class='esquerdo'>
                 <div class='menu-toggle' id='menu-toggle'>
                     <span class='bar'></span>
@@ -65,15 +76,16 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
             <div class='direito'>
                 <div class='botoes'>
                     <img class='lupaHeader' src='/projeto-integrador-et.com/public/imagens/header/lupa.png' alt=''>
-                    <a href='/projeto-integrador-et.com/app/views/usuario/listaDeDesejos.php'><img src='/projeto-integrador-et.com/public/imagens/header/coracao.png' alt=''></a>
-                    <a href='/projeto-integrador-et.com/app/views/usuario/Meu_Carrinho.php'><img src='/projeto-integrador-et.com/public/imagens/header/carrinho.png' alt=''></a>
-                    <img class='perfilHeader' src='/projeto-integrador-et.com/public/imagens/header/perfil.png' alt=''>
+                    <img class='favBotaoHeader' src='/projeto-integrador-et.com/public/imagens/header/coracao.png' alt=''>
+                    <img class='carrinhoBotaoHeader' src='/projeto-integrador-et.com/public/imagens/header/carrinho.png' alt=''>
+                    <img class='perfilHeader' src='$a' alt=''>
                 </div>
                 <div class='menuConta'>
                     $botao1
                     $botao2
                 </div>
             </div>
+            <div id='LoginVerific'>$userEstaLogado</div>
         </header>
         ";
     }else{
@@ -98,9 +110,9 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
             <div class='direito'>
                 <div class='botoes'>
                     <img class='lupaHeader' src='/projeto-integrador-et.com/public/imagens/header/lupa.png' alt=''>
-                    <a href='/projeto-integrador-et.com/app/views/usuario/listaDeDesejos.php'><img src='/projeto-integrador-et.com/public/imagens/header/coracao.png' alt=''></a>
-                    <a href='/projeto-integrador-et.com/app/views/usuario/Meu_Carrinho.php'><img src='/projeto-integrador-et.com/public/imagens/header/carrinho.png' alt=''></a>
-                    <img class='perfilHeader' src='/projeto-integrador-et.com/public/imagens/header/perfil.png' alt=''>
+                    <img src='/projeto-integrador-et.com/public/imagens/header/coracao.png' alt=''></a>
+                    <img src='/projeto-integrador-et.com/public/imagens/header/carrinho.png' alt=''></a>
+                    <img class='perfilHeader' src='$a' alt=''>
                 </div>
                 <div class='menuConta'>
                     $botao1
@@ -140,5 +152,3 @@ function createHeaderCustomizacao($tipo){
     }
 }
 ?>
-
-

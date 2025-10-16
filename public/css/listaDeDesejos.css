@@ -19,6 +19,7 @@ body{
     margin-top: 150px;
     flex-direction: column;
     gap: 8px;
+    align-items: center;
 }
 
 .title-container .title{
@@ -521,7 +522,7 @@ body{
 
 .line2{
     width: 65%;
-    border-bottom: black 3px solid;
+    border-bottom: black 2px solid;
     margin-top: 60px;
 }
 

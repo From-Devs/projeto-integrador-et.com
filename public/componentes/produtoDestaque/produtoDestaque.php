@@ -1,7 +1,5 @@
 <?php
 function createProdutoDestaque($nome = "KIT LANCÔME LASH IDÔLE", $marca = "LANCÔME", $preco = "R$ 00.00", $imagem = "idole.png", $corDegrade1 = "rgb(180, 147, 138)", $corDegrade2 = "rgb(254, 225, 216)", $corSombra = "rgb(56, 21, 7)"){
-    $botaoComprar = botaoPersonalizadoRedirect('Comprar', 'btn-black', 'app/views/usuario/Meu_Carrinho.php', '262px', '67px', '20px');
-    $botaoMaisDetalhes = botaoPersonalizadoRedirect('Ver Detalhes', 'btn-white', 'app/views/usuario/detalhesDoProduto.php', '262px', '67px', '20px');
     return "
     <div class='produtoDestaque'>
         <div class='imagemProduto'>
@@ -14,8 +12,8 @@ function createProdutoDestaque($nome = "KIT LANCÔME LASH IDÔLE", $marca = "LAN
                 <h2 class='marcaProduto'>$marca</h2>
                 <h1 class='precoProduto'>$preco</h1>
                 <div class='botoesProdutoDestaque'>
-                    $botaoComprar
-                    $botaoMaisDetalhes
+                    <button id='botaoComprarProdutoDestaque' class='btn btn-black' style='width:262px; height:67px;font-size:20px;'>Comprar</button>
+                    <button id='botaoDetalhesProdutoDestaque' class='btn btn-white' style='width:262px; height:67px;font-size:20px;'>Ver Detalhes</button>
                 </div>
             </div>
         </div>

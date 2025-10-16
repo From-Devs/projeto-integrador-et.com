@@ -84,15 +84,31 @@ async function enviarFormulario(action, idsProdutos) {
     }
 }
 
-// Botões principais
+// Botões principais da listaDeDesejos que trabalha produtos selecionados
 btnAdicionarCarrinho.addEventListener('click', () => {
     enviarFormulario('adicionarCarrinho', getSelecionados());
 });
 
 btnExcluirSelecionados.addEventListener('click', () => {
-    enviarFormulario('removerFavorito', getSelecionados());
+    const selecionados = getSelecionados();
+    const qnt = selecionados.length;
+
+    if(qnt === 0){
+        alert("Nenhum produto selecionado!");
+        return;
+    }
+
+    const spanQnt = document.getElementById('idProdutosSelecionados');
+    if (spanQnt){
+        spanQnt.textContent = qnt;
+    }
+
+    abrirPopUp("removerSelecionados")
 });
 
+
+
+//Botões dos componentes do cardListaDeDesejos
 cardContainer.addEventListener('click', (e) => {
     const carrinhoBtn = e.target.closest('.icon-carrinho');
     const lixeiraBtn = e.target.closest('.icon-lixeira');
@@ -102,10 +118,18 @@ cardContainer.addEventListener('click', (e) => {
         enviarFormulario('adicionarCarrinho', [idProduto]);
     }
 
-    if (lixeiraBtn) {
+   if (lixeiraBtn) {
         const idProduto = lixeiraBtn.dataset.id;
-        enviarFormulario('removerFavorito', [idProduto]);
-    }
+        const nomeProd = lixeiraBtn.dataset.nome;
+
+        const spanNome = document.getElementById('nomeProdutoSelecionado');
+        if (spanNome){
+            spanNome.textContent = nomeProd;
+        }
+        abrirPopUp("removerLista");
+
+        window.produtoParaExcluir = idProduto;
+    } 
 });
 
 

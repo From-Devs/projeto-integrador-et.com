@@ -6,7 +6,8 @@
     require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
-    require __DIR__ . "/../../../public/componentes/filtroCategoria/filtroCategoria.php";
+    // NOTE: Vamos usar o componente de filtro diretamente no HTML, não o require aqui.
+    // require __DIR__ . "/../../../public/componentes/filtroCategoria/filtroCategoria.php"; // REMOVIDO DAQUI
     require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
     require_once __DIR__ . "/../../Models/categoria.php";
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
@@ -15,7 +16,7 @@
         "Maquiagem" => ["Tipos" => ["Olhos", "Sombrancelhas","Boca","Pele"]],
         "Perfume"   => ["Gênero" => ["Feminino", "Masculino", "Unissex"]],
         "Skincare"  => ["Tipos" => ["Limpeza", "Esfoliação", "Hidratação", "Máscara", "Protetor Solar", "Especiais"]],
-        "Cabelo"   => ["Tipos" => ["Dia-A-Dia", "Tratamentos", "Estilização", "Especiais", "Acessórios"]],
+        "Cabelo"    => ["Tipos" => ["Dia-A-Dia", "Tratamentos", "Estilização", "Especiais", "Acessórios"]],
         "Eletronicos" => ["Tipos" => ["Cabelos", "Pincel", "Esponja"]],
         "Corporal"  => ["Produtos" => ["Body Splash", "Óleos", "Creme", "Protetor"]],
     ];
@@ -24,17 +25,24 @@
         "maquiagem" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemFundo.png"],
         "perfume"   => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/PerfumeFundo.png"],
         "skincare"  => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareFundo.png"],
-        "cabelo"   => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloFundo.png"], 
+        "cabelo"    => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloFundo.png"], 
         "eletronicos" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosFundo.png"],
         "corporal"  => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalFundo.png"],
         "ofertas"   => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/OfertasFundo.png"],
         "mais_vendidos" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaisVendidosFundo.png"],
     ];
     
+    // --- ALTERAÇÃO AQUI: CAPTURA DO FILTRO COMO ARRAY ---
     $slugCategoria = $_GET['tela'] ?? "maquiagem"; 
-    $slugSub       = $_GET['sub'] ?? "default";    
+    $subSelecionados = $_GET['sub'] ?? []; // Pega os filtros 'sub' (agora como array)
     
-    function renderSomenteSubcategoriasDB($id_categoria) {
+    // Garante que $subSelecionados é sempre um array
+    if (!is_array($subSelecionados)) {
+        $subSelecionados = [$subSelecionados];
+    }
+    // ---------------------------------------------------
+    
+    function renderSomenteSubcategoriasDB($id_categoria, $subSelecionados) {
         require_once __DIR__ . "/../../Models/categoria.php";
         $subcategorias = CategoriaModel::getSubcategorias($id_categoria);
     
@@ -44,12 +52,16 @@
         }
     
         foreach ($subcategorias as $sub) {
+            $nomeSub = $sub["nome"];
+            // Verifica se a subcategoria está no array de selecionados
+            $checked = in_array($nomeSub, $subSelecionados, true) ? 'checked' : '';
+    
             echo '
                 <div class="item-filtro">
                     <label class="categoriaLabel">
-                        <input type="checkbox" name="subcategorias[]" value="' . htmlspecialchars($sub["nome"]) . '"> 
+                        <input type="checkbox" name="sub[]" value="' . htmlspecialchars($nomeSub) . '" ' . $checked . ' onchange="this.form.submit()"> 
                         <span class="checkmark"></span>
-                        ' . htmlspecialchars($sub["nome"]) . '
+                        ' . htmlspecialchars($nomeSub) . '
                     </label>
                 </div>
             ';
@@ -57,8 +69,8 @@
     }
     
     $telaAtual = str_replace("_"," ", ucfirst($slugCategoria));
-    $subAtual  = $slugSub !== "default" ? ucfirst($slugSub) : "";
-    $fundoAtual = $fundos[$slugCategoria][$slugSub] ?? $fundos[$slugCategoria]["default"];
+    // Usa apenas o fundo 'default' para simplificar, já que pode haver múltiplos filtros
+    $fundoAtual = $fundos[$slugCategoria]["default"];
     
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
     $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
@@ -114,67 +126,69 @@
     <div class="Produtos">
         
         <div class="aVenda">
-            <div class="PartedeCima">
-                <h3 class="TituloProdutos">Produtos</h3>
+                <div class="PartedeCima">
 
-                <div class="filtroSeparado">
-                    <button class="filtro-botao" type="button" onclick="toggleFiltro()">
-                        <img src="/projeto-integrador-et.com/public/componentes/filtroCategoria/filtroIcone.png" alt="Ícone de filtro">Filtros
-                    </button>
-                    
-                    <div id="form-filtro" class="filtro-box">
-                        <div class="form">
-                            <?php 
-                            renderSomenteSubcategorias($categoriasPorTela, $telaAtual);
-                            ?>
+                        <h3 class="TituloProdutos">Produtos</h3>
+
+                        <div class="filtroSeparado">
+                            <button class="filtro-botao" type="button" onclick="toggleFiltro()">
+                                <img src="/projeto-integrador-et.com/public/componentes/filtroCategoria/filtroIcone.png" alt="Ícone de filtro">Filtros
+                            </button>
+
+                            <div id="form-filtro" class="filtro-box">
+                                <?php
+                                    // As variáveis $categoriasPorTela, $telaAtual, $slugCategoria e $subSelecionados
+                                    // estão no escopo global e serão usadas no componente.
+                                    require __DIR__ . "/../../../public/componentes/filtroCategoria/filtroCategoria.php"; 
+                                ?>
+                            </div>
                         </div>
-                    </div>
+
                 </div>
-            </div>
         
             <div class="PartedeBaixo">
                 <?php
 
                     $produtos = [
-                         createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                         createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                         createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                         createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
+                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
+                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
+                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
+                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
     
-                         createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                         createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                         createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                         createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
+                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
+                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
+                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
+                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
     
-                         createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                         createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                         createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                         createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
+                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
+                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
+                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
+                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
     
-                         createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                         createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                         createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                         createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
+                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
+                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
+                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
+                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
 
-                         createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                         createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                         createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                         createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
+                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
+                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
+                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
+                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
     
-                         createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                         createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                         createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                         createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
+                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
+                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
+                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
+                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
     
-                         createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                         createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                         createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                         createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
+                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
+                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
+                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
+                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
     
-                         createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
-                         createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
-                         createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
-                         createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
+                        createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9"),
+                        createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA"),
+                        createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186"),
+                        createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065"),
                     ];
 
 

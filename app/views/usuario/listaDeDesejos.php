@@ -16,6 +16,9 @@ $login = $_SESSION['login'] ?? false;
 $controller = new ProdutoController();
 $idUsuario = $_SESSION['id_usuario'] ?? null;
 $favoritos = $idUsuario ? $controller->ListarFavoritos($idUsuario) : [];
+
+$btnExcluirSelecionados = botaoPersonalizadoOnClick('Sim','btn-green','enviarFormulario("removerFavorito", getSelecionados()); fecharPopUp("removerSelecionados")','85px','40px','18px');
+$btnCancelarExclusão = botaoPersonalizadoOnClick('Não','btn-red','fecharPopUp("removerSelecionados")','85px','40px','18px');
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -50,7 +53,7 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
 
 <div class="title-container">
     <div class="title"><h1>MINHA LISTA DE DESEJOS</h1></div>
-    <center><div class="line"></div></center>
+    <div class="line"></div>
 </div>
 
 <div class="acoesWrapper">
@@ -62,6 +65,9 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
         <div class="btnCheck">
             <button id="adicionarCarrinho">Adicionar ao Carrinho</button>
             <button id="excluirSelecionados">Excluir</button>
+            <?php 
+                echo PopUpConfirmar('removerSelecionados','Deseja eliminar <span id="idProdutosSelecionados">0</span> produto(s) da sua lista de desejos?',$btnExcluirSelecionados,$btnCancelarExclusão,'500px');
+            ?>
         </div>
     </div>
 </div>
@@ -88,6 +94,7 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
                     $preco,
                     $item['marca'],
                     $item['nome'],
+                    $item['tamanho'],
                     $dataAdicionado,
                     $item['corPrincipal'] ?? "#919191",
                     $item['hexDegrade1'] ?? "#919191",
@@ -146,6 +153,10 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
 <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
 <script src="/projeto-integrador-et.com/public/javascript/listaDeDesejos.js"></script>
+
+<script>
+
+</script>
 
 
 </body>
