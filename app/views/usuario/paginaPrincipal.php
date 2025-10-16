@@ -67,7 +67,7 @@
                 <img src="/projeto-integrador-et.com/public/imagens/ET/LogoBranca2.png" alt="" class="carouselLogo">
                 <div class="componenteCarousel">
                     <?php
-                    echo createCarousel(); // função que cria o header
+                    echo createCarousel($dados); // função que cria o header
                     ?>
                 </div>
             </div>
