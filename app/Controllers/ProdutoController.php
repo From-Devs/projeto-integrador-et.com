@@ -40,7 +40,8 @@ class ProdutoController {
         $qtdEstoque, 
         $corPrincipal, 
         $deg1, 
-        $deg2
+        $deg2,
+        $idAssociado
     ) {
         return $this->produtoModel->cadastrarProduto(
             $nome, 
@@ -54,6 +55,7 @@ class ProdutoController {
             $corPrincipal, 
             $deg1, 
             $deg2,
+            $idAssociado,
             $_FILES
         );
     }
