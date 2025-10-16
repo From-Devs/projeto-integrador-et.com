@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 
     if($tipo_usuario != "Associado" || !isset($_SESSION['id_usuario'])){
@@ -43,7 +43,7 @@
 <body>
     <?php
         echo createSidebarInterna($tipo_usuario);
-        echo createContaAssociadoADM("Associado",$user);
+        echo createContaAssociadoADM("Associado");
     ?>
     
     <!--cards relatorios-->
@@ -53,13 +53,13 @@
                 <h1 id="tituloH1">Relatórios</h1>
             </div>
             <div id="geralInformacoes">
-                <?php echo PopUpConfirmar("relatorioReceitas", "Relatório de Receitas", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "500px", "gray", "white")?>
+                <?php echo PopUpConfirmar("relatorioReceitas", "Relatório de Receitas", "<a class='btn-relatorio' href='/projeto-integrador-et.com/app/views/associado/gerar_relatorio.php?tipo=receita' target='_blank'>Fazer Download em PDF</a>", "", "500px", "gray", "white" )?>
                 <?php dadosInforRelatorios('receita','../../../public/imagens/associado/iconeRelatorioReceitas.png','Relatório de Receitas','relatorioReceitas','grafico') ?>
-                <?php echo PopUpConfirmar("relatorioProduto", "Relatório de Receitas por Produto", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "500px", "gray", "white")?>
+                <?php echo PopUpConfirmar("relatorioProduto", "Relatório de Receitas por Produto", "<a class='btn-relatorio' href='/projeto-integrador-et.com/app/views/associado/gerar_relatorio.php?tipo=produto' target='_blank'>Fazer Download em PDF</a>", "", "500px", "gray", "white" ) ?>
                 <?php dadosInforRelatorios('produto','../../../public/imagens/associado/iconeReceitaProduto.png','Receita por Produto','relatorioProduto','folha') ?>
-                <?php echo PopUpConfirmar("relatorioVendas", "Relatório de Vendas Abandonadas", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "500px", "gray", "white")?>
+                <?php echo PopUpConfirmar("relatorioVendas", "Relatório de Vendas Abandonadas", "<a class='btn-relatorio' href='/projeto-integrador-et.com/app/views/associado/gerar_relatorio.php?tipo=abandonadas' target='_blank'>Fazer Download em PDF</a>", "", "500px", "gray", "white" ) ?>
                 <?php dadosInforRelatorios('abandonadas','../../../public/imagens/associado/iconeVendasAbandonadas.png','Vendas Abandonadas','relatorioVendas','sadFace') ?>
-                <?php echo PopUpConfirmar("relatorioSaldo", "Relatório de Saldo a Receber", "<button class='btn-relatorio'>Fazer Download em PDF<img src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-download.png' alt='img-download'></button>", "", "500px", "gray", "white")?>
+                <?php echo PopUpConfirmar("relatorioSaldo", "Relatório de Saldo a Receber", "<a class='btn-relatorio' href='/projeto-integrador-et.com/app/views/associado/gerar_relatorio.php?tipo=saldo' target='_blank'>Fazer Download em PDF</a>", "", "500px", "gray", "white" ) ?>
                 <?php dadosInforRelatorios('saldo','../../../public/imagens/associado/iconeSaldoReceber.png','Saldo a Receber','relatorioSaldo','sadFace') ?>
             </div>
         </div>

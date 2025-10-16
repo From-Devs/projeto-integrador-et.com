@@ -94,6 +94,18 @@ class ProdutoController {
     {
         return $this->produtoModel->pesquisarProdutos($termo);
     }
+
+    public function getOfertasImperdiveis() {
+        return $this->produtoModel->getOfertasImperdiveis();
+    }
+
+    public function getMaisVendidos() {
+        return $this->produtoModel->getMaisVendidos();
+    }
+
+    public function getRelacionados($categoria, $marca, $idAtual) {
+        return $this->produtoModel->getRelacionados($categoria, $marca, $idAtual);
+    }
     
 
     // public function EditarProduto(
