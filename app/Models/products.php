@@ -413,23 +413,56 @@ class Products {
 
     // Mais vendidos: baseado na quantidadeVendida
     public function getMaisVendidos($limit = 8) {
-        $sql = "SELECT * FROM produto ORDER BY quantidadeVendida DESC LIMIT :limite";
+        $sql = "
+            SELECT 
+                p.*, 
+                c.corPrincipal, 
+                c.hexDegrade1 AS corDegrade1, 
+                c.hexDegrade2 AS corDegrade2
+            FROM produto p
+            LEFT JOIN cores c ON p.id_cores = c.id_cores
+            ORDER BY p.quantidadeVendida DESC
+            LIMIT :limite
+        ";
+    
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param(":limite", $limit);
+        $stmt->bindValue(":limite", (int)$limit, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     // Relacionados: mesma categoria ou marca
     public function getRelacionados($categoria, $marca, $idAtual, $limit = 8) {
-        $sql = "SELECT * FROM produto 
-                WHERE id_produto != ? 
-                AND (categoria = ? OR marca = ?) 
-                ORDER BY RAND() LIMIT ?";
+        $sql = "
+            SELECT 
+                p.*, 
+                c.corPrincipal, 
+                c.hexDegrade1 AS corDegrade1, 
+                c.hexDegrade2 AS corDegrade2,
+                s.nome AS subCategoria,
+                cat.nome AS categoria
+            FROM produto p
+            LEFT JOIN cores c ON p.id_cores = c.id_cores
+            LEFT JOIN subcategoria s ON p.id_subCategoria = s.id_subCategoria
+            LEFT JOIN categoria cat ON s.id_categoria = cat.id_categoria
+            WHERE p.id_produto != :id
+            AND (
+                s.nome = :subcategoria
+                OR cat.nome = :categoria
+                OR p.marca = :marca
+            )
+            ORDER BY RAND()
+            LIMIT :limite
+        ";
+    
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("issi", $idAtual, $categoria, $marca, $limit);
+        $stmt->bindValue(":id", (int)$idAtual, PDO::PARAM_INT);
+        $stmt->bindValue(":categoria", $categoria, PDO::PARAM_STR);
+        $stmt->bindValue(":subcategoria", $subcategoria, PDO::PARAM_STR);
+        $stmt->bindValue(":marca", $marca, PDO::PARAM_STR);
+        $stmt->bindValue(":limite", (int)$limit, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
 }
