@@ -26,10 +26,25 @@ $conn = (new Database())->connect();
 
 // Busca produtos do carrinho
 try {
-    $sql = "SELECT c.id_carrinho, c.quantidade, p.id_produto, p.nome, p.preco, p.precoPromo, p.img1
-            FROM carrinho c
-            JOIN produto p ON p.id_produto = c.id_produto
-            WHERE c.id_usuario = :id_usuario";
+    $sql = "
+        SELECT 
+            pc.id_prodCarrinho,
+            c.id_carrinho,
+            p.id_produto,
+            p.nome,
+            p.marca,
+            p.preco,
+            p.precoPromo,
+            p.img1,
+            p.tamanho,
+            pc.qntProduto AS quantidade,
+            c.data_criacao,
+            c.data_atualizacao
+        FROM ProdutoCarrinho pc
+        JOIN Carrinho c ON c.id_carrinho = pc.id_carrinho
+        JOIN Produto p ON p.id_produto = pc.id_produto
+        WHERE c.id_usuario = :id_usuario
+    ";
     $stmt = $conn->prepare($sql);
     $stmt->execute([':id_usuario' => $id_usuario]);
     $carrinho = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -37,14 +52,43 @@ try {
     die("Erro ao carregar carrinho: " . $e->getMessage());
 }
 
+// Atualiza quantidades via POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['quantidade'])) {
+    foreach ($carrinho as $index => $produto) {
+        $novaQtd = (int)($_POST['quantidade'][$index] ?? $produto['quantidade']);
+        if ($novaQtd > 0) {
+            $sqlUpdate = "UPDATE ProdutoCarrinho SET qntProduto = :qtd WHERE id_prodCarrinho = :id";
+            $stmtUpdate = $conn->prepare($sqlUpdate);
+            $stmtUpdate->execute([
+                ':qtd' => $novaQtd,
+                ':id' => $produto['id_prodCarrinho']
+            ]);
+            $carrinho[$index]['quantidade'] = $novaQtd;
+        }
+    }
+}
+
 // Calcula subtotal e total
 $total = 0;
 $precosProdutos = [];
-foreach ($carrinho as $produto) {
-    $quantidade = $produto['quantidade'] ?? 1;
-    $preco = $produto['precoPromo'] ?? $produto['preco'];
-    $precosProdutos[] = $preco;
-    $total += $preco * $quantidade;
+$subtotaisProdutos = [];
+
+foreach ($carrinho as $index => $produto) {
+    $quantidade = (int)($produto['quantidade'] ?? 1);
+    $preco = ($produto['precoPromo'] !== null && $produto['precoPromo'] > 0) 
+                ? (float)$produto['precoPromo'] 
+                : (float)$produto['preco'];
+
+    $subtotal = $preco * $quantidade;
+    $total += $subtotal;
+
+    // Armazenar preços e subtotais para JS
+    $precosProdutos[$index] = $preco;
+    $subtotaisProdutos[$index] = $subtotal;
+
+    // Adicionar campos ao carrinho para renderizar
+    $carrinho[$index]['precoCalculado'] = $preco;
+    $carrinho[$index]['subtotal'] = $subtotal;
 }
 ?>
 
@@ -88,46 +132,35 @@ foreach ($carrinho as $produto) {
                     <th></th>
                     <th></th>
                     <th>Preço</th>
-                    <th>Quantia</th>
-                    <th class="radius2">Total</th>
+                    <th>Quantidade</th>
+                    <th class="radius2">Subtotal</th>
                 </tr>
             </thead>
-            <tbody id="carrinhoBody" data-precos='<?= json_encode($precosProdutos) ?>'>
-            <?php if (!empty($carrinho)): ?>
-                <?php foreach ($carrinho as $index => $produto): 
-                    $quantidade = $produto['quantidade'] ?? 1;
-                    $preco = $produto['precoPromo'] ?? $produto['preco'];
-                    $subtotalProduto = $preco * $quantidade;
-                    $imagem = $produto['img1'] ?? 'no-image.png';
-                ?>
-                <tr class="linhaCarrinho" data-id="<?= $produto['id_produto'] ?>">
+            <tbody>
+            <?php if (!empty($carrinho)): 
+                foreach ($carrinho as $index => $produto): ?>
+                <tr>
                     <td class="prod">
                         <div class="conteudo_td">
-                            <!-- Checkbox individual atualizado -->
-                            <input 
-                                class="checkbox-individual check" 
-                                type="checkbox" 
-                                data-id="<?= $produto['id_produto'] ?>"
-                                name="selecionar[<?= $index ?>]"
-                            >
-                            <img class="cor1" src="/projeto-integrador-et.com/public/imagens/produto/<?= $imagem ?>" alt="<?= $produto['nome'] ?>" width="50">
-                            <span class="produto-nome"><?= $produto['nome'] ?></span>
+                            <input class='check' type='checkbox' name='selecionar[<?= $index ?>]'>
+                            <img class='cor1' src='/projeto-integrador-et.com/<?= $produto['img1'] ?? "no-image.png" ?>' alt='<?= $produto['nome'] ?>' width='50'>
+                            <span class='produto-nome'><?= $produto['nome'] ?></span>
                         </div>
                     </td>
                     <td></td>
                     <td></td>
-                    <td class="cor2">R$ <?= number_format($preco, 2, ',', '.') ?></td>
-                    <td class="quantityColumn">
-                        <div class="quantity-container">
-                            <button class="quant-btn" type="button" onclick="decrementarQuantidade(<?= $index ?>)">-</button>
-                            <input class="quant" type="number" name="quantidade[<?= $index ?>]" value="<?= $quantidade ?>" min="1">
-                            <button class="quant-btn" type="button" onclick="incrementarQuantidade(<?= $index ?>)">+</button>
+                    <td class='cor2'>R$ <?= number_format($produto['precoCalculado'], 2, ',', '.') ?></td>
+                    <td class='quantityColumn'>
+                        <div class='quantity-container'>
+                            <button type='button' class='quantity-btn' onclick='decrementQuantity(<?= $index ?>)'>-</button>
+                            <input type='number' name='quantidade[<?= $index ?>]' value='<?= $produto['quantidade'] ?>' min='1' class='quantity-input'>
+                            <button type='button' class='quantity-btn' onclick='incrementQuantity(<?= $index ?>)'>+</button>
                         </div>
                     </td>
-                    <td class="cor2" id="subtotal-item-<?= $index ?>">R$ <?= number_format($subtotalProduto, 2, ',', '.') ?></td>
+                    <td class='cor2' id='subtotal-item-<?= $index ?>'>R$ <?= number_format($produto['subtotal'], 2, ',', '.') ?></td>
                 </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
+                <?php endforeach;
+                else: ?>
                 <tr>
                     <td colspan="6" class="carrinhoVazio">Seu carrinho está vazio.</td>
                 </tr>
@@ -164,6 +197,45 @@ foreach ($carrinho as $produto) {
         </table>
     </form>
 </main>
+
+<script>
+const precosProdutos = <?= json_encode($precosProdutos); ?>;
+
+function calcularTotal() {
+    let total = 0;
+    document.querySelectorAll('input[name^="quantidade"]').forEach((input, index) => {
+        const qtd = parseInt(input.value) || 0;
+        const preco = parseFloat(precosProdutos[index]) || 0;
+        const subtotal = qtd * preco;
+        total += subtotal;
+
+        // Atualiza subtotal de cada item
+        document.getElementById(`subtotal-item-${index}`).innerText = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
+    });
+    document.getElementById('total').innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
+}
+
+function incrementQuantity(index) {
+    const input = document.querySelector(`input[name='quantidade[${index}]']`);
+    input.value = parseInt(input.value) + 1;
+    calcularTotal();
+}
+
+function decrementQuantity(index) {
+    const input = document.querySelector(`input[name='quantidade[${index}]']`);
+    if (input.value > 1) {
+        input.value = parseInt(input.value) - 1;
+        calcularTotal();
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    calcularTotal();
+    document.querySelectorAll('input[name^="quantidade"]').forEach(input => {
+        input.addEventListener('input', calcularTotal);
+    });
+});
+</script>
 
 <?php echo createRodape(); ?>
 <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
