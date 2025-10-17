@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . "/../../../config/database.php";
 require_once __DIR__ . "/../../../config/produtoController.php";
 require_once __DIR__ . "/../../../public/componentes/header/header.php";
 require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
@@ -11,8 +10,6 @@ session_start();
 $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
 $login = $_SESSION['login'] ?? false; 
 $id_usuario = $_SESSION['id_usuario'] ?? null;
-
-$conn = (new Database())->connect();
 
 // Carrega produto por ID
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
