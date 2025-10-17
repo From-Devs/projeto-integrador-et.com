@@ -1,10 +1,12 @@
 <?php
-require_once __DIR__ . "/../../../config/produtoController.php";
 require_once __DIR__ . "/../../../public/componentes/header/header.php";
 require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
 require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
+
+// Controllers
+require_once __DIR__ . "/../../Controllers/ProdutoController.php";
 
 session_start();
 $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
@@ -14,9 +16,13 @@ $id_usuario = $_SESSION['id_usuario'] ?? null;
 // Carrega produto por ID
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $produtoController = new ProdutoController();
-$produto = $produtoController->BuscarProdutoPorId($id);
-$avaliacoes = $produtoController->BuscarAvaliacoesPorProduto($id);
+$produto = $produtoController->buscarProdutoPeloId($id);
+$produto = $produto[0];
+
+$avaliacoes = $produtoController->buscarAvaliacoesPorProduto($id);
 $mediaAvaliacao = $produtoController->mediaAvaliacoes($id);
+
+$produtosRelacionados = $produtoController->getRelacionados($produto['categoria'], $produto['subcategoria'], $produto['marca'], $produto['id_produto']);
 
 if (!$produto) {
     echo "<!DOCTYPE html><html lang='pt-br'><head><meta charset='UTF-8'><title>Produto</title></head><body>";
@@ -39,13 +45,13 @@ $temPromo    = $precoPromo > 0 && $precoPromo < $preco;
 $subcategoria = $produto['subcategoria'] ?? ($produto['nomeSubcategoria'] ?? '');
 $corPrincipal = $produto['corPrincipal'] ?? ($produto['cor'] ?? '');
 $baseImgPath  = "/projeto-integrador-et.com/public/imagens/produto/";
-$img1 = !empty($produto['img1']) ? $baseImgPath . $produto['img1'] : $baseImgPath . 'no-image.png';
-$img2 = !empty($produto['img2']) ? $baseImgPath . $produto['img2'] : $img1;
-$img3 = !empty($produto['img3']) ? $baseImgPath . $produto['img3'] : $img1;
+$img1 = !empty($produto['img1']) ? /*$baseImgPath  . */ $produto['img1'] : $baseImgPath . 'no-image.png';
+$img2 = !empty($produto['img2']) ? /*$baseImgPath . */$produto['img2'] : $img1;
+$img3 = !empty($produto['img3']) ? /*$baseImgPath . */$produto['img3'] : $img1;
 $imgPrincipal = $img1;
 
 // Carrega avaliações do produto
-$avaliacoes = $produtoController->BuscarAvaliacoesPorProduto($id);
+$avaliacoes = $produtoController->BuscarAvaliacoesPorProduto($produto['id_produto']);
 ?>
 
 <!DOCTYPE html>
@@ -72,13 +78,13 @@ $avaliacoes = $produtoController->BuscarAvaliacoesPorProduto($id);
     <div class="detalhes-principal">
         <div class="boxFotos">
             <div class="imagens-lateral">
-                <div><img src="<?= htmlspecialchars($img1) ?>" alt="img-lateral"></div>
-                <div><img src="<?= htmlspecialchars($img2) ?>" alt="img-lateral"></div>
-                <div><img src="<?= htmlspecialchars($img3) ?>" alt="img-lateral"></div>
+                <div><img src="/projeto-integrador-et.com/<?= htmlspecialchars($img1) ?>" alt="img-lateral"></div>
+                <div><img src="/projeto-integrador-et.com/<?= htmlspecialchars($img2) ?>" alt="img-lateral"></div>
+                <div><img src="/projeto-integrador-et.com/<?= htmlspecialchars($img3) ?>" alt="img-lateral"></div>
             </div>
 
             <div class="img-principal">
-                <div><img id='img-principal' src="<?= htmlspecialchars($imgPrincipal) ?>" alt="img-principal"></div>
+                <div><img id='img-principal' src="/projeto-integrador-et.com/<?= htmlspecialchars($imgPrincipal) ?>" alt="img-principal"></div>
             </div>
         </div>
 
@@ -251,14 +257,20 @@ $avaliacoes = $produtoController->BuscarAvaliacoesPorProduto($id);
                 <div class="frameProdutos">
                     <div class="containerProdutos">
                         <?php
-                        echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                        echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                        echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                        echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
-                        echo createCardProduto("Nivea", "Hidratante Corporal Milk", "R$20,00", "milk", false, "R$30,00", "#3E7FD9", "#133285", "#3F7FD9");
-                        echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", "R$20,00", "biscoito", false, "R$30,00", "#31BADA", "#00728C", "#31BADA");
-                        echo createCardProduto("Vult", "Base Líquida Efeito Matte", "R$20,00", "vult", false, "R$30,00", "#DBA980", "#72543A", "#E4B186");
-                        echo createCardProduto("O Boticário", "Colonia Coffee Man", "R$30,00", "coffee", false, "R$30,00", "#D2936A", "#6C4A34", "#D29065");
+                        foreach ($produtosRelacionados as $produtoRelacionado) {
+                            echo createCardProduto(
+                                $produtoRelacionado['marca'],
+                                $produtoRelacionado['nome'],
+                                $produtoRelacionado['precoPromo'] ?? $produtoRelacionado['preco'],
+                                $produtoRelacionado['img1'],
+                                $produtoRelacionado['fgPromocao'],
+                                $produtoRelacionado['preco'],
+                                $produtoRelacionado['corPrincipal'] ?? "#000",
+                                $produtoRelacionado['corDegrade1'] ?? "#000",
+                                $produtoRelacionado['corDegrade2'] ?? "#333",
+                                $produtoRelacionado['id_produto']
+                            );
+                        }
                         ?>
                     </div>
                 </div>

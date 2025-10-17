@@ -32,17 +32,6 @@ CREATE TABLE Administrador(
 	email VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE Avaliacoes (
-  id_avaliacao int(11) NOT NULL,
-  id_usuario int(11) NOT NULL,
-  id_produto int(11) NOT NULL,
-  nota int(11) NOT NULL CHECK (`nota` between 1 and 5),
-  comentario text DEFAULT NULL,
-  data_avaliacao timestamp NOT NULL DEFAULT current_timestamp(),
-  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
-  FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
-);
-
 -- Personalização e categorias
 
 CREATE TABLE Cores( 
@@ -100,6 +89,17 @@ CREATE TABLE Produto(
 CREATE TABLE Status(
 	id_status INT AUTO_INCREMENT PRIMARY KEY,	
 	tipoStatus VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Avaliacoes (
+  id_avaliacao int(11) NOT NULL,
+  id_usuario int(11) NOT NULL,
+  id_produto int(11) NOT NULL,
+  nota int(11) NOT NULL CHECK (`nota` between 1 and 5),
+  comentario text DEFAULT NULL,
+  data_avaliacao timestamp NOT NULL DEFAULT current_timestamp(),
+  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
+  FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
 
 CREATE TABLE Carrinho (

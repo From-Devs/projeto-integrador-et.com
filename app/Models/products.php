@@ -100,31 +100,26 @@ class Products {
 
     public function buscarProdutoPeloId($id){
         try {
-            $sqlProduto = "SELECT P.nome, 
-            marca, 
-            descricaoBreve, 
-            descricaoTotal, 
-            preco, 
-            precoPromo, 
-            fgPromocao,
-            qtdEstoque, 
-            img1, 
-            img2, 
-            img3, 
+            $sqlProduto = "
+            SELECT
+            P.*,
             SC.id_subCategoria,
-            SC.nome AS subcategoria, 
+            SC.nome AS subcategoria,
+            CAT.nome AS categoria,
             C.corPrincipal, 
             C.hexDegrade1 AS hex1, 
             C.hexDegrade2 AS hex2
             FROM produto P
                 JOIN subcategoria SC
             ON P.id_subCategoria = SC.id_subCategoria
+                JOIN categoria CAT
+            ON SC.id_categoria = CAT.id_categoria
                 JOIN cores C
             ON P.id_cores = C.id_cores
                 WHERE P.id_produto = :id";
 
             $db = $this->conn->prepare($sqlProduto);
-            $db->bindParam(":id", $id);
+            $db->bindParam(":id", $id, PDO::PARAM_INT);
             $db->execute();
             $res = $db->fetchAll(PDO::FETCH_ASSOC);
 
@@ -457,6 +452,8 @@ class Products {
         return null;
     }
 
+    // Puxar card de produtos do DB
+
     public function getOfertasImperdiveis($limit = 8) {
         $sql = "
         SELECT 
@@ -476,7 +473,7 @@ class Products {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Mais vendidos: baseado na quantidadeVendida
+    // Mais vendidos: baseado na qtdVendida
     public function getMaisVendidos($limit = 8) {
         $sql = "
             SELECT 
@@ -486,7 +483,7 @@ class Products {
                 c.hexDegrade2 AS corDegrade2
             FROM produto p
             LEFT JOIN cores c ON p.id_cores = c.id_cores
-            ORDER BY p.quantidadeVendida DESC
+            ORDER BY p.qtdVendida DESC
             LIMIT :limite
         ";
     
@@ -497,7 +494,7 @@ class Products {
     }
 
     // Relacionados: mesma categoria ou marca
-    public function getRelacionados($categoria, $marca, $idAtual, $limit = 8) {
+    public function getRelacionados($categoria, $subcategoria, $marca, $idAtual, $limit = 8) {
         $sql = "
             SELECT 
                 p.*, 
@@ -516,7 +513,11 @@ class Products {
                 OR cat.nome = :categoria
                 OR p.marca = :marca
             )
-            ORDER BY RAND()
+            ORDER BY
+                (s.nome = :subcategoria) DESC,
+                (cat.nome = :categoria) DESC,
+                (p.marca = :marca) DESC,
+                RAND()
             LIMIT :limite
         ";
     
@@ -528,6 +529,30 @@ class Products {
         $stmt->bindValue(":limite", (int)$limit, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Avaliações
+
+    public function BuscarAvaliacoesPorProduto(int $id_produto): array {
+        try {
+            $sql = "SELECT a.*, u.nome AS nome_usuario 
+                    FROM avaliacoes a
+                    LEFT JOIN usuario u ON u.id_usuario = a.id_usuario
+                    WHERE a.id_produto = :id_produto
+                    ORDER BY a.data_avaliacao DESC"; // mais recentes primeiro
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':id_produto' => $id_produto]);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+    public function mediaAvaliacoes(int $id_produto): float {
+        $sql = "SELECT AVG(nota) as media FROM avaliacoes WHERE id_produto = :id_produto";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':id_produto' => $id_produto]);
+        $media = $stmt->fetchColumn();
+        return $media ? (float)$media : 0.0;
     }
     
 }
