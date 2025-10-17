@@ -1,22 +1,21 @@
 <?php
-require_once __DIR__ . '../../config/database.php';
+require_once __DIR__ . '/../../config/database.php';
 
 class RelatorioAssociado {
     private $conn;
 
-    public function __construt() {
+    public function __construct() {
         $db = new Database();
         $this -> conn = $db -> Connect();
     }
 
-
-    public function getRelatoriosReceitas($idAssociado) {
+    public function getRelatorioReceitas($idAssociado) {
         $sql = "SELECT SUM(valor) as total_receita, MONTH(data_venda)
                 FROM vendas
                 WHERE id_associado = :id
-                GROUP BY produto";
+                GROUP BY MONTH(data_venda), produto";
         $stmt = $this->conn->prepare($sql);
-        $stmt = bindParam(':id', $idAssociado, PDO::PARAM_INT);
+        $stmt->bindParam(':id', $idAssociado, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -25,7 +24,7 @@ class RelatorioAssociado {
         $sql = "SELECT produto, SUM(valor) as total
                 FROM vendas
                 WHERE id_associado = :id
-                GROUP BY produto";
+                GROUP BY MONTH(data_venda), produto";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':id', $idAssociado, PDO::PARAM_INT);
         $stmt->execute();
@@ -51,5 +50,4 @@ class RelatorioAssociado {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
-
 ?>

@@ -11,6 +11,22 @@ function abrirPopUp(id){
     }
 }
 
+function abrirPopUpRedireciona(id){
+    console.log("Abriu: ", id);
+
+    const dialogClass = document.getElementsByClassName(id)[0];
+    const dialogId = document.getElementById(id);
+
+    if (dialogClass) dialogClass.showModal();
+    if (dialogId) dialogId.showModal();
+
+    localStorage.setItem('modalAberto', id);
+
+    const url = new URL(window.location);
+    url.searchParams.set('modal', id);
+    history.replaceState(null, '', url);
+}
+
 function abrirPopUpCurto(id, tempoAtivo = 3000) {
   const dialog = document.getElementsByClassName(id)[0] || document.getElementById(id);
   if (!dialog) return;
@@ -57,6 +73,8 @@ function fecharPopUp(id, curto=false){
   }else{
     dialog.close();
   }
+
+  localStorage.removeItem('modalAberto');
 }
 
 document.querySelectorAll('.input-file').forEach(input => {

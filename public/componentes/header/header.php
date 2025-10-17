@@ -28,7 +28,7 @@ require __DIR__ . "/../../../app/Controllers/UserController.php";
 
 
 function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
-    $popUpCurtoLogin = popUpCurto("popUpErroDelogado", "Você precisa estar logado para acessar esta tela.", "red", "white", "/popUp_Botoes/img-cancelar.png");
+    $popUpCurtoLogin = popUpCurto("popUpErroDelogado", "Cadastre ou entre em uma conta para realizar essa ação.", "red", "white", "/popUp_Botoes/img-cancelar.png");
     $controller = new UserController(); 
     $user = $controller->getLoggedUser();
     $userEstaLogado = $login ? "true" : "false";

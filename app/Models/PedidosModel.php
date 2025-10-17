@@ -48,15 +48,59 @@ class PedidosModel{
     
             $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-            // Agora adiciona os produtos e pagamentos para cada pedido
             foreach ($pedidos as &$pedido) {
                 $idPedido = $pedido['id_pedido'];
                 $pedido['detalhesPedido'] = $this->BuscarProdutosDoPedido($idPedido);
     
-                // Se você tiver um método BuscarInfoPagamentos:
                 // $pedido['infoPagamentos'] = $this->BuscarInfoPagamentos($idPedido);
             }
     
+            return $pedidos;
+    
+        } catch (\Throwable $th) {
+            echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
+    }
+
+
+    public function BuscarTodosPedidosAssociado($ordem="", $pesquisa="", $idAssociado){
+        try {    
+            $sqlPedidos = "SELECT P.id_pedido, 
+            U.nome,
+            P.precoTotal,
+            P.dataPedido,
+            S.tipoStatus
+            FROM Pedido P
+            JOIN usuario U
+                ON P.id_usuario = U.id_usuario
+            JOIN status S
+                ON P.id_status = S.id_status
+            WHERE U.id_usuario = :idAssociado";
+            $params = [];
+    
+            if (!empty($pesquisa)) {
+                $sqlPedidos .= " AND U.nome LIKE :pesquisa";
+                $params[':pesquisa'] = "$pesquisa%";
+            }
+    
+            if (!empty($ordem)) {
+                switch ($ordem) {
+                    case 'ID': $ordemSql = "P.id_pedido"; break;
+                    case 'Preço': $ordemSql = "precoTotal"; break;
+                    case 'Data': $ordemSql = "dataPedido"; break;
+                    case 'Status': $ordemSql = "S.id_status"; break;
+                    default: $ordemSql = "P.id_pedido";
+                }
+                $sqlPedidos .= " ORDER BY $ordemSql";
+            }
+    
+            $stmt = $this->conn->prepare($sqlPedidos);
+            $stmt->bindValue(":idAssociado", $idAssociado, PDO::PARAM_INT);
+            $stmt->execute();
+    
+            $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
             return $pedidos;
     
         } catch (\Throwable $th) {

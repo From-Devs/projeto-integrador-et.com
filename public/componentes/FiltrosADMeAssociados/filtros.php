@@ -116,6 +116,7 @@ function filtro($tipo = "", $opcoesSelect = []) {
         </button>
     </div>
     <form class="campos-cadastrar" enctype="multipart/form-data">
+        <input type="hidden" name="id_usuario" value="<?php echo htmlspecialchars($_SESSION['id_usuario']); ?>">
         <div>
             <div class="campo">
                 <label for="nomeCadastro">Nome: *</label>

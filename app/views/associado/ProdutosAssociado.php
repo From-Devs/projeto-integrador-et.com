@@ -1,5 +1,13 @@
 <?php
-session_start();
+    session_start();
+
+    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
+
+    if($tipo_usuario != "Associado" || !isset($_SESSION['id_usuario'])){
+        header("Location: /projeto-integrador-et.com/app/views/usuario/Login.php?erro=acesso_negado");
+        exit();
+    }
+
     require_once __DIR__ . "/../../Models/products.php";
     require_once __DIR__ . "/./../../../public/componentes/popup/popUp.php";
     require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
@@ -8,8 +16,6 @@ session_start();
     require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
     require_once __DIR__ . "/../../Controllers/UserController.php";
-    $controller = new UserController();
-    $user = $controller->getLoggedUser();
 
     function verificaELimpaQueryString(){
         if (isset($_GET['status']) && $_GET['status'] == 'sucesso') {
@@ -63,6 +69,9 @@ session_start();
         }
     }
 
+    $controller = new UserController();
+    $user = $controller->getLoggedUser();
+
     verificaELimpaQueryString();
 
     $parametrosExtras = [];
@@ -80,10 +89,9 @@ session_start();
     $ordem = $_GET['ordem'] ?? null;
     $pesquisa = $_GET['pesquisa'] ?? null;
     $products = new Products();
-    $produtos = $products->buscarTodosProdutos($ordem, $pesquisa);
-    
+    $produtos = $products->buscarTodosProdutosAssociados($ordem, $pesquisa, $_SESSION['id_usuario']);
+
     // // session_start();
-    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 ?>
 
 <!DOCTYPE html>

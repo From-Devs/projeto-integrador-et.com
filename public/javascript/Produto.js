@@ -5,6 +5,7 @@ document.getElementsByClassName("campos-cadastrar")[0].addEventListener("submit"
     const popUpSucesso = document.getElementsByClassName("popUpCadastro")[0];
 
     let formData = new FormData(this);
+    console.log(formData.get("id_usuario"));
 
     fetch("http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto", {
         method: "POST",

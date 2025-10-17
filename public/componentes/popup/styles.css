@@ -75,6 +75,7 @@
     left: 50%;
     transform: translate(-50%, 0%);
     animation: fadeIn 0.3s ease;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .popUpDialogCurto[open]::backdrop {
@@ -120,7 +121,7 @@
 .texto-popUpCurto {
     font-family: "Montserrat", sans-serif;
     margin: 0;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .container-botoesCurto {

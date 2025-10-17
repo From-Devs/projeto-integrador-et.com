@@ -40,7 +40,8 @@ class ProdutoController {
         $qtdEstoque, 
         $corPrincipal, 
         $deg1, 
-        $deg2
+        $deg2,
+        $idAssociado
     ) {
         return $this->produtoModel->cadastrarProduto(
             $nome, 
@@ -54,6 +55,7 @@ class ProdutoController {
             $corPrincipal, 
             $deg1, 
             $deg2,
+            $idAssociado,
             $_FILES
         );
     }
@@ -101,8 +103,16 @@ class ProdutoController {
         return $this->produtoModel->getMaisVendidos();
     }
 
-    public function getRelacionados($categoria, $marca, $idAtual) {
-        return $this->produtoModel->getRelacionados($categoria, $marca, $idAtual);
+    public function getRelacionados($categoria, $subcategoria, $marca, $idAtual) {
+        return $this->produtoModel->getRelacionados($categoria, $subcategoria, $marca, $idAtual);
+    }
+
+    public function buscarAvaliacoesPorProduto($idProduto) {
+        return $this->produtoModel->BuscarAvaliacoesPorProduto($idProduto);
+    }
+
+    public function mediaAvaliacoes($idProduto) {
+        return $this->produtoModel->mediaAvaliacoes($idProduto);
     }
     
 

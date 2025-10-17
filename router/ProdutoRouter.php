@@ -2,6 +2,8 @@
 require_once __DIR__ . "/../app/Controllers/ProdutoController.php";
 $produtoController = new ProdutoController();
 
+$idUsuario = $_SESSION['id_usuario'] ?? ($_GET['id_usuario'] ?? $_POST['id_usuario'] ?? null);
+
 function ValidaCampos($acao) {
     $camposObrigatorios = [
         "nome", "marca", "breveDescricao", "qtdEstoque",
@@ -49,7 +51,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $_POST["qtdEstoque"],
                     $_POST["corPrincipal"],
                     $_POST["deg1"],
-                    $_POST["deg2"]
+                    $_POST["deg2"],
+                    $idUsuario
                 );
 
             if ($resultado) {

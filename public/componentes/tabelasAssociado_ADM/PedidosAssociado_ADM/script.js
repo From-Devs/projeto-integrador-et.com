@@ -1,5 +1,6 @@
 async function mudarStatus(btnId, idPedido){
     const novoStatus = btnId.id == "statusPago" ? 1 : 2;
+    console.log(novoStatus)
 
     const resposta = await fetch("http://localhost/projeto-integrador-et.com/router/AssociadosRouter.php?acao=mudarStatus", { 
         method: "POST",
@@ -16,21 +17,14 @@ async function mudarStatus(btnId, idPedido){
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const modalAberto = localStorage.getItem('modalAberto');
+    if(modalAberto){
+        const modal = document.getElementById(modalAberto);
+        if(modal) modal.showModal();
+    }
+
     if(sessionStorage.getItem("abrirPopUpStatus") === "true"){
         abrirPopUpCurto("popUpStatus");
         sessionStorage.removeItem("abrirPopUpStatus");
     }
 });
-
-async function abrirPopUpDetalhes(idPedido) {
-    console.log("Entrou abrir");
-    // const resposta = await fetch(`http://localhost/projeto-integrador-et.com/router/PedidosRouter.php?acao=BuscarProdutosDoPedido&idPedido=${idPedido}`, { 
-    //     method: "GET",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     }
-    // });
-
-    // const dados = await resposta.json();
-    // console.log(dados);
-}

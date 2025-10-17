@@ -1,5 +1,11 @@
 <?php
 session_start();
+    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
+
+    if($tipo_usuario != "Associado" || !isset($_SESSION['id_usuario'])){
+        header("Location: /projeto-integrador-et.com/app/views/usuario/Login.php?erro=acesso_negado");
+        exit();
+    }
 
     include __DIR__ . "/../../../public/componentes/tabelasAssociado_ADM/PedidosAssociado_ADM/pedidos.php";
     require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
@@ -10,6 +16,8 @@ session_start();
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
     require __DIR__ . "/../../Controllers/PedidosController.php";
     require_once __DIR__ . "/../../Controllers/UserController.php";
+    require_once __DIR__ . "/../../Controllers/UserController.php";
+
     $controller = new UserController();
     $user = $controller->getLoggedUser();
     
@@ -28,10 +36,9 @@ session_start();
     $ordem = $_GET['ordem'] ?? null;
     $pesquisa = $_GET['pesquisa'] ?? null;
     $pedidosController = new PedidosController();
-    $pedidos = $pedidosController->BuscarTodosPedidos($ordem, $pesquisa);
+    $pedidos = $pedidosController->BuscarTodosPedidosAssociado($ordem, $pesquisa, $user['id_usuario']);
 
     // // session_start();
-    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 ?>
 
 <!DOCTYPE html>
