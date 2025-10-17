@@ -170,18 +170,22 @@
                                         ? round(100 - (floatval($produto['precoPromo']) / floatval($produto['preco']) * 100))
                                         : 0;
 
-                        $produtos[] = createCardProduto(
+                        foreach ($produtosDB as $produto) {
+                        echo createCardProduto(
                             $produto['marca'],
                             $produto['nome'],
-                            $produto['preco'], // Deve ser o preço SEM desconto para o card, se $produto['fgPromocao'] for o preço promocional
-                            $produto['img1'], // Usando img1 como nome/slug da imagem
-                            $produto['fgPromocao'], // Se for true/1, o preço com desconto será exibido
-                            $desconto, // Porcentagem de desconto
-                            $produto['corPrincipal'], 
-                            $produto['hex1'],
-                            $produto['hex2']
+                            $produto['precoPromo'] ?? $produto['preco'],
+                            $produto['img1'],
+                            $produto['fgPromocao'],
+                            $produto['preco'],
+                            $produto['corPrincipal'] ?? "#000",
+                            // CORRIGIDO: Troca 'corDegrade1' por 'hexDegrade1'
+                            $produto['hexDegrade1'] ?? "#000",
+                            // CORRIGIDO: Troca 'corDegrade2' por 'hexDegrade2'
+                            $produto['hexDegrade2'] ?? "#333",
+                            $produto['id_produto']
                         );
-                    }
+                    }}
                 }
                 // --- FIM NOVO CÓDIGO DE BUSCA ---
 
