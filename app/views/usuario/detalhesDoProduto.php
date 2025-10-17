@@ -297,4 +297,3 @@ imgLater.forEach(img => img.addEventListener('click', () => imgPrinc.src = img.s
 </script>
 
 </body>
-</
