@@ -11,20 +11,19 @@ class CarouselController {
         $this->coresModel = new CoresSubModel();
     }
 
-    // 🔹 Listar todos os slots (máximo 3)
-    public function getAll(): array {
+    // 🔹 Listar todos os carrosseis e cores
+    public function getAll(): void {
         try {
-            return [
-                'carousels' => $this->carouselModel->getAll(),
-                'cores' => $this->coresModel->getAll()
-                // eu nao sei bem, mais acho que é SIM
-            ];
-            require "/public/componentes/carousel/carousel.php";
+            $carousels = $this->carouselModel->getAll();
+            $cores = $this->coresModel->getAll();
+    
+            require __DIR__ . "/../index.php";
+    
         } catch (Throwable $e) {
-            echo "Erro ao listar: " . $e->getMessage();
-            return [];
+            echo "Erro ao listar carrosséis: " . $e->getMessage();
         }
     }
+    
 
     // 🔹 Buscar slot por ID
     public function getById(int $id): ?array {

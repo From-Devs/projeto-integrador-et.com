@@ -1,8 +1,6 @@
 <?php
 require __DIR__ . "/../../../public/componentes/carouselPopUp/carouselPopUp.php";
-
 function createCarousel(){
-    print_r($data);
     return '
     <div class="carousel">
         <div class="carousel-track" id="MoverCarrousel">
@@ -28,6 +26,10 @@ function createCarousel(){
         </div>
     </div>';
 }
-createCarousel()
 ?>
- 
+<?php
+echo "<pre>";
+print_r($cores);
+print_r($carousels);
+echo "</pre>";
+?>

@@ -78,6 +78,7 @@ switch ($acao) {
     case 'listar':
         $dados = $carouselController->getAll(); 
         break;
+     
     case 'editar':
         $id = $_GET['id'] ?? null;
         if ($id) {
