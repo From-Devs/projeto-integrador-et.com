@@ -217,18 +217,9 @@ CREATE TABLE Carousel(
 	id_carousel INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	id_produto INT NOT NULL,
 	id_coresSubs INT,
+	posicao INT NOT NULL UNIQUE,
 	FOREIGN KEY (id_produto) REFERENCES Produto(id_produto),
 	FOREIGN KEY (id_coresSubs) REFERENCES CoresSubs(id_coresSubs)
-);
-
-CREATE TABLE Personalizacao(
-	id_personalizacao INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	id_lancamento INT NOT NULL,
-	id_prodDestaque INT NOT NULL,
-	id_carousel INT NOT NULL,
-	FOREIGN KEY (id_lancamento) REFERENCES Lancamentos(id_lancamento),
-	FOREIGN KEY (id_prodDestaque) REFERENCES ProdDestaque(id_prodDestaque),
-	FOREIGN KEY (id_carousel) REFERENCES Carousel(id_carousel)
 );
 
 -- Associado
