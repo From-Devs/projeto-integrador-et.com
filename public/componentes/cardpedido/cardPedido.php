@@ -40,7 +40,7 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
         <div class="cardcoloridoCam" style="border-radius:25px; overflow:hidden; position:relative;">
             <div class="card-info" style="
                 display: grid;
-                grid-template-columns: 160px auto;
+                grid-template-columns: 150px auto;
                 width: 100%;
                 height: 100%
                 align-items: center;
@@ -77,17 +77,16 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
                 width: 100%;
                 height: 100%
                 align-items: center;
-                padding: 0px 0px 0px 0px;
                 border-radius:25px;
                 box-shadow: inset 0px 0px 10px rgb(129, 129, 129);
             ">
-                <div class="card-imagem2" style="display: felx; 120px;">
+                <div class="card-imagem2" style="display: flex; align-items: center;">
                     <img src="/projeto-integrador-et.com/public/imagens/produto/<?= $imagemProduto; ?>"
                          alt="<?= $item['nome']; ?>"
                          style="height:120px; width:auto; object-fit:contain;">
                 </div>
  
-                <div class="infoProdutoMP info-finalizado" style="display: flex; flex-direction:column; gap:5px;">
+                <div class="infoProdutoMP info-finalizado" style="display: flex; flex-direction:column; gap:5px; justify-content: center;">
                     <span class="nomeProdutoMP" style="font-size:20px; font-weight:600; color:#222;"><?= $item['nome']; ?></span>
                     <span class="descricaoProdutoMP" style="font-size:16px; color:#555;"><?= $descricao; ?></span>
                     <span class="precoProdutoMP" style="font-size:18px; font-weight:bold; color:#222;">R$ <?= number_format($item['preco'], 2, ',', '.'); ?></span>
