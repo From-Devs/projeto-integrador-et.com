@@ -40,7 +40,8 @@ class ProdutoController {
         $qtdEstoque, 
         $corPrincipal, 
         $deg1, 
-        $deg2
+        $deg2,
+        $idAssociado
     ) {
         return $this->produtoModel->cadastrarProduto(
             $nome, 
@@ -54,6 +55,7 @@ class ProdutoController {
             $corPrincipal, 
             $deg1, 
             $deg2,
+            $idAssociado,
             $_FILES
         );
     }
@@ -91,6 +93,26 @@ class ProdutoController {
     public function pesquisarHeader($termo)
     {
         return $this->produtoModel->pesquisarProdutos($termo);
+    }
+
+    public function getOfertasImperdiveis() {
+        return $this->produtoModel->getOfertasImperdiveis();
+    }
+
+    public function getMaisVendidos() {
+        return $this->produtoModel->getMaisVendidos();
+    }
+
+    public function getRelacionados($categoria, $subcategoria, $marca, $idAtual) {
+        return $this->produtoModel->getRelacionados($categoria, $subcategoria, $marca, $idAtual);
+    }
+
+    public function buscarAvaliacoesPorProduto($idProduto) {
+        return $this->produtoModel->BuscarAvaliacoesPorProduto($idProduto);
+    }
+
+    public function mediaAvaliacoes($idProduto) {
+        return $this->produtoModel->mediaAvaliacoes($idProduto);
     }
     
 
