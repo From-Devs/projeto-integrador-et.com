@@ -72,9 +72,8 @@ function PopUpCurto($id, $texto, $corFundo, $corFonte, $caminhoImagem="", $botao
             <div class='barra-tempo'></div>
             <div class='container-principalCurto'>"
             .(!empty($caminhoImagem) ? "
-                <div class='img-popUpCurto'>
-                    <img src='/projeto-integrador-et.com/public/imagens/$caminhoImagem' alt='img-popUpCurto'>
-                </div>" : "")
+                    <img class='img-popUpCurto' src='/projeto-integrador-et.com/public/imagens/$caminhoImagem' alt='img-popUpCurto'>
+            " : "")
             ."
                 <div>
                     <p class='texto-popUpCurto' style='font-size: $tamanhoFonte; color: $corFonte;'>$texto</p>

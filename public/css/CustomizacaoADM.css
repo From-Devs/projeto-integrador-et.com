@@ -371,7 +371,7 @@ body{
     width: 100%;
     border: solid 2px black;
     border-radius: 8px;
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: white;
     scrollbar-color: black rgba(255, 255, 255, 0);
     scrollbar-width: thin;

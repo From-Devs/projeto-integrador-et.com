@@ -125,7 +125,7 @@ function createSidebar($tipoUsuario, $login){ // Sidebar de teste, depois trocar
                     <p class="categoria_nome">Ajuda e Configurações</p>
                     <ul>
                         ' . typeMyAccount($login) . '
-                        <a href="/projeto-integrador-et.com/app/views/usuario/meusPedidos.php"><li class="config"><p class="config_link">Meus Pedidos</p></li></a>
+                        <li id="botaoSidebarMeusPedidos" class="config"><p class="config_link">Meus Pedidos</p></li>
                         ' . typeSidebar($tipoUsuario) . '
                         <a href="/projeto-integrador-et.com/app/views/usuario/TermoDeUso.php"><li class="config"><p class="config_link">Termos de Uso e Privacidade</p></li></a>
                     </ul> 

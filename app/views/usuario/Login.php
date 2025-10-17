@@ -1,5 +1,9 @@
 <?php
     require __DIR__ . "/../../../public/componentes/popup/popUp.php";
+
+    if(isset($_GET['erro']) && $_GET['erro'] === 'acesso_negado'){
+        echo popUpCurto("popUpErro", "Acesso negado! Você precisa estar logado para acessar a página de associado.", "red", "white");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -74,6 +78,10 @@
     </div>
 
     <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
-
+    <script>
+    if(window.location.href.indexOf('erro=acesso_negado') > -1){
+        abrirPopUpCurto("popUpErro", 5000);
+    }
+</script>
 </body>
 </html>
