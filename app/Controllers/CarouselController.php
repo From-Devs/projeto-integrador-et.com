@@ -17,7 +17,9 @@ class CarouselController {
             return [
                 'carousels' => $this->carouselModel->getAll(),
                 'cores' => $this->coresModel->getAll()
+                // eu nao sei bem, mais acho que é SIM
             ];
+            require "/public/componentes/carousel/carousel.php";
         } catch (Throwable $e) {
             echo "Erro ao listar: " . $e->getMessage();
             return [];

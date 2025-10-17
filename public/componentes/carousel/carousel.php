@@ -1,19 +1,14 @@
 <?php
 require __DIR__ . "/../../../public/componentes/carouselPopUp/carouselPopUp.php";
 
-function createCarousel(array $dados){
-    $img = '';
-    if (!empty($dados['carousels'][0]['id_produto'])) {
-        $idProduto = $dados['carousels'][0]['id_produto'];
-        $img = "public/imagens/produto/produto_$idProduto.png";
-    }
-
+function createCarousel(){
+    print_r($data);
     return '
     <div class="carousel">
         <div class="carousel-track" id="MoverCarrousel">
             '. createCarouselPopUp() .'
             <div class="carousel-item">
-                <img src="/projeto-integrador-et.com/' . $img . '" />
+                <img src="/projeto-integrador-et.com/" />
             </div>
             <div class="carousel-item">
                 <img src="/projeto-integrador-et.com/public/imagens/produto/bocarosa.png" />
@@ -33,4 +28,6 @@ function createCarousel(array $dados){
         </div>
     </div>';
 }
+createCarousel()
 ?>
+ 
