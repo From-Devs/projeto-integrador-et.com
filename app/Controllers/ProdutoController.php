@@ -107,6 +107,10 @@ class ProdutoController {
         return $this->produtoModel->getRelacionados($categoria, $subcategoria, $marca, $idAtual);
     }
 
+    public function getSugestoes($idUsuario, $limit = 8) {
+        return $this->produtoModel->getSugestoes($idUsuario, $limit);
+    }
+
     public function buscarAvaliacoesPorProduto($idProduto) {
         return $this->produtoModel->BuscarAvaliacoesPorProduto($idProduto);
     }

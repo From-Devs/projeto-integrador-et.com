@@ -531,6 +531,50 @@ class Products {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // Sugestões: baseado nos produtos da lista de desejos
+    public function getSugestoes($idUsuario, $limit = 8) {
+        $sql = "
+            SELECT DISTINCT 
+                p.*, 
+                c.corPrincipal, 
+                c.hexDegrade1 AS corDegrade1, 
+                c.hexDegrade2 AS corDegrade2,
+                s.nome AS subCategoria,
+                cat.nome AS categoria
+            FROM Produto p
+            LEFT JOIN Cores c ON p.id_cores = c.id_cores
+            LEFT JOIN SubCategoria s ON p.id_subCategoria = s.id_subCategoria
+            LEFT JOIN Categoria cat ON s.id_categoria = cat.id_categoria
+            WHERE 
+                (
+                    p.id_subCategoria IN (
+                        SELECT DISTINCT pr.id_subCategoria
+                        FROM ListaDesejos ld
+                        JOIN Produto pr ON ld.id_produto = pr.id_produto
+                        WHERE ld.id_usuario = :idUsuario
+                    )
+                    OR p.marca IN (
+                        SELECT DISTINCT pr.marca
+                        FROM ListaDesejos ld
+                        JOIN Produto pr ON ld.id_produto = pr.id_produto
+                        WHERE ld.id_usuario = :idUsuario
+                    )
+                )
+                AND p.id_produto NOT IN (
+                    SELECT id_produto FROM ListaDesejos WHERE id_usuario = :idUsuario
+                )
+            ORDER BY p.qtdVendida DESC, RAND()
+            LIMIT :limite
+        ";
+    
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(":idUsuario", $idUsuario, PDO::PARAM_INT);
+        $stmt->bindValue(":limite", (int)$limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+
     // Avaliações
 
     public function BuscarAvaliacoesPorProduto(int $id_produto): array {
