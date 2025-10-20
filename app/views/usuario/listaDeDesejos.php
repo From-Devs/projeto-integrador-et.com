@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . "/../../../config/produtoController.php";
+require_once __DIR__ . "/../../Controllers/ListaDesejosController.php";
+require_once __DIR__ . "/../../Controllers/ProdutoController.php";
 require_once __DIR__ . "/../../../config/database.php";
 require_once __DIR__ . "/../../../public/componentes/header/header.php"; 
 require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
@@ -13,9 +14,13 @@ session_start();
 
 $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
 $login = $_SESSION['login'] ?? false;
-$controller = new ProdutoController();
 $idUsuario = $_SESSION['id_usuario'] ?? null;
-$favoritos = $idUsuario ? $controller->ListarFavoritos($idUsuario) : [];
+
+$listaDesejosController = new ListaDesejosController();
+$produtoController = new ProdutoController();
+
+$favoritos = $idUsuario ? $listaDesejosController->listarDesejos($idUsuario) : [];
+$sugestoes = $produtoController->getSugestoes($_SESSION['id_usuario']);
 
 $btnExcluirSelecionados = botaoPersonalizadoOnClick('Sim','btn-green','enviarFormulario("removerFavorito", getSelecionados()); fecharPopUp("removerSelecionados")','85px','40px','18px');
 $btnCancelarExclusão = botaoPersonalizadoOnClick('Não','btn-red','fecharPopUp("removerSelecionados")','85px','40px','18px');
@@ -129,11 +134,21 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
             <div class="degradeEsquerda"></div>
             <div class="frameProdutos">
                 <div class="containerProdutos">
-                    <?php
-                    echo createCardProduto("Nivea", "Hidratante Corporal Milk", 20, "milk", false, 30, "#3E7FD9", "#133285", "#3F7FD9");
-                    echo createCardProduto("O Boticário", "Body Splash Biscoito ou Bolacha", 20, "biscoito", false, 30, "#31BADA", "#00728C", "#31BADA");
-                    echo createCardProduto("Vult", "Base Líquida Efeito Matte", 20, "vult", false, 30, "#DBA980", "#72543A", "#E4B186");
-                    echo createCardProduto("O Boticário", "Colonia Coffee Man", 30, "coffee", false, 30, "#D2936A", "#6C4A34", "#D29065");
+                <?php
+                    foreach ($sugestoes as $produto) {
+                        echo createCardProduto(
+                            $produto['marca'],
+                            $produto['nome'],
+                            $produto['precoPromo'] ?? $produto['preco'],
+                            $produto['img1'],
+                            $produto['fgPromocao'],
+                            $produto['preco'],
+                            $produto['corPrincipal'] ?? "#000",
+                            $produto['corDegrade1'] ?? "#000",
+                            $produto['corDegrade2'] ?? "#333",
+                            $produto['id_produto']
+                        );
+                    }
                     ?>
                 </div>
             </div>
