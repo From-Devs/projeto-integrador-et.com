@@ -70,7 +70,7 @@ Orientações ao consumidor:
 Uso Externo. Produto Cosmético. Não comestível. Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas.
 Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Uso adulto. Produto para perfumar e desodorizar a pele.
 Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.',
-69.90,null,0,20,'biscoito.png','biscoito-2.png','biscoito-3.png',22,2,3);
+69.90,null,0,30,'biscoito.png','biscoito-2.png','biscoito-3.png',22,2,3);
 
 
 
@@ -916,7 +916,7 @@ Até 3 vezes por semana, em dias alternados.',
 -------------------------PRODUTOS DO MARCOS
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(34,'#5B398F','#15AF93','#4DBDA4')
+(34,'#5B398F','#15AF93','#4DBDA4');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -951,7 +951,7 @@ Orientações ao consumidor:
 Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Mantenha fora do alcance de crianças. Uso externo. Uso adulto. Contém ação desodorante.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free. Produto vegano.',
-57.90,null,0,35,'cuide-se-bem-bob-esponja-creme-hidratante-200ml-frontal-01.png','cuide-se-bem-bob-esponja-creme-hidratante-200ml-segredinho-02-lancamento.jpg',null,24,34,2)
+57.90,null,0,35,'cuide-se-bem-bob-esponja-creme-hidratante-200ml-frontal-01.png','cuide-se-bem-bob-esponja-creme-hidratante-200ml-segredinho-02-lancamento.jpg',null,24,34,2);
 
 
 
@@ -959,7 +959,7 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(35,'#C0C0C0','#D6D6D6','#EAEAEA') 
+(35,'#C0C0C0','#D6D6D6','#EAEAEA');
 
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
@@ -968,14 +968,14 @@ VALUES
 'Elástico de cabelo com pingente em formato de concha metálica, elegante e perfeito para dar um toque sofisticado ao penteado.',
 'Adicione um charme especial ao seu visual com este elástico de cabelo adornado com uma concha metálica prateada. Além de ser funcional e garantir firmeza ao prender os fios, ele é um acessório estiloso que remete ao universo marítimo, ideal para compor penteados delicados ou destacar um look casual com um toque de elegância. 
 Confortável para uso diário, é perfeito para quem ama detalhes únicos e sofisticados.',
-12.00,null,0,100,'Elástico-de-concha-do-mar.png','Elástico-de-concha-do-mar-2.png','Elástico-de-concha-do-mar.png',18,35,5)
+12.00,null,0,100,'Elástico-de-concha-do-mar.png','Elástico-de-concha-do-mar-2.png','Elástico-de-concha-do-mar.png',18,35,5);
 
 
 
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(36,'#1EDCEA','#64edf7','#96f6fd')
+(36,'#1EDCEA','#64edf7','#96f6fd');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1007,14 +1007,14 @@ Recursos:
 - Jato de ar frio;
 - Para todos os tipos de cabelo;
 - Capa protetora.',
-999.90,809.91,1,30,'escova_secadora_rotativa_2.png','escova-secadora-3.jpg','escova-secadora-rotativa-1.jpg',19,36,5)
+999.90,809.91,1,30,'escova_secadora_rotativa_2.png','escova-secadora-3.jpg','escova-secadora-rotativa-1.jpg',19,36,5);
 
 
 
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(37,'#0081B8','#33b0e6','#7cd6fd')
+(37,'#0081B8','#33b0e6','#7cd6fd');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1041,62 +1041,154 @@ Ocasião:
 Fragrância feminina para ser usada durante o dia ou a noite.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
-159.90,111.90,1,30,'FLORATTA-DES-COL-MY-BLUE-75ml.png','FLORATTA-DES-COL-MY-BLUE-75ml-2.jpg','Floratta-My-Blue-Desodorante-Colonia-75ml-3.png',5,37,3)
+159.90,111.90,1,30,'FLORATTA-DES-COL-MY-BLUE-75ml.png','FLORATTA-DES-COL-MY-BLUE-75ml-2.jpg','Floratta-My-Blue-Desodorante-Colonia-75ml-3.png',5,37,3);
 
 
 
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(38,)
+(38,'#02020A','#23305D','#4660BA');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-("")
+('Glamour Midnight Desodorante Colônia','O Boticário','75ml',
+'Inspirado no mistério de uma noite estrelada, Glamour Midnight Desodorante Colônia entrega uma fragrância misteriosa e encantadora, que desperta novas sensações.',
+'A noite cai e com ela surgem seus encantos e sedução…e através dessa intensidade hipnotizante,revela-se a mulher Glamour!
+Da família Oriental Gourmand, exalta, de forma adocicada, a intensidade hipnotizante da noite através do exclusivo Acorde Hypnotic Dark: uma combinação de ingredientes em suas versões mais densas e sensuais, que traz as flores Immortelle e Night Orchid, envoltas por notas especiadas e balsâmicas.
+
+Além disso, essa fragrância sofisticada da perfumaria feminina traz notas lacônicas e notas especiadas quentes de saída, fundo com muita textura de resinas e Patchouli que trazem calor desde a sua saída.
+Ideal para ser aplicado diretamente na pele*, esse desodorante colônia entrega uma versão mais densa para envolver com todo o poder que a noite representa.
+
+Como usar:
+Aplique sobre o corpo como desejar reaplicando se necessário.
+
+Pirâmide Olfativa:
+Topo: Amêndoa, Tâmara, Ameixa Negra.
+Corpo: Hypnotic Dark acorde, Night Orchid, Benjoim, Cacau, Especiarias Quentes.
+Fundo: Patchouli, Acorde Leite Quente, Bálsamo do Peru, Âmbar.
+
+Orientações ao consumidor:
+- Inflamável.
+- Evite contato com os olhos.
+- Não aplique em pele irritada ou lesionada.
+- Evite aplicar nas axilas.
+- Descontinue o uso em caso de sensibilização.
+- Conserve o produto bem fechado, longe da luz e do calor excessivo.
+- Somente para uso externo.
+- Mantenha fora do alcance de crianças.
+- Produto para perfumar e desodorizar a pele, recomendamos não aplicar o produto em tecidos.
+
+Ingrediente:
+Álcool desnaturado; Perfume; Água; Octissalato; Avobenzona; Caprililglicol; Corante violeta 60730; Azul brilhante; Amarelo de tartrazina; Benzoato de benzila; Cinamato de benzila; Salicilato de benzila; Citronelol; Cumarina; Geraniol; Hexil cinamal; Limoneno; Linalol; Álcool benzílico.
+
+Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.
+
+Observação:
+Devido à alta concentração de corantes utilizados neste produto, recomendamos que a aplicação de Glamour Midnight seja feita diretamente na pele e orientamos que é imprescindível aguardar até a completa absorção na pele antes de se vestir. 
+
+Nenhum produto O Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
+184.90,null,0,40,'glamour-midnight-desodorante-colonia-frontal-01.png','glamour-midnight-desodorante-colonia-ambientada-02-lancamento.jpg','glamour-midnight-desodorante-colonia-ambientada-03.jpg',5,38,3);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES
+(39,'#070707','#404040','#757575');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Condicionador Antiqueda Malbec','O Boticário','250ml',
+'O Condicionador Antiqueda Malbec é feito para o homem que sofre com queda de cabelos e deseja revolucionar o modo de cuidar dos seus fios.',
+'Para homens que estão sempre em busca de mudanças para o melhor, a linha Malbec Antiqueda dá mais vida aos seus cabelos e mais autoestima ao seu dia a dia!
+Ideal para uso após o shampoo da linha, este condicionador incrementa a rotina de autocuidado para o homem. Com fórmula inovadora, contém extrato de semente de uva, ativo com ação antioxidante que auxilia nos cuidados com a pele. 
+
+Com o uso contínuo, você consegue resultados de até 4x menos queda*, prolongando a vida e o crescimento dos fios já existentes, bem como o aumento da densidade capilar.
+
+Como usar:
+Após lavar os cabelos, aplique o condicionador nos fios, deixe agir por alguns minutos e enxágue. Para garantir os resultados, utilize diariamente a linha completa de Malbec Antiqueda.
+
+Orientação ao consumidor:
+- Evite contato com os olhos.
+- Não aplique no couro cabeludo irritado ou lesionado.
+- Descontinue o uso em caso de sensibilização.
+- Conserve o produto bem fechado, longe da luz e do calor excessivo.
+- Mantenha fora do alcance de crianças.
+
+Ingrediente:
+Água; Álcool cetoestearílico; Palmitato de isopropila; Cloreto de beentrimônio; Estearato de octila; Dimeticonol; Dimeticona; Perfume; Fenoxietanol; Álcool isopropílico; Amodimeticona; Gliconato de sódio; Dodecilbenzenosulfonato de trietanolamina; Polietilenoglicol-12 éter de álcool tridecílico; Cloreto de cetrimônio; Pantenol; Acetato de tocoferila; Nicotinamida; Álcool benzílico; Ácido láctico; Propilenoglicol; Propanodiol; Benzoato de sódio; Hidróxido de sódio; Óleo de rícino hidrogenado etoxilado; Arginina; Extrato do gérmen de glycine soja; Extrato do gérmen de Triticum vulgare; Poliuretano-39; Gluconolactona; Butilcarbamato de iodopropinila ; Extrato da raiz de Scutellaria baicalensis; Extrato da semente de Vitis vinifera; Sorbato de potássio; Sulfito de sódio; edetato trissódico; Ácido cítrico; Fenilpropanol; Gliconato de cálcio; Caprililglicol; Tocoferol; Citronelol; Cumarina; Limoneno; Linalol.
+
+Nenhum produto O Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
+54.90,null,0,50,'malbec-cabelos-condicionador-antiqueda-frontal.png','malbec-cabelos-condicionador-antiqueda-ambientada-lancamento.jpg',null,14,39,5);
 
 
 
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-
+(40,'#3E0D11','#73181F','#A6232D');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Esponja de Maquiagem My Blend Vinho','Océane',null,
+'A Esponja de Maquiagem My Blend Vinho é perfeita para aplicar maquiagens líquidas, cremosas ou em pó. Expande de tamanho quando molhada, absorvendo menos produto e proporcionando acabamento natural e uniforme.',
+'A esponja de maquiagem já se tornou um item pra lá de necessário para quem ama uma pele com acabamento impecável. My Blend vai se tornar sua favorita na hora de se maquiar. Versátil, o produto aplica maquiagens líquidas, cremosas ou em pó com muita praticidade, deixando o resultado com aspecto profissional.
 
+Essa esponja é maravilhosa porque imita os poros da pele, o que garante um acabamento natural e uniforme no rosto. My Blend conta com um design que tem um punho central que se encaixa melhor nas mãos, facilitando a aplicação da Maquiagem. Assim, até quem é iniciante no universo da maquiagem vai conseguir usá-la à vontade! Esse é o tipo de esponja que possui duas partes: uma ponta menor que cabe muito bem em regiões pequenas, como próximo aos olhos e nos cantos do nariz, e uma superfície grande, que cobre áreas maiores do rosto.
+
+Além disso, My Blend pode ser usada tanto seca quanto molhada. Quer uma alta cobertura? Use a esponja seca. Mas se você quer aquele efeito natural maravilhoso, é só molhá-la antes de passar a maquiagem, o que também vai absorver menos produto.
+My Blend é livre de látex.
+
+Quais produtos posso aplicar com My Blend?
+A versatilidade dessa esponja permite com que você aplique diversos tipos de produtos: base líquida, pó facial, corretivo, contorno…
+
+Como lavar a esponja My Blend?
+Para lavar a My Blend, basta enxaguá-la e usar um detergente neutro, massageando suavemente até sair a sujeira. Depois, enxague bem, retire o excesso de água espremendo a esponja com as mãos ou em uma toalha e deixe secar num lugar arejado ou ao ar livre.',
+30.90,null,0,30,'Océane_my_blend_océane_esponja_de_maquiagem.png','Océane my blend océane esponja de maquiagem-2.png','c:\Users\NicolleZaleski\Documents\imagens do meu banco de dados\Océane my blend océane esponja de maquiagem-3.jpg',21,40,4);
 
 
 
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-
+(41,'#C9758F','#F58EAE','#F5A5C4');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Pincéis de Maquiagem Profissionais Com Cabo Transparente',null,'16 pincéis',
+'Transforme sua rotina de beleza com o nosso Conjunto de Escova de Maquiagem Premium, que inclui 16 pinceis cuidadosamente selecionados para atender todas as suas necessidades de maquiagem. Este conjunto é perfeito tanto para iniciantes quanto para maquiadores profissionais, oferecendo uma versatilidade inigualável para criar looks deslumbrantes.',
+'O que Inclui:
+Escova de Fundação Sintética - Ideal para aplicar bases líquidas ou cremosas, garantindo uma cobertura uniforme e um acabamento impecável.
+Escova de Contorno de Pó Solto - Perfeita para esculpir o rosto e definir os traços, sua forma precisa permite um controle fácil durante a aplicação.
+Escova de Olho - Versátil e compacta, perfeita para aplicar sombras, fazer esfumados e destacar o olhar.
+Pincel Blush - Crie um efeito saudável nas bochechas com este pincel suave, que se adapta perfeitamente à pele.
+Pincel de Corretivo - Com cerdas densas e precisas, este pincel garante uma cobertura perfeita para camuflar imperfeições.
+Pincel para Delineador - Com uma ponta fina, é ideal para traços definidos e precisos.
+Pincel para Lábios - Crie contornos perfeitos e preencha os lábios com precisão.
+Pincel de Pó - Aplicação suave e uniforme de pós soltos ou compactos.
+Pincel Bronzer - Adicione um toque de bronzeado e definição com facilidade.
+Pincel Escultor - Perfeito para contornos mais precisos e detalhados.
+Pincel Marcador - Para dar aquele destaque luminoso nas áreas certas do rosto.
+Escova de Sobrancelha - Modela e define as sobrancelhas para um look polido e natural.
+E muito mais. Cada pincel foi projetado com cerdas de alta qualidade para garantir um toque macio e uma aplicação eficaz.
 
+Características:
+Material de Alta Qualidade - As cerdas são feitas de material sintético premium, que é macio ao toque e livre de crueldade animal.
+Design Elegante - Cada pincel possui um cabo ergonômico e um design sofisticado, perfeito para qualquer penteadeira.
+Fácil Limpeza - As cerdas são fáceis de limpar, mantendo a higiene e prolongando a vida útil do produto.',
+78.90,null,0,30,'Pinceis_de_maquiagem_profissional_com_cabo_transparente.png','pinceis-de-maquiagem-profissional-com-cabo-transparente-3.jpg','pinceis-de-maquiagem-profissional-com-cabo-transparente-2.jpg',20,41,6);
 
 
 
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-
-
-INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
-
-
-
-
------------------------------------------------------------------------------------------------
-INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
-VALUES  
-
+(42,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-
+('')
 
 
 
