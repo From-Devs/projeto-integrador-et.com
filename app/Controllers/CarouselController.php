@@ -12,57 +12,29 @@ class CarouselController {
     }
 
     // 🔹 Listar todos os carrosseis e cores
-    public function getAll(): void {
-        try {
-            $carousels = $this->carouselModel->getAll();
-            $cores = $this->coresModel->getAll();
-    
-            require __DIR__ . "/../index.php";
-    
-        } catch (Throwable $e) {
-            echo "Erro ao listar carrosséis: " . $e->getMessage();
-        }
+    public function getAll(): array {
+     
     }
     
 
     // 🔹 Buscar slot por ID
     public function getById(int $id): ?array {
-        try {
-            $carousel = $this->carouselModel->getElementById($id);
-            if (!$carousel) return null;
-
-            $cores = $this->coresModel->getElementById($carousel['id_coresSubs'] ?? 0);
-            return [
-                'carousel' => $carousel,
-                'cores' => $cores
-            ];
-        } catch (Throwable $e) {
-            echo "Erro ao buscar: " . $e->getMessage();
-            return null;
-        }
+       
     }
 
     // 🔹 Atualizar produto no slot
     public function updateSlot(int $id, array $data): bool {
-        return $this->carouselModel->update($id, [
-            'id_produto' => $data['id_produto'],
-            'id_coresSubs' => $data['id_coresSubs']
-        ]);
+      
     }
 
     // 🔹 Atualizar cores do slot
     public function updateSlotColors(int $id, array $data): bool {
-        return $this->coresModel->update($id, [
-            'corEspecial' => $data['corEspecial'],
-            'hexDegrade1' => $data['hexDegrade1'],
-            'hexDegrade2' => $data['hexDegrade2'],
-            'hexDegrade3' => $data['hexDegrade3'],
-        ]);
+       
     }
 
     // 🔹 Deletar (opcional, mas provavelmente não vai usar)
     public function delete(int $id): bool {
-        return $this->carouselModel->remove($id);
+      
     }
 }
 
