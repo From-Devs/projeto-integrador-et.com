@@ -152,9 +152,9 @@ foreach ($carrinho as $index => $produto) {
                     <td class='cor2'>R$ <?= number_format($produto['precoCalculado'], 2, ',', '.') ?></td>
                     <td class='quantityColumn'>
                         <div class='quantity-container'>
-                            <button type='button' class='quantity-btn' onclick='decrementQuantity(<?= $index ?>)'>-</button>
-                            <input type='number' name='quantidade[<?= $index ?>]' value='<?= $produto['quantidade'] ?>' min='1' class='quantity-input'>
-                            <button type='button' class='quantity-btn' onclick='incrementQuantity(<?= $index ?>)'>+</button>
+                            <button type='button' class='quant-btn' onclick='decrementQuantity(<?= $index ?>)'>-</button>
+                            <input type='number' name='quantidade[<?= $index ?>]' value='<?= $produto['quantidade'] ?>' min='1' class='quant'>
+                            <button type='button' class='quant-btn' onclick='incrementQuantity(<?= $index ?>)'>+</button>
                         </div>
                     </td>
                     <td class='cor2' id='subtotal-item-<?= $index ?>'>R$ <?= number_format($produto['subtotal'], 2, ',', '.') ?></td>
@@ -180,7 +180,7 @@ foreach ($carrinho as $index => $produto) {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>
+                    <td style="width: auto; text-align: right;">
                         <input type="checkbox" id="selecionarTodos" style="margin: 0px;">
                     </td>
                 </tr>
