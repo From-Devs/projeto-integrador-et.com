@@ -56,7 +56,6 @@
 .pedidoAndamentoMP #produtosAndamento{
     margin-top: 7px;
     width: 100%;
-    max-height: 620px;
     overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
@@ -101,37 +100,54 @@
 }
 
 .cards-produtoAndamento .cardcoloridoCam .card-info{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 150px auto;
+    width: 100%;
+    height: 220px;
     align-items: center;
-    height: 219px;
-    width: 400px;
-    border-radius: 30px;
-    box-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0.301);
+    padding: 0px 0px 0px 0px;
+    border-radius:25px;
+    box-shadow: inset 0px 0px 10px rgb(129, 129, 129);
 }
 
 .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem{
     display: flex;
-    align-items: center;                                                        /* Ver isso depois */
+    justify-content: center;
+    align-items: center;                                                /* Ver isso depois */
 }
 
 .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
     height: 120px;
     width: auto;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.644));                              /*Ver isso depois*/  
+    filter: drop-shadow(2px 2px 4px rgba(94, 94, 94, 0.644));                              /*Ver isso depois*/  
 }
 
-.cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .informacoes-card{
+.cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP{
     display: flex;
     flex-direction: column;
-    font-size: 15px;
+}
+
+.cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP .nomeProdutoMP{
+    font-size: 20px;
+    font-weight: 450;
+    padding-right: 20px;
+}
+
+.cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP .precoProdutoMP{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP .qtdProdutoMP{
+    margin-top: 15px;
 }
 
 .cards-produtoAndamento .cardcoloridoCam .card-info .info-caminho .verMais{
     text-align: left;
     border: none;
     background-color: transparent;
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: 600;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -978,6 +994,32 @@
 
     .popupMP .popupMP-conteudo .popupMP-inferior{
         width: 70%;
+    }
+}
+
+@media (max-width: 550px){
+    .cards-produtoAndamento .cardcoloridoCam .card-info{
+        grid-template-columns: 110px auto;
+    }   
+
+    .pedidoAndamentoMP #produtosAndamento{
+        grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    }
+
+    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
+        height: 100px;
+    }
+
+    .cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP .nomeProdutoMP{
+        font-size: 17px;
+    }
+
+    .cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP .precoProdutoMP{
+        font-size: 17px;
+    }
+
+    .cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP .verMais{
+        font-size: 16px;
     }
 }
 
