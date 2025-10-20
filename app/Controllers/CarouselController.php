@@ -13,13 +13,27 @@ class CarouselController {
 
     // 🔹 Listar todos os carrosseis e cores
     public function getAll(): array {
-     
+        try {
+            // Adicação do get all para corroseul cores tam bem.
+            $caroseul = $this->carouselModel->getAll();
+            require __DIR__ "/../../public/componentes/carousel/carousel.php";
+        } catch(Exception $e) {
+            error_log("Carousel error: " . $e->getMessage());
+            return [];
+        }
+        
     }
     
 
     // 🔹 Buscar slot por ID
     public function getById(int $id): ?array {
-       
+        try {
+            $caroseulUnico = this->carouselModel->getElementById($id);
+            return $caroseulUnico;
+        } catch(Exception $e) {
+            error_log("Carousel error: " . $e->getMessage());
+            return [];
+        }
     }
 
     // 🔹 Atualizar produto no slot
