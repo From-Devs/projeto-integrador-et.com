@@ -92,7 +92,7 @@
             <textarea class="caixa_texto" name="sobreProdutos" id="" cols="30" rows="10"></textarea>
             <div class="botoes">
                 <div class="checkbox">
-                    <input type="checkbox" name="termos" id="termos"> 
+                    <input type="checkbox" name="termos" id="termos" required> 
                     <label class="termos" for="termos"> Concordo com os <a href="./TermoDeUso.php">Termos de Uso e Privacidade</a></label>
                 </div>
                 

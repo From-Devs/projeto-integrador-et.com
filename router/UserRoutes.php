@@ -219,7 +219,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 $responseUpdate = $userController->assocRequest($id, $postData);
 
-                header("Location: ../app/views/usuario/Tornar_Associado.php?sucesso=send_request");
+                header("Location: ../app/views/usuario/CadastroAssociado.php?sucesso=send_request");
                 exit;
             }
             break;
