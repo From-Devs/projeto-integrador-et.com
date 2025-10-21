@@ -1,30 +1,33 @@
 <?php
+require_once __DIR__ . '/../models/PedidosModel.php';
 
-require_once __DIR__ . "/../Models/PedidosModel.php";
-
-class PedidosController{
-    private $pedidosModel;
+class PedidoController {
+    private $model;
 
     public function __construct() {
-        $this->pedidosModel = new PedidosModel();
+        $this->model = new PedidosModel();
     }
 
-    public function BuscarTodosPedidos($ordem="", $pesquisa=""){
-        return $this->pedidosModel->BuscarTodosPedidos($ordem, $pesquisa);
+    /**
+     * Lista todos os pedidos de um usuário
+     */
+    public function listarPedidosPorUsuario($idUsuario) {
+        // Retorna array com pedidos + produtos
+        return $this->model->listarPorUsuario($idUsuario);
     }
 
-    public function BuscarTodosPedidosAssociado($ordem="", $pesquisa="", $idAssociado){
-        return $this->pedidosModel->BuscarTodosPedidosAssociado($ordem, $pesquisa, $idAssociado);
+    /**
+     * Retorna produtos de um pedido específico
+     */
+    public function buscarProdutosDoPedido($idPedido) {
+        return $this->model->buscarProdutosDoPedido($idPedido);
     }
 
-
-    public function BuscarTodosPedidosADM($ordem="", $pesquisa=""){
-        return $this->pedidosModel->BuscarTodosPedidosADM($ordem, $pesquisa);
-    }
-
-    public function BuscarProdutosDoPedido($idPedido){
-        return $this->pedidosModel->BuscarProdutosDoPedido($idPedido);
+    /**
+     * Retorna informações de pagamento (método placeholder)
+     */
+    public function buscarInfoPagamentos($idPedido) {
+        return $this->model->buscarInfoPagamentos($idPedido);
     }
 }
-
 ?>

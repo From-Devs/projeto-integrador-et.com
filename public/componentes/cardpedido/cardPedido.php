@@ -4,7 +4,7 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
     $dataEntrega = !empty($pedido['dataEntrega']) ? date('d/m/Y', strtotime($pedido['dataEntrega'])) : '';
  
     // Define classes externas que o JS espera
-    $classeCard = $tipo === 'Finalizado'
+    $classeCard = $tipo === 'Concluído'
         ? 'cardProduto-finalizado produtoMP'
         : 'cards-produtoAndamento produtoMP';
  
@@ -35,7 +35,7 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
  
         <span class="data-compra"><?= $dataCompra; ?></span>
  
-        <?php if($tipo !== 'Finalizado'): ?>
+        <?php if($tipo !== 'Concluído'): ?>
         <!-- Card em andamento -->
         <div class="cardcoloridoCam" style="border-radius:25px; overflow:hidden; position:relative;">
             <div class="card-info" style="

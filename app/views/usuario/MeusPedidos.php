@@ -3,7 +3,7 @@ require __DIR__ . "/../../../public/componentes/header/header.php";
 require __DIR__ . "/../../../public/componentes/rodape/Rodape.php"; 
 require_once "/xampp/htdocs/projeto-integrador-et.com/public/componentes/botao/botao.php";
 require_once "/xampp/htdocs/projeto-integrador-et.com/public/componentes/popUp/popUp.php";
-require_once __DIR__ . '/../../../config/PedidoController.php';
+require_once __DIR__ . '/../../controllers/PedidosController.php';
 require_once __DIR__ . '/../../../public/componentes/cardpedido/cardPedido.php';
 
 session_start();
@@ -56,7 +56,7 @@ $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
                 <p class="aviso">Você ainda não possui pedidos.</p>
             <?php else: ?>
                 <?php foreach ($pedidos as $pedido): ?>
-                    <?php if ($pedido['tipoStatus'] !== 'Finalizado'): ?>
+                    <?php if ($pedido['tipoStatus'] !== 'Concluído'): ?>
                         <?php 
                             // Adicionando atributos para puxar dinamicamente no JS
                             $pedido['dataAttributes'] = [
@@ -82,7 +82,7 @@ $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
         <div id="produtosFinalizados">
             <?php if ($pedidos): ?>
                 <?php foreach ($pedidos as $pedido): ?>
-                    <?php if ($pedido['tipoStatus'] === 'Finalizado'): ?>
+                    <?php if ($pedido['tipoStatus'] === 'Concluído'): ?>
                         <?php 
                             $pedido['dataAttributes'] = [
                                 'id' => $pedido['id_pedido'],
@@ -93,7 +93,7 @@ $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
                                 'hex1' => $pedido['hex1'] ?? '#cccccc',
                                 'hex2' => $pedido['hex2'] ?? '#999999'
                             ];
-                            renderCardPedido($pedido, 'Finalizado'); 
+                            renderCardPedido($pedido, 'Concluído'); 
                         ?>
                     <?php endif; ?>
                 <?php endforeach; ?>

@@ -1,12 +1,15 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/Products.php'; // Import correto da sua classe de produtos
 
 class ListaDeDesejos {
     private $conn;
+    private $produtoModel;
 
     public function __construct() {
         $db = new Database();
         $this->conn = $db->Connect();
+        $this->produtoModel = new Products(); // Instancia correta
     }
 
     public function listarDesejos($idUsuario) {
@@ -42,14 +45,14 @@ class ListaDeDesejos {
         if (!$idUsuario) return ['ok' => false, 'msg' => 'Usuário inválido'];
 
         $produtos = is_array($idProduto) ? $idProduto : [$idProduto];
-
         $adicionados = 0;
+
         foreach ($produtos as $p) {
             $p = (int)$p;
             if ($p <= 0) continue;
 
-            // Verifica se o produto existe
-            if (!$this->BuscarProdutoPorId($p)) continue;
+            // Verifica se o produto existe usando o Products.php
+            if (!$this->produtoModel->buscarProdutoPeloId($p)) continue;
 
             // Verifica se já está na lista
             $sel = $this->conn->prepare("SELECT 1 FROM listadesejos WHERE id_usuario = ? AND id_produto = ?");
@@ -86,5 +89,5 @@ class ListaDeDesejos {
 
         return ['ok' => true, 'msg' => 'Produto(s) removido(s) da lista de desejos'];
     }
-
 }
+?>
