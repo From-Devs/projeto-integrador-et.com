@@ -23,10 +23,9 @@
     $id_usuario = $_SESSION['id_usuario'];
 
     $controller = new CarrinhoController();
-    $dados = $controller->exibirCarrinho($id_usuario);
-    $carrinho = $dados['carrinho'];
-    $total = $dados['total'];
-    $precosProdutos = $dados['precosProdutos'];
+    $carrinho = $controller->exibirCarrinho($id_usuario);
+    $total = array_sum(array_column($carrinho, 'subtotal'));
+    $precosProdutos = array_column($carrinho, 'precoCalculado');
 
 ?>
 
@@ -62,7 +61,7 @@
     <h1 class="Meio">MEU CARRINHO</h1>
     <div class="line"></div>
     
-    <form method="POST" action="">
+    <form method="POST">
         <table>
             <thead>
                 <tr>
@@ -76,26 +75,26 @@
             </thead>
             <tbody>
             <?php if (!empty($carrinho)): 
-                foreach ($carrinho as $index => $produto): ?>
+                foreach ($carrinho as $index => $item) ?>
                     <tr>
                         <td class="prod">
                             <div class="conteudo_td">
-                                <input class='check' type='checkbox' name='selecionados[<?= $index ?>]' value="<?= $produto['id_prodCarrinho']?>">
-                                <img class='cor1' src='/projeto-integrador-et.com/<?= $produto['img1'] ?? "no-image.png" ?>' alt='<?= $produto['nome'] ?>' width='50'>
-                                <span class='produto-nome'><?= htmlspecialchars($produto['nome']) ?></span>
+                                <input class='check' type='checkbox' name='selecionados[]' value="<?= $item['id_prodCarrinho'] ?>">
+                                <img class='cor1' src='/projeto-integrador-et.com/<?= $item['img1'] ?? "no-image.png" ?>' alt='<?= $item['nome'] ?>' width='50'>
+                                <span class='produto-nome'><?= htmlspecialchars($item['nome']) ?></span>
                             </div>
                         </td>
                         <td></td>
                         <td></td>
-                        <td class='cor2'>R$ <?= number_format($produto['precoCalculado'], 2, ',', '.') ?></td>
+                        <td class='cor2'>R$ <?= number_format($item['precoCalculado'], 2, ',', '.') ?></td>
                         <td class='quantityColumn'>
                             <div class='quantity-container'>
                                 <button type='button' class='quantity-btn' onclick='decrementQuantity(<?= $index ?>)'>-</button>
-                                <input type='number' name='quantidade[<?= $index ?>]' value='<?= (int)$produto['quantidade'] ?>' min='1' class='quantity-input'>
+                                <input type='number' name='quantidade[<?= $index ?>]' value='<?= (int)$item['quantidade'] ?>' min='1' class='quantity-input'>
                                 <button type='button' class='quantity-btn' onclick='incrementQuantity(<?= $index ?>)'>+</button>
                             </div>
                         </td>
-                        <td class='cor2' id='subtotal-item-<?= $index ?>'>R$ <?= number_format($produto['subtotal'], 2, ',', '.') ?></td>
+                        <td class='cor2' id='subtotal-item-<?= $index ?>'>R$ <?= number_format($item['subtotal'], 2, ',', '.') ?></td>
                     </tr>
                 <?php endforeach;
                 else: ?>
