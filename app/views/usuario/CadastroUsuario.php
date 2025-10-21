@@ -47,7 +47,7 @@
                 <div class="low">
                         
                     <div class="checkbox">
-                        <input type="checkbox" name="termos" id="termos"> 
+                        <input type="checkbox" name="termos" id="termos" required> 
                         <label class="termos" for="termos"> Concordo com os <a href="./TermoDeUso.php">Termos de Uso e Privacidade</a></label>
                     </div>
                         
