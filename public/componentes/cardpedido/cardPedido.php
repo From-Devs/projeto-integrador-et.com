@@ -61,37 +61,20 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
         <!-- Card finalizado -->
         <span class="data-entrega" style=""><?= $dataEntrega; ?></span>
         <span class="statusProdutoMP">Concluído</span>
-        <div class="cardcoloridoFin" style="border-radius:25px; overflow:hidden; position:relative; border: red solid;">
-            <div class="card-info2" style="
-                display: grid;
-                grid-template-columns: 160px auto;
-                width: 100%;
-                height: 100%
-                align-items: center;
-                border-radius:25px;
-                box-shadow: inset 0px 0px 10px rgb(129, 129, 129);
-            ">
-                <div class="card-imagem2" style="display: flex; align-items: center;">
+        <div class="cardcoloridoFin" style="border-radius:25px; overflow:hidden;">
+            <div class="card-info2">
+                <div class="card-imagem2">
                     <img src="/projeto-integrador-et.com/public/imagens/produto/<?= $imagemProduto; ?>"
-                         alt="<?= $item['nome']; ?>"
-                         style="height:120px; width:auto; object-fit:contain;">
+                         alt="<?= $item['nome']; ?>">
                 </div>
  
-                <div class="infoProdutoMP info-finalizado" style="display: flex; flex-direction:column; gap:5px; justify-content: center;">
-                    <span class="nomeProdutoMP" style="font-size:20px; font-weight:600; color:#222;"><?= $item['nome']; ?></span>
-                    <span class="descricaoProdutoMP" style="font-size:16px; color:#555;"><?= $descricao; ?></span>
-                    <span class="precoProdutoMP" style="font-size:18px; font-weight:bold; color:#222;">R$ <?= number_format($item['preco'], 2, ',', '.'); ?></span>
-                    <span class="qtdProdutoMP" style="font-size:18px; font-weight:500; color:#222;">Qtd: <?= $item['quantidade'] ?? 1; ?></span>
+                <div class="infoProdutoMP info-finalizado">
+                    <span class="nomeProdutoMP"><?= $item['nome']; ?></span>
+                    <span class="descricaoProdutoMP"><?= $descricao; ?></span>
+                    <span class="precoProdutoMP">R$ <?= number_format($item['preco'], 2, ',', '.'); ?></span>
+                    <span class="qtdProdutoMP">Quant: <?= $item['quantidade'] ?? 1; ?></span>
                     <!--<span class="subtotalProdutoMP">Subtotal: R$ <?= number_format($subtotal, 2, ',', '.'); ?></span>-->
-                    <button style="text-align: left;
-                                border: none;
-                                background-color: transparent;
-                                text-decoration: underline;
-                                cursor: pointer;
-                                font-size:18px;
-                                font-weight:bold;
-                                color:#222;"
-                    >Mais Informações</button>
+                    <button class="maisInfo">Mais Informações</button>
                 </div>
             </div>
         </div>

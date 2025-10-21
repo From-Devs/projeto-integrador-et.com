@@ -474,25 +474,21 @@
 #produtosFinalizados .cardProduto-finalizado{
     display: flex;
     flex-direction: column;
-    height: 230px;
+    width: 100%;
 }
 
 .cardProduto-finalizado .cardcoloridoFin{
-    margin-top: 10px;
-    margin-left: 10px;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
 .cardProduto-finalizado .cardcoloridoFin .card-info2{
-    display: flex;
-    flex-direction: column;
-    height: 219px;
-    width: 410px;
-    border-radius: 30px;
-    padding-right: 30px;
-    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.511);
+    display: grid;
+    grid-template-columns: 150px auto;
+    height: 220px;
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.511);
 }
 
 .cardcoloridoFin .card-info2 .data-entrega{
@@ -508,28 +504,47 @@
     align-items: center;
 }
 
-.cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2{
+.cardcoloridoFin .card-info2 .card-imagem2{
     display: flex;
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
 }
 
-.cardcoloridoFin .card-info2 .cardcolestrutura .card-imagem2 img{
+.cardcoloridoFin .card-info2 .card-imagem2 img{
     height: 120px;
     width: auto;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.644));
 }
 
-.cardcoloridoFin .card-info2 .cardcolestrutura .info-finalizado .informacoes-card{
+.cardcoloridoFin .card-info2 .infoProdutoMP{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     font-size: 15px;
 }
 
-.cardcoloridoFin .card-info2  .cardcolestrutura .maisInfo{
+.cardcoloridoFin .card-info2 .infoProdutoMP .nomeProdutoMP{
+    font-size: 20px;
+    font-weight: 450;
+    padding-right: 20px;
+}
+
+.cardcoloridoFin .card-info2 .infoProdutoMP .precoProdutoMP{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cardcoloridoFin .card-info2 .infoProdutoMP .qtdProdutoMP{
+    margin-top: 15px;
+}
+
+.cardcoloridoFin .card-info2 .maisInfo{
     border: none;
     background-color: transparent;
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: 600;
     text-decoration: underline;
+    text-align: left;
     cursor: pointer;
 }
     
@@ -1034,12 +1049,49 @@
     .cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP .verMais{
         font-size: 16px;
     }
+
+    /**/
+
+    .pedidosFinalizadosMP #produtosFinalizados{
+        max-height: 500px;
+    }
+
+    .conteudoMeusPedidos .pedidosFinalizadosMP{
+        width: 85%;
+    }
+
+    .pedidosFinalizadosMP .tituloFinalizadoMP{
+        text-align: center;
+    }
+
+    .cards-produtoFinalizado .cardcoloridoCam .card-info2{
+        grid-template-columns: 110px auto;
+    }   
+
+    .pedidoAndamentoMP #produtosAndamento{
+        grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    }
+
+    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
+        height: 100px;
+    }
+
+    .cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP .nomeProdutoMP{
+        font-size: 17px;
+    }
+
+    .cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP .precoProdutoMP{
+        font-size: 17px;
+    }
+
+    .cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP .verMais{
+        font-size: 16px;
+    }
 }
 
 .container {
     width: 90%;
     margin: 20px auto;
-    border: red solid;
 }
   
 .titulo {
