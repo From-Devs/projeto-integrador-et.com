@@ -56,6 +56,7 @@
 .pedidoAndamentoMP #produtosAndamento{
     margin-top: 7px;
     width: 100%;
+    max-height: 600px;
     overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
@@ -998,6 +999,18 @@
 }
 
 @media (max-width: 550px){
+    .pedidoAndamentoMP #produtosAndamento{
+        max-height: 500px;
+    }
+
+    .conteudoMeusPedidos .pedidoAndamentoMP{
+        width: 85%;
+    }
+
+    .pedidoAndamentoMP .tituloAndamentoMP{
+        text-align: center;
+    }
+
     .cards-produtoAndamento .cardcoloridoCam .card-info{
         grid-template-columns: 110px auto;
     }   
@@ -1023,75 +1036,78 @@
     }
 }
 
-
-
-
 .container {
     width: 90%;
     margin: 20px auto;
-  }
+    border: red solid;
+}
   
-  .titulo {
+.titulo {
     margin-bottom: 20px;
     font-size: 24px;
-  }
+}
   
-  .pedido-container {
+.pedido-container {
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 15px;
     margin-bottom: 20px;
     background-color: #fff;
-  }
+}
   
-  .pedido-header {
+.pedido-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
     font-size: 14px;
-  }
+}
   
-  .pedido-status {
+.pedido-status {
     background: #f5f5f5;
     padding: 3px 8px;
     border-radius: 8px;
-  }
+}
   
-  .pedido-itens {
+.pedido-itens {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-  }
+}
   
-  .pedido-total {
+.pedido-total {
     text-align: right;
     margin-top: 10px;
     font-weight: bold;
-  }
+}
   
-  .aviso {
+.aviso {
     font-size: 16px;
     color: #666;
-  }
-  .popupAva {
+}
+  
+.popupAva {
     width: 400px;
     padding: 1rem;
     border-radius: 8px;
 }
+
 .popupAva-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .popupAva-estrelas .estrela {
     font-size: 1.5rem;
     cursor: pointer;
     color: #ccc;
     margin-right: 5px;
 }
+
 .popupAva-estrelas .selecionada {
     color: gold;
 }
+
 textarea#popupAva-textoAvaliacao {
     width: 100%;
     height: 80px;
