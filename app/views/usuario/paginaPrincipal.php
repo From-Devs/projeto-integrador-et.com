@@ -1,6 +1,7 @@
 <?php
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php"; // import do card
+    require __DIR__ 
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     require __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
     require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";

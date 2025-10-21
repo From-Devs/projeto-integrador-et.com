@@ -9,18 +9,16 @@ class BaseController {
      * @param array $data Array associativo de dados a serem extraídos
      *
      * Uso:
-     *   No controller, você pode fazer:
+     *   No controller, vo cê pode fazer:
      *     $this->render('tela2', ['usuario' => $usuario]);
      *   Isso vai extrair a variável $usuario e incluir o arquivo views/tela2.php
      */
-    protected function render(string $view, array $data = []): void {
-        // Extrai as chaves do array como variáveis
-        extract($data);
-
-        // Inclui a view
-        require __DIR__ . "/../../views/$view.php";
+    
+    // ✅ FIX: ADICIONE ESTA FUNÇÃO (OU CORRIJA SE JÁ TEM)
+    protected function renderCustom($conn, $path, $data = []) {
+      $_SESSION[$conn] = $data;  // 🔥 ISSO FAZ $carousels E $cores CHEGAREM!
+      header("Location: ../../app/public/$path");
     }
-
     /**
      * 🔹 Explicação
      * 
@@ -47,7 +45,6 @@ class BaseController {
      */
     protected function redirect(string $path): void {
       header("Location: $path");
-      exit;
     }
     /**
      * 🔹 Explicação
