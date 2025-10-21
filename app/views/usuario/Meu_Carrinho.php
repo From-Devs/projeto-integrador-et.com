@@ -1,6 +1,5 @@
 <?php
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
-    require_once __DIR__ . "/../../../config/ProdutoController.php";
     require_once __DIR__ . "/../../../public/componentes/header/header.php";
     require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
@@ -10,87 +9,24 @@
     require_once __DIR__ . "/../../../public/componentes/ondas/onda.php";
     require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
     require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
-
+    
+    require_once __DIR__ . "/../../Controllers/CarrinhoController.php";
 
     session_start();
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
     $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
-
-if (!$login) {
-    die("Você precisa estar logado para ver o carrinho.");
-}
-
-$id_usuario = $_SESSION['id_usuario'];
-
-// conecta ao banco
-$conn = (new Database())->connect();
-
-// Busca produtos do carrinho
-try {
-    $sql = "
-        SELECT 
-            pc.id_prodCarrinho,
-            c.id_carrinho,
-            p.id_produto,
-            p.nome,
-            p.marca,
-            p.preco,
-            p.precoPromo,
-            p.img1,
-            p.tamanho,
-            pc.qntProduto AS quantidade,
-            c.data_criacao,
-            c.data_atualizacao
-        FROM ProdutoCarrinho pc
-        JOIN Carrinho c ON c.id_carrinho = pc.id_carrinho
-        JOIN Produto p ON p.id_produto = pc.id_produto
-        WHERE c.id_usuario = :id_usuario
-    ";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([':id_usuario' => $id_usuario]);
-    $carrinho = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Erro ao carregar carrinho: " . $e->getMessage());
-}
-
-// Atualiza quantidades via POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['quantidade'])) {
-    foreach ($carrinho as $index => $produto) {
-        $novaQtd = (int)($_POST['quantidade'][$index] ?? $produto['quantidade']);
-        if ($novaQtd > 0) {
-            $sqlUpdate = "UPDATE ProdutoCarrinho SET qntProduto = :qtd WHERE id_prodCarrinho = :id";
-            $stmtUpdate = $conn->prepare($sqlUpdate);
-            $stmtUpdate->execute([
-                ':qtd' => $novaQtd,
-                ':id' => $produto['id_prodCarrinho']
-            ]);
-            $carrinho[$index]['quantidade'] = $novaQtd;
-        }
+    
+    if (!$login) {
+        die("Você precisa estar logado para ver o carrinho.");
     }
-}
+    
+    $id_usuario = $_SESSION['id_usuario'];
 
-// Calcula subtotal e total
-$total = 0;
-$precosProdutos = [];
-$subtotaisProdutos = [];
-
-foreach ($carrinho as $index => $produto) {
-    $quantidade = (int)($produto['quantidade'] ?? 1);
-    $preco = ($produto['precoPromo'] !== null && $produto['precoPromo'] > 0) 
-                ? (float)$produto['precoPromo'] 
-                : (float)$produto['preco'];
-
-    $subtotal = $preco * $quantidade;
-    $total += $subtotal;
-
-    // Armazenar preços e subtotais para JS
-    $precosProdutos[$index] = $preco;
-    $subtotaisProdutos[$index] = $subtotal;
-
-    // Adicionar campos ao carrinho para renderizar
-    $carrinho[$index]['precoCalculado'] = $preco;
-    $carrinho[$index]['subtotal'] = $subtotal;
-}
+    $controller = new CarrinhoController();
+    $dados = $controller->exibirCarrinho($id_usuario);
+    $carrinho = $dados['carrinho'];
+    $total = $dados['total'];
+    $precosProdutos = $dados['precosProdutos'];
 
 ?>
 
@@ -124,9 +60,9 @@ foreach ($carrinho as $index => $produto) {
 
 <main>
     <h1 class="Meio">MEU CARRINHO</h1>
-    <div class="line"><div></div></div>
+    <div class="line"></div>
     
-    <form method="post">
+    <form method="POST" action="">
         <table>
             <thead>
                 <tr>
@@ -141,26 +77,26 @@ foreach ($carrinho as $index => $produto) {
             <tbody>
             <?php if (!empty($carrinho)): 
                 foreach ($carrinho as $index => $produto): ?>
-                <tr>
-                    <td class="prod">
-                        <div class="conteudo_td">
-                            <input class='check' type='checkbox' name='selecionar[<?= $index ?>]'>
-                            <img class='cor1' src='/projeto-integrador-et.com/<?= $produto['img1'] ?? "no-image.png" ?>' alt='<?= $produto['nome'] ?>' width='50'>
-                            <span class='produto-nome'><?= $produto['nome'] ?></span>
-                        </div>
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td class='cor2'>R$ <?= number_format($produto['precoCalculado'], 2, ',', '.') ?></td>
-                    <td class='quantityColumn'>
-                        <div class='quantity-container'>
-                            <button type='button' class='quantity-btn' onclick='decrementQuantity(<?= $index ?>)'>-</button>
-                            <input type='number' name='quantidade[<?= $index ?>]' value='<?= $produto['quantidade'] ?>' min='1' class='quantity-input'>
-                            <button type='button' class='quantity-btn' onclick='incrementQuantity(<?= $index ?>)'>+</button>
-                        </div>
-                    </td>
-                    <td class='cor2' id='subtotal-item-<?= $index ?>'>R$ <?= number_format($produto['subtotal'], 2, ',', '.') ?></td>
-                </tr>
+                    <tr>
+                        <td class="prod">
+                            <div class="conteudo_td">
+                                <input class='check' type='checkbox' name='selecionados[<?= $index ?>]' value="<?= $produto['id_prodCarrinho']?>">
+                                <img class='cor1' src='/projeto-integrador-et.com/<?= $produto['img1'] ?? "no-image.png" ?>' alt='<?= $produto['nome'] ?>' width='50'>
+                                <span class='produto-nome'><?= htmlspecialchars($produto['nome']) ?></span>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td class='cor2'>R$ <?= number_format($produto['precoCalculado'], 2, ',', '.') ?></td>
+                        <td class='quantityColumn'>
+                            <div class='quantity-container'>
+                                <button type='button' class='quantity-btn' onclick='decrementQuantity(<?= $index ?>)'>-</button>
+                                <input type='number' name='quantidade[<?= $index ?>]' value='<?= (int)$produto['quantidade'] ?>' min='1' class='quantity-input'>
+                                <button type='button' class='quantity-btn' onclick='incrementQuantity(<?= $index ?>)'>+</button>
+                            </div>
+                        </td>
+                        <td class='cor2' id='subtotal-item-<?= $index ?>'>R$ <?= number_format($produto['subtotal'], 2, ',', '.') ?></td>
+                    </tr>
                 <?php endforeach;
                 else: ?>
                 <tr>
@@ -183,18 +119,12 @@ foreach ($carrinho as $index => $produto) {
                     <td><input type="checkbox" style="margin: 0px;"></td>
                 </tr>
 
-                <tr>
-                    <td class="bot" style="border: none;">
-                        <div class="button-container" style="">
-                            <button type="submit">Realizar Pedido</button>
-                            <button type="button" onclick="abrirPopup()">Excluir</button>
-                        </div>
-                    </td>
-                </tr>
             </tfoot>
         </table>
-
-
+        <div class="button-container" style="">
+            <button type="submit" name="acao" value="pedido">Realizar Pedido</button>
+            <button type="submit" name="acao" value="remover" onclick="return confirm('Deseja realmente excluir os produtos selecionados?')">Excluir Selecionados</button>
+        </div>
     </form>
 </main>
 
