@@ -127,6 +127,19 @@ function tabelaProduto($produtos) {
                             <label for="qtdEstoqueEditar">Quantidade no estoque:</label>
                             <input type="text" name="qtdEstoque" id="qtdEstoqueEditar">
                         </div>
+                        <div class="container-tamanho">
+                            <div class="campo campo-small campo-valor-tamanho">
+                                <label for="valorTamanho">Tamanho:</label>
+                                <input type="number" name="valorTamanho" id="valorTamanho">
+                            </div>
+                            <div class="campo campo-tipo-tamanho">
+                                <select name="tipoTamanho" id="tipoTamanho">
+                                    <option value="ml">ml</option>
+                                    <option value="cm">cm</option>
+                                    <option value="g">g</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="campo campo-small">
                             <label for="precoEditar">Preço:</label>
                             <input type="text" name="preco" id="precoEditar">

@@ -4,8 +4,15 @@ document.getElementsByClassName("campos-cadastrar")[0].addEventListener("submit"
     const popUpCadastrar = document.getElementsByClassName("dialog-cadastrar")[0];
     const popUpSucesso = document.getElementsByClassName("popUpCadastro")[0];
 
+    const vlTamanho = this.querySelector('input[name="valorTamanho"]').value;
+    const tipoTamanho = this.querySelector('select[name="tipoTamanho"]').value;
+    const tamanhoFinal = vlTamanho + " " + tipoTamanho;
+
     let formData = new FormData(this);
-    console.log(formData.get("id_usuario"));
+    formData.delete("valorTamanho");
+    formData.delete("tipoTamanho");
+    formData.append("tamanho", tamanhoFinal);
+    console.log(...formData);
 
     fetch("http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto", {
         method: "POST",
@@ -40,12 +47,16 @@ function buscarAtributosDoProduto(idProduto) {
             const form = dialog.querySelector('form');
             form.reset();
 
+            valoresTamanho = ajustarCamposDeTamanho(data[0]);
+
             form.querySelector('input[name="id_produto"]').value = idProduto;
             form.querySelector('input[name="nome"]').value = data[0].nome ?? "";
             form.querySelector('input[name="marca"]').value = data[0].marca ?? "";
             form.querySelector('input[name="preco"]').value = data[0].preco ?? "";
             form.querySelector('input[name="precoPromocional"]').value = data[0].precoPromo ?? "";
             form.querySelector('input[name="fgPromocao"]').checked = (String(data[0].fgPromocao) === "1");
+            form.querySelector('input[name="valorTamanho"]').value = valoresTamanho[0] ?? "";
+            form.querySelector('select[name="tipoTamanho"]').value = valoresTamanho[1] ?? "";
             form.querySelector('input[name="qtdEstoque"]').value = data[0].qtdEstoque ?? "";
             form.querySelector('textarea[name="breveDescricao"]').value = data[0].descricaoBreve ?? "";
             form.querySelector('textarea[name="caracteristicasCompleta"]').value = data[0].descricaoTotal ?? "";
@@ -67,6 +78,18 @@ function buscarAtributosDoProduto(idProduto) {
             document.getElementById("img-produto-editar3").src = montarUrlImagem(data[0].img3) ?? "";
         })
         .catch(err => console.error("Erro ao buscar produto:", err));
+}
+
+function ajustarCamposDeTamanho(data){
+    const res = [];
+    const tamanhoParts = data.tamanho ? data.tamanho.split(" ") : ["", ""];
+    const valorTamanho = tamanhoParts.slice(0, -1).join(" ");
+    const tipoTamanho = tamanhoParts.slice(-1);
+
+    res.push(valorTamanho);
+    res.push(tipoTamanho[0]);
+
+    return res;
 }
 
 function montarUrlImagem(img) {

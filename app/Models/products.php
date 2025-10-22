@@ -33,6 +33,7 @@ class Products {
         $precoPromocional, 
         $fgPromocao,
         $caracteristicasCompleta, 
+        $tamanho,
         $qtdEstoque, 
         $corPrincipal, 
         $deg1, 
@@ -72,6 +73,7 @@ class Products {
                     descricaoTotal = :descricaoTotal,
                     preco = :preco,
                     precoPromo = :precoPromo,
+                    tamanho = :tamanho,
                     fgPromocao = :fgPromocao,
                     qtdEstoque = :qtdEstoque,
                     id_cores = :idCores
@@ -84,6 +86,7 @@ class Products {
             $res->bindParam(":descricaoTotal", $caracteristicasCompleta);
             $res->bindParam(":preco", $preco);
             $res->bindParam(":precoPromo", $precoPromocional);
+            $res->bindParam(":tamanho", $tamanho);
             $res->bindParam(":fgPromocao", $fgPromocao);
             $res->bindParam(":qtdEstoque", $qtdEstoque, PDO::PARAM_INT);
             $res->bindParam(":idCores", $idCores, PDO::PARAM_INT);
@@ -281,6 +284,7 @@ class Products {
         $precoPromocional, 
         $fgPromocao,
         $caracteristicasCompleta, 
+        $tamanho,
         $qtdEstoque, 
         $corPrincipal, 
         $deg1, 
@@ -306,12 +310,12 @@ class Products {
             $img3 = $this->salvarImagem("img3", $files);
 
             $sql = "INSERT INTO produto(
-                        nome, marca, descricaoBreve, descricaoTotal, 
+                        nome, marca, descricaoBreve, descricaoTotal, tamanho, 
                         preco, precoPromo, fgPromocao, qtdEstoque, 
                         img1, img2, img3, 
                         id_subCategoria, id_cores, id_associado
                     ) VALUES(
-                        :nome, :marca, :descricaoBreve, :descricaoTotal,
+                        :nome, :marca, :descricaoBreve, :descricaoTotal, :tamanho,
                         :preco, :precoPromo, :fgPromocao, :qtdEstoque,
                         :img1, :img2, :img3,
                         :idSubCategoria, :idCores, :id_associado
@@ -325,6 +329,7 @@ class Products {
             $db->bindParam(":preco", $preco);
             $db->bindParam(":precoPromo", $precoPromocional);
             $db->bindParam(":fgPromocao", $fgPromocao);
+            $db->bindParam(":tamanho", $tamanho);
             $db->bindParam(":qtdEstoque", $qtdEstoque);
             $db->bindParam(":img1", $img1);
             $db->bindParam(":img2", $img2);
