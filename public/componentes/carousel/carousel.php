@@ -1,19 +1,20 @@
 <?php
+session_start();
+$dados = $_SESSION['dados_carrossel'] ?? [];
+extract($dados , EXTR_SKIP);
+
 require __DIR__ . "/../../../public/componentes/carouselPopUp/carouselPopUp.php";
-function createCarousel(){
-    return '
-    <div class="carousel">
+function createCarousel($carrosel){
+    // echo '<img src="../../../' . $itens['img1'] . '" />';
+    return '<div class="carousel">
+
         <div class="carousel-track" id="MoverCarrousel">
-            '. createCarouselPopUp() .'
-            <div class="carousel-item">
-                <img src="/projeto-integrador-et.com/" />
-            </div>
-            <div class="carousel-item">
-                <img src="/projeto-integrador-et.com/public/imagens/produto/bocarosa.png" />
-            </div>
-            <div class="carousel-item">
-                <img src="/projeto-integrador-et.com/public/imagens/produto/leite.png" />
-            </div>
+            '. createCarouselPopUp();
+            foreach ($carrosel as $cs) {
+                '<div class="carousel-item">
+                    <img src="../../../' . $cs['img1'] . '" />
+                </div>'
+            }; . '"
         </div>
         <div class="bottom-controls">
             <button class="Seta-btn" id="prev"><i class="fas fa-chevron-left"></i></button>
@@ -25,11 +26,6 @@ function createCarousel(){
             <button class="Seta-btn" id="next"><i class="fas fa-chevron-right"></i></button>
         </div>
     </div>';
+    
 }
-?>
-<?php
-echo "<pre>";
-print_r($cores);
-print_r($carousels);
-echo "</pre>";
-?>
+echo createCarousel($carousels);

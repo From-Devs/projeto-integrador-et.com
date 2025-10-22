@@ -1,42 +1,55 @@
 <?php
 require_once __DIR__ . "/BaseController.php";
-require_once __DIR__ . '/../Models/categoria.php';
+require_once __DIR__ . '/../Models/CarouselModel.php';
+require_once __DIR__ . "/../Models/CoresSubModel.php";
 
-class CaroselController extends BaseController{
-    // 🔹 Buscar slot por ID
+class CaroselController extends BaseController {
+
+    private $carouselModel;
+    private $coresModel;
+
+    public function __construct() {
+        $this->carouselModel = new CarouselModel();
+        $this->coresModel = new CoresSubModel();
+    }
+
     public function getAll() {
+        // 🔹 Dados falsos só pra testar
         $dados = [
             'carousels' => $this->carouselModel->getAll(),
             'cores' => $this->coresModel->getAll()
         ];
+
         $this->renderCustom('dados_carrossel', 'carousel/carousel.php', $dados);
     }
-
-    // 🔹 Buscar slot por ID
-    public function getById(int $id): ?array {
-        try {
-            $caroseulUnico = this->carouselModel->getElementById($id);
-        
-        } catch(Exception $e) {
-            error_log("Carousel error: " . $e->getMessage());
-        }
-    }
-
-    // 🔹 Atualizar produto no slot
-    public function updateSlot(int $id, array $data): bool {
-      
-    }
-
-    // 🔹 Atualizar cores do slot
-    public function updateSlotColors(int $id, array $data): bool {
-       
-    }
-
-    // 🔹 Deletar (opcional, mas provavelmente não vai usar)
-    public function delete(int $id): bool {
-      
-    }
 }
+$controller = new CaroselController();
+$controller->getAll();
+//     // 🔹 Buscar slot por ID
+//     public function getById(int $id): ?array {
+//         try {
+//             $caroseulUnico = this->carouselModel->getElementById($id);
+        
+//         } catch(Exception $e) {
+//             error_log("Carousel error: " . $e->getMessage());
+//         }
+//     }
+
+//     // 🔹 Atualizar produto no slot
+//     public function updateSlot(int $id, array $data): bool {
+      
+//     }
+
+//     // 🔹 Atualizar cores do slot
+//     public function updateSlotColors(int $id, array $data): bool {
+       
+//     }
+
+//     // 🔹 Deletar (opcional, mas provavelmente não vai usar)
+//     public function delete(int $id): bool {
+      
+//     }
+// }
 
 // // 🔹 Testes rápidos
 // $controller = new CarouselController();

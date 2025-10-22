@@ -20,7 +20,7 @@ class BaseController {
         session_start();
       }
       $_SESSION[$conn] = $data;  // 🔥 ISSO FAZ $carousels E $cores CHEGAREM!
-      header("Location: ../../../app/public/$path");
+      header("Location: ../../public/componentes/$path");
       exit;
     }
     /**
