@@ -1064,15 +1064,15 @@
         text-align: center;
     }
 
-    .cards-produtoFinalizado .cardcoloridoCam .card-info2{
+    .cardProduto-finalizado .cardcoloridoFin .card-info2{
         grid-template-columns: 110px auto;
-    }   
+    }
 
-    .pedidoAndamentoMP #produtosAndamento{
+    .pedidosFinalizadosMP #produtosFinalizados{
         grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
     }
 
-    .cards-produtoAndamento .cardcoloridoCam .card-info .card-imagem img{
+    .cardcoloridoFin .card-info .card-imagem img{
         height: 100px;
     }
 
