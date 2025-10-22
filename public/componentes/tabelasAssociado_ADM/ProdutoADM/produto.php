@@ -108,9 +108,22 @@ function tabelaProduto($produtos) {
                         <input type="text" name="marca" id="marcaEditar">
                     </div>
                     <div class="campo">
-                        <label for="ddlCategoria">Subcategoria:</label>
-                        <select id="ddlCategoria" name="subCategoria">
-                            
+                        <label for="ddlCategoriaEditar">Categoria:</label>
+                        <select id="ddlCategoriaEditar" name="categoria">
+                            <option value="" disabled selected>Selecione uma categoria</option>
+                            <?php
+                                $productsModel = new Products();
+                                $cats = $productsModel->getAllCategorias();
+                                foreach($cats as $c){
+                                    echo '<option value="'.htmlspecialchars($c['id_categoria']).'">'.htmlspecialchars($c['nome']).'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="ddlSubCategoriaEditar">Subcategoria:</label>
+                        <select id="ddlSubCategoriaEditar" name="subCategoria">
+                            <option value="" disabled selected>Selecione uma subcategoria</option>
                         </select>
                     </div>
                 </div>

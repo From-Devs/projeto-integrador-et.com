@@ -25,6 +25,14 @@ class ProdutoController {
         return $this->produtoModel->getAllSubcategorias();
     }
 
+    public function getSubcategoriasPorCategoria($idCategoria) {
+        return $this->produtoModel->getSubcategoriaByCategoriaId($idCategoria);
+    }
+
+    public function getSubcategoriaPorId($idSubCategoria) {
+        return $this->produtoModel->getSubcategoriaById($idSubCategoria);
+    }
+
     public function pegarTodosProdutos(){
         return $this->produtoModel->getAllProdutos();
     }
@@ -76,6 +84,7 @@ class ProdutoController {
         $corPrincipal, 
         $deg1, 
         $deg2,
+        $idSubCategoria = null,
         $files = []
     ){
         return $this->produtoModel->EditarProduto(
@@ -92,6 +101,7 @@ class ProdutoController {
             $corPrincipal, 
             $deg1, 
             $deg2,
+            $idSubCategoria,
             $files
         );
     }

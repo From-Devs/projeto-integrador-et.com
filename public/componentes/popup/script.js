@@ -93,7 +93,7 @@ function fecharPopUp(id, curto=false){
   localStorage.removeItem('modalAberto');
 }
 
-//Alteração da pré-visualização de imagens modal edição de produto 
+//Alteração da pré-visualização de imagens modal edição de produto
 document.addEventListener('change', function (event) {
   const input = event.target;
   if (!input || !input.classList || !input.classList.contains('input-file')) return;
