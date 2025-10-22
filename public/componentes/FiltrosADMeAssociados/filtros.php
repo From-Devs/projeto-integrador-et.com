@@ -116,17 +116,18 @@ function filtro($tipo = "", $opcoesSelect = []) {
         </button>
     </div>
     <form class="campos-cadastrar" enctype="multipart/form-data">
+        <input type="hidden" name="id_usuario" value="<?php echo htmlspecialchars($_SESSION['id_usuario']); ?>">
         <div>
             <div class="campo">
-                <label>Nome: *</label>
-                <input type="text" name="nome">
+                <label for="nomeCadastro">Nome: *</label>
+                <input type="text" name="nome" id="nomeCadastro">
             </div>
             <div class="campo">
-                <label>Marca: *</label>
-                <input type="text" name="marca">
+                <label for="marcaCadastro">Marca: *</label>
+                <input type="text" name="marca" id="marcaCadastro">
             </div>
             <div class="campo">
-                <label>Subcategoria: *</label>
+                <label for="ddlCategoria">Subcategoria: *</label>
                 <select id="ddlCategoria" name="subCategoria">
                     <option value="" disabled selected>Selecione uma subcategoria</option>
                     <?php
@@ -142,26 +143,26 @@ function filtro($tipo = "", $opcoesSelect = []) {
             </div>
         </div>
         <div class="campo campo-large">
-            <label>Breve descrição: *</label>
-            <textarea cols="30" rows="10" name="breveDescricao"></textarea>
+            <label for="breveDescricaoCadastro">Breve descrição: *</label>
+            <textarea cols="30" rows="10" name="breveDescricao" id="breveDescricaoCadastro"></textarea>
         </div>
         <div class="divisao-esquerda">
             <div class="campos-esquerda">
                 <div class="campo campo-small">
-                    <label>Quantidade no estoque: *</label>
-                    <input type="number" name="qtdEstoque">
+                    <label for="qtdEstoqueCadastro">Quantidade no estoque: *</label>
+                    <input type="number" name="qtdEstoque" id="qtdEstoqueCadastro">
                 </div>
                 <div class="campo campo-small">
-                    <label>Preço: *</label>
-                    <input type="number" step="0.01" name="preco">
+                    <label for="precoCadastro">Preço: *</label>
+                    <input type="number" step="0.01" name="preco" id="precoCadastro">
                 </div>
                 <div class="campo-small chkPromocao">
-                    <label>Em promoção:</label>
-                    <input type="checkbox" name="fgPromocao" onchange="mudarFgPromo(this)">
+                    <label for="fgPromocaoCadastro">Em promoção:</label>
+                    <input type="checkbox" name="fgPromocao" id="fgPromocaoCadastro" onchange="mudarFgPromo(this)">
                 </div>
                 <div class="campo campo-small">
-                    <label>Preço Promocional: *</label>
-                    <input type="number" step="0.01" name="precoPromocional" disabled="true">
+                    <label for="precoPromocionalCadastro">Preço Promocional: *</label>
+                    <input type="number" step="0.01" name="precoPromocional" id="precoPromocionalCadastro" disabled="true">
                 </div>
             </div>
             <div class="campos-direita">
@@ -242,8 +243,8 @@ function filtro($tipo = "", $opcoesSelect = []) {
         </div>
         <div class="container-campos-large">
             <div class="campo campo-large">
-                <label>Características Completa: *</label>
-                <textarea cols="30" rows="10" name="caracteristicasCompleta"></textarea>
+                <label for="caracteristicasCompletaCadastro">Características Completa: *</label>
+                <textarea cols="30" rows="10" name="caracteristicasCompleta" id="caracteristicasCompletaCadastro"></textarea>
             </div>
             <div class="div-btn">
                 <button class="btn-concluir-cadastro" type="submit">Cadastrar Produto</button>

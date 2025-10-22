@@ -6,28 +6,31 @@ class PedidoController {
 
     public function __construct() {
         $db = new Database();
-        $this->conn = $db->connect(); // certifique-se que é connect() (minúsculo)
+        $this->conn = $db->Connect(); // certifique-se que é connect() (minúsculo)
     }
 
     /**
      * Lista pedidos por usuário (com produtos, status e datas)
      */
     public function listarPedidosPorUsuario($idUsuario) {
-        $sql = "SELECT 
-                    p.id_pedido,
-                    p.dataPedido,
-                    s.tipoStatus,
-                    c.id_produto,
-                    pr.nome AS produto_nome,
-                    pr.preco,
-                    pr.img1,
-                    c.quantidade
-                FROM pedido p
-                INNER JOIN status s ON p.id_status = s.id_status
-                INNER JOIN carrinho c ON p.id_usuario = c.id_usuario
-                INNER JOIN produto pr ON c.id_produto = pr.id_produto
-                WHERE p.id_usuario = :idUsuario
-                ORDER BY p.dataPedido DESC";
+        $sql = "
+            SELECT 
+                p.id_pedido,
+                p.dataPedido,
+                s.tipoStatus,
+                pp.id_produto,
+                pr.nome AS produto_nome,
+                pr.preco,
+                pr.precoPromo,
+                pr.img1,
+                pp.quantidade
+            FROM Pedido p
+            INNER JOIN Status s ON p.id_status = s.id_status
+            INNER JOIN ProdutoPedido pp ON pp.id_pedido = p.id_pedido
+            INNER JOIN Produto pr ON pp.id_produto = pr.id_produto
+            WHERE p.id_usuario = :idUsuario
+            ORDER BY p.dataPedido DESC
+        ";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":idUsuario", $idUsuario, PDO::PARAM_INT);
@@ -49,7 +52,7 @@ class PedidoController {
             $pedidos[$idPedido]['itens'][] = [
                 'id_produto' => $row['id_produto'],
                 'nome' => $row['produto_nome'],
-                'preco' => $row['preco'],
+                'preco' => $row['precoPromo'] ?? $row['preco'],
                 'quantidade' => $row['quantidade'],
                 'imagem' => $row['img1'] ?? ''
             ];

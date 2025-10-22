@@ -210,6 +210,10 @@
     pointer-events: all; /* Permite clicar no overlay quando visível */
 }
 
+#botaoSidebarMeusPedidos{
+    cursor: pointer;
+}
+
 @media (max-width: 480px) {
     .nav_adm{
         width: 100%;

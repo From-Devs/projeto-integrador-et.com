@@ -32,15 +32,6 @@ CREATE TABLE Administrador(
 	email VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE avaliacoes (
-  id_avaliacao int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  id_usuario int(11) NOT NULL,
-  id_produto int(11) NOT NULL,
-  nota int(11) NOT NULL CHECK (nota between 1 and 5),
-  comentario text DEFAULT NULL,
-  data_avaliacao timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
 -- Personalização e categorias
 
 CREATE TABLE Cores( 
@@ -70,7 +61,7 @@ CREATE TABLE SubCategoria(
  	FOREIGN KEY (id_categoria) REFERENCES Categoria(id_categoria)
 );
 
--- Produto, estoque e destaque
+-- Produto, avaliações, status
 
 CREATE TABLE Produto(
 	id_produto INT AUTO_INCREMENT PRIMARY KEY,
@@ -82,7 +73,8 @@ CREATE TABLE Produto(
 	preco DECIMAL(10,2) NOT NULL,
 	precoPromo DECIMAL(10,2),
 	fgPromocao boolean,
-	qtdEstoque int NOT NULL,
+	qtdEstoque INT NOT NULL,
+	qtdVendida INT DEFAULT 0,
 	img1 VARCHAR(255),
 	img2 VARCHAR(255),
 	img3 VARCHAR(255),
@@ -99,72 +91,88 @@ CREATE TABLE Status(
 	tipoStatus VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE Carrinho (
-  id_carrinho int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  id_usuario int(11) NOT NULL,
-  id_produto int(11) NOT NULL,
-  quantidade int(11) NOT NULL DEFAULT 1,
-  data_adicionado timestamp NOT NULL DEFAULT current_timestamp(),
-  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
-);
-
-CREATE TABLE Pedido (
-  id_pedido INT PRIMARY KEY AUTO_INCREMENT,
-  precoTotal DECIMAL(10, 2) DEFAULT NULL,
+CREATE TABLE Avaliacoes (
+  id_avaliacao INT AUTO_INCREMENT PRIMARY KEY,
   id_usuario INT NOT NULL,
-  id_carrinho INT DEFAULT NULL,
-  id_status INT NOT NULL,
-  dataPedido DATETIME NOT NULL,
+  id_produto INT NOT NULL,
+  nota INT NOT NULL CHECK (`nota` between 1 and 5),
+  comentario text DEFAULT NULL,
+  data_avaliacao timestamp NOT NULL DEFAULT current_timestamp(),
   FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
-  FOREIGN KEY (id_carrinho) REFERENCES Carrinho(id_carrinho),
-  FOREIGN KEY (id_status) REFERENCES Status(id_status)
+  FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
 
-CREATE TABLE pedidoProduto( 
-	id_pedido_produto INT PRIMARY KEY AUTO_INCREMENT, 
-	quantidade INT NOT NULL, 
-	id_pedido INT, id_produto INT, 
-	FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido), 
-	FOREIGN KEY (id_produto) REFERENCES produto(id_produto) 
-);
-
-CREATE TABLE Estoque(
-	id_estoque INT AUTO_INCREMENT PRIMARY KEY,
-	qnt INT NOT NULL,
-	id_produto INT NOT NULL,
-	FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
-);
-
--- Carrinho, desejos e pedidos
+-- Carrinho, lista de desejos e pedidos
 
 CREATE TABLE ListaDesejos(
-	id_listaDesejos INT AUTO_INCREMENT PRIMARY KEY,
-	dataAdd DATE NOT NULL,
 	id_usuario INT NOT NULL,
 	id_produto INT NOT NULL,
-	FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
+	dataAdd DATETIME DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (id_usuario, id_produto),
+
+	FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
+		ON DELETE CASCADE,
 	FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
 
+CREATE TABLE Carrinho (
+	id_carrinho INT AUTO_INCREMENT PRIMARY KEY,
+	id_usuario INT NOT NULL,
+	data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
+	data_atualizacao DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
+);
 
 CREATE TABLE ProdutoCarrinho(
 	id_prodCarrinho INT AUTO_INCREMENT PRIMARY KEY,
 	id_carrinho INT NOT NULL,
 	id_produto INT NOT NULL,
-	qntProduto INT NOT NULL,
-	FOREIGN KEY (id_carrinho) REFERENCES Carrinho(id_carrinho),
+	qntProduto INT NOT NULL DEFAULT 1,
+
+	FOREIGN KEY (id_carrinho) REFERENCES Carrinho(id_carrinho)
+		ON DELETE CASCADE,
 	FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
 
--- Pedidos e histórico
+CREATE TABLE Pedido (
+  id_pedido INT AUTO_INCREMENT PRIMARY KEY,
+  id_usuario INT NOT NULL,
+  id_status INT NOT NULL,
+  dataPedido DATETIME DEFAULT CURRENT_TIMESTAMP,
+  precoTotal DECIMAL(10, 2) NOT NULL,
 
-CREATE TABLE HistoricoDeVenda(
-	id_historicoDeVenda INT AUTO_INCREMENT PRIMARY KEY,
-	id_pedido INT,
+  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
+  FOREIGN KEY (id_status) REFERENCES Status(id_status)
+);
+
+CREATE TABLE ProdutoPedido( 
+	id_produtoPedido INT PRIMARY KEY AUTO_INCREMENT, 
+	id_pedido INT NOT NULL,
+	id_produto INT NOT NULL, 
+	quantidade INT NOT NULL,
+	precoUnitario DECIMAL(10,2) NOT NULL,
 	FOREIGN KEY (id_pedido) REFERENCES Pedido(id_pedido)
+		ON DELETE CASCADE, 
+	FOREIGN KEY (id_produto) REFERENCES Produto(id_produto) 
 );
 
 -- Relatórios
+
+CREATE TABLE HistoricoDeVenda (
+    id_historicoDeVenda INT AUTO_INCREMENT PRIMARY KEY,
+    id_pedido INT NOT NULL,
+    id_usuario INT NOT NULL,
+    nome_cliente VARCHAR(255),
+    status VARCHAR(100),
+    data_pedido DATETIME NOT NULL,
+    total_pedido DECIMAL(10,2) NOT NULL,
+    qtd_itens INT NOT NULL,
+    
+    FOREIGN KEY (id_pedido) REFERENCES Pedido(id_pedido)
+        ON DELETE CASCADE,
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
+        ON DELETE CASCADE
+);
 
 CREATE TABLE ReceitaPorProduto(
 	recProd_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -174,8 +182,8 @@ CREATE TABLE ReceitaPorProduto(
 
 CREATE TABLE RelatorioDeReceitas(
 	relaRec_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	lucro float NOT NULL,
-	prejuizo float NOT NULL,
+	lucro DECIMAL(10,2) NOT NULL,
+	prejuizo DECIMAL(10,2) NOT NULL,
 	id_historicoDeVenda INT,
 	FOREIGN KEY (id_historicoDeVenda) REFERENCES HistoricoDeVenda(id_historicoDeVenda)
 );
@@ -209,18 +217,9 @@ CREATE TABLE Carousel(
 	id_carousel INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	id_produto INT NOT NULL,
 	id_coresSubs INT,
+	posicao INT NOT NULL UNIQUE,
 	FOREIGN KEY (id_produto) REFERENCES Produto(id_produto),
 	FOREIGN KEY (id_coresSubs) REFERENCES CoresSubs(id_coresSubs)
-);
-
-CREATE TABLE Personalizacao(
-	id_personalizacao INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	id_lancamento INT NOT NULL,
-	id_prodDestaque INT NOT NULL,
-	id_carousel INT NOT NULL,
-	FOREIGN KEY (id_lancamento) REFERENCES Lancamentos(id_lancamento),
-	FOREIGN KEY (id_prodDestaque) REFERENCES ProdDestaque(id_prodDestaque),
-	FOREIGN KEY (id_carousel) REFERENCES Carousel(id_carousel)
 );
 
 -- Associado
@@ -236,46 +235,49 @@ CREATE TABLE SolicitacaoDeAssociado (
 );
 
  -- Triggers
+
+ -- Criar histórico de venda automaticamente quando pedido ser concluído
+DELIMITER //
+CREATE TRIGGER trg_registra_historico_venda
+AFTER UPDATE ON Pedido
+FOR EACH ROW
+BEGIN
+    IF NEW.id_status = 4 THEN
+        IF NOT EXISTS (
+            SELECT 1 FROM HistoricoDeVenda
+            WHERE id_pedido = NEW.id_pedido
+        ) THEN
+            INSERT INTO HistoricoDeVenda (
+                id_pedido, id_usuario, nome_cliente, status, data_pedido, total_pedido, qtd_itens
+            )
+            SELECT 
+                p.id_pedido,
+                p.id_usuario,
+                u.nome,
+                s.tipoStatus,
+                p.dataPedido,
+                SUM(pp.quantidade * pp.precoUnitario),
+                COUNT(pp.id_produtoPedido)
+            FROM Pedido p
+            JOIN Usuario u ON u.id_usuario = p.id_usuario
+            JOIN Status s ON s.id_status = p.id_status
+            JOIN ProdutoPedido pp ON pp.id_pedido = p.id_pedido
+            WHERE p.id_pedido = NEW.id_pedido
+            GROUP BY p.id_pedido, p.id_usuario, u.nome, p.dataPedido, s.tipoStatus;
+        END IF;
+    END IF;
+END //
+DELIMITER ;
+
  -- Atualizar Estoque
- 
--- DELIMITER //
 
--- CREATE TRIGGER AtualizarEstoqueApósPedido
--- AFTER INSERT ON Pedido
--- FOR EACH ROW
--- BEGIN
---     DECLARE v_qnt_produto int;
-
---     SELECT qntProduto INTO v_qnt_produto
---     FROM Carrinho
---     WHERE id_carrinho = NEW.id_carrinho;
-
---     UPDATE Estoque
---     SET qnt = qnt - v_qnt_produto
---     WHERE id_produto = (SELECT id_produto FROM Produto WHERE id_produto = NEW.id_carrinho);
--- END //
-
--- DELIMITER ;
-
- -- Atualizar Status do pedido
-
--- DELIMITER //
-
--- CREATE TRIGGER AtualizarStatusPedido
--- AFTER INSERT ON Pedido
--- FOR EACH ROW
--- BEGIN
---     DECLARE v_id_status INT;
-
---     SELECT id_status INTO v_id_status
---     FROM Status
---     WHERE tipoStatus = 'Em Processamento';
-
---     UPDATE Pedido
---     SET id_status = v_id_status
---     WHERE id_pedido = NEW.id_pedido;
--- END //
-
--- DELIMITER ;
-
--- show triggers;
+DELIMITER //
+CREATE TRIGGER AtualizarEstoqueAposPedido
+AFTER INSERT ON ProdutoPedido
+FOR EACH ROW
+BEGIN
+    UPDATE Produto
+    SET qtdEstoque = qtdEstoque - NEW.quantidade
+    WHERE id_produto = NEW.id_produto;
+END //
+DELIMITER ;
