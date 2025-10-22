@@ -372,6 +372,30 @@ a
     opacity: 1;
   }
   
+.container-tamanho{
+    display: flex;
+    gap: 5px;
+}
+
+.campo-valor-tamanho{
+    width: 100px;
+}
+
+#valorTamanho{
+    width: 100%;
+}
+
+.campo-tipo-tamanho{
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+
+#tipoTamanho{
+    width: 100%;
+}
 
 @media (max-width: 1280px) {
     .main{

@@ -45,7 +45,23 @@ function abrirPopUpCurto(id, tempoAtivo = 3000) {
       barra.style.transform = 'scaleX(0)';
   }
 
-  setTimeout(() => fecharPopUp(id, true), tempoAtivo);
+  const idTimeout = setTimeout(() => fecharPopUp(id, true), tempoAtivo);
+
+  //Fechar ao clicar fora do popUpp
+  const fecharAoClicar = () => {
+    clearTimeout(idTimeout);
+    fecharPopUp(id, true);
+  };
+
+  const timerAdicionaClique = setTimeout(() => {
+    document.addEventListener('click', fecharAoClicar, { once: true });
+  }, 50);
+
+  dialog.addEventListener('close', () => {
+    clearTimeout(idTimeout);
+    clearTimeout(timerAdicionaClique);
+    document.removeEventListener('click', fecharAoClicar);
+  }, { once: true });
 }
 
 
@@ -77,21 +93,31 @@ function fecharPopUp(id, curto=false){
   localStorage.removeItem('modalAberto');
 }
 
-document.querySelectorAll('.input-file').forEach(input => {
-    input.addEventListener('change', function (event) {
-      const file = event.target.files[0];
-      const imgId = input.getAttribute('data-img-id');
-      const img = document.getElementById(imgId);
+//Alteração da pré-visualização de imagens modal edição de produto 
+document.addEventListener('change', function (event) {
+  const input = event.target;
+  if (!input || !input.classList || !input.classList.contains('input-file')) return;
 
-      if (img) {
-        if (file) {
-          const url = URL.createObjectURL(file);
-          img.src = url;
-          img.style.display = 'block';
-        } else {
-          img.src = '';
-          img.style.display = 'none';
-        }
-      }
-    });
-  });
+  const file = input.files && input.files[0];
+  const imgId = input.getAttribute('data-img-id');
+  const img = document.getElementById(imgId);
+
+  if (!img) return;
+
+  if (file) {
+    if (img._previewUrl) {
+      URL.revokeObjectURL(img._previewUrl);
+    }
+    const url = URL.createObjectURL(file);
+    img._previewUrl = url;
+    img.src = url;
+    img.style.display = 'block';
+  } else {
+    if (img._previewUrl) {
+      URL.revokeObjectURL(img._previewUrl);
+      delete img._previewUrl;
+    }
+    img.src = '';
+    img.style.display = 'none';
+  }
+});

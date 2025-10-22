@@ -33,10 +33,12 @@ class Products {
         $precoPromocional, 
         $fgPromocao,
         $caracteristicasCompleta, 
+        $tamanho,
         $qtdEstoque, 
         $corPrincipal, 
         $deg1, 
-        $deg2
+        $deg2,
+        $files = []
     ){
         try {
             $getCorId = $this->conn->prepare("
@@ -65,18 +67,28 @@ class Products {
                 $resCores->execute();
             }
     
-            $sql = "UPDATE PRODUTO 
-                SET nome = :nome, 
-                    marca = :marca, 
-                    descricaoBreve = :descricaoBreve, 
-                    descricaoTotal = :descricaoTotal,
-                    preco = :preco,
-                    precoPromo = :precoPromo,
-                    fgPromocao = :fgPromocao,
-                    qtdEstoque = :qtdEstoque,
-                    id_cores = :idCores
-                WHERE id_produto = :idProduto";
-    
+            $newImg1 = $this->salvarImagem('img1', $files);
+            $newImg2 = $this->salvarImagem('img2', $files);
+            $newImg3 = $this->salvarImagem('img3', $files);
+
+            $sql = "UPDATE PRODUTO SET 
+                nome = :nome, 
+                marca = :marca, 
+                descricaoBreve = :descricaoBreve, 
+                descricaoTotal = :descricaoTotal,
+                preco = :preco,
+                precoPromo = :precoPromo,
+                tamanho = :tamanho,
+                fgPromocao = :fgPromocao,
+                qtdEstoque = :qtdEstoque,
+                id_cores = :idCores";
+
+            if ($newImg1) $sql .= ", img1 = :img1";
+            if ($newImg2) $sql .= ", img2 = :img2";
+            if ($newImg3) $sql .= ", img3 = :img3";
+
+            $sql .= " WHERE id_produto = :idProduto";
+
             $res = $this->conn->prepare($sql);
             $res->bindParam(":nome", $nome);
             $res->bindParam(":marca", $marca);
@@ -84,11 +96,17 @@ class Products {
             $res->bindParam(":descricaoTotal", $caracteristicasCompleta);
             $res->bindParam(":preco", $preco);
             $res->bindParam(":precoPromo", $precoPromocional);
+            $res->bindParam(":tamanho", $tamanho);
             $res->bindParam(":fgPromocao", $fgPromocao);
             $res->bindParam(":qtdEstoque", $qtdEstoque, PDO::PARAM_INT);
             $res->bindParam(":idCores", $idCores, PDO::PARAM_INT);
+
+            if ($newImg1) $res->bindParam(":img1", $newImg1);
+            if ($newImg2) $res->bindParam(":img2", $newImg2);
+            if ($newImg3) $res->bindParam(":img3", $newImg3);
+
             $res->bindParam(":idProduto", $id, PDO::PARAM_INT);
-    
+
             $res->execute();
             return true;
     
@@ -281,6 +299,7 @@ class Products {
         $precoPromocional, 
         $fgPromocao,
         $caracteristicasCompleta, 
+        $tamanho,
         $qtdEstoque, 
         $corPrincipal, 
         $deg1, 
@@ -306,12 +325,12 @@ class Products {
             $img3 = $this->salvarImagem("img3", $files);
 
             $sql = "INSERT INTO produto(
-                        nome, marca, descricaoBreve, descricaoTotal, 
+                        nome, marca, descricaoBreve, descricaoTotal, tamanho, 
                         preco, precoPromo, fgPromocao, qtdEstoque, 
                         img1, img2, img3, 
                         id_subCategoria, id_cores, id_associado
                     ) VALUES(
-                        :nome, :marca, :descricaoBreve, :descricaoTotal,
+                        :nome, :marca, :descricaoBreve, :descricaoTotal, :tamanho,
                         :preco, :precoPromo, :fgPromocao, :qtdEstoque,
                         :img1, :img2, :img3,
                         :idSubCategoria, :idCores, :id_associado
@@ -325,6 +344,7 @@ class Products {
             $db->bindParam(":preco", $preco);
             $db->bindParam(":precoPromo", $precoPromocional);
             $db->bindParam(":fgPromocao", $fgPromocao);
+            $db->bindParam(":tamanho", $tamanho);
             $db->bindParam(":qtdEstoque", $qtdEstoque);
             $db->bindParam(":img1", $img1);
             $db->bindParam(":img2", $img2);
