@@ -14,8 +14,7 @@ class CategoriaController {
     }
     
     public function create() {
-        return $this->categoriamodel->getCategoriaAll();
-        require 
+        return $this->categoriamodel->getCategoriaAll(); 
     }
     
 }
