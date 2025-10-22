@@ -40,7 +40,7 @@ Modo de Uso:
 
 Aviso:
 Uso externo. Não é indicado para uso no rosto. Não é protetor solar. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças. Este é um produto cosmético, não ingerir.',
-23.90,22.70,1,50,'milk-1.png','milk-2.jpg','milk-3.jpg',24,1,2);
+23.90,22.70,1,50,'milk-1.png','milk-2.jpg','milk-3.jpg',23,1,2);
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
@@ -70,7 +70,7 @@ Orientações ao consumidor:
 Uso Externo. Produto Cosmético. Não comestível. Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas.
 Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Uso adulto. Produto para perfumar e desodorizar a pele.
 Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.',
-69.90,null,0,30,'biscoito.png','biscoito-2.png','biscoito-3.png',22,2,3);
+69.90,null,0,30,'biscoito.png','biscoito-2.png','biscoito-3.png',8,2,3);
 
 
 
@@ -166,7 +166,7 @@ Orientações ao consumidor:
 Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Produto para perfumar e desodorizar a pele.
 
 Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.',
-89.90,null,0,40,'bodysplash-deleite.png','bodysplash-deleite-2.jpg','bodysplash-deleite-3.jpg',23,6,3);
+89.90,null,0,40,'bodysplash-deleite.png','bodysplash-deleite-2.jpg','bodysplash-deleite-3.jpg',8,6,3);
 
 
 
@@ -191,7 +191,7 @@ Como Usar:
 Aplicar em todo o corpo, após o banho ou sempre que desejar.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
-139.90,null,0,15,'lily.png','lily-2.jpg','lily-3.jpg',25,7,2);
+139.90,null,0,15,'lily.png','lily-2.jpg','lily-3.jpg',23,7,2);
 
 
 
@@ -212,7 +212,7 @@ Após a higienização dos cabelos, retire o excesso de umidade e distribua a M�
 
 Ingredientes:
 AQUA, BEHENAMIDOPROPYL DIMETHYLAMINE, BEHENTRIMONIUM METHOSULFATE and CETEARYL ALCOHOL, BENZYL ALCOHOL and BENZOIC ACID and SORBIC ACID and GLYCERIN, CAPRYLIC/CAPRIC TRIGLYCERIDE, CETEARYL ALCOHOL, CETYL ESTERS, COPAIFERA OFFICINALIS (BALSAM COPAIBA) RESIN and PASSIFLORA EDULIS SEED OIL, LACTIC ACID, PARFUM, PROPYLENE GLYCOL, SACCHAROMYCES/XYLINUM/BLACK TEA FERMENT and GLYCERIN and HYDROXYETHYLCELLULOSE',
-64.90,60.90,1,40,'lola-danos-vorazes.png','lola-danos-vorazes-2.jpg','lola-danos-vorazes-3.jpg',12,8,5);
+64.90,60.90,1,40,'lola-danos-vorazes.png','lola-danos-vorazes-2.jpg','lola-danos-vorazes-3.jpg',16,8,5);
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -236,7 +236,7 @@ Modo de uso:
 1- Aplique o shampoo nos cabelos molhados e massageie o couro cabeludo até formar espuma;
 2- Enxágue bem e repita a aplicação se necessário;
 3- Para melhores resultados, utilize o condicionador da linha.',
-69.90,49.90,1,30,'shampoo-protect-color-brae.png','shampoo-protect-color-brae-2.jpg','shampoo-protect-color-brae-3.jpg',14,9,5);
+69.90,49.90,1,30,'shampoo-protect-color-brae.png','shampoo-protect-color-brae-2.jpg','shampoo-protect-color-brae-3.jpg',17,9,5);
 
 
 
@@ -261,7 +261,7 @@ Modo de uso:
 1- Após lavar com o shampoo, aplique o condicionador nos cabelos úmidos, do comprimento às pontas;
 2- Deixe agir por alguns minutos;
 3- Enxágue bem e finalize como preferir.',
-79.0,52.90,1,30,'condicionador-protect-color-brae.png','condicionador-protect-color-brae-2.jpg','condicionador-protect-color-brae-3.jpg',14,10,5);
+79.0,52.90,1,30,'condicionador-protect-color-brae.png','condicionador-protect-color-brae-2.jpg','condicionador-protect-color-brae-3.jpg',17,10,5);
 
 
 
@@ -288,7 +288,7 @@ Modo de uso:
 2- Aplique a máscara nos cabelos úmidos, do comprimento às pontas;
 3- Deixe agir por 5 minutos;
 4- Enxágue bem e, para um cuidado completo, finalize com o condicionador da linha.',
-99.90,54.90,1,30,'mascara-color-protect-brae.png','mascara-color-protect-brae-2.jpg','mascara-color-protect-brae-3.jpg',14,11,5);
+99.90,54.90,1,30,'mascara-color-protect-brae.png','mascara-color-protect-brae-2.jpg','mascara-color-protect-brae-3.jpg',17,11,5);
 
 
 
@@ -309,7 +309,7 @@ Brae stages Color Protect - Condicionador Proteção da Cor 250ml
 Condicionador para cabelos coloridos. Condiciona de forma eficaz, promove maciez, luminosidade e proteção prolongada da cor, além de ajudar no desembaraço e selar as cutículas.
 Brae stages Color Protect - Máscara Proteção da Cor 200g
 Máscara de tratamento para cabelos coloridos. Possui ação antioxidante, hidrata, promove maciez, luminosidade e proteção prolongada da cor, além de proporcionar brilho.',
-249.70,137.34,1,10,'kit-color-protect.png','kit-color-protect-2.jpg','kit-color-protect-3.jpg',14,12,5);
+249.70,137.34,1,10,'kit-color-protect.png','kit-color-protect-2.jpg','kit-color-protect-3.jpg',17,12,5);
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -704,7 +704,7 @@ Composição:
 
 Dica de Uso:
 Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colônia e espalhe na região que deseja perfumar do seu corpo. Dê preferência as áreas como punho, pulso e pescoço para privilegiar a difusão da fragrância. Pode ser usada também como desodorante.',
-90.33,77.90,1,23,'giovanna-baby-blue.png','giovanna-baby-blue-2.jpg','giovanna-baby-blue-3.jpg',8,25,3);
+90.33,77.90,1,23,'giovanna-baby-blue.png','giovanna-baby-blue-2.jpg','giovanna-baby-blue-3.jpg',7,25,3);
 
 
 
@@ -737,7 +737,7 @@ Composição:
 
 Dica de Uso:
 Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colônia e espalhe na região que deseja perfumar do seu corpo. Dê preferência as áreas como punho, pulso e pescoço para privilegiar a difusão da fragrância. Pode ser usada também como desodorante.',
-90.33,77.90,1,40,'giovanna-baby-pink.png','giovanna-baby-pink-2.jpg','giovanna-baby-pink-3.jpg',8,26,3);
+90.33,77.90,1,40,'giovanna-baby-pink.png','giovanna-baby-pink-2.jpg','giovanna-baby-pink-3.jpg',7,26,3);
 
 
 
@@ -785,7 +785,7 @@ Como usar:
 Use no máximo uma vez por dia. 
 Durante o dia, utilize protetor solar. 
 Agite antes de usar.',
-79.90,null,0,20,'limpador-enzimatico-sallve.png','limpador-enzimatico-sallve-2.jpg','limpador-enzimatico-sallve-3.jpg',9,28,6);
+79.90,null,0,20,'limpador-enzimatico-sallve.png','limpador-enzimatico-sallve-2.jpg','limpador-enzimatico-sallve-3.jpg',10,28,6);
 
 
 
@@ -852,7 +852,7 @@ Como usar:
 Observação: 
 Durante a primeira semana de uso, aplique pequenas quantidades de produto, em dias alternados.
 Não aplique nas pálpebras, nos cantos externos do nariz e da boca nem na pele irritada ou lesionada.',
-129.90,89.90,1,20,'super-pro-colageno-sallve-1.png','super-pro-colageno-sallve-2.jpg','super-pro-colageno-sallve-3.jpg',11,31,6);
+129.90,89.90,1,20,'super-pro-colageno-sallve-1.png','super-pro-colageno-sallve-2.jpg','super-pro-colageno-sallve-3.jpg',14,31,6);
 
 
 
@@ -874,7 +874,7 @@ Como usar:
 
 Observações:
 Esse uso pode render em torno de 120 aplicações, de 3 a 4 meses de uso.',
-99.90,null,0,20,'antioxidante-hidratante.png','antioxidante-hidratante-2.jpg','antioxidante-hidratante-3.jpg',11,32,6);
+99.90,null,0,20,'antioxidante-hidratante.png','antioxidante-hidratante-2.jpg','antioxidante-hidratante-3.jpg',14,32,6);
 
 
 
@@ -920,7 +920,7 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-('Loção Desodorante Cuide-se Bem Bob Esponja & Sandy Bochechas','O Boticário','200ml',
+('Loção Desodorante Hidratante Cuide-se Bem Bob Esponja & Sandy Bochechas','O Boticário','200ml',
 'Loção Desodorante Hidratante Cuide-se Bem Bob Esponja Sandy Bochechas 200ml.
 Cuide-se Bem descobriu a fórmula secreta ideal para o seu momento de cuidado com a pele! Em edição limitada, a Loção Desodorante Hidratante Cuide-se Bem Bob Esponja Sandy Bochechas possui uma textura cremosa e entrega um cheirinho inspirado no abacaxi, para uma pele macia, perfumada e desodorizada.',
 'Vocês estão prontos, botilovers? 
@@ -951,7 +951,7 @@ Orientações ao consumidor:
 Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Mantenha fora do alcance de crianças. Uso externo. Uso adulto. Contém ação desodorante.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free. Produto vegano.',
-57.90,null,0,35,'cuide-se-bem-bob-esponja-1.png','cuide-se-bem-bob-esponja-2.jpg',null,24,34,2);
+57.90,null,0,35,'cuide-se-bem-bob-esponja-1.png','cuide-se-bem-bob-esponja-2.jpg',null,23,34,2);
 
 
 
@@ -1120,7 +1120,7 @@ Ingrediente:
 Água; Álcool cetoestearílico; Palmitato de isopropila; Cloreto de beentrimônio; Estearato de octila; Dimeticonol; Dimeticona; Perfume; Fenoxietanol; Álcool isopropílico; Amodimeticona; Gliconato de sódio; Dodecilbenzenosulfonato de trietanolamina; Polietilenoglicol-12 éter de álcool tridecílico; Cloreto de cetrimônio; Pantenol; Acetato de tocoferila; Nicotinamida; Álcool benzílico; Ácido láctico; Propilenoglicol; Propanodiol; Benzoato de sódio; Hidróxido de sódio; Óleo de rícino hidrogenado etoxilado; Arginina; Extrato do gérmen de glycine soja; Extrato do gérmen de Triticum vulgare; Poliuretano-39; Gluconolactona; Butilcarbamato de iodopropinila ; Extrato da raiz de Scutellaria baicalensis; Extrato da semente de Vitis vinifera; Sorbato de potássio; Sulfito de sódio; edetato trissódico; Ácido cítrico; Fenilpropanol; Gliconato de cálcio; Caprililglicol; Tocoferol; Citronelol; Cumarina; Limoneno; Linalol.
 
 Nenhum produto O Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
-54.90,null,0,50,'malbec-condicionador-antiqueda-1.png','malbec-condicionador-antiqueda-2.jpg',null,14,39,5);
+54.90,null,0,50,'malbec-condicionador-antiqueda-1.png','malbec-condicionador-antiqueda-2.jpg',null,15,39,5);
 
 
 
@@ -1145,7 +1145,7 @@ A versatilidade dessa esponja permite com que você aplique diversos tipos de pr
 
 Como lavar a esponja My Blend?
 Para lavar a My Blend, basta enxaguá-la e usar um detergente neutro, massageando suavemente até sair a sujeira. Depois, enxague bem, retire o excesso de água espremendo a esponja com as mãos ou em uma toalha e deixe secar num lugar arejado ou ao ar livre.',
-30.90,null,0,30,'oceane-my-blend-esponja-1.png','oceane-my-blend-esponja-2.jpg','oceane-my-blend-esponja-3.jpg',21,40,4);
+30.90,null,0,30,'oceane-my-blend-esponja-1.png','oceane-my-blend-esponja-2.jpg','oceane-my-blend-esponja-3.jpg',20,40,4);
 
 
 
@@ -1206,7 +1206,7 @@ AQUA (WATER), PARAFFIN, GLYCERYL STEARATE, SYNTHETIC BEESWAX, STEARIC ACID, BUTY
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(43,'','','');
+(43,'#2F2F2F','#525252','#7A7A7A');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1229,12 +1229,115 @@ Carcaterísticas do produto:
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-
+(44,'#F68B00','#FFA018','#FFA837');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Sérum Facial Antioxidante Vitamina C','Beyoung','30ml',
+'Sérum com 18% de Nano Vitamina C e tripla ação antioxidante que ajuda a uniformizar o tom, suavizar linhas e deixar a pele mais macia, luminosa e com aparência saudável.',
+'O Sérum Facial Vit C tem textura leve e acabamento acetinado. Sua fórmula reúne  18% de Nano Vitamina C, 0,5% de Ácido Ferúlico, 3% de Esqualano e 0,001% de Astaxantina, ativos poderosos que trabalham em sinergia para combater os radicais livres.
 
+O sérum facial antioxidante tem como função prevenir o envelhecimento, reduzir linhas finas e trazer mais firmeza e luminosidade à pele, sem deixá-la oleosa. 
+
+Principais ativos:
+ - 18% Nano Vitamina C (nanoencapsulada): potente ação antioxidante; estimula a síntese de colágeno, uniformiza o tom e garante estabilidade prolongada e maior permeação;
+ - 0,5% Ácido Ferúlico: antioxidante eficaz que protege contra os danos dos raios UV;
+ - 3% Esqualano: restaura elasticidade e flexibilidade, forma barreira protetora para evitar a perda de água, e proporciona toque sedoso;
+ - 0,001% Astaxantina: antioxidante ultrapotente (até 6 000 vezes mais eficaz que a vitamina C), protege contra dano UV e é responsável pela cor natural laranja do produto.
+
+Dicas de uso:
+ - Indicado para uso diário, de manhã e à noite, sobre a pele limpa e seca, aplicando antes do hidratante e, no período diurno, sempre antes do protetor solar para potencializar a proteção contra os raios UV.
+ - Aplique 2 doses com o pump e massageie até completa absorção em rosto, pescoço e colo.
+ 
+Como usar:
+ - Com a pele limpa e seca, acione a válvula duas vezes do sérum facial vita c e aplique o produto massageando suavemente até completa absorção. Para uso diurno aplicar antes do protetor solar.
+
+Dica Beyoung: 
+Aplique VITA C 18 antes do protetor solar para aumentar a ação protetora contra os danos causados pelos raios UV. (Resultados obtidos através de um estudo in vivo de Determinação do Fator de Proteção Solar).
+
+Composição:
+ÁGUA, ÉTER DIETILENOGLICOL MONOETÍLICO, PROPANODIOL, ESQUALANO, GLICEROL, PROPILENOGLICOL, CROSPOLÍMERO-6 DE POLIACRILATO, ÁCIDO ASCÓRBICO, ÓLEO DE OLIVA, EXTRATO DE HAEMATOCOCCUS PLUVIALIS, ÓLEO DE GLYCINE MAX, TOCOFEROL, POLIETILENOGLICOL-12 DIMETICONA, DIMETICONA, FENOXIETANOL, ÁCIDO FREÚLICO, METABISSULFITO DE SÓDIO, HIDRÓXIDO DE SÓDIO, CLORETO DE SÓDIO, PERFUME, ETILEXILGLICERINA, EDETATO DISSÓDICO, ÁCIDO CÍTRICO.',
+84.90,79.24,1,40,'Serum-Facial-Vitamina-C-1.png','Serum-Facial-Vitamina-C-2.png','Serum-Facial-Vitamina-C-3.png',14,44,6);
 
 
 
 -----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(45,'#007F8E','#00C9E0','#62D1E0');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Biopsor Shampoo Calmante Para Psoríase','Biozenthi','200ml',
+'Biopsor shampoo calmante para auxiliar no controle da psoríase.',
+'Descubra o poder dos ingredientes naturais para auxiliar no controle dos sintomas da Psoríase com o Biopsor Shampoo Calmante! Ele age proporcionando alívio e conforto para a pele.
+
+LIVRE DE CORTICÓIDES.
+Produto vegano, livre de glúten, parabenos, sulfatos e metais pesados. Não testado em animais.
+
+Principais benefícios:
+ - Ação calmante: Auxilia aliviando a coceira e a vermelhidão, promovendo conforto imediato à pele sensibilizada.
+ - Hidratação intensa: Ajuda a manter a couro cabeludo e os fios hidratados, combatendo o ressecamento comum em casos de psoríase.
+ - Limpeza suave: Limpa a couro cabeludo sem agredir ou ressecar, preservando a saúde da pele e do cabelo.
+ - Redução da descamação: Auxilia no controle da descamação, proporcionando um couro cabeludo mais equilibrado e livre de descamações.
+ - Propriedades regeneradoras: Contribui para a regeneração da pele afetada pela psoríase.
+ - Com óleo essencial: Possui em sua fórmula o óleo essencial de menta que auxilia reduzindo a coceira e promove textura refrescante na pele.
+
+Ingredientes principais:
+ - Piritionato de Zinco: Ajuda a reduzir a inflamação e a descamação da pele.
+ - Extrato de Jaborandi: Auxilia na melhoria da circulação do couro cabeludo, estimulando o crescimento saudável dos fios e aliviando a irritação.
+ - Extrato de Alecrim: Possui propriedades antioxidantes e anti-inflamatórias que ajudam a aliviar a irritação e promover a cicatrização.
+ - Extrato de Aloe Vera: Auxilia acalmando e hidratando profundamente
+ - Óleo de Rosa Mosqueta: Promove a regeneração celular e hidratação profunda,
+ - Óleo de Arruda: Ajuda a aliviar a inflamação, reduzir a irritação e promover a regeneração.
+ - Sulfato de Magnésio: Auxilia reduzindo a inflamação e acalmando a pele. 
+ - Entre outros ativos que em conjunto atuam reduzindo os sintomas da Psoríase.
+
+Como usar:
+Aplique em todo o couro cabeludo úmido, massageie e deixe agindo por pelo menos 3 minutos. Após, enxágue em água abundante. Repita a aplicação nas primeiras semanas de uso.
+Aplique primeiro o shampoo nos cabelos úmidos e enxague após concluir o banho, desta maneira o shampoo irá agir por mais tempo. 
+
+Composção:
+Aqua (Agua), Vitis Vinifera Seed Oil (Óleo de Semente de Uva), Sodium C14-16 Olefin Sulfonate (Sulfonato de olefina de sódio), Glycerin (Glicerina), Decyl Glucoside (Decil Glucosídeo), Butyrospermum parkii butter (Manteiga de karité), Polyquaternium-7, Cocos nucifera Oil (Óleo de coco extra virgem), Hydroxypropyl guar (Goma guar), Aloe barbadensis Extract (Extrato de aloe vera), Rosa Canina Fruit Oil (Oleo de rosa mosqueta), Zinc Pyrithione (Piritionato de zinco), Pilocarpus pennatifolius leaf extract (Extrato de jaborandi), Magnesium sulfate (Sulfato de magnésio), Azadirachta Indica Seed Oil (Oleo de neem), Phenoxyethanol (Fenoxietanol), Ruta Graveolens Leaf Extract (Oleo de arruda), Mentha Piperita Oil (Oleo essencial menta pimenta), Caprylyl Glycol (Caprilil glicol).',
+59.90,null,0,20,'shampoo-biopsor-vegano-1.png','shampoo-biopsor-vegano-2.jpg','shampoo-biopsor-vegano-3.jpg',15,45,6);
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(46,'#981D2D','#C44152','#C45F6B');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Shampoo Match. Proteção da Cor','O Boticário','250ml',
+'O Shampoo Match. Proteção da Cor é a escolha ideal para cuidar dos cabelos tingidos durante o banho! Sua fórmula cremosa promove limpeza suave e previne o desbotamento dos fios coloridos. O uso contínuo da linha garante cor prolongada e mais radiante por até 40 dias.',
+'O shampoo para cabelo colorido possui fórmula expert que dá match com o seu cabelo! Ele ainda é ideal para adicionar no seu cronograma capilar, confira os benefícios:
+ · Limpa os fios sem ressecar;
+ · Fórmula com espuma cremosa;
+ · Reduz o desbotamento da cor durante o banho;
+ · Multiproteção da cor contra agressões externas;
+ · Fragrância que deixa o cabelo super cheiroso.
+
+Cabelos coloridos pedem um cuidado especial. Match. Proteção da Cor, com filtro UV e Vitaminas, possui um sistema anti desbotamento que fixa a tintura no interior da fibra capilar, garantindo multiproteção da cor enquanto hidrata profundamente os fios.
+
+Como usar:
+ · Aplique o shampoo nos cabelos molhados fazendo uma massagem suave. Enxágue bem.
+ · Pode ser usado diariamente ou sempre que necessário.
+
+Orientação ao consumidor:
+Evite contato com os olhos. Não aplique no couro cabeludo irritado ou lesionado. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Mantenha fora do alcance de crianças. Não usar em crianças. Dermatologicamente testado.
+
+Ingredientes:
+Água; Lauriletersulfato De Sódio; Cocoamidopropilbetaína; Fragrância; Diestearato De Peg-3; Coco-Glicosídeo; Monoleato De Glicerila; Dimeticonol; Fenoxietanol; Glicerol; Cloreto De Goma Guar Hidroxipropiltrimônio; Crospolímero De Acrilatos/Acrilato De Alquila C10-30; Hidróxido De Sódio; Pantenol; Acetato De Tocoferila; Ácido Cítrico; Cloreto De Cinamidopropiltrimônio; Edetato Dissódico; Ácido Benzoico; Propilenoglicol; Dodecilbenzenosulfonato De Tea; Proteína Da Semente De Oryza Sativa; Octinoxato; Ácido Fítico; Extrato De Oryza Sativa; Proteína De Trigo Hidrolisada; Proteína De Milho Hidrolisada; Proteína De Soja Hidrolisada; Gluconolactona; Benzoato De Sódio; Extrato Da Flor De Helianthus Annuus; Tocoferol; Álcool Feniletílico; Sorbato De Potássio; Caprililglicol; Citrato De Glicerídeos De Palma Hidrogenados; Polissorbato 20; Cloreto De Potássio; Ácido Láctico; Gliconato De Cálcio; Butilcarbamato De Iodopropinila; Butil-Hidroxitolueno; Alfa-Isometil Ionona; Cumarina; Hexil Cinamal; Limoneno; Linalol 
+
+Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free. Shampoo vegano.',
+45.90,null,0,40,'shampoo-match-protecao-da-cor-1.png','shampoo-match-protecao-da-cor-2.jpg',null,17,46,5);
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
