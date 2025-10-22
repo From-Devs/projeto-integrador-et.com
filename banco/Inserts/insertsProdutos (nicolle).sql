@@ -40,7 +40,7 @@ Modo de Uso:
 
 Aviso:
 Uso externo. Não é indicado para uso no rosto. Não é protetor solar. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças. Este é um produto cosmético, não ingerir.',
-23.90,22.70,1,50,'milk-1.png','milk-2.webp','milk-3.webp',24,1,2);
+23.90,22.70,1,50,'milk-1.png','milk-2.jpg','milk-3.jpg',24,1,2);
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
@@ -100,7 +100,7 @@ Comece, aplicando um pouco da base líquida com acabamento super mate no dorso d
 Ação / Resultado:
 Ácido Hialurônico: molécula hidrolisada de baixo peso molecular e alta penetração na pele, proporciona uma hidratação profunda que atua no preenchimento de rugas e linhas de expressão.
 Seu rosto ganha um tom uniforme e matificado, além de uma aparência saudável, o dia todo.',
-40.99,19.99,1,40,'vult-base.webp','vult-base-2.webp','vult-base-3.webp',1,3,4);
+40.99,19.99,1,40,'vult-base.png','vult-base-2.jpg','vult-base-3.jpg',1,3,4);
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -145,7 +145,7 @@ Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, l
 
 Composição do BT VELVET:
 Trihydroxystearin, Hydrogenated Polycyclopentadiene, Polyethylene, Copernicia Cerifera Cera, Tocopheryl Acetate, Ricinus Communis Seed Oil, VP/Eicosene Copolymer, Cyclopentasiloxane, Trimethylsiloxysilicate, BHT, Silica, Disteardimonium Hectorite, Propylene Carbonate, Isododecane, Talc, Parfum, Cinnamol, Eugenol, Polyglyceryl-4 Isostearate, Nylon-12 Polymethyl Methacrylate, Pentaerythrityl Tetraisostearate, Caprylyl Glycol, Phenoxyethanol. Pode conter: Benzyl Benzoate, CI 15850, CI 77492, CI 77491, CI 77499, CI 77266, CI 77891, CI 45380.',
-69.00,null,0,30,'bt-blackberry.png','bt-blackberry2.webp','bt-blackberry3.webp',3,5,4);
+69.00,null,0,30,'bt-blackberry.png','bt-blackberry2.jpg','bt-blackberry3.jpg',3,5,4);
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -166,7 +166,7 @@ Orientações ao consumidor:
 Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Produto para perfumar e desodorizar a pele.
 
 Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.',
-89.90,null,0,40,'bodysplash-deleite.png','bodysplash-deleite-2.webp','bodysplash-deleite-3.webp',23,6,3);
+89.90,null,0,40,'bodysplash-deleite.png','bodysplash-deleite-2.jpg','bodysplash-deleite-3.jpg',23,6,3);
 
 
 
@@ -191,7 +191,7 @@ Como Usar:
 Aplicar em todo o corpo, após o banho ou sempre que desejar.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
-139.90,null,0,15,'lily.png','lily-2.webp','lily-3.webp',25,7,2);
+139.90,null,0,15,'lily.png','lily-2.jpg','lily-3.jpg',25,7,2);
 
 
 
@@ -212,7 +212,7 @@ Após a higienização dos cabelos, retire o excesso de umidade e distribua a M�
 
 Ingredientes:
 AQUA, BEHENAMIDOPROPYL DIMETHYLAMINE, BEHENTRIMONIUM METHOSULFATE and CETEARYL ALCOHOL, BENZYL ALCOHOL and BENZOIC ACID and SORBIC ACID and GLYCERIN, CAPRYLIC/CAPRIC TRIGLYCERIDE, CETEARYL ALCOHOL, CETYL ESTERS, COPAIFERA OFFICINALIS (BALSAM COPAIBA) RESIN and PASSIFLORA EDULIS SEED OIL, LACTIC ACID, PARFUM, PROPYLENE GLYCOL, SACCHAROMYCES/XYLINUM/BLACK TEA FERMENT and GLYCERIN and HYDROXYETHYLCELLULOSE',
-64.90,60.90,1,40,'lola-danos-vorazes.png','lola-danos-vorazes-2.webp','lola-danos-vorazes-3.webp',12,8,5);
+64.90,60.90,1,40,'lola-danos-vorazes.png','lola-danos-vorazes-2.jpg','lola-danos-vorazes-3.jpg',12,8,5);
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -236,7 +236,7 @@ Modo de uso:
 1- Aplique o shampoo nos cabelos molhados e massageie o couro cabeludo até formar espuma;
 2- Enxágue bem e repita a aplicação se necessário;
 3- Para melhores resultados, utilize o condicionador da linha.',
-69.90,49.90,1,30,'shampoo-protect-color-brae.png','shampoo-protect-color-brae-2.webp','shampoo-protect-color-brae-3.webp',14,9,5);
+69.90,49.90,1,30,'shampoo-protect-color-brae.png','shampoo-protect-color-brae-2.jpg','shampoo-protect-color-brae-3.jpg',14,9,5);
 
 
 
@@ -261,7 +261,7 @@ Modo de uso:
 1- Após lavar com o shampoo, aplique o condicionador nos cabelos úmidos, do comprimento às pontas;
 2- Deixe agir por alguns minutos;
 3- Enxágue bem e finalize como preferir.',
-79.0,52.90,1,30,'condicionador-protect-color-brae.png','condicionador-protect-color-brae-2.webp','condicionador-protect-color-brae-3.webp',14,10,5);
+79.0,52.90,1,30,'condicionador-protect-color-brae.png','condicionador-protect-color-brae-2.jpg','condicionador-protect-color-brae-3.jpg',14,10,5);
 
 
 
@@ -288,7 +288,7 @@ Modo de uso:
 2- Aplique a máscara nos cabelos úmidos, do comprimento às pontas;
 3- Deixe agir por 5 minutos;
 4- Enxágue bem e, para um cuidado completo, finalize com o condicionador da linha.',
-99.90,54.90,1,30,'mascara-color-protect-brae.png','mascara-color-protect-brae-2.webp','mascara-color-protect-brae-3.webp',14,11,5);
+99.90,54.90,1,30,'mascara-color-protect-brae.png','mascara-color-protect-brae-2.jpg','mascara-color-protect-brae-3.jpg',14,11,5);
 
 
 
@@ -309,7 +309,7 @@ Brae stages Color Protect - Condicionador Proteção da Cor 250ml
 Condicionador para cabelos coloridos. Condiciona de forma eficaz, promove maciez, luminosidade e proteção prolongada da cor, além de ajudar no desembaraço e selar as cutículas.
 Brae stages Color Protect - Máscara Proteção da Cor 200g
 Máscara de tratamento para cabelos coloridos. Possui ação antioxidante, hidrata, promove maciez, luminosidade e proteção prolongada da cor, além de proporcionar brilho.',
-249.70,137.34,1,10,'kit-color-protect.png','kit-color-protect-2.webp','kit-color-protect-3.webp',14,12,5);
+249.70,137.34,1,10,'kit-color-protect.png','kit-color-protect-2.jpg','kit-color-protect-3.jpg',14,12,5);
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -353,7 +353,7 @@ Benefícios:
 • Acabamento espelhado: lábios bonitos e brilhantes o dia todo
 • Fórmula Vegana
 • Não transfere e não borra',
-82.90,null,0,15,'superstay-ink-vinyl-capricious.png','superstay-ink-vinyl-capricious-2.webp','superstay-ink-vinyl-capricious-3.webp',3,14,4);
+82.90,null,0,15,'superstay-ink-vinyl-capricious.png','superstay-ink-vinyl-capricious-2.jpg','superstay-ink-vinyl-capricious-3.jpg',3,14,4);
 
 
 
@@ -408,7 +408,7 @@ Pirâmide Olfativa
 Notas de Topo: Cassis ou Groselha Preta, Laranja, Tangerina, Cássia, Toranja e Bergamota;
 Notas de Coração: Damasco, Lírio, Jasmin, Lírio-do-vale e Rosa;
 Notas de Fundo: Âmbar, Fava Tonka, Baunilha, Cedro da Virgínia e Almíscar.',
-189.90,119.90,1,30,'amor-amor.png','amor-amor-2.jpg','amor-amor-3.webp',5,16,3);
+189.90,119.90,1,30,'amor-amor.png','amor-amor-2.jpg','amor-amor-3.jpg',5,16,3);
 
 
 
@@ -562,7 +562,7 @@ Manter fora do alcance das crianças.
 Não ingerir. 
 Em caso de contato acidental com os olhos enxaguar abundantemente com água. 
 Em caso de irritação suspenda o uso e procure orientação médica.',
-27.79,null,0,30,'oleo-ameixarubi-paixao.png','oleo-ameixarubi-paixao-2.webp','oleo-ameixarubi-paixao-3.webp',24,20,2);
+27.79,null,0,30,'oleo-ameixarubi-paixao.png','oleo-ameixarubi-paixao-2.jpg','oleo-ameixarubi-paixao-3.jpg',24,20,2);
 
 
 
@@ -602,7 +602,7 @@ Manter fora do alcance das crianças.
 Não ingerir.
 Em caso de contato acidental com os olhos enxaguar abundantemente com água.
 Em caso de irritação suspenda o uso e procure orientação médica.',
-14.20,null,0,15,'oleo-rosasbrancas-paixao.png','oleo-rosasbrancas-paixao-2.webp','oleo-rosasbrancas-paixao-3.webp',24,21,2);
+14.20,null,0,15,'oleo-rosasbrancas-paixao.png','oleo-rosasbrancas-paixao-2.jpg','oleo-rosasbrancas-paixao-3.jpg',24,21,2);
 
 
 
@@ -624,7 +624,7 @@ Aplique-a nas pálpebras próximo à raiz dos cílios.
 Composição:
 methyl trimethicone, polyethylene, trimethylsiloxysilicate, octyldodecanol, ozokerit, acrylates/dimethicone copolymer, disteardimonium hectorite, propylene carbonate, pentaerythrityl tetra-di-t-butyl hydroxyhydrocinnamate. pode conter: ci 77491 ci 77499, ci 77891, ci 15850. (port) metil trimeticona, polietileno, trimetilsiloxissilicato, octildodecanol, ozoquerita, copolímero de acrilatos/dimeticona, hectorita diesteardimônio, carbonato de propileno, tetra-di-t-butil hidróxi-hidrocinamato de pentaeritritila.
 Pode conter colorantes: corante vermelho 77491, corante preto 77499, corante branco 77891, corante vermelho 15850.",
-39.90,35.22,1,20,'lapiseira-cherry-vizzela-removebg-preview.png','lapiseira-cherry-vizzela-2.webp','lapiseira-cherry-vizzela-3.jpg',2,22,4);
+39.90,35.22,1,20,'lapiseira-cherry-vizzela.png','lapiseira-cherry-vizzela-2.jpg','lapiseira-cherry-vizzela-3.jpg',2,22,4);
 
 
 
@@ -648,7 +648,7 @@ Aplique o Lip Oil Gummy Panda diretamente nos lábios com o aplicador. Espere al
 
 Composição:
 POLYISOBUTENE/POLIISOBUTENO, PHENOXYETHANOL/FENOXIETANOL, CAPRYLIC/CAPRIC TRIGLYCERIDE/TRIGLICERÍDEO CAPRÍLICO/CÁPRICO, BENZOTRIAZOLYL DODECYL P-CRESOL/BENZOTRIAZOLIL DODECIL P-CRESOL, ETHYLHEXYL PALMITATE/PALMITATO DE ETILEXILA, TOCOPHERYL ACETATE/ACETATO DE TOCOFERILA, PARFUM/PERFUME, HYDROGENATED POLYISOBUTENE/POLIISOBUTENO HIDROGENADO, ETHYLENE/PROPYLENE/STYRENE COPOLYMER/ COPOLÍMERO DE ETILENO/PROPILENO/ESTIRENO, BUTYLENE/ETHYLENE/STYRENE COPOLYMER/ COPOLÍMERO DE BUTILENO/ETILENO/ESTIRENO, PRUNUS AMYGDALUS DULCIS OIL/ÓLEO DE AMÊNDOA-DOCE, SODIUM SACCHARIN/SACARINA DE SÓDIO, SQUALANE/ESQUALANO, CI 45380/ CORANTE EOSINA AMARELA 45380.',
-69.90,null,0,40,'lip-oil-gummy.png','lip-oil-gummy-2.webp','lip-oil-gummy-3.jpg',3,23,4);
+69.90,null,0,40,'lip-oil-gummy.png','lip-oil-gummy-2.jpg','lip-oil-gummy-3.jpg',3,23,4);
 
 
 
@@ -672,7 +672,7 @@ Cor única e acabamento glossy acompanha chaveiro hidratação intensa acabament
 
 Composição:
 hydrogenated polyisobutene/poliisobuteno hidrogenado, polyisobutene/poliisobuteno, paraffinum liquidum/parafina líquida, ethylene/propylene/styrene copolymer/copólímero de etileno/propileno/estireno, butylene/ethylene/styrene copolymer/copólímero de butileno/etileno/estireno, ethylhexyl metoxyccinamate/octinoxato, octyldodecanol/octildodecanol, parfum/perfume, ethylhexyl palmitate/palmitato de etilexila, ci 15880/corante vermelho 15880, phenoxyethanol/fenoxietanol, tocopheryl acetate/acetato de tocoferila, ci 15850/corante vermelho 15850/benzotriazolyl dodecyl p-cresol/benzotriazolyl dodecyl p-cresol, butylene glycol/butileno glicol, silica dimethyl silylate/silica dimethyl silylate, caprylyl glycol/caprililglicol, hexylene glycol/hexileno glicol, sodium hyaluronate/hialuronato de sódio.',
-69.90,null,0,20,'gloss-cherry-vizzela.png','gloss-cherry-vizzela-2.webp','gloss-cherry-vizzela-3.webp',3,64,4);
+69.90,null,0,20,'gloss-cherry-vizzela.png','gloss-cherry-vizzela-2.jpg','gloss-cherry-vizzela-3.jpg',3,64,4);
 
 
 
@@ -704,7 +704,7 @@ Composição:
 
 Dica de Uso:
 Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colônia e espalhe na região que deseja perfumar do seu corpo. Dê preferência as áreas como punho, pulso e pescoço para privilegiar a difusão da fragrância. Pode ser usada também como desodorante.',
-90.33,77.90,1,23,'giovanna-baby-blue.webp','giovanna-baby-blue-2.webp','giovanna-baby-blue-3.webp',8,25,3);
+90.33,77.90,1,23,'giovanna-baby-blue.png','giovanna-baby-blue-2.jpg','giovanna-baby-blue-3.jpg',8,25,3);
 
 
 
@@ -737,7 +737,7 @@ Composição:
 
 Dica de Uso:
 Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colônia e espalhe na região que deseja perfumar do seu corpo. Dê preferência as áreas como punho, pulso e pescoço para privilegiar a difusão da fragrância. Pode ser usada também como desodorante.',
-90.33,77.90,1,40,'giovanna-baby-pink.webp','giovanna-baby-pink-2.webp','giovanna-baby-pink-3.webp',8,26,3);
+90.33,77.90,1,40,'giovanna-baby-pink.png','giovanna-baby-pink-2.jpg','giovanna-baby-pink-3.jpg',8,26,3);
 
 
 
@@ -760,7 +760,7 @@ Como usar:
 
 Quando usar: 
 Pela manhã, à noite ou quando quiser.',
-79.90,null,0,30,'limpador-facial-sallve.png','limpador-facial-sallve-2.webp','limpador-facial-sallve-3.webp',9,27,6),
+79.90,null,0,30,'limpador-facial-sallve.png','limpador-facial-sallve-2.jpg','limpador-facial-sallve-3.jpg',9,27,6),
 
 
 
@@ -785,7 +785,7 @@ Como usar:
 Use no máximo uma vez por dia. 
 Durante o dia, utilize protetor solar. 
 Agite antes de usar.',
-79.90,null,0,20,'limpador-enzimatico-sallve.png','limpador-enzimatico-sallve-2.webp','limpador-enzimatico-sallve-3.webp',9,28,6);
+79.90,null,0,20,'limpador-enzimatico-sallve.png','limpador-enzimatico-sallve-2.jpg','limpador-enzimatico-sallve-3.jpg',9,28,6);
 
 
 
@@ -808,7 +808,7 @@ Como usar:
 3- Coloque uma pequena quantidade do esfoliante enzimatico nas mãos e massageie com delicadeza, em movimentos circulares e evitando a área dos olhos.
 4- Enxágue com água em abundância, removendo todo o produto, e sinta na pele uma limpeza profunda com toque macio.
 5- Use no máximo 2 vezes por semana, em dias alternados.',
-74.90,null,0,20,'esfoliante-facial-sallve.png','esfoliante-facial-sallve-2.webp','esfoliante-facial-sallve-3.webp',10,29,6);
+74.90,null,0,20,'esfoliante-facial-sallve.png','esfoliante-facial-sallve-2.jpg','esfoliante-facial-sallve-3.jpg',10,29,6);
 
 
 
@@ -828,7 +828,7 @@ Com 8 formas e 3 diferentes pesos moleculares de ácido hialurônico, pantenol e
 Como usar:
 1- Aplique ao redor da área dos olhos e em todo o rosto até o pescoço, massageando em movimentos ascendentes até a total absorção do produto.
 2- Você pode usar pela manhã, à noite ou quando quiser, sempre sobre a pele limpa.',
-89.90,null,0,20,'hidratante-firmador-sallve.png','hidratante-firmador-sallve-2.webp','hidratante-firmador-sallve-3.webp',11,30,6);
+89.90,null,0,20,'hidratante-firmador-sallve.png','hidratante-firmador-sallve-2.jpg','hidratante-firmador-sallve-3.jpg',11,30,6);
 
 
 
@@ -852,7 +852,7 @@ Como usar:
 Observação: 
 Durante a primeira semana de uso, aplique pequenas quantidades de produto, em dias alternados.
 Não aplique nas pálpebras, nos cantos externos do nariz e da boca nem na pele irritada ou lesionada.',
-129.90,89.90,1,20,'super-pro-colageno-10-sallve-frontal.png','super-pro-colageno-10-sallve-frontal-inclinado.webp','super-pro-colageno-10-sallve-textura-aplicacao-gotas.webp',11,31,6);
+129.90,89.90,1,20,'super-pro-colageno-sallve-1.png','super-pro-colageno-sallve-2.jpg','super-pro-colageno-sallve-3.jpg',11,31,6);
 
 
 
@@ -874,7 +874,7 @@ Como usar:
 
 Observações:
 Esse uso pode render em torno de 120 aplicações, de 3 a 4 meses de uso.',
-99.90,null,0,20,'antioxidante-hidratante.png','antioxidante-hidratante-2.webp','antioxidante-hidratante-3.webp',11,32,6);
+99.90,null,0,20,'antioxidante-hidratante.png','antioxidante-hidratante-2.jpg','antioxidante-hidratante-3.jpg',11,32,6);
 
 
 
@@ -906,7 +906,7 @@ Dica preciosa:
 Esfoliar levemente a pele antes potencializ o efeito de qualquer máscara de tratamento.
 Quando usar:
 Até 3 vezes por semana, em dias alternados.',
-69.90,null,0,30,'mascara-antirresseca.png','mascara-antirresseca-2.webp','mascara-antirresseca-3.webp',12,33,6);
+69.90,null,0,30,'mascara-antirresseca.png','mascara-antirresseca-2.jpg','mascara-antirresseca-3.jpg',12,33,6);
 
 
 
@@ -951,7 +951,7 @@ Orientações ao consumidor:
 Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Mantenha fora do alcance de crianças. Uso externo. Uso adulto. Contém ação desodorante.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free. Produto vegano.',
-57.90,null,0,35,'cuide-se-bem-bob-esponja-creme-hidratante-200ml-frontal-01.png','cuide-se-bem-bob-esponja-creme-hidratante-200ml-segredinho-02-lancamento.jpg',null,24,34,2);
+57.90,null,0,35,'cuide-se-bem-bob-esponja-1.png','cuide-se-bem-bob-esponja-2.jpg',null,24,34,2);
 
 
 
@@ -968,7 +968,7 @@ VALUES
 'Elástico de cabelo com pingente em formato de concha metálica, elegante e perfeito para dar um toque sofisticado ao penteado.',
 'Adicione um charme especial ao seu visual com este elástico de cabelo adornado com uma concha metálica prateada. Além de ser funcional e garantir firmeza ao prender os fios, ele é um acessório estiloso que remete ao universo marítimo, ideal para compor penteados delicados ou destacar um look casual com um toque de elegância. 
 Confortável para uso diário, é perfeito para quem ama detalhes únicos e sofisticados.',
-12.00,null,0,100,'Elástico-de-concha-do-mar.png','Elástico-de-concha-do-mar-2.png','Elástico-de-concha-do-mar.png',18,35,5);
+12.00,null,0,100,'elastico-de-concha-do-mar.png','elastico-de-concha-do-mar-2.png','elastico-de-concha-do-mar.png',18,35,5);
 
 
 
@@ -1007,7 +1007,7 @@ Recursos:
 - Jato de ar frio;
 - Para todos os tipos de cabelo;
 - Capa protetora.',
-999.90,809.91,1,30,'escova_secadora_rotativa_2.png','escova-secadora-3.jpg','escova-secadora-rotativa-1.jpg',19,36,5);
+999.90,809.91,1,30,'escova_secadora_rotativa_1.png','escova_secadora_rotativa_2.jpg','escova_secadora_rotativa_3.jpg',19,36,5);
 
 
 
@@ -1041,7 +1041,7 @@ Ocasião:
 Fragrância feminina para ser usada durante o dia ou a noite.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
-159.90,111.90,1,30,'FLORATTA-DES-COL-MY-BLUE-75ml.png','FLORATTA-DES-COL-MY-BLUE-75ml-2.jpg','Floratta-My-Blue-Desodorante-Colonia-75ml-3.png',5,37,3);
+159.90,111.90,1,30,'FLORATTA-DES-COL-MY-BLUE.png','FLORATTA-DES-COL-MY-BLUE-2.jpg','FLORATTAS-3.jpg',5,37,3);
 
 
 
@@ -1088,7 +1088,7 @@ Observação:
 Devido à alta concentração de corantes utilizados neste produto, recomendamos que a aplicação de Glamour Midnight seja feita diretamente na pele e orientamos que é imprescindível aguardar até a completa absorção na pele antes de se vestir. 
 
 Nenhum produto O Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
-184.90,null,0,40,'glamour-midnight-desodorante-colonia-frontal-01.png','glamour-midnight-desodorante-colonia-ambientada-02-lancamento.jpg','glamour-midnight-desodorante-colonia-ambientada-03.jpg',5,38,3);
+184.90,null,0,40,'glamour-midnight.png','glamour-midnight-02.jpg','glamour-midnight-03.jpg',5,38,3);
 
 
 
@@ -1120,7 +1120,7 @@ Ingrediente:
 Água; Álcool cetoestearílico; Palmitato de isopropila; Cloreto de beentrimônio; Estearato de octila; Dimeticonol; Dimeticona; Perfume; Fenoxietanol; Álcool isopropílico; Amodimeticona; Gliconato de sódio; Dodecilbenzenosulfonato de trietanolamina; Polietilenoglicol-12 éter de álcool tridecílico; Cloreto de cetrimônio; Pantenol; Acetato de tocoferila; Nicotinamida; Álcool benzílico; Ácido láctico; Propilenoglicol; Propanodiol; Benzoato de sódio; Hidróxido de sódio; Óleo de rícino hidrogenado etoxilado; Arginina; Extrato do gérmen de glycine soja; Extrato do gérmen de Triticum vulgare; Poliuretano-39; Gluconolactona; Butilcarbamato de iodopropinila ; Extrato da raiz de Scutellaria baicalensis; Extrato da semente de Vitis vinifera; Sorbato de potássio; Sulfito de sódio; edetato trissódico; Ácido cítrico; Fenilpropanol; Gliconato de cálcio; Caprililglicol; Tocoferol; Citronelol; Cumarina; Limoneno; Linalol.
 
 Nenhum produto O Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
-54.90,null,0,50,'malbec-cabelos-condicionador-antiqueda-frontal.png','malbec-cabelos-condicionador-antiqueda-ambientada-lancamento.jpg',null,14,39,5);
+54.90,null,0,50,'malbec-condicionador-antiqueda-1.png','malbec-condicionador-antiqueda-2.jpg',null,14,39,5);
 
 
 
@@ -1145,7 +1145,7 @@ A versatilidade dessa esponja permite com que você aplique diversos tipos de pr
 
 Como lavar a esponja My Blend?
 Para lavar a My Blend, basta enxaguá-la e usar um detergente neutro, massageando suavemente até sair a sujeira. Depois, enxague bem, retire o excesso de água espremendo a esponja com as mãos ou em uma toalha e deixe secar num lugar arejado ou ao ar livre.',
-30.90,null,0,30,'Océane_my_blend_océane_esponja_de_maquiagem.png','Océane my blend océane esponja de maquiagem-2.png','c:\Users\NicolleZaleski\Documents\imagens do meu banco de dados\Océane my blend océane esponja de maquiagem-3.jpg',21,40,4);
+30.90,null,0,30,'oceane-my-blend-esponja-1.png','oceane-my-blend-esponja-2.jpg','oceane-my-blend-esponja-3.jpg',21,40,4);
 
 
 
@@ -1177,29 +1177,52 @@ Características:
 Material de Alta Qualidade - As cerdas são feitas de material sintético premium, que é macio ao toque e livre de crueldade animal.
 Design Elegante - Cada pincel possui um cabo ergonômico e um design sofisticado, perfeito para qualquer penteadeira.
 Fácil Limpeza - As cerdas são fáceis de limpar, mantendo a higiene e prolongando a vida útil do produto.',
-78.90,null,0,30,'Pinceis_de_maquiagem_profissional_com_cabo_transparente.png','pinceis-de-maquiagem-profissional-com-cabo-transparente-3.jpg','pinceis-de-maquiagem-profissional-com-cabo-transparente-2.jpg',20,41,6);
+78.90,null,0,30,'pinceis_de_maquiagem_transparente-1.png','pinceis_de_maquiagem_transparente-2.jpg','pinceis_de_maquiagem_transparente-3.jpg',20,41,6);
 
 
 
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(42,'','','');
+(42,'#080806','#DD51B1','#FC86D3');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-('')
+('Máscara de Cílios I Love Extreme','Essence','12ml',
+'Máscara de cílios de volume com uma escova extra grande para cílios preenchidos.',
+'A irmã “louquinha” da máscara de cílios I Love Extreme, para um volume ainda mais extremo! Sua fórmula cremosa e profundamente pigmentada envolve cada fio, enquanto o aplicador extra-grande de elastômero proporciona um efeito espetacular já na primeira aplicação.
+
+Detalhes do Produto:
+- Aplicador plástico extra-grande para um volume espetacular;
+- Cobre cada fio individualmente com sua fórmula preta hiperpigmentada e cremosa;
+- Oftalmologicamente testado.
+
+Ingredientes:
+AQUA (WATER), PARAFFIN, GLYCERYL STEARATE, SYNTHETIC BEESWAX, STEARIC ACID, BUTYLENE GLYCOL, ACACIA SENEGAL GUM, PALMITIC ACID, ORYZA SATIVA (RICE) BRAN WAX, POLYBUTENE, VP/EICOSENE COPOLYMER, AMINOMETHYL PROPANEDIOL, OZOKERITE, TROPOLONE, HYDROGENATED VEGETABLE OIL, STEARYL STEARATE, HYDROXYETHYLCELLULOSE, PHENOXYETHANOL, CI 77499 (IRON OXIDES).',
+36.90,null,0,30,'rimel_I_Love_Extreme_-_Crazy_Volume_1.png','rimel_I_Love_Extreme_-_Crazy_Volume_2.jpg','rimel_I_Love_Extreme_-_Crazy_Volume_3.jpg',2,42,4);
 
 
 
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-
+(43,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Secador Travel Dryer','Be Emotion',null,
+'Que tal ter cabelos lindos até mesmo durantes suas viagens? O Secador Be emotion Travel Dryer está sempre à mão para criar o visual que você gosta, sem precisar de um salão de beleza!',
+'Travel Dryer seca e modela seus cabelos rapidamente para que você esteja sempre pronta para o próximo compromisso. Leve e dobrável, ele é tão compacto que ocupa pouquíssimo peso e espaço em sua mala ou até mesmo na sua nécessaire.
 
+Travel Dryer é bivolt e conta com 1100/900W de potência concentrada, que proporcionam cabelos secos e modelados em instantes. E para ainda mais possibilidades, são 2 velocidades que promovem um controle preciso de como você deseja seu penteado, enquanto o bico direcionador removível oferece melhor acabamento no seu para o seu visual.
+
+Carcaterísticas do produto:
+ - Bivolt;
+ - Frequência 60 Hz;
+ - Material: plástico, metal e borracha;
+ - Potência: 1100/900W;
+ - Peso: 330g',
+259.92,null,0,30,'secador-de-cabelo-be-emotion-1.png','secador-de-cabelo-be-emotion-2.jpg','secador-de-cabelo-be-emotion-3.jpg',19,43,6);
 
 
 
