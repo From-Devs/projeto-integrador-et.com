@@ -95,8 +95,7 @@ function tabelaProduto($produtos) {
                     <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
                 </button>
             </div>
-            <form class="campos-editar" action="http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=EditarProduto" method="post">
-                <!-- conteúdo do formulário como no original -->
+            <form class="campos-editar" enctype="multipart/form-data">
                 <input type="hidden" name="id_produto">
 
                 <div>
@@ -163,11 +162,11 @@ function tabelaProduto($produtos) {
                                         alt="Produto" class="imagem-produto" id="img-produto-editar1" name="img1">
                                 </div>
 
-                                <label for="upload-produto1" class="icone-cadastrar-label">
+                                <label for="upload-produto-editar1" class="icone-cadastrar-label">
                                     <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
                                         alt="Editar Produto" class="icone-cadastrar">
                                 </label>
-                                <input type="file" id="upload-produto1" name="img1" class="input-file" data-img-id="img-produto1" accept="image/*">
+                                <input type="file" id="upload-produto-editar1" name="img1" class="input-file" data-img-id="img-produto-editar1" accept="image/*">
                             </div>
                         </div>
                         <div class="lgd-img">
@@ -183,11 +182,11 @@ function tabelaProduto($produtos) {
                                         alt="Produto" class="imagem-produto" id="img-produto-editar2" name="img2">
                                 </div>
 
-                                <label for="upload-produto2" class="icone-cadastrar-label">
+                                <label for="upload-produto-editar2" class="icone-cadastrar-label">
                                     <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
                                         alt="Editar Produto" class="icone-cadastrar">
                                 </label>
-                                <input type="file" id="upload-produto2" name="img2" class="input-file" data-img-id="img-produto2" accept="image/*">
+                                <input type="file" id="upload-produto-editar2" name="img2" class="input-file" data-img-id="img-produto-editar2" accept="image/*">
                             </div>
                         </div>
                         <div class="lgd-img">
@@ -203,11 +202,11 @@ function tabelaProduto($produtos) {
                                         alt="Produto" class="imagem-produto" id="img-produto-editar3" name="img3">
                                 </div>
 
-                                <label for="upload-produto3" class="icone-cadastrar-label">
+                                <label for="upload-produto-editar3" class="icone-cadastrar-label">
                                     <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
                                         alt="Editar Produto" class="icone-cadastrar">
                                 </label>
-                                <input type="file" id="upload-produto3" name="img3" class="input-file" data-img-id="img-produto3" accept="image/*">
+                                <input type="file" id="upload-produto-editar3" name="img3" class="input-file" data-img-id="img-produto-editar3" accept="image/*">
                             </div>
                         </div>
                         <div class="lgd-img">

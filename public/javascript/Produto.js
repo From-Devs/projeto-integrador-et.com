@@ -14,8 +14,12 @@ document.getElementsByClassName("campos-cadastrar")[0].addEventListener("submit"
     formData.append("tamanho", tamanhoFinal);
     console.log(...formData);
 
-    fetch("http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto", {
+    fetch("/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto", {
         method: "POST",
+        credentials: 'same-origin',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        },
         body: formData
     })
     .then(res => res.json()) 
@@ -79,6 +83,55 @@ function buscarAtributosDoProduto(idProduto) {
         })
         .catch(err => console.error("Erro ao buscar produto:", err));
 }
+
+document.getElementsByClassName("campos-editar")[0].addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const vlTamanho = this.querySelector('input[name="valorTamanho"]').value;
+    const tipoTamanho = this.querySelector('select[name="tipoTamanho"]').value;
+    const tamanhoFinal = vlTamanho + " " + tipoTamanho;
+
+    let formData = new FormData(this);
+    formData.delete("valorTamanho");
+    formData.delete("tipoTamanho");
+    formData.append("tamanho", tamanhoFinal);
+    console.log(...formData);
+    
+    if(formData.get("fgPromocao") === null){
+        formData.delete("precoPromocional");
+    }
+
+    fetch("/projeto-integrador-et.com/router/ProdutoRouter.php?acao=EditarProduto", {
+        method: "POST",
+        credentials: 'same-origin',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if (data.sucesso) {
+            abrirPopUp("popUpSalvar");
+            // Recarrega a página ao fechar o popUpSalvar
+            const popUpSalvar = document.getElementsByClassName("popUpSalvar")[0];
+            if (popUpSalvar) {
+                popUpSalvar.addEventListener('close', () => window.location.reload(), { once: true });
+                // garante que o popUp apareça
+                abrirPopUp('popUpSalvar');
+            } else {
+                window.location.reload();
+            }
+        } else {
+            abrirPopUp("popUpErro");
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        abrirPopUp("popUpErro");
+    })
+});
 
 function ajustarCamposDeTamanho(data){
     const res = [];

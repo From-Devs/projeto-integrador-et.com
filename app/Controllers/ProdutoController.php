@@ -75,7 +75,8 @@ class ProdutoController {
         $qtdEstoque, 
         $corPrincipal, 
         $deg1, 
-        $deg2
+        $deg2,
+        $files = []
     ){
         return $this->produtoModel->EditarProduto(
             $id, 
@@ -90,7 +91,8 @@ class ProdutoController {
             $qtdEstoque, 
             $corPrincipal, 
             $deg1, 
-            $deg2
+            $deg2,
+            $files
         );
     }
 
@@ -123,38 +125,4 @@ class ProdutoController {
         return $this->produtoModel->mediaAvaliacoes($idProduto);
     }
     
-
-    // public function EditarProduto(
-    //     $id_produto,
-    //     $nome,
-    //     $marca,
-    //     $descricaoBreve,
-    //     $descricaoTotal,
-    //     $preco,
-    //     $precoPromo,
-    //     $qtdEstoque,
-    //     $img1 = null,
-    //     $img2 = null,
-    //     $img3 = null,
-    //     $id_subCategoria = null,
-    //     $id_cores = null,
-    //     $id_associado = null
-    // ) {
-    //     return $this->produtoModel->updateProduto(
-    //         $id_produto,
-    //         $nome,
-    //         $marca,
-    //         $descricaoBreve,
-    //         $descricaoTotal,
-    //         $preco,
-    //         $precoPromo,
-    //         $qtdEstoque,
-    //         $img1,
-    //         $img2,
-    //         $img3,
-    //         $id_subCategoria,
-    //         $id_cores,
-    //         $id_associado
-    //     );
-    // }
 }

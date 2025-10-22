@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once __DIR__ . "/../app/Controllers/ProdutoController.php";
 $produtoController = new ProdutoController();
 
@@ -45,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $_POST["marca"],
                     $_POST["breveDescricao"],
                     $_POST["preco"],
-                    isset($_POST["precoPromocional"]),
+                        $_POST["precoPromocional"] ?? null,
                     $fgPromocao,
                     $_POST["caracteristicasCompleta"],
                     $_POST["tamanho"],
@@ -85,22 +88,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $_POST["marca"],
                 $_POST["breveDescricao"],
                 $_POST["preco"],
-                $_POST["precoPromocional"],
+                $_POST["precoPromocional"] ?? null,
                 $fgPromocao,
                 $_POST["caracteristicasCompleta"],
-                $_POST["tamanho"],
+                $_POST["tamanho"] ?? null,
                 $_POST["qtdEstoque"],
                 $_POST["corPrincipal"],
                 $_POST["deg1"],
-                $_POST["deg2"]
+                $_POST["deg2"],
+                $_FILES
             );
 
-            if($resultado){
-                header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=EditarProduto");
-            }else{
-                header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=EditarProduto");
+            header('Content-Type: application/json; charset=utf-8');
+            if ($resultado) {
+                echo json_encode(["sucesso" => true, "mensagem" => "Produto editado com sucesso"]);
+            } else {
+                echo json_encode(["sucesso" => false, "mensagem" => "Erro ao editar produto"]);
             }
-            
+
             break;
 
         case 'RemoverProduto':
