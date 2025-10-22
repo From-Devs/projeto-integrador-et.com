@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../Models/Carrinho.php';
+require_once __DIR__ . '/../Models/CarrinhoModel.php';
 
 class CarrinhoController {
     private $model;

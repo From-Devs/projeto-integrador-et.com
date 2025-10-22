@@ -21,8 +21,26 @@
     }
     
     $id_usuario = $_SESSION['id_usuario'];
-
     $controller = new CarrinhoController();
+
+    // 🟢 PROCESSAMENTO DE AÇÕES (POST → Redirect → GET)
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $acao = $_POST['acao'] ?? '';
+        $selecionados = $_POST['selecionados'] ?? [];
+
+        if ($acao === 'remover' && !empty($selecionados)) {
+            $controller->removerSelecionados($selecionados);
+            header("Location: Meu_Carrinho.php?removido=1");
+            exit;
+        }
+
+        if ($acao === 'pedido' && !empty($selecionados)) {
+            $controller->realizarPedido($id_usuario, $selecionados);
+            header("Location: Meu_Carrinho.php?pedido=1");
+            exit;
+        }
+}
+
     $carrinho = $controller->exibirCarrinho($id_usuario);
     $total = array_sum(array_column($carrinho, 'subtotal'));
     $precosProdutos = array_column($carrinho, 'precoCalculado');
@@ -58,10 +76,22 @@
 <?php echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "160px", "Adicionado à Lista de Desejos!", "", "", "", "352px") ?>
 
 <main>
+    <?php if (isset($_GET['removido'])): ?>
+        <!-- <div class="mensagem-sucesso">✅ Produto(s) removido(s) com sucesso!</div> -->
+    <?php elseif (isset($_GET['pedido'])): ?>
+        <!-- <div class="mensagem-sucesso">🛍️ Pedido realizado com sucesso!</div> -->
+    <?php endif; ?>
+
     <h1 class="Meio">MEU CARRINHO</h1>
     <div class="line"></div>
     
     <form method="POST">
+        <?php echo PopUpConfirmar(
+            "popUpConfirmarExclusao",
+            "Deseja realmente excluir os produtos selecionados?",
+            "<button type='submit' name='acao' value='remover' id='botaoConfirmarExclusao' class='btn btn-white' style='width: auto; height: auto; font-size: 1rem;'>Sim</button>",
+            "<button id='botaoCancelarExclusao' class='btn btn-white' style='width: auto; height: auto; font-size: 1rem; 'onclick='fecharPopUp(\"popUpConfirmarExclusao\")'>Não</button>"
+            ) ?>
         <table>
             <thead>
                 <tr>
@@ -74,12 +104,12 @@
                 </tr>
             </thead>
             <tbody>
-            <?php if (!empty($carrinho)): 
-                foreach ($carrinho as $index => $item) ?>
+            <?php if (!empty($carrinho)): ?>
+                <?php foreach ($carrinho as $index => $item): ?>
                     <tr>
                         <td class="prod">
                             <div class="conteudo_td">
-                                <input class='check' type='checkbox' name='selecionados[]' value="<?= $item['id_prodCarrinho'] ?>">
+                                <input class='check' type='checkbox' name='selecionados[]' value="<?= $item['id_prodCarrinho'] ?>" checked>
                                 <img class='cor1' src='/projeto-integrador-et.com/<?= $item['img1'] ?? "no-image.png" ?>' alt='<?= $item['nome'] ?>' width='50'>
                                 <span class='produto-nome'><?= htmlspecialchars($item['nome']) ?></span>
                             </div>
@@ -96,8 +126,8 @@
                         </td>
                         <td class='cor2' id='subtotal-item-<?= $index ?>'>R$ <?= number_format($item['subtotal'], 2, ',', '.') ?></td>
                     </tr>
-                <?php endforeach;
-                else: ?>
+                <?php endforeach; ?>
+            <?php else: ?>
                 <tr>
                     <td colspan="6" class="carrinhoVazio">Seu carrinho está vazio.</td>
                 </tr>
@@ -110,63 +140,104 @@
                 </tr>
 
                 <tr class="tudo">
-                    <td>Selecionar Tudo:</td>
+                    <td><label for="selecionarTodos">Selecionar Tudo:</label></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><input type="checkbox" style="margin: 0px;"></td>
+                    <td><input type="checkbox" id="selecionarTodos" style="margin: 0px;" checked></td>
                 </tr>
 
             </tfoot>
         </table>
         <div class="button-container" style="">
             <button type="submit" name="acao" value="pedido">Realizar Pedido</button>
-            <button type="submit" name="acao" value="remover" onclick="return confirm('Deseja realmente excluir os produtos selecionados?')">Excluir Selecionados</button>
+            <button type="button" id="btnExcluirSelecionados">Excluir Selecionados</button>
         </div>
     </form>
 </main>
 
+<?php echo createRodape(); ?>
+
 <script>
-const precosProdutos = <?= json_encode($precosProdutos); ?>;
 
-function calcularTotal() {
-    let total = 0;
-    document.querySelectorAll('input[name^="quantidade"]').forEach((input, index) => {
-        const qtd = parseInt(input.value) || 0;
-        const preco = parseFloat(precosProdutos[index]) || 0;
-        const subtotal = qtd * preco;
-        total += subtotal;
-
-        // Atualiza subtotal de cada item
-        document.getElementById(`subtotal-item-${index}`).innerText = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
+document.addEventListener("DOMContentLoaded", function() {
+    const selecionarTodos = document.getElementById("selecionarTodos");
+    const checkboxes = document.querySelectorAll(".check");
+    
+    if (!selecionarTodos) return;
+    
+    // Quando clicar em "Selecionar todos"
+    selecionarTodos.addEventListener("change", function() {
+        checkboxes.forEach(cb => cb.checked = selecionarTodos.checked);
     });
-    document.getElementById('total').innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
-}
+    
+    // Quando desmarcar algum individual, desmarca o "Selecionar todos"
+    checkboxes.forEach(cb => {
+        cb.addEventListener("change", function() {
+            if (!cb.checked) {
+                selecionarTodos.checked = false;
+            } else if ([...checkboxes].every(c => c.checked)) {
+                selecionarTodos.checked = true;
+            }
+        });
+    });
 
-function incrementQuantity(index) {
-    const input = document.querySelector(`input[name='quantidade[${index}]']`);
-    input.value = parseInt(input.value) + 1;
-    calcularTotal();
-}
+    const form = document.querySelector("form");
+    const btnExcluir = document.getElementById("btnExcluirSelecionados");
 
-function decrementQuantity(index) {
-    const input = document.querySelector(`input[name='quantidade[${index}]']`);
-    if (input.value > 1) {
-        input.value = parseInt(input.value) - 1;
+    if (!btnExcluir) return;
+
+    // Intercepta o submit do botão Excluir
+    btnExcluir.addEventListener("click", function(e) {
+        
+        const algumSelecionado = Array.from(checkboxes).some(cb => cb.checked);
+        if (!algumSelecionado) {
+        alert("Selecione ao menos um produto para excluir.");
+        return;
+        }
+        abrirPopUp("popUpConfirmarExclusao"); // abre o pop-up personalizado
+    });
+
+    const precosProdutos = <?= json_encode($precosProdutos); ?>;
+
+    function calcularTotal() {
+        let total = 0;
+        document.querySelectorAll('input[name^="quantidade"]').forEach((input, index) => {
+            const qtd = parseInt(input.value) || 0;
+            const preco = parseFloat(precosProdutos[index]) || 0;
+            const subtotal = qtd * preco;
+            total += subtotal;
+
+            // Atualiza subtotal de cada item
+            document.getElementById(`subtotal-item-${index}`).innerText = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
+        });
+        document.getElementById('total').innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
+    }
+
+    function incrementQuantity(index) {
+        const input = document.querySelector(`input[name='quantidade[${index}]']`);
+        input.value = parseInt(input.value) + 1;
         calcularTotal();
     }
-}
 
-document.addEventListener("DOMContentLoaded", () => {
-    calcularTotal();
-    document.querySelectorAll('input[name^="quantidade"]').forEach(input => {
-        input.addEventListener('input', calcularTotal);
+    function decrementQuantity(index) {
+        const input = document.querySelector(`input[name='quantidade[${index}]']`);
+        if (input.value > 1) {
+            input.value = parseInt(input.value) - 1;
+            calcularTotal();
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        calcularTotal();
+        document.querySelectorAll('input[name^="quantidade"]').forEach(input => {
+            input.addEventListener('input', calcularTotal);
+        });
     });
 });
 </script>
 
-<?php echo createRodape(); ?>
 <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
