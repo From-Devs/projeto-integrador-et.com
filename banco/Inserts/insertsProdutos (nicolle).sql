@@ -1,11 +1,11 @@
 
 INSERT INTO usuario (id_usuario,nome,email,telefone,cpf,data_nascimento,senha,tipo,foto,id_endereco)
 VALUES 
-(2,'Ozzy Osbourne','ozzyosbourne@gmail.com','(67) 66666-6666','666.666.666-66','1948-12-03','morcego','Associado',null,null);                   --corporal
-(3,'Eliana Giardini','elianagiardini@gmail.com','(21) 99384-7383','111.111.111-11','1990-06-30','associado','Associado',null,null);             --perfume
-(4,'Michael Rusbad','rusbejackson@gmail.com','(11) 99823-6372','222.222.222-22','2002-09-24','associado','Associado',null,null);                --maquiagem
-(5,'Viviane Gonçalves','vivgonca@gmail.com','(67) 99182-8272','333.333.333-33','1999-07-19','associado','Associado',null,null);                 --cabelo
-(6,'Maiara Lima','maytheforcebwu@gmail.com','(49) 99272-3729','444.444.444-44','2003-11-01','associado','Associado',null,null);                 --aleatorio
+(2,'Ozzy Osbourne','ozzyosbourne@gmail.com','(67) 66666-6666','666.666.666-66','1948-12-03','morcego','Associado',null,null);                   
+(3,'Eliana Giardini','elianagiardini@gmail.com','(21) 99384-7383','111.111.111-11','1990-06-30','associado','Associado',null,null);          
+(4,'Michael Rusbad','rusbejackson@gmail.com','(11) 99823-6372','222.222.222-22','2002-09-24','associado','Associado',null,null);             
+(5,'Viviane Gonçalves','vivgonca@gmail.com','(67) 99182-8272','333.333.333-33','1999-07-19','associado','Associado',null,null);              
+(6,'Maiara Lima','maytheforcebwu@gmail.com','(49) 99272-3729','444.444.444-44','2003-11-01','associado','Associado',null,null);              
 
 		-- Ambos eu cadastrei pelo site mesmo, então a senha está criptografada
 
