@@ -33,7 +33,7 @@ function createCardListaDeDesejos(
     }
 
     // Caminho da imagem: usa diretamente a pasta 'produto'
-    $imagemPath = !empty($imagemProd) ? "/projeto-integrador-et.com/public/imagens/produto/{$imagemProd}" : "/projeto-integrador-et.com/public/imagens/produto/default.png";
+    $imagemPath = !empty($imagemProd) ? "/projeto-integrador-et.com/{$imagemProd}" : "/projeto-integrador-et.com/public/imagens/produto/default.png";
 
     //Botões do pop-up
     

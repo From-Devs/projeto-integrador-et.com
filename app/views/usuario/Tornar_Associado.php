@@ -3,6 +3,7 @@
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
+    require __DIR__ . "/../../../public/componentes/popup/popUp.php";
 
     session_start();
     
@@ -19,6 +20,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/sidebar/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/ondas/styles.css">
+    <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popup/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/Tornar_Associado.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
@@ -282,5 +284,6 @@
     <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
 </body>
 </html> 

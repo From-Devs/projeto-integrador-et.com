@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
    
     const cards = document.querySelectorAll(".cardProduto");
+    const LoginVerific = document.getElementById('LoginVerific').innerHTML;
 
     cards.forEach(item => {
         let cor = item.childNodes[1],
@@ -16,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function(){
               coracaoForm = item.querySelector('.formFavoritoCard'),
               coracaoImg = coracaoForm ? coracaoForm.querySelector('.coracaoImg') : null,
               botaoComprar = item.querySelector(".botaoComprarCardProduto"),
-              botaoAnimacao = item.childNodes[13].childNodes[12],
+              botaoAnimacao = item.querySelector(".botaoEspectro"),
               coracaoBotao = item.childNodes[5],
-              imagemCardProdutoPadrao = item.childNodes[11];
+              imagemCardProdutoPadrao = item.querySelector(".imagemCardProdutoComumContainer");
 
         item.style.background = "linear-gradient(35deg, "+ cores[1] +" 30%, "+ cores[2] +" 100%)";
         botaoComprar.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
@@ -60,8 +61,9 @@ document.addEventListener("DOMContentLoaded", function(){
         //     });
         // }
 
-        imagemCardProdutoPadrao.addEventListener('click', function(e){
-            window.location.href = '/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php'
+        imagemCardProdutoPadrao.addEventListener('click', e => {
+            const id = item.getAttribute('data-id');
+            window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${id}`;
         });
         imagemCardProdutoPadrao.addEventListener('mousedown', function(e){
             e.preventDefault();
@@ -79,7 +81,11 @@ document.addEventListener("DOMContentLoaded", function(){
             botaoAnimacao.style.animationName = "";
         });
         botaoComprar.addEventListener('click', function(){
-            window.location.href = '/projeto-integrador-et.com/app/views/usuario/Meu_Carrinho.php'
+            if (LoginVerific == "true"){
+                window.location.href = 'Meu_Carrinho.php';
+            }else{
+                abrirPopUpCurto("popUpErroDelogado", 2000);
+            }
         });
     });
 
