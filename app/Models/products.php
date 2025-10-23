@@ -442,7 +442,7 @@ class Products {
     }
 
     public function getAllSubcategorias(){
-        $stmt = $this->conn->query("SELECT * FROM SubCategoria");
+        $stmt = $this->conn->query("SELECT * FROM subcategoria");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -561,27 +561,27 @@ class Products {
                 c.hexDegrade2 AS corDegrade2,
                 s.nome AS subCategoria,
                 cat.nome AS categoria
-            FROM Produto p
-            LEFT JOIN Cores c ON p.id_cores = c.id_cores
-            LEFT JOIN SubCategoria s ON p.id_subCategoria = s.id_subCategoria
-            LEFT JOIN Categoria cat ON s.id_categoria = cat.id_categoria
+            FROM produto p
+            LEFT JOIN cores c ON p.id_cores = c.id_cores
+            LEFT JOIN subcategoria s ON p.id_subCategoria = s.id_subCategoria
+            LEFT JOIN categoria cat ON s.id_categoria = cat.id_categoria
             WHERE 
                 (
                     p.id_subCategoria IN (
                         SELECT DISTINCT pr.id_subCategoria
-                        FROM ListaDesejos ld
-                        JOIN Produto pr ON ld.id_produto = pr.id_produto
+                        FROM listadesejos ld
+                        JOIN produto pr ON ld.id_produto = pr.id_produto
                         WHERE ld.id_usuario = :idUsuario
                     )
                     OR p.marca IN (
                         SELECT DISTINCT pr.marca
-                        FROM ListaDesejos ld
-                        JOIN Produto pr ON ld.id_produto = pr.id_produto
+                        FROM listadesejos ld
+                        JOIN produto pr ON ld.id_produto = pr.id_produto
                         WHERE ld.id_usuario = :idUsuario
                     )
                 )
                 AND p.id_produto NOT IN (
-                    SELECT id_produto FROM ListaDesejos WHERE id_usuario = :idUsuario
+                    SELECT id_produto FROM listadesejos WHERE id_usuario = :idUsuario
                 )
             ORDER BY p.qtdVendida DESC, RAND()
             LIMIT :limite
