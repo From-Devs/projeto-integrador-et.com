@@ -180,23 +180,23 @@ class PedidosModel{
 
     public function BuscarProdutosDoPedido($idPedido){
         try {    
-            $sqlPedidoProduto = "SELECT 
+            $sqlprodutopedido = "SELECT 
             PROD.id_produto, 
             PROD.nome as nomeProduto,
             U.nome as nomeUsuario,
             PROD.preco,
             PP.quantidade
-            FROM PEDIDOPRODUTO PP
+            FROM produtopedido PP
             JOIN PRODUTO PROD
                 ON PP.id_produto = PROD.id_produto
             JOIN PEDIDO PED
                 ON PP.id_pedido = PED.id_pedido
             JOIN USUARIO U
                 ON U.id_usuario = PED.id_usuario
-            WHERE PP.id_pedido = :idPedidoProduto";
+            WHERE PP.id_pedido = :idprodutopedido";
     
-            $stmt = $this->conn->prepare($sqlPedidoProduto);
-            $stmt->bindValue(":idPedidoProduto", $idPedido, PDO::PARAM_INT);
+            $stmt = $this->conn->prepare($sqlprodutopedido);
+            $stmt->bindValue(":idprodutopedido", $idPedido, PDO::PARAM_INT);
     
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
