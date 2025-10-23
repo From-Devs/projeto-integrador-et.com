@@ -85,6 +85,7 @@ body{
 .PartedeBaixo {
     display: grid;
     row-gap: 40px;
+    max-width: 1219px;
     column-gap: 25px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -122,6 +123,7 @@ body{
 }
 @media (max-width: 1320px) {
     .PartedeBaixo {
+        max-width: 908px;
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
@@ -151,6 +153,7 @@ body{
 }
 @media (max-width: 990px) {
     .PartedeBaixo {
+        max-width: 597px;
         grid-template-columns: 1fr 1fr;
         display: column;
         align-self: center;
@@ -174,6 +177,7 @@ body{
 }
 @media (max-width: 612px) {
     .PartedeBaixo {
+        max-width: 286px;
         grid-template-columns: 1fr;
         display: column;
         align-self: center;

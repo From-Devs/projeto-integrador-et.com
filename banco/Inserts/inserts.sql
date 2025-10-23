@@ -1,68 +1,71 @@
 -- Categorias Gerais
 
-INSERT INTO Categoria (nome)
+INSERT INTO Categoria (id_categoria, nome)
 VALUES
-('Maquiagem'),
-('Perfume'),
-('SkinCare'),
-('Cabelo'),
-('Eletrônicos'),
-('Corporal');
+(1, 'Maquiagem'),
+(2, 'Perfume'),
+(3, 'SkinCare'),
+(4, 'Cabelo'),
+(5, 'Utensílios'),
+(6, 'Corporal');
 
 -- Subcategoria de Maquiagem
 
-INSERT INTO SubCategoria (nome, id_categoria)
+INSERT INTO SubCategoria (id_subCategoria, nome, id_categoria)
 VALUES
-('Pele', 1),
-('Olhos', 1),
-('Boca', 1),
-('Sombrancelhas', 1);
+(1, 'Pele', 1),
+(2, 'Olhos', 1),
+(3, 'Boca', 1),
+(4, 'Sombrancelhas', 1);
 
 -- Subcategoria de Perfume
 
-INSERT INTO SubCategoria (nome, id_categoria)
+INSERT INTO SubCategoria (id_subCategoria, nome, id_categoria)
 VALUES
-('Feminino', 2),
-('Masculino', 2),
-('Unissex', 2);
+(5, 'Feminino', 2),
+(6, 'Masculino', 2),
+(7, 'Infantil', 2 ),
+(8, 'Body Splash', 2);
 
 -- Subcategoria de SkinCare
 
-INSERT INTO SubCategoria (nome, id_categoria)
+INSERT INTO SubCategoria (id_subCategoria, nome, id_categoria)
 VALUES
-('Limpeza', 3),
-('Esfoliação', 3),
-('Hidratação', 3),
-('Máscara', 3),
-('Protetor Solar', 3),
-('Especiais', 3);
+(9, 'Limpeza facial', 3),
+(10, 'Esfoliantes', 3),
+(11, 'Hidratante', 3),
+(12, 'Máscaras', 3),
+(13, 'Protetor Solar', 3),
+(14, 'Tratamentos', 3);
 
 -- Subcategoria de Cabelo
 
-INSERT INTO SubCategoria (nome, id_categoria)
+INSERT INTO SubCategoria (id_subCategoria, nome, id_categoria)
 VALUES
-('Dia-a-dia', 4),
-('Tratamentos', 4),
-('Estilização', 4),
-('Especiais', 4),
-('Acessórios', 4);
+(15, 'Dia-a-dia', 4),
+(16, 'Tratamentos', 4),
+(17, 'Estilização', 4),
+(18, 'Acessórios', 4);
 
 -- Subcategoria de Eletrônicos
 
-INSERT INTO SubCategoria (nome, id_categoria)
+INSERT INTO SubCategoria (id_subCategoria, nome, id_categoria)
 VALUES
-('Cabelo', 5),
-('Pincel', 5),
-('Esponja', 5);
+(19, 'Cabelos', 5),
+(20, 'Maquiagem', 5),
+(21, 'Unhas', 5),
+(22, 'Cuidados Faciais', 5);
+
 
 -- Subcategoria de Corporal
 
-INSERT INTO SubCategoria (nome, id_categoria)
+INSERT INTO SubCategoria (id_subCategoria, nome, id_categoria)
 VALUES
-('Body Splash', 6),
-('Óleos', 6),
-('Cremes', 6),
-('Protetores', 6);
+(23, 'Hidratantes e Cremes', 6),
+(24, 'Óleos Corporais', 6),
+(25, 'Protetores', 6),
+(26, 'Esfoliantes', 6),
+(27, 'Tratamentos Específicos', 6);
 
 INSERT INTO Status (`tipoStatus`) VALUES 
 ('Aguardando Confirmação'),

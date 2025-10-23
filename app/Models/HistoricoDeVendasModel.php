@@ -12,12 +12,12 @@ class HistoricoDeVendasModel{
 
     public function BuscarHistoricoDeVendasProdutos($ordem="", $pesquisa=""){
         try {    
-            $sqlHvP = "SELECT PP.id_pedido_produto, 
+            $sqlHvP = "SELECT PP.id_produtoPedido as id_pedido_produto, 
             PROD.nome as nomeProduto,
             PED.dataPedido as dataVenda,
             PROD.preco,
             PP.quantidade
-            FROM PEDIDOPRODUTO PP
+            FROM produtopedido PP
             JOIN PRODUTO PROD
                 ON PP.id_produto = PROD.id_produto
             JOIN PEDIDO PED

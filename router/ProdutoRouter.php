@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once __DIR__ . "/../app/Controllers/ProdutoController.php";
 $produtoController = new ProdutoController();
 
@@ -45,9 +48,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $_POST["marca"],
                     $_POST["breveDescricao"],
                     $_POST["preco"],
-                    isset($_POST["precoPromocional"]),
+                        $_POST["precoPromocional"] ?? null,
                     $fgPromocao,
                     $_POST["caracteristicasCompleta"],
+                    $_POST["tamanho"],
                     $_POST["qtdEstoque"],
                     $_POST["corPrincipal"],
                     $_POST["deg1"],
@@ -84,21 +88,38 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $_POST["marca"],
                 $_POST["breveDescricao"],
                 $_POST["preco"],
-                $_POST["precoPromocional"],
+                $_POST["precoPromocional"] ?? null,
                 $fgPromocao,
                 $_POST["caracteristicasCompleta"],
+                $_POST["tamanho"] ?? null,
                 $_POST["qtdEstoque"],
                 $_POST["corPrincipal"],
                 $_POST["deg1"],
-                $_POST["deg2"]
+                $_POST["deg2"],
+                $_POST["subCategoria"] ?? null,
+                $_FILES
             );
 
-            if($resultado){
-                header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=sucesso&acao=EditarProduto");
-            }else{
-                header("Location: /projeto-integrador-et.com/app/views/associado/ProdutosAssociado.php?status=erro&acao=EditarProduto");
+            header('Content-Type: application/json; charset=utf-8');
+            if ($resultado) {
+                echo json_encode(["sucesso" => true, "mensagem" => "Produto editado com sucesso"]);
+            } else {
+                // Retornar debug leve para ajudar a depurar o que foi enviado
+                $debug = [
+                    'post' => [
+                        'id_produto' => $_POST['id_produto'] ?? null,
+                        'subCategoria' => $_POST['subCategoria'] ?? null,
+                        'nome' => $_POST['nome'] ?? null,
+                    ],
+                    'files' => [
+                        'img1' => isset($_FILES['img1']) ? true : false,
+                        'img2' => isset($_FILES['img2']) ? true : false,
+                        'img3' => isset($_FILES['img3']) ? true : false,
+                    ]
+                ];
+                echo json_encode(["sucesso" => false, "mensagem" => "Erro ao editar produto", "debug" => $debug]);
             }
-            
+
             break;
 
         case 'RemoverProduto':
@@ -142,6 +163,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo json_encode($res);
             exit;
             break;
+        case 'ListarSubCategoriasPorCategoria':
+            header('Content-Type: application/json; charset=utf-8');
+            $idCategoria = isset($_GET['idCategoria']) ? (int)$_GET['idCategoria'] : null;
+            if ($idCategoria === null) {
+                echo json_encode([]);
+                exit;
+            }
+            $res = $produtoController->getSubcategoriasPorCategoria($idCategoria);
+            echo json_encode($res);
+            exit;
+            break;
+            case 'BuscarSubcategoriaPorId':
+                header('Content-Type: application/json; charset=utf-8');
+                $idSub = isset($_GET['idSub']) ? (int)$_GET['idSub'] : null;
+                if ($idSub === null) {
+                    echo json_encode([]);
+                    exit;
+                }
+                $res = $produtoController->getSubcategoriaPorId($idSub);
+                echo json_encode($res);
+                exit;
+                break;
         default:
             echo "Nao encontrei nada";
             break;

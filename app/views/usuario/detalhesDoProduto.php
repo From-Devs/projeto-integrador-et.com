@@ -261,7 +261,7 @@ $avaliacoes = $produtoController->BuscarAvaliacoesPorProduto($produto['id_produt
                             echo createCardProduto(
                                 $produtoRelacionado['marca'],
                                 $produtoRelacionado['nome'],
-                                $produtoRelacionado['precoPromo'] ?? $produtoRelacionado['preco'],
+                                $produtoRelacionado['precoPromo'] == 0 ? $produtoRelacionado['preco'] : $produtoRelacionado['precoPromo'],
                                 $produtoRelacionado['img1'],
                                 $produtoRelacionado['fgPromocao'],
                                 $produtoRelacionado['preco'],

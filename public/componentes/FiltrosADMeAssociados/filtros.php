@@ -3,7 +3,7 @@
 require_once __DIR__ . "/../../../app/Models/products.php";
 $products = new Products();
 
-$subCategorias = $products->getAllSubcategorias();
+$categorias = $products->getAllCategorias();
 
 function filtro($tipo = "", $opcoesSelect = []) {
     if ($tipo == "associado") {
@@ -127,8 +127,23 @@ function filtro($tipo = "", $opcoesSelect = []) {
                 <input type="text" name="marca" id="marcaCadastro">
             </div>
             <div class="campo">
-                <label for="ddlCategoria">Subcategoria: *</label>
-                <select id="ddlCategoria" name="subCategoria">
+                <label for="ddlCategoria">Categoria: *</label>
+                <select id="ddlCategoria" name="categoria" onChange="(function(e){ const subSelect = document.getElementById('ddlSubCategoria'); if(subSelect) carregarSubCategoriasPorCategoria(subSelect, e.target.value); })(event)">
+                    <option value="" disabled selected>Selecione uma categoria</option>
+                    <?php
+                        foreach ($categorias as $c) {
+                            ?>
+                            <option value="<?php echo htmlspecialchars($c['id_categoria']); ?>">
+                                <?php echo htmlspecialchars($c['nome']); ?>
+                            </option>
+                            <?php
+                        }
+                        ?>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="ddlSubCategoria">Subcategoria: *</label>
+                <select id="ddlSubCategoria" name="subCategoria">
                     <option value="" disabled selected>Selecione uma subcategoria</option>
                     <?php
                         foreach ($subCategorias as $sc) {
@@ -151,6 +166,19 @@ function filtro($tipo = "", $opcoesSelect = []) {
                 <div class="campo campo-small">
                     <label for="qtdEstoqueCadastro">Quantidade no estoque: *</label>
                     <input type="number" name="qtdEstoque" id="qtdEstoqueCadastro">
+                </div>
+                <div class="container-tamanho">
+                    <div class="campo campo-small campo-valor-tamanho">
+                        <label for="valorTamanho">Tamanho:</label>
+                        <input type="number" name="valorTamanho" id="valorTamanho">
+                    </div>
+                    <div class="campo campo-tipo-tamanho">
+                        <select name="tipoTamanho" id="tipoTamanho">
+                            <option value="ml">ml</option>
+                            <option value="cm">cm</option>
+                            <option value="g">g</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="campo campo-small">
                     <label for="precoCadastro">Preço: *</label>
