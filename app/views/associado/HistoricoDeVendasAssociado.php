@@ -76,7 +76,7 @@
                     <h1 id="tituloH1">Vendas mais recentes</h1>
                 </div>
             <?php
-                $pagina = paginarMaisDeUmaQueryString($vendas, 7);
+                $pagina = paginarMaisDeUmaQueryString($vendas, 5);
                 tabelaHistoricoVendas($pagina['dados']);
                 renderPaginacaoMaisDeUmaQueryString(
                     $pagina['paginaAtual'],
