@@ -16,7 +16,7 @@ if (!$id_usuario) {
 }
 
 $pedidoController = new PedidoController();
-$pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
+$pedidos = $pedidoController->listarPedidosPorUsuario($id_usuario);
 ?>
 
 <!DOCTYPE html>
