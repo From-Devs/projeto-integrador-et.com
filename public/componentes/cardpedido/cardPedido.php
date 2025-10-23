@@ -74,7 +74,7 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
                     <span class="precoProdutoMP">R$ <?= number_format($item['preco'], 2, ',', '.'); ?></span>
                     <span class="qtdProdutoMP">Quant: <?= $item['quantidade'] ?? 1; ?></span>
                     <!--<span class="subtotalProdutoMP">Subtotal: R$ <?= number_format($subtotal, 2, ',', '.'); ?></span>-->
-                    <button class="maisInfo">Mais Informações</button>
+                    <button class="maisInfo">Mais Info.</button>
                 </div>
             </div>
         </div>

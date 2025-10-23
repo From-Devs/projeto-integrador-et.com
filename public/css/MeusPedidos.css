@@ -71,7 +71,7 @@
 }
 
 #produtosAndamento::-webkit-scrollbar-thumb{
-    background-color: rgba(0, 0, 0, 0.363);                                   /*style do scroll*/
+    background-color: rgba(0, 0, 0, 0);                                   /*style do scroll*/
     border-radius: 10px;
 }
 
@@ -878,7 +878,7 @@
 }
 
 /*                  Parte de avaliação                  */
- .popupAvaliarProduto {
+.popupAvaliarProduto {
     border: none;
     border-radius: 10px;
     background: transparent;
@@ -1072,20 +1072,29 @@
         grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
     }
 
-    .cardcoloridoFin .card-info .card-imagem img{
+    .cardcoloridoFin .card-info2 .card-imagem2 img{
         height: 100px;
     }
 
-    .cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP .nomeProdutoMP{
+    .cardcoloridoFin .card-info2 .infoProdutoMP .nomeProdutoMP{
         font-size: 17px;
     }
 
-    .cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP .precoProdutoMP{
+    .cardcoloridoFin .card-info2 .infoProdutoMP .precoProdutoMP{
         font-size: 17px;
     }
 
-    .cards-produtoAndamento .cardcoloridoCam .card-info .infoProdutoMP .verMais{
+    .cardcoloridoFin .card-info2 .infoProdutoMP .maisInfo{
         font-size: 16px;
+    }
+
+    /**/
+}
+
+@media (max-width: 670px){
+    .popupAvaliarProduto {
+        width: 80%;
+        height: 350px;
     }
 }
 
