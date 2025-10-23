@@ -72,10 +72,30 @@ function buscarAtributosDoProduto(idProduto) {
             const inputPromo = form.querySelector('input[name="precoPromocional"]');
             inputPromo.disabled = !chkPromo.checked;
             
-            carregarSubCategorias(
-                form.querySelector('select[name="subCategoria"]'),
-                data[0].id_subCategoria
-            );
+            const categorySelect = form.querySelector('select[name="categoria"]') || document.getElementById('ddlCategoria');
+            const subSelect = form.querySelector('select[name="subCategoria"]') || document.getElementById('ddlSubCategoria');
+
+            if (categorySelect && data[0].id_categoria) {
+                categorySelect.value = data[0].id_categoria;
+                if (subSelect) {
+                    carregarSubCategoriasPorCategoria(subSelect, data[0].id_categoria, data[0].id_subCategoria);
+                }
+            } else if (subSelect && data[0].id_subCategoria) {
+                fetch(`http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=BuscarSubcategoriaPorId&idSub=${data[0].id_subCategoria}`)
+                    .then(res => res.json())
+                    .then(sc => {
+                        if (sc && sc.id_categoria) {
+                            if (categorySelect) categorySelect.value = sc.id_categoria;
+                            carregarSubCategoriasPorCategoria(subSelect, sc.id_categoria, data[0].id_subCategoria);
+                        } else {
+                            carregarSubCategorias(subSelect, data[0].id_subCategoria);
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Erro ao buscar subcategoria:', err);
+                        carregarSubCategorias(subSelect, data[0].id_subCategoria);
+                    });
+            }
 
             document.getElementById("img-produto-editar1").src = montarUrlImagem(data[0].img1) ?? "";
             document.getElementById("img-produto-editar2").src = montarUrlImagem(data[0].img2) ?? "";
@@ -175,7 +195,33 @@ function carregarSubCategorias(select, idSelecionado = null) {
         .then(response => response.json())
         .then(data => {
             select.innerHTML = '<option value="" disabled>Selecione uma subcategoria</option>';
-            
+
+            data.forEach(sc => {
+                const opt = document.createElement("option");
+                opt.value = sc.id_subCategoria;
+                opt.textContent = sc.nome;
+
+                if (idSelecionado && String(sc.id_subCategoria) === String(idSelecionado)) {
+                    opt.selected = true;
+                }
+
+                select.appendChild(opt);
+            });
+        })
+        .catch(err => console.error(err));
+}
+
+function carregarSubCategoriasPorCategoria(select, idCategoria, idSelecionado = null) {
+    if (!idCategoria) {
+        select.innerHTML = '<option value="" disabled selected>Selecione uma subcategoria</option>';
+        return;
+    }
+
+    fetch(`http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=ListarSubCategoriasPorCategoria&idCategoria=${idCategoria}`)
+        .then(response => response.json())
+        .then(data => {
+            select.innerHTML = '<option value="" disabled>Selecione uma subcategoria</option>';
+
             data.forEach(sc => {
                 const opt = document.createElement("option");
                 opt.value = sc.id_subCategoria;
@@ -199,3 +245,21 @@ function mudarFgPromo(chkPromo){
         inputPromo.disabled = true; 
     }
 }
+
+document.addEventListener('DOMContentLoaded', function(){
+    const createCat = document.getElementById('ddlCategoria');
+    const createSub = document.getElementById('ddlSubCategoria');
+    if (createCat && createSub) {
+        createCat.addEventListener('change', function(e){
+            carregarSubCategoriasPorCategoria(createSub, e.target.value);
+        });
+    }
+
+    const editCat = document.getElementById('ddlCategoriaEditar');
+    const editSub = document.getElementById('ddlSubCategoriaEditar');
+    if (editCat && editSub) {
+        editCat.addEventListener('change', function(e){
+            carregarSubCategoriasPorCategoria(editSub, e.target.value);
+        });
+    }
+});
