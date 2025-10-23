@@ -462,7 +462,7 @@ class Products {
     }
     // Buscar subcategorias pelo id da categoria
     public function getSubcategoriaByCategoriaId($idCategoria){
-        $stmt = $this->conn->prepare("SELECT * FROM SubCategoria WHERE id_categoria = :idCategoria");
+        $stmt = $this->conn->prepare("SELECT * FROM subcategoria WHERE id_categoria = :idCategoria");
         $stmt->bindValue(':idCategoria', $idCategoria, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
