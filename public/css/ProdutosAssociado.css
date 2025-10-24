@@ -126,6 +126,7 @@ a
     overflow-y: scroll;
     scrollbar-color: rgb(0, 0, 0) rgba(255, 255, 255, 0);
     padding-right: 18px;
+    padding-left: 6px;
 }
 
 .camposContainer h2{
