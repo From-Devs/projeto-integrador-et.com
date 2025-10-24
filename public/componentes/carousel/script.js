@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
+  // const detalhes = this.documentElement.querySelector('.detalheProdutoCarousel')
 
     const items = document.querySelectorAll('.carousel-item');
     const prev = document.getElementById('prev');
@@ -6,12 +7,10 @@ document.addEventListener("DOMContentLoaded", function(){
     const Bolas = document.querySelectorAll('.Bola');
     const carousel = document.getElementById('carousel');
     const background = document.getElementById('carouselBackground');
-    const detalhes = this.documentElement.querySelector('.detalheProdutoCarousel')
     const bubbleBackground = document.getElementById('bubble-background');
 
-    let detalhesTitulo = detalhes.childNodes[1].childNodes[1].childNodes[1];
-    let detalhesMarca = detalhes.childNodes[1].childNodes[1].childNodes[3];
-    let detalhesCor = detalhes.childNodes[3];
+    // NOVA CAPTURA
+  const detalhesPaineis = document.querySelectorAll('.detalheProdutoCarousel');
 
     let current = 0;
     let Animacao = false;
@@ -82,10 +81,17 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function mudarCorDeFundo(index) {
       carousel.className = `carouselContainer cor-${index}`;
-      detalhesCor.className = `frameImagemCarousel cor-${index}`;
-      background.style.animation = 'CarouselDegrade 0.8s ease'
-      setTimeout(() => {background.className = `carouselBackground cor-${index}`},799)
-      setTimeout(() => {background.style.animation = ''},800)
+      const activeDetalhe = document.querySelector('.detalheProdutoCarousel.active-detail');
+      if (activeDetalhe) {
+        const detalhesCor = activeDetalhe.querySelector('.frameImagemCarousel');
+        if(detalhesCor){
+          detalhesCor.className = `frameImagemCarousel cor-${index}`;
+        }
+        
+        background.style.animation = 'CarouselDegrade 0.8s ease'
+        setTimeout(() => {background.className = `carouselBackground cor-${index}`},799)
+        setTimeout(() => {background.style.animation = ''},800)
+      }
     }
 
     function AtualizarCarousel() {
@@ -101,7 +107,12 @@ document.addEventListener("DOMContentLoaded", function(){
           item.classList.add('right');
         }
       });
-
+      detalhesPaineis.forEach((detalhe, index) =>{
+        detalhe.classList.remove('open', 'active-detail');
+            if (index === current) {
+                detalhe.classList.add('active-detail');
+            }
+      })
       Bolas.forEach((Bola, index) => {
         Bola.classList.toggle('active-Bola', index === current);
         // console.log(Bola.classList); // debugging mostra a list class
@@ -156,25 +167,18 @@ document.addEventListener("DOMContentLoaded", function(){
 
 	function openPopup(){
 		if (Animacao) return;
-
-		if (current === 0) {
-			detalhesTitulo.innerHTML = "BATOM LÍQUIDO MATTIFY DAZZLE";
-			detalhesMarca.innerHTML = "HINODE";
-		} else if (current === 1) {
-			detalhesTitulo.innerHTML = "BASE MATE BOCA ROSA";
-			detalhesMarca.innerHTML = "PAYOT";
-		} else {
-			detalhesTitulo.innerHTML = "BODY SPLASH CUIDE-SE BEM DELEITE";
-			detalhesMarca.innerHTML = "O BOTICÁRIO";
-		}
-
-		detalhes.classList.add("open")
-		isPopupOpen = true;
-		stopAutoSlide();
-	}
+    const activeDetalhe = document.querySelector('.detalheProdutoCarousel.active-detail');
+    if (!activeDetalhe) return;
+    activeDetalhe.classList.add("open");
+    isPopupOpen = true;
+    stopAutoSlide();
+  }
 
 	function closePopup(){
-		detalhes.classList.remove("open")
+    const openDetalhe = document.querySelector('.detalheProdutoCarousel.open');
+    if (openDetalhe) {
+        openDetalhe.classList.remove("open");
+    }
 		isPopupOpen = false;
 		resetTimers();
 	}
@@ -208,7 +212,8 @@ document.addEventListener("DOMContentLoaded", function(){
       });
     });
     document.addEventListener('click', function(event){
-      if (detalhes.classList.contains("open") && !detalhes.contains(event.target)){
+      const openDetalhe = document.querySelector('.detalheProdutoCarousel.open');
+      if (openDetalhe && !openDetalhe.contains(event.target)){
         closePopup();
       }
     })
