@@ -21,16 +21,24 @@ class CaroselController extends BaseController {
 
         $this->renderCustom('dados_carrossel', 'carousel/carousel.php', $dados);
     }
-    public function createCarosel(array $data){
-        return $this->carouselModel->createCarosel($data);
-    }
 
+    public function createCarosel(array $data){
+        return $this->carouselModel->create($data);
+    }
+    
+    public function deleteCarosel(int $id){
+        return $this->carouselModel->remove($id);
+    }
 }
 $controller = new CaroselController();
 $controller->getAll();
 $controller->createCarosel(['id_produto'=>1,'id_coresSubs'=>2]);
 $controller->createCarosel(['id_produto'=>4,'id_coresSubs'=>1]);
 $controller->createCarosel(['id_produto'=>1,'id_coresSubs'=>6]);
+//funciona
+//$controller->createCarosel(3);
+
+
 //     // 🔹 Buscar slot por ID
 //     public function getById(int $id): ?array {
 //         try {
