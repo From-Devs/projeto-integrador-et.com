@@ -7,12 +7,15 @@ VALUES
 (5,'Viviane Gonçalves','vivgonca@gmail.com','(67) 99182-8272','333.333.333-33','1999-07-19','associado','Associado',null,null),             
 (6,'Maiara Lima','maytheforcebwu@gmail.com','(49) 99272-3729','444.444.444-44','2003-11-01','associado','Associado',null,null);              
 
-		-- Ambos eu cadastrei pelo site mesmo, então a senha está criptografada
+		-- Ambos eu cadastrei pelo site para a senha ser criptografada
 
 
 
 ----Obsevação: <<TODOS>> os produtos estão inseridos entre associados do id 2, 3, 4, 5 e 6.
 --------------- POR FAVOR, ATENTEM-SE AOS IDs!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
 
 -- INSERTS JÁ REALIZADOS:
 
@@ -1337,7 +1340,402 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
+(47,'#2B2B2B','#525252','#858585');
 
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Uomini Black Colônia','O Boticário','100ml',
+'Envolta em mistério, essa fragrância masculina combina notas quentes de especiarias, como Pimenta Preta e Cardamono, com o calor envolvente do âmbar. ',
+'Uomini sabe que em todo homem existe uma alma questionadora, que sonha levar uma vida mais autêntica. 
+
+Inspirados nessa inquietação, Uomini Black Desodorante Colônia, clássico da perfumaria O Boticário, se reinventa com a mesma fragrância potente e ousada, mas com nova embalagem – afinal, a vida é curta demais para não quebrar regras e viver a vida de maneira intensa.
+
+Família Olfativa: Oriental especiado.
+
+Pirâmide Olfativa:
+Topo: Pimenta Preta, Cardamomo, Tomilho, Coriandro. 
+Corpo: Folhas de Canela, Gerânio, Patchouli, Pimenta de Java Head Space. 
+Fundo: mbar, Fava Tonka, Musk, Baunilha.
+
+Como usar:
+Borrife a fragrância nas áreas onde há maior circulação do sangue, como o pescoço, dobras do cotovelo e atrás das orelhas. Para sentir a sua fragrância favorita por mais tempo, mantenha a sua pele sempre hidratada com nossos produtos de corpo e banho. 
+
+Orientação ao consumidor:
+Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas. Caso ocorra irritação e/ou prurido no local, suspenda o uso imediatamente. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Produto para perfumar e desodorizar a pele. Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança. 
+
+Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.
+
+Ingredientes:
+ÁLCOOL DESNATURADO; ÁGUA; PERFUME; CAPRILATO DE POLIGLICERILA-3; CINAMALDEÍDO; CITRAL; CITRONELOL; CUMARINA; EUGENOL; GERANIOL; HEXIL CINAMAL; LIMONENO; LINALOL.',
+194.90,180.99,1,40,'uomini-black-01.png','uomini-black-02.jpg',null,6,47,3);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(48,'#F76601','#F2AC02','#FFC549');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Protetor Solar Facial Anthelios FPS 60','La Roche-Posay','40g',
+'O La Roche-Posay Anthelios XL Protect é um protetor solar facial sem cor, com textura gel creme, oil free (livre de óleos) e de rápida absorção, que proporciona 8h de hidratação e uma pele sequinha e protegida, sem deixar resíduos brancos.',
+'O Protetor Solar Anthelios XL Protect é indicado para todos os tipos de pele, inclusive as oleosas, já que sua composição é oil free. Sua fórmula enriquecida com vitamina e, possui ação antioxidante e protege a pele não só contra os raios UVA/UVB, mas também contra a ação dos radicais livres. Além disso, conta com a tecnologia XL Protext, que proporciona maior resistência do filme protetor, mesmo em condições extremas.
+
+Como usar:
+Aplique de forma abundante sobre a pele antes da exposição ao sol, preferencialmente 30 minutos antes. Para manter a efetividade do Protetor Solar La Roche-Posay, reaplique o produto a cada 2 horas durante a exposição, principalmente após sudorese intensa, nadar ou secar-se com a toalha.
+
+Benefícios e diferenciais:
+ . Alta proteção contra raios UVA/UVB, com FPS 60 e PPD 25.
+ . Possui ação antioxidante.
+ . Previne o fotoenvelhecimento.
+ . Hidrata a pele por até 8 horas.
+ . Fórmula enriquecida com água termal La Roche-Posay.
+ . Não deixa resíduos brancos na pele.
+ . Não contém parabenos.
+ 
+Advertências:
+ . Uso externo. 
+ . Não ingerir.
+ . Caso haja contato com os olhos, lave-os abundantemente. 
+ . Se houver irritação, suspenda o uso imediatamente e procure orientação médica.
+ . Mantenha fora do alcance das crianças.
+ 
+Composição:
+Aqua / Water, Homosalate, Ethylhexyl Salicylate, Silica, Styrene/Acrylates Copolymer, Ethylhexyl Triazone, Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine, Drometrizole Trisiloxane, Butyl Methoxydibenzoylmethane, Aluminum Starch Octenylsuccinate, Octocrylene, C12-15 Alkyl Benzoate, Glycerin, Pentylene Glycol, Potassium Cetyl Phosphate, Dimethicone, Perlite, Propylene Glycol, Terephthalylidene Dicamphor Sulfonic Acid, Titanium Dioxide, Triethanolamine, Phenoxyethanol, Stearyl Alcohol, Isopropyl Lauroyl Sarcosinate, Peg-8 Laurate, Caprylyl Glycol, Inulin Lauryl Carbamate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Tocopherol, Xanthan Gum, Disodium Edta, Aluminum Hydroxide, Stearic Acid, Zinc Gluconate.',
+89.90,73.62,1,40,'','','',13,48,5);
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(49,'#6621A0','#8D2EDE','#AA4BFF');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Gela de Limpeza Mela B3','La Roche-Posay','120ml',
+'O Mela B3 Gel de Limpeza da La Roche-Posay é a solução nº1 para quem deseja uma limpeza antimanchas¹ eficaz.',
+'Formulado com o exclusivo ativo patenteado Melasyl™️, desenvolvido após 18 anos de pesquisa para corrigir e prevenir manchas¹ como nunca antes, o gel também contém Niacinamida e 1% de PHA (ácido polihidroxilado) para proporcionar uma esfoliação suave e gentil, limpando sem ressecar. O resultado é uma pele mais uniforme, radiante, renovada e com manchas corrigidas.
+
+Característica:
+ . Corrige manchas da pele, diferenças de tonalidade e manchas pós-acne.
+ . Eficácia clínica comprovada em todos os tons de pele.
+ . Previne o reaparecimento.
+ 
+Como usar:
+ . Fazer espuma com uma noz de produto na mão previamente molhada.
+ . Utilizar de manhã e de noite.
+ . Aplique sobre o rosto, pescoço, colo ou mão, massageando suavemente. Enxaguar em seguida.
+
+Dica de  uso:
+Evitar contato direto com os olhos. Utilizar Anthelios Ultracover FPS 60 na rotina da manhã.',
+102.90,89.52,1,80,'mela-b3-la-roche-1.png','mela-b3-la-roche-2.jpg','mela-b3-la-roche-3.jpg',14,49,2);
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(50,'#F5D132','#FFE16A','#FFE992');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Preenchedor de Rugas Q10 Expert Antissinais','Nivea','15ml',
+'O NIVEA Preenchedor Q10 Expert Antissinais é um preenchedor de linhas de expressão com resultados visíveis em 5 minutos.',
+'NIVEA Preenchedor Q10 Expert Antissinais é um creme com fórmula exclusiva que gera resultados visíveis em apenas 5 minutos.
+Serve para proporcionar melhora instantânea em rugas e linhas de expressão. Sua fórmula avançada atua rapidamente, reduzindo as rugas com uso contínuo.
+
+Benefícios:
+ . Anti-idade;
+ . Firmador;
+ . Todos os tipos de pele.
+
+Destaques do produto:
+ . Melhora a aparência das rugas e linhas de expressão em 5 minutos
+ . Com Q10 puro e Peptídeos de Bioxifil®
+ . Melhora instantaneamente a aparência das rugas
+ . Aplicação localizada
+ . 5% de complexo ativo
+
+Como usar:
+ . Aplicar em suas linhas e rugas na testa, ao redor dos olhos e dobras nasolabiais com o aplicador fácil de usar;
+ . Espalhe o conteúdo uniformemente com a ponta dos dedos;
+ . Use 2 vezes ao dia.
+
+Aviso:
+Uso externo. Evite contato com os olhos. Caso aconteça, enxágue com água em abundância. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.
+
+Ingredientes:
+Aqua, Dimethicone, Glycerin, Dimethicone Crosspolymer, Methylpropanediol, Alcohol Denat., Coco-Caprylate/Caprate, Octyldodecanol, Dicaprylyl Ether, Silica, Cetearyl Alcohol, Glyceryl Stearate, Tapioca Starch, Ubiquinone, Pimpinella Anisum Fruit Extract, Sodium Hyaluronate, Creatine, 1-Methylhydantoin-2-Imide, Panthenol, Pantolactone, Tocopherol, Sodium Cetearyl Sulfate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Citric Acid, Trisodium EDTA, Sodium Chloride, Sodium Sulfate, Sodium Hydroxide, Phenoxyethanol, CI 77891, CI 77491, CI 15985, Parfum',
+98.50,93.99,1,40,'nivea-antissinais-1.png','nivea-antissinais-2.jpg','nivea-antissinais-3.jpg',14,50,3);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(51,'#75B427','#98D449','#C3FF73');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Gel Hidratante Facial','Nivea','100ml',
+'Hidratante em gel NIVEA com ácido hialurônico e pepino. Textura mais leve que o creme facial. Não obstrui os poros e hidrata por 24h. Cuide bem da sua pele!',
+'NIVEA Hidratante Facial Gel é um aliado essencial para quem busca cuidar da pele de maneira eficaz e refrescante.
+Este hidratante em gel é formulado com ácido hialurônico e pepino, proporcionando uma textura mais leve do que os cremes faciais tradicionais. Ele é especialmente projetado para peles oleosas, garantindo um equilíbrio perfeito de hidratação e controle da oleosidade. Uma das vantagens deste produto é sua capacidade de não obstruir os poros, permitindo que a pele respire livremente. Além disso, seu efeito refrescante revitaliza a pele do rosto, mantendo-a bem cuidada e hidratada por 24 horas. Com NIVEA Hidratante Facial Gel você pode desfrutar de uma pele livre de oleosidade, radiante e revigorada.
+
+Benefícios e diferenciais:
+ - Não obstrui os poros e hidrata a pele por 24 horas.
+ - Refresca e hidrata a pele do rosto.
+ - Com ácido hialurônico e pepino.
+ - Livre de oleosidade.
+ - Sua fórmula especial deixa a pele sequinha e bem cuidada por 24 horas.
+ 
+Destaques do produto:
+ - Hidratação ideal para pele oleosa.
+ - Não deixa brilho.
+ - Não obstrui os poros.
+ - Sensação de pele limpa.
+ - Prolonga o efeito de maquiagem.
+
+Como usar:
+ - Limpe seu rosto antes de aplicá-lo.
+ - Aplique na testa, do centro para fora, em movimentos circulares.
+ - Aplique entre as sobrancelhas até o alto das bochechas.
+ - Massageie as maçãs do rosto em movimentos circulares.
+
+Ingredientes:
+Aqua, Glycerin, PEG-8, Ceteareth-20, Sodium Hyaluronate, Cucumis Sativus Juice, Ammonium Acryloyldimethyltaurate/VP Copolymer, Phenoxyethanol, Ethylhexylglycerin, Sodium Benzoate, Lactic Acid, Potassium Sorbate, Alpha-Isomethyl Ionone, Citronellol, Linalool, Parfum
+
+Ingredientes especiais:
+ - Ácido hialurônico e estrato de pepino.',
+30.58,null,0,60,'nivea-hidratanteemgel-1.png','nivea-hidratanteemgel-2.jpg','nivea-hidratanteemgel-3.jpg',11,51,3);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(52,'#D6B2B1','#FFD4D3','#FFDFDF');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Creme Hidratante Facial Para Pele Negra','Nivea','100g',
+'Creme hidratante facial NIVEA Beleza Radiante desenvolvido especialmente para as necessidades da pele negra. Ideal para pele oleosa, pois controla a oleosidade e promove um efeito matte.',
+'NIVEA Hidratante Facial 7 em 1 Beleza Radiante é um creme hidratante desenvolvido especialmente para atender às necessidades da pele negra. Sua fórmula única contém ingredientes como Ácido Hialurônico, Extrato de Pérolas e Cúrcuma, que proporcionam benefícios incríveis para a pele. 
+
+Este hidratante oferece 7 benefícios em 1 só produto: reduz a aparência de marcas escurecidas, controla a oleosidade, uniformiza o tom de pele, ilumina, hidrata, possui proteção UVA/UVB e proporciona um efeito matte.
+A textura leve e de rápida absorção do NIVEA Hidratante Facial 7 em 1 Beleza Radiante permite uma aplicação diária no rosto limpo. 
+
+Benefícios e diferenciais:
+ - Controla a oleosidade e promove um efeito matte.
+ - Uniformiza o tom de pele, ilumina e hidrata.
+ - Oferece proteção UVA/UVB.
+ - Reduz a aparência de marcas escurecidas.
+ - Proporciona um efeito matte de longa duração.
+
+Destaques do produto:
+ - Reduz aparência de marcas escurecidas*
+ - Controla a oleosidade
+ - Uniformiza o tom
+ - Ilumina
+ - Hidrata
+ - Com proteção UVA/UVB
+ - Efeito matte
+
+Como usar:
+ - Limpe seu rosto antes de aplicá-lo.
+ - Aplique na testa, do centro para fora, em movimentos circulares.
+ - Aplique entre as sobrancelhas até o alto das bochechas.
+ - Massageie as maçãs do rosto em movimentos circulares.
+
+Precauções: 
+ - Uso externo.
+ - Evite contato com os olhos. Caso aconteça, enxágue com água em abundância.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.
+ - Este produto não é um protetor solar.',
+30.58,null,0,50,'nivea-hidratante-pelenegra-1.png','nivea-hidratante-pelenegra-2.png','nivea-hidratante-pelenegra-3.png',11,52,3);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(47,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
