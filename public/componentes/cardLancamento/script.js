@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(){
     
     const card = document.querySelectorAll(".lancamentoFuncional");
-    const LoginVerific = document.getElementById('LoginVerific').innerHTML;
+    const loginElement = document.getElementById('LoginVerific');
+    const LoginVerific = loginElement ? loginElement.innerHTML : null; // ✅ só pega se existir
 
     card.forEach(item => {
         let cor = item.childNodes[5],

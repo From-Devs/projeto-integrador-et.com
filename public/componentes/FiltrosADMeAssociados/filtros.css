@@ -77,6 +77,7 @@
     appearance: none;
     text-align: left;
     padding: 10px;
+    transition: all 0.3s;
 }
 
 #botaoOrdenar:hover {
@@ -104,10 +105,11 @@
     font-size: 18px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    transition: all 0.3s;
 }
 
 #botaoAssociados:hover, #botaoSolicitacao:hover {
-    background-color: #14a166d5;
+    background-color: #2ec787;
 }
 
 #botoesAssociados, #botoesProdutos{

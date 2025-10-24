@@ -65,8 +65,11 @@ function buscarAtributosDoProduto(idProduto) {
             form.querySelector('textarea[name="breveDescricao"]').value = data[0].descricaoBreve ?? "";
             form.querySelector('textarea[name="caracteristicasCompleta"]').value = data[0].descricaoTotal ?? "";
             form.querySelector('input[name="corPrincipal"]').value = data[0].corPrincipal || "#000000";
+            form.querySelector('input[name="corPrincipalHEX"]').value = data[0].corPrincipal || "#000000";
             form.querySelector('input[name="deg1"]').value = data[0].hex1 || "#000000";
+            form.querySelector('input[name="deg1HEX"]').value = data[0].hex1 || "#000000";
             form.querySelector('input[name="deg2"]').value = data[0].hex2 || "#000000";
+            form.querySelector('input[name="deg2HEX"]').value = data[0].hex2 || "#000000";
 
             const chkPromo = form.querySelector('input[name="fgPromocao"]');
             const inputPromo = form.querySelector('input[name="precoPromocional"]');
