@@ -252,8 +252,7 @@ function filtro($tipo = "", $opcoesSelect = []) {
                                                 <img src="/projeto-integrador-et.com/public/imagens/associado/img-ajuda.png" alt="img-ajuda" title="Insira a IMAGEM SEM FUNDO do produto">
                                             </div>
                                         <label for="upload-produto1" class="icone-cadastrar-label">
-                                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
-                                                alt="Editar Produto" class="icone-cadastrar">
+                                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png" alt="Editar Produto" class="icone-cadastrar">
                                         </label>
                                         <input type="file" id="upload-produto1" name="img1" class="input-file" data-img-id="img-produto1" accept="image/*">
                                     </div>
@@ -270,8 +269,7 @@ function filtro($tipo = "", $opcoesSelect = []) {
                                             <img src="/projeto-integrador-et.com/public/imagens/associado/img-ajuda.png" alt="img-ajuda" title="Insira a IMAGEM DE LANÇAMENTO do produto (Banner)">
                                         </div>
                                         <label for="upload-produto2" class="icone-cadastrar-label">
-                                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
-                                                alt="Editar Produto" class="icone-cadastrar">
+                                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png" alt="Editar Produto" class="icone-cadastrar">
                                         </label>
                                         <input type="file" id="upload-produto2" name="img2" class="input-file" data-img-id="img-produto2" accept="image/*">
                                     </div>
@@ -288,8 +286,7 @@ function filtro($tipo = "", $opcoesSelect = []) {
                                             <img src="/projeto-integrador-et.com/public/imagens/associado/img-ajuda.png" alt="img-ajuda" title="Insira uma IMAGEM EXTRA do produto (OPCIONAL)">
                                         </div>
                                         <label for="upload-produto3" class="icone-cadastrar-label">
-                                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png"
-                                                alt="Editar Produto" class="icone-cadastrar">
+                                            <img src="/projeto-integrador-et.com/public/imagens/associado/img-editar.png" alt="Editar Produto" class="icone-cadastrar">
                                         </label>
                                         <input type="file" id="upload-produto3" name="img3" class="input-file" data-img-id="img-produto3" accept="image/*">
                                     </div>
@@ -301,7 +298,7 @@ function filtro($tipo = "", $opcoesSelect = []) {
         
                         <div class="cores-produto">
                             <div>
-                                <span class="span-cor">Cor principal <span class="asteriscoObrigatorio">*</span></span>
+                                <span class="span-cor">Cor principal: <span class="asteriscoObrigatorio">*</span></span>
                                 <div class="corContainer">
                                     <p class="textHex">HEX</p>
                                     <div class="editCor" id="corDegrade1">
@@ -312,7 +309,7 @@ function filtro($tipo = "", $opcoesSelect = []) {
                                 <!-- <input type="color" class="cor" name="corPrincipal"> -->
                             </div>
                             <div>
-                                <span class="span-cor">Degradê 1 <span class="asteriscoObrigatorio">*</span></span>
+                                <span class="span-cor">Degradê 1: <span class="asteriscoObrigatorio">*</span></span>
                                 <div class="corContainer">
                                     <p class="textHex">HEX</p>
                                     <div class="editCor" id="corDegrade1">
@@ -323,7 +320,7 @@ function filtro($tipo = "", $opcoesSelect = []) {
                                 <!-- <input type="color" class="cor" name="deg1"> -->
                             </div>
                             <div>
-                                <span class="span-cor">Degradê 2 <span class="asteriscoObrigatorio">*</span></span>
+                                <span class="span-cor">Degradê 2: <span class="asteriscoObrigatorio">*</span></span>
                                 <div class="corContainer">
                                     <p class="textHex">HEX</p>
                                     <div class="editCor" id="corDegrade1">

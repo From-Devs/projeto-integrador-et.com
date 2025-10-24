@@ -254,11 +254,13 @@ a
 
 .icone-editar, .icone-cadastrar {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    bottom: 7px;
+    right: 7px;
     width: 30px;
     height: 30px;
     cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 4px;
 }
 
 .icone-editar-label, .icone-cadastrar-label {
@@ -277,14 +279,15 @@ a
     z-index: 200;
     bottom: 33px;
     right: 48px;
-    width: 150px;
-    padding: 10px;
+    /* width: 150px; */
+    padding: 10px 16px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     background-color: #14A166;
     color: white;
     transition: all 0.3s;
+    font-size: 15px;
 }
 
 .btn-concluir-edicao:hover, .btn-concluir-cadastro:hover {
@@ -351,10 +354,12 @@ a
     display: flex;
     position: absolute;
     justify-content: center;
-    margin: 2px;
-    left: 5px;
-    bottom: 5px;
+    padding: 3px;
+    border-radius: 100px;
+    left: 7px;
+    top: 7px;
     cursor: help;
+    background-color: #ffffff;
 }
 
 .lgd-img img{
