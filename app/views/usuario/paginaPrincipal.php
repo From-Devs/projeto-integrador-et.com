@@ -16,10 +16,9 @@
 
     $produtoController = new ProdutoController();
 
-    $maisVendidos = $produtoController->getMaisVendidos(); // Lista de produtos mais vendidos (baseado na coluna "qtdVendida" da tabela de produto)
-    $ofertas = $produtoController->getOfertasImperdiveis(); // Lista de produtos com promoção
-    
-    session_start();
+    $maisVendidos = null; // Lista de produtos mais vendidos (baseado na coluna "qtdVendida" da tabela de produto)
+    $ofertas = null; // Lista de produtos com promoção
+   
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
     $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
@@ -70,7 +69,7 @@
                 <img src="/projeto-integrador-et.com/public/imagens/ET/LogoBranca2.png" alt="" class="carouselLogo">
                 <div class="componenteCarousel">
                     <?php
-                    echo createCarousel($dados); // função que cria o header
+                    echo createCarousel($carousel); // função que cria o header
                     ?>
                 </div>
             </div>

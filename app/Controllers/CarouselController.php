@@ -15,7 +15,6 @@ class CaroselController extends BaseController {
         // 🔹 Dados falsos só pra testar
         $dados = [
             'carousels' => $this->carouselModel->getAll(),
-            'cores' => $this->coresModel->getAll()
         ];
 
         $this->renderCustom('dados_carrossel', 'carousel/carousel.php', $dados);
