@@ -122,7 +122,7 @@ class AssociadosModel{
         try {
             $this->conn->beginTransaction();
 
-            $sqlStatus = "UPDATE PEDIDO SET ID_STATUS = :idStatus WHERE ID_PEDIDO = :idPedido";
+            $sqlStatus = "UPDATE PEDIDO SET id_status_pagamento = :idStatus WHERE id_pedido = :idPedido";
             $stmtStatus = $this->conn->prepare($sqlStatus);
             $stmtStatus->bindValue(":idStatus", $novoStatus, PDO::PARAM_INT);
             $stmtStatus->bindValue(":idPedido", $idPedido, PDO::PARAM_INT);

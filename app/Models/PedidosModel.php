@@ -16,12 +16,12 @@ class PedidosModel{
             U.nome,
             P.precoTotal,
             P.dataPedido,
-            S.tipoStatus
+            SP.tipoStatus statusPagamento
             FROM Pedido P
             JOIN usuario U
                 ON P.id_usuario = U.id_usuario
-            JOIN statusPagamento S
-                ON P.id_status = S.id_status_pagamento";
+            JOIN statusPagamento SP
+                ON P.id_status_pagamento = SP.id_status_pagamento";
             $params = [];
     
             if (!empty($pesquisa)) {
@@ -34,7 +34,7 @@ class PedidosModel{
                     case 'ID': $ordemSql = "P.id_pedido"; break;
                     case 'Preço': $ordemSql = "precoTotal"; break;
                     case 'Data': $ordemSql = "dataPedido"; break;
-                    case 'Status': $ordemSql = "S.id_status_pagamento"; break;
+                    case 'Status': $ordemSql = "SP.id_status_pagamento"; break;
                     default: $ordemSql = "P.id_pedido";
                 }
                 $sqlPedidos .= " ORDER BY $ordemSql";
@@ -50,9 +50,7 @@ class PedidosModel{
     
             foreach ($pedidos as &$pedido) {
                 $idPedido = $pedido['id_pedido'];
-                $pedido['detalhesPedido'] = $this->BuscarProdutosDoPedido($idPedido);
-    
-                // $pedido['infoPagamentos'] = $this->BuscarInfoPagamentos($idPedido);
+                $pedido['detalhesPedido'] = $this->BuscarProdutosDoPedido($idPedido);    
             }
     
             return $pedidos;
@@ -70,12 +68,15 @@ class PedidosModel{
             U.nome,
             P.precoTotal,
             P.dataPedido,
-            S.tipoStatus
+            SP.tipoStatus statusPagamento,
+            S.tipoStatus statusEntrega
             FROM Pedido P
             JOIN usuario U
                 ON P.id_usuario = U.id_usuario
-            JOIN statusPagamento S
-                ON P.id_status = S.id_status_pagamento
+            LEFT JOIN statusPagamento SP
+                ON P.id_status_pagamento = SP.id_status_pagamento
+            LEFT JOIN status S
+                ON P.id_status = S.id_status
             WHERE U.id_usuario = :idAssociado";
             $params = [];
     
@@ -89,7 +90,7 @@ class PedidosModel{
                     case 'ID': $ordemSql = "P.id_pedido"; break;
                     case 'Preço': $ordemSql = "precoTotal"; break;
                     case 'Data': $ordemSql = "dataPedido"; break;
-                    case 'Status': $ordemSql = "S.id_status_pagamento"; break;
+                    case 'Status': $ordemSql = "SP.id_status_pagamento"; break;
                     default: $ordemSql = "P.id_pedido";
                 }
                 $sqlPedidos .= " ORDER BY $ordemSql";
@@ -134,6 +135,28 @@ class PedidosModel{
     
         } catch (\Throwable $th) {
             echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
+    }
+
+    public function atualizarStatusEntrega($tipoStatusEntrega, $idPedido){
+        try {
+            $this->conn->beginTransaction();
+
+            $sqlUpdate = "UPDATE PEDIDO SET id_status = (
+                SELECT id_status FROM status WHERE tipoStatus = :tipoStatus LIMIT 1
+            ) WHERE id_pedido = :idPedido";
+
+            $stmt = $this->conn->prepare($sqlUpdate);
+            $stmt->bindValue(":tipoStatus", $tipoStatusEntrega, PDO::PARAM_STR);
+            $stmt->bindValue(":idPedido", $idPedido, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $this->conn->commit();
+            return true;
+        } catch (\Throwable $th) {
+            $this->conn->rollBack();
+            echo "Erro ao atualizar status de entrega: " . $th->getMessage();
             return false;
         }
     }

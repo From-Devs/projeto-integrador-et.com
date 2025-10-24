@@ -16,6 +16,31 @@ async function mudarStatus(btnId, idPedido){
     }
 }
 
+async function atualizarStatusEntrega(selectEl, idPedido){
+    const novoTipo = selectEl.value;
+
+    const resposta = await fetch("http://localhost/projeto-integrador-et.com/router/PedidosRouter.php?acao=atualizarStatusEntrega", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({tipoStatus: novoTipo, idPedido: idPedido})
+    });
+
+    if(resposta.status == 200){
+        const data = await resposta.json();
+        if(data.success){
+            // Mostrar popup curto de sucesso e atualizar, mantendo modal se necessário
+            sessionStorage.setItem("abrirPopUpStatus", "true");
+            window.location.reload();
+        } else {
+            alert('Erro ao atualizar status de entrega');
+        }
+    } else {
+        alert('Erro na requisição ao servidor');
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const modalAberto = localStorage.getItem('modalAberto');
     if(modalAberto){
