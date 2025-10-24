@@ -29,7 +29,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Et.com</title>
+    <title>ET.com</title>
    
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/sliderProdutos.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/header/styles.css">
@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popup/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/css/paginaPrincipal.css">
  
+    <link rel="icon" type="image/png" href="/projeto-integrador-et.com/public/imagens/ET/iconesGuias/favicon-16x16.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
@@ -175,7 +176,7 @@
                         echo createCardProduto(
                             $produto['marca'],
                             $produto['nome'],
-                            $produto['precoPromo'] ?? $produto['preco'],
+                            $produto['precoPromo'] == 0 ? $produto['preco'] : $produto['precoPromo'],
                             $produto['img1'],
                             $produto['fgPromocao'],
                             $produto['preco'],
@@ -208,7 +209,7 @@
                         echo createCardProduto(
                             $produto['marca'],
                             $produto['nome'],
-                            $produto['precoPromo'] ?? $produto['preco'],
+                            $produto['precoPromo'] == 0 ? $produto['preco'] : $produto['precoPromo'],
                             $produto['img1'],
                             $produto['fgPromocao'],
                             $produto['preco'],

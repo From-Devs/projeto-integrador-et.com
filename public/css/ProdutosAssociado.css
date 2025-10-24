@@ -62,13 +62,15 @@ a
 
 .dialog-editar, .dialog-cadastrar {
     border: none;
-    /* height: 600px; */
+    width: 1200px;
+    box-sizing: border-box;
+    height: 800px;
     border-radius: 20px;
     font-family: "Montserrat", sans-serif;
     background-color: #f8f8f8;
     filter: drop-shadow(0 0 10px #2727271f);
     box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
-    padding: 24px;
+    padding: 33px;
     position: fixed;
     left: 50%;
     top: 50%;
@@ -79,21 +81,23 @@ a
     background-color: rgba(0, 0, 0, 0.25);
 }
 
+.bodyCadastrar, .bodyEditar{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .header-editar, .header-cadastrar {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding: 0 20px;
-    height: 60px;
+    justify-content: space-between;
+    /* height: 60px; */
 }
 
 .header-editar h1, .header-cadastrar h1 {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     margin: 0;
-    font-size: 2rem;
+    font-size: 24px;
 }
 
 .header-editar img, .header-cadastrar img {
@@ -101,8 +105,39 @@ a
     cursor: pointer;
 }
 
+.cadastroWrapper, .editarWrapper{
+    display: flex;
+    gap: 54px;
+}
+
+.previsualizacaoProduto{
+    padding-left: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.camposContainerWrapper{
+    width: 100%;
+}
+
+.camposContainer{
+    width: 100%;
+    height: 635px;
+    overflow-y: scroll;
+    scrollbar-color: rgb(0, 0, 0) rgba(255, 255, 255, 0);
+    padding-right: 18px;
+}
+
+.camposContainer h2{
+    padding-bottom: 10px;
+}
+
+.inicioSessao{
+    padding-top: 13px;
+}
+
 .campos-editar, .campos-cadastrar {
-    display: grid;
+    /* display: grid; */
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;
@@ -115,10 +150,10 @@ a
 .campo {
     display: flex;
     flex-direction: column;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
-.campo label, .campo-small label {
+.campo label, .campo-small label, .chkPromocao label {
     font-weight: 500;
 }
 
@@ -135,8 +170,23 @@ a
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+.campo input:disabled {
+    width: 100%;
+    padding: 7px;
+    border-radius: 8px;
+    font-weight: 500;
+    resize: none;
+    border: none;
+    /* box-shadow: 2px 2px 3px 1px #0000007a; */
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background-color: #e4e4e4;
+}
+
+.asteriscoObrigatorio{
+    color: #ff0000;
+}
+
 .campo-large{
-    width: 500px;
     height: 200px;
 }
 
@@ -145,42 +195,24 @@ a
     height: 100%;
 }
 
-.container-campos-large{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
 .btn-fechar {
     background-color: transparent;
     border: none;
 }
 
-.divisao-esquerda {
-    display: flex;
-    align-items: start;
-    gap: 20px;
-}
-
-.campos-direita {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    justify-content: center;
-}
-
 .cores-produto{
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
 }
 
-.cores-produto input {
-    width: 100%;
-    border-radius: 10px;
-    cursor: pointer;
+.span-cor{
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .container-img {
-    height: 100px;
+    height: 225px;
     width: 100%;
     padding: 5px;
     background-color: transparent;
@@ -189,10 +221,12 @@ a
 .galeria-produtos {
     display: flex;
     gap: 10px;
-    width: 300px;
-    background-color: #dcdcdc;
+    width: 100%;
+    background-color: #ffffff;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 10px;
-    padding: 10px 10px 0px 10px;
+    padding: 10px;
+    margin-bottom: 12px;
 }
 
 .item-produto {
@@ -220,11 +254,13 @@ a
 
 .icone-editar, .icone-cadastrar {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 20px;
-    height: 20px;
+    bottom: 7px;
+    right: 7px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 4px;
 }
 
 .icone-editar-label, .icone-cadastrar-label {
@@ -233,17 +269,29 @@ a
 }
 
 .div-btn {
+    margin-top: 10px;
+    margin-right: 20px;
     place-self: end;
 }
 
 .btn-concluir-edicao, .btn-concluir-cadastro {
-    width: 150px;
-    padding: 10px;
+    position: absolute;
+    z-index: 200;
+    bottom: 33px;
+    right: 48px;
+    /* width: 150px; */
+    padding: 10px 16px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     background-color: #14A166;
     color: white;
+    transition: all 0.3s;
+    font-size: 15px;
+}
+
+.btn-concluir-edicao:hover, .btn-concluir-cadastro:hover {
+    background-color: #2ec787;
 }
 
 .input-file {
@@ -278,21 +326,11 @@ a
     border: none;
 }
 
-.cores-produto div{
-    width: 100%;
-}
-
-.span-cor{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-}
-
 .chkPromocao{
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-bottom: 8px;
 }
 
 .chkPromocao input{
@@ -314,13 +352,18 @@ a
 
 .lgd-img{
     display: flex;
+    position: absolute;
     justify-content: center;
-    width: 100%;
-    margin: 5px;
+    padding: 3px;
+    border-radius: 100px;
+    left: 7px;
+    top: 7px;
+    cursor: help;
+    background-color: #ffffff;
 }
 
 .lgd-img img{
-    width: 15px;
+    width: 30px;
 }
 
 .img-ajuda {
@@ -329,7 +372,7 @@ a
   }
   
   /* estilo do balão */
-  .img-ajuda::after {
+  .lgd-img::after {
     content: attr(data-tooltip);
     visibility: hidden;
     opacity: 0;
@@ -351,7 +394,7 @@ a
   }
   
   /* seta */
-  .img-ajuda::before {
+  .lgd-img::before {
     content: "";
     position: absolute;
     bottom: 115%;
@@ -366,12 +409,36 @@ a
   }
   
   /* aparece no hover */
-  .img-ajuda:hover::after,
-  .img-ajuda:hover::before {
+  .lgd-img:hover::after,
+  .lgd-img:hover::before {
     visibility: visible;
     opacity: 1;
   }
   
+.container-tamanho{
+    display: flex;
+    gap: 5px;
+}
+
+.campo-valor-tamanho{
+    width: 100px;
+}
+
+#valorTamanho{
+    width: 100%;
+}
+
+.campo-tipo-tamanho{
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+
+#tipoTamanho{
+    width: 100%;
+}
 
 @media (max-width: 1280px) {
     .main{

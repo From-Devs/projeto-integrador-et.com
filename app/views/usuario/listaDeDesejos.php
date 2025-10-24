@@ -139,7 +139,7 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
                         echo createCardProduto(
                             $produto['marca'],
                             $produto['nome'],
-                            $produto['precoPromo'] ?? $produto['preco'],
+                            $produto['precoPromo'] == 0 ? $produto['preco'] : $produto['precoPromo'],
                             $produto['img1'],
                             $produto['fgPromocao'],
                             $produto['preco'],
