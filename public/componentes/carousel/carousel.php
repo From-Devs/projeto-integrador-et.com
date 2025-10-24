@@ -10,6 +10,7 @@ function createCarousel($carousels){
     <div class="carousel-track" id="MoverCarrousel">'
     . createCarouselPopUp();
 foreach ($carousels as $cs) {
+    if (!is_array($cs)) continue; // evita erro se vier algo quebrado
     $img = $cs['img1'] ?? 'public/uploads/padrao.jpg';
     $html .= '
         <div class="carousel-item">
