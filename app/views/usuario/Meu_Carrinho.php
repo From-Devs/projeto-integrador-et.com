@@ -152,7 +152,7 @@
 
             </tfoot>
         </table>
-        <div class="button-container" style="">
+        <div class="button-container">
             <button type="submit" name="acao" value="pedido">Realizar Pedido</button>
             <button type="button" id="btnExcluirSelecionados">Excluir Selecionados</button>
         </div>

@@ -1091,10 +1091,40 @@
     /**/
 }
 
-@media (max-width: 670px){
-    .popupAvaliarProduto {
-        width: 80%;
-        height: 350px;
+@media (max-width: 700px){
+    .popupAvaliarProduto{
+        width: 70%;
+    }
+
+    .popupAva-conteudo{
+        display: flex;
+    }
+
+    .popupAvaliarProduto .popupAva-conteudo .popupAva-main .partefinal .botoesfinal{
+        justify-content: center;
+    }
+
+    textarea#popupAva-textoAvaliacao {
+        width: 50%;
+    }
+
+    .popupAvaliarProduto .popupAva-conteudo .popupAva-main .partefinal{
+        align-items: center;
+    }
+
+    .popupAvaliarProduto .popupAva-conteudo .popupAva-main .avaliando{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .popupAvaliarProduto .popupAva-conteudo .popupAva-main .avaliando .popupAva-titulo{
+        margin: 0;
+        padding: 0;
+    }
+
+    .popupAvaliarProduto .popupAva-conteudo .produto-info-avaliacao .produto-ir{
+        width: auto;
     }
 }
 
@@ -1170,7 +1200,6 @@
 }
 
 textarea#popupAva-textoAvaliacao {
-    width: 100%;
     height: 80px;
     margin: 0.5rem 0;
     padding: 0.5rem;
