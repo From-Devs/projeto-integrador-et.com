@@ -4,7 +4,6 @@ require_once __DIR__ . '/../Models/CarouselModel.php';
 require_once __DIR__ . "/../Models/CoresSubModel.php";
 
 class CaroselController extends BaseController {
-
     private $carouselModel;
     private $coresModel;
 
@@ -22,9 +21,16 @@ class CaroselController extends BaseController {
 
         $this->renderCustom('dados_carrossel', 'carousel/carousel.php', $dados);
     }
+    public function createCarosel(array $data){
+        return $this->carouselModel->createCarosel($data);
+    }
+
 }
 $controller = new CaroselController();
 $controller->getAll();
+$controller->createCarosel(['id_produto'=>1,'id_coresSubs'=>2]);
+$controller->createCarosel(['id_produto'=>4,'id_coresSubs'=>1]);
+$controller->createCarosel(['id_produto'=>1,'id_coresSubs'=>6]);
 //     // 🔹 Buscar slot por ID
 //     public function getById(int $id): ?array {
 //         try {
