@@ -21,6 +21,7 @@ class CarouselModel {
             ":id_coresSubs" => $data['id_coresSubs']
         ]);
     }
+    
  
     // 🔹 DELETE - remover registro
     public function remove(int $id): bool {
