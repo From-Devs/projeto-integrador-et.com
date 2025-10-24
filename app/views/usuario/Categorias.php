@@ -14,10 +14,10 @@
 
     $categoriasPorTela = [ 
         "Maquiagem" => ["Tipos" => ["Olhos", "Sombrancelhas","Boca","Pele"]],
-        "Perfume"   => ["Gênero" => ["Feminino", "Masculino", "Unissex"]],
-        "Skincare"  => ["Tipos" => ["Limpeza", "Esfoliação", "Hidratação", "Máscara", "Protetor Solar", "Especiais"]],
-        "Cabelo"    => ["Tipos" => ["Dia-A-Dia", "Tratamentos", "Estilização", "Especiais", "Acessórios"]],
-        "Eletronicos" => ["Tipos" => ["Cabelos", "Pincel", "Esponja"]],
+        "Perfume"   => ["Gênero" => ["Feminino", "Masculino", "Infantil","BodySplash"]],
+        "Skincare"  => ["Tipos" => ["Limpeza facial", "Esfoliação", "Hidratação", "Máscara", "Protetor Solar","Tratamentos"]],
+        "Cabelo"    => ["Tipos" => ["Dia-A-Dia", "Tratamentos", "Estilização","Acessórios"]],
+        "Utensílios" => ["Tipos" => ["Cabelos", "Maquiagem", "Esponja"]],
         "Corporal"  => ["Produtos" => ["Body Splash", "Óleos", "Creme", "Protetor"]],
     ];
     
@@ -26,7 +26,7 @@
         "perfume"   => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/PerfumeFundo.png"],
         "skincare"  => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareFundo.png"],
         "cabelo"    => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloFundo.png"], 
-        "eletronicos" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosFundo.png"],
+        "utensílios" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/utensíliosFundo.png"],
         "corporal"  => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalFundo.png"],
         "ofertas"   => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/OfertasFundo.png"],
         "mais_vendidos" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaisVendidosFundo.png"],

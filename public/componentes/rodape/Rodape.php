@@ -27,7 +27,7 @@ function createRodape($tipo = 0){
                             <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=skincare" class="CategoriaLink">SkinCare</a>
                             <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=cabelo" class="CategoriaLink">Cabelo</a>
                             <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal" class="CategoriaLink">Corporal</a>
-                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=eletronicos" class="CategoriaLink">Eletrônicos</a>
+                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=utensílios" class="CategoriaLink">Utensílios</a>
                         </div>
                     </div>
     
@@ -92,7 +92,7 @@ function createRodape($tipo = 0){
                                 Cabelo
                             </a>
                             <a href="" class="CategoriaLink">
-                                Eletrônicos
+                                utensílios
                             </a>
                             <a href="" class="CategoriaLink">
                                 Corporal

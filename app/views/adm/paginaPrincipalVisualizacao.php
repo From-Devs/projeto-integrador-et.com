@@ -102,17 +102,17 @@
         </a>
         <a class="botaoCategoria botao4" href="">            
             <div class="containerIconeCategoria">
-                <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/cabelo.png" alt="" class="iconeCategoria">
-                <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/cabeloHover.png" alt="" class="iconeCategoriaHover">
+                <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/cabelos.png" alt="" class="iconeCategoria">
+                <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/cabelosHover.png" alt="" class="iconeCategoriaHover">
             </div>
-            <p class="tituloCategoria">Cabelo</p>            
+            <p class="tituloCategoria">cabelos</p>            
         </a>
         <a class="botaoCategoria botao5" href="">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronico.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronicoHover.png" alt="" class="iconeCategoriaHover">
             </div>
-            <p class="tituloCategoria">Eletrônicos</p>            
+            <p class="tituloCategoria">utensílios</p>            
         </a>
         <a class="botaoCategoria botao6" href="">            
             <div class="containerIconeCategoria">
