@@ -1,51 +1,28 @@
 <?php
 require_once __DIR__ . "/BaseController.php";
-require_once __DIR__ . '/../Models/CarouselModel.php';
-require_once __DIR__ . "/../Models/CoresSubModel.php";
+require_once __DIR__ . '/../Models/categoria.php';
 
-class CaroselController extends BaseController {
-    private $carouselModel;
-    private $coresModel;
-
-    public function __construct() {
-        $this->carouselModel = new CarouselModel();
-        $this->coresModel = new CoresSubModel();
-    }
-
-    public function getAll() {
-        // 🔹 Dados falsos só pra testar
-        $dados = [
-            'carousels' => $this->carouselModel->getAll(),
-            'cores' => $this->coresModel->getAll()
-        ];
-
-        $this->renderCustom('dados_carrossel', 'carousel/carousel.php', $dados);
-    }
-
-    public function createCarosel(array $data){
-        return $this->carouselModel->create($data);
-    }
-    
-    public function deleteCarosel(int $id){
-        return $this->carouselModel->remove($id);
+class CaroselController extends BaseController{
+    // 🔹 Buscar slot por ID
+    public function getById(int $id): ?array {
+        try {
+            $caroseul = this->carouselModel->getAll();
+            $this->rendeCustom("carrosel","carosel/carosel.php",$caroseul);
+        } catch(Exception $e) {
+            error_log("Carousel error: " . $e->getMessage());
+            return [];
+        }
     }
 }
-$controller = new CaroselController();
-$controller->getAll();
-$controller->createCarosel(['id_produto'=>1,'id_coresSubs'=>2]);
-$controller->createCarosel(['id_produto'=>4,'id_coresSubs'=>1]);
-$controller->createCarosel(['id_produto'=>1,'id_coresSubs'=>6]);
-//funciona
-//$controller->createCarosel(3);
-
 
 //     // 🔹 Buscar slot por ID
 //     public function getById(int $id): ?array {
 //         try {
 //             $caroseulUnico = this->carouselModel->getElementById($id);
-        
+//             return $caroseulUnico;
 //         } catch(Exception $e) {
 //             error_log("Carousel error: " . $e->getMessage());
+//             return [];
 //         }
 //     }
 

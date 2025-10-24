@@ -16,12 +16,8 @@ class BaseController {
     
     // ✅ FIX: ADICIONE ESTA FUNÇÃO (OU CORRIJA SE JÁ TEM)
     protected function renderCustom($conn, $path, $data = []) {
-      if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-      }
       $_SESSION[$conn] = $data;  // 🔥 ISSO FAZ $carousels E $cores CHEGAREM!
-      header("Location: ../../public/componentes/$path");
-      exit;
+      header("Location: ../../app/public/$path");
     }
     /**
      * 🔹 Explicação
