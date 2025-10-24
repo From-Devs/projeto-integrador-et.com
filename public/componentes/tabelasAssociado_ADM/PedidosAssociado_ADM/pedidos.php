@@ -210,7 +210,11 @@ function tabelaPedidosAssociado($pedidos) {
                     <td>{$data}</td>
                     <td><div id='{$statusClass}'><p>{$pedido['tipoStatus']}</p></div></td>
                     <td>
-                        <button>teste entrega</button>
+                        <select name='statusEntrega' id='statusEntrega'>
+                            <option value='pendente'>Pendente</option>
+                            <option value='pendente'>Pendente</option>
+                            <option value='pendente'>Pendente</option>
+                        </select>
                     </td>
                 </tr>";
     }

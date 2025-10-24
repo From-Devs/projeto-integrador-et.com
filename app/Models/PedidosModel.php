@@ -20,8 +20,8 @@ class PedidosModel{
             FROM Pedido P
             JOIN usuario U
                 ON P.id_usuario = U.id_usuario
-            JOIN status S
-                ON P.id_status = S.id_status";
+            JOIN statusPagamento S
+                ON P.id_status = S.id_status_pagamento";
             $params = [];
     
             if (!empty($pesquisa)) {
@@ -34,7 +34,7 @@ class PedidosModel{
                     case 'ID': $ordemSql = "P.id_pedido"; break;
                     case 'Preço': $ordemSql = "precoTotal"; break;
                     case 'Data': $ordemSql = "dataPedido"; break;
-                    case 'Status': $ordemSql = "S.id_status"; break;
+                    case 'Status': $ordemSql = "S.id_status_pagamento"; break;
                     default: $ordemSql = "P.id_pedido";
                 }
                 $sqlPedidos .= " ORDER BY $ordemSql";
@@ -66,7 +66,7 @@ class PedidosModel{
 
     public function BuscarTodosPedidosAssociado($ordem="", $pesquisa="", $idAssociado){
         try {    
-            $sqlPedidos = "SELECT P.id_pedido, 
+            $sqlPedidos = "SELECT DISTINCT P.id_pedido, 
             U.nome,
             P.precoTotal,
             P.dataPedido,
@@ -74,8 +74,8 @@ class PedidosModel{
             FROM Pedido P
             JOIN usuario U
                 ON P.id_usuario = U.id_usuario
-            JOIN status S
-                ON P.id_status = S.id_status
+            JOIN statusPagamento S
+                ON P.id_status = S.id_status_pagamento
             WHERE U.id_usuario = :idAssociado";
             $params = [];
     
@@ -89,7 +89,7 @@ class PedidosModel{
                     case 'ID': $ordemSql = "P.id_pedido"; break;
                     case 'Preço': $ordemSql = "precoTotal"; break;
                     case 'Data': $ordemSql = "dataPedido"; break;
-                    case 'Status': $ordemSql = "S.id_status"; break;
+                    case 'Status': $ordemSql = "S.id_status_pagamento"; break;
                     default: $ordemSql = "P.id_pedido";
                 }
                 $sqlPedidos .= " ORDER BY $ordemSql";
@@ -108,75 +108,6 @@ class PedidosModel{
             return false;
         }
     }
-
-
-    // public function BuscarTodosPedidos($ordem="", $pesquisa=""){
-    //     $pedido['detalhesPedido'] = $this->model->BuscarProdutosDoPedido($idPedido);
-
-    //     foreach ($pedidos as &$pedido) {
-    //         $idPedido = $pedido['id_pedido'];
-    
-    //         // Produtos do pedido
-    //         $pedido['detalhesPedido'] = $this->model->BuscarProdutosDoPedido($idPedido);
-    
-    //         // Informações de pagamento (você precisa criar esse método)
-    //         $pedido['infoPagamentos'] = $this->model->BuscarInfoPagamentos($idPedido);
-    //     }
-
-    //     try {    
-    //         $sqlPedidos = "SELECT P.id_pedido, 
-    //         U.nome,
-    //         P.precoTotal,
-    //         P.dataPedido,
-    //         S.tipoStatus
-    //         FROM Pedido P
-    //         JOIN usuario U
-    //             ON P.id_usuario = U.id_usuario
-    //         JOIN status S
-    //             ON P.id_status = S.id_status";
-    //         $params = [];
-    
-    //         //Para concatenar a pesquisa
-    //         if (!empty($pesquisa)) {
-    //             $sqlPedidos .= " WHERE nome LIKE :pesquisa";
-    //             $params[':pesquisa'] = "$pesquisa%";
-    //         }
-    
-    //         if (!empty($ordem)) {
-    //             switch ($ordem) {
-    //                 case 'ID':
-    //                     $ordemSql = "P.id_pedido";
-    //                     break;
-    //                 case 'Preço':
-    //                     $ordemSql = "precoTotal";
-    //                     break;
-    //                 case 'Data':
-    //                     $ordemSql = "dataPedido";
-    //                     break;
-    //                 case 'Status':
-    //                     $ordemSql = "S.id_status";
-    //                     break;
-    //                 default:
-    //                     $ordemSql = "P.id_pedido";
-    //             }
-    //             $sqlPedidos .= " ORDER BY $ordemSql";
-    //         }
-    
-    //         $stmt = $this->conn->prepare($sqlPedidos);
-    
-    //         foreach ($params as $key => $val) {
-    //             $stmt->bindValue($key, $val, PDO::PARAM_STR);
-    //         }
-    
-    //         $stmt->execute();
-    //         // return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //         return $pedidos;
-    
-    //     } catch (\Throwable $th) {
-    //         echo "Erro ao buscar: " . $th->getMessage();
-    //         return false;
-    //     }
-    // }
 
     public function BuscarProdutosDoPedido($idPedido){
         try {    
