@@ -73,7 +73,6 @@ a {
 .img-principal {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
 }
  
 .img-principal div {

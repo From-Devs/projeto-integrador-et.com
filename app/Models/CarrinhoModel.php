@@ -25,9 +25,9 @@ class Carrinho {
                 p.img1,
                 p.tamanho,
                 pc.qntProduto AS quantidade
-            FROM ProdutoCarrinho pc
-            JOIN Carrinho c ON c.id_carrinho = pc.id_carrinho
-            JOIN Produto p ON p.id_produto = pc.id_produto
+            FROM produtocarrinho pc
+            JOIN carrinho c ON c.id_carrinho = pc.id_carrinho
+            JOIN produto p ON p.id_produto = pc.id_produto
             WHERE c.id_usuario = :id_usuario
         ";
 
