@@ -32,6 +32,10 @@ class CaroselController extends BaseController {
     public function createCarosel(array $data){
         return $this->carouselModel->create($data);
     }
+
+    public function editaCarosel(int $id, array $data){
+        return $this->carouselModel->update($id,$data);
+    }
     
     public function deleteCarosel(int $id){
         return $this->carouselModel->remove($id);
@@ -41,6 +45,7 @@ $controller = new CaroselController();
 $controller->getAll();
 $controller->getById(1);
 $controller->createCarosel(['id_produto'=>1,'id_coresSubs'=>2]);
+$controller->editaCarosel( 1 ['id_produto'=> 3,'id_coresSubs'=>4]);
 $controller->createCarosel(['id_produto'=>4,'id_coresSubs'=>1]);
 $controller->createCarosel(['id_produto'=>1,'id_coresSubs'=>6]);
 //funciona
