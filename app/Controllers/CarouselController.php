@@ -20,6 +20,14 @@ class CaroselController extends BaseController {
 
         $this->renderCustom('dados_carrossel', 'carousel/carousel.php', $dados);
     }
+    public function getById(int $id) {
+        // 🔹 Dados id unico para costumizaçao
+        $dados = [
+            'carousel' => $this->carouselModel->getElementById($id),
+            'cor' => $this->coresModel->getElementById($id)
+        ];
+        $this->renderCustom('index', 'teste/index.php', $dados);
+    }
 
     public function createCarosel(array $data){
         return $this->carouselModel->create($data);
@@ -31,6 +39,7 @@ class CaroselController extends BaseController {
 }
 $controller = new CaroselController();
 $controller->getAll();
+$controller->getById(1);
 $controller->createCarosel(['id_produto'=>1,'id_coresSubs'=>2]);
 $controller->createCarosel(['id_produto'=>4,'id_coresSubs'=>1]);
 $controller->createCarosel(['id_produto'=>1,'id_coresSubs'=>6]);
