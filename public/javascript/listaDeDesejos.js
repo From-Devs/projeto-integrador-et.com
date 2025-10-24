@@ -19,10 +19,14 @@ function atualizarBarra() {
     const checkboxes = getCheckboxes();
     const algumSelecionado = Array.from(checkboxes).some(cb => cb.checked);
 
-    acoesCheckbox.classList.toggle("ativo", algumSelecionado);
-    acoesCheckbox.style.display = algumSelecionado ? 'flex' : 'none';
+    if (acoesCheckbox) {
+        acoesCheckbox.classList.toggle("ativo", algumSelecionado);
+        acoesCheckbox.style.display = algumSelecionado ? 'flex' : 'none';
+    }
 
-    selecionarTodos.checked = algumSelecionado && Array.from(checkboxes).every(cb => cb.checked);
+    if (selecionarTodos) {
+        selecionarTodos.checked = algumSelecionado && Array.from(checkboxes).every(cb => cb.checked);
+    }
 }
 
 function getSelecionados() {
@@ -45,18 +49,28 @@ async function enviarFormulario(action, idsProdutos) {
         return;
     }
 
+    let endpoint;
     const formData = new FormData();
     formData.append('id_usuario', usuarioId);
     idsProdutos.forEach(id => formData.append('id_produto[]', id));
 
-    try {
-        // Aqui enviamos a action via GET para o PHP
-        const res = await fetch(`/projeto-integrador-et.com/config/produtoRouter.php?action=${action}`, {
-            method: 'POST',
-            body: formData
-        });
+    if (action === 'adicionarCarrinho') {
+        endpoint = '/projeto-integrador-et.com/router/CarrinhoRouter.php?action=adicionarCarrinho';
+    } else {
+        endpoint = '/projeto-integrador-et.com/router/ListaDesejosRouter.php?action=' + action;
+    }
 
-        const data = await res.json();
+    try {
+        const res = await fetch(endpoint, { method: 'POST', body: formData });
+        const text = await res.text();
+
+        let data;
+        try { data = JSON.parse(text); }
+        catch (e) {
+            console.error("Resposta do servidor não é JSON:", text);
+            alert("Erro no servidor. Verifique o console.");
+            return;
+        }
 
         if (!data.ok) {
             alert(data.msg || "Erro ao processar a ação");
@@ -86,6 +100,7 @@ async function enviarFormulario(action, idsProdutos) {
                 alert("Produto adicionado à Lista de Desejos!");
             }
         }
+
     } catch (err) {
         console.error(err);
         alert("Erro ao conectar com o servidor.");
@@ -101,35 +116,38 @@ document.addEventListener("change", (e) => {
     }
 });
 
-selecionarTodos.addEventListener('change', () => {
-    getCheckboxes().forEach(cb => cb.checked = selecionarTodos.checked);
-    atualizarBarra();
-});
+if (selecionarTodos) {
+    selecionarTodos.addEventListener('change', () => {
+        getCheckboxes().forEach(cb => cb.checked = selecionarTodos.checked);
+        atualizarBarra();
+    });
+}
 
 // ==========================
 // ===== BOTÕES PRINCIPAIS ===
 // ==========================
-btnAdicionarCarrinho.addEventListener('click', () => {
-    enviarFormulario('adicionarCarrinho', getSelecionados());
-});
+if (btnAdicionarCarrinho) {
+    btnAdicionarCarrinho.addEventListener('click', () => {
+        enviarFormulario('adicionarCarrinho', getSelecionados());
+    });
+}
 
-btnExcluirSelecionados.addEventListener('click', () => {
-    const selecionados = getSelecionados();
-    const qnt = selecionados.length;
+if (btnExcluirSelecionados) {
+    btnExcluirSelecionados.addEventListener('click', () => {
+        const selecionados = getSelecionados();
+        const qnt = selecionados.length;
+        if (qnt === 0) { alert("Nenhum produto selecionado!"); return; }
 
-    if (qnt === 0) {
-        alert("Nenhum produto selecionado!");
-        return;
-    }
+        const spanQnt = document.getElementById('idProdutosSelecionados');
+        if (spanQnt) spanQnt.textContent = qnt;
 
-    const spanQnt = document.getElementById('idProdutosSelecionados');
-    if (spanQnt) spanQnt.textContent = qnt;
-
-    abrirPopUp("removerSelecionados");
-});
+        window.produtoParaExcluir = selecionados;
+        abrirPopUp("removerSelecionados");
+    });
+}
 
 // ==========================
-// ===== BOTOES DENTRO DO CARD =====
+// ===== EVENT DELEGATION =====
 // ==========================
 cardContainer.addEventListener('click', (e) => {
     // Adicionar ao carrinho individual
@@ -148,7 +166,7 @@ cardContainer.addEventListener('click', (e) => {
         const spanNome = document.getElementById('nomeProdutoSelecionado');
         if (spanNome) spanNome.textContent = nomeProd;
 
-        window.produtoParaExcluir = idProduto;
+        window.produtoParaExcluir = [idProduto];
         abrirPopUp("removerLista");
     }
 
