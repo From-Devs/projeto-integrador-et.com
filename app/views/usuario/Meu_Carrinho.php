@@ -147,7 +147,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><input type="checkbox" id="selecionarTodos" style="margin: 0px;" checked></td>
+                    <td style="text-align: right;"><input type="checkbox" id="selecionarTodos" style="margin: 0px;" checked></td>
                 </tr>
 
             </tfoot>
