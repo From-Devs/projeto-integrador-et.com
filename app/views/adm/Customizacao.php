@@ -119,7 +119,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <p class="textHex">HEX</p>
                                 <div class="editCor">
                                     <input type="color" class="corShow" value="#651629"></input>
-                                    <input class="corHex" value="#651629"></input>
+                                    <input class="corHex" maxlength="7" value="#651629"></input>
                                 </div>
                             </div>
                             <p class="restaurarPadrao">Restaurar Padrão</p>
@@ -148,7 +148,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                     <p class="textHex">HEX</p>
                                     <div class="editCor" id="corDegrade1">
                                         <input type="color" class="corShow" value="#7a3241"></input>
-                                        <input class="corHex" value="#7a3241"></input>
+                                        <input class="corHex" maxlength="7" value="#7a3241"></input>
                                     </div>
                                 </div>
                             </div>
@@ -158,7 +158,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <div class="corContainer">
                                     <div class="editCor" id="corDegrade2">
                                         <input type="color" class="corShow" value="#39121d"></input>
-                                        <input class="corHex" value="#39121d"></input>
+                                        <input class="corHex" maxlength="7" value="#39121d"></input>
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <div class="corContainer">
                                     <div class="editCor" id="corDegrade3">
                                         <input type="color" class="corShow" value="#150106"></input>
-                                        <input class="corHex" value="#150106"></input>
+                                        <input class="corHex" maxlength="7" value="#150106"></input>
                                     </div>
                                 </div>
                             </div>
@@ -228,7 +228,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                     <p class="textHex">HEX</p>
                                     <div class="editCor" id="corBrilhoLancamento">
                                         <input type="color" class="corShow" value="#e1b48c"></input>
-                                        <input class="corHex" value="#e1b48c"></input>
+                                        <input class="corHex" maxlength="7" value="#e1b48c"></input>
                                     </div>
                                 </div>
                                 <p class="restaurarPadrao">Restaurar Padrão</p>
@@ -390,7 +390,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                             <p class="textHex">HEX</p>
                                             <div class="editCor" id="produtoLancamentoEditCor1">
                                                 <input type="color" class="corShow" value="#b4938a"></input>
-                                                <input class="corHex" value="#b4938a"></input>
+                                                <input class="corHex" maxlength="7" value="#b4938a"></input>
                                             </div>
                                         </div>
                                     </div>
@@ -400,7 +400,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                             <p class="textHex">HEX</p>
                                             <div class="editCor" id="produtoLancamentoEditCor2">
                                                 <input type="color" class="corShow" value="#fee1d8"></input>
-                                                <input class="corHex" value="#fee1d8"></input>
+                                                <input class="corHex" maxlength="7" value="#fee1d8"></input>
                                             </div>
                                         </div>
                                     </div>
@@ -410,7 +410,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                             <p class="textHex">HEX</p>
                                             <div class="editCor" id="produtoLancamentoEditCorSombra">
                                                 <input type="color" class="corShow" value="#381507"></input>
-                                                <input class="corHex" value="#381507"></input>
+                                                <input class="corHex" maxlength="7" value="#381507"></input>
                                             </div>
                                         </div>
                                     </div>
