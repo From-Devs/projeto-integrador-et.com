@@ -275,7 +275,7 @@ function tabelaProduto($produtos) {
                                             <p class="textHex">HEX</p>
                                             <div class="editCor" id="corDegrade1">
                                                 <input type="color" class="corShow" name="corPrincipal"></input>
-                                                <input class="corHex" maxlength="7"></input>
+                                                <input class="corHex" name="corPrincipalHEX" maxlength="7"></input>
                                             </div>
                                         </div>
                                         <!-- <input type="color" class="cor" name="corPrincipal"> -->
@@ -286,7 +286,7 @@ function tabelaProduto($produtos) {
                                             <p class="textHex">HEX</p>
                                             <div class="editCor" id="corDegrade1">
                                                 <input type="color" class="corShow" name="deg1"></input>
-                                                <input class="corHex" maxlength="7"></input>
+                                                <input class="corHex" name="deg1HEX" maxlength="7"></input>
                                             </div>
                                         </div>
                                         <!-- <input type="color" class="cor" name="deg1"> -->
@@ -297,7 +297,7 @@ function tabelaProduto($produtos) {
                                             <p class="textHex">HEX</p>
                                             <div class="editCor" id="corDegrade1">
                                                 <input type="color" class="corShow" name="deg2"></input>
-                                                <input class="corHex" maxlength="7"></input>
+                                                <input class="corHex" name="deg2HEX" maxlength="7"></input>
                                             </div>
                                         </div>
                                         <!-- <input type="color" class="cor" name="deg2"> -->
