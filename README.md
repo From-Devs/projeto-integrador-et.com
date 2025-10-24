@@ -117,3 +117,4 @@ README.md
 
 Para dúvidas e comunicados, utilize o canal oficial do time no [WhatsApp/Slack/Discord].
 
+ftsdsfsfsdf
