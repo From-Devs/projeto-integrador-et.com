@@ -31,15 +31,6 @@ class RelatorioADM {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getVendasAbandonadas($idADM) {
-        $sql = "SELECT * FROM vendas
-                WHERE id_ADM = :id AND status = 'abandonada'";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':id', $idADM, PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
     public function getSaldoReceber($idADM) {
         $sql = "SELECT SUM(valor) as saldo
                 FROM vendas
