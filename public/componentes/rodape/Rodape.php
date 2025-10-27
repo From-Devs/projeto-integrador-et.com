@@ -26,8 +26,8 @@ function createRodape($tipo = 0){
                             <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=perfume" class="CategoriaLink">Perfume</a>
                             <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=skincare" class="CategoriaLink">SkinCare</a>
                             <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=cabelo" class="CategoriaLink">Cabelo</a>
-                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal" class="CategoriaLink">Corporal</a>
                             <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=utensílios" class="CategoriaLink">Utensílios</a>
+                            <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal" class="CategoriaLink">Corporal</a>
                         </div>
                     </div>
     

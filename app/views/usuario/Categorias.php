@@ -14,11 +14,11 @@
 
     $categoriasPorTela = [ 
         "Maquiagem" => ["Tipos" => ["Olhos", "Sombrancelhas","Boca","Pele"]],
-        "Perfume"   => ["Gênero" => ["Feminino", "Masculino", "Infantil","BodySplash"]],
+        "Perfume"   => ["Gênero" => ["Feminino", "Masculino", "Infantil","Body Splash"]],
         "Skincare"  => ["Tipos" => ["Limpeza facial", "Esfoliação", "Hidratação", "Máscara", "Protetor Solar","Tratamentos"]],
         "Cabelo"    => ["Tipos" => ["Dia-A-Dia", "Tratamentos", "Estilização","Acessórios"]],
-        "Utensílios" => ["Tipos" => ["Cabelos", "Maquiagem", "Esponja"]],
-        "Corporal"  => ["Produtos" => ["Body Splash", "Óleos", "Creme", "Protetor"]],
+        "Utensílios" => ["Tipos" => ["Cabelos", "Maquiagem", "Unhas","Cuidados Faciais"]],
+        "Corporal"  => ["Produtos" => ["Hidratantes e Cremes", "Óleos Corporais", "Protetores"]],        
     ];
     
     $fundos = [

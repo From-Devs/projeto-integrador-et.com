@@ -102,7 +102,8 @@ function createSidebar($tipoUsuario, $login){ // Sidebar de teste, depois trocar
                             <ul class="submenu">
                                 <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=utensílios&sub%5B%5D=Cabelos"><li><p class="submenu_link">Cabelo</p></li></a>
                                 <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=utensílios&sub%5B%5D=Maquiagem"><li><p class="submenu_link">Maquiagem</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=utensílios&sub%5B%5D=Esponja"><li><p class="submenu_link">Esponja</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=utensílios&sub%5B%5D=Unhas"><li><p class="submenu_link">Unhas</p></li></a> 
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=utensílios&sub%5B%5D=Cuidados_Faciais"><li><p class="submenu_link">Cuidados Faciais</p></li></a> 
                             </ul>
                         </li>
                         <li class="categoria">
@@ -113,10 +114,9 @@ function createSidebar($tipoUsuario, $login){ // Sidebar de teste, depois trocar
                                 </div>
                             </div>
                             <ul class="submenu">
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal&sub%5B%5D=Body+Splash"><li><p class="submenu_link">Body Splash</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal&sub%5B%5D=%C3%93leos"><li><p class="submenu_link">Óleos</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal&sub%5B%5D=Creme"><li><p class="submenu_link">Cremes</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal&sub%5B%5D=Protetor"><li><p class="submenu_link">Protetores</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal&sub%5B%5D=Hidratantes+e+Cremes"><li><p class="submenu_link">Hidratantes e Cremes</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal&sub%5B%5D=Óleos+Corporais"><li><p class="submenu_link">Óleos Corporais</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal&sub%5B%5D=Protetores"><li><p class="submenu_link">Protetores</p></li></a>
                             </ul>
                         </li>
                     </ul>

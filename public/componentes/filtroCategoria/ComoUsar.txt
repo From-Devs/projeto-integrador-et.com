@@ -7,7 +7,7 @@ Passo 1 - PHP:
     ?>
 
     A variável $telaAtual (Pode ser qualquer outro nome) precisa ser declarada antes de usar o componente, pois
-    ela determina qual página de categoria está aberta (Maquiagem, cabelos, etc.).
+    ela determina qual página de categoria está aberta (Maquiagem, Cabelo, etc.).
     É possivel alterar manualmente trocando o valor entre parênteses.
 
 -----------------------------------------------------------------------------------------------------------

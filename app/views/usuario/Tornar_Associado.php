@@ -233,10 +233,10 @@
                     <p class="comissionPercentage">9% De Comissão</p>
                 </div>
             </div>
-            <div class="comissionCard" id="cabelosCard">
+            <div class="comissionCard" id="cabeloCard">
                 <div class="comissionCardIdentifier">
-                    <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/cabelos.png" alt="" class="comissionCardIcon">
-                    <h1 class="categoryComissionName">cabelos</h1>
+                    <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/cabelo.png" alt="" class="comissionCardIcon">
+                    <h1 class="categoryComissionName">Cabelo</h1>
                 </div>
                 <div class="comissionPercentageContainer">
                     <p class="comissionPercentage">8% De Comissão</p>

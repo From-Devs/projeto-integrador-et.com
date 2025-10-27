@@ -57,33 +57,50 @@ class Categoria {
      * @param string $slugCategoria
      * @return array|bool Array de subcategorias ou false em caso de erro.
      */
-    public function getSubcategoriasBySlug($slugCategoria) {
+    /**
+ * Busca subcategorias ligadas a uma Categoria principal pelo slug.
+ * Se o slug for 'ofertas' ou 'mais_vendidos', retorna TODAS as subcategorias.
+ */
+public function getSubcategoriasBySlug($slugCategoria) {
+    
+    // 1. Formata o slug para comparação
+    $slug_formatado = strtolower(str_replace('-', '_', $slugCategoria));
+    
+    // 2. Lógica para CATEGORIAS ESPECIAIS (Ofertas, Mais Vendidos)
+    if ($slug_formatado == 'ofertas' || $slug_formatado == 'mais_vendidos') {
+        // Retorna TODAS as subcategorias ativas para que o painel de filtro apareça
+        $sql_all = "SELECT id_subCategoria, nome FROM subcategoria";
         try {
-            // 1. Encontrar o ID da Categoria principal a partir do slug (nome)
-            $id_categoria = $this->getIdBySlug($slugCategoria);
-
-            if (!$id_categoria) {
-                return []; // Categoria principal não encontrada
-            }
-
-            // 2. Buscar todas as Subcategorias ligadas a este ID
-            $sql_subcategorias = "SELECT id_subCategoria, nome FROM subcategoria WHERE id_categoria = ?";
-            $stmt_subcategorias = $this->conn->prepare($sql_subcategorias);
-            $stmt_subcategorias->execute([$id_categoria]);
-
-            return $stmt_subcategorias->fetchAll(PDO::FETCH_ASSOC);
-
+            $stmt_all = $this->conn->prepare($sql_all);
+            $stmt_all->execute();
+            return $stmt_all->fetchAll(PDO::FETCH_ASSOC);
         } catch (\Throwable $th) {
-            error_log("Erro ao buscar subcategorias: " . $th->getMessage());
-            return false;
+            error_log("Erro ao buscar TODAS as subcategorias: " . $th->getMessage());
+            return [];
         }
     }
+    
+    // 3. Lógica para CATEGORIAS NORMAIS (Maquiagem, Skincare, etc.)
+    try {
+        $id_categoria = $this->getIdBySlug($slugCategoria); // Assumindo que este método existe
+        
+        if (!$id_categoria) {
+            return []; // Categoria principal não encontrada
+        }
 
-    /**
-     * Retorna os IDs das Subcategorias a partir de um array de nomes.
-     * @param array $nomesSubcategorias Array de strings (nomes)
-     * @return array|bool Array de IDs (inteiros) ou false em caso de erro.
-     */
+        $sql_subcategorias = "SELECT id_subCategoria, nome FROM subcategoria WHERE id_categoria = ?";
+        $stmt_subcategorias = $this->conn->prepare($sql_subcategorias);
+        $stmt_subcategorias->execute([$id_categoria]);
+
+        return $stmt_subcategorias->fetchAll(PDO::FETCH_ASSOC);
+
+    } catch (\Throwable $th) {
+        error_log("Erro ao buscar subcategorias normais: " . $th->getMessage());
+        return [];
+    }
+}
+
+
     public function getIdsSubcategoriasByNomes(array $nomesSubcategorias) {
         if (empty($nomesSubcategorias)) {
             return [];
@@ -110,4 +127,6 @@ class Categoria {
             return false;
         }
     }
+
+    
 }
