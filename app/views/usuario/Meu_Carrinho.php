@@ -133,12 +133,14 @@
                 </tr>
             <?php endif; ?>
             </tbody>
+
             <tfoot>
                 <tr class="tot" style="padding: 0px">
-                    <td class='cor3' colspan="5">Total:</td>
+                    <td class="cor3" colspan="5">Total:</td>
                     <td class="total-value" id="total">R$ <?= number_format($total, 2, ',', '.') ?></td>
                 </tr>
 
+                <!-- Checkbox "Selecionar Todos" atualizado -->
                 <tr class="tudo">
                     <td><label for="selecionarTodos">Selecionar Tudo:</label></td>
                     <td></td>
@@ -150,7 +152,7 @@
 
             </tfoot>
         </table>
-        <div class="button-container" style="">
+        <div class="button-container">
             <button type="submit" name="acao" value="pedido">Realizar Pedido</button>
             <button type="button" id="btnExcluirSelecionados">Excluir Selecionados</button>
         </div>
@@ -243,6 +245,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/cardProduto/script.js"></script>
 <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
+<script src="/projeto-integrador-et.com/public/javascript/Meu_Carrinho.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
 </body>
 </html>
