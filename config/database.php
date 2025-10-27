@@ -2,15 +2,15 @@
 class Database
 {   
     // config host
-    private static $host = "localhost";
-    private static $username = "root";
-    private static $password = "";
-    // private static $host = "10.28.0.242";
-    // private static $username = "etcom_user";
-    // private static $password = "etcom_user123"; 
+    // private static $host = "localhost";
+    // private static $username = "root";
+    // private static $password = ""; // sem espaço
     private static $dbName = "et_com";
-
+    private static $host = "192.168.22.9";
+    private static $username = "etcom_user";
+    private static $password = "etcom_user123"; 
     // função para conectar o banco de dados
+    
     public function Connect(){
         try{
             $conn = new PDO(
