@@ -185,6 +185,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo json_encode($res);
                 exit;
                 break;
+            case 'BuscarAssociadosPorProduto':
+                header('Content-Type: application/json; charset=utf-8');
+                $idProduto = isset($_GET['idProduto']) ? (int)$_GET['idProduto'] : null;
+                $res = $produtoController->capturarAssociadosPorProduto($idProduto);
+                echo json_encode($res);
+                exit;
+                break;
         default:
             echo "Nao encontrei nada";
             break;
