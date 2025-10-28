@@ -2,10 +2,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const botaoCadastroPopUp = document.getElementById('botaoAssociados');
     const acoesTabela = document.querySelectorAll(".acoes-tabela");
 
-    function gerarPorcentagemDesconto(precoDoProdutoOriginal, precoDoProdutoDesconto){
+    function gerarPorcentagemDesconto(precoDoProdutoOriginal, precoDoProdutoDesconto, ticket){
         let porcentagemDesconto = (((precoDoProdutoOriginal - precoDoProdutoDesconto)/precoDoProdutoOriginal)*100);
         porcentagemDesconto = parseInt(porcentagemDesconto);
-        porcentagemCardProduto.innerHTML = porcentagemDesconto + "%";
+        ticket.innerHTML = porcentagemDesconto + "%";
+    }
+
+    function atualizarCores(cardProduto){
+        let cor = cardProduto.childNodes[1],
+            cores = [];
+
+        for (let index = 1; index < cor.childNodes.length; index+=2) {
+            let style = window.getComputedStyle(cor.childNodes[index]),
+                corValor = style.getPropertyValue('color');
+            cores.push(corValor);
+        }
+
+        return cores;
     }
     
     function atualizarDadosProdutosPopUp(tipoPopUp = "cadastro"){
@@ -28,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const corPrincipal = formProduto.querySelector('input[name="corPrincipal"]');
         const degrade1 = formProduto.querySelector('input[name="deg1"]');
         const degrade2 = formProduto.querySelector('input[name="deg2"]');
+        const imagemInput = formProduto.querySelector('input[name="img1"]');
         const imagemProduto = formProduto.querySelectorAll('.imagem-produto')[0];
         
         // Campos do Card de produto
@@ -43,12 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const imagemCardProduto = cardProduto.querySelector('.imagemCardProdutoComum');
         const botaoComprar = cardProduto.querySelector(".botaoComprarCardProduto");
         const botaoAnimacao = cardProduto.querySelector(".botaoEspectro");
-        // console.log(imagemProduto);
-        // console.log(nomeCardProduto);
-        // console.log(marcaCardProduto);
-        // console.log(precoAtualCardProduto);
-        // console.log(precoOriginalCardProduto);
-
         
         if (promoCheckboxProduto.checked) {
             if (cardProduto.className == "cardProduto") {
@@ -56,36 +64,45 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             precoAtualCardProduto.innerHTML = "R$" + precoPromoProduto.value;
             precoOriginalCardProduto.innerHTML = "R$" + precoProduto.value;
+            
+            gerarPorcentagemDesconto(precoProduto.value, precoPromoProduto.value, porcentagemCardProduto)
 
-            let porcentagemDesconto = (((precoProduto.value - precoPromoProduto.value)/precoProduto.value)*100);
-            porcentagemDesconto = parseInt(porcentagemDesconto);
-            porcentagemCardProduto.innerHTML = porcentagemDesconto + "%";
         }else{
             if (cardProduto.className == "cardProduto desconto") {
                 cardProduto.classList.remove("desconto");
             }
             precoAtualCardProduto.innerHTML = "R$" + precoProduto.value;
         }
-
+        
         nomeCardProduto.innerHTML = nomeProduto.value;
         marcaCardProduto.innerHTML = marcaProduto.value;
         imagemCardProduto.src = imagemProduto.src;
+        
         corPrincipalCardProduto.style.color = corPrincipal.value;
         degrade1CardProduto.style.color = degrade1.value;
         degrade2CardProduto.style.color = degrade2.value;
-
-        let cor = cardProduto.childNodes[1],
-            cores = [];
-
-        for (let index = 1; index < cor.childNodes.length; index+=2) {
-            let style = window.getComputedStyle(cor.childNodes[index]),
-                corValor = style.getPropertyValue('color');
-            cores.push(corValor);
-        }
+        
+        let cores = atualizarCores(cardProduto);
 
         cardProduto.style.background = "linear-gradient(35deg, "+ cores[1] +" 30%, "+ cores[2] +" 100%)";
         botaoComprar.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
         botaoAnimacao.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
+
+        cardProduto.addEventListener("mouseenter", function(){
+            cardProduto.style.filter = "drop-shadow(0px 1px 8px "+ cores[0] +")";
+        });
+        cardProduto.addEventListener("mouseleave", function(){
+            cardProduto.style.filter = "drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.35))";
+        });
+
+        botaoComprar.addEventListener("mouseenter", function(){
+            botaoComprar.className = "botaoComprarCardProduto open";
+            botaoAnimacao.style.animationName = "botaoFantasma";
+        });
+        botaoComprar.addEventListener("mouseleave", function(){
+            botaoComprar.className = "botaoComprarCardProduto";
+            botaoAnimacao.style.animationName = "";
+        });
 
         nomeProduto.addEventListener("input", function(){
             nomeCardProduto.innerHTML = nomeProduto.value;
@@ -101,12 +118,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }else{
                 precoAtualCardProduto.innerHTML = "R$" + precoProduto.value;
             }
+            gerarPorcentagemDesconto(precoProduto.value, precoPromoProduto.value, porcentagemCardProduto)
         })
 
         precoPromoProduto.addEventListener("input", function(){
             if (promoCheckboxProduto.checked) {
                 precoAtualCardProduto.innerHTML = "R$" + precoPromoProduto.value
             }
+            gerarPorcentagemDesconto(precoProduto.value, precoPromoProduto.value, porcentagemCardProduto)
         })
     
         promoCheckboxProduto.addEventListener("input", function(){
@@ -120,25 +139,55 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
 
+        imagemInput.addEventListener("change", function(){
+            const file = this.files[0];
+            if (!file) return;
 
+            const reader = new FileReader();
 
-        
-        // observer.observe(document.body, { childList: true, subtree: true});
+            reader.onload = function (e) {
+                // Troca o src da imagem existente
+                imagemCardProduto.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        })
+
+        corPrincipal.addEventListener("input", () => {
+            corPrincipalCardProduto.style.color = corPrincipal.value;
+            degrade1CardProduto.style.color = degrade1.value;
+            degrade2CardProduto.style.color = degrade2.value;
+
+            cores = atualizarCores(cardProduto);
+
+            cardProduto.style.background = "linear-gradient(35deg, "+ cores[1] +" 30%, "+ cores[2] +" 100%)";
+            botaoComprar.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
+            botaoAnimacao.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
+        })
+        degrade1.addEventListener("input", () => { 
+            corPrincipalCardProduto.style.color = corPrincipal.value;
+            degrade1CardProduto.style.color = degrade1.value;
+            degrade2CardProduto.style.color = degrade2.value;
+
+            cores = atualizarCores(cardProduto);
+
+            cardProduto.style.background = "linear-gradient(35deg, "+ cores[1] +" 30%, "+ cores[2] +" 100%)";
+            botaoComprar.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
+            botaoAnimacao.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
+        })
+        degrade2.addEventListener("input", () => { 
+            corPrincipalCardProduto.style.color = corPrincipal.value;
+            degrade1CardProduto.style.color = degrade1.value;
+            degrade2CardProduto.style.color = degrade2.value;
+
+            cores = atualizarCores(cardProduto);
+
+            cardProduto.style.background = "linear-gradient(35deg, "+ cores[1] +" 30%, "+ cores[2] +" 100%)";
+            botaoComprar.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
+            botaoAnimacao.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
+        })
+
     }
-
-    // const observer = new MutationObserver(() => {
-    //     const popUpEditar = document.querySelector(".dialog-editar[open]");
-    //     const popUpCadastrar = document.querySelector(".dialog-cadastrar[open]");
-
-    //     if (popUpEditar){
-    //         atualizarDadosProdutosPopUp("editar");
-    //     } 
-    //     if(popUpCadastrar){
-    //         atualizarDadosProdutosPopUp();
-    //     }
-    // })
-
-    // observer.observe(document.body, { childList: true, subtree: true});
 
 
     acoesTabela.forEach((botoes) => {
