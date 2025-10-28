@@ -16,7 +16,7 @@ if (!$id_usuario) {
 }
 
 $pedidoController = new PedidoController();
-$pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
+$pedidos = $pedidoController->listarPedidosPorUsuario($id_usuario);
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,8 @@ $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body data-usuario="<?= $id_usuario ?>">
+
 <?php echo createHeader($login,$tipoUsuario); ?>
 
 <div class="conteudoMeusPedidos">
@@ -50,13 +51,25 @@ $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
     <!-- Pedidos em andamento -->
     <section class="pedidoAndamentoMP">
         <h2 class="tituloAndamentoMP">Em Andamento</h2>
-        <div id="produtosAndamento">
+        <div id="produtosAndamento" style="width: auto; padding: 20px;">
             <?php if (!$pedidos): ?>
                 <p class="aviso">Você ainda não possui pedidos.</p>
             <?php else: ?>
                 <?php foreach ($pedidos as $pedido): ?>
                     <?php if ($pedido['tipoStatus'] !== 'Finalizado'): ?>
-                        <?php renderCardPedido($pedido, 'Andamento'); ?>
+                        <?php 
+                            // Adicionando atributos para puxar dinamicamente no JS
+                            $pedido['dataAttributes'] = [
+                                'id' => $pedido['id_pedido'],
+                                'status' => $pedido['tipoStatus'],
+                                'categoria' => $pedido['categoria'] ?? 'Não definida',
+                                'quantidade' => $pedido['quantidade'] ?? 1,
+                                'marca' => $pedido['marca'] ?? '',
+                                'hex1' => $pedido['hex1'] ?? '#cccccc',
+                                'hex2' => $pedido['hex2'] ?? '#999999'
+                            ];
+                            renderCardPedido($pedido, 'Andamento'); 
+                        ?>
                     <?php endif; ?>
                 <?php endforeach; ?>
             <?php endif; ?>
@@ -66,11 +79,22 @@ $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
     <!-- Pedidos finalizados -->
     <section class="pedidosFinalizadosMP">
         <h2 class="tituloFinalizadoMP">Finalizado</h2>
-        <div id="produtosFinalizados">
+        <div id="produtosFinalizados" style="width: auto; padding: 20px;">
             <?php if ($pedidos): ?>
                 <?php foreach ($pedidos as $pedido): ?>
                     <?php if ($pedido['tipoStatus'] === 'Finalizado'): ?>
-                        <?php renderCardPedido($pedido, 'Finalizado'); ?>
+                        <?php 
+                            $pedido['dataAttributes'] = [
+                                'id' => $pedido['id_pedido'],
+                                'status' => $pedido['tipoStatus'],
+                                'categoria' => $pedido['categoria'] ?? 'Não definida',
+                                'quantidade' => $pedido['quantidade'] ?? 1,
+                                'marca' => $pedido['marca'] ?? '',
+                                'hex1' => $pedido['hex1'] ?? '#cccccc',
+                                'hex2' => $pedido['hex2'] ?? '#999999'
+                            ];
+                            renderCardPedido($pedido, 'Finalizado'); 
+                        ?>
                     <?php endif; ?>
                 <?php endforeach; ?>
             <?php else: ?>
@@ -146,7 +170,6 @@ $pedidos = $pedidoController->ListarPedidosPorUsuario($id_usuario);
         </div>
     </div>
 </dialog>
-
 
 <?php echo createRodape(); ?>
 
