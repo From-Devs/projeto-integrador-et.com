@@ -2,34 +2,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const botaoCadastroPopUp = document.getElementById('botaoAssociados');
     const acoesTabela = document.querySelectorAll(".acoes-tabela");
 
-    function gerarPorcentagemDesconto(precoDoProdutoOriginal, precoDoProdutoDesconto, ticket){
-        let porcentagemDesconto = (((precoDoProdutoOriginal - precoDoProdutoDesconto)/precoDoProdutoOriginal)*100);
-        porcentagemDesconto = parseInt(porcentagemDesconto);
-        ticket.innerHTML = porcentagemDesconto + "%";
+    function gerarPorcentagemDesconto(precoOriginal, precoDesconto, ticket){
+        const original = parseFloat(precoOriginal);
+        const desconto = parseFloat(precoDesconto);
+
+        if (!original || !desconto || desconto >= original) {
+            ticket.innerHTML = "%";
+            return;
+        }
+
+        const porcentagem = Math.floor(((original - desconto) / original) * 100);
+        ticket.innerHTML = `${porcentagem}%`;
     }
 
     function atualizarCores(cardProduto){
-        let cor = cardProduto.childNodes[1],
-            cores = [];
+        const cores = [];
+        const elementosCor = cardProduto.querySelectorAll(".cores > div");
 
-        for (let index = 1; index < cor.childNodes.length; index+=2) {
-            let style = window.getComputedStyle(cor.childNodes[index]),
-                corValor = style.getPropertyValue('color');
-            cores.push(corValor);
-        }
+        elementosCor.forEach(el => {
+            const style = window.getComputedStyle(el);
+            cores.push(style.getPropertyValue("color"));
+        });
 
         return cores;
     }
     
-    function atualizarDadosProdutosPopUp(tipoPopUp = "cadastro"){
-        // observer.disconnect()
-        if (tipoPopUp == "editar") {
-            popUp = document.querySelector(".dialog-editar");
-        }else{
-            popUp = document.querySelector(".dialog-cadastrar");
-        }
-        // console.log(popUp)
-        console.log("entrou na função")
+    function atualizarDadosProdutosPopUp(tipoPopUp = "cadastrar"){
+        const popUp = document.querySelector(`.dialog-${tipoPopUp}`);
         const formProduto = popUp.querySelector('.formProduto');
 
         // Dados do form
@@ -57,20 +56,47 @@ document.addEventListener("DOMContentLoaded", () => {
         const imagemCardProduto = cardProduto.querySelector('.imagemCardProdutoComum');
         const botaoComprar = cardProduto.querySelector(".botaoComprarCardProduto");
         const botaoAnimacao = cardProduto.querySelector(".botaoEspectro");
+
+        // Função de atualizar cores e fundo do card
+        function atualizarCoresCard() {
+            corPrincipalCardProduto.style.color = corPrincipal.value;
+            degrade1CardProduto.style.color = degrade1.value;
+            degrade2CardProduto.style.color = degrade2.value;
+
+            const cores = atualizarCores(cardProduto);
+            const gradienteCard = `linear-gradient(35deg, ${cores[1]} 30%, ${cores[2]} 100%)`;
+            const gradienteBotao = `linear-gradient(to top, ${cores[1]} 0%, ${cores[2]} 75%)`;
+
+            cardProduto.style.background = gradienteCard;
+            botaoComprar.style.backgroundImage = gradienteBotao;
+            botaoAnimacao.style.backgroundImage = gradienteBotao;
+
+            return cores; // Retorna cores atualizadas para usar no hover
+        }
+
+        function atualizarDesconto() {
+            if (promoCheckboxProduto.checked) {
+                cardProduto.classList.add("desconto");
+                precoAtualCardProduto.innerHTML = "R$" + precoPromoProduto.value;
+                precoOriginalCardProduto.innerHTML = "R$" + precoProduto.value;
+                gerarPorcentagemDesconto(precoProduto.value, precoPromoProduto.value, porcentagemCardProduto);
+            } else {
+                cardProduto.classList.remove("desconto");
+                precoAtualCardProduto.innerHTML = "R$" + precoProduto.value;
+                precoOriginalCardProduto.innerHTML = "";
+                porcentagemCardProduto.innerHTML = "%";
+            }
+        }
+
         
         if (promoCheckboxProduto.checked) {
-            if (cardProduto.className == "cardProduto") {
-                cardProduto.classList.add("desconto");
-            }
+            cardProduto.classList.add("desconto");
             precoAtualCardProduto.innerHTML = "R$" + precoPromoProduto.value;
             precoOriginalCardProduto.innerHTML = "R$" + precoProduto.value;
             
             gerarPorcentagemDesconto(precoProduto.value, precoPromoProduto.value, porcentagemCardProduto)
-
         }else{
-            if (cardProduto.className == "cardProduto desconto") {
-                cardProduto.classList.remove("desconto");
-            }
+            cardProduto.classList.remove("desconto");
             precoAtualCardProduto.innerHTML = "R$" + precoProduto.value;
         }
         
@@ -88,7 +114,22 @@ document.addEventListener("DOMContentLoaded", () => {
         botaoComprar.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
         botaoAnimacao.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
 
+        if (tipoPopUp === "cadastrar") {
+            nomeCardProduto.innerHTML = "Nome do Produto";
+            marcaCardProduto.innerHTML = "Marca";
+            precoAtualCardProduto.innerHTML = "R$ 0,00";
+            precoOriginalCardProduto.innerHTML = "";
+            porcentagemCardProduto.innerHTML = "%";
+            corPrincipalCardProduto.style.color = "#000000";
+            degrade1CardProduto.style.color = "#000000";
+            degrade2CardProduto.style.color = "#000000";
+            imagemCardProduto.src = ""; // vazio por padrão
+
+            atualizarCoresCard();
+        }
+
         cardProduto.addEventListener("mouseenter", function(){
+            const cores = atualizarCoresCard();
             cardProduto.style.filter = "drop-shadow(0px 1px 8px "+ cores[0] +")";
         });
         cardProduto.addEventListener("mouseleave", function(){
@@ -112,92 +153,43 @@ document.addEventListener("DOMContentLoaded", () => {
             marcaCardProduto.innerHTML = marcaProduto.value;
         })
 
-        precoProduto.addEventListener("input", function(){
-            if (promoCheckboxProduto.checked) {
-                precoOriginalCardProduto.innerHTML = "R$" + precoProduto.value
-            }else{
-                precoAtualCardProduto.innerHTML = "R$" + precoProduto.value;
-            }
-            gerarPorcentagemDesconto(precoProduto.value, precoPromoProduto.value, porcentagemCardProduto)
-        })
+        promoCheckboxProduto.addEventListener("input", atualizarDesconto)
+        precoPromoProduto.addEventListener("input", atualizarDesconto)
+        precoProduto.addEventListener("input", atualizarDesconto)
 
-        precoPromoProduto.addEventListener("input", function(){
-            if (promoCheckboxProduto.checked) {
-                precoAtualCardProduto.innerHTML = "R$" + precoPromoProduto.value
-            }
-            gerarPorcentagemDesconto(precoProduto.value, precoPromoProduto.value, porcentagemCardProduto)
-        })
-    
-        promoCheckboxProduto.addEventListener("input", function(){
-            if (promoCheckboxProduto.checked) {
-                cardProduto.classList.add("desconto");
-                precoAtualCardProduto.innerHTML = "R$" + precoPromoProduto.value;
-                precoOriginalCardProduto.innerHTML = "R$" + precoProduto.value;
-            }else{
-                cardProduto.classList.remove("desconto");
-                precoAtualCardProduto.innerHTML = "R$" + precoProduto.value;
-            }
-        })
+        if (imagemInput) {
+            imagemInput.addEventListener("change", function(){
+                const file = this.files[0];
+                if (!file) return;
 
-        imagemInput.addEventListener("change", function(){
-            const file = this.files[0];
-            if (!file) return;
+                const reader = new FileReader();
 
-            const reader = new FileReader();
+                reader.onload = function (e) {
+                    // Troca o src da imagem existente
+                    imagemCardProduto.src = e.target.result;
+                };
 
-            reader.onload = function (e) {
-                // Troca o src da imagem existente
-                imagemCardProduto.src = e.target.result;
-            };
+                reader.readAsDataURL(file);
+            })
+        }
 
-            reader.readAsDataURL(file);
-        })
-
-        corPrincipal.addEventListener("input", () => {
-            corPrincipalCardProduto.style.color = corPrincipal.value;
-            degrade1CardProduto.style.color = degrade1.value;
-            degrade2CardProduto.style.color = degrade2.value;
-
-            cores = atualizarCores(cardProduto);
-
-            cardProduto.style.background = "linear-gradient(35deg, "+ cores[1] +" 30%, "+ cores[2] +" 100%)";
-            botaoComprar.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
-            botaoAnimacao.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
-        })
-        degrade1.addEventListener("input", () => { 
-            corPrincipalCardProduto.style.color = corPrincipal.value;
-            degrade1CardProduto.style.color = degrade1.value;
-            degrade2CardProduto.style.color = degrade2.value;
-
-            cores = atualizarCores(cardProduto);
-
-            cardProduto.style.background = "linear-gradient(35deg, "+ cores[1] +" 30%, "+ cores[2] +" 100%)";
-            botaoComprar.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
-            botaoAnimacao.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
-        })
-        degrade2.addEventListener("input", () => { 
-            corPrincipalCardProduto.style.color = corPrincipal.value;
-            degrade1CardProduto.style.color = degrade1.value;
-            degrade2CardProduto.style.color = degrade2.value;
-
-            cores = atualizarCores(cardProduto);
-
-            cardProduto.style.background = "linear-gradient(35deg, "+ cores[1] +" 30%, "+ cores[2] +" 100%)";
-            botaoComprar.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
-            botaoAnimacao.style.backgroundImage = "linear-gradient(to top, "+ cores[1] +" 0%, "+ cores[2] +" 75%)";
-        })
-
+        corPrincipal.addEventListener("input", atualizarCoresCard)
+        degrade1.addEventListener("input", atualizarCoresCard)
+        degrade2.addEventListener("input", atualizarCoresCard)
     }
 
-
     acoesTabela.forEach((botoes) => {
-        botoes.querySelector(".editar").addEventListener("click", () => {
-            setTimeout(() => {atualizarDadosProdutosPopUp("editar")}, 50)
-            
-        });
+        const btn = botoes.querySelector(".editar");
+        if (btn) {
+            btn.addEventListener("click", () => {
+                setTimeout(() => { atualizarDadosProdutosPopUp("editar"); }, 50);
+            });
+        }
     })
 
-    botaoCadastroPopUp.addEventListener("click", () => {
-        atualizarDadosProdutosPopUp();
-    });
+    if (botaoCadastroPopUp) {
+        botaoCadastroPopUp.addEventListener("click", () => {
+            atualizarDadosProdutosPopUp("cadastrar");
+        });
+    }
 });
