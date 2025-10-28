@@ -1,6 +1,6 @@
 <?php
 // app/controllers/produtoController.php
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/database.php';
 
 class ProdutoController {
     private PDO $conn;
@@ -283,6 +283,18 @@ class ProdutoController {
         return ['ok' => true];
     }
 
+    public function removerSelecionadosDoCarrinho($idUsuario, array $idsProduto) {
+        if (empty($idsProduto)) return ['ok' => false, 'msg' => 'Nenhum produto selecionado'];
+    
+        $placeholders = implode(',', array_fill(0, count($idsProduto), '?'));
+        $sql = "DELETE FROM carrinho WHERE id_usuario = ? AND id_produto IN ($placeholders)";
+        $stmt = $this->conn->prepare($sql);
+        $params = array_merge([(int)$idUsuario], array_map('intval', $idsProduto));
+        $stmt->execute($params);
+    
+        return ['ok' => true, 'msg' => 'Produtos removidos do carrinho'];
+    }
+
     // =======================
     // === Pedidos ===========
     // =======================
@@ -354,7 +366,7 @@ class ProdutoController {
                     FROM avaliacoes a
                     LEFT JOIN usuario u ON u.id_usuario = a.id_usuario
                     WHERE a.id_produto = :id_produto
-                    ORDER BY a.data_avaliacao DESC"; // mais recentes primeiro
+                    ORDER BY a.data_avaliacao DESC";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([':id_produto' => $id_produto]);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -362,6 +374,7 @@ class ProdutoController {
             return [];
         }
     }
+
     public function mediaAvaliacoes(int $id_produto): float {
         $sql = "SELECT AVG(nota) as media FROM avaliacoes WHERE id_produto = :id_produto";
         $stmt = $this->conn->prepare($sql);

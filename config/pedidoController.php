@@ -1,20 +1,20 @@
 <?php
 require_once __DIR__ . '/../config/database.php';
-
+ 
 class PedidoController {
     private $conn;
-
+ 
     public function __construct() {
         $db = new Database();
         $this->conn = $db->Connect(); // certifique-se que é connect() (minúsculo)
     }
-
+ 
     /**
      * Lista pedidos por usuário (com produtos, status e datas)
      */
     public function listarPedidosPorUsuario($idUsuario) {
         $sql = "
-            SELECT 
+            SELECT
                 p.id_pedido,
                 p.dataPedido,
                 s.tipoStatus,
@@ -31,15 +31,15 @@ class PedidoController {
             WHERE p.id_usuario = :idUsuario
             ORDER BY p.dataPedido DESC
         ";
-
+ 
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":idUsuario", $idUsuario, PDO::PARAM_INT);
         $stmt->execute();
-
+ 
         $pedidos = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $idPedido = $row['id_pedido'];
-
+ 
             if (!isset($pedidos[$idPedido])) {
                 $pedidos[$idPedido] = [
                     'id_pedido' => $row['id_pedido'],
@@ -48,7 +48,7 @@ class PedidoController {
                     'itens' => []
                 ];
             }
-
+ 
             $pedidos[$idPedido]['itens'][] = [
                 'id_produto' => $row['id_produto'],
                 'nome' => $row['produto_nome'],
@@ -57,7 +57,7 @@ class PedidoController {
                 'imagem' => $row['img1'] ?? ''
             ];
         }
-
+ 
         return array_values($pedidos);
     }
 }
