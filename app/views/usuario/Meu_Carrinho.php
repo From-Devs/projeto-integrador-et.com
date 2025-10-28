@@ -89,9 +89,12 @@
         <?php echo PopUpConfirmar(
             "popUpConfirmarExclusao",
             "Deseja realmente excluir os produtos selecionados?",
-            "<button type='submit' name='acao' value='remover' id='botaoConfirmarExclusao' class='btn btn-white' style='width: auto; height: auto; font-size: 1rem;'>Sim</button>",
-            "<button id='botaoCancelarExclusao' class='btn btn-white' style='width: auto; height: auto; font-size: 1rem; 'onclick='fecharPopUp(\"popUpConfirmarExclusao\")'>Não</button>"
-            ) ?>
+            "<button type='submit' name='acao' value='remover' id='botaoConfirmarExclusao' class='btn btn-green' style='width: 85px; height: 40px; font-size: 18px;'>Sim</button>",
+            "<button id='botaoCancelarExclusao' class='btn btn-red' style='width: 85px; height: 40px; font-size: 18px; 'onclick='fecharPopUp(\"popUpConfirmarExclusao\")'>Não</button>"
+        );
+
+        echo PopUpComImagemETitulo("checkVazio", "/popUp_Botoes/atencao.png", "150px", "Selecione Algum Produto!");
+        ?>
         <table>
             <thead>
                 <tr>
@@ -195,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         const algumSelecionado = Array.from(checkboxes).some(cb => cb.checked);
         if (!algumSelecionado) {
-        alert("Selecione ao menos um produto para excluir.");
+        abrirPopUp("checkVazio");
         return;
         }
         abrirPopUp("popUpConfirmarExclusao"); // abre o pop-up personalizado
