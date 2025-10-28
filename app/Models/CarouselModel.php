@@ -79,9 +79,8 @@ class CarouselModel {
             ":id_coresSubs" => $data['id_coresSubs']
         ]);
     }
-    
  
-    // 🔹 DELETE - remover registro
+    // 🔹 DELETE - remover carrossel
     public function remove(int $id): bool {
         $stmt = $this->conn->prepare("DELETE FROM carousel WHERE id_carousel = :id");
         return $stmt->execute([":id" => $id]);
