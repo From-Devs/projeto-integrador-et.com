@@ -86,7 +86,14 @@ class CarouselModel {
         return $stmt->execute([":id" => $id]);
     }
 
+    public function updateCoresPersonalizadas(int $id_carousel, array $novaCor): bool {
+        try {
 
+        } catch(Exception $e) {
+            error_log("Erro ao atualizar cores do carrossel: " . $e->getMessage());
+            return false;
+        }
+    }
 
 }
 ?>
