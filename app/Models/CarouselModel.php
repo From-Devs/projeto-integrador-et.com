@@ -7,8 +7,8 @@ class CarouselModel {
     public function __construct() {
         $this->conn = Database::getInstance()->getConnection();
     }
-    
-    // 🔹 READ - buscar todos os carrosseis mudei a funcição
+
+    // 🔹 READ - buscar todos os carrosseis
     public function getAll(): array {
         $stmt = $this->conn->query("
             SELECT c.id_carousel, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo,
@@ -21,9 +21,9 @@ class CarouselModel {
         ");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-   
-     // 🔹 READ - buscar carrossel por ID
-     public function getElementById(int $id): array|false {
+
+    // 🔹 READ - buscar carrossel por ID
+    public function getElementById(int $id): array|false {
         $stmt = $this->conn->prepare("
             SELECT c.id_carousel, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo,
                    p.img1, p.img2, p.img3, p.fgPromocao,
@@ -37,24 +37,20 @@ class CarouselModel {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    // 🔹 CREATE/UPDATE - Criar novo model do Carousel por ID
+    // 🔹 CREATE - criar novo carrossel
     public function create(array $data): array {
-        // 1️⃣ Conta quantos já existem
         $stmt = $this->conn->query("SELECT COUNT(*) as total FROM Carousel");
         $total = (int) $stmt->fetch()['total'];
-    
-        // 2️⃣ Verifica limite máximo
+
         if ($total >= 3) {
             return ['error' => 'Limite máximo de 3 carrosseis atingido.'];
         }
-    
-        // 3️⃣ Define a nova posição automaticamente
-        $posicao = $total + 1; 
-    
-        // 4️⃣ Prepara e insere
+
+        $posicao = $total + 1;
+
         $stmt = $this->conn->prepare("
-        INSERT INTO Carousel (id_produto, id_coresSubs, posicao)
-        VALUES (:id_produto, :id_coresSubs, :posicao)
+            INSERT INTO Carousel (id_produto, id_coresSubs, posicao)
+            VALUES (:id_produto, :id_coresSubs, :posicao)
         ");
         $stmt->execute([
             ':id_produto' => $data['id_produto'],
@@ -64,7 +60,6 @@ class CarouselModel {
 
         return ['success' => true];
     }
-    
 
     // 🔹 UPDATE - atualizar registro por ID
     public function update(int $id, array $data): bool {
@@ -79,30 +74,59 @@ class CarouselModel {
             ":id_coresSubs" => $data['id_coresSubs']
         ]);
     }
- 
+
     // 🔹 DELETE - remover carrossel
     public function remove(int $id): bool {
         $stmt = $this->conn->prepare("DELETE FROM carousel WHERE id_carousel = :id");
         return $stmt->execute([":id" => $id]);
     }
 
+    // 🔹 UPDATE/CREATE cores personalizadas
     public function updateCoresPersonalizadas(int $id_carousel, array $novaCor): bool {
         try {
-            // Verifica se já existe a mesma cor do protudo
-            $check = $this->conn->prepare("SELECT id_coressubs FROM coressubs WHERE corEspecial = :corEspecial
-                AND hexDegrade1 = :hexDegrade1 
-                AND hexDegrade2 = :hexDegrade2 
-                AND (hexDegrade3 = :hexDegrade3
-                OR (hexDegrade3 IS NULL AND :hexDegrade3 IS NULL))
+            // Verifica se já existe a mesma cor
+            $check = $this->conn->prepare("
+                SELECT id_coressubs FROM coressubs
+                WHERE corEspecial = :corEspecial
+                  AND hexDegrade1 = :hexDegrade1
+                  AND hexDegrade2 = :hexDegrade2
+                  AND (hexDegrade3 = :hexDegrade3 OR (hexDegrade3 IS NULL AND :hexDegrade3 IS NULL))
                 LIMIT 1
             ");
             $check->execute([
                 ':corEspecial' => $novaCor['corEspecial'],
                 ':hexDegrade1' => $novaCor['hexDegrade1'],
                 ':hexDegrade2' => $novaCor['hexDegrade2'],
-                ':hexDegrade3' => $novaCor['hexDegrade3'] ?? null]
-            );
+                ':hexDegrade3' => $novaCor['hexDegrade3'] ?? null
+            ]);
             $existe = $check->fetch(PDO::FETCH_ASSOC);
+
+            if ($existe) {
+                $id_coresSubs = $existe['id_coressubs'];
+            } else {
+                $insert = $this->conn->prepare("
+                    INSERT INTO coressubs (corEspecial, hexDegrade1, hexDegrade2, hexDegrade3)
+                    VALUES (:corEspecial, :hexDegrade1, :hexDegrade2, :hexDegrade3)
+                ");
+                $insert->execute([
+                    ':corEspecial' => $novaCor['corEspecial'],
+                    ':hexDegrade1' => $novaCor['hexDegrade1'],
+                    ':hexDegrade2' => $novaCor['hexDegrade2'],
+                    ':hexDegrade3' => $novaCor['hexDegrade3'] ?? null
+                ]);
+                $id_coresSubs = $this->conn->lastInsertId();
+            }
+
+            // Atualiza o carrossel com a nova cor
+            $update = $this->conn->prepare("
+                UPDATE carousel
+                SET id_coresSubs = :id_coresSubs
+                WHERE id_carousel = :id_carousel
+            ");
+            return $update->execute([
+                ':id_coresSubs' => $id_coresSubs,
+                ':id_carousel' => $id_carousel
+            ]);
 
         } catch(Exception $e) {
             error_log("Erro ao atualizar cores do carrossel: " . $e->getMessage());
@@ -110,5 +134,14 @@ class CarouselModel {
         }
     }
 
+    // 🔹 Retorna todas as cores únicas já criadas
+    public function getAllUniqueCores(): array {
+        $stmt = $this->conn->query("
+            SELECT DISTINCT corEspecial, hexDegrade1, hexDegrade2, hexDegrade3
+            FROM coressubs
+            ORDER BY corEspecial ASC
+        ");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>
