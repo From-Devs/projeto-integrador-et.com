@@ -1863,45 +1863,209 @@ Ingredientes:
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(62,'','','');
+(62,'#0071C1','#228BD1','#44A2E8');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Sabonete Facial em Gel Equilíbrio Nutritivo','Nivea','150g',
+'Sabonete Facial em Gel Equilíbrio Nutritivo limpa profundamente sem ressecar, removendo impurezas e mantendo a hidratação natural da pele. Enriquecido com flor de lótus, Hydramine e vitamina E, proporciona frescor. Ideal para o uso diário.',
+'NIVEA Sabonete Facial em Gel Equilíbrio Nutritivo foi cuidadosamente desenvolvido para oferecer uma limpeza profunda, sem agredir ou ressecar a pele. Sua fórmula nutritiva preserva o equilíbrio natural da pele, garantindo uma sensação de saúde e revitalização.
+
+Com uma fórmula enriquecida com flor de lótus, Hydramine e vitamina E, o sabonete revigora a pele, removendo impurezas enquanto mantém a hidratação e proporciona uma sensação refrescante após o uso. 
+
+Destaques do produto:
+ - Limpa profundamente sem ressecar.
+ - Revigora a pele mantendo sua hidratação natural equilibrada.
+ - Contém vitamina E, antioxidante para uma pele mais saudável e bem cuidada.
+ - Refresca a pele.
+ - Protege a barreira natural de hidratação da pele.
+ - Fórmula vegana - sem ingredientes de origem animal.
+ - Livre de microplásticos.
+ - Dermatologicamente testado.
+
+Modo de uso:
+Aplique o produto no rosto úmido, com movimentos circulares e suaves. Enxágue abundantemente com água. Evite contato com os olhos. Use pela manhã e à noite.
+
+Ingredientes:
+ - Aqua, Cocamidopropyl Betaine, Sodium Myreth Sulfate, Acrylates Copolymer, Glycerin, Nelumbo Nucifera Flower Extract, Tocopherol, Tocopheryl Acetate, Lauryl Glucoside, Sodium Lauryl Sulfate, PEG-40 Hydrogenated Castor Oil, PEG-200 Hydrogenated Glyceryl Palmate, Benzophenone-4, Sodium Chloride, Polyquaternium-10, Sodium Hydroxide, Phenoxyethanol, Methylparaben, Ethylparaben, Sodium Sulfate, Geraniol, Benzyl Alcohol, Linalool, Triethanolamine, Parfum, CI 42090, CI 16035.
+ - Ingredientes especiais: Pura Vitamina E.',
+27.59,null,0,60,'sabonete-facial-gel-nivea.png','sabonete-facial-gel-nivea-2.jpg',null,9,62,);
+
+
+
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(63,'','','');
+(63,'#00519A','#396A9A','#549CE3');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
+VALUES
+('Lenços de Limpeza Facial Ação Refrescante 25 Unidades','Nivea',null,
+"Lenços de Limpeza Ação Refrescante 3 em 1 removem maquiagem e máscaras para cílios à prova d'água, enquanto limpam, hidratam e refrescam a pele. Enriquecidos com extrato de flor de lótus e Pró-Vitamina B5 e Hidramina, protegem contra o ressecamento, proporcionando uma limpeza suave e eficaz.",
+"NIVEA Lenços de Limpeza Ação Refrescante 3 em 1 são lenços de limpeza suaves e eficazes, ideais para remover maquiagem, inclusive máscara à prova d’água. Além de limpar profundamente, eles hidratam e refrescam a pele, proporcionando uma sensação revigorante. 
+
+Os lenços removem até a maquiagem mais resistente e máscaras à prova d'água, deixando a pele limpa e fresca. Enriquecidos com extrato de flor de lótus, limpam suavemente o rosto, enquanto o Complexo Suave com Pró-Vitamina B5 e Hidramina protege a pele contra o ressecamento.
+
+Destaques do produto:
+ - Remove maquiagem e máscara para cílios à prova d'água.
+ - Limpa a pele profundamente.
+ - Hidrata e Refresca a pele.
+ - Dermatologicamente e oftalmologicamente testado.
+ - Remove os resíduos e impurezas da pele.
+ - Limpa a pele gentilmente.
+
+Ingredientes:
+ - Aqua, Isopropyl Stearate, Nelumbo Nucifera Flower Extract, Panthenol, Glycerin, VP/Hexadecene Copolymer, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Ethylhexylglycerin, Decylene Glycol, Phenoxyethanol, Sodium Hydroxide, Citric Acid, Pantolactone, Linalool, Linalyl Acetate, Citronellol, Limonene, Citrus Aurantium Peel Oil, Geraniol, Alpha-Isomethyl Ionone, Benzyl Alcohol, Hexyl Cinnamal, Terpineol, Benzyl Salicylate, Geranyl Acetate, Cananga Odorata Oil/Extract, Parfum.
+ - Ingredientes especiais: Provitamina B5.",
+20.99,null,0,60,'lenços-limpeza-nivea.png','lenços-limpeza-nivea-2.jpg',22,63,);
+
+
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(64,'','','');
+(64,'#0378BE','#2599D9','#4AB0E8');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Mousse de Limpeza Facial Refrescante','Nivea','150ml',
+'Mousse de Limpeza Facial Refrescante limpa profundamente, removendo impurezas enquanto preserva a hidratação sem ressecar. Ideal para uma rotina de cuidados, e uma pele macia e refrescante.',
+'O NIVEA Mousse de Limpeza Facial Refrescante limpa profundamente a pele sem ressecar. Sua fórmula é enriquecida com flor de Lótus, Vitamina E e Hydramine, ativo conhecido por proteger a barreira natural de hidratação da pele. 
+
+NIVEA Mousse de Limpeza Facial Refrescante é indicado para uma limpeza diária profunda, ideal para todos os tipos de pele. Remove resíduos e impurezas enquanto preserva a hidratação natural da pele, proporcionando uma sensação de limpeza, frescor e suavidade após o uso.
+
+Destaques do produto:
+ - Limpa profundamente sem ressecar.
+ - Proporciona uma ótima experiência de limpeza, graças à sua fórmula de espuma suave.
+ - Dermatologicamente testado.
+ - Refresca a pele.
+ - Uso diário.
+ - Embalagem feita de 97% de material reciclado - excluindo-se etiqueta, válvula e tampa.
+ - Fórmula vegana (sem ingredientes de origem animal) & 99% biodegradável.
+
+Modo de uso:
+A fórmula se transforma em uma mousse macia quando usada. Massageie a espuma de limpeza na pele e retire com água. Aplique 2 vezes ao dia.
+
+Ingredientes:
+ - Aqua, Sorbitol, Glycerin, Decyl Glucoside, Disodium Cocoyl Glutamate, Tocopheryl Acetate, Nelumbo Nucifera Flower Extract, Cellulose Gum, Citric Acid, Sodium Benzoate, Propylene Glycol, Parfum.
+ - Ingredienes especiais: Pura vitamina E.
+
+Aviso:
+Uso externo. Evite contato com os olhos. Caso aconteça, enxágue com água em abundância. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.',
+33.59,null,0,70,'mousse-limpeza-nivea-1.png','mousse-limpeza-nivea-2.jpg',null,9,64,);
+
+
+
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(65,'','','');
+(65,'#A1D0AE','#BCF2CB','#D4F2D9');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
+VALUES
+('Água Micelar Efeito Matte','Nivea','200ml',
+'Água Micelar Solução de Limpeza 7 em 1 Efeito Matte é uma solução de limpeza que possui complexo de aminoácidos e algas marinhas sendo ideal para remover todas as impurezas da pele, inclusive resíduos de maquiagem.',
+'Água micelar que oferece 7 benefícios em um só produto. Limpa, hidrata, remove a oleosidade, tonifica, demaquila, acalma e refresca.
+
+Com fórmula poderosa, esta solução de limpeza retira todas as impurezas da pele, inclusive resíduos de maquiagem. Indicado para pele mista a oleosa. 
+
+Destaques do produto:
+ - Limpa profundamente.
+ - Demaquila.
+ - Matifica.
+ - Remove o excesso de oleosidade.
+ - Suaviza.
+ - Purifica.
+ - Efeito detox.
+ - 0% Resíduo de Produto.
+
+Modo de uso:
+ - Agite bem antes de usar. 
+ - Use pela manhã e à noite com o auxílio de um algodão, limpando todo o rosto.
+ - Para remover a maquiagem dos olhos com maior eficácia, deixe o algodão umedecido com o produto agir por alguns segundos sobre os olhos bem fechados.
+ - Não é necessário enxaguar.
+ 
+Ingredientes:
+Aqua, Poloxamer 124, Alcohol, Fucus Vesiculosus Extract, Camellia Sinensis Leaf Extract, Glycerin, Sorbitol, Propylene Glycol, Decyl Glucoside, Sodium Chloride, Sodium Cocoyl Glutamate, Citric Acid, Caprylic/Capric Triglyceride, Polyquaternium-10, PEG-40 Hydrogenated Castor Oil, Sodium Sulfate, Sodium Acetate, Trisodium EDTA, 1,2-Hexanediol, Phenoxyethanol.
+
+Aviso:
+Uso externo. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.',
+26.19,null,0,50,'agua-micelar-nivea-1.png','agua-micelar-nivea-2.png','agua-micelar-nivea-3.jpg',9,65,);
+
+
+
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(66,'','','');
+(66,'#B27E33','#DB9B3F','#FFBE61');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Esfoliante Peeling Antissinais Chronos Derma','Natura','15g',
+'Esfoliante facial vegano e cruelty free com bioativo de cacau, que uniformiza a textura da pele, reduz linhas finas e devolve o brilho natural. Promove renovação celular intensa com efeito peeling de tripla esfoliação (química, física e enzimática), deixando a pele mais macia, luminosa e revitalizada desde o primeiro uso.',
+'Destaques do produto:
+• Uniformiza a textura e reduz linhas finas imediatamente.
+• Suaviza a aparência de pele cansada.
+• Devolve o brilho natural e a vitalidade.
+• 95% pele mais uniforme, renovada e macia.
+• O uso prolongado potencializa os resultados.
+• Máxima potência na renovação celular.
+• Efeito peeling tripla esfoliação, com união de esfoliantes químico, físico e enzimático.
+
+Características:
+• Possui bioativo: Cacau, repõe componentes essenciais da pele.
+• Testado dermatologicamente.
+• Idade sugerida: 18+.
+• Cruelty free.
+• Vegano.
+• Ocasião: limpeza.
+• Tipo de pele: todos os tipos de pele.
+• Textura: esfoliante.
+• Zona de aplicação: rosto e pescoço.
+
+Dicas de uso:
+Após a limpeza da pele, aplique o produto sobre o rosto molhado. massageie suavemente e enxágue em seguida. use de uma a duas vezes na semana, em dias alternados.
+
+Ingredientes:
+Aqua / water / eau, bambusa arundinacea stem powder, glycolic acid, glycerin, coco-caprylate, coconut alkanes, elaeis guineensis oil / elaeis guineensis (palm) oil, propanediol, stearyl alcohol, sodium hydroxide, glyceryl stearate, papain, parfum / fragrance, cetyl lactate, sodium acrylates copolymer, peg-100 stearate, glyceryl dipalmitate, glyceryl palmitate, glyceryl distearate, xanthan gum, lecithin, sodium benzoate, disodium edta, theobroma cacao seed butter / theobroma cacao (cocoa) seed butter / theobroma cacao (cacau) seed butter, citronellol, tocopherol, alpha-isomethyl ionone, cetyl alcohol, sodium carbonate, conobea scoparioides leaf oil / conobea scoparioides (pataqueira) leaf oil, sodium chloride.',
+30.20,18.50,1,70,'esfoliante-facial-natura-1.png', 'esfoliante-facial-natura-2.jpg', 'esfoliante-facial-natura-3.jpg',10,66,)
+
+
+
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(67,'','','');
+(67,'#F0BE0F','#F7CA42','#F7D069');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Sabonete Líquido Esfoliante para o Corpo Ekos Maracujá','Natura','185ml',
+'Sabonete líquido esfoliante vegano com óleo de maracujá, que limpa suavemente e remove as células mortas enquanto mantém o pH natural da pele. Proporciona um banho relaxante e revigorante, deixando a pele macia, uniforme e delicadamente perfumada.',
+'Destaques do produto:
+• Limpa suavemente e esfolia com a potência antiestresse do maracujá.
+• Seu sabonete líquido esfoliante favorito mudou, mas continua com textura e fragrância relaxante de sempre.
+• Remove as células mortas durante o banho.
+• Promove sensação de banho relaxante.
+• Sabonete vegano que mantém o pH natural da pele.
+• Deixa sua pele renovada e mais uniforme.
+• Feito com óleo de maracujá, rico em ácidos graxos essenciais.
+• A linha Ekos Maracujá fortalece a renda de 876 famílias guardiãs da natureza.
+
+Características:
+• Possui bioativo: maracujá.
+• Testado dermatologicamente.
+• Possui refil.
+• Cruelty free.
+• Vegano.
+• Tipo de pele: todos os tipos de pele.
+
+Dica de uso:
+Espalhe o sabonete líquido esfoliante de Natura Ekos sobre o corpo até formar espuma. enxágue em seguida. não utilizar o sabonete corporal no rosto.
+
+Ingredientes:
+ÁGUA, DECIL GLICOSÍDEO, COCOIL GLUTAMATO DE SÓDIO, GLICEROL, PROPANODIOL, BEENATO DE ESTEARILA, CROSPOLÍMERO DE ACRILATOS/ACRILATO DE ALQUILA C10-30, PERFUME, COCOATO DE SACAROSE, COCOIL GLUTAMATO DISSÓDICO, ÉSTERES DA JOJOBA, HIDROXIACETOFENONA, SEMENTE DE MARACUJÁAZEDO EM PÓ, HIDRÓXIDO DE SÓDIO, LIMONENO, GLICONATO DE SÓDIO, HEXIL CINAMAL, ALFA-ISOMETIL IONONA, ÓLEO DA SEMENTE DE MARACUJÁ-AZEDO, CARBONATO DE SÓDIO, AMARELO DE TARTRAZINA, CLORETO DE SÓDIO, ÁCIDO CÍTRICO, SULFATO DE SÓDIO, TOCOFEROL.',
+54.90,38.40,1,70,' esfoliante-corporal-ekos-natura-1.png', 'esfoliante-corporal-ekos-natura-2.jpg' ,'esfoliante-corporal-ekos-natura-3.jpg',26,67,);
+
+
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
