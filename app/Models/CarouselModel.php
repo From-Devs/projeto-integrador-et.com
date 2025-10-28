@@ -88,6 +88,21 @@ class CarouselModel {
 
     public function updateCoresPersonalizadas(int $id_carousel, array $novaCor): bool {
         try {
+            // Verifica se já existe a mesma cor do protudo
+            $check = $this->conn->prepare("SELECT id_coressubs FROM coressubs WHERE corEspecial = :corEspecial
+                AND hexDegrade1 = :hexDegrade1 
+                AND hexDegrade2 = :hexDegrade2 
+                AND (hexDegrade3 = :hexDegrade3
+                OR (hexDegrade3 IS NULL AND :hexDegrade3 IS NULL))
+                LIMIT 1
+            ");
+            $check->execute([
+                ':corEspecial' => $novaCor['corEspecial'],
+                ':hexDegrade1' => $novaCor['hexDegrade1'],
+                ':hexDegrade2' => $novaCor['hexDegrade2'],
+                ':hexDegrade3' => $novaCor['hexDegrade3'] ?? null]
+            );
+            $existe = $check->fetch(PDO::FETCH_ASSOC);
 
         } catch(Exception $e) {
             error_log("Erro ao atualizar cores do carrossel: " . $e->getMessage());
