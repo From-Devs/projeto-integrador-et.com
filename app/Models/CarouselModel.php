@@ -7,6 +7,35 @@ class CarouselModel {
     public function __construct() {
         $this->conn = Database::getInstance()->getConnection();
     }
+    
+    // 🔹 READ - buscar todos os carrosseis mudei a funcição
+    public function getAll(): array {
+        $stmt = $this->conn->query("
+            SELECT c.id_carousel, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo,
+                   p.img1, p.img2, p.img3, p.fgPromocao,
+                   cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3
+            FROM carousel c
+            JOIN produto p ON p.id_produto = c.id_produto
+            JOIN coressubs cs ON cs.id_coressubs = c.id_coressubs
+            ORDER BY c.posicao ASC
+        ");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+   
+     // 🔹 READ - buscar carrossel por ID
+     public function getElementById(int $id): array|false {
+        $stmt = $this->conn->prepare("
+            SELECT c.id_carousel, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo,
+                   p.img1, p.img2, p.img3, p.fgPromocao,
+                   cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3
+            FROM carousel c
+            JOIN produto p ON p.id_produto = c.id_produto
+            JOIN coressubs cs ON cs.id_coressubs = c.id_coressubs
+            WHERE c.id_carousel = :id
+        ");
+        $stmt->execute([":id" => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
     // 🔹 UPDATE - atualizar registro por ID
     public function update(int $id, array $data): bool {
@@ -29,20 +58,7 @@ class CarouselModel {
         return $stmt->execute([":id" => $id]);
     }
 
-    // 🔹 READ - buscar por ID
-    public function getElementById(int $id): array|false {
-        $stmt = $this->conn->prepare("SELECT c.id_carousel, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, 
-        p.img1, p.img2, p.img3, p.fgPromocao, cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3
-        FROM carousel c JOIN produto p ON p.id_produto = c.id_produto JOIN coressubs cs ON cs.id_coressubs = c.id_coressubs WHERE c.id_carousel = :id");
-        $stmt->execute([":id" => $id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
 
-    // 🔹 READ - buscar todos
-    public function getAll(): array {
-        $stmt = $this->conn->query("SELECT c.id_carousel, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.img2, p.img3, p.fgPromocao, cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3 FROM carousel c JOIN produto p ON p.id_produto = c.id_produto JOIN coressubs cs ON cs.id_coressubs = c.id_coressubs ORDER BY c.posicao ASC");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
 
     // 🔹 CREATE/UPDATE - Criar novo model do Carousel por ID
     public function create(array $data): array {
