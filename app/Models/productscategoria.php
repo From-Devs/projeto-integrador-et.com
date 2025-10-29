@@ -34,7 +34,7 @@ class Products {
             // Trata slugs de categorias especiais
             if ($slug_formatado == 'ofertas') {
                 $filtro_especial = true;
-                $where_especial = " AND p.fgPromocao = 1"; // Assumindo TRUE para boolean no MySQL
+                $where_especial = " AND p.fgPromocao = 1"; // Filtra apenas produtos em promoção
                 $order_by = "p.precoPromo ASC";
             } elseif ($slug_formatado == 'mais_vendidos') {
                 $filtro_especial = true;
@@ -42,7 +42,6 @@ class Products {
             }
             
             // 2. Query Base
-            // CORREÇÃO FINAL DO SELECT E JOIN
             $sql = "SELECT p.*, c.corPrincipal, c.hexDegrade1, c.hexDegrade2 
                     FROM produto p
                     LEFT JOIN cores c ON p.id_cores = c.id_cores
@@ -55,8 +54,34 @@ class Products {
             // ----------------------------------------------------
 
             if ($filtro_especial) {
-                // Adiciona o filtro especial
                 $sql .= $where_especial;
+
+                // Importa o agrupamento usado nas telas normais
+                global $categoriasPorTela;
+
+                if (!empty($nomesSubcategorias)) {
+                    $ids_subcategorias_filtradas = [];
+
+                    foreach ($nomesSubcategorias as $categoriaSelecionada) {
+                        // Exemplo: "Maquiagem" -> ["Olhos", "Sombrancelhas", "Boca", "Pele"]
+                        if (isset($categoriasPorTela[$categoriaSelecionada])) {
+                            $grupos = $categoriasPorTela[$categoriaSelecionada];
+
+                            // Pega todas as subcategorias dentro dessa categoria
+                            foreach ($grupos as $subcats) {
+                                $ids = $this->categoriaModel->getIdsSubcategoriasByNomes($subcats);
+                                $ids_subcategorias_filtradas = array_merge($ids_subcategorias_filtradas, $ids);
+                            }
+                        }
+                    }
+
+                    if (!empty($ids_subcategorias_filtradas)) {
+                        $placeholders_in = implode(',', array_fill(0, count($ids_subcategorias_filtradas), '?'));
+                        $sql .= " AND p.id_subCategoria IN ($placeholders_in)";
+                        $params = array_merge($params, $ids_subcategorias_filtradas);
+                    }
+                }
+
                 
             } else {
                 // Lógica para CATEGORIAS NORMAIS (Maquiagem, Eletrônicos, etc.)

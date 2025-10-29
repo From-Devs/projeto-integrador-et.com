@@ -2,20 +2,42 @@
 // =====================================
 // LISTA DE CATEGORIAS ESTÁTICAS (Fallback caso o principal não defina)
 // =====================================
-// NOTA: No seu código, estas variáveis já estão no escopo do arquivo principal,
-// então não precisa re-defini-las aqui, mas é bom ter a definição para contexto.
-
-// Para garantir que as variáveis do arquivo principal sejam acessíveis,
-// você deve usar 'global' (melhor, mas nem sempre necessário com 'require') ou
-// garantir que as funções de renderização leiam os dados.
-
-// Definir as variáveis globais para a função usar o que veio do arquivo principal
 global $categoriasPorTela, $telaAtual, $subSelecionados, $slugCategoria;
 
 // =====================================
-// FUNÇÃO: RENDERIZA CHECKBOXES ESTÁTICOS
+// FUNÇÃO: RENDERIZA CATEGORIAS PRINCIPAIS (usada só em "ofertas")
 // =====================================
-function renderSomenteSubcategorias($categoriasPorTela, $telaAtual, $subSelecionados = []) {
+function renderCategoriasPrincipais($categoriasPorTela, $selecionadas = [])
+{
+    if (empty($categoriasPorTela)) {
+        echo "<p>Nenhuma categoria disponível.</p>";
+        return;
+    }
+
+    foreach ($categoriasPorTela as $categoria => $grupos) {
+        $checked = in_array($categoria, $selecionadas, true) ? 'checked' : '';
+
+        echo '
+            <div class="item-filtro">
+                <label class="categoriaLabel">
+                    <input type="checkbox"
+                           name="cat[]"
+                           value="' . htmlspecialchars($categoria) . '"
+                           ' . $checked . '
+                           onchange="this.form.submit()">
+                    <span class="checkmark"></span>
+                    ' . htmlspecialchars($categoria) . '
+                </label>
+            </div>
+        ';
+    }
+}
+
+// =====================================
+// FUNÇÃO: RENDERIZA SUBCATEGORIAS NORMAIS
+// =====================================
+function renderSomenteSubcategorias($categoriasPorTela, $telaAtual, $subSelecionados = [])
+{
     if (!isset($categoriasPorTela[$telaAtual])) {
         echo "<p>Nenhum filtro disponível para essa tela.</p>";
         return;
@@ -23,20 +45,19 @@ function renderSomenteSubcategorias($categoriasPorTela, $telaAtual, $subSelecion
 
     $categorias = $categoriasPorTela[$telaAtual];
 
-    // Isso aqui garante que a URL funcione e o checkbox seja marcado
     foreach ($categorias as $subcategorias) {
         foreach ($subcategorias as $sub) {
-            // Se já estiver selecionado (presente no array $subSelecionados), checkbox marcado
             $checked = in_array($sub, $subSelecionados, true) ? 'checked' : '';
 
             echo '
                 <div class="item-filtro">
                     <label class="categoriaLabel">
-                        <input type="checkbox" 
-                               name="sub[]" 
-                               value="' . htmlspecialchars($sub) . '" 
-                               ' . $checked . ' 
-                               onchange="this.form.submit()"> <span class="checkmark"></span>
+                        <input type="checkbox"
+                               name="sub[]"
+                               value="' . htmlspecialchars($sub) . '"
+                               ' . $checked . '
+                               onchange="this.form.submit()">
+                        <span class="checkmark"></span>
                         ' . htmlspecialchars($sub) . '
                     </label>
                 </div>
@@ -45,16 +66,14 @@ function renderSomenteSubcategorias($categoriasPorTela, $telaAtual, $subSelecion
     }
 }
 
-
 // =====================================
-// FUNÇÃO: RENDERIZA CHECKBOXES DO BANCO (Adaptada para usar o array)
+// FUNÇÃO: RENDERIZA CHECKBOXES DO BANCO
 // =====================================
 if (!function_exists('renderSomenteSubcategoriasDB')) {
-    function renderSomenteSubcategoriasDB($id_categoria, $subSelecionados = []) {
-        // Se a função já foi definida no arquivo principal, não a redefine.
-        // Se ela ainda não existe, precisamos do CategoriaModel.
+    function renderSomenteSubcategoriasDB($id_categoria, $subSelecionados = [])
+    {
         if (!class_exists('CategoriaModel')) {
-             require_once __DIR__ . "/../../Models/categoria.php";
+            require_once __DIR__ . "/../../Models/categoria.php";
         }
         $subcategorias = CategoriaModel::getSubcategorias($id_categoria);
 
@@ -70,11 +89,11 @@ if (!function_exists('renderSomenteSubcategoriasDB')) {
             echo '
                 <div class="item-filtro">
                     <label class="categoriaLabel">
-                        <input type="checkbox" 
-                               name="sub[]" 
-                               value="' . htmlspecialchars($nomeSub) . '" 
-                               ' . $checked . ' 
-                               onchange="this.form.submit()"> 
+                        <input type="checkbox"
+                               name="sub[]"
+                               value="' . htmlspecialchars($nomeSub) . '"
+                               ' . $checked . '
+                               onchange="this.form.submit()">
                         <span class="checkmark"></span>
                         ' . htmlspecialchars($nomeSub) . '
                     </label>
@@ -83,7 +102,6 @@ if (!function_exists('renderSomenteSubcategoriasDB')) {
         }
     }
 }
-
 
 // =====================================
 // FORMULÁRIO DE FILTRO
@@ -94,20 +112,21 @@ if (!function_exists('renderSomenteSubcategoriasDB')) {
         <input type="hidden" name="tela" value="<?php echo htmlspecialchars($slugCategoria); ?>">
 
         <?php
-            // Exemplo: renderizar filtros estáticos
-            // A variável $subSelecionados garante que os filtros já aplicados fiquem marcados
-            renderSomenteSubcategorias($categoriasPorTela, $telaAtual, $subSelecionados);
-
-            // Se quiser usar do banco, troque pela função abaixo:
-            // if (isset($id_categoria)) {
-            //     renderSomenteSubcategoriasDB($id_categoria, $subSelecionados);
-            // }
+            // Se for a tela de OFERTAS → mostra as categorias principais
+            if ($slugCategoria === "ofertas") {
+                $catSelecionadas = $_GET['cat'] ?? [];
+                if (!is_array($catSelecionadas)) $catSelecionadas = [$catSelecionadas];
+                renderCategoriasPrincipais($categoriasPorTela, $catSelecionadas);
+            } else {
+                // Todas as outras telas seguem o comportamento padrão
+                renderSomenteSubcategorias($categoriasPorTela, $telaAtual, $subSelecionados);
+            }
         ?>
     </div>
 </form>
 
 <?php
-// O bloco de debug (opcional)
+// Debug opcional (pode remover se quiser)
 if (!empty($subSelecionados)) {
     echo "";
 }

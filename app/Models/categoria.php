@@ -128,5 +128,63 @@ public function getSubcategoriasBySlug($slugCategoria) {
         }
     }
 
-    
+    // No arquivo Models/Categoria.php, adicione os seguintes métodos:
+
+/**
+ * Retorna todas as categorias ativas (exclui 'Mais Vendidos' e 'Ofertas' para o painel de filtro).
+ */
+public function getAllCategorias() {
+    // IDs 7 e 8 são 'Mais Vendidos' e 'Ofertas'. Ajuste se necessário.
+    $sql = "SELECT id_categoria, nome FROM categoria WHERE id_categoria NOT IN (7, 8) ORDER BY nome ASC"; 
+    try {
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (\Throwable $th) {
+        error_log("Erro ao buscar TODAS as categorias: " . $th->getMessage());
+        return [];
+    }
+}
+
+
+/**
+ * Converte Nomes de Categoria (como 'Maquiagem') em seus IDs (usado pelo filtro de Ofertas).
+ */
+public function getIdsCategoriasByNomes(array $nomes) {
+    if (empty($nomes)) {
+        return [];
+    }
+    $placeholders = implode(',', array_fill(0, count($nomes), '?'));
+    $sql = "SELECT id_categoria FROM categoria WHERE nome IN ({$placeholders})";
+    try {
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute($nomes);
+        return array_column($stmt->fetchAll(PDO::FETCH_ASSOC), 'id_categoria');
+    } catch (\Throwable $th) {
+        error_log("Erro ao buscar IDs de Categorias por nome: " . $th->getMessage());
+        return [];
+    }
+}
+
+/**
+ * Converte IDs de Categoria (ex: 1) em todos os IDs de Subcategoria (ex: 2, 3, 4) a elas ligadas.
+ */
+public function getIdsSubcategoriasByCategorias(array $ids_categorias) {
+    if (empty($ids_categorias)) {
+        return [];
+    }
+    $placeholders = implode(',', array_fill(0, count($ids_categorias), '?'));
+    $sql = "SELECT id_subCategoria FROM subcategoria WHERE id_categoria IN ({$placeholders})";
+    try {
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute($ids_categorias);
+        return array_column($stmt->fetchAll(PDO::FETCH_ASSOC), 'id_subCategoria');
+    } catch (\Throwable $th) {
+        error_log("Erro ao buscar IDs de Subcategorias por categoria: " . $th->getMessage());
+        return [];
+    }
+}
+
+// Mantenha ou ajuste o getSubcategoriasBySlug para lidar com categorias normais, se necessário.
+// Se você usou o código da resposta anterior para getSubcategoriasBySlug, ele já está pronto para não retornar nada em 'ofertas' se você chamar getAllCategorias() na view.
 }

@@ -59,7 +59,7 @@ function createSidebar($tipoUsuario, $login){ // Sidebar de teste, depois trocar
                                 <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=perfume&sub%5B%5D=Feminino"><li><p class="submenu_link">Feminino</p></li></a>
                                 <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=perfume&sub%5B%5D=Masculino"><li><p class="submenu_link">Masculino</p></li></a>
                                 <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=perfume&sub%5B%5D=Infantil"><li><p class="submenu_link">Infantil</p></li></a>
-                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=perfume&sub%5B%5D=Body_Splash"><li><p class="submenu_link">Body Splash</p></li></a>
+                                <a href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=perfume&sub%5B%5D=Body+Splash"><li><p class="submenu_link">Body Splash</p></li></a>
                             </ul>
                         </li>
                         <li class="categoria">
