@@ -113,13 +113,10 @@ if (!function_exists('renderSomenteSubcategoriasDB')) {
 
         <?php
             // Se for a tela de OFERTAS → mostra as categorias principais
-            if ($slugCategoria === "ofertas") {
-                $catSelecionadas = $_GET['cat'] ?? [];
-                if (!is_array($catSelecionadas)) $catSelecionadas = [$catSelecionadas];
-                renderCategoriasPrincipais($categoriasPorTela, $catSelecionadas);
+            if (in_array($slugCategoria, ['ofertas', 'mais_vendidos'], true)) {
+                renderCategoriasPrincipais($categoriasPorTela, $_GET['cat'] ?? []);
             } else {
-                // Todas as outras telas seguem o comportamento padrão
-                renderSomenteSubcategorias($categoriasPorTela, $telaAtual, $subSelecionados);
+                renderFiltros($filtros_disponiveis, $subSelecionados, $filtros_sao_categorias);
             }
         ?>
     </div>

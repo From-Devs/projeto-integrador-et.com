@@ -185,12 +185,13 @@
                     if (!is_array($catSelecionadas)) $catSelecionadas = [$catSelecionadas];
 
                     // Define o filtro certo de acordo com o slug
-                    if ($slugCategoria === 'ofertas') {
+                    if (in_array($slugCategoria, ['ofertas', 'mais_vendidos'], true)) {
                         $filtros = $catSelecionadas; // Filtro de categorias principais
                     } else {
-                        $filtros = $subSelecionados; // Filtro de subcategorias
+                        $filtros = $subSelecionados; // Filtro de subcategorias normais
                     }
 
+                    // Passa o filtro correto para o Model
                     $produtosDB = $productModel->getProdutosFiltrados($slugCategoria, $filtros);
 
                     // Array que irá armazenar os HTMLs dos cards para paginação
