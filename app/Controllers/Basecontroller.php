@@ -68,8 +68,61 @@ class BaseController {
      * @param string $file input.
      *
     */
-    protected function SalvarImgProtudo($file){
+    <?php
+    // 🔥 BaseController - o pai de todos
+    class BaseController {
+      
+      /**
+       * Renderiza uma view
+       */
+      protected function render(string $view, array $data = []) {
+        extract($data);
+        require __DIR__ . "/../../views/$view.php";
+      }
+    
+      /**
+       * 🖼️ Salva uma imagem de produto e remove a anterior (se existir)
+       */
+      protected function SalvarImgProduto(array $file, ?string $oldPath = null): ?string {
 
+        if ($file && isset($file['error']) && $file['error'] === UPLOAD_ERR_OK) {
+    
+
+          $nameFile = time() . '_' . basename($file['name']);
+          $baseDir = __DIR__ . '/../../public/uploads/produto/';
+
+          if (!is_dir($baseDir)) {
+            mkdir($baseDir, 0777, true);
+          }
+
+          $dirs = glob($baseDir . '*', GLOB_ONLYDIR);
+          $len = count($dirs) + 1;
+          $name_dir = 'Produto' . $len;
+
+          $subDir = $baseDir . $name_dir . '/';
+          if (!is_dir($subDir)) {
+            mkdir($subDir, 0777, true);
+          }
+
+          $pathDestination = $subDir . $nameFile;
+    
+
+          if (
+            $oldPath && 
+            str_starts_with($oldPath, 'public/uploads/') &&
+            file_exists(__DIR__ . '/../../' . $oldPath)
+          ) {
+            unlink(__DIR__ . '/../../' . $oldPath);
+          }
+    
+          // Move o novo arquivo
+          if (move_uploaded_file($file['tmp_name'], $pathDestination)) {
+            return 'public/uploads/produto/' . $name_dir . '/' . $nameFile;
+          }
+        }
+    
+        return null;
+      }
     }
      /**
      * 🔹 Explicação
