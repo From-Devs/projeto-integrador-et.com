@@ -2069,7 +2069,7 @@ Ingredientes:
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(68,'','','');
+(68,'#BF734F','#CF8868','#ED9C78');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2096,7 +2096,7 @@ Use o esfoliante corporal Natura Ekos durante o banho. aplique sobre a pele e ma
 
 Ingredientes:
 SUCROSE, DICAPRYLYL ETHER, ELAEIS GUINEENSIS OIL, HELIANTHUS ANNUUS SEED OIL, RICINUS COMMUNIS SEED OIL, ORYZA SATIVA BRAN CERA, ASTROCARYUM MURUMURU SEED BUTTER, SUCROSE COCOATE, THEOBROMA GRANDIFLORUM SEED BUTTER, PARFUM, PALMITIC ACID, AQUA, STEARIC ACID, BERTHOLLETIA EXCELSA SEED OIL, SILICA, GLYCERYL DIPALMITATE, GLYCERYL PALMITATE, LINUM USITATISSIMUM SEED POWDER, GLYCERYL DISTEARATE, GLYCERYL STEARATE, TOCOPHEROL, LINALOOL, BENZYL SALICYLATE, LIMONENE, COUMARIN, ALPHA-ISOMETHYL IONONE.',
-95.90,85.90,1,80,'','','',26,68,);
+95.90,85.90,1,80,'esfoliante-corporal-castanha-natura-1.png', 'esfoliante-corporal-castanha-natura-2.jpg', 'esfoliante-corporal-castanha-natura-3.jpg',26,68,);
 
 
 
@@ -2107,6 +2107,10 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+()
+
+
+
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
