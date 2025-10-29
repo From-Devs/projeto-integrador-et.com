@@ -2,16 +2,31 @@ document.querySelectorAll(".editCor").forEach((item) => {
     const colorInput = item.querySelector(".corShow");
     const hexInput = item.querySelector(".corHex");
 
+    // --- Flag de bloqueio ---
+    let isSyncing = false;
+
     // --- Funções principais ---
     const syncFromColor = () => {
-        if (hexInput.value !== colorInput.value) {
-            hexInput.value = colorInput.value.toUpperCase();
-        }
+        if (isSyncing) return;
+        isSyncing = true;
+
+        hexInput.value = colorInput.value.toUpperCase();
+        // Dispara evento pro HEX se atualizar visualmente
+        hexInput.dispatchEvent(new Event("change", { bubbles: true }));
+
+        isSyncing = false;
     };
 
     const syncFromHex = () => {
-        if (colorInput.value !== hexInput.value && /^#[0-9A-Fa-f]{6}$/.test(hexInput.value)) {
-            colorInput.value = hexInput.value;
+        if (isSyncing) return;
+
+        const value = hexInput.value;
+        // Só atualiza se for um HEX válido completo
+        if (/^#[0-9A-Fa-f]{6}$/.test(value)) {
+            isSyncing = true;
+            colorInput.value = value;
+            colorInput.dispatchEvent(new Event("input", { bubbles: true }));
+            isSyncing = false;
         }
     };
 
@@ -20,7 +35,6 @@ document.querySelectorAll(".editCor").forEach((item) => {
 
     // Previne apagar o "#" e valida caracteres
     hexInput.addEventListener("keydown", (e) => {
-        // Impede apagar o "#"
         if (
             (e.key === "Backspace" && hexInput.selectionStart <= 1) ||
             (e.key === "Delete" && hexInput.selectionStart === 0)
@@ -29,20 +43,21 @@ document.querySelectorAll(".editCor").forEach((item) => {
         }
     });
 
-    // Garante que sempre tenha "#" no começo
+    // Garante "#" e valida formato em tempo real
     hexInput.addEventListener("input", () => {
         let value = hexInput.value;
 
         // Recoloca o "#"
         if (!value.startsWith("#")) value = "#" + value.replace(/#/g, "");
 
-        // Remove caracteres inválidos (só A-F e 0-9)
+        // Remove caracteres inválidos
         value = "#" + value.slice(1).replace(/[^0-9A-Fa-f]/g, "");
-
         hexInput.value = value.toUpperCase();
 
-        // Sincroniza com o input de cor
-        syncFromHex();
+        // Se for HEX completo (ex: #AABBCC), sincroniza
+        if (/^#[0-9A-Fa-f]{6}$/.test(hexInput.value)) {
+            syncFromHex();
+        }
     });
 
     // --- Observadores automáticos (mudanças via backend/JS) ---
