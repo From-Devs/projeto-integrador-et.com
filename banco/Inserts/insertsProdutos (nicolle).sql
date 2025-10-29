@@ -47,7 +47,6 @@ Aviso:
 Uso externo. Não é indicado para uso no rosto. Não é protetor solar. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças. Este é um produto cosmético, não ingerir.',
 23.90,22.70,1,50,'milk-1.png','milk-2.jpg','milk-3.jpg',23,1,3); --id da Eliana
 
--------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES (2,'#00728C', '#25abc9','#50cce7');
 
@@ -79,7 +78,7 @@ Devido à presença de alguns ingredientes, a cor do produto pode variar, porém
 
 
 
-----------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
 (3, '#72543A','#95765b','#ceb49c');
@@ -108,7 +107,7 @@ Seu rosto ganha um tom uniforme e matificado, além de uma aparência saudável,
 40.99,19.99,1,40,'vult-base.png','vult-base-2.jpg','vult-base-3.jpg',1,3,5);  --id da Viviane
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
 (4,'#462d2d','#824d32','#bd886d');
@@ -132,7 +131,7 @@ Borrife a fragrância nas áreas onde há maior circulação do sangue, como o p
 
 
 
-----------------------------------------AGORA SERÃO PRODUTOS NOVOS QUE EU PEGUEI-------------------------------------------------------------------------------------------------------
+--AGORA SERÃO PRODUTOS NOVOS QUE EU PEGUEI
 
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
@@ -153,7 +152,7 @@ Trihydroxystearin, Hydrogenated Polycyclopentadiene, Polyethylene, Copernicia Ce
 69.00,null,0,30,'bt-blackberry.png','bt-blackberry2.jpg','bt-blackberry3.jpg',3,5,4);
 
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (6,'#000000','#dcb4bf','#f5d7e0');
@@ -175,7 +174,7 @@ Devido à presença de alguns ingredientes, a cor do produto pode variar, porém
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (7,'#af833a','#cea86a','#fef0d6');
@@ -200,7 +199,7 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (8,'#60aaca','#a4cee0','#f4e3c5');
@@ -220,7 +219,7 @@ AQUA, BEHENAMIDOPROPYL DIMETHYLAMINE, BEHENTRIMONIUM METHOSULFATE and CETEARYL A
 64.90,60.90,1,40,'lola-danos-vorazes.png','lola-danos-vorazes-2.jpg','lola-danos-vorazes-3.jpg',16,8,5);
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (9,'#97262a','#ba5b54','#f5a59f');
@@ -245,7 +244,7 @@ Modo de uso:
 
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (10,'#97262a','#ba5b54','#f5a59f');
@@ -270,7 +269,7 @@ Modo de uso:
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (11,'#97262a','#ba5b54','#f5a59f');
@@ -297,7 +296,7 @@ Modo de uso:
 
 
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (12,'#97262a','#ba5b54','#f5a59f');
@@ -317,7 +316,7 @@ Máscara de tratamento para cabelos coloridos. Possui ação antioxidante, hidra
 249.70,137.34,1,10,'kit-color-protect.png','kit-color-protect-2.jpg','kit-color-protect-3.jpg',17,12,5);
 
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (13,'#f54e00','#eb8252','#eddebd');
@@ -334,7 +333,7 @@ DECAMETILCICLOPENTASILOXANO, MIRISTATO DE ISOPROPILA, ISODODECANO, TRIMETILSILOX
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (14,'#ea0137','#ff3463','#fa7d9a');
@@ -362,7 +361,7 @@ Benefícios:
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (15,'#64c2c2','#8eddd6','#c2f0ec');
@@ -392,7 +391,7 @@ aqua/água, disodium edta/edetato dissódico, alcohol/alcool etilico, glycerin/g
 
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (16,'#970005','#fe001a','#f74a4a');
@@ -417,7 +416,7 @@ Notas de Fundo: Âmbar, Fava Tonka, Baunilha, Cedro da Virgínia e Almíscar.',
 
 
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (17,'#4e316b','#b262dd','#e1b4fa');
@@ -462,7 +461,7 @@ Para aplicação da Máscara Pigmentante Medusa seu cabelo precisa estar em uma 
 
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (18,'#f58e18','#fbab2b','#f8d04c');
@@ -508,7 +507,7 @@ Avisos:
 
 
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (19,'#833c0c','#c46220','#eeb087');
@@ -531,7 +530,7 @@ Petrolato Líquido, Lecitina, Perfume, Lauromacrogol 400, Octildodecanol, Óleo 
 
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (20,'#6e0313','#bd021f','#f1556cff');
@@ -571,7 +570,7 @@ Em caso de irritação suspenda o uso e procure orientação médica.',
 
 
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (21,'#283256','#495a97','#8094e5');
@@ -611,7 +610,7 @@ Em caso de irritação suspenda o uso e procure orientação médica.',
 
 
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (22,'#7c0023','#b5254b','#e95078ff');
@@ -633,7 +632,7 @@ Pode conter colorantes: corante vermelho 77491, corante preto 77499, corante bra
 
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (23,'#eb5763','#e76c7e','#f2c0d6');
@@ -657,7 +656,7 @@ POLYISOBUTENE/POLIISOBUTENO, PHENOXYETHANOL/FENOXIETANOL, CAPRYLIC/CAPRIC TRIGLY
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (24,'#801d31','#c45269','#ec8b9fff');
@@ -681,7 +680,7 @@ hydrogenated polyisobutene/poliisobuteno hidrogenado, polyisobutene/poliisobuten
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (25,'#33c4fdff','#9cd2ffff','rgba(191, 225, 253, 1)');
@@ -715,7 +714,7 @@ Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colôni
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (26,'#ffaaeaff','#fcc0edff','#fad3f0ff');
@@ -746,7 +745,7 @@ Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colôni
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (27,'#d8d759','#fafa85ff','#fafab1ff');
@@ -769,7 +768,7 @@ Pela manhã, à noite ou quando quiser.',
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (28,'#763b8d','#a65ec2ff','#d18aecff');
@@ -794,7 +793,7 @@ Agite antes de usar.',
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (29,'#735f9c','#9f85d3ff','#cdb6fcff');
@@ -817,7 +816,7 @@ Como usar:
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (30,'#678ec2','#7faae2ff','#a8ccfcff');
@@ -837,7 +836,7 @@ Como usar:
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (31,'#2de8f9','#5eedfaff','#99f5fdff');
@@ -861,7 +860,7 @@ Não aplique nas pálpebras, nos cantos externos do nariz e da boca nem na pele 
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (32,'#cb9e74','#e5b68aff','#f7cea7ff');
@@ -883,7 +882,7 @@ Esse uso pode render em torno de 120 aplicações, de 3 a 4 meses de uso.',
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (33,'#794599','#b672e0ff','#daaaf8ff');
@@ -918,7 +917,8 @@ Até 3 vezes por semana, em dias alternados.',
 
 
 
--------------------------PRODUTOS DO MARCOS
+--PRODUTOS DO MARCOS
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (34,'#5B398F','#15AF93','#4DBDA4');
@@ -961,7 +961,7 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (35,'#C0C0C0','#D6D6D6','#EAEAEA');
@@ -977,7 +977,7 @@ Confortável para uso diário, é perfeito para quem ama detalhes únicos e sofi
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (36,'#1EDCEA','#64edf7','#96f6fd');
@@ -1016,7 +1016,7 @@ Recursos:
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (37,'#0081B8','#33b0e6','#7cd6fd');
@@ -1050,7 +1050,7 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (38,'#02020A','#23305D','#4660BA');
@@ -1097,7 +1097,7 @@ Nenhum produto O Boticário é testado em animais, ou seja, este item possui sel
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES
 (39,'#070707','#404040','#757575');
@@ -1129,7 +1129,7 @@ Nenhum produto O Boticário é testado em animais, ou seja, este item possui sel
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (40,'#3E0D11','#73181F','#A6232D');
@@ -1154,7 +1154,7 @@ Para lavar a My Blend, basta enxaguá-la e usar um detergente neutro, massageand
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (41,'#C9758F','#F58EAE','#F5A5C4');
@@ -1186,7 +1186,7 @@ Fácil Limpeza - As cerdas são fáceis de limpar, mantendo a higiene e prolonga
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (42,'#080806','#DD51B1','#FC86D3');
@@ -1208,7 +1208,7 @@ AQUA (WATER), PARAFFIN, GLYCERYL STEARATE, SYNTHETIC BEESWAX, STEARIC ACID, BUTY
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (43,'#2F2F2F','#525252','#7A7A7A');
@@ -1231,7 +1231,7 @@ Carcaterísticas do produto:
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (44,'#F68B00','#FFA018','#FFA837');
@@ -1266,7 +1266,7 @@ Composição:
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (45,'#007F8E','#00C9E0','#62D1E0');
@@ -1307,7 +1307,7 @@ Aqua (Agua), Vitis Vinifera Seed Oil (Óleo de Semente de Uva), Sodium C14-16 Ol
 59.90,null,0,20,'shampoo-biopsor-vegano-1.png','shampoo-biopsor-vegano-2.jpg','shampoo-biopsor-vegano-3.jpg',15,45,6);
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (46,'#981D2D','#C44152','#C45F6B');
@@ -1339,7 +1339,7 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 45.90,null,0,40,'shampoo-match-protecao-da-cor-1.png','shampoo-match-protecao-da-cor-2.jpg',null,17,46,5);
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (47,'#2B2B2B','#525252','#858585');
@@ -1372,8 +1372,8 @@ Ingredientes:
 194.90,180.99,1,40,'uomini-black-01.png','uomini-black-02.jpg',null,6,47,3);
 
 
+--Mais produtos
 
------------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (48,'#F76601','#F2AC02','#FFC549');
@@ -1408,7 +1408,7 @@ Aqua / Water, Homosalate, Ethylhexyl Salicylate, Silica, Styrene/Acrylates Copol
 89.90,73.62,1,40,'anthelios-la-roche-posay.png','anthelios-la-roche-posay-2.jpg','anthelios-la-roche-posay-3.jpg',13,48,5);
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (49,'#6621A0','#8D2EDE','#AA4BFF');
@@ -1434,7 +1434,7 @@ Evitar contato direto com os olhos. Utilizar Anthelios Ultracover FPS 60 na roti
 102.90,89.52,1,80,'mela-b3-la-roche-1.png','mela-b3-la-roche-2.jpg','mela-b3-la-roche-3.jpg',14,49,2);
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (50,'#F5D132','#FFE16A','#FFE992');
@@ -1472,7 +1472,7 @@ Aqua, Dimethicone, Glycerin, Dimethicone Crosspolymer, Methylpropanediol, Alcoho
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (51,'#75B427','#98D449','#C3FF73');
@@ -1508,7 +1508,7 @@ Ingredientes especiais:
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (52,'#D6B2B1','#FFD4D3','#FFDFDF');
@@ -1545,7 +1545,7 @@ Precauções:
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (53,'#49A2DA','#62ADDA','#8CBDDA');
@@ -1590,7 +1590,7 @@ Manteiga de karité',
 30.27,null,0,45,'nivea-hidratante-nutritivo-1.png','nivea-hidratante-nutritivo-2.png',null,11,53,4);
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (54,'#CF022D','#CF2645','#CF475F');
@@ -1625,7 +1625,7 @@ Parfum, Citronellol, Geraniol, Linalool, Trisodium EDTA, Phenoxyethanol, Ethylhe
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (55,'#C4C6CA','#D6D8D9','#EBEDEE');
@@ -1659,7 +1659,7 @@ Precauções:
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (56,'#03B59F','#2FC9BB','#63C9C2');
@@ -1687,7 +1687,7 @@ Ingredientes:
 75.50,60.99,1,59,'nivea-acne-control-1.png','nivea-acne-control-2.jpg',null,14,56,6);
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (57,'#249B36','#46BF57','#7EED8D');
@@ -1726,7 +1726,7 @@ Ingredientes :
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (58,'#E9647F','#F58095','#F798A7');
@@ -1759,7 +1759,7 @@ Ricinus Communis Seed Oil, Cocoglycerides, Cera Alba, Octyldodecanol, Helianthus
 23.19,null,0,70,'nivea-hidra-color-rose-1.png','nivea-hidra-color-rose-2.jpg','nivea-hidra-color-rose-3.jpg',11,58,6);
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (59,'#B01C38','#D43552','#E35269');
@@ -1795,7 +1795,7 @@ Ingredientes:
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (60,'#EB6D70','#EB8387','#FCACAF');
@@ -1828,7 +1828,7 @@ Ricinus Communis Seed Oil, Cocoglycerides, Cera Alba, Octyldodecanol, Helianthus
 23.19,null,0,70,'nivea-hidra-color-coral-1.png','nivea-hidra-color-coral-2.jpg','nivea-hidra-color-coral-3.jpg',11,60,6);
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (61,'#6A1E4C','#963570','#B84F8C');
@@ -1860,7 +1860,7 @@ Ingredientes:
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (62,'#0071C1','#228BD1','#44A2E8');
@@ -1893,7 +1893,7 @@ Ingredientes:
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (63,'#00519A','#396A9A','#549CE3');
@@ -1920,7 +1920,7 @@ Ingredientes:
 20.99,null,0,60,'lenços-limpeza-nivea.png','lenços-limpeza-nivea-2.jpg',22,63,);
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (64,'#0378BE','#2599D9','#4AB0E8');
@@ -1955,7 +1955,7 @@ Uso externo. Evite contato com os olhos. Caso aconteça, enxágue com água em a
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (65,'#A1D0AE','#BCF2CB','#D4F2D9');
@@ -1993,7 +1993,7 @@ Uso externo. Em caso de irritação, suspenda o uso e procure orientação médi
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (66,'#B27E33','#DB9B3F','#FFBE61');
@@ -2002,7 +2002,7 @@ INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,prec
 VALUES 
 ('Esfoliante Peeling Antissinais Chronos Derma','Natura','15g',
 'Esfoliante facial vegano e cruelty free com bioativo de cacau, que uniformiza a textura da pele, reduz linhas finas e devolve o brilho natural. Promove renovação celular intensa com efeito peeling de tripla esfoliação (química, física e enzimática), deixando a pele mais macia, luminosa e revitalizada desde o primeiro uso.',
-'Destaques do produto:
+'Funções do produto:
 • Uniformiza a textura e reduz linhas finas imediatamente.
 • Suaviza a aparência de pele cansada.
 • Devolve o brilho natural e a vitalidade.
@@ -2031,7 +2031,7 @@ Aqua / water / eau, bambusa arundinacea stem powder, glycolic acid, glycerin, co
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (67,'#F0BE0F','#F7CA42','#F7D069');
@@ -2040,7 +2040,7 @@ INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,prec
 VALUES 
 ('Sabonete Líquido Esfoliante para o Corpo Ekos Maracujá','Natura','185ml',
 'Sabonete líquido esfoliante vegano com óleo de maracujá, que limpa suavemente e remove as células mortas enquanto mantém o pH natural da pele. Proporciona um banho relaxante e revigorante, deixando a pele macia, uniforme e delicadamente perfumada.',
-'Destaques do produto:
+'Funções do produto:
 • Limpa suavemente e esfolia com a potência antiestresse do maracujá.
 • Seu sabonete líquido esfoliante favorito mudou, mas continua com textura e fragrância relaxante de sempre.
 • Remove as células mortas durante o banho.
@@ -2063,80 +2063,107 @@ Espalhe o sabonete líquido esfoliante de Natura Ekos sobre o corpo até formar 
 
 Ingredientes:
 ÁGUA, DECIL GLICOSÍDEO, COCOIL GLUTAMATO DE SÓDIO, GLICEROL, PROPANODIOL, BEENATO DE ESTEARILA, CROSPOLÍMERO DE ACRILATOS/ACRILATO DE ALQUILA C10-30, PERFUME, COCOATO DE SACAROSE, COCOIL GLUTAMATO DISSÓDICO, ÉSTERES DA JOJOBA, HIDROXIACETOFENONA, SEMENTE DE MARACUJÁAZEDO EM PÓ, HIDRÓXIDO DE SÓDIO, LIMONENO, GLICONATO DE SÓDIO, HEXIL CINAMAL, ALFA-ISOMETIL IONONA, ÓLEO DA SEMENTE DE MARACUJÁ-AZEDO, CARBONATO DE SÓDIO, AMARELO DE TARTRAZINA, CLORETO DE SÓDIO, ÁCIDO CÍTRICO, SULFATO DE SÓDIO, TOCOFEROL.',
-54.90,38.40,1,70,' esfoliante-corporal-ekos-natura-1.png', 'esfoliante-corporal-ekos-natura-2.jpg' ,'esfoliante-corporal-ekos-natura-3.jpg',26,67,);
+54.90,38.40,1,70,'esfoliante-corporal-ekos-natura-1.png', 'esfoliante-corporal-ekos-natura-2.jpg' ,'esfoliante-corporal-ekos-natura-3.jpg',26,67,);
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (68,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
------------------------------------------------------------------------------------------------
+('Polpa Esfoliante para o Corpo Ekos Castanha','Natura','200g',
+'Esfoliante corporal vegano com óleo de castanha, rico em ômegas 6 e 9, que remove impurezas e células mortas enquanto nutre profundamente. Deixa a pele macia, renovada e com um toque aveludado, mantendo a fragrância envolvente e o cuidado sustentável da linha Ekos Castanha.',
+'Funções do produto:
+• Pele macia e renovada com a potência antirressecamento da castanha.
+• Seu esfoliante favorito mudou, mas continua com textura e fragrância deliciosas.
+• Esfoliante corporal feito com óleo bruto de castanha, rico em ômegas 6 e 9.
+• Deixa a pele macia e renovada.
+• Possui partículas esfoliantes que ajudam a remover impurezas e células mortas.
+• A linha Ekos Castanha contribui para a regeneração da Amazônia e ajuda a fortalecer a renda de 689 famílias guardiãs da floresta ligadas à colheita sustentável.
+
+Características:
+• Possui bioativo: castanha.
+• Testado dermatologicamente.
+• Cruelty free.
+• Vegano.
+• Tipo de pele: todos os tipos de pele.
+• Textura: esfoliante.
+
+Dicas de uso:
+Use o esfoliante corporal Natura Ekos durante o banho. aplique sobre a pele e massageie com movimentos circulares, exceto no rosto. realize a esfoliação corporal com Ekos Castanha 1 a 2 vezes por semana.
+
+Ingredientes:
+SUCROSE, DICAPRYLYL ETHER, ELAEIS GUINEENSIS OIL, HELIANTHUS ANNUUS SEED OIL, RICINUS COMMUNIS SEED OIL, ORYZA SATIVA BRAN CERA, ASTROCARYUM MURUMURU SEED BUTTER, SUCROSE COCOATE, THEOBROMA GRANDIFLORUM SEED BUTTER, PARFUM, PALMITIC ACID, AQUA, STEARIC ACID, BERTHOLLETIA EXCELSA SEED OIL, SILICA, GLYCERYL DIPALMITATE, GLYCERYL PALMITATE, LINUM USITATISSIMUM SEED POWDER, GLYCERYL DISTEARATE, GLYCERYL STEARATE, TOCOPHEROL, LINALOOL, BENZYL SALICYLATE, LIMONENE, COUMARIN, ALPHA-ISOMETHYL IONONE.',
+95.90,85.90,1,80,'','','',26,68,);
+
+
+
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (69,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (70,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (71,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (72,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (73,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (74,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (75,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (76,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (77,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (78,'','','');
