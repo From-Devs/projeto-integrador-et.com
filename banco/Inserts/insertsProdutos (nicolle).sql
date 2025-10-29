@@ -7,12 +7,17 @@ VALUES
 (5,'Viviane Gonçalves','vivgonca@gmail.com','(67) 99182-8272','333.333.333-33','1999-07-19','associado','Associado',null,null),             
 (6,'Maiara Lima','maytheforcebwu@gmail.com','(49) 99272-3729','444.444.444-44','2003-11-01','associado','Associado',null,null);              
 
-		-- Ambos eu cadastrei pelo site mesmo, então a senha está criptografada
+		-- Ambos eu cadastrei pelo site para a senha ser criptografada
 
 
 
 ----Obsevação: <<TODOS>> os produtos estão inseridos entre associados do id 2, 3, 4, 5 e 6.
 --------------- POR FAVOR, ATENTEM-SE AOS IDs!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+--------------------OS PRODUTOS QUE COLOQUEI O NOME AO LADO SÃO OS QUE JÁ ESTÃO CADASTRADOS NO BANCO
+
+
 
 -- INSERTS JÁ REALIZADOS:
 
@@ -40,9 +45,8 @@ Modo de Uso:
 
 Aviso:
 Uso externo. Não é indicado para uso no rosto. Não é protetor solar. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças. Este é um produto cosmético, não ingerir.',
-23.90,22.70,1,50,'milk-1.png','milk-2.jpg','milk-3.jpg',23,1,2);
+23.90,22.70,1,50,'milk-1.png','milk-2.jpg','milk-3.jpg',23,1,3); --id da Eliana
 
--------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES (2,'#00728C', '#25abc9','#50cce7');
 
@@ -70,11 +74,11 @@ Orientações ao consumidor:
 Uso Externo. Produto Cosmético. Não comestível. Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas.
 Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Uso adulto. Produto para perfumar e desodorizar a pele.
 Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.',
-69.90,null,0,30,'biscoito.png','biscoito-2.png','biscoito-3.png',8,2,3);
+69.90,null,0,30,'biscoito.png','biscoito-2.png','biscoito-3.png',8,2,4);  --id do Michael
 
 
 
-----------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
 (3, '#72543A','#95765b','#ceb49c');
@@ -100,10 +104,10 @@ Comece, aplicando um pouco da base líquida com acabamento super mate no dorso d
 Ação / Resultado:
 Ácido Hialurônico: molécula hidrolisada de baixo peso molecular e alta penetração na pele, proporciona uma hidratação profunda que atua no preenchimento de rugas e linhas de expressão.
 Seu rosto ganha um tom uniforme e matificado, além de uma aparência saudável, o dia todo.',
-40.99,19.99,1,40,'vult-base.png','vult-base-2.jpg','vult-base-3.jpg',1,3,4);
+40.99,19.99,1,40,'vult-base.png','vult-base-2.jpg','vult-base-3.jpg',1,3,5);  --id da Viviane
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
 (4,'#462d2d','#824d32','#bd886d');
@@ -121,13 +125,13 @@ Amadeirado Ambarado Couro.
 
 Como Usar:
 Borrife a fragrância nas áreas onde há maior circulação do sangue, como o pescoço, dobras do cotovelo e atrás das orelhas.',
-209.90,179.90,1,50,'coffee.png','coffee-2.jpg','coffee-3.jpg',6,4,3);
+209.90,179.90,1,50,'coffee.png','coffee-2.jpg','coffee-3.jpg',6,4,6);  --id da Maiara
 
 
 
 
 
-----------------------------------------AGORA SERÃO PRODUTOS NOVOS QUE EU PEGUEI-------------------------------------------------------------------------------------------------------
+--AGORA SERÃO PRODUTOS NOVOS QUE EU PEGUEI
 
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
@@ -148,7 +152,7 @@ Trihydroxystearin, Hydrogenated Polycyclopentadiene, Polyethylene, Copernicia Ce
 69.00,null,0,30,'bt-blackberry.png','bt-blackberry2.jpg','bt-blackberry3.jpg',3,5,4);
 
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (6,'#000000','#dcb4bf','#f5d7e0');
@@ -170,7 +174,7 @@ Devido à presença de alguns ingredientes, a cor do produto pode variar, porém
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (7,'#af833a','#cea86a','#fef0d6');
@@ -191,11 +195,11 @@ Como Usar:
 Aplicar em todo o corpo, após o banho ou sempre que desejar.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
-139.90,null,0,15,'lily.png','lily-2.jpg','lily-3.jpg',23,7,2);
+139.90,null,0,15,'lily.png','lily-2.jpg','lily-3.jpg',23,7,3); ---da Eliana
 
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (8,'#60aaca','#a4cee0','#f4e3c5');
@@ -215,7 +219,7 @@ AQUA, BEHENAMIDOPROPYL DIMETHYLAMINE, BEHENTRIMONIUM METHOSULFATE and CETEARYL A
 64.90,60.90,1,40,'lola-danos-vorazes.png','lola-danos-vorazes-2.jpg','lola-danos-vorazes-3.jpg',16,8,5);
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (9,'#97262a','#ba5b54','#f5a59f');
@@ -240,7 +244,7 @@ Modo de uso:
 
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (10,'#97262a','#ba5b54','#f5a59f');
@@ -265,7 +269,7 @@ Modo de uso:
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (11,'#97262a','#ba5b54','#f5a59f');
@@ -292,7 +296,7 @@ Modo de uso:
 
 
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (12,'#97262a','#ba5b54','#f5a59f');
@@ -312,7 +316,7 @@ Máscara de tratamento para cabelos coloridos. Possui ação antioxidante, hidra
 249.70,137.34,1,10,'kit-color-protect.png','kit-color-protect-2.jpg','kit-color-protect-3.jpg',17,12,5);
 
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (13,'#f54e00','#eb8252','#eddebd');
@@ -329,7 +333,7 @@ DECAMETILCICLOPENTASILOXANO, MIRISTATO DE ISOPROPILA, ISODODECANO, TRIMETILSILOX
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (14,'#ea0137','#ff3463','#fa7d9a');
@@ -357,7 +361,7 @@ Benefícios:
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (15,'#64c2c2','#8eddd6','#c2f0ec');
@@ -387,7 +391,7 @@ aqua/água, disodium edta/edetato dissódico, alcohol/alcool etilico, glycerin/g
 
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (16,'#970005','#fe001a','#f74a4a');
@@ -412,7 +416,7 @@ Notas de Fundo: Âmbar, Fava Tonka, Baunilha, Cedro da Virgínia e Almíscar.',
 
 
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (17,'#4e316b','#b262dd','#e1b4fa');
@@ -457,7 +461,7 @@ Para aplicação da Máscara Pigmentante Medusa seu cabelo precisa estar em uma 
 
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (18,'#f58e18','#fbab2b','#f8d04c');
@@ -503,7 +507,7 @@ Avisos:
 
 
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (19,'#833c0c','#c46220','#eeb087');
@@ -522,11 +526,11 @@ Aplique na pele limpa e umedecida após o banho e massageie levemente. Se deseja
 
 Composição:
 Petrolato Líquido, Lecitina, Perfume, Lauromacrogol 400, Octildodecanol, Óleo de Amêndoas, Óleo da Semente de Corylus avellana, Fenoxietanol, Adipato de Dibutila, Cumarina, Limoneno, Etilexilglicerina, Tetra-Di-T-Butil Hidróxi-Hidrocinamato de Pentaeritritila, Linalol, Citral.',
-13.49,null,0,14,'oleo-avela-paixao.png','oleo-avela-paixao-2.jpg','oleo-avela-paixao-3.jpg',24,19,2);
+13.49,null,0,14,'oleo-avela-paixao.png','oleo-avela-paixao-2.jpg','oleo-avela-paixao-3.jpg',24,19,3);  --Eliana
 
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (20,'#6e0313','#bd021f','#f1556cff');
@@ -566,7 +570,7 @@ Em caso de irritação suspenda o uso e procure orientação médica.',
 
 
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (21,'#283256','#495a97','#8094e5');
@@ -606,7 +610,7 @@ Em caso de irritação suspenda o uso e procure orientação médica.',
 
 
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (22,'#7c0023','#b5254b','#e95078ff');
@@ -628,7 +632,7 @@ Pode conter colorantes: corante vermelho 77491, corante preto 77499, corante bra
 
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (23,'#eb5763','#e76c7e','#f2c0d6');
@@ -652,7 +656,7 @@ POLYISOBUTENE/POLIISOBUTENO, PHENOXYETHANOL/FENOXIETANOL, CAPRYLIC/CAPRIC TRIGLY
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (24,'#801d31','#c45269','#ec8b9fff');
@@ -672,11 +676,11 @@ Cor única e acabamento glossy acompanha chaveiro hidratação intensa acabament
 
 Composição:
 hydrogenated polyisobutene/poliisobuteno hidrogenado, polyisobutene/poliisobuteno, paraffinum liquidum/parafina líquida, ethylene/propylene/styrene copolymer/copólímero de etileno/propileno/estireno, butylene/ethylene/styrene copolymer/copólímero de butileno/etileno/estireno, ethylhexyl metoxyccinamate/octinoxato, octyldodecanol/octildodecanol, parfum/perfume, ethylhexyl palmitate/palmitato de etilexila, ci 15880/corante vermelho 15880, phenoxyethanol/fenoxietanol, tocopheryl acetate/acetato de tocoferila, ci 15850/corante vermelho 15850/benzotriazolyl dodecyl p-cresol/benzotriazolyl dodecyl p-cresol, butylene glycol/butileno glicol, silica dimethyl silylate/silica dimethyl silylate, caprylyl glycol/caprililglicol, hexylene glycol/hexileno glicol, sodium hyaluronate/hialuronato de sódio.',
-69.90,null,0,20,'gloss-cherry-vizzela.png','gloss-cherry-vizzela-2.jpg','gloss-cherry-vizzela-3.jpg',3,64,4);
+69.90,null,0,20,'gloss-cherry-vizzela.png','gloss-cherry-vizzela-2.jpg','gloss-cherry-vizzela-3.jpg',3,24,4);
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (25,'#33c4fdff','#9cd2ffff','rgba(191, 225, 253, 1)');
@@ -710,7 +714,7 @@ Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colôni
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (26,'#ffaaeaff','#fcc0edff','#fad3f0ff');
@@ -741,7 +745,7 @@ Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colôni
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (27,'#d8d759','#fafa85ff','#fafab1ff');
@@ -764,7 +768,7 @@ Pela manhã, à noite ou quando quiser.',
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (28,'#763b8d','#a65ec2ff','#d18aecff');
@@ -789,7 +793,7 @@ Agite antes de usar.',
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (29,'#735f9c','#9f85d3ff','#cdb6fcff');
@@ -812,7 +816,7 @@ Como usar:
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (30,'#678ec2','#7faae2ff','#a8ccfcff');
@@ -832,7 +836,7 @@ Como usar:
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (31,'#2de8f9','#5eedfaff','#99f5fdff');
@@ -856,7 +860,7 @@ Não aplique nas pálpebras, nos cantos externos do nariz e da boca nem na pele 
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (32,'#cb9e74','#e5b68aff','#f7cea7ff');
@@ -878,7 +882,7 @@ Esse uso pode render em torno de 120 aplicações, de 3 a 4 meses de uso.',
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (33,'#794599','#b672e0ff','#daaaf8ff');
@@ -913,7 +917,8 @@ Até 3 vezes por semana, em dias alternados.',
 
 
 
--------------------------PRODUTOS DO MARCOS
+--PRODUTOS DO MARCOS
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (34,'#5B398F','#15AF93','#4DBDA4');
@@ -956,7 +961,7 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (35,'#C0C0C0','#D6D6D6','#EAEAEA');
@@ -972,7 +977,7 @@ Confortável para uso diário, é perfeito para quem ama detalhes únicos e sofi
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (36,'#1EDCEA','#64edf7','#96f6fd');
@@ -1011,7 +1016,7 @@ Recursos:
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (37,'#0081B8','#33b0e6','#7cd6fd');
@@ -1045,7 +1050,7 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (38,'#02020A','#23305D','#4660BA');
@@ -1092,7 +1097,7 @@ Nenhum produto O Boticário é testado em animais, ou seja, este item possui sel
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES
 (39,'#070707','#404040','#757575');
@@ -1124,7 +1129,7 @@ Nenhum produto O Boticário é testado em animais, ou seja, este item possui sel
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (40,'#3E0D11','#73181F','#A6232D');
@@ -1149,7 +1154,7 @@ Para lavar a My Blend, basta enxaguá-la e usar um detergente neutro, massageand
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (41,'#C9758F','#F58EAE','#F5A5C4');
@@ -1181,7 +1186,7 @@ Fácil Limpeza - As cerdas são fáceis de limpar, mantendo a higiene e prolonga
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (42,'#080806','#DD51B1','#FC86D3');
@@ -1203,7 +1208,7 @@ AQUA (WATER), PARAFFIN, GLYCERYL STEARATE, SYNTHETIC BEESWAX, STEARIC ACID, BUTY
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (43,'#2F2F2F','#525252','#7A7A7A');
@@ -1226,7 +1231,7 @@ Carcaterísticas do produto:
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (44,'#F68B00','#FFA018','#FFA837');
@@ -1261,7 +1266,7 @@ Composição:
 
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (45,'#007F8E','#00C9E0','#62D1E0');
@@ -1302,7 +1307,7 @@ Aqua (Agua), Vitis Vinifera Seed Oil (Óleo de Semente de Uva), Sodium C14-16 Ol
 59.90,null,0,20,'shampoo-biopsor-vegano-1.png','shampoo-biopsor-vegano-2.jpg','shampoo-biopsor-vegano-3.jpg',15,45,6);
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (46,'#981D2D','#C44152','#C45F6B');
@@ -1334,10 +1339,838 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 45.90,null,0,40,'shampoo-match-protecao-da-cor-1.png','shampoo-match-protecao-da-cor-2.jpg',null,17,46,5);
 
 
------------------------------------------------------------------------------------------------
+
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
+(47,'#2B2B2B','#525252','#858585');
 
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Uomini Black Colônia','O Boticário','100ml',
+'Envolta em mistério, essa fragrância masculina combina notas quentes de especiarias, como Pimenta Preta e Cardamono, com o calor envolvente do âmbar. ',
+'Uomini sabe que em todo homem existe uma alma questionadora, que sonha levar uma vida mais autêntica. 
+
+Inspirados nessa inquietação, Uomini Black Desodorante Colônia, clássico da perfumaria O Boticário, se reinventa com a mesma fragrância potente e ousada, mas com nova embalagem – afinal, a vida é curta demais para não quebrar regras e viver a vida de maneira intensa.
+
+Família Olfativa: Oriental especiado.
+
+Pirâmide Olfativa:
+Topo: Pimenta Preta, Cardamomo, Tomilho, Coriandro. 
+Corpo: Folhas de Canela, Gerânio, Patchouli, Pimenta de Java Head Space. 
+Fundo: mbar, Fava Tonka, Musk, Baunilha.
+
+Como usar:
+Borrife a fragrância nas áreas onde há maior circulação do sangue, como o pescoço, dobras do cotovelo e atrás das orelhas. Para sentir a sua fragrância favorita por mais tempo, mantenha a sua pele sempre hidratada com nossos produtos de corpo e banho. 
+
+Orientação ao consumidor:
+Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas. Caso ocorra irritação e/ou prurido no local, suspenda o uso imediatamente. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Produto para perfumar e desodorizar a pele. Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança. 
+
+Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.
+
+Ingredientes:
+ÁLCOOL DESNATURADO; ÁGUA; PERFUME; CAPRILATO DE POLIGLICERILA-3; CINAMALDEÍDO; CITRAL; CITRONELOL; CUMARINA; EUGENOL; GERANIOL; HEXIL CINAMAL; LIMONENO; LINALOL.',
+194.90,180.99,1,40,'uomini-black-01.png','uomini-black-02.jpg',null,6,47,3);
+
+
+--Mais produtos
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(48,'#F76601','#F2AC02','#FFC549');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Protetor Solar Facial Anthelios FPS 60','La Roche-Posay','40g',
+'O La Roche-Posay Anthelios XL Protect é um protetor solar facial sem cor, com textura gel creme, oil free (livre de óleos) e de rápida absorção, que proporciona 8h de hidratação e uma pele sequinha e protegida, sem deixar resíduos brancos.',
+'O Protetor Solar Anthelios XL Protect é indicado para todos os tipos de pele, inclusive as oleosas, já que sua composição é oil free. Sua fórmula enriquecida com vitamina e, possui ação antioxidante e protege a pele não só contra os raios UVA/UVB, mas também contra a ação dos radicais livres. Além disso, conta com a tecnologia XL Protext, que proporciona maior resistência do filme protetor, mesmo em condições extremas.
+
+Como usar:
+Aplique de forma abundante sobre a pele antes da exposição ao sol, preferencialmente 30 minutos antes. Para manter a efetividade do Protetor Solar La Roche-Posay, reaplique o produto a cada 2 horas durante a exposição, principalmente após sudorese intensa, nadar ou secar-se com a toalha.
+
+Benefícios e diferenciais:
+ . Alta proteção contra raios UVA/UVB, com FPS 60 e PPD 25.
+ . Possui ação antioxidante.
+ . Previne o fotoenvelhecimento.
+ . Hidrata a pele por até 8 horas.
+ . Fórmula enriquecida com água termal La Roche-Posay.
+ . Não deixa resíduos brancos na pele.
+ . Não contém parabenos.
+ 
+Advertências:
+ . Uso externo. 
+ . Não ingerir.
+ . Caso haja contato com os olhos, lave-os abundantemente. 
+ . Se houver irritação, suspenda o uso imediatamente e procure orientação médica.
+ . Mantenha fora do alcance das crianças.
+ 
+Composição:
+Aqua / Water, Homosalate, Ethylhexyl Salicylate, Silica, Styrene/Acrylates Copolymer, Ethylhexyl Triazone, Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine, Drometrizole Trisiloxane, Butyl Methoxydibenzoylmethane, Aluminum Starch Octenylsuccinate, Octocrylene, C12-15 Alkyl Benzoate, Glycerin, Pentylene Glycol, Potassium Cetyl Phosphate, Dimethicone, Perlite, Propylene Glycol, Terephthalylidene Dicamphor Sulfonic Acid, Titanium Dioxide, Triethanolamine, Phenoxyethanol, Stearyl Alcohol, Isopropyl Lauroyl Sarcosinate, Peg-8 Laurate, Caprylyl Glycol, Inulin Lauryl Carbamate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Tocopherol, Xanthan Gum, Disodium Edta, Aluminum Hydroxide, Stearic Acid, Zinc Gluconate.',
+89.90,73.62,1,40,'anthelios-la-roche-posay.png','anthelios-la-roche-posay-2.jpg','anthelios-la-roche-posay-3.jpg',13,48,5);
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(49,'#6621A0','#8D2EDE','#AA4BFF');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Gela de Limpeza Mela B3','La Roche-Posay','120ml',
+'O Mela B3 Gel de Limpeza da La Roche-Posay é a solução nº1 para quem deseja uma limpeza antimanchas¹ eficaz.',
+'Formulado com o exclusivo ativo patenteado Melasyl™️, desenvolvido após 18 anos de pesquisa para corrigir e prevenir manchas¹ como nunca antes, o gel também contém Niacinamida e 1% de PHA (ácido polihidroxilado) para proporcionar uma esfoliação suave e gentil, limpando sem ressecar. O resultado é uma pele mais uniforme, radiante, renovada e com manchas corrigidas.
+
+Característica:
+ . Corrige manchas da pele, diferenças de tonalidade e manchas pós-acne.
+ . Eficácia clínica comprovada em todos os tons de pele.
+ . Previne o reaparecimento.
+ 
+Como usar:
+ . Fazer espuma com uma noz de produto na mão previamente molhada.
+ . Utilizar de manhã e de noite.
+ . Aplique sobre o rosto, pescoço, colo ou mão, massageando suavemente. Enxaguar em seguida.
+
+Dica de  uso:
+Evitar contato direto com os olhos. Utilizar Anthelios Ultracover FPS 60 na rotina da manhã.',
+102.90,89.52,1,80,'mela-b3-la-roche-1.png','mela-b3-la-roche-2.jpg','mela-b3-la-roche-3.jpg',14,49,2);
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(50,'#F5D132','#FFE16A','#FFE992');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Preenchedor de Rugas Q10 Expert Antissinais','Nivea','15ml',
+'O NIVEA Preenchedor Q10 Expert Antissinais é um preenchedor de linhas de expressão com resultados visíveis em 5 minutos.',
+'NIVEA Preenchedor Q10 Expert Antissinais é um creme com fórmula exclusiva que gera resultados visíveis em apenas 5 minutos.
+Serve para proporcionar melhora instantânea em rugas e linhas de expressão. Sua fórmula avançada atua rapidamente, reduzindo as rugas com uso contínuo.
+
+Benefícios:
+ . Anti-idade;
+ . Firmador;
+ . Todos os tipos de pele.
+
+Destaques do produto:
+ . Melhora a aparência das rugas e linhas de expressão em 5 minutos.
+ . Com Q10 puro e Peptídeos de Bioxifil.
+ . Melhora instantaneamente a aparência das rugas.
+ . Aplicação localizada.
+ . 5% de complexo ativo.
+
+Como usar:
+ . Aplicar em suas linhas e rugas na testa, ao redor dos olhos e dobras nasolabiais com o aplicador fácil de usar;
+ . Espalhe o conteúdo uniformemente com a ponta dos dedos;
+ . Use 2 vezes ao dia.
+
+Aviso:
+Uso externo. Evite contato com os olhos. Caso aconteça, enxágue com água em abundância. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.
+
+Ingredientes:
+Aqua, Dimethicone, Glycerin, Dimethicone Crosspolymer, Methylpropanediol, Alcohol Denat., Coco-Caprylate/Caprate, Octyldodecanol, Dicaprylyl Ether, Silica, Cetearyl Alcohol, Glyceryl Stearate, Tapioca Starch, Ubiquinone, Pimpinella Anisum Fruit Extract, Sodium Hyaluronate, Creatine, 1-Methylhydantoin-2-Imide, Panthenol, Pantolactone, Tocopherol, Sodium Cetearyl Sulfate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Citric Acid, Trisodium EDTA, Sodium Chloride, Sodium Sulfate, Sodium Hydroxide, Phenoxyethanol, CI 77891, CI 77491, CI 15985, Parfum',
+98.50,93.99,1,40,'nivea-antissinais-1.png','nivea-antissinais-2.jpg','nivea-antissinais-3.jpg',14,50,3);
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(51,'#75B427','#98D449','#C3FF73');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Gel Hidratante Facial','Nivea','100ml',
+'Hidratante em gel NIVEA com ácido hialurônico e pepino. Textura mais leve que o creme facial. Não obstrui os poros e hidrata por 24h. Cuide bem da sua pele!',
+'NIVEA Hidratante Facial Gel é um aliado essencial para quem busca cuidar da pele de maneira eficaz e refrescante.
+Este hidratante em gel é formulado com ácido hialurônico e pepino, proporcionando uma textura mais leve do que os cremes faciais tradicionais. Ele é especialmente projetado para peles oleosas, garantindo um equilíbrio perfeito de hidratação e controle da oleosidade. Uma das vantagens deste produto é sua capacidade de não obstruir os poros, permitindo que a pele respire livremente. Além disso, seu efeito refrescante revitaliza a pele do rosto, mantendo-a bem cuidada e hidratada por 24 horas. Com NIVEA Hidratante Facial Gel você pode desfrutar de uma pele livre de oleosidade, radiante e revigorada.
+
+Destaques do produto:
+ - Hidratação ideal para pele oleosa.
+ - Sua fórmula especial deixa a pele sequinha e bem cuidada por 24 horas.
+ - Não obstrui os poros e hidrata a pele por 24 horas.
+ - Sensação de pele limpa.
+ - Refresca e hidrata a pele do rosto.
+ - Com ácido hialurônico e pepino.
+ - Prolonga o efeito de maquiagem.
+
+Como usar:
+ - Limpe seu rosto antes de aplicá-lo.
+ - Aplique na testa, do centro para fora, em movimentos circulares.
+ - Aplique entre as sobrancelhas até o alto das bochechas.
+ - Massageie as maçãs do rosto em movimentos circulares.
+
+Ingredientes:
+Aqua, Glycerin, PEG-8, Ceteareth-20, Sodium Hyaluronate, Cucumis Sativus Juice, Ammonium Acryloyldimethyltaurate/VP Copolymer, Phenoxyethanol, Ethylhexylglycerin, Sodium Benzoate, Lactic Acid, Potassium Sorbate, Alpha-Isomethyl Ionone, Citronellol, Linalool, Parfum
+
+Ingredientes especiais:
+ - Ácido hialurônico e estrato de pepino.',
+30.58,null,0,60,'nivea-hidratanteemgel-1.png','nivea-hidratanteemgel-2.jpg','nivea-hidratanteemgel-3.jpg',11,51,3);
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(52,'#D6B2B1','#FFD4D3','#FFDFDF');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Creme Hidratante Facial Para Pele Negra','Nivea','100g',
+'Creme hidratante facial NIVEA Beleza Radiante desenvolvido especialmente para as necessidades da pele negra. Ideal para pele oleosa, pois controla a oleosidade e promove um efeito matte.',
+'NIVEA Hidratante Facial 7 em 1 Beleza Radiante é um creme hidratante desenvolvido especialmente para atender às necessidades da pele negra. Sua fórmula única contém ingredientes como Ácido Hialurônico, Extrato de Pérolas e Cúrcuma, que proporcionam benefícios incríveis para a pele. 
+
+Este hidratante oferece 7 benefícios em 1 só produto: reduz a aparência de marcas escurecidas, controla a oleosidade, uniformiza o tom de pele, ilumina, hidrata, possui proteção UVA/UVB e proporciona um efeito matte.
+A textura leve e de rápida absorção do NIVEA Hidratante Facial 7 em 1 Beleza Radiante permite uma aplicação diária no rosto limpo. 
+
+Destaques do produto:
+ - Reduz aparência de marcas escurecidas.
+ - Controla a oleosidade e promove um efeito matte.
+ - Uniformiza o tom da pele, ilumina e hidrata.
+ - Oferece proteção UVA/UVB.
+ - Proporciona um efeito matte de longa duração.
+
+Como usar:
+ - Limpe seu rosto antes de aplicá-lo.
+ - Aplique na testa, do centro para fora, em movimentos circulares.
+ - Aplique entre as sobrancelhas até o alto das bochechas.
+ - Massageie as maçãs do rosto em movimentos circulares.
+
+Precauções: 
+ - Uso externo.
+ - Evite contato com os olhos. Caso aconteça, enxágue com água em abundância.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.
+ - Este produto não é um protetor solar.',
+30.58,null,0,50,'nivea-hidratante-pelenegra-1.png','nivea-hidratante-pelenegra-2.png','nivea-hidratante-pelenegra-3.png',11,52,3);
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(53,'#49A2DA','#62ADDA','#8CBDDA');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Creme Hidratante Facial Nutritivo','Nivea','100ml',
+'Hidratante NIVEA para o rosto que cuida sem deixar a pele oleosa. Textura leve de rápida absorção.',
+'NIVEA Creme Facial Nutritivo é um hidratante para o rosto que cuida da pele sem deixá-la oleosa.
+
+Com fórmula à base de água, Karité e Vitaminas, esse creme deixa a pele com aspecto saudável e bonito. Além disso, ele funciona como um ótimo primer, preparando a pele para a aplicação da maquiagem. Com benefícios como hidratação por 24 horas e não deixar a pele oleosa, o Creme Facial NIVEA Nutritivo é perfeito para quem busca uma pele bem cuidada e pronta para o dia a dia.
+
+O NIVEA Creme Facial Nutritivo é um verdadeiro aliado para o cuidado da pele do rosto, oferecendo uma solução abrangente para manter a sua pele saudável, hidratada e preparada para o dia a dia.
+
+Destaques do produto:
+ - Hidratação por 24 horas.
+ - Prepara a pele para a maquiagem.
+ - Não deixa a pele oleosa.
+ - Nutre intensamente.
+ - Contém manteiga de Karité.
+ - Refresca a pele.
+ - Rápida absorção.
+ - Deixa a pele com aparência radiante.
+
+Como usar:
+ - Limpe seu rosto antes de aplicá-lo.
+ - Aplique na testa, do centro para fora, em movimentos circulares.
+ - Aplique entre as sobrancelhas até o alto das bochechas.
+ - Massageie as maçãs do rosto em movimentos circulares.
+
+Precauções:
+ - Uso externo.
+ - Evite contato com os olhos. Caso aconteça, enxágue com água em abundância.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.
+
+Ingredientes:
+Aqua, Glycerin, Butyrospermum Parkii Butter, Cetyl Palmitate, Olus Oil, Cetyl Alcohol, Isopropyl Palmitate, Dimethicone, Sodium Polyacrylate, Phenoxyethanol, Linalool, Citronellol, Alpha-Isomethyl Ionone, Geraniol, Limonene, Parfum, Sodium Hydroxide.
+
+Ingrediente especial: 
+Manteiga de karité',
+30.27,null,0,45,'nivea-hidratante-nutritivo-1.png','nivea-hidratante-nutritivo-2.png',null,11,53,4);
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(54,'#CF022D','#CF2645','#CF475F');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Creme Hidratante Facial Antissinais','Nivea','100g',
+'Hidratante facial NIVEA que reduz sinais e linhas de expressão. Sua fórmula leve e de rápida absorção hidrata intensamente, sem deixar a pele oleosa.',
+'NIVEA Creme Facial Antissinais é um hidratante facial diário que reduz sinais e linhas de expressão.
+
+Com uma fórmula leve e de rápida absorção, este creme proporciona uma hidratação intensa de até 30 horas e o mais importante: sem deixar a pele com aspecto oleoso. Por possuir ingredientes hidro nutrientes e Vitamina E, NIVEA Creme Facial Antissinais previne as rugas, melhora a cicatrização e ainda protege a pele contra os raios UVA/UVB. Além disso, sua fórmula exclusiva firma a pele e ainda reduz linhas de expressão, deixando-a muito mais jovem e saudável.
+
+Destaques do produto
+ - Reduz rugas e firma a pele.
+ - Hidratação intensa sem deixar a pele oleosa.
+ - Com vitamina E, antioxidante poderoso.
+ - Deixa a pele com aparência mais jovem.
+ - Melhora a cicatrização.
+ - Fórmula leve de rápida absorção.
+ - Torna a pele mais firme e reduz linhas de expressão.
+ - Protege contra raios UVA/UVB.
+
+Como usar:
+ - Limpe seu rosto antes de aplicá-lo.
+ - Aplique na testa, do centro para fora, em movimentos circulares.
+ - Aplique entre as sobrancelhas até o alto das bochechas.
+ - Massageie as maçãs do rosto em movimentos circulares.
+
+Ingredientes:
+Parfum, Citronellol, Geraniol, Linalool, Trisodium EDTA, Phenoxyethanol, Ethylhexylglycerin, Sodium Hydroxide, Sodium Polyacrylate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Xanthan Gum, Butyl Methoxydibenzoylmethane, Dimethicone, Tocopheryl Acetate, Cetyl Alcohol, Cetyl Palmitate, Butyrospermum Parkii Butter, Ethylhexyl Salicylate, Glycerin, Aqua.',
+30.27,null,0,40,'nivea-hidratante-antissinais-1.png','nivea-hidratante-antissinais-2.jpg','nivea-hidratante-antissinais-3.jpg',11,54,6);
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(55,'#C4C6CA','#D6D8D9','#EBEDEE');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES
+('Sérum Facial Cellular Com Ácido Hialurônico','Nivea','30ml',
+'NIVEA Cellular Sérum com Ácido Hialurônico que restaura a proteção natural da pele e oferece hidratação profunda.',
+'NIVEA Sérum Facial Cellular com Ácido Hialurônico é um produto de cuidados projetado para oferecer uma hidratação profunda e restaurar a proteção natural da pele.
+
+Este sérum inovador contém uma fórmula rica, com destaque para o Ácido Hialurônico e o Hidra Complex, que trabalham em conjunto para ativar as células da pele. Sua fórmula é rapidamente absorvida, proporcionando uma sensação refrescante à medida que penetra profundamente na pele.
+
+Os benefícios deste sérum são notáveis. Ele suaviza a pele, aumenta a elasticidade, restaura a proteção natural da pele e, acima de tudo, fornece hidratação profunda. Isso resulta em uma pele com aparência mais saudável, radiante e revitalizada. 
+
+Destaques do produto:
+ - Suaviza visivelmente a superfície da pele.
+ - Promove sensação de elasticidade à pele.
+ - Restaura a proteção natural da pele.
+ - Oferece hidratação profunda.
+ - Redução de rugas.
+
+Como usar:
+Aplique 3-4 gotas pela manhã e à noite no rosto e pescoço previamente limpos.
+
+Precauções:
+ - Uso externo.
+ - Evite contato com os olhos. Caso aconteça, enxágue com água em abundância.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.',
+132.99,null,0,40,'nivea-serum-hialuronico-1.png','nivea-serum-hialuronico-2.jpg','nivea-serum-hialuronico-3.jpg',14,55,5);
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(56,'#03B59F','#2FC9BB','#63C9C2');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sérum Reparador Diário Acne Control','Nivea','30ml',
+'O NIVEA Sérum Reparador Diário Acne Control hidrata, acalma e controla a oleosidade, fortalecendo a barreira da pele para um cuidado completo.',
+'O NIVEA Sérum Reparador Diário Acne Control foi desenvolvido especialmente para peles com tendência à acne, proporcionando um cuidado diário que promove uma pele saudável e equilibrada. Sua fórmula exclusiva combina ácido hialurônico, pró-vitamina B5 e niacinamida, ingredientes conhecidos por melhorar a aparência da pele e combater a acne. 
+
+O NIVEA Sérum Reparador Diário Acne Control é o parceiro ideal para equilibrar, acalmar e hidratar a pele do rosto. Com uma fórmula avançada, ele fortalece a barreira cutânea enquanto ajuda a controlar a oleosidade, promovendo um cuidado completo para uma pele mais saudável. 
+
+Destaques do produto:
+ - Equilibra a pele
+ - Ajuda a controlar a oleosidade
+ - Fortalece a barreira da pele
+ - Hidrata e acalma
+ - Sem perfume
+ - Dermatologicamente e clinicamente testado
+
+Ingredientes:
+ - Não inclui Perfume.
+ - Aqua, Glycerin, Alcohol Denat., Niacinamide, Glycyrrhiza Inflata Root Extract, Sodium Hyaluronate, Panthenol, Pantolactone, Ceteareth-20, Cellulose Gum, 1,2-Hexanediol, Sodium Chloride, Sodium Sulfate, Citric Acid, Phenoxyethanol, CI 42090, CI 16035.
+ - Ingredientes especiais: Ácido Hialurônico e Provitamina B5.',
+75.50,60.99,1,59,'nivea-acne-control-1.png','nivea-acne-control-2.jpg',null,14,56,6);
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(57,'#249B36','#46BF57','#7EED8D');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Hidratante Protetor Controle do Brilho & Oleosidade','Nivea','50ml',
+'Hidratante NIVEA Controle do Brilho & Oleosidade para o rosto, ideal para quem tem pele mista a oleosa. Textura leve e fórmula oil free.',
+'NIVEA Hidratante Protetor Nivea Controle do Brilho & Oleosidade é um produto projetado especialmente para peles mistas a oleosas.
+
+Sua fórmula eficaz ajuda a controlar a produção excessiva de óleo, resultando em uma pele com aparência saudável e livre de brilho indesejado. Um dos principais ingredientes deste hidratante é o extrato de algas marinhas, que desempenha um papel fundamental no controle da oleosidade.
+
+Destaques do produto
+ - Textura leve.
+ - Fórmula Oil Free.
+ - Protege contra os raios UVA/UVB.
+ - Algas marinhas ajudam a controlar o brilho e oleosidade da pele.
+ - Contém Vitamina E, antioxidante, para uma pele mais saudável e bem cuidada.
+
+Como usar:
+ - Limpar o rosto antes de aplicá-lo.
+ - Aplique o creme massageando delicadamente sua pele com pequenos movimentos circulares. Ideal para uso diário.
+
+Precauções:
+ - Uso externo.
+ - Evite contato com os olhos. Caso aconteça, enxágue com água em abundância.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.
+ - Este produto não é um protetor solar.
+
+Ingredientes :
+ - Aqua, Homosalate, Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, Octocrylene, Methylpropanediol, Distarch Phosphate, Glycerin, Ethylhexyl Stearate, Phenylbenzimidazole Sulfonic Acid, Glyceryl Glucoside, Tocopheryl Acetate, Fucus Vesiculosus Extract, Sodium Chloride, Dimethicone, Caprylic/Capric Triglyceride, Cetearyl Alcohol, Glyceryl Stearate, Sodium Stearoyl Glutamate, Chondrus Crispus Extract, Ammonium Acryloyldimethyltaurate/VP Copolymer, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Xanthan Gum, Trisodium EDTA, Phenoxyethanol, Methylparaben, Citronellol, Geraniol, Benzyl Alcohol, Linalool, Parfum, Sodium Hydroxide
+ - Ingredientes ativos: Vitamina E.
+ - Ingredientes Especiais: Algas Marinhas.',
+34.99,null,0,50,'nivea-controle-do-brilho-1.png','nivea-controle-do-brilho-2.jpg','nivea-controle-do-brilho-3.jpg',11,57,2);
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(58,'#E9647F','#F58095','#F798A7');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Hidratante Labial Hidra Color Rosé','Nivea','4.80g',
+'O NIVEA Hidra Color Rosé oferece proteção, cuidado e cor intensa com uma nova fórmula avançada 3 em 1. Ideal para o uso diário, protege os lábios contra ressecamento, raios UVA/UVB e promove uma hidratação de longa duração para o uso diário.',
+'NIVEA Hidra Color Rosé é a combinação ideal de uma cor intensa com um cuidado diário para os seus lábios. Sua nova fórmula avançada 3 em 1 oferece 24h de hidratação, cor intensa para os lábios e bochechas e proteção contra raios UVA/UVB. Livre de óleo mineral, enriquecida com manteiga de karité, óleo de amêndoas orgânico e vitamina E. 
+
+NIVEA Hidra Color Rosé vai muito além da beleza, promovendo hidratação de longa duração e protegendo os lábios do ressecamento e contra raios UVA/UVB com FPS 30. Possui uma cremosidade que desliza de maneira fácil e uniforme, com acabamento rosé intenso. Ajuda a proteger contra a perda de colágeno nos lábios. Auxilia na proteção contra a perda de colágeno induzida pelo sol (teste in vitro). O colágeno é conhecido por manter os lábios volumosos e firmes. 
+
+Destaques do produto:
+ - Protege os lábios contra o ressecamento.
+ - 24h de hidratação.
+ - Fórmula 3 em 1: Cuidado, proteção e cor intensa.
+ - Cor para lábios e bochechas.
+ - Proteção contra raios UVA/UVB.
+ - Apropriado para uso diário.
+ - Dermatologicamente testado.
+
+Precauções:
+ - Uso externo.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado e fora do alcance de crianças.
+ - Não deixe o produto exposto ao sol.
+
+Ingredientes:
+Ricinus Communis Seed Oil, Cocoglycerides, Cera Alba, Octyldodecanol, Helianthus Annuus Seed Cera, Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, Cetearyl Alcohol, CI 77891, Ethylhexyl Triazone, Hydrogenated Castor Oil, Tocopheryl Acetate, Tocopherol, Ascorbyl Palmitate, Helianthus Annuus Seed Oil, Aroma, Menthol, CI 15850, CI 77491.',
+23.19,null,0,70,'nivea-hidra-color-rose-1.png','nivea-hidra-color-rose-2.jpg','nivea-hidra-color-rose-3.jpg',11,58,6);
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(59,'#B01C38','#D43552','#E35269');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Hidratante Labial Hidra Color Vermelho','Nivea','4.80g',
+'O NIVEA Hidra Color Vermelho oferece proteção, cuidado e cor intensa com uma nova fórmula avançada 3 em 1. Ideal para o uso diário, protege os lábios contra ressecamento, raios UVA/UVB e promove uma hidratação de longa duração para o uso diário.',
+'NIVEA Hidra Color Vermelho é a combinação ideal de uma cor intensa com um cuidado diário para os seus lábios. Sua nova fórmula avançada 3 em 1 oferece 24h de hidratação, cor intensa para os lábios e bochechas e proteção contra raios UVA/UVB. Livre de óleo mineral, enriquecida com manteiga de karité, óleo de amêndoas orgânico e vitamina E.
+
+NIVEA Hidra Color Rosé vai muito além da beleza, promovendo hidratação de longa duração e protegendo os lábios do ressecamento e contra raios UVA/UVB com FPS 30. Possui uma cremosidade que desliza de maneira fácil e uniforme, com acabamento rosé intenso. Ajuda a proteger contra a perda de colágeno nos lábios. Auxilia na proteção contra a perda de colágeno induzida pelo sol (teste in vitro). O colágeno é conhecido por manter os lábios volumosos e firmes.
+
+Destaques do produto:
+ - Protege os lábios contra o ressecamento.
+ - 24h de hidratação.
+ - Fórmula 3 em 1: Cuidado, proteção e cor intensa.
+ - Cor para lábios e bochechas.
+ - Proteção contra raios UVA/UVB.
+ - Apropriado para uso diário.
+ - Dermatologicamente testado.
+
+Precauções:
+ - Uso externo.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado e fora do alcance de crianças.
+ - Não deixe o produto exposto ao sol.
+
+Ingredientes:
+ - Não inclui Óleo mineral.
+ - Octyldodecanol, Cocoglycerides, Ricinus Communis Seed Oil, Cera Alba, Helianthus Annuus Seed Cera, Cetearyl Alcohol, Hydrogenated Castor Oil, Butyrospermum Parkii Butter, Aroma, Prunus Amygdalus Dulcis Oil, Tocopherol, Tocopheryl Acetate, Ascorbyl Palmitate, Helianthus Annuus Seed Oil, CI 77491, CI 15850.
+ - Ingredientes especiais: Óleo de Amêndoa, Pura Vitamina E, Manteiga de Karité.',
+23.19,null,0,70,'nivea-hidra-color-vermelho-1.png','nivea-hidra-color-vermelho-2.jpg','nivea-hidra-color-vermelho-3.jpg',11,59,6);
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(60,'#EB6D70','#EB8387','#FCACAF');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Hidratante Labial Hidra Color Coral','Nivea','4.80g',
+'O NIVEA Hidra Color Coral oferece proteção, cuidado e cor intensa com uma nova fórmula avançada 3 em 1. Ideal para o uso diário, protege os lábios contra ressecamento, raios UVA/UVB e promove uma hidratação de longa duração para o uso diário.',
+'NIVEA Hidra Color Coral é a combinação ideal de uma cor intensa com um cuidado diário para os seus lábios. Sua nova fórmula avançada 3 em 1 oferece 24h de hidratação, cor intensa para os lábios e bochechas e proteção contra raios UVA/UVB. Livre de óleo mineral, enriquecida com manteiga de karité, óleo de amêndoas orgânico e vitamina E. 
+
+NIVEA Hidra Color Rosé vai muito além da beleza, promovendo hidratação de longa duração e protegendo os lábios do ressecamento e contra raios UVA/UVB com FPS 30. Possui uma cremosidade que desliza de maneira fácil e uniforme, com acabamento rosé intenso. Ajuda a proteger contra a perda de colágeno nos lábios. Auxilia na proteção contra a perda de colágeno induzida pelo sol (teste in vitro). O colágeno é conhecido por manter os lábios volumosos e firmes.
+
+Destaques do produto:
+ - Protege os lábios contra o ressecamento.
+ - 24h de hidratação.
+ - Fórmula 3 em 1: Cuidado, proteção e cor intensa.
+ - Cor para lábios e bochechas.
+ - Proteção contra raios UVA/UVB.
+ - Apropriado para uso diário.
+ - Dermatologicamente testado.
+
+Precauções:
+ - Uso externo.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado e fora do alcance de crianças.
+ - Não deixe o produto exposto ao sol.
+
+Ingredientes:
+Ricinus Communis Seed Oil, Cocoglycerides, Cera Alba, Octyldodecanol, Helianthus Annuus Seed Cera, Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, Cetearyl Alcohol, CI 77891, Ethylhexyl Triazone, Hydrogenated Castor Oil, Tocopheryl Acetate, Tocopherol, Ascorbyl Palmitate, Helianthus Annuus Seed Oil, Aroma, Menthol, CI 15850, CI 15985, CI 77492',
+23.19,null,0,70,'nivea-hidra-color-coral-1.png','nivea-hidra-color-coral-2.jpg','nivea-hidra-color-coral-3.jpg',11,60,6);
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(61,'#6A1E4C','#963570','#B84F8C');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Hidratante Labial Amora Shine','Nivea','5.50g',
+'Com manteiga de karité, óleo de abacate e de jojoba, NIVEA Hidratante Labial Amora Shine hidrata os lábios por 24 horas e possui um delicado brilho bordô.',
+'NIVEA Hidratante Labial Amora Shine é um produto que oferece cuidado e proteção por 24 horas, de forma suave e confortável.
+
+Este hidratante labial possui óleos naturais em sua composição, proporcionando hidratação profunda. Com um atraente aroma de amora e pigmentos brilhantes, ele acrescenta uma cor delicada aos lábios. Livre de óleos minerais, NIVEA Hidratante Labial Amora Shine tem uma aplicação uniforme dispensa o uso de espelho.
+
+A embalagem é reciclável, reforçando seu compromisso com o meio ambiente. Dermatologicamente testado, é uma escolha confiável para lábios irresistíveis. Experimente o toque radiante da amora com Nivea Amora Shine. 
+
+Destaques do produto:
+ - Hidratação prolongada.
+ - Aroma de amora.
+ - Pigmentos brilhantes.
+ - Cor delicada e suave aos lábios.
+ - Cuidado intensivo para os lábios.
+
+Aviso:
+Não ingerir. Uso externo. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado e fora do alcance de crianças. Não deixe o produto exposto ao sol.
+
+Ingredientes:
+ - Não inclui Óleo mineral.
+ - Ingredientes especiais: Óleo de abacate.',
+23.19,null,0,70,'nivea-hidra-color-amora-1.png','nivea-hidra-color-amora-2.jpg','nivea-hidra-color-amora-3.jpg',11,61,6);
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(62,'#0071C1','#228BD1','#44A2E8');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sabonete Facial em Gel Equilíbrio Nutritivo','Nivea','150g',
+'Sabonete Facial em Gel Equilíbrio Nutritivo limpa profundamente sem ressecar, removendo impurezas e mantendo a hidratação natural da pele. Enriquecido com flor de lótus, Hydramine e vitamina E, proporciona frescor. Ideal para o uso diário.',
+'NIVEA Sabonete Facial em Gel Equilíbrio Nutritivo foi cuidadosamente desenvolvido para oferecer uma limpeza profunda, sem agredir ou ressecar a pele. Sua fórmula nutritiva preserva o equilíbrio natural da pele, garantindo uma sensação de saúde e revitalização.
+
+Com uma fórmula enriquecida com flor de lótus, Hydramine e vitamina E, o sabonete revigora a pele, removendo impurezas enquanto mantém a hidratação e proporciona uma sensação refrescante após o uso. 
+
+Destaques do produto:
+ - Limpa profundamente sem ressecar.
+ - Revigora a pele mantendo sua hidratação natural equilibrada.
+ - Contém vitamina E, antioxidante para uma pele mais saudável e bem cuidada.
+ - Refresca a pele.
+ - Protege a barreira natural de hidratação da pele.
+ - Fórmula vegana - sem ingredientes de origem animal.
+ - Livre de microplásticos.
+ - Dermatologicamente testado.
+
+Modo de uso:
+Aplique o produto no rosto úmido, com movimentos circulares e suaves. Enxágue abundantemente com água. Evite contato com os olhos. Use pela manhã e à noite.
+
+Ingredientes:
+ - Aqua, Cocamidopropyl Betaine, Sodium Myreth Sulfate, Acrylates Copolymer, Glycerin, Nelumbo Nucifera Flower Extract, Tocopherol, Tocopheryl Acetate, Lauryl Glucoside, Sodium Lauryl Sulfate, PEG-40 Hydrogenated Castor Oil, PEG-200 Hydrogenated Glyceryl Palmate, Benzophenone-4, Sodium Chloride, Polyquaternium-10, Sodium Hydroxide, Phenoxyethanol, Methylparaben, Ethylparaben, Sodium Sulfate, Geraniol, Benzyl Alcohol, Linalool, Triethanolamine, Parfum, CI 42090, CI 16035.
+ - Ingredientes especiais: Pura Vitamina E.',
+27.59,null,0,60,'sabonete-facial-gel-nivea.png','sabonete-facial-gel-nivea-2.jpg',null,9,62,);
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(63,'#00519A','#396A9A','#549CE3');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES
+('Lenços de Limpeza Facial Ação Refrescante 25 Unidades','Nivea',null,
+"Lenços de Limpeza Ação Refrescante 3 em 1 removem maquiagem e máscaras para cílios à prova d'água, enquanto limpam, hidratam e refrescam a pele. Enriquecidos com extrato de flor de lótus e Pró-Vitamina B5 e Hidramina, protegem contra o ressecamento, proporcionando uma limpeza suave e eficaz.",
+"NIVEA Lenços de Limpeza Ação Refrescante 3 em 1 são lenços de limpeza suaves e eficazes, ideais para remover maquiagem, inclusive máscara à prova d’água. Além de limpar profundamente, eles hidratam e refrescam a pele, proporcionando uma sensação revigorante. 
+
+Os lenços removem até a maquiagem mais resistente e máscaras à prova d'água, deixando a pele limpa e fresca. Enriquecidos com extrato de flor de lótus, limpam suavemente o rosto, enquanto o Complexo Suave com Pró-Vitamina B5 e Hidramina protege a pele contra o ressecamento.
+
+Destaques do produto:
+ - Remove maquiagem e máscara para cílios à prova d'água.
+ - Limpa a pele profundamente.
+ - Hidrata e Refresca a pele.
+ - Dermatologicamente e oftalmologicamente testado.
+ - Remove os resíduos e impurezas da pele.
+ - Limpa a pele gentilmente.
+
+Ingredientes:
+ - Aqua, Isopropyl Stearate, Nelumbo Nucifera Flower Extract, Panthenol, Glycerin, VP/Hexadecene Copolymer, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Ethylhexylglycerin, Decylene Glycol, Phenoxyethanol, Sodium Hydroxide, Citric Acid, Pantolactone, Linalool, Linalyl Acetate, Citronellol, Limonene, Citrus Aurantium Peel Oil, Geraniol, Alpha-Isomethyl Ionone, Benzyl Alcohol, Hexyl Cinnamal, Terpineol, Benzyl Salicylate, Geranyl Acetate, Cananga Odorata Oil/Extract, Parfum.
+ - Ingredientes especiais: Provitamina B5.",
+20.99,null,0,60,'lenços-limpeza-nivea.png','lenços-limpeza-nivea-2.jpg',22,63,);
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(64,'#0378BE','#2599D9','#4AB0E8');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Mousse de Limpeza Facial Refrescante','Nivea','150ml',
+'Mousse de Limpeza Facial Refrescante limpa profundamente, removendo impurezas enquanto preserva a hidratação sem ressecar. Ideal para uma rotina de cuidados, e uma pele macia e refrescante.',
+'O NIVEA Mousse de Limpeza Facial Refrescante limpa profundamente a pele sem ressecar. Sua fórmula é enriquecida com flor de Lótus, Vitamina E e Hydramine, ativo conhecido por proteger a barreira natural de hidratação da pele. 
+
+NIVEA Mousse de Limpeza Facial Refrescante é indicado para uma limpeza diária profunda, ideal para todos os tipos de pele. Remove resíduos e impurezas enquanto preserva a hidratação natural da pele, proporcionando uma sensação de limpeza, frescor e suavidade após o uso.
+
+Destaques do produto:
+ - Limpa profundamente sem ressecar.
+ - Proporciona uma ótima experiência de limpeza, graças à sua fórmula de espuma suave.
+ - Dermatologicamente testado.
+ - Refresca a pele.
+ - Uso diário.
+ - Embalagem feita de 97% de material reciclado - excluindo-se etiqueta, válvula e tampa.
+ - Fórmula vegana (sem ingredientes de origem animal) & 99% biodegradável.
+
+Modo de uso:
+A fórmula se transforma em uma mousse macia quando usada. Massageie a espuma de limpeza na pele e retire com água. Aplique 2 vezes ao dia.
+
+Ingredientes:
+ - Aqua, Sorbitol, Glycerin, Decyl Glucoside, Disodium Cocoyl Glutamate, Tocopheryl Acetate, Nelumbo Nucifera Flower Extract, Cellulose Gum, Citric Acid, Sodium Benzoate, Propylene Glycol, Parfum.
+ - Ingredienes especiais: Pura vitamina E.
+
+Aviso:
+Uso externo. Evite contato com os olhos. Caso aconteça, enxágue com água em abundância. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.',
+33.59,null,0,70,'mousse-limpeza-nivea-1.png','mousse-limpeza-nivea-2.jpg',null,9,64,);
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(65,'#A1D0AE','#BCF2CB','#D4F2D9');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES
+('Água Micelar Efeito Matte','Nivea','200ml',
+'Água Micelar Solução de Limpeza 7 em 1 Efeito Matte é uma solução de limpeza que possui complexo de aminoácidos e algas marinhas sendo ideal para remover todas as impurezas da pele, inclusive resíduos de maquiagem.',
+'Água micelar que oferece 7 benefícios em um só produto. Limpa, hidrata, remove a oleosidade, tonifica, demaquila, acalma e refresca.
+
+Com fórmula poderosa, esta solução de limpeza retira todas as impurezas da pele, inclusive resíduos de maquiagem. Indicado para pele mista a oleosa. 
+
+Destaques do produto:
+ - Limpa profundamente.
+ - Demaquila.
+ - Matifica.
+ - Remove o excesso de oleosidade.
+ - Suaviza.
+ - Purifica.
+ - Efeito detox.
+ - 0% Resíduo de Produto.
+
+Modo de uso:
+ - Agite bem antes de usar. 
+ - Use pela manhã e à noite com o auxílio de um algodão, limpando todo o rosto.
+ - Para remover a maquiagem dos olhos com maior eficácia, deixe o algodão umedecido com o produto agir por alguns segundos sobre os olhos bem fechados.
+ - Não é necessário enxaguar.
+ 
+Ingredientes:
+Aqua, Poloxamer 124, Alcohol, Fucus Vesiculosus Extract, Camellia Sinensis Leaf Extract, Glycerin, Sorbitol, Propylene Glycol, Decyl Glucoside, Sodium Chloride, Sodium Cocoyl Glutamate, Citric Acid, Caprylic/Capric Triglyceride, Polyquaternium-10, PEG-40 Hydrogenated Castor Oil, Sodium Sulfate, Sodium Acetate, Trisodium EDTA, 1,2-Hexanediol, Phenoxyethanol.
+
+Aviso:
+Uso externo. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.',
+26.19,null,0,50,'agua-micelar-nivea-1.png','agua-micelar-nivea-2.png','agua-micelar-nivea-3.jpg',9,65,);
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(66,'#B27E33','#DB9B3F','#FFBE61');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esfoliante Peeling Antissinais Chronos Derma','Natura','15g',
+'Esfoliante facial vegano e cruelty free com bioativo de cacau, que uniformiza a textura da pele, reduz linhas finas e devolve o brilho natural. Promove renovação celular intensa com efeito peeling de tripla esfoliação (química, física e enzimática), deixando a pele mais macia, luminosa e revitalizada desde o primeiro uso.',
+'Funções do produto:
+• Uniformiza a textura e reduz linhas finas imediatamente.
+• Suaviza a aparência de pele cansada.
+• Devolve o brilho natural e a vitalidade.
+• 95% pele mais uniforme, renovada e macia.
+• O uso prolongado potencializa os resultados.
+• Máxima potência na renovação celular.
+• Efeito peeling tripla esfoliação, com união de esfoliantes químico, físico e enzimático.
+
+Características:
+• Possui bioativo: Cacau, repõe componentes essenciais da pele.
+• Testado dermatologicamente.
+• Idade sugerida: 18+.
+• Cruelty free.
+• Vegano.
+• Ocasião: limpeza.
+• Tipo de pele: todos os tipos de pele.
+• Textura: esfoliante.
+• Zona de aplicação: rosto e pescoço.
+
+Dicas de uso:
+Após a limpeza da pele, aplique o produto sobre o rosto molhado. massageie suavemente e enxágue em seguida. use de uma a duas vezes na semana, em dias alternados.
+
+Ingredientes:
+Aqua / water / eau, bambusa arundinacea stem powder, glycolic acid, glycerin, coco-caprylate, coconut alkanes, elaeis guineensis oil / elaeis guineensis (palm) oil, propanediol, stearyl alcohol, sodium hydroxide, glyceryl stearate, papain, parfum / fragrance, cetyl lactate, sodium acrylates copolymer, peg-100 stearate, glyceryl dipalmitate, glyceryl palmitate, glyceryl distearate, xanthan gum, lecithin, sodium benzoate, disodium edta, theobroma cacao seed butter / theobroma cacao (cocoa) seed butter / theobroma cacao (cacau) seed butter, citronellol, tocopherol, alpha-isomethyl ionone, cetyl alcohol, sodium carbonate, conobea scoparioides leaf oil / conobea scoparioides (pataqueira) leaf oil, sodium chloride.',
+30.20,18.50,1,70,'esfoliante-facial-natura-1.png', 'esfoliante-facial-natura-2.jpg', 'esfoliante-facial-natura-3.jpg',10,66,)
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(67,'#F0BE0F','#F7CA42','#F7D069');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sabonete Líquido Esfoliante para o Corpo Ekos Maracujá','Natura','185ml',
+'Sabonete líquido esfoliante vegano com óleo de maracujá, que limpa suavemente e remove as células mortas enquanto mantém o pH natural da pele. Proporciona um banho relaxante e revigorante, deixando a pele macia, uniforme e delicadamente perfumada.',
+'Funções do produto:
+• Limpa suavemente e esfolia com a potência antiestresse do maracujá.
+• Seu sabonete líquido esfoliante favorito mudou, mas continua com textura e fragrância relaxante de sempre.
+• Remove as células mortas durante o banho.
+• Promove sensação de banho relaxante.
+• Sabonete vegano que mantém o pH natural da pele.
+• Deixa sua pele renovada e mais uniforme.
+• Feito com óleo de maracujá, rico em ácidos graxos essenciais.
+• A linha Ekos Maracujá fortalece a renda de 876 famílias guardiãs da natureza.
+
+Características:
+• Possui bioativo: maracujá.
+• Testado dermatologicamente.
+• Possui refil.
+• Cruelty free.
+• Vegano.
+• Tipo de pele: todos os tipos de pele.
+
+Dica de uso:
+Espalhe o sabonete líquido esfoliante de Natura Ekos sobre o corpo até formar espuma. enxágue em seguida. não utilizar o sabonete corporal no rosto.
+
+Ingredientes:
+ÁGUA, DECIL GLICOSÍDEO, COCOIL GLUTAMATO DE SÓDIO, GLICEROL, PROPANODIOL, BEENATO DE ESTEARILA, CROSPOLÍMERO DE ACRILATOS/ACRILATO DE ALQUILA C10-30, PERFUME, COCOATO DE SACAROSE, COCOIL GLUTAMATO DISSÓDICO, ÉSTERES DA JOJOBA, HIDROXIACETOFENONA, SEMENTE DE MARACUJÁAZEDO EM PÓ, HIDRÓXIDO DE SÓDIO, LIMONENO, GLICONATO DE SÓDIO, HEXIL CINAMAL, ALFA-ISOMETIL IONONA, ÓLEO DA SEMENTE DE MARACUJÁ-AZEDO, CARBONATO DE SÓDIO, AMARELO DE TARTRAZINA, CLORETO DE SÓDIO, ÁCIDO CÍTRICO, SULFATO DE SÓDIO, TOCOFEROL.',
+54.90,38.40,1,70,'esfoliante-corporal-ekos-natura-1.png', 'esfoliante-corporal-ekos-natura-2.jpg' ,'esfoliante-corporal-ekos-natura-3.jpg',26,67,);
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(68,'#BF734F','#CF8868','#ED9C78');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Polpa Esfoliante para o Corpo Ekos Castanha','Natura','200g',
+'Esfoliante corporal vegano com óleo de castanha, rico em ômegas 6 e 9, que remove impurezas e células mortas enquanto nutre profundamente. Deixa a pele macia, renovada e com um toque aveludado, mantendo a fragrância envolvente e o cuidado sustentável da linha Ekos Castanha.',
+'Funções do produto:
+• Pele macia e renovada com a potência antirressecamento da castanha.
+• Seu esfoliante favorito mudou, mas continua com textura e fragrância deliciosas.
+• Esfoliante corporal feito com óleo bruto de castanha, rico em ômegas 6 e 9.
+• Deixa a pele macia e renovada.
+• Possui partículas esfoliantes que ajudam a remover impurezas e células mortas.
+• A linha Ekos Castanha contribui para a regeneração da Amazônia e ajuda a fortalecer a renda de 689 famílias guardiãs da floresta ligadas à colheita sustentável.
+
+Características:
+• Possui bioativo: castanha.
+• Testado dermatologicamente.
+• Cruelty free.
+• Vegano.
+• Tipo de pele: todos os tipos de pele.
+• Textura: esfoliante.
+
+Dicas de uso:
+Use o esfoliante corporal Natura Ekos durante o banho. aplique sobre a pele e massageie com movimentos circulares, exceto no rosto. realize a esfoliação corporal com Ekos Castanha 1 a 2 vezes por semana.
+
+Ingredientes:
+SUCROSE, DICAPRYLYL ETHER, ELAEIS GUINEENSIS OIL, HELIANTHUS ANNUUS SEED OIL, RICINUS COMMUNIS SEED OIL, ORYZA SATIVA BRAN CERA, ASTROCARYUM MURUMURU SEED BUTTER, SUCROSE COCOATE, THEOBROMA GRANDIFLORUM SEED BUTTER, PARFUM, PALMITIC ACID, AQUA, STEARIC ACID, BERTHOLLETIA EXCELSA SEED OIL, SILICA, GLYCERYL DIPALMITATE, GLYCERYL PALMITATE, LINUM USITATISSIMUM SEED POWDER, GLYCERYL DISTEARATE, GLYCERYL STEARATE, TOCOPHEROL, LINALOOL, BENZYL SALICYLATE, LIMONENE, COUMARIN, ALPHA-ISOMETHYL IONONE.',
+95.90,85.90,1,80,'esfoliante-corporal-castanha-natura-1.png', 'esfoliante-corporal-castanha-natura-2.jpg', 'esfoliante-corporal-castanha-natura-3.jpg',26,68,);
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(69,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+()
+
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(70,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(71,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(72,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(73,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(74,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(75,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(76,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(77,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(78,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 

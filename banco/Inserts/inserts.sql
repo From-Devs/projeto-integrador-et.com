@@ -51,7 +51,7 @@ VALUES
 
 INSERT INTO SubCategoria (id_subCategoria, nome, id_categoria)
 VALUES
-(19, 'Cabelos', 5),
+(19, 'Cabelo', 5),
 (20, 'Maquiagem', 5),
 (21, 'Unhas', 5),
 (22, 'Cuidados Faciais', 5);
@@ -74,3 +74,9 @@ INSERT INTO Status (`tipoStatus`) VALUES
 ('Concluído'),
 ('Cancelado'),
 ('Devolvido');
+
+
+-- Conta ADM
+
+INSERT INTO administrador (email, senha)
+VALUES ('admin@admin.com','Adm123');
