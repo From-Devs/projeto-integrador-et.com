@@ -99,8 +99,8 @@
             <thead>
                 <tr>
                     <th class="radius">Produto</th>
-                    <th></th>
-                    <th></th>
+                    <th class="sumir"></th>
+                    <th class="sumir"></th>
                     <th>Preço</th>
                     <th>Quantidade</th>
                     <th class="radius2">Subtotal</th>
@@ -117,8 +117,8 @@
                                 <span class='produto-nome'><?= htmlspecialchars($item['nome']) ?></span>
                             </div>
                         </td>
-                        <td></td>
-                        <td></td>
+                        <td class="sumir"></td>
+                        <td class="sumir"></td>
                         <td class='cor2'>R$ <?= number_format($item['precoCalculado'], 2, ',', '.') ?></td>
                         <td class='quantityColumn'>
                             <div class='quantity-container'>
@@ -138,8 +138,12 @@
             </tbody>
 
             <tfoot>
-                <tr class="tot" style="padding: 0px">
-                    <td class="cor3" colspan="5">Total:</td>
+                <tr class="tot">
+                    <td class="cor3">Total:</td>
+                    <td></td>
+                    <td></td>
+                    <td class="sumir"></td>
+                    <td class="sumir"></td>
                     <td class="total-value" id="total">R$ <?= number_format($total, 2, ',', '.') ?></td>
                 </tr>
 
@@ -148,8 +152,8 @@
                     <td><label for="selecionarTodos">Selecionar Tudo:</label></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="sumir"></td>
+                    <td class="sumir"></td>
                     <td style="text-align: right;"><input type="checkbox" id="selecionarTodos" style="margin: 0px;" checked></td>
                 </tr>
 
