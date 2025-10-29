@@ -7,6 +7,8 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
 
 // Controllers
 require_once __DIR__ . "/../../Controllers/ProdutoController.php";
+require_once __DIR__ . "/../../Controllers/CarrinhoController.php";
+require_once __DIR__ . "/../../Controllers/ListaDesejosController.php";
 
 session_start();
 $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";

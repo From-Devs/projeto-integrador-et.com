@@ -3,6 +3,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once __DIR__ . "/../app/Controllers/ProdutoController.php";
+require_once __DIR__ . "/../app/Controllers/PedidoControllerApp.php";
+$pedidoController = new PedidoControllerApp();
 $produtoController = new ProdutoController();
 
 $idUsuario = $_SESSION['id_usuario'] ?? ($_GET['id_usuario'] ?? $_POST['id_usuario'] ?? null);
@@ -189,4 +191,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo "Nao encontrei nada";
             break;
     }
+    
+        case 'avaliarProduto':
+        $idProduto = $_POST['id_produto'] ?? null;
+        $nota = $_POST['nota'] ?? null;
+        $comentario = $_POST['comentario'] ?? '';
+
+        if (!$idProduto || !$nota) {
+            echo json_encode(['ok' => false, 'msg' => 'Dados inválidos para avaliação']);
+            exit;
+        }
+
+        $resultado = $produtoController->avaliarProduto(
+            $idUsuario, 
+            intval($idProduto), 
+            intval($nota), 
+            $comentario
+        );
+
+        echo json_encode($resultado);
+        break;
+
+    default:
+        echo json_encode(['ok' => false, 'msg' => 'Ação inválida']);
+        break;
+
 }
+

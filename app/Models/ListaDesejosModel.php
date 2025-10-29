@@ -56,7 +56,7 @@ class ListaDeDesejos {
             if ($p <= 0) continue;
 
             // Verifica se o produto existe
-            if (!$this->products->BuscarProdutoPorId($p)) continue;
+            if (!$this->products->buscarProdutoPeloId($p)) continue;
 
             try {
                 // Verifica se já está na lista

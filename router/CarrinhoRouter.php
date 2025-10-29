@@ -6,6 +6,15 @@ header('Content-Type: application/json; charset=utf-8');
 require_once __DIR__ . '/../app/Models/CarrinhoModel.php';
 require_once __DIR__ . '/../app/Controllers/CarrinhoController.php';
 
+// Permitir leitura de JSON enviado via fetch
+$inputJSON = file_get_contents('php://input');
+if (!empty($inputJSON)) {
+    $input = json_decode($inputJSON, true);
+    if (is_array($input)) {
+        $_POST = array_merge($_POST, $input);
+    }
+}
+
 $controller = new CarrinhoController();
 
 // id do usuário logado
