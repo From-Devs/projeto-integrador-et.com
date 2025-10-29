@@ -61,4 +61,29 @@ class BaseController {
      *       }
      *   }
      */
+
+     /**
+     * 🔹 Salvar imagem 
+     *
+     * @param string $file input.
+     *
+    */
+    protected function SalvarImgProtudo($file){
+
+    }
+     /**
+     * 🔹 Explicação
+     * 
+     * Esse método facilita a o salvamento de imagems,
+     * tipo que salvar uma nova imagem ela vai ser passa na controller para peguar,
+     * 
+     * Controller <- View
+     * 
+     * Exemplo:
+     *   class controller extends BaseController {
+     *       public function create() {
+     *           $this->salvarimagens(arquivo);
+     *       }
+     *   }
+     */
 }
