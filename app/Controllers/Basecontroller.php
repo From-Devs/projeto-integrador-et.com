@@ -105,4 +105,35 @@ class BaseController {
 
         return $imagensSalvas;
     }
+    /**
+     * 🔹 Salvar imagens de um produto
+     * 
+     * Salva até 3 imagens de um produto em uma pasta exclusiva,
+     * remove as imagens antigas e retorna os caminhos salvos.
+     * 
+     * @param array $files Arquivos enviados ($_FILES)
+     *                     Exemplo de $files na controller:
+     *                     [
+     *                       'img1' => $_FILES['img1'],
+     *                       'img2' => $_FILES['img2'],
+     *                       'img3' => $_FILES['img3']
+     *                     ]
+     * @param array $old Caminhos antigos das imagens (opcional)
+     *                   Exemplo de $old na controller:
+     *                   [
+     *                       'img1' => 'public/uploads/produto/Produto_2/img_antiga1.jpg',
+     *                       'img2' => 'public/uploads/produto/Produto_2/img_antiga2.jpg',
+     *                       'img3' => null
+     *                   ]
+     * @param int $produtoId ID do produto (para criar pasta)
+     *                       Exemplo: 2
+     * @return array Caminhos das imagens salvas
+     *               [
+     *                   'img1' => 'public/uploads/produto/Produto_2/img1.jpg',
+     *                   'img2' => 'public/uploads/produto/Produto_2/img2.jpg',
+     *                   'img3' => null
+     *               ]
+     */
+
+
 }
