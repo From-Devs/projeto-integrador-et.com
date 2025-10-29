@@ -23,7 +23,7 @@
     $ordem = $_GET['ordem'] ?? null;
     $pesquisa = $_GET['pesquisa'] ?? null;
     $products = new Products();
-    $produtos = $products->buscarTodosProdutos($ordem, $pesquisa, $_SESSION['id_usuario']);
+    $produtos = $products->buscarTodosProdutos($ordem, $pesquisa);
 ?>
 
 <!DOCTYPE html>

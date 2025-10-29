@@ -22,7 +22,7 @@ class AssociadosModel{
                     FROM usuario U
                     LEFT JOIN endereco E
                         ON U.id_endereco = E.id_endereco
-                    LEFT JOIN solicitacaodeassociado SA
+                    JOIN solicitacaodeassociado SA
                     	ON U.id_usuario = SA.id_usuario
                     WHERE U.TIPO = 'Cliente'";
             }
