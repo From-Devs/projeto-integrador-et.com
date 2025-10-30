@@ -5,8 +5,6 @@ require_once __DIR__ . '/../Models/products.php'; // categoria
 class CategoriaController {
     private $categoriamodel;
     private $productsmodel;
-
-        
     
     public function __construct() {
         $this->categoriamodel = new Categoria();
