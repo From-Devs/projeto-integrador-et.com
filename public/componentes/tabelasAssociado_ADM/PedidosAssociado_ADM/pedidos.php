@@ -65,25 +65,15 @@ function tabelaTotaisAssociado($infoPagamentos) { ?>
 }
 
 function resumoFinal($detalhesPedidos) {
-    $subtotal = 0;
+    $total = 0;
     foreach ($detalhesPedidos as $item) {
-        $subtotal += floatval($item['preco']) * intval($item['quantidade']);
+        $total += floatval($item['preco']) * intval($item['quantidade']);
     }
 
-    $frete = 0;
-    $total = $subtotal + $frete;
     ?>
     <div class="resumo-final" style="margin-top: 1em;">
         <table>
             <tbody>
-                <tr>
-                    <td style="text-align: center;"><strong>Subtotal:</strong></td>
-                    <td style="text-align: center;">R$ <?= number_format($subtotal, 2, ',', '.') ?></td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;"><strong>Frete:</strong></td>
-                    <td style="text-align: center;">R$ <?= number_format($frete, 2, ',', '.') ?></td>
-                </tr>
                 <tr>
                     <td style="text-align: center;"><strong>Total:</strong></td>
                     <td style="text-align: center;">R$ <?= number_format($total, 2, ',', '.') ?></td>
@@ -177,7 +167,9 @@ function tabelaPedidosADM($pedidos) {
 }
 
 
-function tabelaPedidosAssociado($pedidos) { ?>
+function tabelaPedidosAssociado($pedidos) { 
+    echo popUpCurto("popUpStatusEntrega", "Status de entrega alterado com sucesso!", "green", "white", "/popUp_Botoes/img-confirmar.png");
+    ?>
     <div id='lista'>
         <table id='tabelaVendas'>
             <thead id='barraCima'>

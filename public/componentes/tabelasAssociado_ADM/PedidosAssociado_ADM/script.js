@@ -30,9 +30,7 @@ async function atualizarStatusEntrega(selectEl, idPedido){
     if(resposta.status == 200){
         const data = await resposta.json();
         if(data.success){
-            // Mostrar popup curto de sucesso e atualizar, mantendo modal se necessário
-            sessionStorage.setItem("abrirPopUpStatus", "true");
-            window.location.reload();
+            abrirPopUpCurto("popUpStatusEntrega");
         } else {
             alert('Erro ao atualizar status de entrega');
         }

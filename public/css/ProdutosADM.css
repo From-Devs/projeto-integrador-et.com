@@ -193,6 +193,36 @@ a
     font-size: 36px;
 }
 
+#nomeProduto{
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.bodyEditar{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dialog-produto-associados #barraCima th{
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+#bodyAssociadosProduto tr td{
+    padding: 2px;
+    font-size: 1rem;
+}
+
+#tabelaProdutoAssociados #bodyAssociadosProduto tr td{
+    padding: 10px;
+}
+
+.btn-fechar{
+    background-color: transparent;
+    border: none;
+}
+
 @media (max-width: 1280px) {
     .main{
         margin-left: 250px;

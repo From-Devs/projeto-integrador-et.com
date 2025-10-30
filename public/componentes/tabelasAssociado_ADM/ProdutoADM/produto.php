@@ -23,7 +23,8 @@
                             <tr style="height: 80px;">
                                 <td><?= htmlspecialchars($produto['id']) ?></td>
                                 <td class="td-lista-associados">
-                                    <button onclick="buscarAssociadoProdutos(<?= $produto['id']?>)" class="btn-lista-associados">
+                                    <?php $nomeJs = json_encode($produto['nome']); ?>
+                                    <button onclick='buscarAssociadoProdutos(<?= $produto['id']?>, <?= json_encode($produto['nome']) ?>)' class="btn-lista-associados">
                                         <span>Ver Associados</span>
                                         <img width="30px" src="/projeto-integrador-et.com/public/imagens/imagensADM/img-lista.png" alt="img-lista-associados">
                                     </button>
@@ -42,29 +43,23 @@
                         <button class="btn-fechar" onclick='fecharPopUp("dialog-produto-associados")'>
                             <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
                         </button>
-                    </div>
-                    <table id="tabelaVendas">
-                        <thead id="barraCima">
-                            <tr>
-                                <th id="th1" scope="col">ID</th>
-                                <th id="th2" scope="col">Nome</sth>
-                                <th id="th3" scope="col">Telefone</th>
-                                <th id="th4" scope="col">Cidade</th>
-                            </tr>
-                        </thead>
-                    </table>
-
-                    <div class="tabela-body">
+                    </div>  
+                    <div>
                         <table id="tabelaVendas">
-                            <tbody>
-                                <tr style="height: 80px;">
-                                    <td class='idAssociado'>1 a</td>
-                                    <td class='nomeAssociado'>2 aa</td>
-                                    <td class='telefone'>3 aaa</td>
-                                    <td class='cidade'>4 aaaa</td>
+                            <thead id="barraCima">
+                                <tr>
+                                    <th id="th1" scope="col">ID</th>
+                                    <th id="th2" scope="col">Nome</sth>
+                                    <th id="th3" scope="col">Telefone</th>
+                                    <th id="th4" scope="col">Cidade</th>
                                 </tr>
-                            </tbody>
+                            </thead>
                         </table>
+                        <div class="tabela-body">
+                            <table id="tabelaProdutoAssociados">
+                                <tbody id="bodyAssociadosProduto"></tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </dialog>
