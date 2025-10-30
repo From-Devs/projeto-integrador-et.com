@@ -92,7 +92,7 @@ function createRodape($tipo = 0){
                                 Cabelo
                             </a>
                             <a href="" class="CategoriaLink">
-                                utensílios
+                                Utensílios
                             </a>
                             <a href="" class="CategoriaLink">
                                 Corporal

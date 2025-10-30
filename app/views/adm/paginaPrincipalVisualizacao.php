@@ -112,7 +112,7 @@
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronico.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronicoHover.png" alt="" class="iconeCategoriaHover">
             </div>
-            <p class="tituloCategoria">utensílios</p>            
+            <p class="tituloCategoria">Utensílios</p>            
         </a>
         <a class="botaoCategoria botao6" href="">            
             <div class="containerIconeCategoria">
