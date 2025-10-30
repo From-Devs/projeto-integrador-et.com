@@ -26,7 +26,6 @@ require __DIR__ . '/../sidebar/sidebarHeader.php'; // import do componente da si
 require __DIR__ . '/../pesquisaHeader/pesquisaHeader.php'; // import do componente da sidebar
 require __DIR__ . "/../../../app/Controllers/UserController.php";
 
-
 function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
     $popUpCurtoLogin = popUpCurto("popUpErroDelogado", "Cadastre ou entre em uma conta para realizar essa ação.", "red", "white", "/popUp_Botoes/img-cancelar.png");
     $controller = new UserController(); 
