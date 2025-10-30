@@ -566,7 +566,7 @@ Manter fora do alcance das crianças.
 Não ingerir. 
 Em caso de contato acidental com os olhos enxaguar abundantemente com água. 
 Em caso de irritação suspenda o uso e procure orientação médica.',
-27.79,null,0,30,'oleo-ameixarubi-paixao.png','oleo-ameixarubi-paixao-2.jpg','oleo-ameixarubi-paixao-3.jpg',24,20,2);
+27.79,null,0,30,'oleo-ameixarubi-paixao.png','oleo-ameixarubi-paixao-2.jpg','oleo-ameixarubi-paixao-3.jpg',24,20,2);  --Eliana
 
 
 
@@ -2337,7 +2337,7 @@ Indicamos iniciar o processo de esmaltação com o uso de uma de uma de nossas b
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(78,'','','');
+(78,'#FF3376','#FF5084','#FF719B');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2351,13 +2351,13 @@ Espalhar uniformemente o produto na região das unhas e cutículas até completa
 Especificações:
 Cruelty Free
 Cuidado das Cutículas',
-41.00,28.88,1,70,'','','',21,78)
+41.00,28.88,1,70,'cera-nutritiva-unhasecuticulas-granado-1.png', 'cera-nutritiva-unhasecuticulas-granado-2.jpg', 'cera-nutritiva-unhasecuticulas-granado-3.jpg',21,78)
 
 
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(79,'','','');
+(79,'#BF6F7C','#BF808A','#D49AA5');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2379,12 +2379,12 @@ Benefícios:
 Modo de Usar:
 • Remova o excesso do pincel do Esmalte Cremoso Dailus e aplique sobre as unhas.
 • Se preferir, aplique uma segunda camada.',
-9.49,null,0,89,'','','',21,79,)
+9.49,null,0,89,'dailus-esmalte-meiadeseda-1.png', 'dailus-esmalte-meiadeseda-2.jpg','dailus-esmalte-meiadeseda-3.jpg',21,79,)
 
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(80,'','','');
+(80,'#BD796B','#BD897D','#BD968E');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2406,89 +2406,214 @@ Modo de Usar:
 Precauções:
 Produto Inflamável. Mantenha fora do alcance de crianças.
 ',
-49.90,33.69,1,73,'','','',21,80,)
+49.90,33.69,1,73,'opi-esmalte-naillacquer-1.png', 'opi-esmalte-naillacquer-2.jpg', 'opi-esmalte-naillacquer-3.jpg',21,80,)
 
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(81,'','','');
+(81,'#C55F8A','#C57192','#F0A4C0');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Óleo Secante para Unhas','Essence','8ml',
+'Óleo secante vegano que acelera a secagem do esmalte em apenas 60 segundos. Enriquecido com vitamina E e óleo de amêndoas, nutre unhas e cutículas enquanto garante brilho e proteção, com aplicador prático em gotas.',
+'Com o Óleo Secante Express Dry Drops Essence, o seu esmalte seca em apenas 60 segundos!
 
+Enriquecido com vitamina E e óleo de amêndoas para cuidar das suas unhas. Além do seu aplicador gota a gota super prático e fácil.
 
+Com o óleo secante Express Dry Drops Essence suas unhas ficam secas em segundos!
 
-INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
-VALUES  
-(82,'','','');
+Benefícios:
+As gotas do Express Dry Drops fazem com que o esmalte seque apenas em 60 segundos – basta aplicar uma gota por unha após a esmaltação;
+Sua fórmula nutre as unhas e cutículas com vitamina E e óleo de amêndoas;
+Sem parabenos, fragrâncias, acetona, corantes e conservantes.
 
-INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
+Modo de Uso:
+Aplicar uma gota em cada unha após a aplicação do esmalte. Pode ser usada antes do esmalte para cuidar das cutículas. Basta aplicar uma gota em cada unha, massagear e limpar com algodão umedecido em removedor de esmaltes.
 
-
-
-INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
-VALUES  
-(83,'','','');
-
-INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
-
-
-
-INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
-VALUES  
-(84,'','','');
-
-INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
+Produto não tesado em animais. Produto Vegano.',
+19.00,null,0,83,'essence-oleo-secante-1.png', 'essence-oleo-secante-2.jpg', 'essence-oleo-secante-3.jpg',21,81,)
 
 
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(85,'','','');
+(82,'#480316','#7A0525','#CC093E');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Esmalte Vernis 047 Nuit 1947','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-nuit-1.png', 'esmalte-dior-nuit-2.jpg', 'esmalte-dior-nuit-3.jpg',21,82,)
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(83,'#ADC4B4','#C8E3D0','#E1FFEA');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esmalte Vernis 203 Pastel Mint Summer Look 24','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-pastelmint-1.png', 'esmalte-dior-pastelmint-2.jpg', 'esmalte-dior-pastelmint-3.jpg',21,83,)
 
 
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(86,'','','');
+(84,'#C87060','#ED8572','#ED9789');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Esmalte Vernis 323 Dune','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-dune-1.png', 'esmalte-dior-dune-2.jpg', 'esmalte-dior-dune-3.jpg',21,84,)
 
 
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(87,'','','');
+(85,'#2F3361','#535AAB','#6D76E0');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Esmalte Vernis 796 Denim','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-denim-1.png', 'esmalte-dior-denim-2.jpg', 'esmalte-dior-denim-3.jpg',21,84,)
 
 
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(88,'','','');
+(86,'#99112A','#D11739','#FF324D');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Esmalte Vernis 853 Rouge Trafalgar','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-rouge-1.png', 'esmalte-dior-rouge-2.png',null,21,86)
 
 
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(89,'','','');
+(87,'#BA3724','#EB452D','#EB5C49');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Esmalte Vernis 849 Rouge Cinema','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-cinema-1.png', 'esmalte-dior-cinema-2.jpg', 'esmalte-dior-cinema-3.jpg',21,87,)
 
 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(88,'#C65665','#F0687A','#F08391');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esmalte Vernis 558 Grace','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-grace-1.png', 'esmalte-dior-grace-2.jpg', 'esmalte-dior-grace-3.jpg',21,88)
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(89,'#F1D33B','#F1D853','#F1DC7A');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Protetor Solar Corporal FPS 50','Sallve','200g',
+'Protetor solar corporal FPS 50 com textura leve sem ficar pegajoso na pele. Com manteiga de karité e óleo de semente de uva. Não deixa resíduos brancos na pele e é resistente à água, suor e areia.',
+'Um protetor solar com alta proteção FPS 50 UVA/UVB PA++++ com textura em creme, que além de proteger vai deixar sua pele macia e iluminada, mas não pegajosa, sendo também resistente à água, suor e areia. Além de proteger da radiação solar, o Protetor Solar Corporal hidrata a pele graças à manteiga de karité e ao óleo de semente de uva presentes na fórmula. Tem textura leve e toque seco, garantindo conforto na pele sem deixar resíduos esbranquiçados. É hipoalergênico e testado em peles sensíveis.
+
+O que só ele faz?
+ - Alta proteção solar FPS 50 UVA/UVB PA++++
+ - Invisível na pele: não deixa resíduos brancos
+ - Resistente à água, suor e areia
+ - Não deixa a pele pegajosa
+ - Testado em pele sensível e hipoalergênico
+
+Avaliações de segurança:
+ - Dermatologicamente testado - produto seguro para ser aplicado sobre a pele;
+ - Hipoalergênico - formulado de maneira a minimizar possível surgimento de alergia;
+ - Não-comedogênico - o produto não promoveu aumento em comedões abertos e fechados, nem em pápulas e pústulas;
+ - Aceitabilidade cutânea em pele sensível - em avaliação, não tivemos eventos adversos, ou seja, não tivemos qualquer reação. é um produto de alta tolerância cutânea em pele sensível.
+
+Ingredientes:
+ - Água, Octocrileno, Homosalato, Propanodiol, Butil Metoxidibenzoilmetano, Salicilato de Etilhexila, Manteiga de Karité, Cetil Fosfato de Potássio, Adipato de Diisopropila, Etilhexiltriazone, Triacontanil PVP, Eter Dicaprílico, Undecano, Ácido Fenilbenzimidazol Sulfônico, Carbonato Dicaprílico, Estearato de Glicerila, Álcool Cetílico, Óleo de semente de uva, Sílica, Tridecano, Arginina, Hidroxiacetofenona, Goma Xantana, 1,2-Hexanodiol, Caprilil glicol, Crosspolímero de Acrilatos/Acrilato de Alquila C10-30, Ácido Cítrico, Gluconato de Sódio, Tetra-di-t-butil Hidroxiidrocinamato de Pentaeritritila, Tocoferol.
+ - Ingredientes especiais: Manteiga de Karité e Óleo de Semente de Uva.',
+89.90,null,0,82,'protetor-solar50-corporal-sallve-1.png', 'protetor-solar50-corporal-sallve-2.jpg', 'protetor-solar50-corporal-sallve-3.jpg',25,89,)
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
