@@ -132,7 +132,7 @@ function tabelaProduto($produtos) {
                     </button>
                 </div>
 
-                <form class="campos-editar" enctype="multipart/form-data">
+                <form class="campos-editar formProduto" enctype="multipart/form-data">
                     <input type="hidden" name="id_produto">
                     <div class="editarWrapper">
                         <div class="previsualizacaoProduto">
@@ -164,10 +164,10 @@ function tabelaProduto($produtos) {
 
                                 <div class='contentDeBaixo'>
                                     <hr class='linha'>
-                                    <h1 class='marca'>$marca</h1>
-                                    <h1 class='nomeProduto'>$nomeProduto</h1>";
-                                    <h2 class='precoOriginal'>R$$precoOriginal</h2>";
-                                    <h1 class='preco'>R$$preco</h1>
+                                    <h1 class='marca'></h1>
+                                    <h1 class='nomeProduto'></h1>
+                                    <h2 class='precoOriginal'>R$</h2>
+                                    <h1 class='preco'>R$</h1>
                                     <button class='botaoComprarCardProduto' data-id='$idProduto'>Comprar</button>
                                     <button class='botaoEspectro' id='botaoEspectro'></button>
                                 </div>
