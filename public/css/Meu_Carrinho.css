@@ -11,8 +11,7 @@ body {
 }
 
 p{
-  white-space: nowrap;        /* impede quebra de linha */
-  overflow: hidden;           /* esconde o que passar */
+  overflow: hidden;      
   text-overflow: ellipsis;
 }
 
