@@ -38,28 +38,7 @@ class CarouselModel {
     }
 
     // 🔹 CREATE - criar novo carrossel
-    public function create(array $data): array {
-        $stmt = $this->conn->query("SELECT COUNT(*) as total FROM Carousel");
-        $total = (int) $stmt->fetch()['total'];
-
-        if ($total >= 3) {
-            return ['error' => 'Limite máximo de 3 carrosseis atingido.'];
-        }
-
-        $posicao = $total + 1;
-
-        $stmt = $this->conn->prepare("
-            INSERT INTO Carousel (id_produto, id_coresSubs, posicao)
-            VALUES (:id_produto, :id_coresSubs, :posicao)
-        ");
-        $stmt->execute([
-            ':id_produto' => $data['id_produto'],
-            ':id_coresSubs' => $data['id_coresSubs'],
-            ':posicao' => $posicao
-        ]);
-
-        return ['success' => true];
-    }
+   
 
     // 🔹 UPDATE - atualizar registro por ID
     public function update(int $id, array $data): bool {
