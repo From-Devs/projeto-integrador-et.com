@@ -114,12 +114,12 @@
             </div>
             <p class="tituloCategoria">Cabelo</p>            
         </a>
-        <a class="botaoCategoria botao5" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=eletronicos">            
+        <a class="botaoCategoria botao5" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=utensílios">            
             <div class="containerIconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronico.png" alt="" class="iconeCategoria">
                 <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronicoHover.png" alt="" class="iconeCategoriaHover">
             </div>
-            <p class="tituloCategoria">Eletrônicos</p>            
+            <p class="tituloCategoria">Utensílios</p>            
         </a>
         <a class="botaoCategoria botao6" href="/projeto-integrador-et.com/app/views/usuario/Categorias.php?tela=corporal">            
             <div class="containerIconeCategoria">
