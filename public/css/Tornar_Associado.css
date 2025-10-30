@@ -295,11 +295,11 @@ body {
   filter: drop-shadow(0 0 15px #FF32F5);
 }
  
-#eletronicosCard{
+#utensíliosCard{
   background-color: #FF5993;
 }
  
-#eletronicosCard:hover {
+#utensíliosCard:hover {
   filter: drop-shadow(0 0 15px #FF5993);
 }
  
@@ -322,10 +322,11 @@ body {
   display: flex;
   align-self: center;
   /* justify-content: space-between; */
-  box-shadow: inset -4px 6px 13px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.25);
   margin: 0px 200px;
   margin-top: 195px;
   padding: 20px 0px;
+  border-radius: 20px;
 }
  
 /* box-shadow: -4px 8px 4px rgba(0, 0, 0, 0.25); */
