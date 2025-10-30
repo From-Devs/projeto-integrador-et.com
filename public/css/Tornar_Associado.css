@@ -295,11 +295,11 @@ body {
   filter: drop-shadow(0 0 15px #FF32F5);
 }
  
-#eletronicosCard{
+#utensíliosCard{
   background-color: #FF5993;
 }
  
-#eletronicosCard:hover {
+#utensíliosCard:hover {
   filter: drop-shadow(0 0 15px #FF5993);
 }
  
