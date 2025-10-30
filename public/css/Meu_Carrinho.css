@@ -379,15 +379,9 @@ input[type="checkbox"]:checked::before {
   }
 }
 
+/*RESPONSIVIDADE DO CARRINHO*/
+
 @media (max-width: 900px){
-  .produto-nome{
-    display: none;
-  }
-
-  .sumir{
-    display: none;
-  }
-
   td{
     padding: 15px;
   }
@@ -396,6 +390,14 @@ input[type="checkbox"]:checked::before {
     width: 15px;
     height: 15px;
     border-radius: 3px;
+  }
+
+  .produto-nome{
+    display: none;
+  }
+
+  .sumir{
+    display: none;
   }
 
   .cor1{
@@ -428,42 +430,6 @@ input[type="checkbox"]:checked::before {
 /**/
 
 @media screen and (max-width: 590px) {
-  .prod{
-    padding: 10px;
-  }
-
-  .conteudo_td{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .prod img{
-    margin: 0px;
-  }
-
-  .prod input{
-    margin: 0px;
-  }
-
-  .tot{
-    display: flex;
-    height: 60px;
-    justify-content: space-between;
-    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-    border-radius: 10px;
-  }
-
-  .tudo{
-    display: flex;
-    height: 50px;
-    justify-content: space-between;
-    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-    border-radius: 10px;
-  }
-
   table{
     width: 90%;
     display: table;
@@ -497,16 +463,41 @@ input[type="checkbox"]:checked::before {
     border: none;
   }
 
+  input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    transform: scale(1.2);
+    margin-right: 8px;
+  }
+
+  .prod{
+    padding: 10px;
+  }
+
+  .conteudo_td{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .prod div{
-    gap: 0px;
+    gap: 5px;
     margin: 0px;
     padding: 0px;
+  }
+
+  .prod img{
+    margin: 0px;
   }
 
   .cor1 {
     width: 45px;
     height: auto;
     border-radius: 10px;
+  }
+
+  .prod input{
+    margin: 0px;
   }
 
   .produto-nome {
@@ -521,9 +512,31 @@ input[type="checkbox"]:checked::before {
     gap: 4px;
   }
 
-  .bot{
+  .redondo {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .tot{
     display: flex;
-    justify-content: center;
+    height: 60px;
+    justify-content: space-between;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+
+  .total-value {
+    font-size: 16px;
+  }
+
+  .tudo{
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    border-radius: 10px;
   }
 
   .button-container {
@@ -539,22 +552,6 @@ input[type="checkbox"]:checked::before {
     width: 90%;
     font-size: 14px;
     padding: 12px;
-  }
-
-  .redondo {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .total-value {
-    font-size: 16px;
-  }
-
-  input[type="checkbox"] {
-    width: 15px;
-    height: 15px;
-    transform: scale(1.2);
-    margin-right: 8px;
   }
 }
 
