@@ -38,7 +38,30 @@ class CarouselModel {
     }
 
     // 🔹 CREATE - criar novo carrossel
-   
+    public function create(array $data):array{
+        try{
+            $stmt = $this->conn->query("SELECT COUNT(*) as total FROM carousel");
+            $total = (int) $stmt->fetch()['total'];  
+            if($total>3){
+                return ['error' => 'Limite atigindo, nao pode criar mais que 3 carousel.']
+            }            
+            $posicao = $total + 1;
+            $id_produto = $data['id_produto'];
+            $stmt = $this->conn->prepare("
+            SELECT corEspecial, hexDegrade1, hexDegrade2, hexDegrade3
+            FROM produto
+            WHERE id_produto = :id_produto
+            ");
+            $stmt->execute([':id_produto' => $id_produto]);
+            $cores = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$cores) {
+                return ['error' => 'Produto não encontrado para copiar cores.'];
+            }
+        }catch(Exception $e) {
+            return ['error' => 'Erro ao criar carrossel: ' . $e->getMessage()];
+        }
+    }
 
     // 🔹 UPDATE - atualizar registro por ID
     public function update(int $id, array $data): bool {
