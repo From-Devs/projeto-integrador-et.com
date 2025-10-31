@@ -9,9 +9,9 @@
             <table id="tabelaVendas">
                 <thead id="barraCima">
                     <tr>
-                        <th id="th2" scope="col">Produto</th>
+                        <th id="th4" scope="col">ID</th>
                         <th id="th3" scope="col">Associados</sth>
-                        <th id="th4" scope="col">SKU</th>
+                        <th id="th2" scope="col">Produto</th>
                     </tr>
                 </thead>
             </table>
@@ -21,19 +21,49 @@
                     <tbody>
                         <?php foreach ($produtos as $produto): ?>
                             <tr style="height: 80px;">
-                                <td><?= htmlspecialchars($produto['nome']) ?></td>
+                                <td><?= htmlspecialchars($produto['id']) ?></td>
                                 <td class="td-lista-associados">
-                                    <button onclick="window.location.href = '/projeto-integrador-et.com/app/views/adm/Associados.php'" class="btn-lista-associados">
+                                    <?php $nomeJs = json_encode($produto['nome']); ?>
+                                    <button onclick='buscarAssociadoProdutos(<?= $produto['id']?>, <?= json_encode($produto['nome']) ?>)' class="btn-lista-associados">
                                         <span>Ver Associados</span>
                                         <img width="30px" src="/projeto-integrador-et.com/public/imagens/imagensADM/img-lista.png" alt="img-lista-associados">
                                     </button>
                                 </td>
-                                <td><?= htmlspecialchars($produto['sku']) ?></td>
+                                <td><?= htmlspecialchars($produto['nome']) ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
+
+            <dialog class="dialog-produto-associados">
+                <div class="bodyEditar">
+                    <div class="header-editar">
+                        <h1 id='nomeProduto'></h1>
+                        <button class="btn-fechar" onclick='fecharPopUp("dialog-produto-associados")'>
+                            <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
+                        </button>
+                    </div>  
+                    <div>
+                        <table id="tabelaVendas">
+                            <thead id="barraCima">
+                                <tr>
+                                    <th id="th1" scope="col">ID</th>
+                                    <th id="th2" scope="col">Nome</sth>
+                                    <th id="th3" scope="col">Telefone</th>
+                                    <th id="th4" scope="col">Cidade</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div class="tabela-body">
+                            <table id="tabelaProdutoAssociados">
+                                <tbody id="bodyAssociadosProduto"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </dialog>
+
         </div>
         <?php
     }

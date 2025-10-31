@@ -8,7 +8,7 @@
     overflow: hidden;
 }
 
-#tabelaVendas 
+#tabelaVendas, #tabelaProdutoAssociados
 {
     width: 100%;
     border-collapse: collapse;

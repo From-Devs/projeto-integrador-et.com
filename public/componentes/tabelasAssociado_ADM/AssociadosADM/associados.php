@@ -86,7 +86,7 @@ function associadosTabela($nome, $listaAssociados){
                             echo PopUpConfirmar("popUpConfirmar_$userId", "Deseja realmente VALIDAR esse associado?", $btnSimValidar, $btnNao);
                             echo PopUpConfirmar("popUpSobreProduto_$userId", $associado['nome']." - ".$associado['cidade']."/".$associado['estado'].":\n\n\"".$associado['sobreProdutos']."\"");
                             echo PopUpConfirmar("motivoRecuso_$userId", $associado['motivoDoRecuso'], null, null, "300px");
-                            echo PopUpComInput("popUpCancelar_$userId", "Deseja realmente NÃO VALIDAR esse associado?", "Motivo...", $btnSimCancelar, $btnNao);
+                            echo PopUpComInput("popUpCancelar_$userId", "Deseja realmente RECUSAR esse associado?", "Motivo...", $btnSimCancelar, $btnNao);
                         ?>
                         <tr>
                             <td><?= $userId ?></td>
@@ -95,10 +95,14 @@ function associadosTabela($nome, $listaAssociados){
                             <td><?= "{$associado['cidade']} - {$associado['estado']}" ?></td>
                             <td>
                                 <div class='verticalizacao'>
-                                    <button class='validarButton' onclick="botaoClicado = this; abrirPopUp('popUpConfirmar_<?= $userId ?>')">
+                                    <button 
+                                        style="display: <?= !empty($associado['motivoDoRecuso']) ? 'none' : 'block' ?>"
+                                        class='validarButton' onclick="botaoClicado = this; abrirPopUp('popUpConfirmar_<?= $userId ?>')">
                                         <img src='./../../../public/imagens/ET/aprovado.png' alt='aprovadoImage' title="Aprovar">
                                     </button>
-                                    <button class='cancelarButton' onclick="botaoClicado = this; abrirPopUp('popUpCancelar_<?= $userId ?>')">
+                                    <button 
+                                        style="display: <?= !empty($associado['motivoDoRecuso']) ? 'none' : 'block' ?>"
+                                        class='cancelarButton' onclick="botaoClicado = this; abrirPopUp('popUpCancelar_<?= $userId ?>')">
                                         <img src='./../../../public/imagens/ET/cancelar.png' alt='cancelarImage' title="Recusar">
                                     </button>
                                     <button class='btnSobreProduto' onclick="botaoClicado = this; abrirPopUp('popUpSobreProduto_<?= $userId ?>')">

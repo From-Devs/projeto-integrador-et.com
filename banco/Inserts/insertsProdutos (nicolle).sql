@@ -566,7 +566,7 @@ Manter fora do alcance das crianças.
 Não ingerir. 
 Em caso de contato acidental com os olhos enxaguar abundantemente com água. 
 Em caso de irritação suspenda o uso e procure orientação médica.',
-27.79,null,0,30,'oleo-ameixarubi-paixao.png','oleo-ameixarubi-paixao-2.jpg','oleo-ameixarubi-paixao-3.jpg',24,20,2);
+27.79,null,0,30,'oleo-ameixarubi-paixao.png','oleo-ameixarubi-paixao-2.jpg','oleo-ameixarubi-paixao-3.jpg',24,20,2);  --Eliana
 
 
 
@@ -2002,7 +2002,7 @@ INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,prec
 VALUES 
 ('Esfoliante Peeling Antissinais Chronos Derma','Natura','15g',
 'Esfoliante facial vegano e cruelty free com bioativo de cacau, que uniformiza a textura da pele, reduz linhas finas e devolve o brilho natural. Promove renovação celular intensa com efeito peeling de tripla esfoliação (química, física e enzimática), deixando a pele mais macia, luminosa e revitalizada desde o primeiro uso.',
-'Funções do produto:
+'Benefícios:
 • Uniformiza a textura e reduz linhas finas imediatamente.
 • Suaviza a aparência de pele cansada.
 • Devolve o brilho natural e a vitalidade.
@@ -2040,7 +2040,7 @@ INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,prec
 VALUES 
 ('Sabonete Líquido Esfoliante para o Corpo Ekos Maracujá','Natura','185ml',
 'Sabonete líquido esfoliante vegano com óleo de maracujá, que limpa suavemente e remove as células mortas enquanto mantém o pH natural da pele. Proporciona um banho relaxante e revigorante, deixando a pele macia, uniforme e delicadamente perfumada.',
-'Funções do produto:
+'Benefícios:
 • Limpa suavemente e esfolia com a potência antiestresse do maracujá.
 • Seu sabonete líquido esfoliante favorito mudou, mas continua com textura e fragrância relaxante de sempre.
 • Remove as células mortas durante o banho.
@@ -2075,7 +2075,7 @@ INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,prec
 VALUES 
 ('Polpa Esfoliante para o Corpo Ekos Castanha','Natura','200g',
 'Esfoliante corporal vegano com óleo de castanha, rico em ômegas 6 e 9, que remove impurezas e células mortas enquanto nutre profundamente. Deixa a pele macia, renovada e com um toque aveludado, mantendo a fragrância envolvente e o cuidado sustentável da linha Ekos Castanha.',
-'Funções do produto:
+'Benefícios:
 • Pele macia e renovada com a potência antirressecamento da castanha.
 • Seu esfoliante favorito mudou, mas continua com textura e fragrância deliciosas.
 • Esfoliante corporal feito com óleo bruto de castanha, rico em ômegas 6 e 9.
@@ -2103,74 +2103,668 @@ SUCROSE, DICAPRYLYL ETHER, ELAEIS GUINEENSIS OIL, HELIANTHUS ANNUUS SEED OIL, RI
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(69,'','','');
+(69,'#764C8B','#9A63B5','#C37DE6');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-()
+('Sabonete em Barra Puro Vegetal Esfoliante Ekos','Natura',null,
+'Kit com 4 sabonetes em barra veganos — castanha, maracujá, açaí e andiroba — que limpam sem ressecar e mantêm a hidratação natural da pele. Com óleos da biodiversidade amazônica, proporcionam fragrâncias envolventes, toque suave e renovação da pele em cada banho.',
+'Contém uma caixa com 4 sabonetes em barra de 100 gramas cada, sendo 1 castanha, 1 maracujá, 1 açaí e 1 andiroba.
+
+Benefícios:
+• Pele limpa e protegida com a potência dos ativos amazônicos.
+• O sabonete Ekos que você conhece e ama ganhou uma nova embalagem.
+• Limpa sem ressecar.
+• Sabonete esfoliante que ajuda arenovar a pele.
+• 4 fragrâncias deliciosas para perfumar o corpo.
+• Sabonetes veganos que mantêm a hidratação natural da pele.
+• Feitos com óleos da biodiversidade brasileira.
+• A linha Ekos contribui para regeneração da floresta e ajuda a fortalecer a renda de famílias guardiãs da Amazônia.
+
+Características:
+• Testado dermatologicamente.
+• Cruelty free.
+• Vegano.
+• Tipo de pele: todos os tipos de pele.
+
+Dica de uso:
+Deslize o sabonete em barra de Natura Ekos por todo o corpo até formar espuma, exceto no rosto. enxágue em seguida.
+
+Ingredientes:
+INGREDIENTES/ INGREDIENTES (PORTUGUÊS): SODIUM PALMITATE/ PALMITATO DE SÓDIO, SODIUM OLEATE/ OLEATO DE SÓDIO, AQUA/ ÁGUA, GLYCERIN/ GLICEROL, SODIUM LINOLEATE/ LINOLEATO DE SÓDIO, SODIUM LAURATE/ LAURATO DE SÓDIO, SODIUM STEARATE/ ESTEARATO DE SÓDIO, ZEA MAYS STARCH/ AMIDO, SODIUM MYRISTATE/ MIRISTATO DE SÓDIO, PARFUM/ PERFUME, MYRISTIC ACID/ ÁCIDO MIRÍSTICO, CARAPA GUAIANENSIS SEED OIL/ ÓLEO DE SEMENTE DE ANDIROBA, SODIUM CAPRYLATE/ CAPRILATO DE SÓDIO, LINUM USITATISSIMUM SEED POWDER/ SEMENTE DE LINHAÇA EM PÓ, SODIUM CAPRATE/ CAPRATO DE SÓDIO, SODIUM ARACHIDATE/ ARAQUIDATO DE SÓDIO, SODIUM CHLORIDE/ CLORETO DE SÓDIO, TITANIUM DIOXIDE/ DIÓXIDO DE TITÂNIO, ETIDRONIC ACID/ ÁCIDO ETIDRÔNICO, BENZYL ALCOHOL/ ÁLCOOL BENZÍLICO, COUMARIN/ CUMARINA, CITRIC ACID/ ÁCIDO CÍTRICO, LIMONENE/ LIMONENO, POLYQUATERNIUM-39/ POLIQUATÉRNIO-39, TETRASODIUM EDTA/ EDETATO DE SÓDIO, HEXYL CINNAMAL/ HEXIL CINAMAL, EUGENOL, CINNAMYL ALCOHOL/ ÁLCOOL CINAMÍLICO, CI 77492/ ÓXIDO DE FERRO AMARELO, SODIUM BENZOATE/ BENZOATO DE SÓDIO.',
+44.40,34.00,1,84,'sabonetes-barra-ekos-natura-1.png', 'sabonetes-barra-ekos-natura-2.jpg', 'sabonetes-barra-ekos-natura-3.jpg',26,69,);
 
 
 
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(70,'','','');
+(70,'#75803C','#A3B354','#D9ED6F');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Esfoliante Térmico Ekos Andiroba','Natura','100g',
+'Esfoliante corporal vegano com efeito térmico que aquece a pele e promove relaxamento imediato. Estimula a renovação celular, alivia o cansaço e deixa a pele macia, uniforme e delicadamente perfumada com notas verdes e frescas.',
+'Benefícios:
+• Esfolia e aquece a pele para auxiliar no relaxamento das tensões diárias.
+• Aquece a pele em contato com a água.
+• 93% afirmam que traz sensação imediata de relaxamento.
+• Ajuda aliviar a sensação de cansaço corporal.
+• Deixa a pele macia e perfumada com notas verdes e frescas.
+• Estimula a renovação celular.
+• Pele mais uniforme.
+
+Características:
+• Testado dermatologicamente.
+• Cruelty free.
+• Vegano.
+• Tipo de pele: todos os tipos de pele.
+
+Estudo realizado com 120 consumidores após 7 dias de uso do produto.
+
+Dicas de uso:
+Aplique sobre a pele limpa e úmida, massageando o corpo todo em movimentos circulares, exceto rosto. enxágue após o uso. aplique até 3 vezes por semana.',
+89.90,null,0,69,'esfoliante-corporal-andiroba-1.png', 'esfoliante-corporal-andiroba-2.jpg', 'esfoliante-corporal-andiroba-3.jpg',26,70,)
+
+
+
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(71,'','','');
+(71,'#3A0249','#760494','#AA06D6');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
+VALUES
+('Sabonete Esfoliante para o Rosto Biōme','Natura','65g',
+'Sabonete facial esfoliante vegano em barra que limpa profundamente e remove células mortas, estimulando a renovação celular. Com Complexo Regenerativo e 96% de ingredientes de origem natural, deixa a pele mais saudável, luminosa e com textura uniforme.',
+'Limpa sua pele com o mesmo cuidado que a prepara para regeneração.
+O Sabonete Esfoliante para o Rosto Biōme limpa e esfolia sua pele, removendo sujidades e células mortas. Sua fórmula contém Complexo Regenerativo e Complexo de Partículas Esfoliantes com ingredientes de origem natural que estimulam a renovação celular de maneira eficaz, deixando a pele mais saudável e luminosa. Um produto em barra, vegano, com 96% de origem natural e embalagem zero plástico.
+
+Características:
+• Testado dermatologicamente.
+• Cruelty free.
+• Vegano.
+• Ocasião: limpeza.
+• Tipo de pele: todos os tipos de pele.
+• Tipo de tratamento: uniformizar a textura.
+• Zona de aplicação: rosto e pescoço.
+
+Dicas de uso:
+• Aplique o produto diretamente sobre o rosto molhado, massageando levemente até formar espuma. enxágue em seguida.
+• Uso de até 3x na semana.
+
+Ingredientes:
+SODIUM COCOYL ISETHIONATE, ZEA MAYS STARCH / ZEA MAYS (CORN) STARCH, HYDROGENATED COCONUT ACID, PALMITIC ACID, STEARIC ACID, AQUA / WATER / EAU, SODIUM PALMITATE, SODIUM OLEATE, GLYCERIN, PARFUM / FRAGRANCE,TITANIUM DIOXIDE, PRUNUS ARMENIACA SEED POWDER / PRUNUS ARMENIACA (APRICOT) SEED POWDER, SODIUM CHLORIDE, STEARYL BEHENATE, SODIUM LINOLEATE, SODIUM LAURATE, TRIETHYL CITRATE, HYDROXYPROPYL GUAR, SODIUM STEARATE, HYDROXYACETOPHENONE, JOJOBA ESTERS, SODIUM MYRISTATE, ELAEIS GUINEENSIS OIL / ELAEIS GUINEENSIS (PALM) OIL, LIMONENE, SODIUM GLUCONATE, SODIUM CAPRYLATE, SODIUM CAPRATE, SODIUM ARACHIDATE, LINALOOL, ETIDRONIC ACID, TETRASODIUM EDTA, COPAIFERA OFFICINALIS RESIN / COPAIFERA OFFICINALIS (BALSAM COPAIBA) RESIN / COPAIFERA OFFICINALIS (COPAIBA) RESIN.',
+54.90,null,0,30,'esfoliante-facial-barra-natura-2.jpg', 'esfoliante-facial-barra-natura-1.png',null,10,71,)
+
+
+
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(72,'','','');
+(72,'#B7928C','#D6ABA4','#D6BBB7');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Sérum para Sobrancelhas Una','Natura','4g',
+'Sérum vegano para sobrancelhas que nutre e fortalece os fios, promovendo maior volume e espessura. Enriquecido com vitaminas e aminoácidos, devolve vitalidade e realça o olhar com aparência natural e saudável.',
+'Una sobrancelhas mais volumosas à nutrição dos fios.
+Rico em vitamina e aminoácido, Una Sérum para Sobrancelhas Una é o item perfeito para devolver nutrição e vitalidade para os fios das suas sobrancelhas. com este sérum de Natura Una, seu olhar terá sobrancelhas mais volumosas, com fios mais espessos.
+
+Características:
+• Testado dermatologicamente.
+• Cruelty free.
+• Vegano.
+• Textura: sérum.
+• Zona de aplicação: sobrancelhas.
+
+Dicas de uso:
+Use Una Sérum nas sobrancelhas limpas e secas. após retirar o excesso de produto do pincel, aplique uma camada do sérum em toda a sobrancelha, principalmente nas áreas com pouco ou nenhum fio, na direção de crescimento dos fios. limpe o excesso de produto no local e espere secar.
+
+Ingredientes:
+AQUA / ÁGUA, PENTYLENE GLYCOL / PENTILENOGLICOL, PPG-5-CETETH-20 / PPG-5-PEG-20 ÉTER DE ÁLCOOL CETÍLICO , PVP / CROSPOVIDONA, GLYCERIN / GLICEROL, PHENOXYETHANOL / FENOXIETANOL, SODIUM POLYACRYLATE STARCH / POLIACRILATO DE AMIDO SÓDICO, POLYQUATERNIUM-10 / POLIQUATÉRNIO-10, TRIETHANOLAMINE / TROLAMINA, PEG-4 DILAURATE / DILAURATO DE PEG-4, PEG-4 LAURATE / LAURATO DE PEG-4, TETRASODIUM EDTA / EDETATO DE SÓDIO, IODOPROPYNYL BUTYLCARBAMATE / BUTILCARBAMATO DE IODOPROPINILA , PANTHENOL / PANTENOL, PEG-200 / MACROGOL, SODIUM HYDROXIDE / HIDRÓXIDO DE SÓDIO, BIOTINOYL TRIPEPTIDE-1 / BIOTINOIL TRIPEPTÍDEO-1.',
+129.90,84.40,1,50,'serum-sobrancelhas-natura-2.jpg','serum-sobrancelhas-natura-1.png',null,4,72,)
+
+
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(73,'','','');
+(73,'#693F31','#945945','#C2745A');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Lápis para Sobrancelhas Faces Castanho','Natura', '1,14 g',
+'Lápis vegano para sobrancelhas que define, preenche e disfarça falhas com cor intensa e textura macia. Acompanha escova na ponta para pentear e garantir um acabamento natural e bem delineado.',
+'Benefícios:
+• Define o formato, preenche, delineia e disfarça as falhas da sobrancelha.
+• Cor intensa.
+• Escova na ponta para pentear os fios.
+• Textura macia.
+
+Características:
+• Testado dermatologicamente.
+• Cruelty free.
+• Vegano.
+
+Dicas de uso:
+Faça traços no sentido dos pelos preenchendo as sobrancelhas. utilize a escova para pentear os fios. para traços mais claros e suave, não pressione muito o lápis. para traços mais escuros, pressione levemente o lápis ao preencher as sobrancelhas.',
+37.90,33.90,1,80,'lapis-sobrancelha-natura-2.jpg', 'lapis-sobrancelha-natura-1.png',null,4,73,)
+
+
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(74,'','','');
+(74,'#D4A0AD','#FFC0D0','#FFCDD8');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Pincel PRO Sobrancelhas Una','Natura',null,
+'Pincel duplo vegano com ponta chanfrada para desenhar sobrancelhas e delineados, e escova para pentear fios e cílios. Proporciona acabamento profissional com cerdas macias e menor impacto ambiental, feito com plástico reciclado.',
+'Una acabamento profissional a menos impacto no planeta.
+Cerdas macias, com um lado em formato chanfrado, ideal para desenhar sobrancelhas e delineados, e outro lado em formato de escova para pentear as sobrancelhas e os cílios. Os pinceis profissionais de Natura Una oferecem menos impacto no planeta: 10 toneladas de plástico reciclado retirado do meio ambiente em um ano.',
+29.90,22.40,1,40,'pincel-sobrancelha-2.jpg', 'pincel-sobrancelha-1.png',null,20,74,)
+
+
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(75,'','','');
+(75,'#734943','#A1665E','#E38F85');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Lápis Retrátil Para Sobrancelhas Una','Natura',null,
+'Lápis retrátil vegano para sobrancelhas com 24h de duração e fórmula à prova d’água. Possui escova para esfumar e pentear, garantindo sobrancelhas naturalmente preenchidas e acabamento impecável ao longo do dia.',
+'Una sobrancelhas naturalmente preenchidas a 24 horas de duração.
+Lápis retrátil para sobrancelhas naturalmente preenchidas, com pincel para esfumar e pentear. Fácil de aplicar, com 24h de duração e à prova d´água. A escova para esfumar e pentear os fios suaviza os traços conferindo um acabamento natural. Cor: Castanho
+
+Dicas de uso:
+Faça traços no sentido dos pelos preenchendo as sobrancelhas. utilize o pincel para esfumar e pentear os fios. para traços mais claros e suave, não pressione muito o lápis retrátil. para traços mais escuros, pressione levemente o lápis retrátil ao preencher as sobrancelhas.
+
+Ingredientes:
+CERA MICROCRISTALLINA, HYDROGENATED COCO-GLYCERIDES, CAPRYLIC/CAPRIC TRIGLYCERIDE, HYDROGENATED JOJOBA OIL, RICINUS COMMUNIS SEED OIL, COPERNICIA CERIFERA WAX, BUTYROSPERMUM PARKII BUTTER, CAPRYLYL GLYCOL, PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE, AQUA, TOCOPHEROL, CITRIC ACID. PODE CONTER / PUEDE CONTENER: MICA, CI 77499, CI 77891, CI 77491, CI 77492.',
+34.70,null,0,'lapis-retratil-sobrancelha-2.jpg', 'lapis-retratil-sobrancelha-1.png',null,4,75,)
+
+
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(76,'','','');
+(76,'#FFC4CC','#FFDBE0','#FFEEEF');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Pincel PRO Iluminador Una','Natura',null,
+'Pincel vegano de cerdas macias e formato arredondado, ideal para aplicar iluminador com acabamento natural e uniforme. Garante esfumado perfeito e contribui para menor impacto ambiental, feito com plástico reciclado.',
+'Una acabamento profissional a menos impacto no planeta.
+Cerdas macias em formato arredondado, ideal para aplicar o iluminador de forma homogênea. Esfumado perfeito com acabamento natural e uniforme. Os pinceis profissionais de Natura Una oferecem menos impacto no planeta: 10 toneladas de plástico reciclado retirado do meio ambiente em um ano.
+
+Características:
+• Cruelty free.
+• Zona de aplicação: rosto.
+
+Dicas de uso:
+Aplique o produto com movimentos leves de “vai e vem” nas áreas em que deseja destacar como: nariz, parte superior dos lábios, têmporas e arco das sobrancelhas. dica do expert: pode ser utilizado para esfumar o côncavo, caso deseje um esfumado rápido, mas profissional.',
+49.90,32.40,1,70,'pince-pro-iluminador-natura-1.png','pince-pro-iluminador-natura-2.jpg',null,20,76,)
+
+
+
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(77,'','','');
+(77,'#BB5767','#DE677A','#FF778C');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Esmalte Cremoso Nude','Colorama','8ml',
+'Esmalte cremoso de alta cobertura e brilho intenso, com fórmula duradoura e pincel flat de 220 cerdas para aplicação precisa. Garante unhas impecáveis, com cores vibrantes e acabamento profissional até a próxima esmaltação.',
+'Sua textura é perfeita para todas as mulheres que desejam colorir suas unhas com uma fórmula de maior cobertura de cor e brilho. Além de conter um pincel, que auxilia na aplicação, para manter unhas impecáveis até a próxima esmaltação.
+
+Benefícios:
+* Fórmula com resina intensificadora de brilho, cor e duração;
+*Pincel formato flat com 220 cerdas para melhor aplicação e adaptação ao formato da unha;
+*Rótulo mais moderno para melhor visibilidade das cores através do frasco;
+* Extensa gama de cores;
+*Marca de tradição há mais de 70 anos no marcado brasileiro.
+
+Indicado:
+Os esmaltes Colorama Cremoso são indicados para todas as mulheres que buscam uma combinação perfeita, garantindo unhas impecáveis até a próxima esmaltação!
+Vale destacar que não recomendamos o uso para o público infantil e, em casos de restrições pessoais, consule um médico.
+
+Modo de Usar:
+Indicamos iniciar o processo de esmaltação com o uso de uma de uma de nossas bases da linha de Cuidados. Logo após aplicar duas camadas de cor do seu Colorama Cremeoso preferido! Para finalizar, você pode optar por uma secagem rápida com o nosso Oléo Secante ou, se preferir, realçar ainda mais sua cor, use o nosso famoso "roxinho", a Cobertura Intensificadora da Cor',
+7.29,6.64,1,102,'esmalte-colorama-nude-1.png', 'esmalte-colorama-nude-2.png', 'esmalte-colorama-nude-3.jpg',21,77,)
+
+
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(78,'','','');
+(78,'#FF3376','#FF5084','#FF719B');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Cera Nutritiva de Unha Granado','Granado','7g',
+'Cera nutritiva que hidrata e fortalece unhas e cutículas, prevenindo o ressecamento e a quebra. Formulada com cera vegetal de cereais, leite de aveia e silicones, deixa as unhas com brilho e aspecto saudável, sem sensação gordurosa.',
+'Cera Nutritiva Pink da Granado hidrata e fortalece unhas quebradiças e cutículas ressecadas. Proporciona brilho e um belo aspecto às unhas. Produzida com cera vegetal de cereais associada ao leite de aveia e uma combinação de silicones. Não possui aspecto gorduroso. Sem parabenos. Indicada para uso diário.
+
+Modo de Usar:
+Espalhar uniformemente o produto na região das unhas e cutículas até completa absorção. Usar diariamente, duas a três vezes ao dia.
+
+Especificações:
+Cruelty Free
+Cuidado das Cutículas',
+41.00,28.88,1,70,'cera-nutritiva-unhasecuticulas-granado-1.png', 'cera-nutritiva-unhasecuticulas-granado-2.jpg', 'cera-nutritiva-unhasecuticulas-granado-3.jpg',21,78)
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(79,'#BF6F7C','#BF808A','#D49AA5');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esmalte Cremoso Meia Seda','Dailus','8ml',
+'Esmalte cremoso com textura uniforme e pincel flat de cerdas cheias que facilita a aplicação. Possui tampa anatômica e ampla variedade de cores vibrantes, garantindo unhas com acabamento perfeito e duradouro.',
+'Os Esmalte Cremoso Dailus contam com grande variedade de cores, que vão desde tons rosados até tons de vermelhos, entre outros.
+
+Indicação:
+• Pode ser utilizada por todos;
+• Para todos os tipos de pele.
+
+Benefícios:
+• Tampa anatômica
+• Uniformidade na aplicação
+• Pincel flat big blush (cerdas mais cheias)
+• Cores lindas
+• Textura cremosa
+
+Modo de Usar:
+• Remova o excesso do pincel do Esmalte Cremoso Dailus e aplique sobre as unhas.
+• Se preferir, aplique uma segunda camada.',
+9.49,null,0,89,'dailus-esmalte-meiadeseda-1.png', 'dailus-esmalte-meiadeseda-2.jpg','dailus-esmalte-meiadeseda-3.jpg',21,79,)
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(80,'#BD796B','#BD897D','#BD968E');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esmalte Cremoso Worth a Pretty Penne','O.P.I',null,
+'Esmalte OPI de alta qualidade com pigmentos intensos e ampla variedade de cores. Proporciona cobertura uniforme, brilho duradouro e acabamento profissional, ideal para todos os tipos de unhas.',
+'O esmalte OPI tem fórmula exclusiva com qualidade que revolucionou o mercado. É a melhor escolha para quem gosta de fazer as unhas toda semana.
+
+Benefícios:
+• Pigmento de alta qualidade
+• Portfólio com mais de 90 cores
+• Este produto é ideal para todos os tipos de unhas
+
+Modo de Usar:
+• Passo 1. Aplique OPI Base Coat nas unhas e cutículas limpas.
+• Passo 2. Para uma esmaltação perfeita, aplique uma pincelada do esmalte escolhido no centro da unha e depois nas laterais.
+• Passo 3. Então, aplique uma segunda camada de esmalte nas unhas para intensificar a cor.
+• Passo 4. Aplique uma camada de OPI Top Coat até as pontas das unhas para dar brilho, selar e proteger.
+
+Precauções:
+Produto Inflamável. Mantenha fora do alcance de crianças.
+',
+49.90,33.69,1,73,'opi-esmalte-naillacquer-1.png', 'opi-esmalte-naillacquer-2.jpg', 'opi-esmalte-naillacquer-3.jpg',21,80,)
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(81,'#C55F8A','#C57192','#F0A4C0');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Óleo Secante para Unhas','Essence','8ml',
+'Óleo secante vegano que acelera a secagem do esmalte em apenas 60 segundos. Enriquecido com vitamina E e óleo de amêndoas, nutre unhas e cutículas enquanto garante brilho e proteção, com aplicador prático em gotas.',
+'Com o Óleo Secante Express Dry Drops Essence, o seu esmalte seca em apenas 60 segundos!
+
+Enriquecido com vitamina E e óleo de amêndoas para cuidar das suas unhas. Além do seu aplicador gota a gota super prático e fácil.
+
+Com o óleo secante Express Dry Drops Essence suas unhas ficam secas em segundos!
+
+Benefícios:
+As gotas do Express Dry Drops fazem com que o esmalte seque apenas em 60 segundos – basta aplicar uma gota por unha após a esmaltação;
+Sua fórmula nutre as unhas e cutículas com vitamina E e óleo de amêndoas;
+Sem parabenos, fragrâncias, acetona, corantes e conservantes.
+
+Modo de Uso:
+Aplicar uma gota em cada unha após a aplicação do esmalte. Pode ser usada antes do esmalte para cuidar das cutículas. Basta aplicar uma gota em cada unha, massagear e limpar com algodão umedecido em removedor de esmaltes.
+
+Produto não tesado em animais. Produto Vegano.',
+19.00,null,0,83,'essence-oleo-secante-1.png', 'essence-oleo-secante-2.jpg', 'essence-oleo-secante-3.jpg',21,81,)
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(82,'#480316','#7A0525','#CC093E');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esmalte Vernis 047 Nuit 1947','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-nuit-1.png', 'esmalte-dior-nuit-2.jpg', 'esmalte-dior-nuit-3.jpg',21,82,)
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(83,'#ADC4B4','#C8E3D0','#E1FFEA');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esmalte Vernis 203 Pastel Mint Summer Look 24','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-pastelmint-1.png', 'esmalte-dior-pastelmint-2.jpg', 'esmalte-dior-pastelmint-3.jpg',21,83,)
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(84,'#C87060','#ED8572','#ED9789');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esmalte Vernis 323 Dune','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-dune-1.png', 'esmalte-dior-dune-2.jpg', 'esmalte-dior-dune-3.jpg',21,84,)
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(85,'#2F3361','#535AAB','#6D76E0');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esmalte Vernis 796 Denim','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-denim-1.png', 'esmalte-dior-denim-2.jpg', 'esmalte-dior-denim-3.jpg',21,84,)
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(86,'#99112A','#D11739','#FF324D');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esmalte Vernis 853 Rouge Trafalgar','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-rouge-1.png', 'esmalte-dior-rouge-2.png',null,21,86)
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(87,'#BA3724','#EB452D','#EB5C49');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esmalte Vernis 849 Rouge Cinema','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-cinema-1.png', 'esmalte-dior-cinema-2.jpg', 'esmalte-dior-cinema-3.jpg',21,87,)
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(88,'#C65665','#F0687A','#F08391');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esmalte Vernis 558 Grace','Dior',null,
+'Esmalte Dior Vernis com acabamento brilho efeito gel e cores inspiradas nas coleções da Maison Dior. Enriquecido com extratos de peônia e pistache, oferece cobertura uniforme, longa duração e um toque luxuoso às unhas.',
+'Dior Vernis é o esmalte que proporciona às mãos uma cor Couture Dior, tal como o icônico esmalte vermelho 999 ou o esmalte bege rosado Nude Look. Em um gesto simples, realça as unhas com uma tonalidade de acabamento brilhante e duração efeito gel para um resultado homogêneo.
+
+Disponível em uma gama de cores inspiradas nas coleções da Maison, Dior Vernis é infundido com extratos de peônia e pistache.
+
+Para enriquecer a experiência da manicure Dior, descubra a restante coleção para as unhas: removedor, top coat e creme fortalecedor.
+
+Como Usar:
+1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
+2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
+3. Maximize o brilho com uma camada de Top Coat Dior.',
+219.00,186.15,1,49,'esmalte-dior-grace-1.png', 'esmalte-dior-grace-2.jpg', 'esmalte-dior-grace-3.jpg',21,88)
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(89,'#F1D33B','#F1D853','#F1DC7A');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Protetor Solar Corporal FPS 50','Sallve','200g',
+'Protetor solar corporal FPS 50 com textura leve sem ficar pegajoso na pele. Com manteiga de karité e óleo de semente de uva. Não deixa resíduos brancos na pele e é resistente à água, suor e areia.',
+'Um protetor solar com alta proteção FPS 50 UVA/UVB PA++++ com textura em creme, que além de proteger vai deixar sua pele macia e iluminada, mas não pegajosa, sendo também resistente à água, suor e areia. Além de proteger da radiação solar, o Protetor Solar Corporal hidrata a pele graças à manteiga de karité e ao óleo de semente de uva presentes na fórmula. Tem textura leve e toque seco, garantindo conforto na pele sem deixar resíduos esbranquiçados. É hipoalergênico e testado em peles sensíveis.
+
+O que só ele faz?
+ - Alta proteção solar FPS 50 UVA/UVB PA++++
+ - Invisível na pele: não deixa resíduos brancos
+ - Resistente à água, suor e areia
+ - Não deixa a pele pegajosa
+ - Testado em pele sensível e hipoalergênico
+
+Avaliações de segurança:
+ - Dermatologicamente testado - produto seguro para ser aplicado sobre a pele;
+ - Hipoalergênico - formulado de maneira a minimizar possível surgimento de alergia;
+ - Não-comedogênico - o produto não promoveu aumento em comedões abertos e fechados, nem em pápulas e pústulas;
+ - Aceitabilidade cutânea em pele sensível - em avaliação, não tivemos eventos adversos, ou seja, não tivemos qualquer reação. é um produto de alta tolerância cutânea em pele sensível.
+
+Ingredientes:
+ - Água, Octocrileno, Homosalato, Propanodiol, Butil Metoxidibenzoilmetano, Salicilato de Etilhexila, Manteiga de Karité, Cetil Fosfato de Potássio, Adipato de Diisopropila, Etilhexiltriazone, Triacontanil PVP, Eter Dicaprílico, Undecano, Ácido Fenilbenzimidazol Sulfônico, Carbonato Dicaprílico, Estearato de Glicerila, Álcool Cetílico, Óleo de semente de uva, Sílica, Tridecano, Arginina, Hidroxiacetofenona, Goma Xantana, 1,2-Hexanodiol, Caprilil glicol, Crosspolímero de Acrilatos/Acrilato de Alquila C10-30, Ácido Cítrico, Gluconato de Sódio, Tetra-di-t-butil Hidroxiidrocinamato de Pentaeritritila, Tocoferol.
+ - Ingredientes especiais: Manteiga de Karité e Óleo de Semente de Uva.',
+89.90,null,0,82,'protetor-solar50-corporal-sallve-1.png', 'protetor-solar50-corporal-sallve-2.jpg', 'protetor-solar50-corporal-sallve-3.jpg',25,89,)
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(90,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(91,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(92,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(93,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(94,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(95,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(96,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(97,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(98,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(99,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(100,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(101,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(102,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(103,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(104,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(105,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(106,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
