@@ -125,6 +125,10 @@ tr {
     border: 1px solid red;
 }
 
+.btnSobreProduto{
+    border: 1px solid blue;
+}
+
 .img-popUp img {
     background-color: green;
     border-radius: 50%;
