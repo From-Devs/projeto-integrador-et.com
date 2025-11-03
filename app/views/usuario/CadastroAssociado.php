@@ -47,7 +47,7 @@
     <div class="Cadastro">
         <!-- Área branca -->
     <form class="formAssociado" method="POST" action="../../../router/UserRoutes.php?acao=assoc_request" id="form" enctype="multipart/form-data">
-        <h1>Edite seus dados (Opicional)</h1>
+        <h1 style="margin-top: 20px;">Edite seus dados (Opicional)</h1>
         <div class= "p">
             <p class = "p1">*</p>
             <p class= "p2">PREENCHIMENTO OBRIGATÓRIO</p>
