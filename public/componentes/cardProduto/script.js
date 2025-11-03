@@ -111,4 +111,29 @@ document.addEventListener("DOMContentLoaded", function(){
             .catch(err => console.error(err));
         });
     }
+
+    const formCarrinho = document.getElementById('formCarrinho');
+    formCarrinho.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        const idProduto = this.querySelector('input[name="id_produto"]').value;
+
+        fetch('/projeto-integrador-et.com/router/CarrinhoRouter.php?action=adicionarCarrinho', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ id_produto: idProduto, quantidade: contador })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.ok) {
+                if (window.abrirPopUp) window.abrirPopUp("popUpCarrinho"); 
+            } else {
+                if (window.abrirPopUp) window.abrirPopUp("popUpErro"); 
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            if (window.abrirPopUp) window.abrirPopUp("popUpErro");
+        });
+    });
 });
