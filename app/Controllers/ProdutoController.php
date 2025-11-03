@@ -135,4 +135,7 @@ class ProdutoController {
         return $this->produtoModel->mediaAvaliacoes($idProduto);
     }
     
+    public function avaliarProduto($idUsuario, $idProduto, $nota, $comentario = "") {
+        return $this->produtoModel->avaliarProduto($idUsuario, $idProduto, $nota, $comentario);
+    }
 }

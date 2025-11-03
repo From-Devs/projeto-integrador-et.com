@@ -71,11 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        fetch("/projeto-integrador-et.com/config/produtoRouter.php", {
+        fetch("/projeto-integrador-et.com/router/ProdutoRouter.php", {
             method: "POST",
             headers: {"Content-Type": "application/x-www-form-urlencoded"},
             body: new URLSearchParams({
-                action: "avaliarProduto",
+                acao: "avaliarProduto",
                 id_produto: idProduto,
                 nota: avaliacaoSelecionada,
                 comentario: texto
