@@ -682,10 +682,10 @@ hydrogenated polyisobutene/poliisobuteno hidrogenado, polyisobutene/poliisobuten
 
 
 
-
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(25,'#33c4fdff','#9cd2ffff','rgba(191, 225, 253, 1)');
+(25,'#7DBAF2','#A5D3FD','#BDDFFF');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -716,10 +716,10 @@ Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colôni
 
 
 
-
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(26,'#ffaaeaff','#fcc0edff','#fad3f0ff');
+(26,'#FFAAEA','#FFC2F0','#FFD1F4');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1018,10 +1018,10 @@ Recursos:
 
 
 
-
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(37,'#0081B8','#33b0e6','#7cd6fd');
+(37,'#0081B8','#279FD3','#66CAF5');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1049,7 +1049,6 @@ Fragrância feminina para ser usada durante o dia ou a noite.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
 159.90,111.90,1,30,'FLORATTA-DES-COL-MY-BLUE.png','FLORATTA-DES-COL-MY-BLUE-2.jpg','FLORATTAS-3.jpg',5,37,3);
-
 
 
 
@@ -2631,12 +2630,43 @@ Ingredientes:
  - Ingredientes especiais: Manteiga de Karité e Óleo de Semente de Uva.',
 89.90,null,0,82,'protetor-solar50-corporal-sallve-1.png', 'protetor-solar50-corporal-sallve-2.jpg', 'protetor-solar50-corporal-sallve-3.jpg',25,89,)
 
+
+
+
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(90,'','','');
+(90,'#892227','#EA1A25','#FB565E');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Floratta Red','O Boticário','75ml',
+'Floratta Red é uma colônia feminina marcante e envolvente, inspirada na flor da maçã de Vermont. Combina notas de frutas vermelhas e laranja com um corpo floral delicado e toques de chocolate amargo, musk e âmbar, revelando uma fragrância jovem, romântica e irresistível.',
+'Floratta Red Desodorante Colônia 75ml
+A fragrância feminina do Floratta Red Desodorante Colônia é inspirada na flor da Maçã de Vermont.
+A fragrância traz a delicadeza da flor da maçã e a doçura do fruto. Além de notas de saída de Frutas Vermelhas e Laranja.
+
+O corpo do Floratta Red é puro floral. Uma combinação de Flor de Laranjeira, Violeta, Flor de Lótus, Tuberosa e Flor de Beijo. Já as notas de base, que deixam o rastro da fragrância, trazem Chocolate Amargo, Musk, Sândalo, Cedro e Âmbar.
+O Floratta Red Desodorante Colônia é uma fragrância feminina marcante, jovem e envolvente que combina com mulheres de atitude que não passam vontade no romance!
+Para potencializar a perfumação, a linha conta também com o Óleo Perfumado Desodorante Corporal Floratta Red para deixar a pele macia e perfumada com a mesma fragrância. É irresistível!  
+
+Como Usar:
+Borrife a fragrância nas áreas onde há maior circulação do sangue, como o pescoço, dobras do cotovelo e atrás das orelhas. Para sentir a sua fragrância favorita por mais tempo, mantenha a sua pele sempre hidratada com nossos produtos de Corpo e Banho.
+
+Pirâmide Olfativa:
+Topo: Frutas Vermelhas, Laranja, Maçã.
+Corpo: Flor de Laranjeira, Tuberosa, Violeta, Flor de Lótus, Flor de Beijo.
+Fundo: Chocolate Amargo, Musk, Sândalo, Cedro, Âmbar.
+
+Ocasião:
+Fragrância feminina para ser usada à noite, em encontros românticos.
+
+Ingredientes:
+Álcool Desnaturado; Água; Perfume; Caprililglicol; Salicilato de benzila; Butilfenil metilpropional; Citral; Citronelol; Cumarina; Hexil cinamal; Hidroxicitronelal; Isoeugenol; Limoneno.
+
+Nenhum produto do Grupo Boticário é testado em animais. ',
+159.90,135.90,'floratta-red-1.png', 'floratta-red-2.jpg', 'floratta-red-3.jpg',5,90,)
+
 
 
 
