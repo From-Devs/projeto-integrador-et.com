@@ -60,7 +60,7 @@ formCarrinho.addEventListener('submit', function(e){
 
     const idProduto = this.querySelector('input[name="id_produto"]').value;
 
-    fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionar', {
+    fetch('/projeto-integrador-et.com/router/CarrinhoRouter.php?action=adicionarCarrinho', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ id_produto: idProduto, quantidade: contador })
@@ -87,7 +87,7 @@ formFavorito.addEventListener('submit', function(e){
     e.preventDefault();
     const idProduto = this.querySelector('input[name="id_produto"]').value;
 
-    fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito', {
+    fetch('/projeto-integrador-et.com/router/ListaDesejosRouter.php?action=adicionarFavorito', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ id_produto: idProduto })
