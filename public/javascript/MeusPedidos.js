@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <span class="detalhes-categoria">Categoria: ${card.dataset.categoria || 'Não definida'}</span>
                         <span class="detalhes-preco" style="margin-bottom: 20px; font-size:12px; font-weight:500;">Preço: R$ ${subtotal.toFixed(2)}</span>
                     </div>
-                    <div style="display: flex; gap: 5px">
+                    <div style="display: flex; justify-content: center; gap: 10px;">
                         <button class="comprarNovamenteBtn" data-id="${idProduto}">Comprar Novamente</button>
                         <button class="cancelarBtn">Cancelar</button>
                     </div>

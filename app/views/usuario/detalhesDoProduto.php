@@ -74,7 +74,10 @@ $avaliacoes = $produtoController->BuscarAvaliacoesPorProduto($produto['id_produt
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<?php echo createHeader($login, $tipoUsuario) ?>
+<?php 
+echo createHeader($login, $tipoUsuario);
+echo PopUpComImagemETitulo("popUpCarrinho", "../../public/imagens/verificar.png", "100px", "Adicionado ao Carrinho");
+?>
 
 <div class="container-detalhes">
     <div class="detalhes-principal">

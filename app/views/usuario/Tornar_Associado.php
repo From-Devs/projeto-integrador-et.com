@@ -242,10 +242,10 @@
                     <p class="comissionPercentage">8% De Comissão</p>
                 </div>
             </div>
-            <div class="comissionCard" id="eletronicosCard">
+            <div class="comissionCard" id="utensíliosCard">
                 <div class="comissionCardIdentifier">
                     <img src="/projeto-integrador-et.com/public/imagens/botoesCategorias/eletronico.png" alt="" class="comissionCardIcon">
-                    <h1 class="categoryComissionName">Eletrônicos</h1>
+                    <h1 class="categoryComissionName">utensílios</h1>
                 </div>
                 <div class="comissionPercentageContainer">
                     <p class="comissionPercentage">10% De Comissão</p>

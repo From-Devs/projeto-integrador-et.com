@@ -164,12 +164,24 @@ else {
             $idCategoria = isset($_GET['idCategoria']) ? (int)$_GET['idCategoria'] : null;
             echo json_encode($idCategoria !== null ? $produtoController->getSubcategoriasPorCategoria($idCategoria) : []);
             break;
-
-        case 'BuscarSubcategoriaPorId':
-            $idSub = isset($_GET['idSub']) ? (int)$_GET['idSub'] : null;
-            echo json_encode($idSub !== null ? $produtoController->getSubcategoriaPorId($idSub) : []);
-            break;
-
+            case 'BuscarSubcategoriaPorId':
+                header('Content-Type: application/json; charset=utf-8');
+                $idSub = isset($_GET['idSub']) ? (int)$_GET['idSub'] : null;
+                if ($idSub === null) {
+                    echo json_encode([]);
+                    exit;
+                }
+                $res = $produtoController->getSubcategoriaPorId($idSub);
+                echo json_encode($res);
+                exit;
+                break;
+            case 'BuscarAssociadosPorProduto':
+                header('Content-Type: application/json; charset=utf-8');
+                $idProduto = isset($_GET['idProduto']) ? (int)$_GET['idProduto'] : null;
+                $res = $produtoController->capturarAssociadosPorProduto($idProduto);
+                echo json_encode($res);
+                exit;
+                break;
         default:
             echo json_encode(['ok' => false, 'msg' => 'Ação GET inválida']);
             break;

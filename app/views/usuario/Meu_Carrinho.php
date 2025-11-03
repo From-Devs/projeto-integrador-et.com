@@ -89,15 +89,18 @@
         <?php echo PopUpConfirmar(
             "popUpConfirmarExclusao",
             "Deseja realmente excluir os produtos selecionados?",
-            "<button type='submit' name='acao' value='remover' id='botaoConfirmarExclusao' class='btn btn-white' style='width: auto; height: auto; font-size: 1rem;'>Sim</button>",
-            "<button id='botaoCancelarExclusao' class='btn btn-white' style='width: auto; height: auto; font-size: 1rem; 'onclick='fecharPopUp(\"popUpConfirmarExclusao\")'>Não</button>"
-            ) ?>
+            "<button type='submit' name='acao' value='remover' id='botaoConfirmarExclusao' class='btn btn-green' style='width: 85px; height: 40px; font-size: 18px;'>Sim</button>",
+            "<button id='botaoCancelarExclusao' class='btn btn-red' style='width: 85px; height: 40px; font-size: 18px; 'onclick='fecharPopUp(\"popUpConfirmarExclusao\")'>Não</button>"
+        );
+
+        echo PopUpComImagemETitulo("checkVazio", "/popUp_Botoes/atencao.png", "150px", "Selecione Algum Produto!");
+        ?>
         <table>
             <thead>
                 <tr>
                     <th class="radius">Produto</th>
-                    <th></th>
-                    <th></th>
+                    <th class="sumir"></th>
+                    <th class="sumir"></th>
                     <th>Preço</th>
                     <th>Quantidade</th>
                     <th class="radius2">Subtotal</th>
@@ -114,14 +117,14 @@
                                 <span class='produto-nome'><?= htmlspecialchars($item['nome']) ?></span>
                             </div>
                         </td>
-                        <td></td>
-                        <td></td>
+                        <td class="sumir"></td>
+                        <td class="sumir"></td>
                         <td class='cor2'>R$ <?= number_format($item['precoCalculado'], 2, ',', '.') ?></td>
                         <td class='quantityColumn'>
                             <div class='quantity-container'>
-                                <button type='button' class='quantity-btn' onclick='decrementQuantity(<?= $index ?>)'>-</button>
-                                <input type='number' name='quantidade[<?= $index ?>]' value='<?= (int)$item['quantidade'] ?>' min='1' class='quantity-input'>
-                                <button type='button' class='quantity-btn' onclick='incrementQuantity(<?= $index ?>)'>+</button>
+                                <button type='button' class='quant-btn' onclick='decrementQuantity(<?= $index ?>)'>-</button>
+                                <input type='number' name='quantidade[<?= $index ?>]' value='<?= (int)$item['quantidade'] ?>' min='1' class='quant'>
+                                <button type='button' class='quant-btn' onclick='incrementQuantity(<?= $index ?>)'>+</button>
                             </div>
                         </td>
                         <td class='cor2' id='subtotal-item-<?= $index ?>'>R$ <?= number_format($item['subtotal'], 2, ',', '.') ?></td>
@@ -135,8 +138,12 @@
             </tbody>
 
             <tfoot>
-                <tr class="tot" style="padding: 0px">
-                    <td class="cor3" colspan="5">Total:</td>
+                <tr class="tot">
+                    <td class="cor3">Total:</td>
+                    <td></td>
+                    <td></td>
+                    <td class="sumir"></td>
+                    <td class="sumir"></td>
                     <td class="total-value" id="total">R$ <?= number_format($total, 2, ',', '.') ?></td>
                 </tr>
 
@@ -145,9 +152,9 @@
                     <td><label for="selecionarTodos">Selecionar Tudo:</label></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><input type="checkbox" id="selecionarTodos" style="margin: 0px;" checked></td>
+                    <td class="sumir"></td>
+                    <td class="sumir"></td>
+                    <td style="text-align: right;"><input type="checkbox" id="selecionarTodos" style="margin: 0px;" checked></td>
                 </tr>
 
             </tfoot>
@@ -195,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         const algumSelecionado = Array.from(checkboxes).some(cb => cb.checked);
         if (!algumSelecionado) {
-        alert("Selecione ao menos um produto para excluir.");
+        abrirPopUp("checkVazio");
         return;
         }
         abrirPopUp("popUpConfirmarExclusao"); // abre o pop-up personalizado

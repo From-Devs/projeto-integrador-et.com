@@ -409,6 +409,25 @@ class Products {
         return $stmt->execute();
     }
 
+    public function capturarAssociadosPorProduto($idProduto){
+        $sql = "select U.id_usuario ,
+        U.nome,
+        U.telefone,
+        U.email,
+        E.cidade,
+        E.estado 
+            from usuario u 
+            left join endereco e 
+                on E.id_endereco = U.id_endereco 
+            left join produto p 
+                on P.id_associado = U.id_usuario 
+            where P.id_produto = :idProduto";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":idProduto", $idProduto, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function produtoById($id){
         $stmt = $this->conn->prepare("SELECT * FROM Produto WHERE id_produto = ?");
         $stmt->execute([$id]);

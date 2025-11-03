@@ -55,7 +55,7 @@ class HTML5Entities
         '{' => '&lbrace;',
         '|' => '&vert;',
         '}' => '&rcub;',
-        ' ' => '&nbsp;',
+        '' => '&nbsp;',
         '¡' => '&iexcl;',
         '¢' => '&cent;',
         '£' => '&pound;',

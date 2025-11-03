@@ -146,7 +146,7 @@
         
     <script src="/projeto-integrador-et.com/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
-    <script src="/projeto-integrador-et.com/public/javascript/Produto.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/ProdutoAssociado.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/editorCor.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/previsualizacaoProdutoCadastroEditar.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/FiltroQueryString.js"></script>

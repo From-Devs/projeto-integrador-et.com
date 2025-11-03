@@ -106,6 +106,11 @@ class ProdutoController {
         );
     }
 
+    public function capturarAssociadosPorProduto($idProduto)
+    {
+        return $this->produtoModel->capturarAssociadosPorProduto($idProduto);
+    }
+
     public function pesquisarHeader($termo)
     {
         return $this->produtoModel->pesquisarProdutos($termo);
