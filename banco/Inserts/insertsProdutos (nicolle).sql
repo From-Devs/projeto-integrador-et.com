@@ -23,6 +23,7 @@ VALUES
 
 -- INSERTS JÁ REALIZADOS:
 
+--id da Eliana
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
 (1,'#133285','#1256b5','#5394ee');
@@ -47,8 +48,11 @@ Modo de Uso:
 
 Aviso:
 Uso externo. Não é indicado para uso no rosto. Não é protetor solar. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças. Este é um produto cosmético, não ingerir.',
-23.90,22.70,1,50,'milk-1.png','milk-2.jpg','milk-3.jpg',23,1,3); --id da Eliana
+23.90,22.70,1,50,'milk-1.png','milk-2.jpg','milk-3.jpg',23,1,3); 
 
+
+
+--id do Michael
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES (2,'#00728C', '#25abc9','#5CCCE6');
 
@@ -76,11 +80,11 @@ Orientações ao consumidor:
 Uso Externo. Produto Cosmético. Não comestível. Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas.
 Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Uso adulto. Produto para perfumar e desodorizar a pele.
 Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.',
-69.90,null,0,30,'biscoito.png','biscoito-2.png','biscoito-3.png',8,2,4);  --id do Michael
+69.90,null,0,30,'biscoito.png','biscoito-2.png','biscoito-3.png',8,2,4);  
 
 
 
-
+--id da Viviane
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
 (3, '#72543A','#95765b','#ceb49c');
@@ -106,10 +110,10 @@ Comece, aplicando um pouco da base líquida com acabamento super mate no dorso d
 Ação / Resultado:
 Ácido Hialurônico: molécula hidrolisada de baixo peso molecular e alta penetração na pele, proporciona uma hidratação profunda que atua no preenchimento de rugas e linhas de expressão.
 Seu rosto ganha um tom uniforme e matificado, além de uma aparência saudável, o dia todo.',
-40.99,19.99,1,40,'vult-base.png','vult-base-2.jpg','vult-base-3.jpg',1,3,5);  --id da Viviane
+40.99,19.99,1,40,'vult-base.png','vult-base-2.jpg','vult-base-3.jpg',1,3,5);  
 
 
-
+--id do Michael
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
 (4,'#462d2d','#824d32','#bd886d');
@@ -127,7 +131,7 @@ Amadeirado Ambarado Couro.
 
 Como Usar:
 Borrife a fragrância nas áreas onde há maior circulação do sangue, como o pescoço, dobras do cotovelo e atrás das orelhas.',
-209.90,179.90,1,50,'coffee.png','coffee-2.jpg','coffee-3.jpg',6,4,6);  --id do Michael
+209.90,179.90,1,50,'coffee.png','coffee-2.jpg','coffee-3.jpg',6,4,6);  
 
 
 
@@ -135,7 +139,7 @@ Borrife a fragrância nas áreas onde há maior circulação do sangue, como o p
 
 --AGORA SERÃO PRODUTOS NOVOS QUE EU PEGUEI
 
-
+--Viviane
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (5,'#35100d','#91271d','#eb584b');
@@ -151,10 +155,10 @@ Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, l
 
 Composição do BT VELVET:
 Trihydroxystearin, Hydrogenated Polycyclopentadiene, Polyethylene, Copernicia Cerifera Cera, Tocopheryl Acetate, Ricinus Communis Seed Oil, VP/Eicosene Copolymer, Cyclopentasiloxane, Trimethylsiloxysilicate, BHT, Silica, Disteardimonium Hectorite, Propylene Carbonate, Isododecane, Talc, Parfum, Cinnamol, Eugenol, Polyglyceryl-4 Isostearate, Nylon-12 Polymethyl Methacrylate, Pentaerythrityl Tetraisostearate, Caprylyl Glycol, Phenoxyethanol. Pode conter: Benzyl Benzoate, CI 15850, CI 77492, CI 77491, CI 77499, CI 77266, CI 77891, CI 45380.',
-69.00,null,0,30,'bt-blackberry.png','bt-blackberry2.jpg','bt-blackberry3.jpg',3,5,4); --Viviane
+69.00,null,0,30,'bt-blackberry.png','bt-blackberry2.jpg','bt-blackberry3.jpg',3,5,4); 
 
 
-
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (6,'#000000','#dcb4bf','#f5d7e0');
@@ -172,15 +176,14 @@ Orientações ao consumidor:
 Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Produto para perfumar e desodorizar a pele.
 
 Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.',
-89.90,null,0,40,'bodysplash-deleite.png','bodysplash-deleite-2.jpg','bodysplash-deleite-3.jpg',8,6,3);  --Michael
+89.90,null,0,40,'bodysplash-deleite.png','bodysplash-deleite-2.jpg','bodysplash-deleite-3.jpg',8,6,3);  
 
 
 
-
+---da Eliana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (7,'#af833a','#cea86a','#fef0d6');
-
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -197,15 +200,14 @@ Como Usar:
 Aplicar em todo o corpo, após o banho ou sempre que desejar.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
-139.90,null,0,15,'lily.png','lily-2.jpg','lily-3.jpg',23,7,3); ---da Eliana
+139.90,null,0,15,'lily.png','lily-2.jpg','lily-3.jpg',23,7,3); 
 
 
 
-
+--Maiara
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (8,'#60aaca','#85D3F4','#B7E6FB');
-
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -218,10 +220,10 @@ Após a higienização dos cabelos, retire o excesso de umidade e distribua a M�
 
 Ingredientes:
 AQUA, BEHENAMIDOPROPYL DIMETHYLAMINE, BEHENTRIMONIUM METHOSULFATE and CETEARYL ALCOHOL, BENZYL ALCOHOL and BENZOIC ACID and SORBIC ACID and GLYCERIN, CAPRYLIC/CAPRIC TRIGLYCERIDE, CETEARYL ALCOHOL, CETYL ESTERS, COPAIFERA OFFICINALIS (BALSAM COPAIBA) RESIN and PASSIFLORA EDULIS SEED OIL, LACTIC ACID, PARFUM, PROPYLENE GLYCOL, SACCHAROMYCES/XYLINUM/BLACK TEA FERMENT and GLYCERIN and HYDROXYETHYLCELLULOSE',
-64.90,60.90,1,40,'lola-danos-vorazes.png','lola-danos-vorazes-2.jpg','lola-danos-vorazes-3.jpg',16,8,5);  --Maiara
+64.90,60.90,1,40,'lola-danos-vorazes.png','lola-danos-vorazes-2.jpg','lola-danos-vorazes-3.jpg',16,8,5);  
 
 
-
+--Maiara
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (9,'#97262a','#ba5b54','#f5a59f');
@@ -242,11 +244,11 @@ Modo de uso:
 1- Aplique o shampoo nos cabelos molhados e massageie o couro cabeludo até formar espuma;
 2- Enxágue bem e repita a aplicação se necessário;
 3- Para melhores resultados, utilize o condicionador da linha.',
-69.90,49.90,1,30,'shampoo-protect-color-brae.png','shampoo-protect-color-brae-2.jpg','shampoo-protect-color-brae-3.jpg',17,9,5);  --Maiara
+69.90,49.90,1,30,'shampoo-protect-color-brae.png','shampoo-protect-color-brae-2.jpg','shampoo-protect-color-brae-3.jpg',17,9,5);  
 
 
 
-
+--Maiara
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (10,'#97262a','#ba5b54','#f5a59f');
@@ -267,15 +269,14 @@ Modo de uso:
 1- Após lavar com o shampoo, aplique o condicionador nos cabelos úmidos, do comprimento às pontas;
 2- Deixe agir por alguns minutos;
 3- Enxágue bem e finalize como preferir.',
-79.0,52.90,1,30,'condicionador-protect-color-brae.png','condicionador-protect-color-brae-2.jpg','condicionador-protect-color-brae-3.jpg',17,10,5);  --Maiara
+79.0,52.90,1,30,'condicionador-protect-color-brae.png','condicionador-protect-color-brae-2.jpg','condicionador-protect-color-brae-3.jpg',17,10,5);  
 
 
 
-
+--Maiara
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (11,'#97262a','#ba5b54','#f5a59f');
-
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -294,15 +295,14 @@ Modo de uso:
 2- Aplique a máscara nos cabelos úmidos, do comprimento às pontas;
 3- Deixe agir por 5 minutos;
 4- Enxágue bem e, para um cuidado completo, finalize com o condicionador da linha.',
-99.90,54.90,1,30,'mascara-color-protect-brae.png','mascara-color-protect-brae-2.jpg','mascara-color-protect-brae-3.jpg',17,11,5); --Maiara
+99.90,54.90,1,30,'mascara-color-protect-brae.png','mascara-color-protect-brae-2.jpg','mascara-color-protect-brae-3.jpg',17,11,5); 
 
 
 
-
+--Maiara
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (12,'#97262a','#ba5b54','#f5a59f');
-
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -315,10 +315,10 @@ Brae stages Color Protect - Condicionador Proteção da Cor 250ml
 Condicionador para cabelos coloridos. Condiciona de forma eficaz, promove maciez, luminosidade e proteção prolongada da cor, além de ajudar no desembaraço e selar as cutículas.
 Brae stages Color Protect - Máscara Proteção da Cor 200g
 Máscara de tratamento para cabelos coloridos. Possui ação antioxidante, hidrata, promove maciez, luminosidade e proteção prolongada da cor, além de proporcionar brilho.',
-249.70,137.34,1,10,'kit-color-protect.png','kit-color-protect-2.jpg','kit-color-protect-3.jpg',17,12,5);  --Maiara
+249.70,137.34,1,10,'kit-color-protect.png','kit-color-protect-2.jpg','kit-color-protect-3.jpg',17,12,5);  
 
 
-
+--Viviane
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (13,'#f54e00','#eb8252','#F5A884');
@@ -331,11 +331,11 @@ VALUES
 
 Composição: 
 DECAMETILCICLOPENTASILOXANO, MIRISTATO DE ISOPROPILA, ISODODECANO, TRIMETILSILOXISSILICATO, OCTENIL SUCCINATO DE AMIDO ALUMÍNIO, ÓLEO MINERAL, TRIIDROXIESTEARINA, CERA BRANCA DE ABELHA, OZOQUERITA, SÍLICA, HECTORITA DISTEARDIMÔNIO, FENOXIETANOL, ACETATO DE TOCOFERILA, CARBONATO DE PROPILENO, CROSPOLÍMERO DE DIMETICONA, COPOLÍMERO DE ETILENO/PROPILENO/ESTIRENO, COPOLÍMERO DE BUTILENO/ETILENO/ESTIRENO, ETILHEXILGLICERINA, BUTIL- HIDROXITOLUENO PODE CONTER : CORANTE BRANCO 77891, CORANTE AMARELO 77492, CORANTE VERMELHO 77491, CORANTE PRETO 77499.',
-69.90,null,0,20,'base-mari-maria.png','base-mari-maria-2.jpg','base-mari-maria-3.png',1,13,5);    --Viviane
+69.90,null,0,20,'base-mari-maria.png','base-mari-maria-2.jpg','base-mari-maria-3.png',1,13,5);    
 
 
 
-
+--Viviane
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (14,'#ea0137','#ff3463','#fa7d9a');
@@ -359,14 +359,14 @@ Benefícios:
 • Acabamento espelhado: lábios bonitos e brilhantes o dia todo
 • Fórmula Vegana
 • Não transfere e não borra',
-82.90,null,0,15,'superstay-ink-vinyl-capricious.png','superstay-ink-vinyl-capricious-2.jpg','superstay-ink-vinyl-capricious-3.jpg',3,14,4);   --Viviane
+82.90,null,0,15,'superstay-ink-vinyl-capricious.png','superstay-ink-vinyl-capricious-2.jpg','superstay-ink-vinyl-capricious-3.jpg',3,14,4);   
 
 
 
-
+--Viviane
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(15,'#64c2c2','#8eddd6','#c2f0ec');
+(15,'#64c2c2','#8eddd6','#B6F7F1');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -393,10 +393,10 @@ aqua/água, disodium edta/edetato dissódico, alcohol/alcool etilico, glycerin/g
 
 
 
-
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(16,'#970005','#fe001a','#f74a4a');
+(16,'#970005','#C42127','#F25055');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -418,7 +418,7 @@ Notas de Fundo: Âmbar, Fava Tonka, Baunilha, Cedro da Virgínia e Almíscar.',
 
 
 
-
+--Maiara
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (17,'#4e316b','#825EA6','#A683C9');
@@ -459,11 +459,11 @@ Para aplicação da Máscara Pigmentante Medusa seu cabelo precisa estar em uma 
 · Se tirado no banho o produto pode manchar a pele;
 · Faça um teste de mecha antes da aplicação do produto no cabelo inteiro.
 ',
-64.50,54.82,1,30,'kamaleao-color-medusa.png','kamaleao-color-medusa-2.jpg','kamaleao-color-medusa-3.jpg',17,17,6);  --Adriana
+64.50,54.82,1,30,'kamaleao-color-medusa.png','kamaleao-color-medusa-2.jpg','kamaleao-color-medusa-3.jpg',17,17,6);  
 
 
 
-
+--Maiara
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (18,'#f58e18','#fbab2b','#f8d04c');
@@ -505,11 +505,11 @@ Avisos:
 . Se tirado no banho o produto pode manchar a pele;
 . Faça um teste de mecha antes da aplicação do produto no cabelo inteiro.
 ',
-64.50,54.82,1,30,'carpa-kamaleao-color.png','carpa-kamaleao-color-2.jpg','carpa-kamaleao-color-3.jpg',17,18,6);   --Adriana
+64.50,54.82,1,30,'carpa-kamaleao-color.png','carpa-kamaleao-color-2.jpg','carpa-kamaleao-color-3.jpg',17,18,6);   
 
 
 
-
+--Eliana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (19,'#833c0c','#c46220','#eeb087');
@@ -528,11 +528,11 @@ Aplique na pele limpa e umedecida após o banho e massageie levemente. Se deseja
 
 Composição:
 Petrolato Líquido, Lecitina, Perfume, Lauromacrogol 400, Octildodecanol, Óleo de Amêndoas, Óleo da Semente de Corylus avellana, Fenoxietanol, Adipato de Dibutila, Cumarina, Limoneno, Etilexilglicerina, Tetra-Di-T-Butil Hidróxi-Hidrocinamato de Pentaeritritila, Linalol, Citral.',
-13.49,null,0,14,'oleo-avela-paixao.png','oleo-avela-paixao-2.jpg','oleo-avela-paixao-3.jpg',24,19,3);  --Eliana
+13.49,null,0,14,'oleo-avela-paixao.png','oleo-avela-paixao-2.jpg','oleo-avela-paixao-3.jpg',24,19,3);  
 
 
 
-
+--Eliana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (20,'#6e0313','#bd021f','#f1556cff');
@@ -568,11 +568,11 @@ Manter fora do alcance das crianças.
 Não ingerir. 
 Em caso de contato acidental com os olhos enxaguar abundantemente com água. 
 Em caso de irritação suspenda o uso e procure orientação médica.',
-27.79,null,0,30,'oleo-ameixarubi-paixao.png','oleo-ameixarubi-paixao-2.jpg','oleo-ameixarubi-paixao-3.jpg',24,20,2);  --Eliana
+27.79,null,0,30,'oleo-ameixarubi-paixao.png','oleo-ameixarubi-paixao-2.jpg','oleo-ameixarubi-paixao-3.jpg',24,20,2);  
 
 
 
-
+--Eliana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (21,'#283256','#495a97','#8094e5');
@@ -612,7 +612,7 @@ Em caso de irritação suspenda o uso e procure orientação médica.',
 
 
 
-
+--Viviane
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (22,'#7c0023','#A91942','#C83C64');
@@ -630,11 +630,11 @@ Aplique-a nas pálpebras próximo à raiz dos cílios.
 Composição:
 methyl trimethicone, polyethylene, trimethylsiloxysilicate, octyldodecanol, ozokerit, acrylates/dimethicone copolymer, disteardimonium hectorite, propylene carbonate, pentaerythrityl tetra-di-t-butyl hydroxyhydrocinnamate. pode conter: ci 77491 ci 77499, ci 77891, ci 15850. (port) metil trimeticona, polietileno, trimetilsiloxissilicato, octildodecanol, ozoquerita, copolímero de acrilatos/dimeticona, hectorita diesteardimônio, carbonato de propileno, tetra-di-t-butil hidróxi-hidrocinamato de pentaeritritila.
 Pode conter colorantes: corante vermelho 77491, corante preto 77499, corante branco 77891, corante vermelho 15850.",
-39.90,35.22,1,20,'lapiseira-cherry-vizzela.png','lapiseira-cherry-vizzela-2.jpg','lapiseira-cherry-vizzela-3.jpg',2,22,4);    --Viviane
+39.90,35.22,1,20,'lapiseira-cherry-vizzela.png','lapiseira-cherry-vizzela-2.jpg','lapiseira-cherry-vizzela-3.jpg',2,22,4);    
 
 
 
-
+--Viviane
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (23,'#eb5763','#F7828C','#FFB3B9');
@@ -654,11 +654,11 @@ Aplique o Lip Oil Gummy Panda diretamente nos lábios com o aplicador. Espere al
 
 Composição:
 POLYISOBUTENE/POLIISOBUTENO, PHENOXYETHANOL/FENOXIETANOL, CAPRYLIC/CAPRIC TRIGLYCERIDE/TRIGLICERÍDEO CAPRÍLICO/CÁPRICO, BENZOTRIAZOLYL DODECYL P-CRESOL/BENZOTRIAZOLIL DODECIL P-CRESOL, ETHYLHEXYL PALMITATE/PALMITATO DE ETILEXILA, TOCOPHERYL ACETATE/ACETATO DE TOCOFERILA, PARFUM/PERFUME, HYDROGENATED POLYISOBUTENE/POLIISOBUTENO HIDROGENADO, ETHYLENE/PROPYLENE/STYRENE COPOLYMER/ COPOLÍMERO DE ETILENO/PROPILENO/ESTIRENO, BUTYLENE/ETHYLENE/STYRENE COPOLYMER/ COPOLÍMERO DE BUTILENO/ETILENO/ESTIRENO, PRUNUS AMYGDALUS DULCIS OIL/ÓLEO DE AMÊNDOA-DOCE, SODIUM SACCHARIN/SACARINA DE SÓDIO, SQUALANE/ESQUALANO, CI 45380/ CORANTE EOSINA AMARELA 45380.',
-69.90,null,0,40,'lip-oil-gummy.png','lip-oil-gummy-2.jpg','lip-oil-gummy-3.jpg',3,23,4);    --Viviane
+69.90,null,0,40,'lip-oil-gummy.png','lip-oil-gummy-2.jpg','lip-oil-gummy-3.jpg',3,23,4);    
 
 
 
-
+--Viviane
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (24,'#801d31','#AE374F','#AE374F');
@@ -678,7 +678,7 @@ Cor única e acabamento glossy acompanha chaveiro hidratação intensa acabament
 
 Composição:
 hydrogenated polyisobutene/poliisobuteno hidrogenado, polyisobutene/poliisobuteno, paraffinum liquidum/parafina líquida, ethylene/propylene/styrene copolymer/copólímero de etileno/propileno/estireno, butylene/ethylene/styrene copolymer/copólímero de butileno/etileno/estireno, ethylhexyl metoxyccinamate/octinoxato, octyldodecanol/octildodecanol, parfum/perfume, ethylhexyl palmitate/palmitato de etilexila, ci 15880/corante vermelho 15880, phenoxyethanol/fenoxietanol, tocopheryl acetate/acetato de tocoferila, ci 15850/corante vermelho 15850/benzotriazolyl dodecyl p-cresol/benzotriazolyl dodecyl p-cresol, butylene glycol/butileno glicol, silica dimethyl silylate/silica dimethyl silylate, caprylyl glycol/caprililglicol, hexylene glycol/hexileno glicol, sodium hyaluronate/hialuronato de sódio.',
-69.90,null,0,20,'gloss-cherry-vizzela.png','gloss-cherry-vizzela-2.jpg','gloss-cherry-vizzela-3.jpg',3,24,4);   --Viviane
+69.90,null,0,20,'gloss-cherry-vizzela.png','gloss-cherry-vizzela-2.jpg','gloss-cherry-vizzela-3.jpg',3,24,4);   
 
 
 
@@ -747,7 +747,7 @@ Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colôni
 
 
 
-
+--Bruna
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (27,'#d8d759','#FBFB6F','#FBFB9D');
@@ -766,11 +766,11 @@ Como usar:
 
 Quando usar: 
 Pela manhã, à noite ou quando quiser.',
-79.90,null,0,30,'limpador-facial-sallve.png','limpador-facial-sallve-2.jpg','limpador-facial-sallve-3.jpg',9,27,6),   --Bruna
+79.90,null,0,30,'limpador-facial-sallve.png','limpador-facial-sallve-2.jpg','limpador-facial-sallve-3.jpg',9,27,6),   
 
 
 
-
+--Bruna
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (28,'#763b8d','#a65ec2ff','#d18aecff');
@@ -791,11 +791,11 @@ Como usar:
 Use no máximo uma vez por dia. 
 Durante o dia, utilize protetor solar. 
 Agite antes de usar.',
-79.90,null,0,20,'limpador-enzimatico-sallve.png','limpador-enzimatico-sallve-2.jpg','limpador-enzimatico-sallve-3.jpg',10,28,6);    --Bruna
+79.90,null,0,20,'limpador-enzimatico-sallve.png','limpador-enzimatico-sallve-2.jpg','limpador-enzimatico-sallve-3.jpg',10,28,6);    
 
 
 
-
+--Bruna
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (29,'#735f9c','#9f85d3ff','#cdb6fcff');
@@ -814,11 +814,11 @@ Como usar:
 3- Coloque uma pequena quantidade do esfoliante enzimatico nas mãos e massageie com delicadeza, em movimentos circulares e evitando a área dos olhos.
 4- Enxágue com água em abundância, removendo todo o produto, e sinta na pele uma limpeza profunda com toque macio.
 5- Use no máximo 2 vezes por semana, em dias alternados.',
-74.90,null,0,20,'esfoliante-facial-sallve.png','esfoliante-facial-sallve-2.jpg','esfoliante-facial-sallve-3.jpg',10,29,6);    --Bruna
+74.90,null,0,20,'esfoliante-facial-sallve.png','esfoliante-facial-sallve-2.jpg','esfoliante-facial-sallve-3.jpg',10,29,6);    
 
 
 
-
+--Bruna
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (30,'#678ec2','#8AB2E5','#B5D0F2');
@@ -834,11 +834,11 @@ Com 8 formas e 3 diferentes pesos moleculares de ácido hialurônico, pantenol e
 Como usar:
 1- Aplique ao redor da área dos olhos e em todo o rosto até o pescoço, massageando em movimentos ascendentes até a total absorção do produto.
 2- Você pode usar pela manhã, à noite ou quando quiser, sempre sobre a pele limpa.',
-89.90,null,0,20,'hidratante-firmador-sallve.png','hidratante-firmador-sallve-2.jpg','hidratante-firmador-sallve-3.jpg',11,30,6);    --Bruna
+89.90,null,0,20,'hidratante-firmador-sallve.png','hidratante-firmador-sallve-2.jpg','hidratante-firmador-sallve-3.jpg',11,30,6);    
 
 
 
-
+--Bruna
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (31,'#2de8f9','#63F0FD','#9EF7FF');
@@ -858,11 +858,11 @@ Como usar:
 Observação: 
 Durante a primeira semana de uso, aplique pequenas quantidades de produto, em dias alternados.
 Não aplique nas pálpebras, nos cantos externos do nariz e da boca nem na pele irritada ou lesionada.',
-129.90,89.90,1,20,'super-pro-colageno-sallve-1.png','super-pro-colageno-sallve-2.jpg','super-pro-colageno-sallve-3.jpg',14,31,6);   --Bruna
+129.90,89.90,1,20,'super-pro-colageno-sallve-1.png','super-pro-colageno-sallve-2.jpg','super-pro-colageno-sallve-3.jpg',14,31,6);   
 
 
 
-
+--Bruna
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (32,'#cb9e74','#EAC099','#FFE2C7');
@@ -880,11 +880,11 @@ Como usar:
 
 Observações:
 Esse uso pode render em torno de 120 aplicações, de 3 a 4 meses de uso.',
-99.90,null,0,20,'antioxidante-hidratante.png','antioxidante-hidratante-2.jpg','antioxidante-hidratante-3.jpg',14,32,6);   --Bruna
+99.90,null,0,20,'antioxidante-hidratante.png','antioxidante-hidratante-2.jpg','antioxidante-hidratante-3.jpg',14,32,6);   
 
 
 
-
+--Bruna
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (33,'#794599','#9F65C3','#C994EB');
@@ -912,7 +912,7 @@ Dica preciosa:
 Esfoliar levemente a pele antes potencializ o efeito de qualquer máscara de tratamento.
 Quando usar:
 Até 3 vezes por semana, em dias alternados.',
-69.90,null,0,30,'mascara-antirresseca.png','mascara-antirresseca-2.jpg','mascara-antirresseca-3.jpg',12,33,6);    --Bruna
+69.90,null,0,30,'mascara-antirresseca.png','mascara-antirresseca-2.jpg','mascara-antirresseca-3.jpg',12,33,6);    
 
 
 
@@ -1188,7 +1188,7 @@ Fácil Limpeza - As cerdas são fáceis de limpar, mantendo a higiene e prolonga
 
 
 
-
+--Viviane
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (42,'#080806','#DD51B1','#FC86D3');
@@ -1206,8 +1206,7 @@ Detalhes do Produto:
 
 Ingredientes:
 AQUA (WATER), PARAFFIN, GLYCERYL STEARATE, SYNTHETIC BEESWAX, STEARIC ACID, BUTYLENE GLYCOL, ACACIA SENEGAL GUM, PALMITIC ACID, ORYZA SATIVA (RICE) BRAN WAX, POLYBUTENE, VP/EICOSENE COPOLYMER, AMINOMETHYL PROPANEDIOL, OZOKERITE, TROPOLONE, HYDROGENATED VEGETABLE OIL, STEARYL STEARATE, HYDROXYETHYLCELLULOSE, PHENOXYETHANOL, CI 77499 (IRON OXIDES).',
-36.90,null,0,30,'rimel_I_Love_Extreme_-_Crazy_Volume_1.png','rimel_I_Love_Extreme_-_Crazy_Volume_2.jpg','rimel_I_Love_Extreme_-_Crazy_Volume_3.jpg',2,42,4);    --Viviane
-
+36.90,null,0,30,'rimel_I_Love_Extreme_-_Crazy_Volume_1.png','rimel_I_Love_Extreme_-_Crazy_Volume_2.jpg','rimel_I_Love_Extreme_-_Crazy_Volume_3.jpg',2,42,4);    
 
 
 
@@ -2228,7 +2227,7 @@ AQUA / ÁGUA, PENTYLENE GLYCOL / PENTILENOGLICOL, PPG-5-CETETH-20 / PPG-5-PEG-20
 129.90,84.40,1,50,'serum-sobrancelhas-natura-2.jpg','serum-sobrancelhas-natura-1.png',null,4,72,)
 
 
-
+--Viviane
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (73,'#693F31','#8D5E4E','#B08273');
@@ -2250,7 +2249,7 @@ Características:
 
 Dicas de uso:
 Faça traços no sentido dos pelos preenchendo as sobrancelhas. utilize a escova para pentear os fios. para traços mais claros e suave, não pressione muito o lápis. para traços mais escuros, pressione levemente o lápis ao preencher as sobrancelhas.',
-37.90,33.90,1,80,'lapis-sobrancelha-natura-2.jpg', 'lapis-sobrancelha-natura-1.png',null,4,73,)   --Viviane
+37.90,33.90,1,80,'lapis-sobrancelha-natura-2.jpg', 'lapis-sobrancelha-natura-1.png',null,4,73,)   
 
 
 
@@ -2267,7 +2266,7 @@ Cerdas macias, com um lado em formato chanfrado, ideal para desenhar sobrancelha
 29.90,22.40,1,40,'pincel-sobrancelha-2.jpg', 'pincel-sobrancelha-1.png',null,20,74,)
 
 
-
+--Viviane
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (75,'#734943','#976963','#B88A84');
@@ -2284,7 +2283,7 @@ Faça traços no sentido dos pelos preenchendo as sobrancelhas. utilize o pincel
 
 Ingredientes:
 CERA MICROCRISTALLINA, HYDROGENATED COCO-GLYCERIDES, CAPRYLIC/CAPRIC TRIGLYCERIDE, HYDROGENATED JOJOBA OIL, RICINUS COMMUNIS SEED OIL, COPERNICIA CERIFERA WAX, BUTYROSPERMUM PARKII BUTTER, CAPRYLYL GLYCOL, PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE, AQUA, TOCOPHEROL, CITRIC ACID. PODE CONTER / PUEDE CONTENER: MICA, CI 77499, CI 77891, CI 77491, CI 77492.',
-34.70,null,0,'lapis-retratil-sobrancelha-2.jpg', 'lapis-retratil-sobrancelha-1.png',null,4,75,)   --Viviane
+34.70,null,0,'lapis-retratil-sobrancelha-2.jpg', 'lapis-retratil-sobrancelha-1.png',null,4,75,)   
 
 
 
@@ -2411,6 +2410,8 @@ Produto Inflamável. Mantenha fora do alcance de crianças.
 49.90,33.69,1,73,'opi-esmalte-naillacquer-1.png', 'opi-esmalte-naillacquer-2.jpg', 'opi-esmalte-naillacquer-3.jpg',21,80,)
 
 
+
+--Adriana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (81,'#C55F8A','#EA80AC','#FBA7CA');
@@ -2434,10 +2435,10 @@ Modo de Uso:
 Aplicar uma gota em cada unha após a aplicação do esmalte. Pode ser usada antes do esmalte para cuidar das cutículas. Basta aplicar uma gota em cada unha, massagear e limpar com algodão umedecido em removedor de esmaltes.
 
 Produto não tesado em animais. Produto Vegano.',
-19.00,null,0,83,'essence-oleo-secante-1.png', 'essence-oleo-secante-2.jpg', 'essence-oleo-secante-3.jpg',21,81,)    --Adriana
+19.00,null,0,83,'essence-oleo-secante-1.png', 'essence-oleo-secante-2.jpg', 'essence-oleo-secante-3.jpg',21,81,)    
 
 
-
+--Adriama
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (82,'#480316','#7A0525','#BA4564');
@@ -2456,9 +2457,11 @@ Como Usar:
 1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
-219.00,186.15,1,49,'esmalte-dior-nuit-1.png', 'esmalte-dior-nuit-2.jpg', 'esmalte-dior-nuit-3.jpg',21,82,)  --Adriama
+219.00,186.15,1,49,'esmalte-dior-nuit-1.png', 'esmalte-dior-nuit-2.jpg', 'esmalte-dior-nuit-3.jpg',21,82,)  
 
 
+
+--Adriana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (83,'#ADC4B4','#C8E3D0','#E2F4E7');
@@ -2477,10 +2480,11 @@ Como Usar:
 1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
-219.00,186.15,1,49,'esmalte-dior-pastelmint-1.png', 'esmalte-dior-pastelmint-2.jpg', 'esmalte-dior-pastelmint-3.jpg',21,83,)  --Adriana
+219.00,186.15,1,49,'esmalte-dior-pastelmint-1.png', 'esmalte-dior-pastelmint-2.jpg', 'esmalte-dior-pastelmint-3.jpg',21,83,)  
 
 
 
+--Adriana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (84,'#C87060','#E38C7D','#FBAFA2');
@@ -2499,10 +2503,12 @@ Como Usar:
 1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
-219.00,186.15,1,49,'esmalte-dior-dune-1.png', 'esmalte-dior-dune-2.jpg', 'esmalte-dior-dune-3.jpg',21,84,)  --Adriana
+219.00,186.15,1,49,'esmalte-dior-dune-1.png', 'esmalte-dior-dune-2.jpg', 'esmalte-dior-dune-3.jpg',21,84,)  
 
 
 
+
+--Adriana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (85,'#2F3361','#4F559C','#848CDB');
@@ -2521,10 +2527,12 @@ Como Usar:
 1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
-219.00,186.15,1,49,'esmalte-dior-denim-1.png', 'esmalte-dior-denim-2.jpg', 'esmalte-dior-denim-3.jpg',21,84,) --Adriana
+219.00,186.15,1,49,'esmalte-dior-denim-1.png', 'esmalte-dior-denim-2.jpg', 'esmalte-dior-denim-3.jpg',21,84,) 
 
 
 
+
+--Adriana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (86,'#99112A','#D11739','#F24A69');
@@ -2543,10 +2551,12 @@ Como Usar:
 1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
-219.00,186.15,1,49,'esmalte-dior-rouge-1.png', 'esmalte-dior-rouge-2.png',null,21,86) --Adriana
+219.00,186.15,1,49,'esmalte-dior-rouge-1.png', 'esmalte-dior-rouge-2.png',null,21,86) 
 
 
 
+
+--Adriana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (87,'#BA3724','#EB452D','#EB5C49');
@@ -2565,9 +2575,11 @@ Como Usar:
 1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
-219.00,186.15,1,49,'esmalte-dior-cinema-1.png', 'esmalte-dior-cinema-2.jpg', 'esmalte-dior-cinema-3.jpg',21,87,)  --Adriana
+219.00,186.15,1,49,'esmalte-dior-cinema-1.png', 'esmalte-dior-cinema-2.jpg', 'esmalte-dior-cinema-3.jpg',21,87,)  
 
 
+
+--Adriana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (88,'#C65665','#F0687A','#F08391');
@@ -2586,7 +2598,7 @@ Como Usar:
 1. Comece aplicando nas unhas uma fina camada de Dior Base Vernis.
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
-219.00,186.15,1,49,'esmalte-dior-grace-1.png', 'esmalte-dior-grace-2.jpg', 'esmalte-dior-grace-3.jpg',21,88)  --Adriana
+219.00,186.15,1,49,'esmalte-dior-grace-1.png', 'esmalte-dior-grace-2.jpg', 'esmalte-dior-grace-3.jpg',21,88)  
 
 
 
