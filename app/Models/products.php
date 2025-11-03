@@ -210,6 +210,9 @@ class Products {
                     case 'Qtd. Estoque':
                         $ordemSql = "qtdEstoque";
                         break;
+                    case 'Marca':
+                        $ordemSql = "marca";
+                        break;
                     default:
                         $ordemSql = "id_produto";
                 }
@@ -414,6 +417,9 @@ class Products {
         U.nome,
         U.telefone,
         U.email,
+        U.foto,
+        P.descricaoBreve,
+        P.marca,
         E.cidade,
         E.estado 
             from usuario u 
