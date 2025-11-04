@@ -10,15 +10,17 @@
     require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
 
-    // if (!empty($_GET['ordem'])) {
-    //     $parametrosExtras[] = 'ordem=' . urlencode($_GET['ordem']);
-    // }
+    $parametrosExtras = [];
 
-    // if (!empty($_GET['pesquisa'])) {
-    //     $parametrosExtras[] = 'pesquisa=' . urlencode($_GET['pesquisa']);
-    // }
+    if (!empty($_GET['ordem'])) {
+        $parametrosExtras[] = 'ordem=' . urlencode($_GET['ordem']);
+    }
 
-    // $parametrosExtrasString = implode('&', $parametrosExtras);
+    if (!empty($_GET['pesquisa'])) {
+        $parametrosExtras[] = 'pesquisa=' . urlencode($_GET['pesquisa']);
+    }
+
+    $parametrosExtrasString = implode('&', $parametrosExtras);
 
     $ordem = $_GET['ordem'] ?? null;
     $pesquisa = $_GET['pesquisa'] ?? null;
@@ -55,7 +57,7 @@
     <div class="main">
         <div id="container">
 
-            <?php echo filtro("Filtro",["ID", "Preço", "Data"])?>
+            <?php echo filtro("Filtro",["ID", "Preço", "Marca"])?>
 
             <div class="listaContainer">
                 <div id="titulo">
@@ -66,7 +68,10 @@
 
                     tabelaProdutoAdm($resultado['dados']);
 
-                    renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
+                    renderPaginacao($resultado['paginaAtual'], 
+                    $resultado['totalPaginas'],
+                    'page',
+                    $parametrosExtrasString);
                 ?>
             </div>
         </div>
