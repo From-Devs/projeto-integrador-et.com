@@ -61,10 +61,7 @@
 /* PARTE ESCURA */
 
 .logo {
-    position: fixed;
-    bottom: 32px;
-    left: 32px;
-    height: 100px;
+    display: none;
 }
 
 /* botão de voltar */
@@ -377,34 +374,40 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .caixa_texto {
         margin-left: none;
     }
-    form {
-        width: 720px;
-    }
-
-
 }
-@media (max-width: 1100px) {
-    .Decoracao {
+
+@media (max-width: 590px){
+    .editDadosAssociado{
         width: 100%;
+        display: grid;
+        grid-template-rows: auto auto;
+        flex-direction: column;
     }
-}
-@media (max-width: 975px) {
-    form {
-        width: 490px;
+
+    .profileIconEditContainer{
+        margin-top: 50px;
     }
-    .Cadastro {
-        margin: 50px;
+
+    .formAssociado{
+        width: 90%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
-}
-@media (max-width: 450px) {
-    form {
-        width: 330px;
+
+    .dadosWrapper{
+        padding: 0px;
     }
-    .Cadastro {
-        margin: 50px;
+
+    .botaoConfirmar{
+        width: 90%;
     }
-    .caixa_texto {
-        width: 330px;
-        margin: 0px;
+
+    .p{
+        margin-top: 15px;
+        margin-bottom: 10px;
     }
 }

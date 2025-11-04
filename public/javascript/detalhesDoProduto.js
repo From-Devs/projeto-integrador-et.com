@@ -1,14 +1,16 @@
+// ================================
+// === CONTROLE DE QUANTIDADE ====
+// ================================
 let contador = 1;
 const maxValor = 1000;
 const minValor = 1;
- 
+
 const quantidadeInput = document.getElementById('quantidadeInput');
- 
-// Atualiza o input com o valor do contador
+
 function atualizarValor() {
     quantidadeInput.value = contador;
 }
- 
+
 // Botão +
 document.getElementById('aumentar').addEventListener('click', () => {
     if (contador < maxValor) {
@@ -16,7 +18,7 @@ document.getElementById('aumentar').addEventListener('click', () => {
         atualizarValor();
     }
 });
- 
+
 // Botão -
 document.getElementById('diminuir').addEventListener('click', () => {
     if (contador > minValor) {
@@ -24,13 +26,10 @@ document.getElementById('diminuir').addEventListener('click', () => {
         atualizarValor();
     }
 });
- 
-// Permitir digitar diretamente no input
+
+// Input manual
 quantidadeInput.addEventListener('input', () => {
-    // Permite campo vazio para digitar novo número
     if (quantidadeInput.value === '') return;
- 
-    // Só aceita números válidos
     let val = parseInt(quantidadeInput.value.replace(/\D/g, '')) || '';
     if (val !== '') {
         if (val > maxValor) val = maxValor;
@@ -38,8 +37,7 @@ quantidadeInput.addEventListener('input', () => {
         contador = val;
     }
 });
- 
-// Valida quando o input perde o foco
+
 quantidadeInput.addEventListener('blur', () => {
     if (quantidadeInput.value === '' || parseInt(quantidadeInput.value) < minValor) {
         contador = minValor;
@@ -50,31 +48,67 @@ quantidadeInput.addEventListener('blur', () => {
     }
     atualizarValor();
 });
- 
-// Inicializa valor correto
+
 atualizarValor();
- 
-// AJAX para adicionar ao carrinho
-document.getElementById('formCarrinho').addEventListener('submit', function(e){
+
+// ================================
+// === ADICIONAR AO CARRINHO ======
+// ================================
+const formCarrinho = document.getElementById('formCarrinho');
+formCarrinho.addEventListener('submit', function(e){
     e.preventDefault();
- 
-    const formData = new FormData(this);
-    formData.set('quantidade', contador); // garante que a quantidade seja enviada
- 
-    fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarCarrinho', {
+
+    const idProduto = this.querySelector('input[name="id_produto"]').value;
+
+    fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionar', {
         method: 'POST',
-        body: formData
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ id_produto: idProduto, quantidade: contador })
     })
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
         if (data.ok) {
-            alert(`Produto adicionado ao carrinho! Quantidade: ${contador}`);
+            if (window.abrirPopUp) window.abrirPopUp("popUpCarrinho"); 
         } else {
-            alert('Erro ao adicionar ao carrinho: ' + (data.msg || 'Tente novamente.'));
+            if (window.abrirPopUp) window.abrirPopUp("popUpErro"); 
         }
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+        console.error(err);
+        if (window.abrirPopUp) window.abrirPopUp("popUpErro");
+    });
 });
+
+// ================================
+// === LISTA DE DESEJOS ===========
+// ================================
+const formFavorito = document.getElementById('formFavorito');
+formFavorito.addEventListener('submit', function(e){
+    e.preventDefault();
+    const idProduto = this.querySelector('input[name="id_produto"]').value;
+
+    fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ id_produto: idProduto })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.ok) {
+            if (window.abrirPopUp) window.abrirPopUp("popUpFavorito"); 
+        } else {
+            if (window.abrirPopUp) window.abrirPopUp("popUpErroFavorito"); 
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        if (window.abrirPopUp) window.abrirPopUp("popUpErroFavorito");
+    });
+});
+
+// ================================
+// === ORDENAR AVALIAÇÕES =========
+// ================================
 document.getElementById('ordenar').addEventListener('change', function() {
     const valor = this.value;
     const container = document.querySelector('.container-avaliacoes');
@@ -84,17 +118,18 @@ document.getElementById('ordenar').addEventListener('change', function() {
         const dataA = new Date(a.querySelector('.data-avaliacao span').textContent.split('/').reverse().join('-'));
         const dataB = new Date(b.querySelector('.data-avaliacao span').textContent.split('/').reverse().join('-'));
 
-        if (valor === 'maisRecentes') {
-            return dataB - dataA; // do mais recente para o mais antigo
-        } else if (valor === 'maisAntigas') {
-            return dataA - dataB; // do mais antigo para o mais recente
-        }
+        if (valor === 'maisRecentes') return dataB - dataA;
+        if (valor === 'maisAntigas') return dataA - dataB;
         return 0;
     });
 
-    // Remove avaliações do container e adiciona na nova ordem
     container.innerHTML = '';
     avaliacoes.forEach(a => container.appendChild(a));
 });
 
- 
+// ================================
+// === ALTERAR IMAGEM PRINCIPAL ===
+// ================================
+const imgPrinc = document.getElementById('img-principal');
+const imgLater = document.querySelectorAll('.imagens-lateral img');
+imgLater.forEach(img => img.addEventListener('click', () => imgPrinc.src = img.src));

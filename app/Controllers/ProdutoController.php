@@ -25,6 +25,14 @@ class ProdutoController {
         return $this->produtoModel->getAllSubcategorias();
     }
 
+    public function getSubcategoriasPorCategoria($idCategoria) {
+        return $this->produtoModel->getSubcategoriaByCategoriaId($idCategoria);
+    }
+
+    public function getSubcategoriaPorId($idSubCategoria) {
+        return $this->produtoModel->getSubcategoriaById($idSubCategoria);
+    }
+
     public function pegarTodosProdutos(){
         return $this->produtoModel->getAllProdutos();
     }
@@ -37,6 +45,7 @@ class ProdutoController {
         $precoPromocional, 
         $fgPromocao,
         $caracteristicasCompleta, 
+        $tamanho,
         $qtdEstoque, 
         $corPrincipal, 
         $deg1, 
@@ -50,6 +59,7 @@ class ProdutoController {
             $precoPromocional, 
             $fgPromocao,
             $caracteristicasCompleta, 
+            $tamanho,
             $qtdEstoque, 
             $corPrincipal, 
             $deg1, 
@@ -67,10 +77,13 @@ class ProdutoController {
         $precoPromocional,
         $fgPromocao, 
         $caracteristicasCompleta, 
+        $tamanho,
         $qtdEstoque, 
         $corPrincipal, 
         $deg1, 
-        $deg2
+        $deg2,
+        $idSubCategoria = null,
+        $files = []
     ){
         return $this->produtoModel->EditarProduto(
             $id, 
@@ -81,11 +94,19 @@ class ProdutoController {
             $precoPromocional, 
             $fgPromocao,
             $caracteristicasCompleta, 
+            $tamanho,
             $qtdEstoque, 
             $corPrincipal, 
             $deg1, 
-            $deg2
+            $deg2,
+            $idSubCategoria,
+            $files
         );
+    }
+
+    public function capturarAssociadosPorProduto($idProduto)
+    {
+        return $this->produtoModel->capturarAssociadosPorProduto($idProduto);
     }
 
     public function pesquisarHeader($termo)
@@ -93,38 +114,4 @@ class ProdutoController {
         return $this->produtoModel->pesquisarProdutos($termo);
     }
     
-
-    // public function EditarProduto(
-    //     $id_produto,
-    //     $nome,
-    //     $marca,
-    //     $descricaoBreve,
-    //     $descricaoTotal,
-    //     $preco,
-    //     $precoPromo,
-    //     $qtdEstoque,
-    //     $img1 = null,
-    //     $img2 = null,
-    //     $img3 = null,
-    //     $id_subCategoria = null,
-    //     $id_cores = null,
-    //     $id_associado = null
-    // ) {
-    //     return $this->produtoModel->updateProduto(
-    //         $id_produto,
-    //         $nome,
-    //         $marca,
-    //         $descricaoBreve,
-    //         $descricaoTotal,
-    //         $preco,
-    //         $precoPromo,
-    //         $qtdEstoque,
-    //         $img1,
-    //         $img2,
-    //         $img3,
-    //         $id_subCategoria,
-    //         $id_cores,
-    //         $id_associado
-    //     );
-    // }
 }

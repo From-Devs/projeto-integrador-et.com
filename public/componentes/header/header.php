@@ -26,7 +26,6 @@ require __DIR__ . '/../sidebar/sidebarHeader.php'; // import do componente da si
 require __DIR__ . '/../pesquisaHeader/pesquisaHeader.php'; // import do componente da sidebar
 require __DIR__ . "/../../../app/Controllers/UserController.php";
 
-
 function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o header, só utilizar essa função nas páginas
     $popUpCurtoLogin = popUpCurto("popUpErroDelogado", "Cadastre ou entre em uma conta para realizar essa ação.", "red", "white", "/popUp_Botoes/img-cancelar.png");
     $controller = new UserController(); 
@@ -76,8 +75,8 @@ function createHeader($login,$tipoUsuario,$tipo=0){ // Sempre que reutilizar o h
             <div class='direito'>
                 <div class='botoes'>
                     <img class='lupaHeader' src='/projeto-integrador-et.com/public/imagens/header/lupa.png' alt=''>
-                    <img class='favBotaoHeader' src='/projeto-integrador-et.com/public/imagens/header/coracao.png' alt=''>
-                    <img class='carrinhoBotaoHeader' src='/projeto-integrador-et.com/public/imagens/header/carrinho.png' alt=''>
+                    <img class='favBotaoHeader' src='/projeto-integrador-et.com/public/imagens/header/coracao.png' href='/projeto-integrador-et.com/app/views/usuario/listaDeDesejos.php' alt=''>
+                    <img class='carrinhoBotaoHeader' src='/projeto-integrador-et.com/public/imagens/header/carrinho.png' href='/projeto-integrador-et.com/app/views/usuario/Meu_Carrinho.php' alt=''>
                     <img class='perfilHeader' src='$a' alt=''>
                 </div>
                 <div class='menuConta'>

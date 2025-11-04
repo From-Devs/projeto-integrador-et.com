@@ -83,9 +83,9 @@ session_start();
         </div>
     </div>
     
-    <script src="/projeto-integrador-et.com/public/javascript/Associados.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/tabelasAssociado_ADM/PedidosAssociado_ADM/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/FiltroQueryString.js"></script>
 </body>
 </html>

@@ -23,7 +23,7 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
          data-quantidade="<?= $item['quantidade'] ?? 1; ?>"
          data-preco="<?= $item['preco']; ?>"
          data-descricao="<?= htmlspecialchars($descricao); ?>"
-         data-imagem="/projeto-integrador-et.com/public/imagens/produto/<?= $imagemProduto; ?>"
+         data-imagem="/projeto-integrador-et.com/<?= $imagemProduto; ?>"
          data-categoria="<?= htmlspecialchars($item['categoria'] ?? ''); ?>"
          data-rua="<?= htmlspecialchars($pedido['endereco_rua'] ?? ''); ?>"
          data-numero="<?= htmlspecialchars($pedido['endereco_numero'] ?? ''); ?>"
@@ -38,28 +38,20 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
         <?php if($tipo !== 'Finalizado'): ?>
         <!-- Card em andamento -->
         <div class="cardcoloridoCam" style="border-radius:25px; overflow:hidden; position:relative;">
-            <div class="card-info" style="
-                width: 100%;
-                height: 100%
-                align-items:center;
-                justify-content:flex-start;
-                padding: 0px 0px 0px 20px;
-                border-radius:25px;
-                box-shadow: inset 0px 0px 10px rgb(129, 129, 129);
-            ">
-                <div class="card-imagem" style="display: felx; 120px;">
-                    <img src="/projeto-integrador-et.com/public/imagens/produto/<?= $imagemProduto; ?>"
+            <div class="card-info">
+                <div class="card-imagem">
+                    <img src="/projeto-integrador-et.com/<?= $imagemProduto; ?>"
                          alt="<?= $item['nome']; ?>"
-                         style="height:120px; width:auto; object-fit:contain;">
+                         style="">
                 </div>
  
-                <div class="infoProdutoMP info-caminho" style="display: flex; flex-direction:column; gap:5px;">
-                    <span class="nomeProdutoMP" style="font-size:20px; font-weight:600; color:#222;"><?= $item['nome']; ?></span>
-                    <span class="descricaoProdutoMP" style="font-size:16px; color:#555;"><?= $descricao; ?></span>
-                    <span class="precoProdutoMP" style="font-size:18px; font-weight:bold; color:#222;">R$ <?= number_format($item['preco'], 2, ',', '.'); ?></span>
-                    <span class="qtdProdutoMP" style="font-size:18px; font-weight:500; color:#222;">Quant: <?= $item['quantidade'] ?? 1; ?></span>
-                    <!--<span class="subtotalProdutoMP" style="font-size:18px; font-weight:500; color:#222;">Subtotal: R$ <?= number_format($subtotal, 2, ',', '.'); ?></span>-->
-                    <button class="verMais" style="font-size:18px; font-weight:bold; color:#222;">Ver Mais</button>
+                <div class="infoProdutoMP info-caminho">
+                    <span class="nomeProdutoMP"><?= $item['nome']; ?></span>
+                    <span class="descricaoProdutoMP"><?= $descricao; ?></span>
+                    <span class="precoProdutoMP">R$ <?= number_format($item['preco'], 2, ',', '.'); ?></span>
+                    <span class="qtdProdutoMP">Quant: <?= $item['quantidade'] ?? 1; ?></span>
+                    <!--<span class="subtotalProdutoMP" style="font-size:18px; font-weight:500; color:#222;">Subtotal: R$<?= number_format($subtotal, 2, ',', '.'); ?></span>-->
+                    <button class="verMais">Ver Mais</button>
                 </div>
                
             </div>
@@ -69,39 +61,20 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
         <!-- Card finalizado -->
         <span class="data-entrega" style=""><?= $dataEntrega; ?></span>
         <span class="statusProdutoMP">Concluído</span>
-        <div class="cardcoloridoFin" style="border-radius:25px; overflow:hidden; position:relative;">
-            <div class="card-info2" style="
-                width: 100%;
-                height: 100%
-                display:flex;
-                flex-direction:row;
-                align-items:center;
-                justify-content:flex-start;
-                padding: 0px 0px 0px 0px;
-                border-radius:25px;
-                box-shadow: inset 0px 0px 10px rgb(129, 129, 129);
-            ">
-                <div class="card-imagem2" style="display: felx; 120px;">
-                    <img src="/projeto-integrador-et.com/public/imagens/produto/<?= $imagemProduto; ?>"
-                         alt="<?= $item['nome']; ?>"
-                         style="height:120px; width:auto; object-fit:contain;">
+        <div class="cardcoloridoFin" style="border-radius:25px; overflow:hidden;">
+            <div class="card-info2">
+                <div class="card-imagem2">
+                    <img src="/projeto-integrador-et.com/<?= $imagemProduto; ?>"
+                         alt="<?= $item['nome']; ?>">
                 </div>
  
-                <div class="infoProdutoMP info-finalizado" style="display: flex; flex-direction:column; gap:5px;">
-                    <span class="nomeProdutoMP" style="font-size:20px; font-weight:600; color:#222;"><?= $item['nome']; ?></span>
-                    <span class="descricaoProdutoMP" style="font-size:16px; color:#555;"><?= $descricao; ?></span>
-                    <span class="precoProdutoMP" style="font-size:18px; font-weight:bold; color:#222;">R$ <?= number_format($item['preco'], 2, ',', '.'); ?></span>
-                    <span class="qtdProdutoMP" style="font-size:18px; font-weight:500; color:#222;">Qtd: <?= $item['quantidade'] ?? 1; ?></span>
+                <div class="infoProdutoMP info-finalizado">
+                    <span class="nomeProdutoMP"><?= $item['nome']; ?></span>
+                    <span class="descricaoProdutoMP"><?= $descricao; ?></span>
+                    <span class="precoProdutoMP">R$ <?= number_format($item['preco'], 2, ',', '.'); ?></span>
+                    <span class="qtdProdutoMP">Quant: <?= $item['quantidade'] ?? 1; ?></span>
                     <!--<span class="subtotalProdutoMP">Subtotal: R$ <?= number_format($subtotal, 2, ',', '.'); ?></span>-->
-                    <button style="text-align: left;
-                                border: none;
-                                background-color: transparent;
-                                text-decoration: underline;
-                                cursor: pointer;
-                                font-size:18px;
-                                font-weight:bold;
-                                color:#222;"
-                    >Mais Informações</button>
+                    <button class="maisInfo">Mais Info.</button>
                 </div>
             </div>
         </div>
