@@ -128,17 +128,9 @@ class Products {
 
     public function buscarProdutoPeloId($id){
         try {
-            $sqlProduto = "SELECT P.nome, 
-            marca, 
-            descricaoBreve, 
-            descricaoTotal, 
-            preco, 
-            precoPromo, 
-            fgPromocao,
-            qtdEstoque, 
-            img1, 
-            img2, 
-            img3, 
+            $sqlProduto = "
+            SELECT
+            P.*,
             SC.id_subCategoria,
             SC.id_categoria AS id_categoria,
             SC.nome AS subcategoria,
@@ -149,12 +141,14 @@ class Products {
             FROM produto P
                 JOIN subcategoria SC
             ON P.id_subCategoria = SC.id_subCategoria
+                JOIN categoria CAT
+            ON SC.id_categoria = CAT.id_categoria
                 JOIN cores C
             ON P.id_cores = C.id_cores
                 WHERE P.id_produto = :id";
 
             $db = $this->conn->prepare($sqlProduto);
-            $db->bindParam(":id", $id);
+            $db->bindParam(":id", $id, PDO::PARAM_INT);
             $db->execute();
             $res = $db->fetchAll(PDO::FETCH_ASSOC);
 
@@ -239,6 +233,69 @@ class Products {
             return false;
         }
     }
+
+    public function buscarTodosProdutosAssociados($ordem="", $pesquisa="", $idAssociado){
+        try {    
+            $sqlProdutos = "SELECT 
+                id_produto as id, 
+                nome, 
+                marca, 
+                descricaoBreve, 
+                descricaoTotal, 
+                preco, 
+                precoPromo as precoPromocional, 
+                fgPromocao, 
+                qtdEstoque, 
+                img1, 
+                img2, 
+                img3, 
+                id_subCategoria, 
+                id_cores, 
+                id_associado 
+            FROM produto
+            WHERE id_associado = :idAssociado";
+    
+            $params = [];
+
+            $params = [":idAssociado" => $idAssociado];
+    
+            //Para concatenar a pesquisa
+            if (!empty($pesquisa)) {
+                $sqlProdutos .= " AND nome LIKE :pesquisa";
+                $params[':pesquisa'] = "$pesquisa%";
+            }
+    
+            if (!empty($ordem)) {
+                switch ($ordem) {
+                    case 'ID':
+                        $ordemSql = "id_produto";
+                        break;
+                    case 'Preço':
+                        $ordemSql = "preco";
+                        break;
+                    case 'Qtd. Estoque':
+                        $ordemSql = "qtdEstoque";
+                        break;
+                    default:
+                        $ordemSql = "id_produto";
+                }
+                $sqlProdutos .= " ORDER BY $ordemSql";
+            }
+    
+            $stmt = $this->conn->prepare($sqlProdutos);
+    
+            foreach ($params as $key => $val) {
+                $stmt->bindValue($key, $val, PDO::PARAM_STR);
+            }
+    
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        } catch (\Throwable $th) {
+            echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
+    }
     
     
     public function getAllProdutos(){
@@ -261,6 +318,7 @@ class Products {
         $corPrincipal, 
         $deg1, 
         $deg2, 
+        $idAssociado,
         $files
     ) {
         try {
@@ -289,7 +347,7 @@ class Products {
                         :nome, :marca, :descricaoBreve, :descricaoTotal, :tamanho,
                         :preco, :precoPromo, :fgPromocao, :qtdEstoque,
                         :img1, :img2, :img3,
-                        :idSubCategoria, :idCores, null
+                        :idSubCategoria, :idCores, :id_associado
                     )";
 
             $db = $this->conn->prepare($sql);
@@ -305,6 +363,7 @@ class Products {
             $db->bindParam(":img1", $img1);
             $db->bindParam(":img2", $img2);
             $db->bindParam(":img3", $img3);
+            $db->bindParam(":id_associado", $idAssociado);
 
             $idSubCategoria = $_POST["subCategoria"] ?? null;
             $db->bindParam(":idSubCategoria", $idSubCategoria);

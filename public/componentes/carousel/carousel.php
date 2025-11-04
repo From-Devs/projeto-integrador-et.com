@@ -10,7 +10,7 @@ if (empty($carousels)) {
     echo "<pre>";
     print_r($_SESSION);
     echo "</pre>";
-    exit;
+    // exit;
 }
 
 // 🔹 Inclui o componente do popup

@@ -16,9 +16,10 @@
 
     $produtoController = new ProdutoController();
 
-    $maisVendidos = null; // Lista de produtos mais vendidos (baseado na coluna "qtdVendida" da tabela de produto)
-    $ofertas = null; // Lista de produtos com promoção
-   
+    $maisVendidos = $produtoController->getMaisVendidos(); // Lista de produtos mais vendidos (baseado na coluna "qtdVendida" da tabela de produto)
+    $ofertas = $produtoController->getOfertasImperdiveis(); // Lista de produtos com promoção
+    
+    // session_start();
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
     $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
 ?>
