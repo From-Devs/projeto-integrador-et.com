@@ -9,6 +9,7 @@
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
     require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
+    session_start();
     
     // CORREÇÃO CRÍTICA: Inicializa o Model de Categoria para uso na View
     require_once __DIR__ . "/../../Models/Categoria.php";
