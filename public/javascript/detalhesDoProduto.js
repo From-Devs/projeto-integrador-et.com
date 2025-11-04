@@ -63,7 +63,7 @@ formCarrinho.addEventListener('submit', function(e){
     fetch('/projeto-integrador-et.com/router/CarrinhoRouter.php?action=adicionarCarrinho', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ id_produto: idProduto, quantidade: contador })
+        body: JSON.stringify({ id_produto: idProduto, quantidade: null })
     })
     .then(res => res.json())
     .then(data => {
