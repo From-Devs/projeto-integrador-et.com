@@ -1,22 +1,35 @@
 <?php
 session_start();
-$dados = $_SESSION['dados_carrossel'] ?? [];
-$carousel = $dados['carousels'] ?? [];
 
+// 🔹 Pega os carrosséis da sessão no nível certo
+$carousels = $_SESSION['carrossel']['carousels'] ?? [];
+
+// 🔹 Depuração local — verifica se veio da controller
+if (empty($carousels)) {
+    echo "[ERRO] \$carousels não veio da controller<br>";
+    echo "<pre>";
+    print_r($_SESSION);
+    echo "</pre>";
+    exit;
+}
+
+// 🔹 Inclui o componente do popup
 require __DIR__ . "/../../../public/componentes/carouselPopUp/carouselPopUp.php";
 
-function createCarousel($carousel) { 
-    $html = '<div class="carousel">
-        <div class="carousel-track" id="MoverCarrousel">'
-        . createCarouselPopUp($carousel); 
+// 🔹 Função para montar o HTML do carrossel
+function createCarousel($carousel) {
+    $html = '
+    <div class="carousel">
+        <div class="carousel-track" id="MoverCarrousel">
+    ' . createCarouselPopUp($carousel);
 
-    // Garante até 3 itens, mesmo se tiver menos
     foreach ($carousel as $cs) {
         $html .= '
             <div class="carousel-item">
-                <img src="../../../' . $cs["img1"] . '" alt="">
+                <img src="../../../' . htmlspecialchars($cs["img1"]) . '" alt="">
             </div>';
     }
+
     $html .= '
         </div>
         <div class="bottom-controls">
@@ -33,3 +46,5 @@ function createCarousel($carousel) {
     return $html;
 }
 
+// 🔹 Renderiza o carrossel
+?>

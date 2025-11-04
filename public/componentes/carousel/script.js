@@ -79,20 +79,34 @@ document.addEventListener("DOMContentLoaded", function(){
 		inactivityTimer = null;
 	}
 
-    function mudarCorDeFundo(index) {
-      carousel.className = `carouselContainer cor-${index}`;
-      const activeDetalhe = document.querySelector('.detalheProdutoCarousel.active-detail');
-      if (activeDetalhe) {
-        const detalhesCor = activeDetalhe.querySelector('.frameImagemCarousel');
-        if(detalhesCor){
-          detalhesCor.className = `frameImagemCarousel cor-${index}`;
-        }
-        
-        background.style.animation = 'CarouselDegrade 0.8s ease'
-        setTimeout(() => {background.className = `carouselBackground cor-${index}`},799)
-        setTimeout(() => {background.style.animation = ''},800)
-      }
+  function mudarCorDeFundo(index) {
+    const activeDetalhe = detalhesPaineis[index];
+    if (!activeDetalhe) return;
+
+    // Pega cores dos data attributes
+    const corPrincipal = activeDetalhe.dataset.corPrincipal;
+    const cor1 = activeDetalhe.dataset.corDegrade1;
+    const cor2 = activeDetalhe.dataset.corDegrade2;
+    const cor3 = activeDetalhe.dataset.corDegrade3;
+
+    // Troca classes de fundo
+    carousel.style.background = `linear-gradient(to bottom, ${cor1}, ${cor2}, ${cor3 || cor2})`;
+    const detalhesCor = activeDetalhe.querySelector('.frameImagemCarousel');
+    if (detalhesCor) {
+      detalhesCor.style.background = `linear-gradient(to bottom, ${cor1}, ${cor2}, ${cor3 || cor2})`;
     }
+
+    // Fundo de todo o carrossel
+    background.style.animation = 'CarouselDegrade 0.8s ease';
+    setTimeout(() => {
+      if (cor1 && cor2) {
+        background.style.background = `linear-gradient(to bottom, ${cor1}, ${cor2}, ${cor3 || cor2})`;
+      } else if (corPrincipal) {
+        background.style.background = corPrincipal;
+      }
+      background.style.animation = '';
+    }, 800);
+  }
 
     function AtualizarCarousel() {
 
@@ -120,16 +134,10 @@ document.addEventListener("DOMContentLoaded", function(){
         Bola.style.background = '#fff';
         // compara os index 
         if (index === current) {
-          if (current === 0) {
-              // retorna a cor 1
-              Bola.style.background = '#651629'; 
-            } else if (current === 1) {
-              // retorna a cor 2
-              Bola.style.background = '#AE703F';
-            } else {
-              // retorna a cor 3
-              Bola.style.background = '#AE665E';
-            }
+          const corAtiva = detalhesPaineis[current].dataset.corPrincipal 
+            || detalhesPaineis[current].dataset.corDegrade1 
+            || "#ffffff"; // fallback
+          Bola.style.background = corAtiva;
         }
       });
     
