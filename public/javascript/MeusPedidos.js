@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             `;
             popupProdutos.appendChild(miniCard);
-            document.getElementById("popupMP-Total").innerText = "Total: R$ " + precoTotal.toFixed(2);
+            document.getElementById("popupMP-Total").innerText = "Total: R$ " + precoTotal.toFixed(2).replace('.', ',');
             document.getElementById("popupMP").showModal();
 
             miniCard.querySelector(".comprarNovamenteBtn").addEventListener("click", () => {
