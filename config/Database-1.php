@@ -1,25 +1,27 @@
 <?php 
-// Database.php
+// Database.php — versão corrigida e compatível com seu projeto MVC
 class Database {
-  private static $instance = null; // precisa ser private static
+  // 🔹 Mantém o padrão Singleton
+  private static $instance = null; 
   private $conn;
 
-  private $host = "localhost";
-  private $username = "root";
-  private $password = ""; // sem espaço
-  private $dbname = "et_com"; 
-  
+  private static $host = "192.168.22.9";
+  private static $username = "etcom_user";
+  private static $password = "etcom_user123"; 
+  private static $dbName = "et_com";
   private function __construct() {
     try {
-      $dsn = "mysql:host={$this->host};dbname={$this->dbname};charset=utf8mb4";
-      $this->conn = new PDO($dsn, $this->username, $this->password);
+      $dsn = "mysql:host=" . self::$host . ";dbname=" . self::$dbName . ";charset=utf8mb4";
+
+      $this->conn = new PDO($dsn, self::$username, self::$password);
+
       $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) { // tratamento de Erro
+
+    } catch (PDOException $e) { 
       die("Erro de conexão: " . $e->getMessage());
     }
   }
 
-  // método: getInstance() 
   public static function getInstance() {
     if (self::$instance === null) {
       self::$instance = new Database();
@@ -28,7 +30,7 @@ class Database {
   }
 
   public function getConnection() {
-    return $this->conn; // conexao
+    return $this->conn;
   }
 }
 ?>
