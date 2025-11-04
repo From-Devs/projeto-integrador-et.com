@@ -16,8 +16,10 @@ class CaroselController extends BaseController {
         $dados = [
             'carousels' => $this->carouselModel->getAll(),
         ];
-        $this->renderCustom('dados_carrossel', 'carousel/carousel.php', $dados);
+
+        $this->renderCustom('carrossel', 'carousel/carousel.php', $dados);
     }
+
 
     public function getById(int $id) {
         $carousel = $this->carouselModel->getElementById($id);
@@ -50,3 +52,4 @@ class CaroselController extends BaseController {
         return $this->carouselModel->getAllUniqueCores();
     }
 }
+$conn = new CaroselController();
