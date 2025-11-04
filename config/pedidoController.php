@@ -23,11 +23,14 @@ class PedidoController {
                 pr.preco,
                 pr.precoPromo,
                 pr.img1,
-                pp.quantidade
+                pp.quantidade,
+                c.nome AS categoria_nome
             FROM Pedido p
             INNER JOIN Status s ON p.id_status = s.id_status
             INNER JOIN ProdutoPedido pp ON pp.id_pedido = p.id_pedido
             INNER JOIN Produto pr ON pp.id_produto = pr.id_produto
+            LEFT JOIN Subcategoria sc ON pr.id_subCategoria = sc.id_subCategoria
+            LEFT JOIN Categoria c ON sc.id_categoria = c.id_categoria
             WHERE p.id_usuario = :idUsuario
             ORDER BY p.dataPedido DESC
         ";
@@ -54,7 +57,8 @@ class PedidoController {
                 'nome' => $row['produto_nome'],
                 'preco' => $row['precoPromo'] ?? $row['preco'],
                 'quantidade' => $row['quantidade'],
-                'imagem' => $row['img1'] ?? ''
+                'imagem' => $row['img1'] ?? '',
+                'categoria' => $row['categoria_nome'] ?? ''
             ];
         }
  
