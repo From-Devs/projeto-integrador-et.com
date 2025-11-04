@@ -64,6 +64,7 @@ a
     border: none;
     border-radius: 20px;
     font-family: "Montserrat", sans-serif;
+    animation: fadein 0.5s ease-in-out forwards;
     background-color: #f4f7ff;
     padding: 10px;
     position: fixed;
@@ -80,22 +81,36 @@ a
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 0 20px;
     height: 60px; 
+    margin-bottom: 20px;
+    gap: 10px;
+    padding: 10px;
 }
 
-.header-editar h1 {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-    font-size: 2rem;
+#containerProduto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
 }
 
 .header-editar img{
     width: 25px;
     cursor: pointer;
+}
+
+#avatarPreview{
+    width: 60px;
+    border-radius: 50%;
+}
+
+#descricaoBreve{
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.473);
 }
 
 .campos-editar{
@@ -201,7 +216,7 @@ a
 .bodyEditar{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .dialog-produto-associados #barraCima th{
@@ -221,6 +236,18 @@ a
 .btn-fechar{
     background-color: transparent;
     border: none;
+    text-align: end;
+    z-index: 1000;
+}
+
+.img-fechar{
+    cursor: pointer;
+}
+
+#containerProduto{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 @media (max-width: 1280px) {
