@@ -23,7 +23,7 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
          data-quantidade="<?= $item['quantidade'] ?? 1; ?>"
          data-preco="<?= $item['preco']; ?>"
          data-descricao="<?= htmlspecialchars($descricao); ?>"
-         data-imagem="/projeto-integrador-et.com/public/imagens/produto/<?= $imagemProduto; ?>"
+         data-imagem="/projeto-integrador-et.com/<?= $imagemProduto; ?>"
          data-categoria="<?= htmlspecialchars($item['categoria'] ?? ''); ?>"
          data-rua="<?= htmlspecialchars($pedido['endereco_rua'] ?? ''); ?>"
          data-numero="<?= htmlspecialchars($pedido['endereco_numero'] ?? ''); ?>"
