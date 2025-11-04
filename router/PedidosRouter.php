@@ -35,4 +35,27 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
     }
 }
 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    switch ($_GET["acao"]) {
+        case 'atualizarStatusEntrega':
+            $json = file_get_contents('php://input');
+            $data = json_decode($json, true);
+            $tipoStatus = $data['tipoStatus'] ?? null;
+            $idPedido = $data['idPedido'] ?? null;
+
+            if ($idPedido && $tipoStatus !== null) {
+                $res = $pedidosController->atualizarStatusEntrega($tipoStatus, $idPedido);
+                header('Content-Type: application/json');
+                echo json_encode(['success' => (bool)$res]);
+            } else {
+                echo json_encode(['erro' => 'Parâmetros insuficientes']);
+            }
+            break;
+
+        default:
+            echo "Nao encontrei nada";
+            break;
+    }
+}
+
 ?>

@@ -25,6 +25,10 @@ class PedidosController{
     public function BuscarProdutosDoPedido($idPedido){
         return $this->pedidosModel->BuscarProdutosDoPedido($idPedido);
     }
+
+    public function atualizarStatusEntrega($tipoStatusEntrega, $idPedido){
+        return $this->pedidosModel->atualizarStatusEntrega($tipoStatusEntrega, $idPedido);
+    }
 }
 
 ?>
