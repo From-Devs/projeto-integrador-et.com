@@ -151,7 +151,7 @@ $avaliacoes = $produtoController->BuscarAvaliacoesPorProduto($produto['id_produt
 
             <div class="mais-detalhes">
                 <div class="descricao">
-                    <p><?= nl2br(htmlspecialchars($descTotal ?: $descBreve)) ?></p>
+                    <p><?= nl2br(htmlspecialchars( $descBreve)) ?></p>
                     <span>Disponível no estoque <img src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/img-confirmar.png" alt="img-correto"></span>
                     <p style="margin-top:.5rem;color:#666;">Marca: <strong><?= htmlspecialchars($marca) ?></strong></p>
                 </div>

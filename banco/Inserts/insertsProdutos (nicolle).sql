@@ -7,12 +7,17 @@ VALUES
 (5,'Viviane Gonçalves','vivgonca@gmail.com','(67) 99182-8272','333.333.333-33','1999-07-19','associado','Associado',null,null),             
 (6,'Maiara Lima','maytheforcebwu@gmail.com','(49) 99272-3729','444.444.444-44','2003-11-01','associado','Associado',null,null);              
 
-		-- Ambos eu cadastrei pelo site mesmo, então a senha está criptografada
+		-- Ambos eu cadastrei pelo site para a senha ser criptografada
 
 
 
 ----Obsevação: <<TODOS>> os produtos estão inseridos entre associados do id 2, 3, 4, 5 e 6.
 --------------- POR FAVOR, ATENTEM-SE AOS IDs!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+--------------------OS PRODUTOS QUE COLOQUEI O NOME AO LADO SÃO OS QUE JÁ ESTÃO CADASTRADOS NO BANCO
+
+
 
 -- INSERTS JÁ REALIZADOS:
 
@@ -40,7 +45,7 @@ Modo de Uso:
 
 Aviso:
 Uso externo. Não é indicado para uso no rosto. Não é protetor solar. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças. Este é um produto cosmético, não ingerir.',
-23.90,22.70,1,50,'milk-1.png','milk-2.jpg','milk-3.jpg',23,1,2);
+23.90,22.70,1,50,'milk-1.png','milk-2.jpg','milk-3.jpg',23,1,3); --id da Eliana
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
@@ -70,7 +75,7 @@ Orientações ao consumidor:
 Uso Externo. Produto Cosmético. Não comestível. Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas.
 Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Uso adulto. Produto para perfumar e desodorizar a pele.
 Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.',
-69.90,null,0,30,'biscoito.png','biscoito-2.png','biscoito-3.png',8,2,3);
+69.90,null,0,30,'biscoito.png','biscoito-2.png','biscoito-3.png',8,2,4);  --id do Michael
 
 
 
@@ -100,7 +105,7 @@ Comece, aplicando um pouco da base líquida com acabamento super mate no dorso d
 Ação / Resultado:
 Ácido Hialurônico: molécula hidrolisada de baixo peso molecular e alta penetração na pele, proporciona uma hidratação profunda que atua no preenchimento de rugas e linhas de expressão.
 Seu rosto ganha um tom uniforme e matificado, além de uma aparência saudável, o dia todo.',
-40.99,19.99,1,40,'vult-base.png','vult-base-2.jpg','vult-base-3.jpg',1,3,4);
+40.99,19.99,1,40,'vult-base.png','vult-base-2.jpg','vult-base-3.jpg',1,3,5);  --id da Viviane
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -121,7 +126,7 @@ Amadeirado Ambarado Couro.
 
 Como Usar:
 Borrife a fragrância nas áreas onde há maior circulação do sangue, como o pescoço, dobras do cotovelo e atrás das orelhas.',
-209.90,179.90,1,50,'coffee.png','coffee-2.jpg','coffee-3.jpg',6,4,3);
+209.90,179.90,1,50,'coffee.png','coffee-2.jpg','coffee-3.jpg',6,4,6);  --id da Maiara
 
 
 
@@ -191,7 +196,7 @@ Como Usar:
 Aplicar em todo o corpo, após o banho ou sempre que desejar.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
-139.90,null,0,15,'lily.png','lily-2.jpg','lily-3.jpg',23,7,2);
+139.90,null,0,15,'lily.png','lily-2.jpg','lily-3.jpg',23,7,3); ---da Eliana
 
 
 
@@ -522,7 +527,7 @@ Aplique na pele limpa e umedecida após o banho e massageie levemente. Se deseja
 
 Composição:
 Petrolato Líquido, Lecitina, Perfume, Lauromacrogol 400, Octildodecanol, Óleo de Amêndoas, Óleo da Semente de Corylus avellana, Fenoxietanol, Adipato de Dibutila, Cumarina, Limoneno, Etilexilglicerina, Tetra-Di-T-Butil Hidróxi-Hidrocinamato de Pentaeritritila, Linalol, Citral.',
-13.49,null,0,14,'oleo-avela-paixao.png','oleo-avela-paixao-2.jpg','oleo-avela-paixao-3.jpg',24,19,2);
+13.49,null,0,14,'oleo-avela-paixao.png','oleo-avela-paixao-2.jpg','oleo-avela-paixao-3.jpg',24,19,3);  --Eliana
 
 
 
@@ -672,7 +677,7 @@ Cor única e acabamento glossy acompanha chaveiro hidratação intensa acabament
 
 Composição:
 hydrogenated polyisobutene/poliisobuteno hidrogenado, polyisobutene/poliisobuteno, paraffinum liquidum/parafina líquida, ethylene/propylene/styrene copolymer/copólímero de etileno/propileno/estireno, butylene/ethylene/styrene copolymer/copólímero de butileno/etileno/estireno, ethylhexyl metoxyccinamate/octinoxato, octyldodecanol/octildodecanol, parfum/perfume, ethylhexyl palmitate/palmitato de etilexila, ci 15880/corante vermelho 15880, phenoxyethanol/fenoxietanol, tocopheryl acetate/acetato de tocoferila, ci 15850/corante vermelho 15850/benzotriazolyl dodecyl p-cresol/benzotriazolyl dodecyl p-cresol, butylene glycol/butileno glicol, silica dimethyl silylate/silica dimethyl silylate, caprylyl glycol/caprililglicol, hexylene glycol/hexileno glicol, sodium hyaluronate/hialuronato de sódio.',
-69.90,null,0,20,'gloss-cherry-vizzela.png','gloss-cherry-vizzela-2.jpg','gloss-cherry-vizzela-3.jpg',3,64,4);
+69.90,null,0,20,'gloss-cherry-vizzela.png','gloss-cherry-vizzela-2.jpg','gloss-cherry-vizzela-3.jpg',3,24,4);
 
 
 
@@ -1337,7 +1342,640 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 -----------------------------------------------------------------------------------------------
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
+(47,'#2B2B2B','#525252','#858585');
 
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Uomini Black Colônia','O Boticário','100ml',
+'Envolta em mistério, essa fragrância masculina combina notas quentes de especiarias, como Pimenta Preta e Cardamono, com o calor envolvente do âmbar. ',
+'Uomini sabe que em todo homem existe uma alma questionadora, que sonha levar uma vida mais autêntica. 
+
+Inspirados nessa inquietação, Uomini Black Desodorante Colônia, clássico da perfumaria O Boticário, se reinventa com a mesma fragrância potente e ousada, mas com nova embalagem – afinal, a vida é curta demais para não quebrar regras e viver a vida de maneira intensa.
+
+Família Olfativa: Oriental especiado.
+
+Pirâmide Olfativa:
+Topo: Pimenta Preta, Cardamomo, Tomilho, Coriandro. 
+Corpo: Folhas de Canela, Gerânio, Patchouli, Pimenta de Java Head Space. 
+Fundo: mbar, Fava Tonka, Musk, Baunilha.
+
+Como usar:
+Borrife a fragrância nas áreas onde há maior circulação do sangue, como o pescoço, dobras do cotovelo e atrás das orelhas. Para sentir a sua fragrância favorita por mais tempo, mantenha a sua pele sempre hidratada com nossos produtos de corpo e banho. 
+
+Orientação ao consumidor:
+Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas. Caso ocorra irritação e/ou prurido no local, suspenda o uso imediatamente. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Produto para perfumar e desodorizar a pele. Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança. 
+
+Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.
+
+Ingredientes:
+ÁLCOOL DESNATURADO; ÁGUA; PERFUME; CAPRILATO DE POLIGLICERILA-3; CINAMALDEÍDO; CITRAL; CITRONELOL; CUMARINA; EUGENOL; GERANIOL; HEXIL CINAMAL; LIMONENO; LINALOL.',
+194.90,180.99,1,40,'uomini-black-01.png','uomini-black-02.jpg',null,6,47,3);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(48,'#F76601','#F2AC02','#FFC549');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Protetor Solar Facial Anthelios FPS 60','La Roche-Posay','40g',
+'O La Roche-Posay Anthelios XL Protect é um protetor solar facial sem cor, com textura gel creme, oil free (livre de óleos) e de rápida absorção, que proporciona 8h de hidratação e uma pele sequinha e protegida, sem deixar resíduos brancos.',
+'O Protetor Solar Anthelios XL Protect é indicado para todos os tipos de pele, inclusive as oleosas, já que sua composição é oil free. Sua fórmula enriquecida com vitamina e, possui ação antioxidante e protege a pele não só contra os raios UVA/UVB, mas também contra a ação dos radicais livres. Além disso, conta com a tecnologia XL Protext, que proporciona maior resistência do filme protetor, mesmo em condições extremas.
+
+Como usar:
+Aplique de forma abundante sobre a pele antes da exposição ao sol, preferencialmente 30 minutos antes. Para manter a efetividade do Protetor Solar La Roche-Posay, reaplique o produto a cada 2 horas durante a exposição, principalmente após sudorese intensa, nadar ou secar-se com a toalha.
+
+Benefícios e diferenciais:
+ . Alta proteção contra raios UVA/UVB, com FPS 60 e PPD 25.
+ . Possui ação antioxidante.
+ . Previne o fotoenvelhecimento.
+ . Hidrata a pele por até 8 horas.
+ . Fórmula enriquecida com água termal La Roche-Posay.
+ . Não deixa resíduos brancos na pele.
+ . Não contém parabenos.
+ 
+Advertências:
+ . Uso externo. 
+ . Não ingerir.
+ . Caso haja contato com os olhos, lave-os abundantemente. 
+ . Se houver irritação, suspenda o uso imediatamente e procure orientação médica.
+ . Mantenha fora do alcance das crianças.
+ 
+Composição:
+Aqua / Water, Homosalate, Ethylhexyl Salicylate, Silica, Styrene/Acrylates Copolymer, Ethylhexyl Triazone, Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine, Drometrizole Trisiloxane, Butyl Methoxydibenzoylmethane, Aluminum Starch Octenylsuccinate, Octocrylene, C12-15 Alkyl Benzoate, Glycerin, Pentylene Glycol, Potassium Cetyl Phosphate, Dimethicone, Perlite, Propylene Glycol, Terephthalylidene Dicamphor Sulfonic Acid, Titanium Dioxide, Triethanolamine, Phenoxyethanol, Stearyl Alcohol, Isopropyl Lauroyl Sarcosinate, Peg-8 Laurate, Caprylyl Glycol, Inulin Lauryl Carbamate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Tocopherol, Xanthan Gum, Disodium Edta, Aluminum Hydroxide, Stearic Acid, Zinc Gluconate.',
+89.90,73.62,1,40,'anthelios-la-roche-posay.png','anthelios-la-roche-posay-2.jpg','anthelios-la-roche-posay-3.jpg',13,48,5);
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(49,'#6621A0','#8D2EDE','#AA4BFF');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Gela de Limpeza Mela B3','La Roche-Posay','120ml',
+'O Mela B3 Gel de Limpeza da La Roche-Posay é a solução nº1 para quem deseja uma limpeza antimanchas¹ eficaz.',
+'Formulado com o exclusivo ativo patenteado Melasyl™️, desenvolvido após 18 anos de pesquisa para corrigir e prevenir manchas¹ como nunca antes, o gel também contém Niacinamida e 1% de PHA (ácido polihidroxilado) para proporcionar uma esfoliação suave e gentil, limpando sem ressecar. O resultado é uma pele mais uniforme, radiante, renovada e com manchas corrigidas.
+
+Característica:
+ . Corrige manchas da pele, diferenças de tonalidade e manchas pós-acne.
+ . Eficácia clínica comprovada em todos os tons de pele.
+ . Previne o reaparecimento.
+ 
+Como usar:
+ . Fazer espuma com uma noz de produto na mão previamente molhada.
+ . Utilizar de manhã e de noite.
+ . Aplique sobre o rosto, pescoço, colo ou mão, massageando suavemente. Enxaguar em seguida.
+
+Dica de  uso:
+Evitar contato direto com os olhos. Utilizar Anthelios Ultracover FPS 60 na rotina da manhã.',
+102.90,89.52,1,80,'mela-b3-la-roche-1.png','mela-b3-la-roche-2.jpg','mela-b3-la-roche-3.jpg',14,49,2);
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(50,'#F5D132','#FFE16A','#FFE992');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Preenchedor de Rugas Q10 Expert Antissinais','Nivea','15ml',
+'O NIVEA Preenchedor Q10 Expert Antissinais é um preenchedor de linhas de expressão com resultados visíveis em 5 minutos.',
+'NIVEA Preenchedor Q10 Expert Antissinais é um creme com fórmula exclusiva que gera resultados visíveis em apenas 5 minutos.
+Serve para proporcionar melhora instantânea em rugas e linhas de expressão. Sua fórmula avançada atua rapidamente, reduzindo as rugas com uso contínuo.
+
+Benefícios:
+ . Anti-idade;
+ . Firmador;
+ . Todos os tipos de pele.
+
+Destaques do produto:
+ . Melhora a aparência das rugas e linhas de expressão em 5 minutos.
+ . Com Q10 puro e Peptídeos de Bioxifil.
+ . Melhora instantaneamente a aparência das rugas.
+ . Aplicação localizada.
+ . 5% de complexo ativo.
+
+Como usar:
+ . Aplicar em suas linhas e rugas na testa, ao redor dos olhos e dobras nasolabiais com o aplicador fácil de usar;
+ . Espalhe o conteúdo uniformemente com a ponta dos dedos;
+ . Use 2 vezes ao dia.
+
+Aviso:
+Uso externo. Evite contato com os olhos. Caso aconteça, enxágue com água em abundância. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.
+
+Ingredientes:
+Aqua, Dimethicone, Glycerin, Dimethicone Crosspolymer, Methylpropanediol, Alcohol Denat., Coco-Caprylate/Caprate, Octyldodecanol, Dicaprylyl Ether, Silica, Cetearyl Alcohol, Glyceryl Stearate, Tapioca Starch, Ubiquinone, Pimpinella Anisum Fruit Extract, Sodium Hyaluronate, Creatine, 1-Methylhydantoin-2-Imide, Panthenol, Pantolactone, Tocopherol, Sodium Cetearyl Sulfate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Citric Acid, Trisodium EDTA, Sodium Chloride, Sodium Sulfate, Sodium Hydroxide, Phenoxyethanol, CI 77891, CI 77491, CI 15985, Parfum',
+98.50,93.99,1,40,'nivea-antissinais-1.png','nivea-antissinais-2.jpg','nivea-antissinais-3.jpg',14,50,3);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(51,'#75B427','#98D449','#C3FF73');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Gel Hidratante Facial','Nivea','100ml',
+'Hidratante em gel NIVEA com ácido hialurônico e pepino. Textura mais leve que o creme facial. Não obstrui os poros e hidrata por 24h. Cuide bem da sua pele!',
+'NIVEA Hidratante Facial Gel é um aliado essencial para quem busca cuidar da pele de maneira eficaz e refrescante.
+Este hidratante em gel é formulado com ácido hialurônico e pepino, proporcionando uma textura mais leve do que os cremes faciais tradicionais. Ele é especialmente projetado para peles oleosas, garantindo um equilíbrio perfeito de hidratação e controle da oleosidade. Uma das vantagens deste produto é sua capacidade de não obstruir os poros, permitindo que a pele respire livremente. Além disso, seu efeito refrescante revitaliza a pele do rosto, mantendo-a bem cuidada e hidratada por 24 horas. Com NIVEA Hidratante Facial Gel você pode desfrutar de uma pele livre de oleosidade, radiante e revigorada.
+
+Destaques do produto:
+ - Hidratação ideal para pele oleosa.
+ - Sua fórmula especial deixa a pele sequinha e bem cuidada por 24 horas.
+ - Não obstrui os poros e hidrata a pele por 24 horas.
+ - Sensação de pele limpa.
+ - Refresca e hidrata a pele do rosto.
+ - Com ácido hialurônico e pepino.
+ - Prolonga o efeito de maquiagem.
+
+Como usar:
+ - Limpe seu rosto antes de aplicá-lo.
+ - Aplique na testa, do centro para fora, em movimentos circulares.
+ - Aplique entre as sobrancelhas até o alto das bochechas.
+ - Massageie as maçãs do rosto em movimentos circulares.
+
+Ingredientes:
+Aqua, Glycerin, PEG-8, Ceteareth-20, Sodium Hyaluronate, Cucumis Sativus Juice, Ammonium Acryloyldimethyltaurate/VP Copolymer, Phenoxyethanol, Ethylhexylglycerin, Sodium Benzoate, Lactic Acid, Potassium Sorbate, Alpha-Isomethyl Ionone, Citronellol, Linalool, Parfum
+
+Ingredientes especiais:
+ - Ácido hialurônico e estrato de pepino.',
+30.58,null,0,60,'nivea-hidratanteemgel-1.png','nivea-hidratanteemgel-2.jpg','nivea-hidratanteemgel-3.jpg',11,51,3);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(52,'#D6B2B1','#FFD4D3','#FFDFDF');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Creme Hidratante Facial Para Pele Negra','Nivea','100g',
+'Creme hidratante facial NIVEA Beleza Radiante desenvolvido especialmente para as necessidades da pele negra. Ideal para pele oleosa, pois controla a oleosidade e promove um efeito matte.',
+'NIVEA Hidratante Facial 7 em 1 Beleza Radiante é um creme hidratante desenvolvido especialmente para atender às necessidades da pele negra. Sua fórmula única contém ingredientes como Ácido Hialurônico, Extrato de Pérolas e Cúrcuma, que proporcionam benefícios incríveis para a pele. 
+
+Este hidratante oferece 7 benefícios em 1 só produto: reduz a aparência de marcas escurecidas, controla a oleosidade, uniformiza o tom de pele, ilumina, hidrata, possui proteção UVA/UVB e proporciona um efeito matte.
+A textura leve e de rápida absorção do NIVEA Hidratante Facial 7 em 1 Beleza Radiante permite uma aplicação diária no rosto limpo. 
+
+Destaques do produto:
+ - Reduz aparência de marcas escurecidas.
+ - Controla a oleosidade e promove um efeito matte.
+ - Uniformiza o tom da pele, ilumina e hidrata.
+ - Oferece proteção UVA/UVB.
+ - Proporciona um efeito matte de longa duração.
+
+Como usar:
+ - Limpe seu rosto antes de aplicá-lo.
+ - Aplique na testa, do centro para fora, em movimentos circulares.
+ - Aplique entre as sobrancelhas até o alto das bochechas.
+ - Massageie as maçãs do rosto em movimentos circulares.
+
+Precauções: 
+ - Uso externo.
+ - Evite contato com os olhos. Caso aconteça, enxágue com água em abundância.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.
+ - Este produto não é um protetor solar.',
+30.58,null,0,50,'nivea-hidratante-pelenegra-1.png','nivea-hidratante-pelenegra-2.png','nivea-hidratante-pelenegra-3.png',11,52,3);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(53,'#49A2DA','#62ADDA','#8CBDDA');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Creme Hidratante Facial Nutritivo','Nivea','100ml',
+'Hidratante NIVEA para o rosto que cuida sem deixar a pele oleosa. Textura leve de rápida absorção.',
+'NIVEA Creme Facial Nutritivo é um hidratante para o rosto que cuida da pele sem deixá-la oleosa.
+
+Com fórmula à base de água, Karité e Vitaminas, esse creme deixa a pele com aspecto saudável e bonito. Além disso, ele funciona como um ótimo primer, preparando a pele para a aplicação da maquiagem. Com benefícios como hidratação por 24 horas e não deixar a pele oleosa, o Creme Facial NIVEA Nutritivo é perfeito para quem busca uma pele bem cuidada e pronta para o dia a dia.
+
+O NIVEA Creme Facial Nutritivo é um verdadeiro aliado para o cuidado da pele do rosto, oferecendo uma solução abrangente para manter a sua pele saudável, hidratada e preparada para o dia a dia.
+
+Destaques do produto:
+ - Hidratação por 24 horas.
+ - Prepara a pele para a maquiagem.
+ - Não deixa a pele oleosa.
+ - Nutre intensamente.
+ - Contém manteiga de Karité.
+ - Refresca a pele.
+ - Rápida absorção.
+ - Deixa a pele com aparência radiante.
+
+Como usar:
+ - Limpe seu rosto antes de aplicá-lo.
+ - Aplique na testa, do centro para fora, em movimentos circulares.
+ - Aplique entre as sobrancelhas até o alto das bochechas.
+ - Massageie as maçãs do rosto em movimentos circulares.
+
+Precauções:
+ - Uso externo.
+ - Evite contato com os olhos. Caso aconteça, enxágue com água em abundância.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.
+
+Ingredientes:
+Aqua, Glycerin, Butyrospermum Parkii Butter, Cetyl Palmitate, Olus Oil, Cetyl Alcohol, Isopropyl Palmitate, Dimethicone, Sodium Polyacrylate, Phenoxyethanol, Linalool, Citronellol, Alpha-Isomethyl Ionone, Geraniol, Limonene, Parfum, Sodium Hydroxide.
+
+Ingrediente especial: 
+Manteiga de karité',
+30.27,null,0,45,'nivea-hidratante-nutritivo-1.png','nivea-hidratante-nutritivo-2.png',null,11,53,4);
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(54,'#CF022D','#CF2645','#CF475F');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Creme Hidratante Facial Antissinais','Nivea','100g',
+'Hidratante facial NIVEA que reduz sinais e linhas de expressão. Sua fórmula leve e de rápida absorção hidrata intensamente, sem deixar a pele oleosa.',
+'NIVEA Creme Facial Antissinais é um hidratante facial diário que reduz sinais e linhas de expressão.
+
+Com uma fórmula leve e de rápida absorção, este creme proporciona uma hidratação intensa de até 30 horas e o mais importante: sem deixar a pele com aspecto oleoso. Por possuir ingredientes hidro nutrientes e Vitamina E, NIVEA Creme Facial Antissinais previne as rugas, melhora a cicatrização e ainda protege a pele contra os raios UVA/UVB. Além disso, sua fórmula exclusiva firma a pele e ainda reduz linhas de expressão, deixando-a muito mais jovem e saudável.
+
+Destaques do produto
+ - Reduz rugas e firma a pele.
+ - Hidratação intensa sem deixar a pele oleosa.
+ - Com vitamina E, antioxidante poderoso.
+ - Deixa a pele com aparência mais jovem.
+ - Melhora a cicatrização.
+ - Fórmula leve de rápida absorção.
+ - Torna a pele mais firme e reduz linhas de expressão.
+ - Protege contra raios UVA/UVB.
+
+Como usar:
+ - Limpe seu rosto antes de aplicá-lo.
+ - Aplique na testa, do centro para fora, em movimentos circulares.
+ - Aplique entre as sobrancelhas até o alto das bochechas.
+ - Massageie as maçãs do rosto em movimentos circulares.
+
+Ingredientes:
+Parfum, Citronellol, Geraniol, Linalool, Trisodium EDTA, Phenoxyethanol, Ethylhexylglycerin, Sodium Hydroxide, Sodium Polyacrylate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Xanthan Gum, Butyl Methoxydibenzoylmethane, Dimethicone, Tocopheryl Acetate, Cetyl Alcohol, Cetyl Palmitate, Butyrospermum Parkii Butter, Ethylhexyl Salicylate, Glycerin, Aqua.',
+30.27,null,0,40,'nivea-hidratante-antissinais-1.png','nivea-hidratante-antissinais-2.jpg','nivea-hidratante-antissinais-3.jpg',11,54,6);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(55,'#C4C6CA','#D6D8D9','#EBEDEE');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES
+('Sérum Facial Cellular Com Ácido Hialurônico','Nivea','30ml',
+'NIVEA Cellular Sérum com Ácido Hialurônico que restaura a proteção natural da pele e oferece hidratação profunda.',
+'NIVEA Sérum Facial Cellular com Ácido Hialurônico é um produto de cuidados projetado para oferecer uma hidratação profunda e restaurar a proteção natural da pele.
+
+Este sérum inovador contém uma fórmula rica, com destaque para o Ácido Hialurônico e o Hidra Complex, que trabalham em conjunto para ativar as células da pele. Sua fórmula é rapidamente absorvida, proporcionando uma sensação refrescante à medida que penetra profundamente na pele.
+
+Os benefícios deste sérum são notáveis. Ele suaviza a pele, aumenta a elasticidade, restaura a proteção natural da pele e, acima de tudo, fornece hidratação profunda. Isso resulta em uma pele com aparência mais saudável, radiante e revitalizada. 
+
+Destaques do produto:
+ - Suaviza visivelmente a superfície da pele.
+ - Promove sensação de elasticidade à pele.
+ - Restaura a proteção natural da pele.
+ - Oferece hidratação profunda.
+ - Redução de rugas.
+
+Como usar:
+Aplique 3-4 gotas pela manhã e à noite no rosto e pescoço previamente limpos.
+
+Precauções:
+ - Uso externo.
+ - Evite contato com os olhos. Caso aconteça, enxágue com água em abundância.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.',
+132.99,null,0,40,'nivea-serum-hialuronico-1.png','nivea-serum-hialuronico-2.jpg','nivea-serum-hialuronico-3.jpg',14,55,5);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(56,'#03B59F','#2FC9BB','#63C9C2');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sérum Reparador Diário Acne Control','Nivea','30ml',
+'O NIVEA Sérum Reparador Diário Acne Control hidrata, acalma e controla a oleosidade, fortalecendo a barreira da pele para um cuidado completo.',
+'O NIVEA Sérum Reparador Diário Acne Control foi desenvolvido especialmente para peles com tendência à acne, proporcionando um cuidado diário que promove uma pele saudável e equilibrada. Sua fórmula exclusiva combina ácido hialurônico, pró-vitamina B5 e niacinamida, ingredientes conhecidos por melhorar a aparência da pele e combater a acne. 
+
+O NIVEA Sérum Reparador Diário Acne Control é o parceiro ideal para equilibrar, acalmar e hidratar a pele do rosto. Com uma fórmula avançada, ele fortalece a barreira cutânea enquanto ajuda a controlar a oleosidade, promovendo um cuidado completo para uma pele mais saudável. 
+
+Destaques do produto:
+ - Equilibra a pele
+ - Ajuda a controlar a oleosidade
+ - Fortalece a barreira da pele
+ - Hidrata e acalma
+ - Sem perfume
+ - Dermatologicamente e clinicamente testado
+
+Ingredientes:
+ - Não inclui Perfume.
+ - Aqua, Glycerin, Alcohol Denat., Niacinamide, Glycyrrhiza Inflata Root Extract, Sodium Hyaluronate, Panthenol, Pantolactone, Ceteareth-20, Cellulose Gum, 1,2-Hexanediol, Sodium Chloride, Sodium Sulfate, Citric Acid, Phenoxyethanol, CI 42090, CI 16035.
+ - Ingredientes especiais: Ácido Hialurônico e Provitamina B5.',
+75.50,60.99,1,59,'nivea-acne-control-1.png','nivea-acne-control-2.jpg',null,14,56,6);
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(57,'#249B36','#46BF57','#7EED8D');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Hidratante Protetor Controle do Brilho & Oleosidade','Nivea','50ml',
+'Hidratante NIVEA Controle do Brilho & Oleosidade para o rosto, ideal para quem tem pele mista a oleosa. Textura leve e fórmula oil free.',
+'NIVEA Hidratante Protetor Nivea Controle do Brilho & Oleosidade é um produto projetado especialmente para peles mistas a oleosas.
+
+Sua fórmula eficaz ajuda a controlar a produção excessiva de óleo, resultando em uma pele com aparência saudável e livre de brilho indesejado. Um dos principais ingredientes deste hidratante é o extrato de algas marinhas, que desempenha um papel fundamental no controle da oleosidade.
+
+Destaques do produto
+ - Textura leve.
+ - Fórmula Oil Free.
+ - Protege contra os raios UVA/UVB.
+ - Algas marinhas ajudam a controlar o brilho e oleosidade da pele.
+ - Contém Vitamina E, antioxidante, para uma pele mais saudável e bem cuidada.
+
+Como usar:
+ - Limpar o rosto antes de aplicá-lo.
+ - Aplique o creme massageando delicadamente sua pele com pequenos movimentos circulares. Ideal para uso diário.
+
+Precauções:
+ - Uso externo.
+ - Evite contato com os olhos. Caso aconteça, enxágue com água em abundância.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.
+ - Este produto não é um protetor solar.
+
+Ingredientes :
+ - Aqua, Homosalate, Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, Octocrylene, Methylpropanediol, Distarch Phosphate, Glycerin, Ethylhexyl Stearate, Phenylbenzimidazole Sulfonic Acid, Glyceryl Glucoside, Tocopheryl Acetate, Fucus Vesiculosus Extract, Sodium Chloride, Dimethicone, Caprylic/Capric Triglyceride, Cetearyl Alcohol, Glyceryl Stearate, Sodium Stearoyl Glutamate, Chondrus Crispus Extract, Ammonium Acryloyldimethyltaurate/VP Copolymer, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Xanthan Gum, Trisodium EDTA, Phenoxyethanol, Methylparaben, Citronellol, Geraniol, Benzyl Alcohol, Linalool, Parfum, Sodium Hydroxide
+ - Ingredientes ativos: Vitamina E.
+ - Ingredientes Especiais: Algas Marinhas.',
+34.99,null,0,50,'nivea-controle-do-brilho-1.png','nivea-controle-do-brilho-2.jpg','nivea-controle-do-brilho-3.jpg',11,57,2);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(58,'#E9647F','#F58095','#F798A7');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Hidratante Labial Hidra Color Rosé','Nivea','4.80g',
+'O NIVEA Hidra Color Rosé oferece proteção, cuidado e cor intensa com uma nova fórmula avançada 3 em 1. Ideal para o uso diário, protege os lábios contra ressecamento, raios UVA/UVB e promove uma hidratação de longa duração para o uso diário.',
+'NIVEA Hidra Color Rosé é a combinação ideal de uma cor intensa com um cuidado diário para os seus lábios. Sua nova fórmula avançada 3 em 1 oferece 24h de hidratação, cor intensa para os lábios e bochechas e proteção contra raios UVA/UVB. Livre de óleo mineral, enriquecida com manteiga de karité, óleo de amêndoas orgânico e vitamina E. 
+
+NIVEA Hidra Color Rosé vai muito além da beleza, promovendo hidratação de longa duração e protegendo os lábios do ressecamento e contra raios UVA/UVB com FPS 30. Possui uma cremosidade que desliza de maneira fácil e uniforme, com acabamento rosé intenso. Ajuda a proteger contra a perda de colágeno nos lábios. Auxilia na proteção contra a perda de colágeno induzida pelo sol (teste in vitro). O colágeno é conhecido por manter os lábios volumosos e firmes. 
+
+Destaques do produto:
+ - Protege os lábios contra o ressecamento.
+ - 24h de hidratação.
+ - Fórmula 3 em 1: Cuidado, proteção e cor intensa.
+ - Cor para lábios e bochechas.
+ - Proteção contra raios UVA/UVB.
+ - Apropriado para uso diário.
+ - Dermatologicamente testado.
+
+Precauções:
+ - Uso externo.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado e fora do alcance de crianças.
+ - Não deixe o produto exposto ao sol.
+
+Ingredientes:
+Ricinus Communis Seed Oil, Cocoglycerides, Cera Alba, Octyldodecanol, Helianthus Annuus Seed Cera, Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, Cetearyl Alcohol, CI 77891, Ethylhexyl Triazone, Hydrogenated Castor Oil, Tocopheryl Acetate, Tocopherol, Ascorbyl Palmitate, Helianthus Annuus Seed Oil, Aroma, Menthol, CI 15850, CI 77491.',
+23.19,null,0,70,'nivea-hidra-color-rose-1.png','nivea-hidra-color-rose-2.jpg','nivea-hidra-color-rose-3.jpg',11,58,6);
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(59,'#B01C38','#D43552','#E35269');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Hidratante Labial Hidra Color Vermelho','Nivea','4.80g',
+'O NIVEA Hidra Color Vermelho oferece proteção, cuidado e cor intensa com uma nova fórmula avançada 3 em 1. Ideal para o uso diário, protege os lábios contra ressecamento, raios UVA/UVB e promove uma hidratação de longa duração para o uso diário.',
+'NIVEA Hidra Color Vermelho é a combinação ideal de uma cor intensa com um cuidado diário para os seus lábios. Sua nova fórmula avançada 3 em 1 oferece 24h de hidratação, cor intensa para os lábios e bochechas e proteção contra raios UVA/UVB. Livre de óleo mineral, enriquecida com manteiga de karité, óleo de amêndoas orgânico e vitamina E.
+
+NIVEA Hidra Color Rosé vai muito além da beleza, promovendo hidratação de longa duração e protegendo os lábios do ressecamento e contra raios UVA/UVB com FPS 30. Possui uma cremosidade que desliza de maneira fácil e uniforme, com acabamento rosé intenso. Ajuda a proteger contra a perda de colágeno nos lábios. Auxilia na proteção contra a perda de colágeno induzida pelo sol (teste in vitro). O colágeno é conhecido por manter os lábios volumosos e firmes.
+
+Destaques do produto:
+ - Protege os lábios contra o ressecamento.
+ - 24h de hidratação.
+ - Fórmula 3 em 1: Cuidado, proteção e cor intensa.
+ - Cor para lábios e bochechas.
+ - Proteção contra raios UVA/UVB.
+ - Apropriado para uso diário.
+ - Dermatologicamente testado.
+
+Precauções:
+ - Uso externo.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado e fora do alcance de crianças.
+ - Não deixe o produto exposto ao sol.
+
+Ingredientes:
+ - Não inclui Óleo mineral.
+ - Octyldodecanol, Cocoglycerides, Ricinus Communis Seed Oil, Cera Alba, Helianthus Annuus Seed Cera, Cetearyl Alcohol, Hydrogenated Castor Oil, Butyrospermum Parkii Butter, Aroma, Prunus Amygdalus Dulcis Oil, Tocopherol, Tocopheryl Acetate, Ascorbyl Palmitate, Helianthus Annuus Seed Oil, CI 77491, CI 15850.
+ - Ingredientes especiais: Óleo de Amêndoa, Pura Vitamina E, Manteiga de Karité.',
+23.19,null,0,70,'nivea-hidra-color-vermelho-1.png','nivea-hidra-color-vermelho-2.jpg','nivea-hidra-color-vermelho-3.jpg',11,59,6);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(60,'#EB6D70','#EB8387','#FCACAF');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Hidratante Labial Hidra Color Coral','Nivea','4.80g',
+'O NIVEA Hidra Color Coral oferece proteção, cuidado e cor intensa com uma nova fórmula avançada 3 em 1. Ideal para o uso diário, protege os lábios contra ressecamento, raios UVA/UVB e promove uma hidratação de longa duração para o uso diário.',
+'NIVEA Hidra Color Coral é a combinação ideal de uma cor intensa com um cuidado diário para os seus lábios. Sua nova fórmula avançada 3 em 1 oferece 24h de hidratação, cor intensa para os lábios e bochechas e proteção contra raios UVA/UVB. Livre de óleo mineral, enriquecida com manteiga de karité, óleo de amêndoas orgânico e vitamina E. 
+
+NIVEA Hidra Color Rosé vai muito além da beleza, promovendo hidratação de longa duração e protegendo os lábios do ressecamento e contra raios UVA/UVB com FPS 30. Possui uma cremosidade que desliza de maneira fácil e uniforme, com acabamento rosé intenso. Ajuda a proteger contra a perda de colágeno nos lábios. Auxilia na proteção contra a perda de colágeno induzida pelo sol (teste in vitro). O colágeno é conhecido por manter os lábios volumosos e firmes.
+
+Destaques do produto:
+ - Protege os lábios contra o ressecamento.
+ - 24h de hidratação.
+ - Fórmula 3 em 1: Cuidado, proteção e cor intensa.
+ - Cor para lábios e bochechas.
+ - Proteção contra raios UVA/UVB.
+ - Apropriado para uso diário.
+ - Dermatologicamente testado.
+
+Precauções:
+ - Uso externo.
+ - Em caso de irritação, suspenda o uso e procure orientação médica.
+ - Manter em local seco e arejado e fora do alcance de crianças.
+ - Não deixe o produto exposto ao sol.
+
+Ingredientes:
+Ricinus Communis Seed Oil, Cocoglycerides, Cera Alba, Octyldodecanol, Helianthus Annuus Seed Cera, Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, Cetearyl Alcohol, CI 77891, Ethylhexyl Triazone, Hydrogenated Castor Oil, Tocopheryl Acetate, Tocopherol, Ascorbyl Palmitate, Helianthus Annuus Seed Oil, Aroma, Menthol, CI 15850, CI 15985, CI 77492',
+23.19,null,0,70,'nivea-hidra-color-coral-1.png','nivea-hidra-color-coral-2.jpg','nivea-hidra-color-coral-3.jpg',11,60,6);
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(61,'#6A1E4C','#963570','#B84F8C');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Hidratante Labial Amora Shine','Nivea','5.50g',
+'Com manteiga de karité, óleo de abacate e de jojoba, NIVEA Hidratante Labial Amora Shine hidrata os lábios por 24 horas e possui um delicado brilho bordô.',
+'NIVEA Hidratante Labial Amora Shine é um produto que oferece cuidado e proteção por 24 horas, de forma suave e confortável.
+
+Este hidratante labial possui óleos naturais em sua composição, proporcionando hidratação profunda. Com um atraente aroma de amora e pigmentos brilhantes, ele acrescenta uma cor delicada aos lábios. Livre de óleos minerais, NIVEA Hidratante Labial Amora Shine tem uma aplicação uniforme dispensa o uso de espelho.
+
+A embalagem é reciclável, reforçando seu compromisso com o meio ambiente. Dermatologicamente testado, é uma escolha confiável para lábios irresistíveis. Experimente o toque radiante da amora com Nivea Amora Shine. 
+
+Destaques do produto:
+ - Hidratação prolongada.
+ - Aroma de amora.
+ - Pigmentos brilhantes.
+ - Cor delicada e suave aos lábios.
+ - Cuidado intensivo para os lábios.
+
+Aviso:
+Não ingerir. Uso externo. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado e fora do alcance de crianças. Não deixe o produto exposto ao sol.
+
+Ingredientes:
+ - Não inclui Óleo mineral.
+ - Ingredientes especiais: Óleo de abacate.',
+23.19,null,0,70,'nivea-hidra-color-amora-1.png','nivea-hidra-color-amora-2.jpg','nivea-hidra-color-amora-3.jpg',11,61,6);
+
+
+
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(62,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(63,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(64,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(65,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(66,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(67,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(68,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(69,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(70,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(71,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(72,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(73,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(74,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(75,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(76,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(77,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+-----------------------------------------------------------------------------------------------
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(78,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 

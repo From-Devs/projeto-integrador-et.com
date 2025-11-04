@@ -117,7 +117,7 @@ function filtro($tipo = "", $opcoesSelect = []) {
             </button>
         </div>
 
-        <form class="campos-cadastrar" enctype="multipart/form-data">
+        <form class="campos-cadastrar formProduto" enctype="multipart/form-data">
             <input type="hidden" name="id_usuario" value="<?php echo htmlspecialchars($_SESSION['id_usuario']); ?>">
             <div class="cadastroWrapper">
                 <div class="previsualizacaoProduto">
@@ -149,10 +149,10 @@ function filtro($tipo = "", $opcoesSelect = []) {
 
                         <div class='contentDeBaixo'>
                             <hr class='linha'>
-                            <h1 class='marca'>$marca</h1>
-                            <h1 class='nomeProduto'>$nomeProduto</h1>";
-                            <h2 class='precoOriginal'>R$$precoOriginal</h2>";
-                            <h1 class='preco'>R$$preco</h1>
+                            <h1 class='marca'>Marca</h1>
+                            <h1 class='nomeProduto'>Nome do Produto</h1>
+                            <h2 class='precoOriginal'>R$</h2>
+                            <h1 class='preco'>R$</h1>
                             <button class='botaoComprarCardProduto' data-id='$idProduto'>Comprar</button>
                             <button class='botaoEspectro' id='botaoEspectro'></button>
                         </div>
