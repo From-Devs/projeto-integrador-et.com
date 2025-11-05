@@ -4,12 +4,11 @@ require_once __DIR__ . '/../../config/database.php';
 
 class CarouselModel {
     private PDO $conn;
-
+ 
     // 🔹 Construtor
     public function __construct() {
         // Corrigido: precisa instanciar a classe Database
-        $db = new Database();
-        $this->conn = $db->connect(); //dase
+       $this->conn = Database::getInstance()->getConnection(); 
     }
 
     // 🔹 Criar novo registro
