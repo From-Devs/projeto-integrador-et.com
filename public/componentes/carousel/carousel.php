@@ -1,17 +1,21 @@
 <?php
-session_start();
+// session_start();
 
-// 🔹 Pega os carrosséis da sessão no nível certo
-$carousels = $_SESSION['carrossel']['carousels'] ?? [];
+// // 🔹 Pega os carrosséis da sessão no nível certo
+// $carousels = $_SESSION['carrossel']['carousels'] ?? [];
 
-// 🔹 Depuração local — verifica se veio da controller
-if (empty($carousels)) {
-    echo "[ERRO] \$carousels não veio da controller<br>";
-    echo "<pre>";
-    print_r($_SESSION);
-    echo "</pre>";
-    // exit;
-}
+// // 🔹 Depuração local — verifica se veio da controller
+// if (empty($carousels)) {
+//     echo "[ERRO] \$carousels não veio da controller<br>";
+//     echo "<pre>";
+//     print_r($_SESSION);
+//     echo "</pre>";
+//     // exit;
+// }
+require __DIR__ . "/../../../app/Controllers/CarouselController.php";
+ 
+$conn = new CaroselController();
+$carousels = $conn->getAll();
 
 // 🔹 Inclui o componente do popup
 require __DIR__ . "/../../../public/componentes/carouselPopUp/carouselPopUp.php";

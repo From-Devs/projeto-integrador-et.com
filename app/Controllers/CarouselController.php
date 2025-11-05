@@ -16,8 +16,7 @@ class CaroselController extends BaseController {
         $dados = [
             'carousels' => $this->carouselModel->getAll(),
         ];
-
-        $this->renderCustom('carrossel', 'carousel/carousel.php', $dados);
+        return $dados['carousels'];
     }
 
 

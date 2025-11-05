@@ -1,11 +1,12 @@
 <?php
-require_once __DIR__ . '/../../config/Database-1.php';
+require_once __DIR__ . '/../../config/database.php';
 
 class CarouselModel {
     private PDO $conn;
 
     public function __construct() {
-        $this->conn = Database::getInstance()->getConnection();
+        $db = new Database();
+        $this->conn = $db->Connect();
     }
 
     // 🔹 READ - Buscar todos os carrosseis
