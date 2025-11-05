@@ -10,8 +10,10 @@
                 <thead id="barraCima">
                     <tr>
                         <th id="th4" scope="col">ID</th>
-                        <th id="th3" scope="col">Associados</sth>
                         <th id="th2" scope="col">Produto</th>
+                        <th id="th2" scope="col">Marca</th>
+                        <th id="th2" scope="col">Preço</th>
+                        <th id="th3" scope="col">Associado</sth>
                     </tr>
                 </thead>
             </table>
@@ -22,14 +24,16 @@
                         <?php foreach ($produtos as $produto): ?>
                             <tr style="height: 80px;">
                                 <td><?= htmlspecialchars($produto['id']) ?></td>
+                                <td><?= htmlspecialchars($produto['nome']) ?></td>
+                                <td><?= htmlspecialchars($produto['marca']) ?></td>
+                                <td>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></td>
                                 <td class="td-lista-associados">
                                     <?php $nomeJs = json_encode($produto['nome']); ?>
                                     <button onclick='buscarAssociadoProdutos(<?= $produto['id']?>, <?= json_encode($produto['nome']) ?>)' class="btn-lista-associados">
-                                        <span>Ver Associados</span>
+                                        <span>Ver Associado</span>
                                         <img width="30px" src="/projeto-integrador-et.com/public/imagens/imagensADM/img-lista.png" alt="img-lista-associados">
                                     </button>
                                 </td>
-                                <td><?= htmlspecialchars($produto['nome']) ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -38,11 +42,15 @@
 
             <dialog class="dialog-produto-associados">
                 <div class="bodyEditar">
+                    <button class="btn-fechar" onclick='fecharPopUp("dialog-produto-associados")'>
+                        <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
+                    </button>
                     <div class="header-editar">
-                        <h1 id='nomeProduto'></h1>
-                        <button class="btn-fechar" onclick='fecharPopUp("dialog-produto-associados")'>
-                            <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
-                        </button>
+                        <div id="containerAvatar"><img src="" alt="User Profile" class="profile-pic" id="avatarPreview"></div>
+                        <div id="containerProduto">
+                            <h1 id='nomeProduto'></h1>
+                            <p id="descricaoBreve"></p>
+                        </div>
                     </div>  
                     <div>
                         <table id="tabelaVendas">
