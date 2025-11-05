@@ -666,6 +666,7 @@ class Products {
             return [];
         }
     }
+    
     public function mediaAvaliacoes(int $id_produto): float {
         $sql = "SELECT AVG(nota) as media FROM avaliacoes WHERE id_produto = :id_produto";
         $stmt = $this->conn->prepare($sql);
@@ -673,6 +674,22 @@ class Products {
         $media = $stmt->fetchColumn();
         return $media ? (float)$media : 0.0;
     }
-    
+    public function avaliarProduto(int $idUsuario, int $idProduto, int $nota, string $comentario = ""): array {
+    try {
+        $sql = "INSERT INTO avaliacoes (id_usuario, id_produto, nota, comentario, data_avaliacao)
+                VALUES (:idUsuario, :idProduto, :nota, :comentario, NOW())";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            ':idUsuario' => $idUsuario,
+            ':idProduto' => $idProduto,
+            ':nota' => $nota,
+            ':comentario' => $comentario
+        ]);
+
+        return ['ok' => true, 'msg' => 'Avaliação enviada com sucesso'];
+    } catch (\Throwable $th) {
+        return ['ok' => false, 'msg' => 'Erro ao avaliar produto: ' . $th->getMessage()];
+    }
+}
 }
 ?>
