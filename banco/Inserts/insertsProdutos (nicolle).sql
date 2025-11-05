@@ -7,7 +7,8 @@ VALUES
 (5,'Viviane Gonçalves','vivgonca@gmail.com','(67) 99182-8272','333.333.333-33','1999-07-19','associado','Associado',null,null),             
 (6,'Maiara Lima','maytheforcebwu@gmail.com','(49) 99272-3729','444.444.444-44','2003-11-01','associado','Associado',null,null),
 (7,'Adriana de Moura','adrimourana@outlook.com','(62) 99373-3738','555.555.555-55','1962-02-21','associado','Associado',null,null),
-(8,'Bruna Araripe','brunararipe@gmail.com','(68) 99383-8337','777.777.777-77','1987-05-23','associado','Associado',null,null);
+(8,'Bruna Araripe','brunararipe@gmail.com','(68) 99383-8337','777.777.777-77','1987-05-23','associado','Associado',null,null),
+(9,'Roberta da Silva Pereira','robertinhap@outlook.com','(27) 99272-4641','888.888.888-88','2000-01-17','associado','Associado',null,null);
 
 		-- Ambos eu cadastrei pelo site para a senha ser criptografada
 
@@ -1415,7 +1416,7 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-('Gela de Limpeza Mela B3','La Roche-Posay','120ml',
+('Gel de Limpeza Mela B3','La Roche-Posay','120ml',
 'O Mela B3 Gel de Limpeza da La Roche-Posay é a solução nº1 para quem deseja uma limpeza antimanchas¹ eficaz.',
 'Formulado com o exclusivo ativo patenteado Melasyl™️, desenvolvido após 18 anos de pesquisa para corrigir e prevenir manchas¹ como nunca antes, o gel também contém Niacinamida e 1% de PHA (ácido polihidroxilado) para proporcionar uma esfoliação suave e gentil, limpando sem ressecar. O resultado é uma pele mais uniforme, radiante, renovada e com manchas corrigidas.
 
