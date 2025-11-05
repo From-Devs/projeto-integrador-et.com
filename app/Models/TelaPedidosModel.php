@@ -1,4 +1,3 @@
-<<<<<<<< HEAD:app/Models/TelaPedidosModel.php
 <?php
 require_once __DIR__ . '/../../config/database.php';
  
@@ -62,5 +61,3 @@ class PedidoController {
         return array_values($pedidos);
     }
 }
-========
->>>>>>>> develop-teste:config/pedidoController.php
