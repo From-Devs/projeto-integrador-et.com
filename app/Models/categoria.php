@@ -6,7 +6,6 @@ class Categoria {
     private $conn;
 
     public function __construct() {
-        // Assume que a classe Database e seu método Connect() estão definidos.
         $db = new Database();
         $this->conn = $db->Connect();
     }
@@ -27,8 +26,7 @@ class Categoria {
     public function delCategoria($id){
         $stmt = $this->conn->prepare("DELETE FROM categoria WHERE id_categoria = ?");
         $stmt->execute([$id]);
-        // Retorna se alguma linha foi afetada
-        return $stmt->rowCount() > 0;
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
