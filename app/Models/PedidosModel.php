@@ -10,7 +10,7 @@ class PedidosModel{
         $this->conn = $db->Connect();
     }
 
-    public function BuscarTodosPedidos($ordem="", $pesquisa=""){
+    public function BuscarTodosPedidos($ordem="Data", $pesquisa=""){
         try {    
             $sqlPedidos = "SELECT P.id_pedido, 
             U.nome,
@@ -33,7 +33,7 @@ class PedidosModel{
                 switch ($ordem) {
                     case 'ID': $ordemSql = "P.id_pedido"; break;
                     case 'Preço': $ordemSql = "precoTotal"; break;
-                    case 'Data': $ordemSql = "dataPedido"; break;
+                    case 'Data': $ordemSql = "dataPedido DESC"; break;
                     case 'Status': $ordemSql = "SP.id_status_pagamento"; break;
                     default: $ordemSql = "P.id_pedido";
                 }
@@ -89,7 +89,7 @@ class PedidosModel{
                 switch ($ordem) {
                     case 'ID': $ordemSql = "P.id_pedido"; break;
                     case 'Preço': $ordemSql = "precoTotal"; break;
-                    case 'Data': $ordemSql = "dataPedido"; break;
+                    case 'Data': $ordemSql = "dataPedido DESC"; break;
                     case 'Status': $ordemSql = "SP.id_status_pagamento"; break;
                     default: $ordemSql = "P.id_pedido";
                 }
