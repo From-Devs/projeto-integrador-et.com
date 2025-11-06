@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const quantidade = parseInt(card.dataset.quantidade) || 1;
             const subtotal = parseFloat(card.dataset.preco) || 0;
             const imagem = card.querySelector("img")?.src || '';
-            const status = card.dataset.status || 'Em Andamento';
+            const status = card.dataset.tipoStatus || 'Em Andamento';
             const idProduto = card.dataset.id || '';
             const marca = card.dataset.marca || '';
             const precoTotal = subtotal * quantidade;
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             miniCard.innerHTML = `
                 <div class="card-recolhido">
                     <div class="cardMini-Superior">
-                        <span class="cardMini-Status">Em Andamento</span>
+                        <span class="cardMini-Status">${status}</span>
                         <span class="cardMini-Quantidade">${quantidade}x</span>
                     </div>
                     <div class="cardMini-conteudo">
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <img class="cardMini-imagem" src="${imagem}" height="130px">
                     <div class="card-linhainferior"></div>
                     <div class="detalhes-info" style="gap: 10px;">
-                        <span class="detalhes-titulo">${nome}</span>
+                        <span class="detalhes-titulo">${nome} — ${marca}</span>
                         <span class="detalhes-status">Status: <span style="color: red;">${status}</span></span>
                         <span class="detalhes-categoria">Categoria: ${card.dataset.categoria || 'Não definida'}</span>
                         <span class="detalhes-preco" style="margin-bottom: 20px; font-size:12px; font-weight:500;">Preço: R$ ${subtotal.toFixed(2).replace('.', ',')}</span>

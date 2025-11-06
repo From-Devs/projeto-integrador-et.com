@@ -60,7 +60,7 @@ try {
                 <p class="aviso">Você ainda não possui pedidos.</p>
             <?php else: ?>
                 <?php foreach ($pedidos as $pedido): ?>
-                    <?php if ($pedido['tipoStatus'] !== 'Finalizado'): ?>
+                    <?php if ($pedido['tipoStatus'] !== 'Concluído'): ?>
                         <?php 
                             // Adicionando atributos para puxar dinamicamente no JS
                             $pedido['dataAttributes'] = [
@@ -86,7 +86,7 @@ try {
         <div id="produtosFinalizados" style="width: auto; padding: 20px;">
             <?php if ($pedidos): ?>
                 <?php foreach ($pedidos as $pedido): ?>
-                    <?php if ($pedido['tipoStatus'] === 'Finalizado'): ?>
+                    <?php if ($pedido['tipoStatus'] === 'Concluído'): ?>
                         <?php 
                             $pedido['dataAttributes'] = [
                                 'id' => $pedido['id_pedido'],
