@@ -7,7 +7,6 @@
     require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
     require_once __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
     require_once __DIR__ . "/../../../public/componentes/ondas/onda.php";
-    require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
     require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
     
     require_once __DIR__ . "/../../Controllers/CarrinhoController.php";

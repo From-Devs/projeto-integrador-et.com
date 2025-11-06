@@ -64,7 +64,10 @@ function createCardProduto(
 
     $html .= "
             <h1 class='preco'>R$$preco</h1>
-            <button class='botaoComprarCardProduto' data-id='$idProduto'>Comprar</button>
+            <form id='formCardProdutoCarrinho$idProduto' class='formCardProdutoCarrinho' method='POST'>
+                <input type='hidden' name='id_produto' value='$idProduto'>
+            </form>
+            <button class='botaoComprarCardProduto' type='submit' form='formCardProdutoCarrinho$idProduto'>Comprar</button>
             <button class='botaoEspectro' id='botaoEspectro'></button>
         </div>
     </div>";
