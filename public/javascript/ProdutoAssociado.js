@@ -24,15 +24,22 @@ document.getElementsByClassName("campos-cadastrar")[0].addEventListener("submit"
     })
     .then(res => res.json()) 
     .then(data => {
-        if (data.sucesso) {
+        if (data && data.ok) {
             abrirPopUp("popUpCadastro");
-            popUpCadastrar.close();
+            if (popUpCadastrar && typeof popUpCadastrar.close === 'function') popUpCadastrar.close();
 
-            // Recarrega a página ao cadastrar
-            popUpSucesso.addEventListener("close", function(){
+            if (popUpSucesso) {
+                popUpSucesso.addEventListener("close", function(){
+                    window.location.reload();
+                }, { once: true });
+            } else {
                 window.location.reload();
-            })
+            }
         } else {
+            if (data && data.msg) {
+                const pop = document.querySelector('.popUpErro .mensagem') || document.querySelector('.popUpErro');
+                if (pop) pop.textContent = data.msg;
+            }
             abrirPopUp("popUpErro");
         }
     })
@@ -135,7 +142,7 @@ document.getElementsByClassName("campos-editar")[0].addEventListener("submit", f
     .then(res => res.json())
     .then(data => {
         console.log(data);
-        if (data.sucesso) {
+        if (data && data.ok) {
             abrirPopUp("popUpSalvar");
             // Recarrega a página ao fechar o popUpSalvar
             const popUpSalvar = document.getElementsByClassName("popUpSalvar")[0];
@@ -147,6 +154,11 @@ document.getElementsByClassName("campos-editar")[0].addEventListener("submit", f
                 window.location.reload();
             }
         } else {
+            // mostra mensagem de erro retornada pelo servidor, se houver
+            if (data && data.msg) {
+                const pop = document.querySelector('.popUpErro .texto-popUp') || document.querySelector('.popUpErro');
+                if (pop) pop.textContent = data.msg;
+            }
             abrirPopUp("popUpErro");
         }
     })
