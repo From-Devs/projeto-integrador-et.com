@@ -920,14 +920,14 @@ Até 3 vezes por semana, em dias alternados.',
 
 
 --PRODUTOS DO MARCOS
-
+--Eliana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(34,'#5B398F','#15AF93','#4DBDA4');
+(34,'#5B398F','#15AF93','#70F0D9');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-('Loção Desodorante Hidratante Cuide-se Bem Bob Esponja & Sandy Bochechas','O Boticário','200ml',
+('Hidratante Cuide-se Bem Bob Esponja & Sandy Bochechas','O Boticário','200ml',
 'Loção Desodorante Hidratante Cuide-se Bem Bob Esponja Sandy Bochechas 200ml.
 Cuide-se Bem descobriu a fórmula secreta ideal para o seu momento de cuidado com a pele! Em edição limitada, a Loção Desodorante Hidratante Cuide-se Bem Bob Esponja Sandy Bochechas possui uma textura cremosa e entrega um cheirinho inspirado no abacaxi, para uma pele macia, perfumada e desodorizada.',
 'Vocês estão prontos, botilovers? 
@@ -2034,7 +2034,7 @@ Aqua / water / eau, bambusa arundinacea stem powder, glycolic acid, glycerin, co
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(67,'#F0BE0F','#F7CA42','#F7D069');
+(67,'#F0BE0F','#FFD642','#FBE79D');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
