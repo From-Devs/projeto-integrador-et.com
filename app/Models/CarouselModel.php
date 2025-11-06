@@ -155,58 +155,89 @@ class CarouselModel {
         }
     }
 
-    // 🔹 UPDATE/CREATE - Atualizar cores personalizadas
     public function updateCoresPersonalizadas(int $id_carousel, array $novaCor): bool {
-        try {
-            // Verifica se a cor já existe
-            $check = $this->conn->prepare("
-                SELECT id_coressubs FROM coressubs
-                WHERE corEspecial = :corEspecial
-                  AND hexDegrade1 = :hexDegrade1
-                  AND hexDegrade2 = :hexDegrade2
-                  AND (hexDegrade3 = :hexDegrade3 OR (hexDegrade3 IS NULL AND :hexDegrade3 IS NULL))
-                LIMIT 1
+    try {
+        // 1️⃣ Busca o ID atual da cor desse carousel
+        $stmt = $this->conn->prepare("
+            SELECT cs.id_coressubs, cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3
+            FROM carousel c
+            JOIN coressubs cs ON cs.id_coressubs = c.id_coressubs
+            WHERE c.id_carousel = :id_carousel
+            LIMIT 1
+        ");
+        $stmt->execute([':id_carousel' => $id_carousel]);
+        $atual = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // 2️⃣ Se não achou, aborta
+        if (!$atual) {
+            error_log("[CarouselModel] Nenhum coressubs atual encontrado para ID {$id_carousel}");
+            return false;
+        }
+
+        // 3️⃣ Verifica se mudou alguma coisa
+        $mudou = (
+            $atual['corEspecial'] !== $novaCor['corEspecial'] ||
+            $atual['hexDegrade1'] !== $novaCor['hexDegrade1'] ||
+            $atual['hexDegrade2'] !== $novaCor['hexDegrade2'] ||
+            ($atual['hexDegrade3'] !== ($novaCor['hexDegrade3'] ?? null))
+        );
+
+        // 4️⃣ Se não mudou, mantém o mesmo ID
+        if (!$mudou) {
+            error_log("[CarouselModel] Nenhuma mudança de cor detectada, mantendo o mesmo id_coressubs");
+            return true;
+        }
+
+        // 5️⃣ Se mudou, verifica se a nova cor já existe
+        $check = $this->conn->prepare("
+            SELECT id_coressubs FROM coressubs
+            WHERE corEspecial = :corEspecial
+              AND hexDegrade1 = :hexDegrade1
+              AND hexDegrade2 = :hexDegrade2
+              AND (hexDegrade3 = :hexDegrade3 OR (hexDegrade3 IS NULL AND :hexDegrade3 IS NULL))
+            LIMIT 1
+        ");
+        $check->execute([
+            ':corEspecial' => $novaCor['corEspecial'],
+            ':hexDegrade1' => $novaCor['hexDegrade1'],
+            ':hexDegrade2' => $novaCor['hexDegrade2'],
+            ':hexDegrade3' => $novaCor['hexDegrade3'] ?? null
+        ]);
+        $existe = $check->fetch(PDO::FETCH_ASSOC);
+
+        if ($existe) {
+            $id_coresSubs = $existe['id_coressubs'];
+        } else {
+            // 6️⃣ Cria nova cor
+            $insert = $this->conn->prepare("
+                INSERT INTO coressubs (corEspecial, hexDegrade1, hexDegrade2, hexDegrade3)
+                VALUES (:corEspecial, :hexDegrade1, :hexDegrade2, :hexDegrade3)
             ");
-            $check->execute([
+            $insert->execute([
                 ':corEspecial' => $novaCor['corEspecial'],
                 ':hexDegrade1' => $novaCor['hexDegrade1'],
                 ':hexDegrade2' => $novaCor['hexDegrade2'],
                 ':hexDegrade3' => $novaCor['hexDegrade3'] ?? null
             ]);
-            $existe = $check->fetch(PDO::FETCH_ASSOC);
-
-            if ($existe) {
-                $id_coresSubs = $existe['id_coressubs'];
-            } else {
-                $insert = $this->conn->prepare("
-                    INSERT INTO coressubs (corEspecial, hexDegrade1, hexDegrade2, hexDegrade3)
-                    VALUES (:corEspecial, :hexDegrade1, :hexDegrade2, :hexDegrade3)
-                ");
-                $insert->execute([
-                    ':corEspecial' => $novaCor['corEspecial'],
-                    ':hexDegrade1' => $novaCor['hexDegrade1'],
-                    ':hexDegrade2' => $novaCor['hexDegrade2'],
-                    ':hexDegrade3' => $novaCor['hexDegrade3'] ?? null
-                ]);
-                $id_coresSubs = $this->conn->lastInsertId();
-            }
-
-            // Atualiza o carrossel com a nova cor
-            $update = $this->conn->prepare("
-                UPDATE carousel
-                SET id_coressubs = :id_coresSubs
-                WHERE id_carousel = :id_carousel
-            ");
-            return $update->execute([
-                ':id_coresSubs' => $id_coresSubs,
-                ':id_carousel' => $id_carousel
-            ]);
-
-        } catch (Exception $e) {
-            error_log("[CarouselModel] Erro ao atualizar cores: " . $e->getMessage());
-            return false;
+            $id_coresSubs = $this->conn->lastInsertId();
         }
+
+        // 7️⃣ Atualiza o carrossel com o novo id_coressubs
+        $update = $this->conn->prepare("
+            UPDATE carousel
+            SET id_coressubs = :id_coresSubs
+            WHERE id_carousel = :id_carousel
+        ");
+        return $update->execute([
+            ':id_coresSubs' => $id_coresSubs,
+            ':id_carousel' => $id_carousel
+        ]);
+
+    } catch (Exception $e) {
+        error_log("[CarouselModel] Erro ao atualizar cores: " . $e->getMessage());
+        return false;
     }
+
 
     // 🔹 READ - Retornar todas as cores únicas
     public function getAllUniqueCores(): array {

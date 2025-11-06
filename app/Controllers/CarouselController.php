@@ -43,8 +43,8 @@ class CaroselController extends BaseController {
         return $this->carouselModel->remove($id);
     }
 
-    public function updateCoresPersonalizadas(int $id_carousel, array $novaCor) {
-        return $this->carouselModel->updateCoresPersonalizadas($id_carousel, $novaCor);
+    public function updateCoresPersonalizadas(int $id_carousel, array $data) {
+        return $this->carouselModel->updateCoresPersonalizadas($id_carousel, $data);
     }
 
     public function getAllUniqueCores() {
@@ -52,3 +52,20 @@ class CaroselController extends BaseController {
     }
 }
 $conn = new CaroselController();
+$te = $conn->getAll();
+print_r($te);
+// 🧩 Caso 1: mudou só o produto
+
+$result = $conn->updateCoresPersonalizadas(1, [
+    'id_produto' => 3, // ou outro produto
+    'cores' => [
+        'corEspecial' => null,
+        'hexDegrade1' => null,
+        'hexDegrade2' => null,
+        'hexDegrade3' => null
+    ]
+]);
+
+print_r($result);
+
+// var_dump($atual, $novoProduto);
