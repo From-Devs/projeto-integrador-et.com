@@ -80,7 +80,7 @@ session_start();
     $ordem = $_GET['ordem'] ?? null;
     $pesquisa = $_GET['pesquisa'] ?? null;
     $products = new Products();
-    $produtos = $products->buscarTodosProdutos($ordem, $pesquisa);
+    $produtos = $products->buscarTodosProdutosAssociados($ordem, $pesquisa, $_SESSION['id_usuario']);
     
     // // session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
