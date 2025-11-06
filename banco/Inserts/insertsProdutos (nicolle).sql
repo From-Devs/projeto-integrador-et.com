@@ -7,7 +7,8 @@ VALUES
 (5,'Viviane Gonçalves','vivgonca@gmail.com','(67) 99182-8272','333.333.333-33','1999-07-19','associado','Associado',null,null),             
 (6,'Maiara Lima','maytheforcebwu@gmail.com','(49) 99272-3729','444.444.444-44','2003-11-01','associado','Associado',null,null),
 (7,'Adriana de Moura','adrimourana@outlook.com','(62) 99373-3738','555.555.555-55','1962-02-21','associado','Associado',null,null),
-(8,'Bruna Araripe','brunararipe@gmail.com','(68) 99383-8337','777.777.777-77','1987-05-23','associado','Associado',null,null);
+(8,'Bruna Araripe','brunararipe@gmail.com','(68) 99383-8337','777.777.777-77','1987-05-23','associado','Associado',null,null),
+(9,'Roberta da Silva Pereira','robertinhap@outlook.com','(27) 99272-4641','888.888.888-88','2000-01-17','associado','Associado',null,null);
 
 		-- Ambos eu cadastrei pelo site para a senha ser criptografada
 
@@ -920,14 +921,14 @@ Até 3 vezes por semana, em dias alternados.',
 
 
 --PRODUTOS DO MARCOS
-
+--Eliana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(34,'#5B398F','#15AF93','#4DBDA4');
+(34,'#5B398F','#15AF93','#70F0D9');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-('Loção Desodorante Hidratante Cuide-se Bem Bob Esponja & Sandy Bochechas','O Boticário','200ml',
+('Hidratante Cuide-se Bem Bob Esponja & Sandy Bochechas','O Boticário','200ml',
 'Loção Desodorante Hidratante Cuide-se Bem Bob Esponja Sandy Bochechas 200ml.
 Cuide-se Bem descobriu a fórmula secreta ideal para o seu momento de cuidado com a pele! Em edição limitada, a Loção Desodorante Hidratante Cuide-se Bem Bob Esponja Sandy Bochechas possui uma textura cremosa e entrega um cheirinho inspirado no abacaxi, para uma pele macia, perfumada e desodorizada.',
 'Vocês estão prontos, botilovers? 
@@ -1415,7 +1416,7 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-('Gela de Limpeza Mela B3','La Roche-Posay','120ml',
+('Gel de Limpeza Mela B3','La Roche-Posay','120ml',
 'O Mela B3 Gel de Limpeza da La Roche-Posay é a solução nº1 para quem deseja uma limpeza antimanchas¹ eficaz.',
 'Formulado com o exclusivo ativo patenteado Melasyl™️, desenvolvido após 18 anos de pesquisa para corrigir e prevenir manchas¹ como nunca antes, o gel também contém Niacinamida e 1% de PHA (ácido polihidroxilado) para proporcionar uma esfoliação suave e gentil, limpando sem ressecar. O resultado é uma pele mais uniforme, radiante, renovada e com manchas corrigidas.
 
@@ -2034,7 +2035,7 @@ Aqua / water / eau, bambusa arundinacea stem powder, glycolic acid, glycerin, co
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(67,'#F0BE0F','#F7CA42','#F7D069');
+(67,'#F0BE0F','#FFD642','#FBE79D');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
