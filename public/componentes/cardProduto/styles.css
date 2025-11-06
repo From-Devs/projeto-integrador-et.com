@@ -310,12 +310,6 @@
     border-bottom-right-radius: 24px;
 }
 
-.cardProduto .formCardProdutoCarrinho{
-    display: flex;
-    position: absolute;
-    bottom: 0;
-}
-
 @keyframes botaoFantasma{
     0%{
         opacity: 1;
