@@ -137,6 +137,32 @@ class AssociadosModel{
             return false;
         }
     }
+
+    public function CapturarAssociadosComMaisProdutos(){
+        try {
+            $this->conn->beginTransaction();
+
+            $sql = "SELECT U.nome as nomeAssociado, Count(*) as qtdProdutos FROM produto p
+            join usuario u 
+                on U.id_usuario = P.id_associado 
+            GROUP BY p.id_associado
+            HAVING Count(*) > 1
+            order by qtdProdutos desc
+            limit 5;";
+
+            $stmtsql = $this->conn->prepare($sqlStatus);
+            $stmtsql->execute();
+            $this->conn->commit();
+            $res = $stmtsql->fetchAll(PDO::FETCH_ASSOC);
+
+            return $res ?: [];
+
+        } catch (\Throwable $th) {
+            $this->conn->rollBack();
+            echo "Erro ao recusar associado: " . $th->getMessage();
+            return false;
+        }
+    }
     
 }
 
