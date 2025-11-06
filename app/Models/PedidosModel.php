@@ -16,12 +16,15 @@ class PedidosModel{
             U.nome,
             P.precoTotal,
             P.dataPedido,
+            S.tipoStatus statusEntrega,
             SP.tipoStatus statusPagamento
             FROM Pedido P
             JOIN usuario U
                 ON P.id_usuario = U.id_usuario
             JOIN statusPagamento SP
-                ON P.id_status_pagamento = SP.id_status_pagamento";
+                ON P.id_status_pagamento = SP.id_status_pagamento
+            JOIN status S
+                ON P.id_status = S.id_status";
             $params = [];
     
             if (!empty($pesquisa)) {
