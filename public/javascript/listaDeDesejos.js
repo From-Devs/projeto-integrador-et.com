@@ -185,7 +185,7 @@ cardContainer.addEventListener('click', (e) => {
 // ==========================
 const cards = document.querySelectorAll(".cardDesejos");
 cards.forEach(item => {
-    const atalhoMaisDetalhes = item.querySelector('.atalhoMaisDetalhes');
+    const atalhoMaisDetalhes = item.querySelector('#atalhoMaisDetalhes');
     if (!atalhoMaisDetalhes) return;
     const idProd = item.getAttribute('data-id');
 

@@ -135,19 +135,23 @@ echo PopUpComImagemETitulo("popUpFavorito", "/popUp_Botoes/img-favorito.png", "1
             <div class="frameProdutos">
                 <div class="containerProdutos">
                 <?php
-                    foreach ($sugestoes as $produto) {
-                        echo createCardProduto(
-                            $produto['marca'],
-                            $produto['nome'],
-                            $produto['precoPromo'] == 0 ? $produto['preco'] : $produto['precoPromo'],
-                            $produto['img1'],
-                            $produto['fgPromocao'],
-                            $produto['preco'],
-                            $produto['corPrincipal'] ?? "#000",
-                            $produto['corDegrade1'] ?? "#000",
-                            $produto['corDegrade2'] ?? "#333",
-                            $produto['id_produto']
-                        );
+                    if (!empty($sugestoes)) {
+                        foreach ($sugestoes as $produto) {
+                            echo createCardProduto(
+                                $produto['marca'],
+                                $produto['nome'],
+                                $produto['precoPromo'] == 0 ? $produto['preco'] : $produto['precoPromo'],
+                                $produto['img1'],
+                                $produto['fgPromocao'],
+                                $produto['preco'],
+                                $produto['corPrincipal'] ?? "#000",
+                                $produto['corDegrade1'] ?? "#000",
+                                $produto['corDegrade2'] ?? "#333",
+                                $produto['id_produto']
+                            );
+                        }
+                    }else{
+                        echo "<p style='padding-left: 18px'>Nenhum produto relacionado.</p>";
                     }
                     ?>
                 </div>

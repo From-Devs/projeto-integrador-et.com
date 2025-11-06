@@ -7,7 +7,8 @@ VALUES
 (5,'Viviane Gonçalves','vivgonca@gmail.com','(67) 99182-8272','333.333.333-33','1999-07-19','associado','Associado',null,null),             
 (6,'Maiara Lima','maytheforcebwu@gmail.com','(49) 99272-3729','444.444.444-44','2003-11-01','associado','Associado',null,null),
 (7,'Adriana de Moura','adrimourana@outlook.com','(62) 99373-3738','555.555.555-55','1962-02-21','associado','Associado',null,null),
-(8,'Bruna Araripe','brunararipe@gmail.com','(68) 99383-8337','777.777.777-77','1987-05-23','associado','Associado',null,null);
+(8,'Bruna Araripe','brunararipe@gmail.com','(68) 99383-8337','777.777.777-77','1987-05-23','associado','Associado',null,null),
+(9,'Roberta da Silva Pereira','robertinhap@outlook.com','(27) 99272-4641','888.888.888-88','2000-01-17','associado','Associado',null,null);
 
 		-- Ambos eu cadastrei pelo site para a senha ser criptografada
 
@@ -682,10 +683,10 @@ hydrogenated polyisobutene/poliisobuteno hidrogenado, polyisobutene/poliisobuten
 
 
 
-
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(25,'#33c4fdff','#9cd2ffff','rgba(191, 225, 253, 1)');
+(25,'#7DBAF2','#A5D3FD','#BDDFFF');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -716,10 +717,10 @@ Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colôni
 
 
 
-
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(26,'#ffaaeaff','#fcc0edff','#fad3f0ff');
+(26,'#FFAAEA','#FFC2F0','#FFD1F4');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -920,14 +921,14 @@ Até 3 vezes por semana, em dias alternados.',
 
 
 --PRODUTOS DO MARCOS
-
+--Eliana
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(34,'#5B398F','#15AF93','#4DBDA4');
+(34,'#5B398F','#15AF93','#70F0D9');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-('Loção Desodorante Hidratante Cuide-se Bem Bob Esponja & Sandy Bochechas','O Boticário','200ml',
+('Hidratante Cuide-se Bem Bob Esponja & Sandy Bochechas','O Boticário','200ml',
 'Loção Desodorante Hidratante Cuide-se Bem Bob Esponja Sandy Bochechas 200ml.
 Cuide-se Bem descobriu a fórmula secreta ideal para o seu momento de cuidado com a pele! Em edição limitada, a Loção Desodorante Hidratante Cuide-se Bem Bob Esponja Sandy Bochechas possui uma textura cremosa e entrega um cheirinho inspirado no abacaxi, para uma pele macia, perfumada e desodorizada.',
 'Vocês estão prontos, botilovers? 
@@ -1018,10 +1019,10 @@ Recursos:
 
 
 
-
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(37,'#0081B8','#33b0e6','#7cd6fd');
+(37,'#0081B8','#279FD3','#66CAF5');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1049,7 +1050,6 @@ Fragrância feminina para ser usada durante o dia ou a noite.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
 159.90,111.90,1,30,'FLORATTA-DES-COL-MY-BLUE.png','FLORATTA-DES-COL-MY-BLUE-2.jpg','FLORATTAS-3.jpg',5,37,3);
-
 
 
 
@@ -1416,7 +1416,7 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-('Gela de Limpeza Mela B3','La Roche-Posay','120ml',
+('Gel de Limpeza Mela B3','La Roche-Posay','120ml',
 'O Mela B3 Gel de Limpeza da La Roche-Posay é a solução nº1 para quem deseja uma limpeza antimanchas¹ eficaz.',
 'Formulado com o exclusivo ativo patenteado Melasyl™️, desenvolvido após 18 anos de pesquisa para corrigir e prevenir manchas¹ como nunca antes, o gel também contém Niacinamida e 1% de PHA (ácido polihidroxilado) para proporcionar uma esfoliação suave e gentil, limpando sem ressecar. O resultado é uma pele mais uniforme, radiante, renovada e com manchas corrigidas.
 
@@ -2035,7 +2035,7 @@ Aqua / water / eau, bambusa arundinacea stem powder, glycolic acid, glycerin, co
 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(67,'#F0BE0F','#F7CA42','#F7D069');
+(67,'#F0BE0F','#FFD642','#FBE79D');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2631,48 +2631,188 @@ Ingredientes:
  - Ingredientes especiais: Manteiga de Karité e Óleo de Semente de Uva.',
 89.90,null,0,82,'protetor-solar50-corporal-sallve-1.png', 'protetor-solar50-corporal-sallve-2.jpg', 'protetor-solar50-corporal-sallve-3.jpg',25,89,)
 
+
+
+
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(90,'','','');
+(90,'#892227','#EA1A25','#FB565E');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Floratta Red','O Boticário','75ml',
+'Floratta Red é uma colônia feminina marcante e envolvente, inspirada na flor da maçã de Vermont. Combina notas de frutas vermelhas e laranja com um corpo floral delicado e toques de chocolate amargo, musk e âmbar, revelando uma fragrância jovem, romântica e irresistível.',
+'Floratta Red Desodorante Colônia 75ml
+A fragrância feminina do Floratta Red Desodorante Colônia é inspirada na flor da Maçã de Vermont.
+A fragrância traz a delicadeza da flor da maçã e a doçura do fruto. Além de notas de saída de Frutas Vermelhas e Laranja.
+
+O corpo do Floratta Red é puro floral. Uma combinação de Flor de Laranjeira, Violeta, Flor de Lótus, Tuberosa e Flor de Beijo. Já as notas de base, que deixam o rastro da fragrância, trazem Chocolate Amargo, Musk, Sândalo, Cedro e Âmbar.
+O Floratta Red Desodorante Colônia é uma fragrância feminina marcante, jovem e envolvente que combina com mulheres de atitude que não passam vontade no romance!
+Para potencializar a perfumação, a linha conta também com o Óleo Perfumado Desodorante Corporal Floratta Red para deixar a pele macia e perfumada com a mesma fragrância. É irresistível!  
+
+Como Usar:
+Borrife a fragrância nas áreas onde há maior circulação do sangue, como o pescoço, dobras do cotovelo e atrás das orelhas. Para sentir a sua fragrância favorita por mais tempo, mantenha a sua pele sempre hidratada com nossos produtos de Corpo e Banho.
+
+Pirâmide Olfativa:
+Topo: Frutas Vermelhas, Laranja, Maçã.
+Corpo: Flor de Laranjeira, Tuberosa, Violeta, Flor de Lótus, Flor de Beijo.
+Fundo: Chocolate Amargo, Musk, Sândalo, Cedro, Âmbar.
+
+Ocasião:
+Fragrância feminina para ser usada à noite, em encontros românticos.
+
+Ingredientes:
+Álcool Desnaturado; Água; Perfume; Caprililglicol; Salicilato de benzila; Butilfenil metilpropional; Citral; Citronelol; Cumarina; Hexil cinamal; Hidroxicitronelal; Isoeugenol; Limoneno.
+
+Nenhum produto do Grupo Boticário é testado em animais. ',
+159.90,135.90,1,80,'floratta-red-1.png', 'floratta-red-2.jpg', 'floratta-red-3.jpg',5,90,)
 
 
-
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(91,'','','');
+(91,'#CA929C','#EAAEB9','#FDC9D2');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Floratta Rose Bouquet','O Boticário','75ml',
+'Floratta Rose Bouquet é uma colônia feminina delicada e marcante que combina a suavidade das rosas-damascenas com a potência da gardênia. Com notas frutais e toques de madeiras elegantes, revela uma fragrância moderna, sofisticada e cheia de feminilidade.',
+'Floratta Rose Bouquet Desodorante Colônia 75ml
+O Desodorante Colônia Floratta Rose Bouquet te apresenta uma fragrância delicada e marcante, permitindo que você se sinta envolvida em um buquê de flores todos os dias. Seu acorde celebra a junção da delicadeza da rosa com a potência da gardênia, resultando em uma perfumação moderna que exala feminilidade, frescor e não te deixa passar despercebida.
 
+Toda a elegância de Floratta Rose Bouquet se deve à infusão de uma tríade de rosas-damascenas, 
 
+Combinadas com nuances frutais vibrantes e um toque sofisticado de madeiras confortáveis. Inspirada na clássica fragrância Floratta Rose, essa versão traz ainda mais modernidade e permite que você deixe o seu cheiro por onde passar. 
 
+O desodorante colônia é a escolha versátil para o dia a dia, que une uma concentração equilibrada de fragrância similar ao eau de toilette com ingredientes de alta qualidade. Entrega perfumação com personalidade e um toque de refinamento, mantendo uma assinatura agradável em todos os momentos.
+
+Como Usar:
+Borrife a fragrância nas áreas onde há maior circulação do sangue, como o pescoço, dobras do cotovelo e atrás das orelhas. Para sentir a sua fragrância favorita por mais tempo, mantenha a sua pele sempre hidratada com nossos produtos de Corpo e Banho.
+
+Pirâmide Olfativa:
+Topo: Bergamota da Sicília, Laranja Sanguínea, Pera.
+Corpo: Flor de Lótus, Semente de Cenoura, Rosa Essential LMR, Água de Rosas LMR for Life, Rosa de Isparta LMR For Life, assinatura de Floratta.
+Fundo: Íris, Madeiras Brancas, Cashmeran, Musk Sinfonide.
+
+Atenção:
+Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas. Caso ocorra irritação e/ou prurido no local, suspenda o uso imediatamente. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Produto para perfumar e desodorizar a pele. Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança. Não aplicar o produto diretamente nas roupas.
+
+Ingredientes:
+Alcool etilico denaturado, Agua, Perfume, Caprililglicol, Alfa-isometil ionona, Citral, Citronelol, Geraniol, Hexil cinamal, Hidroxicitronelal, Isoeugenol, Limoneno, Linalol, Oleo de patchouli, Alfa-terpineno, Terpinoleno, Cetonas rosas, Beta-cariofileno,Hexadecanolactona, Acetato de linalila, Terpineol, Tetrametil acetiloctaidronaftalenos, Trimetilbenzenopropanol, Oleo de casca de limao siciliano, Acetato de geranila, Pineno, Oleo da casca da bergamota.
+
+Nenhum produto o Boticário é testado em animais, ou seja, este item possui selo Cruelty Free. ',
+159,90,null,0,80,'floratta-rose-bouquet-1.png', 'floratta-rose-bouquet-2.jpg', 'floratta-rose-bouquet-3.jpg',5,91,)
+
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(92,'','','');
+(92,'#EEDD85','#FDED9B','#FFF3B8');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Floratta Gold','O Boticário','75ml',
+'Floratta Gold é uma colônia feminina marcante e sofisticada, com notas florais e amadeiradas que refletem elegância e confiança. Combina acordes de orquídea, jasmim e pêssego com toques cremosos de sândalo, âmbar e baunilha, revelando uma fragrância envolvente e inesquecível.',
+'Floratta Gold Desodorante Colônia 75ml
+Floratta Gold Desodorante Colônia é uma fragrância feminina inconfundível, feita para mulheres confiantes e bem resolvidas.  
+Encorpada e marcante, com toque cremoso de madeiras ambaradas, essa perfumação é especial para mulheres confiantes e bem resolvidas.
+
+Floriental Amadeirado tão inesquecível quanto a combinação da orquídea com notas amadeiradas. Sua composição traz acordes de frutas como Abacaxi e Pêssego que ganham sofisticação com flores como Orquídea, Muguet e Jasmim, fechando em um delicioso toque amadeirado do Sândalo e Musk.  Além de notas de Baunilha que entregam um toque de delicadeza irresistível para essa fragrância.
+
+Essa fragrância vegana já se tornou um clássico da perfumaria feminina do Boticário e reflete a mulher que acredita no amor e é tão cativante quanto as notas dessa composição.
+Ideal para ser usada de dia, no trabalho ou em momentos de lazer, garante uma perfumação marcante, inesquecível e delicada que combina com sua rotina.
+
+Atenção:
+Inflamável. Evite contato com os olhos. 
+Não aplique em pele irritada ou lesionada. Evite aplicar nas axilas. Caso ocorra irritação e/ou prurido no local, suspenda o uso imediatamente. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Produto para perfumar e desodorizar a pele.
+
+Pirâmide Olfativa:
+Topo: Neroli, Abacaxi, Pêssego e Orquídea.
+Corpo: Muguet, Heliotropina e Jasmim.
+Fundo: Sândalo, Âmbar, Baunilha e Musk.
+
+Ingredientes:
+Álcool etílico; Água; Perfume; Octissalato; Caprilato de poliglicerila-3; Avobenzona; Amarelo de tartrazina; Vermelho 33; Azul brilhante; Cloreto de sódio; Sulfato de sódio; Alfa-isometil ionona; Álcool cinamílico; Geraniol; Hidroxicitronelal; Álcool benzílico.
+Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.
+
+Nenhum produto o Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
+159.90,null,0,80,'floratta-gold-1.png', 'floratta-gold-2.jpg', 'floratta-gold-3.jpg',5,92,)
 
 
 
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(93,'','','');
+(93,'#E8247D','#E67C9D','#EAB396');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Floratta Romance de Verão','O Boticário','75ml',
+'Floratta Romance de Verão é uma colônia feminina floral frutal que combina flores e frutas tropicais com um frescor envolvente. Inspirada na leveza e intensidade dos romances de verão, traz notas adocicadas na medida certa e um toque ensolarado que desperta boas lembranças.',
+'Floratta Romance de Verão Desodorante Colônia 75ml
+Um dia,  uma noite, um mês. Não importa.
+
+Floratta O Boticário acredita que o romance que você viveu no verão jamais será esquecido. Por isso, criou Floratta Romance de Verão Desodorante Colônia, uma fragrância da perfumaria feminina adocicada na medida certa e inspirada em flores e frutas tropicais, com um frescor intenso como um romance de verão.
+
+Essa fragrância floral frutal é igual à liberdade de uma tarde de verão: o blend de frutas tropicais trazem frescor impactante com dulçor moderado. Robusta desde a saída, combina um rico bouquet de notas florais e facetas cremosas amadeiradas e traz um toque ensolarado e intenso para os seus dias de verão.
+
+Trazendo muitas borboletas no estômago, Floratta Romance de Verão vem para dar vida aos romances de verão, mostrando que um amor não precisa ser para sempre ser inesquecível!
+
+Como Usar:
+Borrife a fragrância nas áreas onde há maior circulação do sangue, como o pescoço, dobras do cotovelo e atrás das orelhas. Para sentir a sua fragrância favorita por mais tempo, mantenha a sua pele sempre hidratada com a loção corporal da linha.
+
+Pirâmide Olfativa
+Topo: Mandarina, Bergamota, Limão, Neroli, Pimenta Rosa, Frutas Tropicais.
+Corpo: Rosa Damascena, Passion Flower (Scent Trek), Ylang Ylang, Magnólia.
+Fundo: Patchouli, Sândalo, Baunilha, Âmbar, Musk.
+
+Atenção:
+Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite aplicar nas axilas. Caso ocorra irritação e/ou prurido no local, suspenda o uso imediatamente. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Produto para perfumar e desodorizar a pele.
+
+Ingredientes:
+Álcool desnaturado; Água; Perfume; Octissalato; Avobenzona; Caprililglicol; Citrato de tris (tetrametilidroxipiperidinol); Amarelo de tartrazina; Vermelho escarlate 125; Salicilato de benzila; Citral; Cumarina; Hexil cinamal; Hidroxicitronelal; Limoneno; Linalol.
+Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.
+
+Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
+159.90,null,0,80,'floratta-romancedeverao-1.png', 'floratta-romancedeverao-2.jpg', 'floratta-romancedeverao-3.jpg',5,93,)
 
 
 
+--Michael
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(94,'','','');
+(94,'#692E66','#97398D','#AF78A2');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+("Floratta Fleur D' Éclipse",'O Boticário','75ml',
+'Floratta Fleur D’Éclipse é um Eau de Parfum floral amadeirado que combina frescor e sofisticação. Inspirado no raro aroma da Flor de Osmanthus durante o eclipse solar, revela uma fragrância vibrante, frutal e romântica, perfeita para mulheres que buscam elegância com um toque de mistério.',
+"Floratta Fleur D' Éclipse Eau De Parfum 75ml
+Floratta Fleur D' Éclipse Eau de Parfum explora o universo floral sofisticado de uma fragrância jovial e impactante.
+
+Sua fórmula captura o raro aroma que a Flor de Osmanthus exala durante o auge do eclipse solar, revelando a essência do reencontro entre o sol e a lua. Durante esse fenômeno o aroma da Flor é alterado de maneira natural, exalando uma fragrância mais rara, intensa, frutal e vibrante.
+
+A fragrância Floral Amadeirada de Floratta Fleur D' Éclipse, traz na saída notas frescas e frutais de Bergamota e Pera, com leve toque especiado que confere impacto e brilho para a fragrância.
+As notas amadeiradas de Vetiver e Patchouli finalizam a criação com modernidade e todo o romantismo que o seu novo Floratta Eau de Parfum merece.
+
+Como Usar:
+Borrife a fragrância nas áreas onde há maior circulação do sangue, como o pescoço, dobras do cotovelo e atrás das orelhas.
+
+Pirâmide Olfativa:
+Topo: Bergamota, , Pimenta Rosa, Lichia, Creme de Pêra.
+Corpo: Osmanthus, Rosa da Turquia , Ylang , Flor de Magnólia.
+Fundo: Vetiver, Patchouli, Âmbar, Musk.
+
+Atenção:
+Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesionada. Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. 
+
+Ingredientes:
+Álcool desnaturado; Perfume; Água; Octissalato; Avobenzona; Vermelho 33; Corante violeta 60730; Azul brilhante; Cloreto de sódio; Sulfato de sódio; Alfa-isometil ionona; Citral; Citronelol; Cumarina; Geraniol; Limoneno; Linalol.
+Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.
+
+Nenhum produto O Boticário é testado em animais, ou seja, este item possui selo Cruelty Free. Produto vegano.",
+209.90,null,0,90,'Floratta-Fleur-Eclipse-1.png', 'Floratta-Fleur-Eclipse-2.jpg', 'Floratta-Fleur-Eclipse-3.jpg',5,)94
+
 
 
 

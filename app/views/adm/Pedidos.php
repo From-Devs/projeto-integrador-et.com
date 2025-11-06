@@ -203,6 +203,7 @@
 
                 $resultado = paginar($pedidos, 6, 'pagePedidos');
                 echo tabelaPedidosADM($resultado['dados']);
+                // renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas'], 'pagePedidos');
                 renderPaginacao(
                     $resultado['paginaAtual'],
                     $resultado['totalPaginas'],
