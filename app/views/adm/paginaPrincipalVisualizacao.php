@@ -42,7 +42,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        .carouselProdutoMaisDetalhes, .botaoMaisDetalhesCardLancamento, .botoesProdutoDestaque, .botaoComprarCardProduto {
+        .carouselProdutoMaisDetalhes, .botaoMaisDetalhesCardLancamento, .botoesProdutoDestaque, .botaoComprarCardProduto, .imagemCardProdutoComumContainer {
             pointer-events: none;
         }
     </style>
@@ -64,7 +64,7 @@
                 <img src="/projeto-integrador-et.com/public/imagens/ET/LogoBranca2.png" alt="" class="carouselLogo">
                 <div class="componenteCarousel">
                     <?php
-                    echo createCarousel(); // função que cria o header
+                    echo createCarousel($carousels); // função que cria o header
                     ?>
                 </div>
             </div>

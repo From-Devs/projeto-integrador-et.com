@@ -26,9 +26,12 @@ function createCardProduto(
         </div>
 
         <span class='balaoDesejos'>Adicionar a Lista de desejos</span>
-        <i class='coracaoFofo'>
+        <form id='formCardProdutoListaDesejos$idProduto' class='formCardProdutoListaDesejos' method='POST'>
+            <input type='hidden' name='id_produto' value='$idProduto'>
+        </form>
+        <button type='submit' form='formCardProdutoListaDesejos$idProduto' class='coracaoFofo'>
             <img class='coracaoImg' src='/projeto-integrador-et.com/public/imagens/produtoCard/coracao.png' alt='Coração'>
-        </i>
+        </button>
     ";
     
     if($emDesconto){
@@ -47,11 +50,21 @@ function createCardProduto(
     }
 
     $html .= "
-        <i class='buraquinho'></i>
+        <i class='buraquinho'></i>";
 
+    if($imagemProduto == ''){
+        $html .= "
+        <div class='imagemCardProdutoComumContainer'>
+            <h1 style='color: white'>Imagem</h1>
+        </div>";
+    }else{
+        $html .= "
         <div class='imagemCardProdutoComumContainer'>
             <img class='imagemCardProdutoComum' src='/projeto-integrador-et.com/$imagemProduto' alt=''>
-        </div>
+        </div>";
+    }
+
+    $html .= "
 
         <div class='contentDeBaixo'>
             <hr class='linha'>
