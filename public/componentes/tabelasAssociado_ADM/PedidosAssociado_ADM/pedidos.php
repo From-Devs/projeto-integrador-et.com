@@ -65,25 +65,15 @@ function tabelaTotaisAssociado($infoPagamentos) { ?>
 }
 
 function resumoFinal($detalhesPedidos) {
-    $subtotal = 0;
+    $total = 0;
     foreach ($detalhesPedidos as $item) {
-        $subtotal += floatval($item['preco']) * intval($item['quantidade']);
+        $total += floatval($item['preco']) * intval($item['quantidade']);
     }
 
-    $frete = 0;
-    $total = $subtotal + $frete;
     ?>
     <div class="resumo-final" style="margin-top: 1em;">
         <table>
             <tbody>
-                <tr>
-                    <td style="text-align: center;"><strong>Subtotal:</strong></td>
-                    <td style="text-align: center;">R$ <?= number_format($subtotal, 2, ',', '.') ?></td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;"><strong>Frete:</strong></td>
-                    <td style="text-align: center;">R$ <?= number_format($frete, 2, ',', '.') ?></td>
-                </tr>
                 <tr>
                     <td style="text-align: center;"><strong>Total:</strong></td>
                     <td style="text-align: center;">R$ <?= number_format($total, 2, ',', '.') ?></td>
@@ -117,8 +107,8 @@ function tabelaPedidosADM($pedidos) {
 
     <?php foreach ($pedidos as $pedido): 
         echo popUpCurto("popUpStatus", "Status alterado com sucesso!", "green", "white", "/popUp_Botoes/img-confirmar.png");
-        if(isset($pedido['tipoStatus']) && $pedido['tipoStatus'] != ""){
-            $statusClass = $pedido['tipoStatus'] === 'Pago' ? 'statusPago' : 'statusPendente';
+        if(isset($pedido['statusPagamento']) && $pedido['statusPagamento'] != ""){
+            $statusClass = $pedido['statusPagamento'] === 'Pago' ? 'statusPago' : 'statusPendente';
         }
         ?>
         <tr>
@@ -128,7 +118,7 @@ function tabelaPedidosADM($pedidos) {
             <td><?= date("d/m/Y - H:i", strtotime($pedido['dataPedido'])) ?></td>
             <td>
                 <button id="<?= $statusClass?>" class="btnStatus" onclick="mudarStatus(this, <?= $pedido['id_pedido'] ?>)">
-                    <p><?= $pedido['tipoStatus'] ?></p>
+                    <p><?= $pedido['statusPagamento'] ?></p>
                 </button>
             </td>
             <td>
@@ -177,8 +167,10 @@ function tabelaPedidosADM($pedidos) {
 }
 
 
-function tabelaPedidosAssociado($pedidos) {
-    $tabela = "<div id='lista'>
+function tabelaPedidosAssociado($pedidos) { 
+    echo popUpCurto("popUpStatusEntrega", "Status de entrega alterado com sucesso!", "green", "white", "/popUp_Botoes/img-confirmar.png");
+    ?>
+    <div id='lista'>
         <table id='tabelaVendas'>
             <thead id='barraCima'>
                 <tr>
@@ -194,134 +186,45 @@ function tabelaPedidosAssociado($pedidos) {
 
         <div class='tabela-body'>
             <table id='tabelaVendas'>
-                <tbody>";
+                <tbody>
+                    <?php foreach ($pedidos as $pedido):
+                        if(isset($pedido['statusPagamento']) && $pedido['statusPagamento'] != ""){
+                            $statusClass = $pedido['statusPagamento'] === 'Pago' ? 'statusPago' : 'statusPendente';
+                        } else {
+                            $statusClass = 'statusPendente';
+                        }
 
-    foreach ($pedidos as $pedido) {
-        if(isset($pedido['tipoStatus']) && $pedido['tipoStatus'] != ""){
-            $statusClass = $pedido['tipoStatus'] === 'Pago' ? 'statusPago' : 'statusPendente';
-        }
-
-        $data = date("d/m/Y - H:i", strtotime($pedido['dataPedido']));
-
-        $tabela .= "<tr>
-                    <td>{$pedido['id_pedido']}</td>
-                    <td>{$pedido['nome']}</td>
-                    <td>R$ " . number_format($pedido['precoTotal'], 2, ',', '.') . "</td>
-                    <td>{$data}</td>
-                    <td><div id='{$statusClass}'><p>{$pedido['tipoStatus']}</p></div></td>
-                    <td>
-                        <select name='statusEntrega' id='statusEntrega'>
-                            <option value='pendente'>Pendente</option>
-                            <option value='pendente'>Pendente</option>
-                            <option value='pendente'>Pendente</option>
-                        </select>
-                    </td>
-                </tr>";
-    }
-
-    $tabela .= "    </tbody>
+                        $data = date("d/m/Y - H:i", strtotime($pedido['dataPedido']));
+                    ?>
+                        <tr>
+                            <td><?= $pedido['id_pedido'] ?></td>
+                            <td><?= htmlspecialchars($pedido['nome']) ?></td>
+                            <td>R$ <?= number_format($pedido['precoTotal'], 2, ',', '.') ?></td>
+                            <td><?= $data ?></td>
+                            <td><div id='<?= $statusClass ?>'><p><?= $pedido['statusPagamento'] ?></p></div></td>
+                            <td>
+                                <?php
+                                $valorStatusEntrega = isset($pedido['statusEntrega']) ? $pedido['statusEntrega'] : '';
+                                $selectId = 'statusEntrega_' . $pedido['id_pedido'];
+                                $opcoes = [
+                                    'Aguardando Confirmação',
+                                    'Em Andamento',
+                                    'Enviado',
+                                    'Concluído',
+                                    'Cancelado',
+                                    'Devolvido'
+                                ];
+                                ?>
+                                <select class='selectStatusEntrega' name='statusEntrega' id='<?= $selectId ?>' onchange="atualizarStatusEntrega(this, <?= $pedido['id_pedido'] ?>)">
+                                    <?php foreach ($opcoes as $op): ?>
+                                        <option value='<?= $op ?>' <?= ($op === $valorStatusEntrega) ? 'selected' : '' ?>><?= $op ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
             </table>
         </div>
-    </div>";
-
-    return $tabela;
-}
-
-/*function tabelaPedidosADM($pedidos) {
-    $tabela = "<div id='lista'>
-        <table id='tabelaVendas'>
-            <thead id='barraCima'>
-                <tr>
-                    <th id='bordaEsquerda' scope='col'>ID</th>
-                    <th id='th2' scope='col'>Nome Cliente</th>
-                    <th id='th4' scope='col'>Preço</th>
-                    <th id='th5' scope='col'>Data</th>
-                    <th id='bordaDireita' scope='col'>Status</th>
-                    <th id='bordaDireita' scope='col'></th>
-                </tr>
-            </thead>
-        </table>
-
-        <div class='tabela-body'>
-            <table id='tabelaVendas'>
-                <tbody>";
-
-    $contador = 1;
-    foreach ($pedidos as $pedido) {
-        ?>
-        <!--Tive que colocar o modal dentro do forEach para conseguir pegar os dados (data) específicos para cada pedido identificado-->
-        <dialog id="modalDetalhesDoPedido<?= $contador ?>" class="modalDetalhesDoPedido">
-            <div class="containerHeader">
-                <div class="containerFechar">
-                    <button class="btn-fechar" onclick='fecharPopUp("modalDetalhesDoPedido<?= $contador?>")'>
-                        <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
-                    </button>
-                </div>
-                <div class="headerDetalhes">
-                    <h1>Detalhes do Pedido</h1>
-                    <div class="dadosHeader">
-                        <h3>Data do Pedido: <?php
-                        echo $pedido['data']?></h3>
-                        <h3>Pedidos Totais: <?php echo count($pedido['detalhesPedido'])?></h3>
-                    </div>
-                </div>
-            </div>
-            <div id="componenteTabelaProdutos">
-                <?php 
-                // $resultado = paginar($pedido['detalhesPedido'], 1, 'pageProdutos'.$contador);
-                // echo detalhesPedidos($resultado['dados']);
-                // renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas'], 'pageProdutos'.$contador);
-                ?>
-            </div>
-
-            
-            <div class="containerBaixo">
-                <div id="componenteTotaisAssociados">
-                    <h3>Total a pagar:</h3>
-                    <?php 
-                    // $resultado = paginar($pedido['infoPagamentos'], 5, 'pagePagamentos'.$contador);
-                    // echo tabelaTotaisAssociado($resultado['dados']);
-                    // renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas'], 'pagePagamentos'.$contador);
-                    ?>
-                </div>
-                <div id="componenteResumoFinal">
-                    <?php 
-                    // echo resumoFinal($pedido['detalhesPedido']); 
-                    ?>
-                </div>
-            </div>
-        </dialog>
-        <?php
-        $statusClass = $pedido['status'] === 'Pago' ? 'statusPago' : 'statusPendente';
-
-        echo popUpCurto("popUpStatus", "Status alterado com sucesso!", "green", "white");
-        
-        if(isset($pedido['tipoStatus']) && $pedido['tipoStatus'] != ""){
-            $statusClass = $pedido['tipoStatus'] === 'Pago' ? 'statusPago' : 'statusPendente';
-        }
-        
-        $tabela .= "<tr>
-                    <td>{$contador}</td>
-                    <td>{$pedido['nomeCliente']}</td>
-                    <td>R$ " . number_format($pedido['preco'], 2, ',', '.') . "</td>
-                    <td>{$pedido['data']}</td>
-                    <td>
-                        <button id='{$statusClass}' class='btnStatus' 
-                            onclick='mudarStatus(this, {$pedido["id_pedido"]})'>
-                            <p>{$pedido['tipoStatus']}</p>
-                        </button>
-                    </td>
-                    <td>
-                        <button class='tresPontos' onclick='abrirPopUp(\"modalDetalhesDoPedido{$contador}\")'><img src='/projeto-integrador-et.com/public/imagens/imagensADM/tresPontos.png' alt='img-tresPontos'></button>
-                    </td>
-                </tr>";
-        $contador++;
-    }
-
-    $tabela .= "    </tbody>
-            </table>
-        </div>
-    </div>";
-
-    return $tabela;
-}*/
+    </div>
+<?php }

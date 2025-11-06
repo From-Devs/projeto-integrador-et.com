@@ -1,5 +1,6 @@
 <?php 
-
+// caminho boss
+ 
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
@@ -88,13 +89,13 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                 <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
             </div>
 
-            <div class="wrapperPopUp">
+            <form class="wrapperPopUp">
                 <div class="esquerdaEditProduto">
                     <div class="produtoContainer cor-0" id="wrapperEditProdutoImg">
                         <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/hinode.png" alt="">
                     </div>
     
-                    <?php echo botaoPersonalizadoOnClick("Salvar alterações","btn-black", "abrirPopUp(\"\")", "161px", "33px", "15px")?>
+                    <button id="botaoPadrao" class="btn btn-black" style="width: 161px; height:33px; font-size: 15px;">Salvar alterações</button>
                 </div>
 
                 <div class="editProdutoContainer">
@@ -180,7 +181,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                     </div>
                     
                 </div>
-            </div>
+            </form>
 
         </div>
     </dialog>
@@ -205,7 +206,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                     </div>
                 </div> 
                 
-                <div class="direita">
+                <form class="direita">
                     <div class="editProdutoLancamentoContainer">
         
                         <div class="switchProduto">
@@ -236,7 +237,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         </div>
     
                         <ul class="popUpDescricaoContainer">
-                            <li class="descricao">Arraste sobre o produto para verificar o efeito de brilho</li>
+                            <li class="descricao">Arraste o cursor sobre o produto para verificar o efeito de brilho</li>
                             <li class="descricao">Por padrão a cor de brilho selecionada será a cor de destaque registrada no produto</li>
                         </ul>
     
@@ -275,7 +276,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 
                     <button class="btn btn-black salvarAlteracoesLancamento" onclick="abrirPopUp()">Salvar alterações</button>
 
-                </div>
+                </form>
                
             </div>
 
@@ -287,42 +288,42 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         <div class="customizacaoMain">
             <h1 id="tituloCustomizacao">Página Inicial</h1>
             <div class="containerCustomizacao">
-            <div class="sessao" id="sessaoCarousel">
-                <ul>
-                    <li class="tituloSessao">Carousel</li>
-                </ul>
-                <div class="editarCarousel">
-                    <div class="produtoInicial">
-                        <p>Inicial</p>
-                        <div class="bordaProdutoInicial"></div>
-                    </div>
-                    <div class="editarCarouselContainer">
-                        <div class="produtoContainer" id="produto1" onclick="abrirPopUp('popUpEditProduto')">
-                            <div class="imagemProdutoWrapper" id="cor-0">
-                                <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/hinode.png" alt="">
-                            </div>
-                        </div>
-                        <div class="produtoContainer" id="produto2" onclick="abrirPopUp('popUpEditProduto')">
-                            <div class="imagemProdutoWrapper" id="cor-1">
-                                <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/bocarosa.png" alt="">
-                            </div>
-                        </div>
-                        <div class="produtoContainer" id="produto3" onclick="abrirPopUp('popUpEditProduto')">
-                            <div class="imagemProdutoWrapper" id="cor-2">
-                                <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/leite.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                    <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
-    
-                    <ul class="descricaoContainer">
-                        <li class="descricao">Clique em um produto para editar</li>
-                        <li class="descricao">Arraste os produtos para organizar a ordem de apresentação</li>
+                <form class="sessao" id="sessaoCarousel">
+                    <ul>
+                        <li class="tituloSessao">Carousel</li>
                     </ul>
-                </div>
-    
+                    <div class="editarCarousel">
+                        <div class="produtoInicial">
+                            <p>Inicial</p>
+                            <div class="bordaProdutoInicial"></div>
+                        </div>
+                        <div class="editarCarouselContainer">
+                            <div class="produtoContainer" id="produto1" onclick="abrirPopUp('popUpEditProduto')">
+                                <div class="imagemProdutoWrapper" id="cor-0">
+                                    <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/hinode.png" alt="">
+                                </div>
+                            </div>
+                            <div class="produtoContainer" id="produto2" onclick="abrirPopUp('popUpEditProduto')">
+                                <div class="imagemProdutoWrapper" id="cor-1">
+                                    <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/bocarosa.png" alt="">
+                                </div>
+                            </div>
+                            <div class="produtoContainer" id="produto3" onclick="abrirPopUp('popUpEditProduto')">
+                                <div class="imagemProdutoWrapper" id="cor-2">
+                                    <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/leite.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                        <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
+        
+                        <ul class="descricaoContainer">
+                            <li class="descricao">Clique em um produto para editar</li>
+                            <li class="descricao">Arraste os produtos para organizar a ordem de apresentação</li>
+                        </ul>
+                </form>
+        
                 <div class="sessao">
                     <ul>
                         <li class="tituloSessao">Lançamentos</li>
@@ -356,7 +357,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                 <div class="sessao" id="sessaoLancamento">
                     <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
                     <ul class="descricaoContainer">
-                        <li class="descricao">Arraste sobre um produto e clique no botão “Editar” para editar</li>
+                        <li class="descricao">Arraste o cursor sobre um produto e clique no botão “Editar” para edita-lo</li>
                     </ul>
                 </div>
 

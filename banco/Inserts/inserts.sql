@@ -47,7 +47,7 @@ VALUES
 (17, 'Estilização', 4),
 (18, 'Acessórios', 4);
 
--- Subcategoria de Eletrônicos
+-- Subcategoria de utensílios
 
 INSERT INTO SubCategoria (id_subCategoria, nome, id_categoria)
 VALUES

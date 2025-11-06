@@ -13,10 +13,6 @@ class PedidosController{
         return $this->pedidosModel->BuscarTodosPedidos($ordem, $pesquisa);
     }
 
-    public function BuscarTodosPedidosAssociado($ordem="", $pesquisa="", $idAssociado){
-        return $this->pedidosModel->BuscarTodosPedidosAssociado($ordem, $pesquisa, $idAssociado);
-    }
-
 
     public function BuscarTodosPedidosADM($ordem="", $pesquisa=""){
         return $this->pedidosModel->BuscarTodosPedidosADM($ordem, $pesquisa);
@@ -24,6 +20,10 @@ class PedidosController{
 
     public function BuscarProdutosDoPedido($idPedido){
         return $this->pedidosModel->BuscarProdutosDoPedido($idPedido);
+    }
+
+    public function atualizarStatusEntrega($tipoStatusEntrega, $idPedido){
+        return $this->pedidosModel->atualizarStatusEntrega($tipoStatusEntrega, $idPedido);
     }
 }
 

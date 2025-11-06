@@ -87,28 +87,56 @@ document.addEventListener("DOMContentLoaded", function(){
                 abrirPopUpCurto("popUpErroDelogado", 2000);
             }
         });
+
+        const formCarrinho = item.querySelector('.formCardProdutoCarrinho');
+        formCarrinho.addEventListener('submit', function(e){
+            e.preventDefault();
+
+            const idProduto = this.querySelector('input[name="id_produto"]').value;
+            const quantidadeVar = 1;
+
+            fetch('/projeto-integrador-et.com/router/CarrinhoRouter.php?action=adicionarCarrinho', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ id_produto: idProduto, quantidade: quantidadeVar })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.ok) {
+                    if (window.abrirPopUp) window.abrirPopUp("popUpCarrinho"); 
+                } else {
+                    if (window.abrirPopUp) window.abrirPopUp("popUpErro"); 
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                if (window.abrirPopUp) window.abrirPopUp("popUpErro");
+            });
+        });
     });
 
     // Form do detalhe do produto (fora dos cards)
-    const formDetalhe = document.getElementById('formFavorito');
-    if(formDetalhe){
-        formDetalhe.addEventListener('submit', function(e) {
-            e.preventDefault(); 
-            const formData = new FormData(this);
+    // const formDetalhe = document.getElementById('formFavorito');
+    // if(formDetalhe){
+    //     formDetalhe.addEventListener('submit', function(e) {
+    //         e.preventDefault(); 
+    //         const formData = new FormData(this);
 
-            fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    abrirPopUp('popUpFavorito');
-                } else {
-                    alert('Erro: ' + (data.msg || 'Não foi possível adicionar aos favoritos'));
-                }
-            })
-            .catch(err => console.error(err));
-        });
-    }
+    //         fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito', {
+    //             method: 'POST',
+    //             body: formData
+    //         })
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             if (data.ok) {
+    //                 abrirPopUp('popUpFavorito');
+    //             } else {
+    //                 alert('Erro: ' + (data.msg || 'Não foi possível adicionar aos favoritos'));
+    //             }
+    //         })
+    //         .catch(err => console.error(err));
+    //     });
+    // }
+
+    
 });

@@ -71,11 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        fetch("/projeto-integrador-et.com/config/produtoRouter.php", {
+        fetch("/projeto-integrador-et.com/router/ProdutoRouter.php", {
             method: "POST",
             headers: {"Content-Type": "application/x-www-form-urlencoded"},
             body: new URLSearchParams({
-                action: "avaliarProduto",
+                acao: "avaliarProduto",
                 id_produto: idProduto,
                 nota: avaliacaoSelecionada,
                 comentario: texto
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="cardMini-infos">
                             <span class="cardMini-Titulo">${nome}</span>
                             <div class="preco-total">
-                                <span class="cardMini-PrecoTotal">R$ ${precoTotal.toFixed(2)}</span>
+                                <span class="cardMini-PrecoTotal">R$ ${precoTotal.toFixed(2).replace('.', ',')}</span>
                             </div>
                         </div>
                     </div>
@@ -141,16 +141,16 @@ document.addEventListener("DOMContentLoaded", () => {
                         <span class="detalhes-titulo">${nome}</span>
                         <span class="detalhes-status">Status: <span style="color: red;">${status}</span></span>
                         <span class="detalhes-categoria">Categoria: ${card.dataset.categoria || 'Não definida'}</span>
-                        <span class="detalhes-preco" style="margin-bottom: 20px; font-size:12px; font-weight:500;">Preço: R$ ${subtotal.toFixed(2)}</span>
+                        <span class="detalhes-preco" style="margin-bottom: 20px; font-size:12px; font-weight:500;">Preço: R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
                     </div>
-                    <div style="display: flex; gap: 5px">
+                    <div style="display: flex; justify-content: center; gap: 10px;">
                         <button class="comprarNovamenteBtn" data-id="${idProduto}">Comprar Novamente</button>
                         <button class="cancelarBtn">Cancelar</button>
                     </div>
                 </div>
             `;
             popupProdutos.appendChild(miniCard);
-            document.getElementById("popupMP-Total").innerText = "Total: R$ " + precoTotal.toFixed(2);
+            document.getElementById("popupMP-Total").innerText = "Total: R$ " + precoTotal.toFixed(2).replace('.', ',');
             document.getElementById("popupMP").showModal();
 
             miniCard.querySelector(".comprarNovamenteBtn").addEventListener("click", () => {
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="cardpopup-infos">
                             <span class="cardpopup-Titulo">${nome}</span>
                             <div class="preco-total">
-                                <span class="cardpopup-PrecoTotal">R$ ${precoTotal2.toFixed(2)}</span>
+                                <span class="cardpopup-PrecoTotal">R$ ${precoTotal2.toFixed(2).replace('.', ',')}</span>
                             </div>
                         </div>
                     </div>
@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <span class="detalhes-titulo">${nome}</span>
                         <span class="detalhes-quantidade">Quantidade: ${quantidade}</span>
                         <span class="detalhes-preco">Preço Unitário: R$ ${subtotal.toFixed(2)}</span>
-                        <span class="detalhes-precoTotal">Preço Total: R$ ${precoTotal2.toFixed(2)}</span>
+                        <span class="detalhes-precoTotal">Preço Total: R$ ${precoTotal2.toFixed(2).replace('.', ',')}</span>
                     </div>
                     <div class="detalhes-botoes">
                         <button class="comprarNovamenteBtn" data-id="${idProduto}">Comprar Nov.</button>
