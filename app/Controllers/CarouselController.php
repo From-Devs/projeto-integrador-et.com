@@ -55,17 +55,15 @@ $conn = new CaroselController();
 $te = $conn->getAll();
 print_r($te);
 // 🧩 Caso 1: mudou só o produto
-
-$result = $conn->updateCoresPersonalizadas(1, [
-    'id_produto' => 3, // ou outro produto
-    'cores' => [
-        'corEspecial' => null,
-        'hexDegrade1' => null,
-        'hexDegrade2' => null,
-        'hexDegrade3' => null
-    ]
+$res = $conn->updateCoresPersonalizadas(1, [
+    'corEspecial' => '#123456',
+    'hexDegrade1' => '#654321',
+    'hexDegrade2' => '#AABBCC',
+    'hexDegrade3' => '#FFFFFF'
 ]);
 
-print_r($result);
+var_dump($res);
+
+
 
 // var_dump($atual, $novoProduto);

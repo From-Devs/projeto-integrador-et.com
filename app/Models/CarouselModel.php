@@ -154,9 +154,11 @@ class CarouselModel {
             return false;
         }
     }
-
     public function updateCoresPersonalizadas(int $id_carousel, array $novaCor): bool {
     try {
+        // 🩹 Ajuste flexível — aceita ['cores'=>[]] ou direto []
+        $novaCor = $novaCor['cores'] ?? $novaCor;
+
         // 1️⃣ Busca o ID atual da cor desse carousel
         $stmt = $this->conn->prepare("
             SELECT cs.id_coressubs, cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3
@@ -192,9 +194,9 @@ class CarouselModel {
         $check = $this->conn->prepare("
             SELECT id_coressubs FROM coressubs
             WHERE corEspecial = :corEspecial
-              AND hexDegrade1 = :hexDegrade1
-              AND hexDegrade2 = :hexDegrade2
-              AND (hexDegrade3 = :hexDegrade3 OR (hexDegrade3 IS NULL AND :hexDegrade3 IS NULL))
+            AND hexDegrade1 = :hexDegrade1
+            AND hexDegrade2 = :hexDegrade2
+            AND (hexDegrade3 = :hexDegrade3 OR (hexDegrade3 IS NULL AND :hexDegrade3 IS NULL))
             LIMIT 1
         ");
         $check->execute([
@@ -207,6 +209,7 @@ class CarouselModel {
 
         if ($existe) {
             $id_coresSubs = $existe['id_coressubs'];
+            error_log("[CarouselModel] Cor já existia, usando id_coressubs = {$id_coresSubs}");
         } else {
             // 6️⃣ Cria nova cor
             $insert = $this->conn->prepare("
@@ -220,6 +223,7 @@ class CarouselModel {
                 ':hexDegrade3' => $novaCor['hexDegrade3'] ?? null
             ]);
             $id_coresSubs = $this->conn->lastInsertId();
+            error_log("[CarouselModel] Nova cor criada com id_coressubs = {$id_coresSubs}");
         }
 
         // 7️⃣ Atualiza o carrossel com o novo id_coressubs
@@ -228,30 +232,18 @@ class CarouselModel {
             SET id_coressubs = :id_coresSubs
             WHERE id_carousel = :id_carousel
         ");
-        return $update->execute([
+        $ok = $update->execute([
             ':id_coresSubs' => $id_coresSubs,
             ':id_carousel' => $id_carousel
         ]);
+
+        error_log("[CarouselModel] Atualização de cor concluída para carousel {$id_carousel}");
+        return $ok;
 
     } catch (Exception $e) {
         error_log("[CarouselModel] Erro ao atualizar cores: " . $e->getMessage());
         return false;
     }
-
-
-    // 🔹 READ - Retornar todas as cores únicas
-    public function getAllUniqueCores(): array {
-        try {
-            $stmt = $this->conn->query("
-                SELECT DISTINCT corEspecial, hexDegrade1, hexDegrade2, hexDegrade3
-                FROM coressubs
-                ORDER BY corEspecial ASC
-            ");
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            error_log("[CarouselModel] Erro ao buscar cores: " . $e->getMessage());
-            return [];
-        }
-    }
 }
-?>
+
+}
