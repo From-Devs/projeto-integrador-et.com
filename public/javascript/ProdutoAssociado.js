@@ -5,14 +5,16 @@ document.getElementsByClassName("campos-cadastrar")[0].addEventListener("submit"
     const popUpSucesso = document.getElementsByClassName("popUpCadastro")[0];
 
     const vlTamanho = this.querySelector('input[name="valorTamanho"]').value;
-    const tipoTamanho = this.querySelector('select[name="tipoTamanho"]').value;
-    const tamanhoFinal = vlTamanho + " " + tipoTamanho;
+    let tamanhoFinal = null;
+    if (vlTamanho !== "" && vlTamanho !== null) {
+        const tipoTamanho = this.querySelector('select[name="tipoTamanho"]').value;
+        tamanhoFinal = vlTamanho + " " + tipoTamanho;
+    }
 
     let formData = new FormData(this);
     formData.delete("valorTamanho");
     formData.delete("tipoTamanho");
     formData.append("tamanho", tamanhoFinal);
-    console.log(...formData);
 
     fetch("/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto", {
         method: "POST",
@@ -118,8 +120,11 @@ document.getElementsByClassName("campos-editar")[0].addEventListener("submit", f
     e.preventDefault();
 
     const vlTamanho = this.querySelector('input[name="valorTamanho"]').value;
-    const tipoTamanho = this.querySelector('select[name="tipoTamanho"]').value;
-    const tamanhoFinal = vlTamanho + " " + tipoTamanho;
+    let tamanhoFinal = null;
+    if (vlTamanho !== "" && vlTamanho !== null) {
+        const tipoTamanho = this.querySelector('select[name="tipoTamanho"]').value;
+        tamanhoFinal = vlTamanho + " " + tipoTamanho;
+    }
 
     let formData = new FormData(this);
     formData.delete("valorTamanho");
