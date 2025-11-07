@@ -97,7 +97,7 @@ try {
                                 'hex1' => $pedido['hex1'] ?? '#cccccc',
                                 'hex2' => $pedido['hex2'] ?? '#999999'
                             ];
-                            renderCardPedido($pedido, 'Finalizado'); 
+                            renderCardPedido($pedido, 'Concluído'); 
                         ?>
                     <?php endif; ?>
                 <?php endforeach; ?>

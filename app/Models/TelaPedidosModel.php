@@ -17,6 +17,7 @@ class PedidoController {
             SELECT
                 p.id_pedido,
                 p.dataPedido,
+                p.dataEntrega,
                 s.tipoStatus,
                 pp.id_produto,
                 pr.nome AS produto_nome,
@@ -33,7 +34,7 @@ class PedidoController {
             LEFT JOIN Subcategoria sc ON pr.id_subCategoria = sc.id_subCategoria
             LEFT JOIN Categoria c ON sc.id_categoria = c.id_categoria
             WHERE p.id_usuario = :idUsuario
-            ORDER BY p.dataPedido DESC
+            ORDER BY p.dataPedido DESC, dataEntrega DESC
         ";
  
         $stmt = $this->conn->prepare($sql);
@@ -48,6 +49,7 @@ class PedidoController {
                 $pedidos[$idPedido] = [
                     'id_pedido' => $row['id_pedido'],
                     'dataPedido' => $row['dataPedido'],
+                    'dataEntrega' => $row['dataEntrega'],
                     'tipoStatus' => $row['tipoStatus'],
                     'itens' => []
                 ];
@@ -60,8 +62,7 @@ class PedidoController {
                 'preco' => $row['precoPromo'] ?? $row['preco'],
                 'quantidade' => $row['quantidade'],
                 'imagem' => $row['img1'] ?? '',
-                'categoria' => $row['categoria_nome'] ?? '',
-                'tipoStatus' => $row['tipoStatus'] ?? ''
+                'categoria' => $row['categoria_nome'] ?? ''
             ];
         }
  
