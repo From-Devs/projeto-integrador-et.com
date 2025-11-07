@@ -14,7 +14,9 @@ document.getElementsByClassName("campos-cadastrar")[0].addEventListener("submit"
     let formData = new FormData(this);
     formData.delete("valorTamanho");
     formData.delete("tipoTamanho");
-    formData.append("tamanho", tamanhoFinal);
+    if (tamanhoFinal !== null) {
+        formData.append("tamanho", tamanhoFinal);
+    }
 
     fetch("/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto", {
         method: "POST",
@@ -129,7 +131,10 @@ document.getElementsByClassName("campos-editar")[0].addEventListener("submit", f
     let formData = new FormData(this);
     formData.delete("valorTamanho");
     formData.delete("tipoTamanho");
-    formData.append("tamanho", tamanhoFinal);
+    // Only send the tamanho field if it has a real value; omit it when null so backend can treat as NULL
+    if (tamanhoFinal !== null) {
+        formData.append("tamanho", tamanhoFinal);
+    }
     console.log(...formData);
     
     if(formData.get("fgPromocao") === null){
