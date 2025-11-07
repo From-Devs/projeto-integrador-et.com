@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const quantidade = parseInt(card.dataset.quantidade) || 1;
             const subtotal = parseFloat(card.dataset.preco) || 0;
             const imagem = card.querySelector("img")?.src || '';
-            const status = card.dataset.status || 'Em Andamento';
+            const status = card.dataset.tipoStatus || 'Aguardando Confirmação';
             const idProduto = card.dataset.id || '';
             const marca = card.dataset.marca || '';
             const precoTotal = subtotal * quantidade;
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             miniCard.innerHTML = `
                 <div class="card-recolhido">
                     <div class="cardMini-Superior">
-                        <span class="cardMini-Status">Em Andamento</span>
+                        <span class="cardMini-Status">${status}</span>
                         <span class="cardMini-Quantidade">${quantidade}x</span>
                     </div>
                     <div class="cardMini-conteudo">
@@ -135,10 +135,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="card-expandido">
                     <span class="card-titulo">DESCRIÇÃO</span>
                     <div class="card-linhasuperior"></div>
-                    <img class="cardMini-imagem" src="${imagem}" height="130px">
+                    <a href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProduto}">
+                        <img class="cardMini-imagem" src="${imagem}" height="130px">
+                    </a>
                     <div class="card-linhainferior"></div>
                     <div class="detalhes-info" style="gap: 10px;">
-                        <span class="detalhes-titulo">${nome}</span>
+                        <span class="detalhes-titulo">${nome} — ${marca}</span>
                         <span class="detalhes-status">Status: <span style="color: red;">${status}</span></span>
                         <span class="detalhes-categoria">Categoria: ${card.dataset.categoria || 'Não definida'}</span>
                         <span class="detalhes-preco" style="margin-bottom: 20px; font-size:12px; font-weight:500;">Preço: R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
@@ -172,8 +174,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const subtotal = parseFloat(card2.dataset.preco) || 0;
             const imagem = card2.querySelector("img")?.src || '';
             const dataEntrega = card2.dataset.dataEntrega || '';
-            const dataCompra = card2.dataset.dataCompra || '';
-            const status = card2.dataset.status || 'Concluído';
+            const dataCompra = card2.dataset.dataPedido || '';
+            const status = card2.dataset.tipoStatus || '';
             const idProduto = card2.dataset.id || '';
             const marca = card2.dataset.marca || '';
             const precoTotal2 = subtotal * quantidade;
@@ -204,11 +206,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         <span class="detalhes-dataEntrega">Data de Entrega: <span style="font-weight: 500;">${dataEntrega}</span></span>
                     </div>
                     <span class="card-titulo2">DESCRIÇÃO DO PRODUTO</span>
-                    <img class="cardpopup-imagem" src="${imagem}">
+                    <a href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProduto}">
+                        <img class="cardpopup-imagem" src="${imagem}" >
+                    </a>
                     <div class="detalhes-info" style="gap:5px;">
                         <span class="detalhes-titulo">${nome}</span>
                         <span class="detalhes-quantidade">Quantidade: ${quantidade}</span>
-                        <span class="detalhes-preco">Preço Unitário: R$ ${subtotal.toFixed(2)}</span>
+                        <span class="detalhes-preco">Preço Unitário: R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
                         <span class="detalhes-precoTotal">Preço Total: R$ ${precoTotal2.toFixed(2).replace('.', ',')}</span>
                     </div>
                     <div class="detalhes-botoes">

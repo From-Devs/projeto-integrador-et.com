@@ -1,7 +1,13 @@
 document.addEventListener("DOMContentLoaded", function(){
    
     const cards = document.querySelectorAll(".cardProduto");
-    const LoginVerific = document.getElementById('LoginVerific').innerHTML;
+    let LoginVerific = document.getElementById('LoginVerific');
+
+    if (LoginVerific) {
+        LoginVerific = LoginVerific.innerHTML;
+    }else{
+        console.log("LoginVerific não existe.")
+    }
 
     cards.forEach(item => {
         let cor = item.childNodes[1],
@@ -18,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(){
               coracaoImg = coracaoForm ? coracaoForm.querySelector('.coracaoImg') : null,
               botaoComprar = item.querySelector(".botaoComprarCardProduto"),
               botaoAnimacao = item.querySelector(".botaoEspectro"),
-              coracaoBotao = item.childNodes[5],
+              coracaoBotao = item.querySelector(".coracaoFofo"),
               imagemCardProdutoPadrao = item.querySelector(".imagemCardProdutoComumContainer");
 
         item.style.background = "linear-gradient(35deg, "+ cores[1] +" 30%, "+ cores[2] +" 100%)";
@@ -113,30 +119,33 @@ document.addEventListener("DOMContentLoaded", function(){
                 if (window.abrirPopUp) window.abrirPopUp("popUpErro");
             });
         });
+
+        // Form do detalhe do produto (fora dos cards)
+        const formFavorito = item.querySelector('.formCardProdutoListaDesejos');
+        formFavorito.addEventListener('submit', function(e){
+            e.preventDefault();
+            const idProduto = this.querySelector('input[name="id_produto"]').value;
+
+            fetch('/projeto-integrador-et.com/router/ListaDesejosRouter.php?action=adicionarFavorito', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ id_produto: idProduto })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.ok) {
+                    if (window.abrirPopUp) window.abrirPopUp("popUpFavorito"); 
+                } else {
+                    if (window.abrirPopUp) window.abrirPopUp("popUpErroFavorito"); 
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                if (window.abrirPopUp) window.abrirPopUp("popUpErroFavorito");
+            });
+        });
     });
 
-    // Form do detalhe do produto (fora dos cards)
-    // const formDetalhe = document.getElementById('formFavorito');
-    // if(formDetalhe){
-    //     formDetalhe.addEventListener('submit', function(e) {
-    //         e.preventDefault(); 
-    //         const formData = new FormData(this);
-
-    //         fetch('/projeto-integrador-et.com/config/produtoRouter.php?action=adicionarFavorito', {
-    //             method: 'POST',
-    //             body: formData
-    //         })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data.ok) {
-    //                 abrirPopUp('popUpFavorito');
-    //             } else {
-    //                 alert('Erro: ' + (data.msg || 'Não foi possível adicionar aos favoritos'));
-    //             }
-    //         })
-    //         .catch(err => console.error(err));
-    //     });
-    // }
 
     
 });

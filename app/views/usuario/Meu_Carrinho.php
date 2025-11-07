@@ -41,8 +41,12 @@
 }
 
     $carrinho = $controller->exibirCarrinho($id_usuario);
+    $resultado = paginar($carrinho, 4);
+    $carrinho = $resultado['dados'];
     $total = array_sum(array_column($carrinho, 'subtotal'));
     $precosProdutos = array_column($carrinho, 'precoCalculado');
+
+    
 
 ?>
 
@@ -129,6 +133,7 @@
                         <td class='cor2' id='subtotal-item-<?= $index ?>'>R$ <?= number_format($item['subtotal'], 2, ',', '.') ?></td>
                     </tr>
                 <?php endforeach; ?>
+                
             <?php else: ?>
                 <tr>
                     <td colspan="6" class="carrinhoVazio">Seu carrinho está vazio.</td>
@@ -155,6 +160,17 @@
                     <td class="sumir"></td>
                     <td style="text-align: right;"><input type="checkbox" id="selecionarTodos" style="margin: 0px;" checked></td>
                 </tr>
+
+                <tr>
+                    <td style="border: none; padding: 0px;">
+                        <?php 
+                            renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']); 
+                        ?>
+                    </td>
+                </tr>
+                
+                <?php 
+                ?>
 
             </tfoot>
         </table>
