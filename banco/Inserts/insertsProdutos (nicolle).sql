@@ -1099,10 +1099,10 @@ Nenhum produto O Boticário é testado em animais, ou seja, este item possui sel
 
 
 
-
+--Maiara
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES
-(39,'#070707','#404040','#757575');
+(39,'#070707','#595959','#ABABAB');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1131,10 +1131,10 @@ Nenhum produto O Boticário é testado em animais, ou seja, este item possui sel
 
 
 
-
+--Roberta
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(40,'#3E0D11','#73181F','#A6232D');
+(40,'#3E0D11','#8A151E','#BD515A');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1156,14 +1156,14 @@ Para lavar a My Blend, basta enxaguá-la e usar um detergente neutro, massageand
 
 
 
-
+--Roberta
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(41,'#C9758F','#F58EAE','#F5A5C4');
+(41,'#C9758F','#DF90A9','#F5B8CB');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-('Pincéis de Maquiagem Profissionais Com Cabo Transparente',null,'16 pincéis',
+('Pincéis de Maquiagem Profissionais Com Cabo Transparente',null,null,
 'Transforme sua rotina de beleza com o nosso Conjunto de Escova de Maquiagem Premium, que inclui 16 pinceis cuidadosamente selecionados para atender todas as suas necessidades de maquiagem. Este conjunto é perfeito tanto para iniciantes quanto para maquiadores profissionais, oferecendo uma versatilidade inigualável para criar looks deslumbrantes.',
 'O que Inclui:
 Escova de Fundação Sintética - Ideal para aplicar bases líquidas ou cremosas, garantindo uma cobertura uniforme e um acabamento impecável.
@@ -1727,10 +1727,10 @@ Ingredientes :
 
 
 
-
+--Roberta
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(58,'#E9647F','#F58095','#F798A7');
+(58,'#E9647F','#F77D95','#FBA7B8');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1760,10 +1760,10 @@ Ricinus Communis Seed Oil, Cocoglycerides, Cera Alba, Octyldodecanol, Helianthus
 23.19,null,0,70,'nivea-hidra-color-rose-1.png','nivea-hidra-color-rose-2.jpg','nivea-hidra-color-rose-3.jpg',11,58,6);
 
 
-
+--Roberta
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(59,'#B01C38','#D43552','#E35269');
+(59,'#B01C38','#DC1E41','#F95875');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1796,7 +1796,7 @@ Ingredientes:
 
 
 
-
+--Roberta
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (60,'#EB6D70','#EB8387','#FCACAF');
@@ -1829,7 +1829,7 @@ Ricinus Communis Seed Oil, Cocoglycerides, Cera Alba, Octyldodecanol, Helianthus
 23.19,null,0,70,'nivea-hidra-color-coral-1.png','nivea-hidra-color-coral-2.jpg','nivea-hidra-color-coral-3.jpg',11,60,6);
 
 
-
+--Roberta
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (61,'#6A1E4C','#963570','#B84F8C');
