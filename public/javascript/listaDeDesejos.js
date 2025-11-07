@@ -90,7 +90,7 @@ async function enviarFormulario(action, idsProdutos) {
             // ADICIONAR AO CARRINHO
             // =======================
             if (action === 'adicionarCarrinho') {
-                abrirPopUp("teste");
+                abrirPopUp("popUpCarrinho");
             }
 
             // =======================

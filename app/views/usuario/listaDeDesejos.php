@@ -53,7 +53,7 @@ $btnCancelarExclusão = botaoPersonalizadoOnClick('Não','btn-red','fecharPopUp(
 
 <?php 
 echo createHeader($login, $tipoUsuario); 
-echo PopUpComImagemETitulo("teste", "../../public/imagens/verificar.png", "100px", "Adicionado ao Carrinho!", "", "", "", "300px");
+echo PopUpComImagemETitulo("popUpCarrinho", "../../public/imagens/verificar.png", "100px", "Adicionado ao Carrinho!", "", "", "", "300px");
 ?>
 
 <div class="title-container">
