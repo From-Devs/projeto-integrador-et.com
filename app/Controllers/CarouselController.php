@@ -13,7 +13,7 @@ class CaroselController extends BaseController {
     }
 
     public function getAll() {
-        $dados = [
+        $dados = [ 
             'carousels' => $this->carouselModel->getAll(),
         ];
         return $dados['carousels'];
@@ -53,17 +53,15 @@ class CaroselController extends BaseController {
 }
 $conn = new CaroselController();
 $te = $conn->getAll();
-print_r($te);
-// 🧩 Caso 1: mudou só o produto
+
 $res = $conn->updateCoresPersonalizadas(1, [
-    'corEspecial' => '#123456',
-    'hexDegrade1' => '#654321',
-    'hexDegrade2' => '#AABBCC',
-    'hexDegrade3' => '#FFFFFF'
+    'corEspecial' => '#124b56ff',
+    'hexDegrade1' => '#212165ff',
+    'hexDegrade2' => '#9258ffff',
+    'hexDegrade3' => '#e11cffff'
 ]);
 
-var_dump($res);
 
 
 
-// var_dump($atual, $novoProduto);
+
