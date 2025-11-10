@@ -106,7 +106,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <div class="nomeProduto">
                                 <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
                             </div>
-                            <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\")", "115px", "33px", "15px")?>
+                            <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\", \"editLancamento\")", "115px", "33px", "15px")?>
                         </div>
                     </div>
 
@@ -215,7 +215,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <div class="nomeProduto">
                                     <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
                                 </div>
-                                <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\")", "115px", "33px", "15px")?>
+                                <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\", \"editProduto\")", "115px", "33px", "15px")?>
                             </div>
                         </div>
         
@@ -377,7 +377,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <div class="nomeProduto">
                                             <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
                                         </div>
-                                        <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\")", "115px", "33px", "15px")?>
+                                        <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\", \"produtoDestaque\")", "115px", "33px", "15px")?>
                                     </div>
                                 </div>
                             </div>

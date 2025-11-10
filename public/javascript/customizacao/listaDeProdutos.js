@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     produtos.forEach(item => {
         item.addEventListener('click', async () => {
+            console.log("clicou:", origemPopUp)
             const produtoId = item.getAttribute('data-id');
 
             // Faz requisição para obter os dados completos do produto
