@@ -56,9 +56,9 @@
                     <button class="botaoConfirmar" type="submit" >Confirmar</button>
                                 
                 </div>
-                
+
                 <?php if ($erro): ?>
-                    <p style="color: red; text-align: left; margin-top: 35px; font-size: 18px">
+                    <p style="color: red; text-align: left; margin-top: 35px; font-size: 18px; font-weight: 450;">
                         <?= htmlspecialchars($erro) ?>
                     </p>
                 <?php endif; ?>
