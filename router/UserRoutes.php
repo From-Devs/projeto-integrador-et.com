@@ -50,11 +50,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 }
 
                 $responseCreate = $userController->createUser($postData);
+
         
                 if ($responseCreate['success']) {
                     header("Location: ../app/views/usuario/Login.php?sucesso=1");
                 } else {
-                    header("Location: ../app/views/usuario/CadastroUsuario.php?erro=" . urlencode($responseCreate['message']));
+                    header("Location: ../app/views/usuario/CadastroUsuario.php?erro=" . urlencode($responseCreate['erro']));
                 }
                 exit;
             }

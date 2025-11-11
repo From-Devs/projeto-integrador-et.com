@@ -41,7 +41,7 @@ class UserController {
             $_SESSION['login'] = true;
             return ["success" => true, "user" => $user];
         }
-        return ["success" => false, "message" => "E-mail ou senha inválidos"];
+        return ["success" => false, "message" => "E-mail ou senha inválidos!"];
     }
     
     public function saveAvatar($file) {

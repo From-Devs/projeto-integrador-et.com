@@ -1,6 +1,8 @@
 <?php
     require_once __DIR__ . "/../../../public/componentes/CampoInput/camp.php";
     require_once __DIR__ . "/../../Controllers/UserController.php";
+
+    $erro = $_GET["erro"] ?? '';
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +56,12 @@
                     <button class="botaoConfirmar" type="submit" >Confirmar</button>
                                 
                 </div>
+                
+                <?php if ($erro): ?>
+                    <p style="color: red; text-align: left; margin-top: 35px; font-size: 18px">
+                        <?= htmlspecialchars($erro) ?>
+                    </p>
+                <?php endif; ?>
             </form>
 
         </div>
