@@ -76,7 +76,7 @@ $avaliacoes = $produtoController->BuscarAvaliacoesPorProduto($produto['id_produt
 <body>
 <?php 
 echo createHeader($login, $tipoUsuario);
-echo PopUpComImagemETitulo("popUpCarrinho", "../../public/imagens/verificar.png", "100px", "Adicionado ao Carrinho");
+echo PopUpComImagemETitulo("popUpCarrinho", "../../public/imagens/verificar.png", "100px", "Adicionado ao Carrinho!", "", "", "", "300px");
 ?>
 
 <div class="container-detalhes">

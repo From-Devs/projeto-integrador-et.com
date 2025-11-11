@@ -176,6 +176,7 @@ function tabelaPedidosAssociado($pedidos) {
                 <tr>
                     <th id='bordaEsquerda' scope='col'>ID</th>
                     <th id='th2' scope='col'>Nome Cliente</th>
+                    <th id='th2' scope='col'>Nome Produto</th>
                     <th id='th3' scope='col'>Preço</th>
                     <th id='th4' scope='col'>Data</th>
                     <th id='bordaDireita' scope='col'>Status Pagamento</th>
@@ -199,7 +200,8 @@ function tabelaPedidosAssociado($pedidos) {
                         <tr>
                             <td><?= $pedido['id_pedido'] ?></td>
                             <td><?= htmlspecialchars($pedido['nome']) ?></td>
-                            <td>R$ <?= number_format($pedido['precoTotal'], 2, ',', '.') ?></td>
+                            <td><?= htmlspecialchars($pedido['nomeProduto']) ?></td>
+                            <td>R$ <?= number_format($pedido['preco'], 2, ',', '.') ?></td>
                             <td><?= $data ?></td>
                             <td><div id='<?= $statusClass ?>'><p><?= $pedido['statusPagamento'] ?></p></div></td>
                             <td>

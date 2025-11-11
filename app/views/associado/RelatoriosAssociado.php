@@ -9,6 +9,14 @@ require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Asso
 //icone
 require_once __DIR__ . "/../../Controllers/UserController.php";
 session_start();
+
+$tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
+
+if($tipo_usuario != "Associado" || !isset($_SESSION['id_usuario'])){
+    header("Location: /projeto-integrador-et.com/app/views/usuario/Login.php?erro=acesso_negado");
+    exit();
+}
+
 $controller = new UserController();
 $user = $controller->getLoggedUser();
 //fim icone

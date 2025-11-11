@@ -633,11 +633,6 @@
     width: 400px;
 }
 
-.popUp .fecharPopUp .icone-fechar{
-    display: none;
-}
-
-
 .popUp .texto-popUp{
     margin-bottom: 10px;
     flex-wrap: wrap;
