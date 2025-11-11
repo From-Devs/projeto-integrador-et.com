@@ -1,10 +1,14 @@
 <?php
-function renderCardPedido($pedido, $tipo = 'Andamento') {
-    $dataCompra = date('d/m/Y', strtotime($pedido['dataPedido']));
-    $dataEntrega = !empty($pedido['dataEntrega']) ? date('d/m/Y', strtotime($pedido['dataEntrega'])) : '';
+function renderCardPedido($pedido, $tipo = "Andamento") {
+    $dataCompra = !empty($pedido['dataPedido'])
+    ? date('d/m/Y', strtotime($pedido['dataPedido']))
+    : '';
+    $dataEntrega = !empty($pedido['dataEntrega']) 
+    ? date('d/m/Y', strtotime($pedido['dataEntrega'])) 
+    : '';
  
     // Define classes externas que o JS espera
-    $classeCard = $tipo === 'Finalizado'
+    $classeCard = $tipo === 'Concluído'
         ? 'cardProduto-finalizado produtoMP'
         : 'cards-produtoAndamento produtoMP';
  
@@ -17,6 +21,9 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
 ?>
     <div class="<?= $classeCard; ?>"
          data-id="<?= $item['id_produto']; ?>"
+         data-tipo-status="<?= htmlspecialchars($pedido['tipoStatus']);?>"
+         data-data-pedido="<?= $dataCompra;?>"
+         data-data-entrega="<?= $dataEntrega;?>"
          data-pedido-id="<?= $pedido['id_pedido']; ?>"
          data-nome="<?= htmlspecialchars($item['nome']); ?>"
          data-marca="<?= htmlspecialchars($item['marca'] ?? ''); ?>"
@@ -33,10 +40,11 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
          data-horario="<?= htmlspecialchars($pedido['horarioEntrega'] ?? ''); ?>"
          style="position:relative; cursor:pointer;">
  
-        <span class="data-compra"><?= $dataCompra; ?></span>
+       
  
-        <?php if($tipo !== 'Finalizado'): ?>
+        <?php if($tipo !== 'Concluído'): ?>
         <!-- Card em andamento -->
+        <span class="data-compra"><?= $dataCompra; ?></span>
         <div class="cardcoloridoCam" style="border-radius:25px; overflow:hidden; position:relative;">
             <div class="card-info">
                 <div class="card-imagem">
@@ -59,7 +67,7 @@ function renderCardPedido($pedido, $tipo = 'Andamento') {
  
         <?php else: ?>
         <!-- Card finalizado -->
-        <span class="data-entrega" style=""><?= $dataEntrega; ?></span>
+        <span class="data-entrega"><?= $dataEntrega; ?></span>
         <span class="statusProdutoMP">Concluído</span>
         <div class="cardcoloridoFin" style="border-radius:25px; overflow:hidden;">
             <div class="card-info2">
