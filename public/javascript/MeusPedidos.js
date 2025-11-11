@@ -100,66 +100,122 @@ document.addEventListener("DOMContentLoaded", () => {
     // ========================
     // === POPUP CARDS EM ANDAMENTO ===
     // ========================
-    document.querySelectorAll(".cards-produtoAndamento").forEach(card => {
-        card.addEventListener("click", () => {
-            const popupProdutos = document.getElementById("popupMP-Produtos");
-            popupProdutos.innerHTML = "";
-            const nome = card.dataset.nome || '';
-            const quantidade = parseInt(card.dataset.quantidade) || 1;
-            const subtotal = parseFloat(card.dataset.preco) || 0;
-            const imagem = card.querySelector("img")?.src || '';
-            const status = card.dataset.tipoStatus || 'Aguardando Confirmação';
-            const idProduto = card.dataset.id || '';
-            const marca = card.dataset.marca || '';
-            const precoTotal = subtotal * quantidade;
+    // ========================
+    // === POPUP CARDS EM ANDAMENTO (CORRIGIDO) ===
+    // ========================
+    document.querySelectorAll(".cards-produtoAndamento .verMais").forEach(botao => {
+    botao.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const card = botao.closest(".cards-produtoAndamento");
+        if (!card) return;
 
-            const miniCard = document.createElement("div");
-            miniCard.classList.add("cardMini");
-            miniCard.innerHTML = `
-                <div class="card-recolhido">
-                    <div class="cardMini-Superior">
-                        <span class="cardMini-Status">${status}</span>
-                        <span class="cardMini-Quantidade">${quantidade}x</span>
-                    </div>
-                    <div class="cardMini-conteudo">
-                        <img class="cardMini-imagem" src="${imagem}" height="100px">
-                        <div class="cardMini-infos">
-                            <span class="cardMini-Titulo">${nome}</span>
-                            <div class="preco-total">
-                                <span class="cardMini-PrecoTotal">R$ ${precoTotal.toFixed(2).replace('.', ',')}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        // garante que existe o dialog/popup e o container onde vamos inserir
+        const popupDialog = document.getElementById("popupMP");
+        const popupProdutos = document.getElementById("popupMP-Produtos");
+        if (!popupDialog || !popupProdutos) {
+        console.warn("popupMP ou popupMP-Produtos não encontrado no DOM");
+        return;
+        }
 
-                <div class="card-expandido">
-                    <span class="card-titulo">DESCRIÇÃO</span>
-                    <div class="card-linhasuperior"></div>
-                    <a href="/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProduto}">
-                        <img class="cardMini-imagem" src="${imagem}" height="130px">
-                    </a>
-                    <div class="card-linhainferior"></div>
-                    <div class="detalhes-info" style="gap: 10px;">
-                        <span class="detalhes-titulo">${nome} — ${marca}</span>
-                        <span class="detalhes-status">Status: <span style="color: red;">${status}</span></span>
-                        <span class="detalhes-categoria">Categoria: ${card.dataset.categoria || 'Não definida'}</span>
-                        <span class="detalhes-preco" style="margin-bottom: 20px; font-size:12px; font-weight:500;">Preço: R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
-                    </div>
-                    <div style="display: flex; justify-content: center; gap: 10px;">
-                        <button class="comprarNovamenteBtn" data-id="${idProduto}">Comprar Novamente</button>
-                        <button class="cancelarBtn">Cancelar</button>
-                    </div>
-                </div>
-            `;
-            popupProdutos.appendChild(miniCard);
-            document.getElementById("popupMP-Total").innerText = "Total: R$ " + precoTotal.toFixed(2).replace('.', ',');
-            document.getElementById("popupMP").showModal();
+        // se já expandido, recolhe e sai
+        if (card.classList.contains("expandido")) {
+        card.classList.remove("expandido");
+        const ex = card.querySelector(".card-expandido");
+        if (ex) ex.remove();
+        return;
+        }
 
-            miniCard.querySelector(".comprarNovamenteBtn").addEventListener("click", () => {
-                window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${idProduto}`;
-            });
+        // fecha outra expansão ativa (opcional)
+        document.querySelectorAll(".cards-produtoAndamento.expandido").forEach(c => {
+        c.classList.remove("expandido");
+        const ex = c.querySelector(".card-expandido");
+        if (ex) ex.remove();
         });
+
+        card.classList.add("expandido");
+
+        // PARTE IMPORTANTE: parse seguro do data-itens
+        let itens = [];
+        try {
+        itens = JSON.parse(card.dataset.itens || "[]");
+        } catch (err) {
+        console.error("Erro ao fazer JSON.parse(data-itens):", err, card.dataset.itens);
+        itens = [];
+        }
+
+        if (itens.length === 0) {
+        // mostra mensagem leve dentro do popup (evita quebra)
+        popupProdutos.innerHTML = "<div class='mensagem-vazia'>Nenhum item encontrado para este pedido.</div>";
+        popupDialog.showModal();
+        return;
+        }
+
+        // limpa o container antes de inserir
+        popupProdutos.innerHTML = "";
+
+        // Preenche o popup com mini-cards, um por item
+        itens.forEach(item => {
+        // corrige caminho da imagem: se começar com '/' usa direto, senão prefixa
+        let imgSrc = item.imagem || "";
+        if (imgSrc && imgSrc[0] !== "/") imgSrc = "/projeto-integrador-et.com/" + imgSrc;
+
+        const precoTotal = Number(item.preco || 0) * Number(item.quantidade || 1);
+        const miniCard = document.createElement("div");
+        miniCard.className = "cardMini";
+        miniCard.innerHTML = `
+            <div class="card-recolhido">
+            <div class="cardMini-Superior">
+                <span class="cardMini-Status">${card.dataset.tipoStatus || card.dataset.tipoStatus || "Em andamento"}</span>
+                <span class="cardMini-Quantidade">${item.quantidade || 1}x</span>
+            </div>
+            <div class="cardMini-conteudo">
+                <img class="cardMini-imagem" src="${imgSrc}" height="100" onerror="this.src='/projeto-integrador-et.com/imagem-padrao.jpg'">
+                <div class="cardMini-infos">
+                <span class="cardMini-Titulo">${item.nome}</span>
+                <div class="preco-total">
+                    <span class="cardMini-PrecoTotal">R$ ${precoTotal.toFixed(2).replace('.', ',')}</span>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="card-expandido">
+            <span class="card-titulo">DETALHES DO PRODUTO</span>
+            <div class="detalhes-info" style="gap: 10px;">
+                <span class="detalhes-titulo">${item.nome} — ${item.marca || ''}</span>
+                <span class="detalhes-status">Status: <span style="color: red;">${card.dataset.tipoStatus || 'Aguardando'}</span></span>
+                <span class="detalhes-categoria">Categoria: ${item.categoria || 'Não definida'}</span>
+                <span class="detalhes-preco" style="margin-bottom: 10px; font-size:12px; font-weight:500;">
+                Preço Unitário: R$ ${Number(item.preco || 0).toFixed(2).replace('.', ',')}
+                </span>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 10px; margin-top:8px;">
+                <button class="comprarNovamenteBtn" data-id="${item.id_produto}">Comprar Novamente</button>
+                <button class="cancelarBtn">Cancelar</button>
+            </div>
+            </div>
+        `;
+        // actions
+        miniCard.querySelector(".comprarNovamenteBtn").addEventListener("click", () => {
+            const id = miniCard.querySelector(".comprarNovamenteBtn").dataset.id;
+            if (id) window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${id}`;
+        });
+
+        popupProdutos.appendChild(miniCard);
+        });
+
+        // total (tenta usar data-total do card, senão soma)
+        let totalPedido = parseFloat(card.dataset.total || 0);
+        if (!totalPedido) {
+        totalPedido = itens.reduce((acc, it) => acc + (Number(it.preco || 0) * Number(it.quantidade || 0)), 0);
+        }
+        document.getElementById("popupMP-Total").innerText = "Total: R$ " + totalPedido.toFixed(2).replace('.', ',');
+
+        // mostra o dialog
+        popupDialog.showModal();
     });
+    });
+
+
 
     // ========================
     // === POPUP CARDS FINALIZADOS ===
