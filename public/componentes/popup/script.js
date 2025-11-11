@@ -1,14 +1,12 @@
-function abrirPopUp(id, origem = null){
+function abrirPopUp(id){
     console.log("Abriu: ", id);
     const dialogClass = document.getElementsByClassName(id)[0];
     const dialogId = document.getElementById(id);
     if (dialogClass) {
-        origemPopUp = origem;
         dialogClass.showModal();
     }
 
     if(dialogId){
-      origemPopUp = origem;
       dialogId.showModal();
     }
 }

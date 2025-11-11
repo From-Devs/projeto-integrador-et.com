@@ -95,7 +95,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/hinode.png" alt="">
                     </div>
     
-                    <button id="botaoPadrao" class="btn btn-black" style="width: 161px; height:33px; font-size: 15px;">Salvar alterações</button>
+                    <button type="submit" id="botaoPadrao" class="btn btn-black" style="width: 161px; height:33px; font-size: 15px;">Salvar alterações</button>
                 </div>
 
                 <div class="editProdutoContainer">
@@ -106,7 +106,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <div class="nomeProduto">
                                 <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
                             </div>
-                            <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\", \"editLancamento\")", "115px", "33px", "15px")?>
+                            <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 115px; height:33px; font-size: 15px; " onclick="abrirPopUp(&quot;popUpSelectProduto&quot;, &quot;editLancamento&quot;)">Trocar</button>
                         </div>
                     </div>
 
@@ -215,7 +215,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <div class="nomeProduto">
                                     <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
                                 </div>
-                                <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\", \"editProduto\")", "115px", "33px", "15px")?>
+                                <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 115px; height:33px; font-size: 15px; " onclick="abrirPopUp(&quot;popUpSelectProduto&quot;, &quot;editProduto&quot;)">Trocar</button>
                             </div>
                         </div>
         
@@ -274,7 +274,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                     
                     </div>
 
-                    <button class="btn btn-black salvarAlteracoesLancamento" onclick="abrirPopUp()">Salvar alterações</button>
+                    <button type="submit" class="btn btn-black salvarAlteracoesLancamento" onclick="abrirPopUp()">Salvar alterações</button>
 
                 </form>
                
