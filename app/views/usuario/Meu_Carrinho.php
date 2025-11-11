@@ -121,9 +121,9 @@
                         <td class='cor2'>R$ <?= number_format($item['precoCalculado'], 2, ',', '.') ?></td>
                         <td class='quantityColumn'>
                             <div class='quantity-container'>
-                                <button type='button' class='quant-btn' onclick='decrementQuantity(<?= $index ?>)'>-</button>
-                                <input type='number' name='quantidade[<?= $index ?>]' value='<?= (int)$item['quantidade'] ?>' min='1' class='quant'>
-                                <button type='button' class='quant-btn' onclick='incrementQuantity(<?= $index ?>)'>+</button>
+                                <button type='button' class='quant-btn' onclick='decrementQuantity(<?= $item['id_prodCarrinho'] ?>)'>-</button>
+                                <input type='number' name='quantidade[<?= $item['id_prodCarrinho'] ?>]' value='<?= (int)$item['quantidade'] ?>' min='1' class='quant'>
+                                <button type='button' class='quant-btn' onclick='incrementQuantity(<?= $item['id_prodCarrinho'] ?>)'>+</button>
                             </div>
                         </td>
                         <td class='cor2' id='subtotal-item-<?= $index ?>'>R$ <?= number_format($item['subtotal'], 2, ',', '.') ?></td>
@@ -229,22 +229,22 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // ✅ Torna funções globais para o HTML poder chamá-las
-    window.incrementQuantity = function(index) {
-        const input = document.querySelector(`input[name='quantidade[${index}]']`);
+    window.incrementQuantity = function(prodId) {
+        const input = document.querySelector(`input[name='quantidade[${prodId}]']`);
         if (input) {
             input.value = parseInt(input.value) + 1;
             calcularTotal();
         }
     };
 
-    window.decrementQuantity = function(index) {
-        const input = document.querySelector(`input[name='quantidade[${index}]']`);
+    window.decrementQuantity = function(prodId) {
+        const input = document.querySelector(`input[name='quantidade[${prodId}]']`);
         if (input && input.value > 1) {
             input.value = parseInt(input.value) - 1;
             calcularTotal();
         }
     };
+
 
     // Atualiza total inicial e quando digita manualmente
     calcularTotal();
