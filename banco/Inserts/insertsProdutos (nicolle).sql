@@ -2042,10 +2042,10 @@ Aqua / water / eau, bambusa arundinacea stem powder, glycolic acid, glycerin, co
 --#endregion
 
 
---#region 
+--#region Sabonete Líquido Esfoliante para o Corpo Ekos Maracujá (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(67,'#F0BE0F','#FFD642','#FBE79D');
+(67,'#D3A603','#F0BE0F','#FFDE66');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2078,10 +2078,10 @@ Ingredientes:
 --#endregion
 
 
---#region 
+--#region Polpa Esfoliante para o Corpo Ekos Castanha (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(68,'#BF734F','#CF8868','#ED9C78');
+(68,'#B05C36','#BF734F','#DD9573');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2112,10 +2112,10 @@ SUCROSE, DICAPRYLYL ETHER, ELAEIS GUINEENSIS OIL, HELIANTHUS ANNUUS SEED OIL, RI
 --#endregion
 
 
---#region 
+--#region Sabonete em Barra Puro Vegetal Esfoliante Ekos (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(69,'#764C8B','#9A63B5','#C37DE6');
+(69,'#6F4285','#764C8B','#9971AD');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2144,14 +2144,14 @@ Deslize o sabonete em barra de Natura Ekos por todo o corpo até formar espuma, 
 
 Ingredientes:
 INGREDIENTES/ INGREDIENTES (PORTUGUÊS): SODIUM PALMITATE/ PALMITATO DE SÓDIO, SODIUM OLEATE/ OLEATO DE SÓDIO, AQUA/ ÁGUA, GLYCERIN/ GLICEROL, SODIUM LINOLEATE/ LINOLEATO DE SÓDIO, SODIUM LAURATE/ LAURATO DE SÓDIO, SODIUM STEARATE/ ESTEARATO DE SÓDIO, ZEA MAYS STARCH/ AMIDO, SODIUM MYRISTATE/ MIRISTATO DE SÓDIO, PARFUM/ PERFUME, MYRISTIC ACID/ ÁCIDO MIRÍSTICO, CARAPA GUAIANENSIS SEED OIL/ ÓLEO DE SEMENTE DE ANDIROBA, SODIUM CAPRYLATE/ CAPRILATO DE SÓDIO, LINUM USITATISSIMUM SEED POWDER/ SEMENTE DE LINHAÇA EM PÓ, SODIUM CAPRATE/ CAPRATO DE SÓDIO, SODIUM ARACHIDATE/ ARAQUIDATO DE SÓDIO, SODIUM CHLORIDE/ CLORETO DE SÓDIO, TITANIUM DIOXIDE/ DIÓXIDO DE TITÂNIO, ETIDRONIC ACID/ ÁCIDO ETIDRÔNICO, BENZYL ALCOHOL/ ÁLCOOL BENZÍLICO, COUMARIN/ CUMARINA, CITRIC ACID/ ÁCIDO CÍTRICO, LIMONENE/ LIMONENO, POLYQUATERNIUM-39/ POLIQUATÉRNIO-39, TETRASODIUM EDTA/ EDETATO DE SÓDIO, HEXYL CINNAMAL/ HEXIL CINAMAL, EUGENOL, CINNAMYL ALCOHOL/ ÁLCOOL CINAMÍLICO, CI 77492/ ÓXIDO DE FERRO AMARELO, SODIUM BENZOATE/ BENZOATO DE SÓDIO.',
-44.40,34.00,1,84,'sabonetes-barra-ekos-natura-1.png', 'sabonetes-barra-ekos-natura-2.jpg', 'sabonetes-barra-ekos-natura-3.jpg',26,69,);
+44.40,null,0,84,'sabonetes-barra-ekos-natura-1.png', 'sabonetes-barra-ekos-natura-2.jpg', 'sabonetes-barra-ekos-natura-3.jpg',26,69,);
 --#endregion
 
 
---#region 
+--#region Esfoliante Térmico Ekos Andiroba (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(70,'#75803C','#A3B354','#D9ED6F');
+(70,'#6A762D','#75803C','#ADB96E');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2323,10 +2323,10 @@ Aplique o produto com movimentos leves de “vai e vem” nas áreas em que dese
 --#endregion 
 
 
---#region 
+--#region Esmalte Cremoso Nude (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(77,'#BB5767','#DE677A','#FF778C');
+(77,'#BB5767','#DE677A','#F59EAC');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2347,11 +2347,11 @@ Vale destacar que não recomendamos o uso para o público infantil e, em casos d
 
 Modo de Usar:
 Indicamos iniciar o processo de esmaltação com o uso de uma de uma de nossas bases da linha de Cuidados. Logo após aplicar duas camadas de cor do seu Colorama Cremeoso preferido! Para finalizar, você pode optar por uma secagem rápida com o nosso Oléo Secante ou, se preferir, realçar ainda mais sua cor, use o nosso famoso "roxinho", a Cobertura Intensificadora da Cor',
-7.29,6.64,1,102,'esmalte-colorama-nude-1.png', 'esmalte-colorama-nude-2.png', 'esmalte-colorama-nude-3.jpg',21,77,)
+6.64,null,0,102,'esmalte-colorama-nude-1.png', 'esmalte-colorama-nude-2.png', 'esmalte-colorama-nude-3.jpg',21,77,)
 --#endregion 
 
 
---#region 
+--#region Cera Nutritiva de Unha Granado (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (78,'#FF3376','#FF5084','#FF719B');
@@ -2372,10 +2372,10 @@ Cuidado das Cutículas',
 --#endregion 
 
 
---#region  
+--#region  Esmalte Cremoso Meia Seda (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(79,'#BF6F7C','#BF808A','#D49AA5');
+(79,'#A6646F','#BF808A','#E7B1BA');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2401,10 +2401,10 @@ Modo de Usar:
 --#endregion
 
 
---#region  
+--#region  Esmalte Cremoso Worth a Pretty Penne (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(80,'#BD796B','#BD897D','#BD968E');
+(80,'#AF685A','#BD796B','#E2A497');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2426,7 +2426,7 @@ Modo de Usar:
 Precauções:
 Produto Inflamável. Mantenha fora do alcance de crianças.
 ',
-49.90,33.69,1,73,'opi-esmalte-naillacquer-1.png', 'opi-esmalte-naillacquer-2.jpg', 'opi-esmalte-naillacquer-3.jpg',21,80,)
+33.69,null,0,73,'opi-esmalte-naillacquer-1.png', 'opi-esmalte-naillacquer-2.jpg', 'opi-esmalte-naillacquer-3.jpg',21,80,)
 --#endregion
 
 
@@ -2619,10 +2619,10 @@ Como Usar:
 --#endregion
 
 
---#region 
+--#region Protetor Solar Corporal FPS 50 (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(89,'#F1D33B','#F1D853','#F1DC7A');
+(89,'#FBC532','#FFDA1F','#FFE45C');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
