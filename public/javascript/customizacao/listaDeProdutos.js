@@ -137,6 +137,9 @@ function preencherPopUpEditLancamento(produto) {
     const textoProdutoLancamento = cardProdutoLancamento.querySelector('.textoCardLancamento');
     const precoProdutoLancamento = cardProdutoLancamento.querySelector('.CardLancamentoPreco');
     const imgEl = document.querySelector('.popUpEditProdutoLancamento .imagemItemSelecionada img');
+    const imgSeletor1 = document.querySelector('.popUpEditProdutoLancamento .imagemItem #img1ProdutoLancamento');
+    const imgSeletor2 = document.querySelector('.popUpEditProdutoLancamento .imagemItem #img2ProdutoLancamento');
+    const imgSeletor3 = document.querySelector('.popUpEditProdutoLancamento .imagemItem #img3ProdutoLancamento');
 
     console.log(cardProdutoLancamento)
 
@@ -147,7 +150,36 @@ function preencherPopUpEditLancamento(produto) {
         corEl.value = produto.hex1 || '#ffffff'
         corEl.dispatchEvent(new Event("input", { bubbles: true }));
     };
-    // if (imgEl && produto.img2) imgEl.src = `/projeto-integrador-et.com/${produto.img1}`;
+    if (imgSeletor1){
+        if (produto.img1){
+            if(imgSeletor1.parentNode.classList.contains("imagemVazia")){
+                imgSeletor1.parentNode.classList.remove("imagemVazia");
+            }
+            imgSeletor1.src = `/projeto-integrador-et.com/${produto.img1}`;
+        }else{
+            imgSeletor1.parentNode.classList.add("imagemVazia")
+        }
+    }  
+    if (imgSeletor2){
+        if (produto.img2){
+            if(imgSeletor2.parentNode.classList.contains("imagemVazia")){
+                imgSeletor2.parentNode.classList.remove("imagemVazia");
+            }
+            imgSeletor2.src = `/projeto-integrador-et.com/${produto.img2}`;
+        }else{
+            imgSeletor2.parentNode.classList.add("imagemVazia")
+        }
+    }  
+    if (imgSeletor3){
+        if (produto.img3){
+            if(imgSeletor3.parentNode.classList.contains("imagemVazia")){
+                imgSeletor3.parentNode.classList.remove("imagemVazia");
+            }
+            imgSeletor3.src = `/projeto-integrador-et.com/${produto.img3}`;
+        }else{
+            imgSeletor3.parentNode.classList.add("imagemVazia")
+        }
+    }  
 }
 
 function preencherProdutoDestaque(produto) {

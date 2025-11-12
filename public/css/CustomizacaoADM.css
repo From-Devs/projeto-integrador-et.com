@@ -656,14 +656,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+
+.imgProdutoLancamento{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .imagemItem .imagemItemWarning{
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
 }
 
 .imagemItemWarning p{
@@ -676,7 +682,7 @@ body{
 }
 
 .imagemContainer .imagemSelecionada{
-    border: 5px dashed black;
+    border: 5px dashed black ;
 }
 
 .imagemContainer .imagemVazia{
@@ -684,7 +690,11 @@ body{
 }
 
 .imagemVazia .imagemItemWarning{
-    visibility: visible;
+    display: flex;
+}
+
+.imagemVazia .imgProdutoLancamento{
+    display: none;
 }
 
 .editProdutoLancamentoContainer{

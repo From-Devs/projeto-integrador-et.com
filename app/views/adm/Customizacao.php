@@ -245,19 +245,22 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     
                                 <div class="imagemContainer">
                                     <div class="imagemItem imagemSelecionada">
+                                        <img class="imgProdutoLancamento" id="img1ProdutoLancamento" src="" alt="">
                                         <div class="imagemItemWarning">
                                             <i class="fa-solid fa-circle-minus"></i>
                                             <p>Vazio</p>
                                         </div>
                                     </div>
                                     <div class="imagemItem">
-                                    <div class="imagemItemWarning">
+                                        <img class="imgProdutoLancamento" id="img2ProdutoLancamento" src="" alt="">
+                                        <div class="imagemItemWarning">
                                             <i class="fa-solid fa-circle-minus"></i>
                                             <p>Vazio</p>
                                         </div>
                                     </div>
                                     <div class="imagemItem imagemVazia">
-                                    <div class="imagemItemWarning">
+                                        <img class="imgProdutoLancamento" id="img3ProdutoLancamento" src="" alt="">
+                                        <div class="imagemItemWarning">
                                             <i class="fa-solid fa-circle-minus"></i>
                                             <p>Vazio</p>
                                         </div>
