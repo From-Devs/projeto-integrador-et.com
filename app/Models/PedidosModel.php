@@ -10,18 +10,21 @@ class PedidosModel{
         $this->conn = $db->Connect();
     }
 
-    public function BuscarTodosPedidos($ordem="", $pesquisa=""){
+    public function BuscarTodosPedidos($ordem="Data", $pesquisa=""){
         try {    
             $sqlPedidos = "SELECT P.id_pedido, 
             U.nome,
             P.precoTotal,
             P.dataPedido,
+            S.tipoStatus statusEntrega,
             SP.tipoStatus statusPagamento
             FROM Pedido P
             JOIN usuario U
                 ON P.id_usuario = U.id_usuario
             JOIN statusPagamento SP
-                ON P.id_status_pagamento = SP.id_status_pagamento";
+                ON P.id_status_pagamento = SP.id_status_pagamento
+            JOIN status S
+                ON P.id_status = S.id_status";
             $params = [];
     
             if (!empty($pesquisa)) {
@@ -33,7 +36,7 @@ class PedidosModel{
                 switch ($ordem) {
                     case 'ID': $ordemSql = "P.id_pedido"; break;
                     case 'Preço': $ordemSql = "precoTotal"; break;
-                    case 'Data': $ordemSql = "dataPedido"; break;
+                    case 'Data': $ordemSql = "dataPedido DESC"; break;
                     case 'Status': $ordemSql = "SP.id_status_pagamento"; break;
                     default: $ordemSql = "P.id_pedido";
                 }
@@ -65,20 +68,22 @@ class PedidosModel{
 
     public function BuscarTodosPedidosAssociado($ordem="", $pesquisa="", $idAssociado){
         try {    
-            $sqlPedidos = "SELECT DISTINCT P.id_pedido, 
-            U.nome,
-            P.precoTotal,
-            P.dataPedido,
-            SP.tipoStatus statusPagamento,
-            S.tipoStatus statusEntrega
-            FROM Pedido P
-            JOIN usuario U
-                ON P.id_usuario = U.id_usuario
-            LEFT JOIN statusPagamento SP
-                ON P.id_status_pagamento = SP.id_status_pagamento
-            LEFT JOIN status S
-                ON P.id_status = S.id_status
-            WHERE U.id_usuario = :idAssociado";
+            $sqlPedidos = "SELECT distinct
+				u.nome,
+				prod.nome as nomeProduto,
+                ped.id_pedido,
+                prod.preco,
+                ped.dataPedido,
+                prod.id_associado,
+                S.tipoStatus as statusEntrega,
+	            SP.tipoStatus as statusPagamento
+            FROM pedido ped
+            JOIN produtopedido pp ON pp.id_pedido = ped.id_pedido
+            JOIN produto prod ON prod.id_produto = pp.id_produto
+            join usuario u on U.id_usuario = ped.id_usuario 
+            left JOIN statusPagamento SP ON ped.id_status_pagamento = SP.id_status_pagamento
+            left JOIN status S ON ped.id_status = S.id_status
+            WHERE prod.id_associado = :idAssociado";
             $params = [];
     
             if (!empty($pesquisa)) {
@@ -90,7 +95,7 @@ class PedidosModel{
                 switch ($ordem) {
                     case 'ID': $ordemSql = "P.id_pedido"; break;
                     case 'Preço': $ordemSql = "precoTotal"; break;
-                    case 'Data': $ordemSql = "dataPedido"; break;
+                    case 'Data': $ordemSql = "dataPedido DESC"; break;
                     case 'Status': $ordemSql = "SP.id_status_pagamento"; break;
                     default: $ordemSql = "P.id_pedido";
                 }

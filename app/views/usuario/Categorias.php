@@ -11,6 +11,8 @@
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
     session_start();
     
+    $parametrosExtras = [];
+    
     // CORREÇÃO CRÍTICA: Inicializa o Model de Categoria para uso na View
     require_once __DIR__ . "/../../Models/Categoria.php";
     $categoriaModel = new Categoria(); 
@@ -229,10 +231,30 @@
                             );
                         } // FIM DO LOOP ÚNICO DE CRIAÇÃO DE CARDS
                     }
-                    // --- FIM CÓDIGO DE BUSCA ---
 
-                    // A PARTIR DAQUI, O CÓDIGO DE PAGINAÇÃO ESTÁ CORRETO
-                    $resultado = paginar($produtos, 16);
+                    $resultado = paginarMaisDeUmaQueryString($produtos, 16);
+
+                    //Parametros para a queryString
+                        $parametrosExtras = [];
+                        if (!empty($_GET['tela'])) {
+                            $parametrosExtras[] = 'tela=' . urlencode($_GET['tela']);
+                        }
+                        if (!empty($_GET['sub'])) {
+                            $subs = $_GET['sub'];
+                            if (!is_array($subs)) $subs = [$subs];
+                            foreach ($subs as $s) {
+                                $parametrosExtras[] = 'sub[]=' . urlencode($s);
+                            }
+                        }
+                        if (!empty($_GET['cat'])) {
+                            $cats = $_GET['cat'];
+                            if (!is_array($cats)) $cats = [$cats];
+                            foreach ($cats as $c) {
+                                $parametrosExtras[] = 'cat[]=' . urlencode($c);
+                            }
+                        }
+
+                        $parametrosExtrasString = implode('&', $parametrosExtras);
 
                     foreach ($resultado['dados'] as $produto) {
                         echo $produto;
@@ -241,7 +263,7 @@
             </div>
 
             <?php
-            renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
+                renderPaginacaoMaisDeUmaQueryString($resultado['paginaAtual'], $resultado['totalPaginas'], $parametrosExtrasString);
             ?>
             
         </div>

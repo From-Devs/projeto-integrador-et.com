@@ -5,14 +5,18 @@ document.getElementsByClassName("campos-cadastrar")[0].addEventListener("submit"
     const popUpSucesso = document.getElementsByClassName("popUpCadastro")[0];
 
     const vlTamanho = this.querySelector('input[name="valorTamanho"]').value;
-    const tipoTamanho = this.querySelector('select[name="tipoTamanho"]').value;
-    const tamanhoFinal = vlTamanho + " " + tipoTamanho;
+    let tamanhoFinal = null;
+    if (vlTamanho !== "" && vlTamanho !== null) {
+        const tipoTamanho = this.querySelector('select[name="tipoTamanho"]').value;
+        tamanhoFinal = vlTamanho + " " + tipoTamanho;
+    }
 
     let formData = new FormData(this);
     formData.delete("valorTamanho");
     formData.delete("tipoTamanho");
-    formData.append("tamanho", tamanhoFinal);
-    console.log(...formData);
+    if (tamanhoFinal !== null) {
+        formData.append("tamanho", tamanhoFinal);
+    }
 
     fetch("/projeto-integrador-et.com/router/ProdutoRouter.php?acao=CadastrarProduto", {
         method: "POST",
@@ -24,15 +28,22 @@ document.getElementsByClassName("campos-cadastrar")[0].addEventListener("submit"
     })
     .then(res => res.json()) 
     .then(data => {
-        if (data.sucesso) {
+        if (data && data.ok) {
             abrirPopUp("popUpCadastro");
-            popUpCadastrar.close();
+            if (popUpCadastrar && typeof popUpCadastrar.close === 'function') popUpCadastrar.close();
 
-            // Recarrega a página ao cadastrar
-            popUpSucesso.addEventListener("close", function(){
+            if (popUpSucesso) {
+                popUpSucesso.addEventListener("close", function(){
+                    window.location.reload();
+                }, { once: true });
+            } else {
                 window.location.reload();
-            })
+            }
         } else {
+            if (data && data.msg) {
+                const pop = document.querySelector('.popUpErro .mensagem') || document.querySelector('.popUpErro');
+                if (pop) pop.textContent = data.msg;
+            }
             abrirPopUp("popUpErro");
         }
     })
@@ -111,13 +122,19 @@ document.getElementsByClassName("campos-editar")[0].addEventListener("submit", f
     e.preventDefault();
 
     const vlTamanho = this.querySelector('input[name="valorTamanho"]').value;
-    const tipoTamanho = this.querySelector('select[name="tipoTamanho"]').value;
-    const tamanhoFinal = vlTamanho + " " + tipoTamanho;
+    let tamanhoFinal = null;
+    if (vlTamanho !== "" && vlTamanho !== null) {
+        const tipoTamanho = this.querySelector('select[name="tipoTamanho"]').value;
+        tamanhoFinal = vlTamanho + " " + tipoTamanho;
+    }
 
     let formData = new FormData(this);
     formData.delete("valorTamanho");
     formData.delete("tipoTamanho");
-    formData.append("tamanho", tamanhoFinal);
+    // Only send the tamanho field if it has a real value; omit it when null so backend can treat as NULL
+    if (tamanhoFinal !== null) {
+        formData.append("tamanho", tamanhoFinal);
+    }
     console.log(...formData);
     
     if(formData.get("fgPromocao") === null){
@@ -135,7 +152,7 @@ document.getElementsByClassName("campos-editar")[0].addEventListener("submit", f
     .then(res => res.json())
     .then(data => {
         console.log(data);
-        if (data.sucesso) {
+        if (data && data.ok) {
             abrirPopUp("popUpSalvar");
             // Recarrega a página ao fechar o popUpSalvar
             const popUpSalvar = document.getElementsByClassName("popUpSalvar")[0];
@@ -147,6 +164,11 @@ document.getElementsByClassName("campos-editar")[0].addEventListener("submit", f
                 window.location.reload();
             }
         } else {
+            // mostra mensagem de erro retornada pelo servidor, se houver
+            if (data && data.msg) {
+                const pop = document.querySelector('.popUpErro .texto-popUp') || document.querySelector('.popUpErro');
+                if (pop) pop.textContent = data.msg;
+            }
             abrirPopUp("popUpErro");
         }
     })

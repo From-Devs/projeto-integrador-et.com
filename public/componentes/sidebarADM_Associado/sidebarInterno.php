@@ -46,13 +46,7 @@ require_once __DIR__ . "/../botao/botao.php";
                 <li class='nav-item " . ($paginaAtual == 'PedidosAssociado.php' ? 'active' : '') . "'>
                     <a href='/projeto-integrador-et.com/app/views/associado/PedidosAssociado.php' class='nav-link'>
                         <span class='bx bx-money-withdraw'></span>
-                        <span class='button_name'>Pedidos</span>
-                    </a>
-                </li>
-                <li class='nav-item " . ($paginaAtual == 'HistoricoDeVendasAssociado.php' ? 'active' : '') . "'>
-                    <a href='/projeto-integrador-et.com/app/views/associado/HistoricoDeVendasAssociado.php' class='nav-link'>
-                        <span class='fa fa-clock'></span>
-                        <span class='button_name'>Histórico de Vendas</span>
+                        <span class='button_name'>Vendas</span>
                     </a>
                 </li>
                 <li class='nav-item " . ($paginaAtual == 'RelatoriosAssociado.php' ? 'active' : '') . "'>

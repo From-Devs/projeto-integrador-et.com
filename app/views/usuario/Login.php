@@ -1,9 +1,15 @@
 <?php
+    session_start();
     require __DIR__ . "/../../../public/componentes/popup/popUp.php";
+    require __DIR__ . "/../../Controllers/UserController.php";
 
     if(isset($_GET['erro']) && $_GET['erro'] === 'acesso_negado'){
         echo popUpCurto("popUpErro", "Acesso negado! Você precisa estar logado para acessar a página de associado.", "red", "white");
     }
+
+$erro = $_GET["erro"] ?? '';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -50,15 +56,16 @@
 
             <form class="formContainer" id="formContainer" method="POST" action="../../../router/UserRoutes.php?acao=login">
                 <div class="email-input">
-                    <input type="text" name="email" class="input" id="email" required>
-                    <label for="email">Email</label>
+                    <input type="text" name="email" class="input <?= !empty($erro) ? 'input-erro' :  '' ?>" id="email" required>
+                    <label for="email" class="<?= !empty($erro) ? 'label-erro' :  '' ?>">Email</label>
                 </div>
                 <div class="senha-input">
-                    <input type="password" name="senha" class="input" id="senha" required>
-                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" class="input <?= !empty($erro) ? 'input-erro' :  '' ?>" id="senha" required>
+                    <label for="senha" class="<?= !empty($erro) ? 'label-erro' :  '' ?>">Senha</label>
                 </div>
                 <button type="button" id='esqueciSenha' onClick='abrirPopUp("popUpRecuperarSenha")'>Esqueceu a senha?</button>
             </form>
+
             <button id="botaoEntrar" type="submit" form="formContainer">Entrar</button>
             <div id="cadastro">
                 <p>Novo na ET?</p>

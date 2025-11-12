@@ -9,12 +9,12 @@ const marcador3 = document.getElementById("markerThree");
 const swapDegrade = document.getElementById("swapDegrade");
 
 function atualizarCor(){
-    corDegrade1.childNodes[3].value = corDegrade1.childNodes[1].value
-    corDegrade1.childNodes[1].value = corDegrade1.childNodes[3].value
-    corDegrade2.childNodes[3].value = corDegrade2.childNodes[1].value
-    corDegrade2.childNodes[1].value = corDegrade2.childNodes[3].value
-    corDegrade3.childNodes[3].value = corDegrade3.childNodes[1].value
-    corDegrade3.childNodes[1].value = corDegrade3.childNodes[3].value
+    corDegrade1.childNodes[3].value = corDegrade1.childNodes[1].value.toUpperCase()
+    corDegrade1.childNodes[1].value = corDegrade1.childNodes[3].value.toUpperCase()
+    corDegrade2.childNodes[3].value = corDegrade2.childNodes[1].value.toUpperCase()
+    corDegrade2.childNodes[1].value = corDegrade2.childNodes[3].value.toUpperCase()
+    corDegrade3.childNodes[3].value = corDegrade3.childNodes[1].value.toUpperCase()
+    corDegrade3.childNodes[1].value = corDegrade3.childNodes[3].value.toUpperCase()
 }
 
 

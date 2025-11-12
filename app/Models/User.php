@@ -37,6 +37,14 @@ class User {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function emailExists($email) {
+        $sql = "SELECT COUNT(*) FROM usuario where email = :email";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
+    }
+
     public function cpfExists($cpf) {
         $sql = "SELECT COUNT(*) FROM usuario WHERE cpf = :cpf";
         $stmt = $this->conn->prepare($sql);
@@ -47,6 +55,10 @@ class User {
     
     public function create($data) {
         try {
+            if ($this->emailExists($data['email'])) {
+                return ["success" => false, "erro" => "E-mail já cadastrado"];
+            }
+
             if ($this->cpfExists($data['cpf'])) {
                 return ["success" => false, "message" => "CPF já cadastrado"];
             }

@@ -170,6 +170,7 @@
     align-items: center;
     padding: 0 15px;
     grid-area: img;
+    cursor: pointer;
 }
 
 .cardColorido .cardImg img{
@@ -349,6 +350,7 @@
     border: none;
     background-color: transparent;
     font-size: 30px;
+    cursor: pointer;
 }
 
     /*RESPONSIVIDADE GERAL*/
@@ -630,11 +632,6 @@
     display: flex;
     width: 400px;
 }
-
-.popUp .fecharPopUp .icone-fechar{
-    display: none;
-}
-
 
 .popUp .texto-popUp{
     margin-bottom: 10px;
