@@ -35,7 +35,7 @@
                     <p class= "p2">PREENCHIMENTO OBRIGATÓRIO</p>
                 </div>
                 <div class="id">
-                    <?php echo Camp("Nome Completo", "text", "nome") ?>
+                    <?php echo Camp("Nome Completo", "text", "nome")?>
                     <?php echo Camp("Email", "email", "email") ?>
                     <?php echo Camp("Data de Nascimento", "date", "data_nascimento") ?>
                     <?php echo Camp("Telefone", "text", "telefone") ?>
