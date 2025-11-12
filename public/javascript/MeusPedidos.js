@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-    // ========================
-    // === CORES DINÂMICAS ===
-    // ========================
+    
     document.querySelectorAll('.cards-produtoAndamento, .cardProduto-finalizado').forEach(card => {
         const cores =[
             ["#FAD0C4", "#FFD1FF"],  
