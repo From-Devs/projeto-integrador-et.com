@@ -1,9 +1,15 @@
 <?php
+    session_start();
     require __DIR__ . "/../../../public/componentes/popup/popUp.php";
+    require __DIR__ . "/../../Controllers/UserController.php";
 
     if(isset($_GET['erro']) && $_GET['erro'] === 'acesso_negado'){
         echo popUpCurto("popUpErro", "Acesso negado! Você precisa estar logado para acessar a página de associado.", "red", "white");
     }
+
+$erro = $_GET["erro"] ?? '';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -59,6 +65,7 @@
                 </div>
                 <button type="button" id='esqueciSenha' onClick='abrirPopUp("popUpRecuperarSenha")'>Esqueceu a senha?</button>
             </form>
+
             <button id="botaoEntrar" type="submit" form="formContainer">Entrar</button>
             <div id="cadastro">
                 <p>Novo na ET?</p>
@@ -68,6 +75,12 @@
                 <i class='fas fa-chevron-left'></i>
                 <p id="voltar" href="./paginaPrincipal.php">Voltar</p>          
             </button> 
+
+            <?php if ($erro): ?>
+                <p style="color: red; text-align: left; margin-top: 35px; font-size: 18px">
+                    <?= htmlspecialchars($erro) ?>
+                </p>
+            <?php endif; ?>
         </div>
         <section>
             <div class='wave solida'></div>
