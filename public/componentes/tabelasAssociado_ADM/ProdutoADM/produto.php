@@ -98,12 +98,12 @@ function tabelaProduto($produtos) {
                 <tbody>
                     <?php foreach ($produtos as $produto): ?>
                         <tr>
-                            <td><?= $produto['id'] ?></td>
-                            <td><?= htmlspecialchars($produto['nome']) ?></td>
-                            <td>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></td>
-                            <td>R$ <?= number_format($produto['precoPromocional'], 2, ',', '.') ?></td>
-                            <td><?= $produto['qtdEstoque']?></td>
-                            <td>
+                            <td data-label="ID"><?= $produto['id'] ?></td>
+                            <td data-label="Produto"><?= htmlspecialchars($produto['nome']) ?></td>
+                            <td data-label="Preço">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></td>
+                            <td data-label="Preço Promocional">R$ <?= number_format($produto['precoPromocional'], 2, ',', '.') ?></td>
+                            <td data-label="Qtd. Estoque"><?= $produto['qtdEstoque']?></td>
+                            <td data-label="Ações">
                                 <div class="acoes-tabela">
                                     <?php
 

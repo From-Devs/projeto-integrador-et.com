@@ -1,31 +1,33 @@
 @import url(styles.css);
 @import url(./../componentes/tabelasAssociado_ADM/AssociadosADM/associados.css);
 
-* {
+*
+{
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
 }
 
-body {
+body
+{
     display: flex;
     margin: 0%;
     padding: 0%;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
     background-color: #F8F8F8;
 }
 
-a {
+a
+{
     text-decoration: none;
 }
 
 /* PARTE DA DIREITA CONTAINER GERAL */
 
-.logo {
-    padding-bottom: 4px;
+.main{
+    margin-left: 287px;
 }
 
-#container {
+#container
+{
     gap: 15px;
     padding-left: 60px;
     box-sizing: border-box;
@@ -35,76 +37,250 @@ a {
     flex-direction: column;
 }
 
-.main {
-    margin-left: 287px;
+.logo{
+    padding-bottom: 4px;
 }
 
-/* filtragem e pesquisa */
+.td-lista-associados{
+    display: flex; 
+    justify-content: center; 
+    height: 80px; 
+    padding: 0px;
+    margin: 3px;
+}
 
-#botaoAssociados, #botaoSolicitacao {
-    display: flex;
-    border: none;
-    justify-content: center;
+.btn-lista-associados{
+    cursor: pointer;
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
     align-items: center;
     gap: 5px;
-    background-color: #3449B6;
-    color: white;
-    border-radius: 15px;
-    width: 205px;
-    height: 55px;
-    font-size: 18px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-#lista {
-    margin-top: 15px;
-}
-
-#tituloH1 {
-    font-size: 36px;
-}
-
-.textarea-popUp textarea {
-    width: 400px;
-    height: 150px;
     padding: 5px;
-    border-radius: 10px;
-    resize: none;
+}
+
+.dialog-editar, .dialog-produto-associados{
+    border: none;
+    border-radius: 20px;
+    font-family: "Montserrat", sans-serif;
+    animation: fadein 0.5s ease-in-out forwards;
+    background-color: #f4f7ff;
+    padding: 10px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dialog-editar::backdrop, .dialog-produto-associados::backdrop{
+    background-color: rgba(121, 121, 121, 0.5);
+}
+
+.header-editar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    height: 60px; 
+    margin-bottom: 20px;
+    gap: 10px;
+    padding: 10px;
+}
+
+#containerProduto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+.header-editar img{
+    width: 25px;
+    cursor: pointer;
+}
+
+#avatarPreview{
+    width: 60px;
+    border-radius: 50%;
+}
+
+#descricaoBreve{
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.473);
+}
+
+.campos-editar{
+    display: grid; 
+    grid-template-rows: 1fr 1fr; grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.campo-small{
+    width: 400px;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label{
     font-weight: 500;
 }
 
+.campo input, .campo select, .campo textarea, .imagens-produto{
+    width: 100%;
+    padding: 7px;
+    border-radius: 8px;
+    font-weight: 500;
+    resize: none;
+    border: none;
+    box-shadow: 2px 2px 3px 1px #0000007a;
+}
+
+.imagens-produto{
+    width: 250px;
+    height: 150px;
+    background-color: white;
+}
+
+.campo-large{
+    height: 100%;
+}
+
+.campo-large textarea{
+    width: 500px;
+    height: 100%;
+}
+
+.divisao-esquerda{
+    display: flex;
+    gap: 20px;
+}
+
+.campos-direita{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.imagens-produto{
+    border-radius: 10px;
+}
+
+.cores-produto input{
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.imagens-produto{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    gap: 5px;
+}
+
+.imagens-produto img{
+    width: 100%;
+}
+
+.div-btn{
+    place-self: end;
+}
+
+.btn-concluir-edicao{
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #00D3AD;
+    color: white;
+}
+
+#tituloH1{
+    font-size: 36px;
+}
+
+#nomeProduto{
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.bodyEditar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dialog-produto-associados #barraCima th{
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+#bodyAssociadosProduto tr td{
+    padding: 2px;
+    font-size: 1rem;
+}
+
+#tabelaProdutoAssociados #bodyAssociadosProduto tr td{
+    padding: 10px;
+}
+
+.btn-fechar{
+    background-color: transparent;
+    border: none;
+    text-align: end;
+    z-index: 1000;
+}
+
+.img-fechar{
+    cursor: pointer;
+}
+
+#containerProduto{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 @media (max-width: 1280px) {
-    .main {
+    .main{
         margin-left: 250px;
     }
 }
 
-@media (max-width: 1024px) {
-    .main {
+@media (max-width: 1024px){
+    .main{
         margin-left: 230px;
     }
 
-    #container {
+    #container{
         padding-left: 35px;
     }
 }
 
-@media (max-width: 800px) {
-    .main {
+@media (max-width: 800px){
+    .main{
         margin-left: 0;
     }
 
-    #container {
+    #container{
         padding-left: 0;
         padding-top: 0;
         align-items: center;
     }
-
-    #titulo {
+    #titulo{
         width: 100%;
     }
 
-    .listaContainer {
+    .listaContainer{
         display: flex;
         flex-direction: column;
         width: fit-content;
@@ -112,74 +288,32 @@ a {
         margin: 0 15px;
     }
 
-    #lista {
+    #lista{
         width: 100%;
     }
 
-    #divPesquisarEEscolher {
-        width: 100%;
-        padding-left: 80px;
-        padding-right: 160px;
-        margin-top: 15px;
-    }
-
-    #pesquisar {
+    #pesquisar{
         width: 100%;
     }
 
-    #inputPesquisar {
-        width: 100%;
-        height: 50px;
+    th{
         font-size: 16px;
     }
 
-    #botaoFiltragem {
-        height: 50px;
-        width: 50px;
-    }
-
-    #botaoFiltragem p {
-        display: none;
-    }
-
-    #imagemFiltro {
-        width: 32px;
-        height: 32px;
-    }
-
-    th {
-        font-size: 16px;
-    }
-
-    td {
+    td{
         font-size: 14px;
     }
 
-    #botaoAssociados, #botaoSolicitacao {
-        position: absolute;
-        width: auto;
-        padding: 10px 20px;
+    #tabelaVendas tbody tr{
         height: auto;
     }
 
-    #botaoAssociados {
-        right: 182px;
-        top: 80px;
+    .td-lista-associados{
+        height: auto;
     }
 
-    #botaoSolicitacao {
-        top: 80px;
-        right: 15px;
-    }
-
-    #th1 {
-        width: 60px;
-    }
-
-    td:first-child {
-        width: 60px;
-    }
 }
+ 
 
 @media (max-width: 520px) {
 

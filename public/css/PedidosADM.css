@@ -201,7 +201,7 @@ a
     }
 }
 
-@media (max-width: 800px){
+@media (max-width: 830px){
     .main{
         margin-left: 0;
     }
@@ -232,11 +232,6 @@ a
     }
 
     td{
-        font-size: 14px;
-    }
-
-    #statusPago, #statusPendente {
-        width: auto;
         font-size: 14px;
     }
 

@@ -93,11 +93,11 @@ class PedidosModel{
     
             if (!empty($ordem)) {
                 switch ($ordem) {
-                    case 'ID': $ordemSql = "P.id_pedido"; break;
+                    case 'ID': $ordemSql = "ped.id_pedido"; break;
                     case 'Preço': $ordemSql = "precoTotal"; break;
                     case 'Data': $ordemSql = "dataPedido DESC"; break;
                     case 'Status': $ordemSql = "SP.id_status_pagamento"; break;
-                    default: $ordemSql = "P.id_pedido";
+                    default: $ordemSql = "ped.id_pedido";
                 }
                 $sqlPedidos .= " ORDER BY $ordemSql";
             }
