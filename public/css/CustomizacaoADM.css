@@ -236,6 +236,7 @@ body{
     grid-auto-flow: row;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 23px;
+    margin-bottom: 10px;
 }
 
 .corWrapper{

@@ -62,17 +62,14 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 
             <div class='inputProdutoContainer'>
                 <input type='text' class='inputProduto' placeholder="Digite o nome do produto"></input>
-                <button><i class='bx bx-search lupaButton'></i></button>
+                <i class='bx bx-search lupaButton'></i>
             </div>
 
             <div class="listaProdutos">
                 <?php
                 foreach($listaProdutos as $produto){
                 ?>
-                <div
-                    class="itemLista"
-                    data-id="<?= $produto['id_produto'] ?>"
-                >
+                <div class="itemLista" data-id="<?= $produto['id_produto'] ?>">
                     <?= $produto['nome'] ?>
                 </div>
                 <?php
@@ -106,7 +103,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <div class="nomeProduto">
                                 <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
                             </div>
-                            <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 115px; height:33px; font-size: 15px; " onclick="abrirPopUp(&quot;popUpSelectProduto&quot;, &quot;editLancamento&quot;)">Trocar</button>
+                            <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 115px; height:33px; font-size: 15px; " onclick="abrirPopUp('popUpSelectProduto', 'editProduto')">Trocar</button>
                         </div>
                     </div>
 
@@ -118,7 +115,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <h3>Cor de destaque</h3>
                             <div class="corContainer">
                                 <p class="textHex">HEX</p>
-                                <div class="editCor">
+                                <div class="editCor" id="corDestaqueCarousel">
                                     <input type="color" class="corShow" value="#651629"></input>
                                     <input class="corHex" maxlength="7" value="#651629"></input>
                                 </div>
@@ -129,7 +126,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                     <div class="degradeEdit">
                         <div class="degradeTop">
                             <h3>Degrade</h3>
-                            <button class="swapDegrade" id="swapDegrade"><i class="fa-solid fa-right-left"></i></button>
+                            <button type="button" class="swapDegrade" id="swapDegrade"><i class="fa-solid fa-right-left"></i></button>
                         </div>
                         <div class="degradeBar" id="degradeBar">
                             <div class="colorMarker markerOne" id="markerOne">
@@ -215,7 +212,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <div class="nomeProduto">
                                     <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
                                 </div>
-                                <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 115px; height:33px; font-size: 15px; " onclick="abrirPopUp(&quot;popUpSelectProduto&quot;, &quot;editProduto&quot;)">Trocar</button>
+                                <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 115px; height:33px; font-size: 15px; " onclick="abrirPopUp('popUpSelectProduto', 'editLancamento')">Trocar</button>
                             </div>
                         </div>
         
@@ -357,7 +354,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                 <div class="sessao" id="sessaoLancamento">
                     <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
                     <ul class="descricaoContainer">
-                        <li class="descricao">Arraste o cursor sobre um produto e clique no botão “Editar” para edita-lo</li>
+                        <li class="descricao">Arraste o cursor sobre um produto e clique no botão “Editar” para editá-lo</li>
                     </ul>
                 </div>
 
@@ -416,6 +413,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         </div>
                                     </div>
                                 </div>
+                                <p class="restaurarPadrao">Restaurar Padrão</p>
                             </div>
                         </div>
                         <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
