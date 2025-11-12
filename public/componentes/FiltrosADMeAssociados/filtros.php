@@ -144,7 +144,8 @@ function filtro($tipo = "", $opcoesSelect = []) {
                         <i class='buraquinho'></i>
 
                         <div class='imagemCardProdutoComumContainer'>
-                            <img class='imagemCardProdutoComum' src='/projeto-integrador-et.com/' alt=''>
+                            <h1 class='textoImagemProdutoPlaceholder' style='color: white'>Imagem</h1>
+                            <img style='display: none' class='imagemCardProdutoComum' src='/projeto-integrador-et.com/' alt=''>
                         </div>
 
                         <div class='contentDeBaixo'>

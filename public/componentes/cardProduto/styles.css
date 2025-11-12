@@ -177,6 +177,8 @@
     width: 260px;
     height: 230px;
     object-fit: contain;
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.35));
+    transition: all 0.6s ease;
 }
 
 .cardProduto:hover .contentDeBaixo {
@@ -192,7 +194,11 @@
 }
 
 .cardProduto:hover .imagemCardProdutoComumContainer {
-    bottom: 163px;
+    bottom: 170px;
+}
+
+.cardProduto:hover .imagemCardProdutoComum {
+    scale: 0.9;
 }
 
 .cardProduto:hover .linha {
