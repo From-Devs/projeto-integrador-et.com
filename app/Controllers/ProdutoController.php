@@ -106,6 +106,11 @@ class ProdutoController {
         );
     }
 
+    public function capturarAssociadosPorProduto($idProduto)
+    {
+        return $this->produtoModel->capturarAssociadosPorProduto($idProduto);
+    }
+
     public function pesquisarHeader($termo)
     {
         return $this->produtoModel->pesquisarProdutos($termo);
@@ -135,4 +140,7 @@ class ProdutoController {
         return $this->produtoModel->mediaAvaliacoes($idProduto);
     }
     
+    public function avaliarProduto($idUsuario, $idProduto, $nota, $comentario = "") {
+        return $this->produtoModel->avaliarProduto($idUsuario, $idProduto, $nota, $comentario);
+    }
 }

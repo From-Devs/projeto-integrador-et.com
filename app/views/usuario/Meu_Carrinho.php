@@ -7,14 +7,13 @@
     require_once __DIR__ . "/../../../public/componentes/cardProduto/cardProduto.php";
     require_once __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
     require_once __DIR__ . "/../../../public/componentes/ondas/onda.php";
-    require_once __DIR__ . "/../../../public/componentes/carousel/carousel.php";
     require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
     
     require_once __DIR__ . "/../../Controllers/CarrinhoController.php";
 
     session_start();
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
-    $login = $_SESSION['login'] ?? false; // Estado de login do usuário (false = deslogado / true = logado)
+    $login = $_SESSION['login'] ?? false;
     
     if (!$login) {
         die("Você precisa estar logado para ver o carrinho.");
@@ -23,7 +22,7 @@
     $id_usuario = $_SESSION['id_usuario'];
     $controller = new CarrinhoController();
 
-    // 🟢 PROCESSAMENTO DE AÇÕES (POST → Redirect → GET)
+    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $acao = $_POST['acao'] ?? '';
         $selecionados = $_POST['selecionados'] ?? [];
@@ -42,8 +41,12 @@
 }
 
     $carrinho = $controller->exibirCarrinho($id_usuario);
+    $resultado = paginar($carrinho, 3);
+    $carrinho = $resultado['dados'];
     $total = array_sum(array_column($carrinho, 'subtotal'));
     $precosProdutos = array_column($carrinho, 'precoCalculado');
+
+    
 
 ?>
 
@@ -77,9 +80,9 @@
 
 <main>
     <?php if (isset($_GET['removido'])): ?>
-        <!-- <div class="mensagem-sucesso">✅ Produto(s) removido(s) com sucesso!</div> -->
+        <!-- <div class="mensagem-sucesso"> Produto(s) removido(s) com sucesso!</div> -->
     <?php elseif (isset($_GET['pedido'])): ?>
-        <!-- <div class="mensagem-sucesso">🛍️ Pedido realizado com sucesso!</div> -->
+        <!-- <div class="mensagem-sucesso"> Pedido realizado com sucesso!</div> -->
     <?php endif; ?>
 
     <h1 class="Meio">MEU CARRINHO</h1>
@@ -89,15 +92,18 @@
         <?php echo PopUpConfirmar(
             "popUpConfirmarExclusao",
             "Deseja realmente excluir os produtos selecionados?",
-            "<button type='submit' name='acao' value='remover' id='botaoConfirmarExclusao' class='btn btn-white' style='width: auto; height: auto; font-size: 1rem;'>Sim</button>",
-            "<button id='botaoCancelarExclusao' class='btn btn-white' style='width: auto; height: auto; font-size: 1rem; 'onclick='fecharPopUp(\"popUpConfirmarExclusao\")'>Não</button>"
-            ) ?>
+            "<button type='submit' name='acao' value='remover' id='botaoConfirmarExclusao' class='btn btn-green' style='width: 85px; height: 40px; font-size: 18px;'>Sim</button>",
+            "<button id='botaoCancelarExclusao' class='btn btn-red' style='width: 85px; height: 40px; font-size: 18px; 'onclick='fecharPopUp(\"popUpConfirmarExclusao\")'>Não</button>"
+        );
+
+        echo PopUpComImagemETitulo("checkVazio", "/popUp_Botoes/atencao.png", "150px", "Selecione Algum Produto!");
+        ?>
         <table>
             <thead>
                 <tr>
                     <th class="radius">Produto</th>
-                    <th></th>
-                    <th></th>
+                    <th class="sumir"></th>
+                    <th class="sumir"></th>
                     <th>Preço</th>
                     <th>Quantidade</th>
                     <th class="radius2">Subtotal</th>
@@ -114,19 +120,20 @@
                                 <span class='produto-nome'><?= htmlspecialchars($item['nome']) ?></span>
                             </div>
                         </td>
-                        <td></td>
-                        <td></td>
+                        <td class="sumir"></td>
+                        <td class="sumir"></td>
                         <td class='cor2'>R$ <?= number_format($item['precoCalculado'], 2, ',', '.') ?></td>
                         <td class='quantityColumn'>
                             <div class='quantity-container'>
-                                <button type='button' class='quantity-btn' onclick='decrementQuantity(<?= $index ?>)'>-</button>
-                                <input type='number' name='quantidade[<?= $index ?>]' value='<?= (int)$item['quantidade'] ?>' min='1' class='quantity-input'>
-                                <button type='button' class='quantity-btn' onclick='incrementQuantity(<?= $index ?>)'>+</button>
+                                <button type='button' class='quant-btn' onclick='decrementQuantity(<?= $item['id_prodCarrinho'] ?>)'>-</button>
+                                <input type='number' name='quantidade[<?= $item['id_prodCarrinho'] ?>]' value='<?= (int)$item['quantidade'] ?>' min='1' class='quant'>
+                                <button type='button' class='quant-btn' onclick='incrementQuantity(<?= $item['id_prodCarrinho'] ?>)'>+</button>
                             </div>
                         </td>
                         <td class='cor2' id='subtotal-item-<?= $index ?>'>R$ <?= number_format($item['subtotal'], 2, ',', '.') ?></td>
                     </tr>
                 <?php endforeach; ?>
+                
             <?php else: ?>
                 <tr>
                     <td colspan="6" class="carrinhoVazio">Seu carrinho está vazio.</td>
@@ -135,8 +142,12 @@
             </tbody>
 
             <tfoot>
-                <tr class="tot" style="padding: 0px">
-                    <td class="cor3" colspan="5">Total:</td>
+                <tr class="tot">
+                    <td class="cor3">Total:</td>
+                    <td></td>
+                    <td></td>
+                    <td class="sumir"></td>
+                    <td class="sumir"></td>
                     <td class="total-value" id="total">R$ <?= number_format($total, 2, ',', '.') ?></td>
                 </tr>
 
@@ -145,10 +156,21 @@
                     <td><label for="selecionarTodos">Selecionar Tudo:</label></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><input type="checkbox" id="selecionarTodos" style="margin: 0px;" checked></td>
+                    <td class="sumir"></td>
+                    <td class="sumir"></td>
+                    <td style="text-align: right;"><input type="checkbox" id="selecionarTodos" style="margin: 0px;" checked></td>
                 </tr>
+
+                <tr>
+                    <td style="border: none; padding: 0px;">
+                        <?php 
+                            renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']); 
+                        ?>
+                    </td>
+                </tr>
+                
+                <?php 
+                ?>
 
             </tfoot>
         </table>
@@ -162,7 +184,6 @@
 <?php echo createRodape(); ?>
 
 <script>
-
 document.addEventListener("DOMContentLoaded", function() {
     const selecionarTodos = document.getElementById("selecionarTodos");
     const checkboxes = document.querySelectorAll(".check");
@@ -192,17 +213,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Intercepta o submit do botão Excluir
     btnExcluir.addEventListener("click", function(e) {
-        
         const algumSelecionado = Array.from(checkboxes).some(cb => cb.checked);
         if (!algumSelecionado) {
-        alert("Selecione ao menos um produto para excluir.");
-        return;
+            abrirPopUp("checkVazio");
+            return;
         }
         abrirPopUp("popUpConfirmarExclusao"); // abre o pop-up personalizado
     });
 
     const precosProdutos = <?= json_encode($precosProdutos); ?>;
 
+    // Função para recalcular totais
     function calcularTotal() {
         let total = 0;
         document.querySelectorAll('input[name^="quantidade"]').forEach((input, index) => {
@@ -212,30 +233,39 @@ document.addEventListener("DOMContentLoaded", function() {
             total += subtotal;
 
             // Atualiza subtotal de cada item
-            document.getElementById(`subtotal-item-${index}`).innerText = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
+            const subtotalEl = document.getElementById(`subtotal-item-${index}`);
+            if (subtotalEl) {
+                subtotalEl.innerText = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
+            }
         });
-        document.getElementById('total').innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
-    }
 
-    function incrementQuantity(index) {
-        const input = document.querySelector(`input[name='quantidade[${index}]']`);
-        input.value = parseInt(input.value) + 1;
-        calcularTotal();
-    }
-
-    function decrementQuantity(index) {
-        const input = document.querySelector(`input[name='quantidade[${index}]']`);
-        if (input.value > 1) {
-            input.value = parseInt(input.value) - 1;
-            calcularTotal();
+        const totalEl = document.getElementById('total');
+        if (totalEl) {
+            totalEl.innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
         }
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-        calcularTotal();
-        document.querySelectorAll('input[name^="quantidade"]').forEach(input => {
-            input.addEventListener('input', calcularTotal);
-        });
+    window.incrementQuantity = function(prodId) {
+        const input = document.querySelector(`input[name='quantidade[${prodId}]']`);
+        if (input) {
+            input.value = parseInt(input.value) + 1;
+            calcularTotal();
+        }
+    };
+
+    window.decrementQuantity = function(prodId) {
+        const input = document.querySelector(`input[name='quantidade[${prodId}]']`);
+        if (input && input.value > 1) {
+            input.value = parseInt(input.value) - 1;
+            calcularTotal();
+        }
+    };
+
+
+    // Atualiza total inicial e quando digita manualmente
+    calcularTotal();
+    document.querySelectorAll('input[name^="quantidade"]').forEach(input => {
+        input.addEventListener('input', calcularTotal);
     });
 });
 </script>

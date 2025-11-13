@@ -7,7 +7,7 @@
         header("Location: /projeto-integrador-et.com/app/views/usuario/Login.php?erro=acesso_negado");
         exit();
     }
-
+    
     require_once __DIR__ . "/../../Models/products.php";
     require_once __DIR__ . "/./../../../public/componentes/popup/popUp.php";
     require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
@@ -16,6 +16,8 @@
     require __DIR__ . "/../../../public/componentes/FiltrosADMeAssociados/filtros.php";
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
     require_once __DIR__ . "/../../Controllers/UserController.php";
+    $controller = new UserController();
+    $user = $controller->getLoggedUser();
 
     function verificaELimpaQueryString(){
         if (isset($_GET['status']) && $_GET['status'] == 'sucesso') {
@@ -69,9 +71,6 @@
         }
     }
 
-    $controller = new UserController();
-    $user = $controller->getLoggedUser();
-
     verificaELimpaQueryString();
 
     $parametrosExtras = [];
@@ -90,8 +89,9 @@
     $pesquisa = $_GET['pesquisa'] ?? null;
     $products = new Products();
     $produtos = $products->buscarTodosProdutosAssociados($ordem, $pesquisa, $_SESSION['id_usuario']);
-
+    
     // // session_start();
+    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 ?>
 
 <!DOCTYPE html>
@@ -146,7 +146,7 @@
         
     <script src="/projeto-integrador-et.com/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
-    <script src="/projeto-integrador-et.com/public/javascript/Produto.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/ProdutoAssociado.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/editorCor.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/previsualizacaoProdutoCadastroEditar.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/FiltroQueryString.js"></script>

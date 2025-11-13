@@ -9,9 +9,11 @@
             <table id="tabelaVendas">
                 <thead id="barraCima">
                     <tr>
+                        <th id="th4" scope="col">ID</th>
                         <th id="th2" scope="col">Produto</th>
-                        <th id="th3" scope="col">Associados</sth>
-                        <th id="th4" scope="col">SKU</th>
+                        <th id="th2" scope="col">Marca</th>
+                        <th id="th2" scope="col">Preço</th>
+                        <th id="th3" scope="col">Associado</sth>
                     </tr>
                 </thead>
             </table>
@@ -21,19 +23,55 @@
                     <tbody>
                         <?php foreach ($produtos as $produto): ?>
                             <tr style="height: 80px;">
+                                <td><?= htmlspecialchars($produto['id']) ?></td>
                                 <td><?= htmlspecialchars($produto['nome']) ?></td>
+                                <td><?= htmlspecialchars($produto['marca']) ?></td>
+                                <td>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></td>
                                 <td class="td-lista-associados">
-                                    <button onclick="window.location.href = '/projeto-integrador-et.com/app/views/adm/Associados.php'" class="btn-lista-associados">
-                                        <span>Ver Associados</span>
+                                    <?php $nomeJs = json_encode($produto['nome']); ?>
+                                    <button onclick='buscarAssociadoProdutos(<?= $produto['id']?>, <?= json_encode($produto['nome']) ?>)' class="btn-lista-associados">
+                                        <span>Ver Associado</span>
                                         <img width="30px" src="/projeto-integrador-et.com/public/imagens/imagensADM/img-lista.png" alt="img-lista-associados">
                                     </button>
                                 </td>
-                                <td><?= htmlspecialchars($produto['sku']) ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
+
+            <dialog class="dialog-produto-associados">
+                <div class="bodyEditar">
+                    <button class="btn-fechar" onclick='fecharPopUp("dialog-produto-associados")'>
+                        <img class="img-fechar" src="/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png" alt="img-fechar">
+                    </button>
+                    <div class="header-editar">
+                        <div id="containerAvatar"><img src="" alt="User Profile" class="profile-pic" id="avatarPreview"></div>
+                        <div id="containerProduto">
+                            <h1 id='nomeProduto'></h1>
+                            <p id="descricaoBreve"></p>
+                        </div>
+                    </div>  
+                    <div>
+                        <table id="tabelaVendas">
+                            <thead id="barraCima">
+                                <tr>
+                                    <th id="th1" scope="col">ID</th>
+                                    <th id="th2" scope="col">Nome</sth>
+                                    <th id="th3" scope="col">Telefone</th>
+                                    <th id="th4" scope="col">Cidade</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div class="tabela-body">
+                            <table id="tabelaProdutoAssociados">
+                                <tbody id="bodyAssociadosProduto"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </dialog>
+
         </div>
         <?php
     }

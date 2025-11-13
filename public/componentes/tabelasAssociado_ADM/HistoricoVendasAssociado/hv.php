@@ -20,7 +20,7 @@ function tabelaHistoricoVendas($vendas){
                         <td class='idProduto'><?= $venda['id_pedido_produto'] ?></td>
                         <td><?= $venda['nomeProduto'] ?></td>
                         <td><?= $data ?></td>
-                        <td id='precoassoc'><?= $venda['preco'] ?></td>
+                        <td id='precoassoc'>R$ <?= number_format($venda['preco'], 2, ',', '.')?></td>
                         <td><?= $venda['quantidade'] ?></td>
                     </tr>
                 <?php endforeach; ?>

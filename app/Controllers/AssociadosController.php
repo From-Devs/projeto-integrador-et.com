@@ -24,6 +24,10 @@ class AssociadosController{
     public function mudarStatus($novoStatus, $idPedido){
         return $this->AssociadosModel->mudarStatus($novoStatus, $idPedido);
     }
+
+    public function CapturarAssociadosComMaisProdutos(){
+        return $this->AssociadosModel->CapturarAssociadosComMaisProdutos();
+    }
 }
 
 ?>

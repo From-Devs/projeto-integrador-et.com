@@ -11,15 +11,38 @@ class Products {
 
     public function RemoverProduto($id){
         try {
-            $sqlDelete = "DELETE FROM PRODUTO WHERE id_produto = :idProduto";
+            $this->conn->beginTransaction();
 
+            $dependencias = [
+                'listadesejos' => 'id_produto',
+                'produtocarrinho' => 'id_produto',
+                'produtopedido' => 'id_produto',
+                'lancamentos' => 'id_produto',
+                'proddestaque' => 'id_produto',
+                'carousel' => 'id_produto',
+                'avaliacoes' => 'id_produto'
+            ];
+
+            foreach ($dependencias as $tab => $col) {
+                $sql = "DELETE FROM {$tab} WHERE {$col} = :idProduto";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindValue(':idProduto', $id, PDO::PARAM_INT);
+                $stmt->execute();
+            }
+
+            $sqlDelete = "DELETE FROM produto WHERE id_produto = :idProduto";
             $res = $this->conn->prepare($sqlDelete);
-            $res->bindParam(":idProduto", $id);
+            $res->bindParam(":idProduto", $id, PDO::PARAM_INT);
             $res->execute();
 
+            $this->conn->commit();
             return true;
         } catch (\Throwable $th) {
-            echo "Erro SQL: " . $th->getMessage();
+            if ($this->conn->inTransaction()) {
+                $this->conn->rollBack();
+            }
+            error_log("Erro SQL ao remover produto (id={$id}): " . $th->getMessage());
+            echo "Erro ao remover produto: " . $th->getMessage();
             return false;
         }
     }
@@ -209,6 +232,9 @@ class Products {
                         break;
                     case 'Qtd. Estoque':
                         $ordemSql = "qtdEstoque";
+                        break;
+                    case 'Marca':
+                        $ordemSql = "marca";
                         break;
                     default:
                         $ordemSql = "id_produto";
@@ -407,6 +433,28 @@ class Products {
         $stmt->bindParam(':id_associado', $data['id_associado']);
 
         return $stmt->execute();
+    }
+
+    public function capturarAssociadosPorProduto($idProduto){
+        $sql = "select U.id_usuario ,
+        U.nome,
+        U.telefone,
+        U.email,
+        U.foto,
+        P.descricaoBreve,
+        P.marca,
+        E.cidade,
+        E.estado 
+            from usuario u 
+            left join endereco e 
+                on E.id_endereco = U.id_endereco 
+            left join produto p 
+                on P.id_associado = U.id_usuario 
+            where P.id_produto = :idProduto";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":idProduto", $idProduto, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function produtoById($id){
@@ -641,6 +689,7 @@ class Products {
             return [];
         }
     }
+    
     public function mediaAvaliacoes(int $id_produto): float {
         $sql = "SELECT AVG(nota) as media FROM avaliacoes WHERE id_produto = :id_produto";
         $stmt = $this->conn->prepare($sql);
@@ -648,6 +697,22 @@ class Products {
         $media = $stmt->fetchColumn();
         return $media ? (float)$media : 0.0;
     }
-    
+    public function avaliarProduto(int $idUsuario, int $idProduto, int $nota, string $comentario = ""): array {
+    try {
+        $sql = "INSERT INTO avaliacoes (id_usuario, id_produto, nota, comentario, data_avaliacao)
+                VALUES (:idUsuario, :idProduto, :nota, :comentario, NOW())";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            ':idUsuario' => $idUsuario,
+            ':idProduto' => $idProduto,
+            ':nota' => $nota,
+            ':comentario' => $comentario
+        ]);
+
+        return ['ok' => true, 'msg' => 'Avaliação enviada com sucesso'];
+    } catch (\Throwable $th) {
+        return ['ok' => false, 'msg' => 'Erro ao avaliar produto: ' . $th->getMessage()];
+    }
+}
 }
 ?>

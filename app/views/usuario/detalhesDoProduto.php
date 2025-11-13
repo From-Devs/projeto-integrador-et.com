@@ -7,6 +7,8 @@ require_once __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
 
 // Controllers
 require_once __DIR__ . "/../../Controllers/ProdutoController.php";
+require_once __DIR__ . "/../../Controllers/CarrinhoController.php";
+require_once __DIR__ . "/../../Controllers/ListaDesejosController.php";
 
 session_start();
 $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Não logado";
@@ -72,7 +74,10 @@ $avaliacoes = $produtoController->BuscarAvaliacoesPorProduto($produto['id_produt
     <script src="https://kit.fontawesome.com/661f108459.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<?php echo createHeader($login, $tipoUsuario) ?>
+<?php 
+echo createHeader($login, $tipoUsuario);
+echo PopUpComImagemETitulo("popUpCarrinho", "../../public/imagens/verificar.png", "100px", "Adicionado ao Carrinho!", "", "", "", "300px");
+?>
 
 <div class="container-detalhes">
     <div class="detalhes-principal">

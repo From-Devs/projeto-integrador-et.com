@@ -10,16 +10,19 @@ class PedidosModel{
         $this->conn = $db->Connect();
     }
 
-    public function BuscarTodosPedidos($ordem="", $pesquisa=""){
+    public function BuscarTodosPedidos($ordem="Data", $pesquisa=""){
         try {    
             $sqlPedidos = "SELECT P.id_pedido, 
             U.nome,
             P.precoTotal,
             P.dataPedido,
-            S.tipoStatus
+            S.tipoStatus statusEntrega,
+            SP.tipoStatus statusPagamento
             FROM Pedido P
             JOIN usuario U
                 ON P.id_usuario = U.id_usuario
+            JOIN statusPagamento SP
+                ON P.id_status_pagamento = SP.id_status_pagamento
             JOIN status S
                 ON P.id_status = S.id_status";
             $params = [];
@@ -33,8 +36,8 @@ class PedidosModel{
                 switch ($ordem) {
                     case 'ID': $ordemSql = "P.id_pedido"; break;
                     case 'Preço': $ordemSql = "precoTotal"; break;
-                    case 'Data': $ordemSql = "dataPedido"; break;
-                    case 'Status': $ordemSql = "S.id_status"; break;
+                    case 'Data': $ordemSql = "dataPedido DESC"; break;
+                    case 'Status': $ordemSql = "SP.id_status_pagamento"; break;
                     default: $ordemSql = "P.id_pedido";
                 }
                 $sqlPedidos .= " ORDER BY $ordemSql";
@@ -48,11 +51,10 @@ class PedidosModel{
     
             $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
+            // Agora adiciona os produtos e pagamentos para cada pedido
             foreach ($pedidos as &$pedido) {
                 $idPedido = $pedido['id_pedido'];
-                $pedido['detalhesPedido'] = $this->BuscarProdutosDoPedido($idPedido);
-    
-                // $pedido['infoPagamentos'] = $this->BuscarInfoPagamentos($idPedido);
+                $pedido['detalhesPedido'] = $this->BuscarProdutosDoPedido($idPedido);    
             }
     
             return $pedidos;
@@ -66,17 +68,22 @@ class PedidosModel{
 
     public function BuscarTodosPedidosAssociado($ordem="", $pesquisa="", $idAssociado){
         try {    
-            $sqlPedidos = "SELECT P.id_pedido, 
-            U.nome,
-            P.precoTotal,
-            P.dataPedido,
-            S.tipoStatus
-            FROM Pedido P
-            JOIN usuario U
-                ON P.id_usuario = U.id_usuario
-            JOIN status S
-                ON P.id_status = S.id_status
-            WHERE U.id_usuario = :idAssociado";
+            $sqlPedidos = "SELECT distinct
+				u.nome,
+				prod.nome as nomeProduto,
+                ped.id_pedido,
+                prod.preco,
+                ped.dataPedido,
+                prod.id_associado,
+                S.tipoStatus as statusEntrega,
+	            SP.tipoStatus as statusPagamento
+            FROM pedido ped
+            JOIN produtopedido pp ON pp.id_pedido = ped.id_pedido
+            JOIN produto prod ON prod.id_produto = pp.id_produto
+            join usuario u on U.id_usuario = ped.id_usuario 
+            left JOIN statusPagamento SP ON ped.id_status_pagamento = SP.id_status_pagamento
+            left JOIN status S ON ped.id_status = S.id_status
+            WHERE prod.id_associado = :idAssociado";
             $params = [];
     
             if (!empty($pesquisa)) {
@@ -88,8 +95,8 @@ class PedidosModel{
                 switch ($ordem) {
                     case 'ID': $ordemSql = "P.id_pedido"; break;
                     case 'Preço': $ordemSql = "precoTotal"; break;
-                    case 'Data': $ordemSql = "dataPedido"; break;
-                    case 'Status': $ordemSql = "S.id_status"; break;
+                    case 'Data': $ordemSql = "dataPedido DESC"; break;
+                    case 'Status': $ordemSql = "SP.id_status_pagamento"; break;
                     default: $ordemSql = "P.id_pedido";
                 }
                 $sqlPedidos .= " ORDER BY $ordemSql";
@@ -108,75 +115,6 @@ class PedidosModel{
             return false;
         }
     }
-
-
-    // public function BuscarTodosPedidos($ordem="", $pesquisa=""){
-    //     $pedido['detalhesPedido'] = $this->model->BuscarProdutosDoPedido($idPedido);
-
-    //     foreach ($pedidos as &$pedido) {
-    //         $idPedido = $pedido['id_pedido'];
-    
-    //         // Produtos do pedido
-    //         $pedido['detalhesPedido'] = $this->model->BuscarProdutosDoPedido($idPedido);
-    
-    //         // Informações de pagamento (você precisa criar esse método)
-    //         $pedido['infoPagamentos'] = $this->model->BuscarInfoPagamentos($idPedido);
-    //     }
-
-    //     try {    
-    //         $sqlPedidos = "SELECT P.id_pedido, 
-    //         U.nome,
-    //         P.precoTotal,
-    //         P.dataPedido,
-    //         S.tipoStatus
-    //         FROM Pedido P
-    //         JOIN usuario U
-    //             ON P.id_usuario = U.id_usuario
-    //         JOIN status S
-    //             ON P.id_status = S.id_status";
-    //         $params = [];
-    
-    //         //Para concatenar a pesquisa
-    //         if (!empty($pesquisa)) {
-    //             $sqlPedidos .= " WHERE nome LIKE :pesquisa";
-    //             $params[':pesquisa'] = "$pesquisa%";
-    //         }
-    
-    //         if (!empty($ordem)) {
-    //             switch ($ordem) {
-    //                 case 'ID':
-    //                     $ordemSql = "P.id_pedido";
-    //                     break;
-    //                 case 'Preço':
-    //                     $ordemSql = "precoTotal";
-    //                     break;
-    //                 case 'Data':
-    //                     $ordemSql = "dataPedido";
-    //                     break;
-    //                 case 'Status':
-    //                     $ordemSql = "S.id_status";
-    //                     break;
-    //                 default:
-    //                     $ordemSql = "P.id_pedido";
-    //             }
-    //             $sqlPedidos .= " ORDER BY $ordemSql";
-    //         }
-    
-    //         $stmt = $this->conn->prepare($sqlPedidos);
-    
-    //         foreach ($params as $key => $val) {
-    //             $stmt->bindValue($key, $val, PDO::PARAM_STR);
-    //         }
-    
-    //         $stmt->execute();
-    //         // return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //         return $pedidos;
-    
-    //     } catch (\Throwable $th) {
-    //         echo "Erro ao buscar: " . $th->getMessage();
-    //         return false;
-    //     }
-    // }
 
     public function BuscarProdutosDoPedido($idPedido){
         try {    
@@ -203,6 +141,28 @@ class PedidosModel{
     
         } catch (\Throwable $th) {
             echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
+    }
+
+    public function atualizarStatusEntrega($tipoStatusEntrega, $idPedido){
+        try {
+            $this->conn->beginTransaction();
+
+            $sqlUpdate = "UPDATE PEDIDO SET id_status = (
+                SELECT id_status FROM status WHERE tipoStatus = :tipoStatus LIMIT 1
+            ) WHERE id_pedido = :idPedido";
+
+            $stmt = $this->conn->prepare($sqlUpdate);
+            $stmt->bindValue(":tipoStatus", $tipoStatusEntrega, PDO::PARAM_STR);
+            $stmt->bindValue(":idPedido", $idPedido, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $this->conn->commit();
+            return true;
+        } catch (\Throwable $th) {
+            $this->conn->rollBack();
+            echo "Erro ao atualizar status de entrega: " . $th->getMessage();
             return false;
         }
     }

@@ -31,6 +31,7 @@ th, td
     text-align: center;
     justify-content: center;
     align-items: center;
+    overflow-wrap: break-word;
 }
 
 th {
@@ -41,7 +42,7 @@ th {
 
 td 
 {
-    padding: 1.14%;
+    padding: 1.14% 0;
     font-size: 20px;
     font-weight: bold;
 }
@@ -85,6 +86,18 @@ tr
 
 .btnStatus{
     border: none;
+    cursor: pointer;
+}
+
+.selectStatusEntrega{
+    display: flex;
+    border-radius: 15px;
+    width: 210px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
     cursor: pointer;
 }
 

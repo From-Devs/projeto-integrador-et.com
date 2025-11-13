@@ -1,5 +1,6 @@
 <?php
 session_start();
+
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 
     if($tipo_usuario != "Associado" || !isset($_SESSION['id_usuario'])){
@@ -16,8 +17,6 @@ session_start();
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
     require __DIR__ . "/../../Controllers/PedidosController.php";
     require_once __DIR__ . "/../../Controllers/UserController.php";
-    require_once __DIR__ . "/../../Controllers/UserController.php";
-
     $controller = new UserController();
     $user = $controller->getLoggedUser();
     
@@ -39,6 +38,7 @@ session_start();
     $pedidos = $pedidosController->BuscarTodosPedidosAssociado($ordem, $pesquisa, $user['id_usuario']);
 
     // // session_start();
+    $tipo_usuario = $_SESSION['tipo_usuario'] ?? "Associado";
 ?>
 
 <!DOCTYPE html>
@@ -90,9 +90,9 @@ session_start();
         </div>
     </div>
     
-    <script src="/projeto-integrador-et.com/public/javascript/Associados.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
+    <script src="/projeto-integrador-et.com/public/componentes/tabelasAssociado_ADM/PedidosAssociado_ADM/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/FiltroQueryString.js"></script>
 </body>
 </html>

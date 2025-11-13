@@ -141,6 +141,9 @@ CREATE TABLE pedido (
   FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
   FOREIGN KEY (id_status) REFERENCES status(id_status)
 );
+
+ALTER TABLE et_com.pedido ADD id_status_pagamento int(11) NULL;
+ALTER TABLE et_com.pedido ADD CONSTRAINT pedido_statuspagamento_FK FOREIGN KEY (id_status_pagamento) REFERENCES et_com.statuspagamento(id_status_pagamento);
  
 CREATE TABLE produtopedido( 
 id_produtoPedido INT PRIMARY KEY AUTO_INCREMENT, 

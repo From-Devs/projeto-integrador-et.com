@@ -1,4 +1,5 @@
 <?php
+    // Inclusões de componentes e Model
     require __DIR__ . "/../../../public/componentes/header/header.php"; // import do header
     require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php"; // import do card
     require __DIR__ . "/../../../public/componentes/rodape/Rodape.php";
@@ -6,34 +7,54 @@
     require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
     require __DIR__ . "/../../../public/componentes/botao/botao.php";
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
-    // NOTE: Vamos usar o componente de filtro diretamente no HTML, não o require aqui.
-    // require __DIR__ . "/../../../public/componentes/filtroCategoria/filtroCategoria.php"; // REMOVIDO DAQUI
     require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
-    require_once __DIR__ . "/../../Models/categoria.php";
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
+    
+    $parametrosExtras = [];
+    
+    // CORREÇÃO CRÍTICA: Inicializa o Model de Categoria para uso na View
+    require_once __DIR__ . "/../../Models/Categoria.php";
+    $categoriaModel = new Categoria(); 
 
+    // ... (Seu array $categoriasPorTela e $fundos permanece o mesmo)
     $categoriasPorTela = [ 
         "Maquiagem" => ["Tipos" => ["Olhos", "Sombrancelhas","Boca","Pele"]],
-        "Perfume"   => ["Gênero" => ["Feminino", "Masculino", "Unissex"]],
-        "Skincare"  => ["Tipos" => ["Limpeza", "Esfoliação", "Hidratação", "Máscara", "Protetor Solar", "Especiais"]],
-        "Cabelo"    => ["Tipos" => ["Dia-A-Dia", "Tratamentos", "Estilização", "Especiais", "Acessórios"]],
-        "Eletronicos" => ["Tipos" => ["Cabelos", "Pincel", "Esponja"]],
-        "Corporal"  => ["Produtos" => ["Body Splash", "Óleos", "Creme", "Protetor"]],
-    ];
+        "Perfume"  => ["Gênero" => ["Feminino", "Masculino", "Infantil","Body Splash"]],
+        "Skincare" => ["Tipos" => ["Limpeza facial", "Esfoliação", "Hidratação", "Máscara", "Protetor Solar","Tratamentos"]],
+        "Cabelo" => ["Tipos" => ["Dia-A-Dia", "Tratamentos", "Estilização","Acessórios"]],
+        "Utensílios" => ["Tipos" => ["Cabelos", "Maquiagem", "Unhas","Cuidados Faciais"]],
+        "Corporal" => ["Produtos" => ["Hidratantes e Cremes", "Óleos Corporais", "Protetores"]],
+    ] 
+    ;
     
     $fundos = [
         "maquiagem" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaquiagemFundo.png"],
-        "perfume"   => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/PerfumeFundo.png"],
-        "skincare"  => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareFundo.png"],
-        "cabelo"    => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloFundo.png"], 
-        "eletronicos" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/EletronicosFundo.png"],
-        "corporal"  => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalFundo.png"],
-        "ofertas"   => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/OfertasFundo.png"],
+        "perfume"  => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/PerfumeFundo.png"],
+        "skincare" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/SkinCareFundo.png"],
+        "cabelo"=> ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CabeloFundo.png"], 
+        "utensílios" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/utensíliosFundo.png"],
+        "corporal" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/CorporalFundo.png"],
+        "ofertas" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/OfertasFundo.png"],
         "mais_vendidos" => ["default" => "/projeto-integrador-et.com/public/imagens/PaginaCategoria/MaisVendidosFundo.png"],
     ];
+
+    // --- LÓGICA DE CARREGAMENTO DE FILTROS ---
+    $slug_tela = $_GET['tela'] ?? ''; // Ex: 'ofertas'
+    $slug_formatado = strtolower(str_replace('-', '_', $slug_tela));
+
+    $filtros_sao_categorias = false;
     
-    // --- ALTERAÇÃO AQUI: CAPTURA DO FILTRO COMO ARRAY ---
-    $slugCategoria = $_GET['tela'] ?? "maquiagem"; 
+    if ($slug_formatado == 'ofertas' || $slug_formatado == 'mais_vendidos') {
+        // Para categorias especiais, usamos o Model para listar CATEGORIAS no filtro
+        $filtros_disponiveis = $categoriaModel->getAllCategorias(); 
+        $filtros_sao_categorias = true; // Flag para a função de renderização
+    } else {
+        // Lógica normal para subcategorias
+        $filtros_disponiveis = $categoriaModel->getSubcategoriasBySlug($slug_tela);
+    }
+    // ---------------------------------------------------
+    
+    $slugCategoria = $slug_tela; // Mantendo a variável original para o resto do código
     $subSelecionados = $_GET['sub'] ?? []; // Pega os filtros 'sub' (agora como array)
     
     // Garante que $subSelecionados é sempre um array
@@ -41,33 +62,38 @@
         $subSelecionados = [$subSelecionados];
     }
     // ---------------------------------------------------
+
     
-    function renderSomenteSubcategoriasDB($id_categoria, $subSelecionados) {
-        require_once __DIR__ . "/../../Models/categoria.php";
-        $subcategorias = CategoriaModel::getSubcategorias($id_categoria);
-    
-        if (!$subcategorias) {
-            echo "<p>Nenhum filtro disponível para essa categoria.</p>";
+    // --- FUNÇÃO DE RENDERIZAÇÃO CORRIGIDA E ADAPTADA ---
+    function renderFiltros($filtros_disponiveis, $subSelecionados, $filtros_sao_categorias) {
+        
+        if (empty($filtros_disponiveis)) {
+            echo "<p>Nenhum filtro disponível para essa tela.</p>";
             return;
         }
-    
-        foreach ($subcategorias as $sub) {
-            $nomeSub = $sub["nome"];
-            // Verifica se a subcategoria está no array de selecionados
-            $checked = in_array($nomeSub, $subSelecionados, true) ? 'checked' : '';
+        
+        // Define o nome da chave que será usada para o ID (depende se é categoria ou subcategoria)
+        $id_chave = $filtros_sao_categorias ? "id_categoria" : "id_subCategoria";
+
+        foreach ($filtros_disponiveis as $filtro) {
+            $nomeFiltro = $filtro["nome"];
+            // Verifica se o filtro está no array de selecionados
+            $checked = in_array($nomeFiltro, $subSelecionados, true) ? 'checked' : '';
     
             echo '
                 <div class="item-filtro">
                     <label class="categoriaLabel">
-                        <input type="checkbox" name="sub[]" value="' . htmlspecialchars($nomeSub) . '" ' . $checked . ' onchange="this.form.submit()"> 
+                        <input type="checkbox" name="sub[]" value="' . htmlspecialchars($nomeFiltro) . '" ' . $checked . ' onchange="this.form.submit()"> 
                         <span class="checkmark"></span>
-                        ' . htmlspecialchars($nomeSub) . '
+                        ' . htmlspecialchars($nomeFiltro) . '
                     </label>
                 </div>
             ';
         }
     }
-    
+    // NOTA: A antiga função renderSomenteSubcategoriasDB foi substituída por renderFiltros
+
+    // ... (o restante do código antes do HTML permanece o mesmo)
     $telaAtual = str_replace("_"," ", ucfirst($slugCategoria));
     // Usa apenas o fundo 'default' para simplificar, já que pode haver múltiplos filtros
     $fundoAtual = $fundos[$slugCategoria]["default"];
@@ -146,60 +172,97 @@
 
                 </div>
         
-                <div class="PartedeBaixo">
-            <?php
+            <div class="PartedeBaixo">
+                <?php
+                    // --- CÓDIGO DE BUSCA (Corrigido para evitar duplicação) ---
+                    require_once __DIR__ . "/../../Models/productscategoria.php"; 
+                    $productModel = new Products();
 
-                // --- NOVO CÓDIGO DE BUSCA (Verificado e Corrigido) ---
-                // Certifique-se que o caminho para Products.php está correto
-                require_once __DIR__ . "/../../Models/productscategoria.php"; 
-                $productModel = new Products();
+                    // Captura filtros
+                    $subSelecionados = $_GET['sub'] ?? [];
+                    $catSelecionadas = $_GET['cat'] ?? [];
 
-                // $slugCategoria e $subSelecionados já estão definidos acima
-                $produtosDB = $productModel->getProdutosFiltrados($slugCategoria, $subSelecionados);
+                    // Normaliza para arrays
+                    if (!is_array($subSelecionados)) $subSelecionados = [$subSelecionados];
+                    if (!is_array($catSelecionadas)) $catSelecionadas = [$catSelecionadas];
 
-                $produtos = [];
+                    // Define o filtro certo de acordo com o slug
+                    if (in_array($slugCategoria, ['ofertas', 'mais_vendidos'], true)) {
+                        $filtros = $catSelecionadas; // Filtro de categorias principais
+                    } else {
+                        $filtros = $subSelecionados; // Filtro de subcategorias normais
+                    }
 
-                if ($produtosDB === false) {
-                    echo "<p>Houve um erro ao buscar os produtos.</p>";
-                } elseif (empty($produtosDB)) {
-                    echo "<p>Nenhum produto encontrado para os filtros selecionados.</p>";
-                } else {
-                    foreach ($produtosDB as $produto) {
-                        // Mapeia os dados do banco para a sua função de card
-                        $desconto = (floatval($produto['preco']) > floatval($produto['precoPromo']) && floatval($produto['preco']) > 0) 
-                                        ? round(100 - (floatval($produto['precoPromo']) / floatval($produto['preco']) * 100))
-                                        : 0;
+                    // Passa o filtro correto para o Model
+                    $produtosDB = $productModel->getProdutosFiltrados($slugCategoria, $filtros);
 
+                    // Array que irá armazenar os HTMLs dos cards para paginação
+                    $produtos = []; 
+
+                    if ($produtosDB === false) {
+                        echo "<p>Houve um erro ao buscar os produtos.</p>";
+                    } elseif (empty($produtosDB)) {
+                        echo "<p>Nenhum produto encontrado para os filtros selecionados.</p>";
+                    } else {
+                        // Loop ÚNICO para criar os cards e armazenar na variável $produtos
                         foreach ($produtosDB as $produto) {
-                        echo createCardProduto(
-                            $produto['marca'],
-                            $produto['nome'],
-                            $produto['precoPromo'] == 0 ? $produto['preco'] : $produto['precoPromo'],
-                            $produto['img1'],
-                            $produto['fgPromocao'],
-                            $produto['preco'],
-                            $produto['corPrincipal'] ?? "#000",
-                            // CORRIGIDO: Troca 'corDegrade1' por 'hexDegrade1'
-                            $produto['hexDegrade1'] ?? "#000",
-                            // CORRIGIDO: Troca 'corDegrade2' por 'hexDegrade2'
-                            $produto['hexDegrade2'] ?? "#333",
-                            $produto['id_produto']
-                        );
-                    }}
-                }
-                // --- FIM NOVO CÓDIGO DE BUSCA ---
 
+                            // Calcula Desconto (opcional, se precisar no futuro)
+                            $desconto = (
+                                floatval($produto['preco']) > floatval($produto['precoPromo']) 
+                                && floatval($produto['preco']) > 0
+                            ) 
+                            ? round(100 - (floatval($produto['precoPromo']) / floatval($produto['preco']) * 100))
+                            : 0;
 
-                $resultado = paginar($produtos, 16);
+                            // Cria o HTML do card e adiciona ao array $produtos
+                            $produtos[] = createCardProduto(
+                                $produto['marca'],
+                                $produto['nome'],
+                                $produto['precoPromo'] == 0 ? $produto['preco'] : $produto['precoPromo'],
+                                $produto['img1'],
+                                $produto['fgPromocao'],
+                                $produto['preco'],
+                                $produto['corPrincipal'] ?? "#000",
+                                $produto['hexDegrade1'] ?? "#000",
+                                $produto['hexDegrade2'] ?? "#333",
+                                $produto['id_produto']
+                            );
+                        } // FIM DO LOOP ÚNICO DE CRIAÇÃO DE CARDS
+                    }
 
-                foreach ($resultado['dados'] as $produto){
-                    echo $produto;
-                }
+                    $resultado = paginarMaisDeUmaQueryString($produtos, 16);
 
-            ?>
+                    //Parametros para a queryString
+                        $parametrosExtras = [];
+                        if (!empty($_GET['tela'])) {
+                            $parametrosExtras[] = 'tela=' . urlencode($_GET['tela']);
+                        }
+                        if (!empty($_GET['sub'])) {
+                            $subs = $_GET['sub'];
+                            if (!is_array($subs)) $subs = [$subs];
+                            foreach ($subs as $s) {
+                                $parametrosExtras[] = 'sub[]=' . urlencode($s);
+                            }
+                        }
+                        if (!empty($_GET['cat'])) {
+                            $cats = $_GET['cat'];
+                            if (!is_array($cats)) $cats = [$cats];
+                            foreach ($cats as $c) {
+                                $parametrosExtras[] = 'cat[]=' . urlencode($c);
+                            }
+                        }
+
+                        $parametrosExtrasString = implode('&', $parametrosExtras);
+
+                    foreach ($resultado['dados'] as $produto) {
+                        echo $produto;
+                    }
+                ?>
             </div>
+
             <?php
-            renderPaginacao($resultado['paginaAtual'], $resultado['totalPaginas']);
+                renderPaginacaoMaisDeUmaQueryString($resultado['paginaAtual'], $resultado['totalPaginas'], $parametrosExtrasString);
             ?>
             
         </div>

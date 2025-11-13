@@ -11,8 +11,7 @@ body {
 }
 
 p{
-  white-space: nowrap;        /* impede quebra de linha */
-  overflow: hidden;           /* esconde o que passar */
+  overflow: hidden;      
   text-overflow: ellipsis;
 }
 
@@ -69,7 +68,7 @@ tfoot {
   font-weight: bold;
 }
 .total-value {
-  text-align: left;
+  text-align: center;
   color: #949494;
 }
 .frete {
@@ -117,8 +116,7 @@ tfoot {
 }
 .total-label, .total-value {
   font-weight: normal;
-  margin-right: auto;
-  text-align: left;
+  text-align: center;
 }
 .button-container {
   display: flex;
@@ -171,13 +169,20 @@ tfoot {
   margin-left: 10px;
   font-size: 1rem;
 }
+
+.conteudo_td{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .cor1 {
   width: 100px;
   height: auto;
-  background-color: rgb(88, 88, 88);
+  background-color: transparent;
   border-radius: 15px;
-  margin-right: 0px;
-  box-shadow: inset 0px 0px 20px #000000;
+  margin: 0px;
+  box-shadow: inset 0px 0px 10px #9b9b9b;
 }
 .cor2{
   text-align: center;
@@ -235,13 +240,11 @@ td img {
   max-width: 100%;
   height: auto;
 }
-.check {
-  margin-right: 20px;
-  /* margin-left: -30px; */
-}
+
 .produto-nome {
+  font-size: 18px;
+  font-weight: 550;
   vertical-align: middle;
-  margin-left: 10px;
 }
 
 input[type="checkbox"] {
@@ -249,7 +252,6 @@ input[type="checkbox"] {
   height: 20px;
   text-align: center;
   transform: scale(1.5);
-  margin-right: 10px;
   vertical-align: middle;
   appearance: none;
   background-color: #A6A6A6;
@@ -275,216 +277,6 @@ input[type="checkbox"]:checked::before {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-@media screen and (max-width: 430px) {
-  
-  .prod{
-    padding: 10px;
-  }
-
-  .conteudo_td{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .prod img{
-    margin: 0px;
-  }
-
-  .prod input{
-    margin: 0px;
-  }
-
-  .produto-nome{
-    display: none;
-  }
-
-  .tot{
-    display: flex;
-    height: 70px;
-    justify-content: center;
-    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-    border-radius: 10px;
-  }
-
-  .tudo{
-    display: flex;
-    height: 50px;
-    justify-content: space-between;
-    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-    border-radius: 10px;
-  }
-
-  .Meio {
-    width: 100%;
-    font-size: 18px;
-    margin-top: 100px;
-  }
-
-  table{
-    width: 90%;
-    display: table;
-    font-size: 13px;
-  }
-
-  thead {
-    background-color: #1C1C1C;
-    border-radius: 5px;
-  }
-
-  thead th {
-    font-size: 12px;
-    padding: 10px;
-    background-color: #1C1C1C !important;
-    color: white !important;
-    word-break: break-word;
-  }
-
-  tbody tr {
-    border: 1px solid #ccc;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-
-  td{
-    display: flex;
-    align-items: center;
-    border: none;
-  }
-
-  .cor1 {
-    width: 50px;
-    height: auto;
-    border-radius: 10px;
-  }
-
-  .produto-nome {
-    font-size: 14px;
-    margin-left: 5px;
-    flex: 1;
-  }
-
-  .quantity-container {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .quant-btn {
-    width: 24px;
-    height: 24px;
-    font-size: 14px;
-  }
-
-  .quant {
-    width: 36px;
-    height: 24px;
-    font-size: 13px;
-    text-align: center;
-  }
-
-  .bot{
-    display: flex;
-    justify-content: center;
-  }
-
-  .button-container {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    margin-top: 20px;
-  }
-
-  .button-container button {
-    width: 90%;
-    font-size: 14px;
-    padding: 12px;
-  }
-
-  .redondo {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .total-value {
-    font-size: 16px;
-  }
-
-  input[type="checkbox"] {
-    width: 15px;
-    height: 15px;
-    transform: scale(1.2);
-    margin-right: 8px;
-  }
-}
-
-
-@media screen and (max-width: 430px) {
-
-thead th:nth-child(2),
-thead th:nth-child(3),
-tbody td:nth-child(2),
-tbody td:nth-child(3) {
-  display: none !important;
-}
-
-tbody tr {
-  display: grid;
-  grid-template-columns: 1fr;
-  width: 100%;
-}
-
-tbody td {
-  width: 100%;
-  flex: 1 1 100%;
-  text-align: left;
-}
-
-}
-
-@media screen and (max-width: 430px) {
-
-  thead {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-  }
-
-  thead th {
-    width: 100%;
-    display: table-cell;
-    text-align: center;
-  }
-
-  tbody tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-  }
-
-  tbody td {
-    display: table-cell;
-    width: 100%;
-    text-align: left;
-    padding: 10px;
-  }
-
-  thead th:nth-child(2),
-  thead th:nth-child(3),
-  tbody td:nth-child(2),
-  tbody td:nth-child(3) {
-    display: none !important;
-  }
-
-}
-
 
 /* Estilo do overlay */
 .overlayPopUp {
@@ -585,3 +377,240 @@ tbody td {
       font-size: 14px;
   }
 }
+
+/*RESPONSIVIDADE DO CARRINHO*/
+
+@media (max-width: 900px){
+  td{
+    padding: 15px;
+  }
+
+  input[type="checkbox"]{
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+  }
+
+  .produto-nome{
+    display: none;
+  }
+
+  .sumir{
+    display: none;
+  }
+
+  .cor1{
+    width: 70px;
+    border-radius: 10px;
+  }
+
+  .conteudo_td{
+    gap: 10px;
+  }
+
+  .quant{
+    width: 30px;
+  }
+
+  .quant-btn{
+    width: 20px;
+    height: 20px;
+  }
+
+  .button-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+/**/
+
+@media screen and (max-width: 590px) {
+  table{
+    width: 90%;
+    display: table;
+    font-size: 13px;
+  }
+
+  thead {
+    background-color: #1C1C1C;
+    border-radius: 5px;
+  }
+
+  thead th {
+    font-size: 12px;
+    padding: 15px;
+    background-color: #1C1C1C !important;
+    color: white !important;
+    word-break: break-word;
+  }
+
+  tbody tr {
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  td{
+    display: flex;
+    align-items: center;
+    border: none;
+  }
+
+  input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    transform: scale(1.2);
+    margin-right: 8px;
+  }
+
+  .prod{
+    padding: 10px;
+  }
+
+  .conteudo_td{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .prod div{
+    gap: 5px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .prod img{
+    margin: 0px;
+  }
+
+  .cor1 {
+    width: 45px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .prod input{
+    margin: 0px;
+  }
+
+  .produto-nome {
+    font-size: 14px;
+    margin-left: 5px;
+    flex: 1;
+  }
+
+  .quantity-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .redondo {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .tot{
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+
+  .total-value {
+    font-size: 16px;
+  }
+
+  .tudo{
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+
+  .button-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .button-container button {
+    width: 90%;
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+
+@media screen and (max-width: 590px) {
+
+thead th:nth-child(2),
+thead th:nth-child(3),
+tbody td:nth-child(2),
+tbody td:nth-child(3) {
+  display: none !important;
+}
+
+tbody tr {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+tbody td {
+  width: 100%;
+  flex: 1 1 100%;
+  text-align: left;
+}
+
+}
+
+@media screen and (max-width: 590px) {
+
+  thead {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  thead th {
+    width: 100%;
+    display: table-cell;
+    text-align: center;
+  }
+
+  tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  tbody td {
+    display: table-cell;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+  }
+
+  thead th:nth-child(2),
+  thead th:nth-child(3),
+  tbody td:nth-child(2),
+  tbody td:nth-child(3) {
+    display: none !important;
+  }
+
+}
+
