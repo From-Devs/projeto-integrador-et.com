@@ -1308,10 +1308,10 @@ Aqua (Agua), Vitis Vinifera Seed Oil (Óleo de Semente de Uva), Sodium C14-16 Ol
 --#endregion
 
 
---#region 
+--#region Shampoo Match. Proteção da Cor (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(46,'#981D2D','#C44152','#C45F6B');
+(46,'#8A0F1F','#981D2D','#C84C5C');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2180,10 +2180,10 @@ Aplique sobre a pele limpa e úmida, massageando o corpo todo em movimentos circ
 --#endregion 
 
 
---#region 
+--#region Sabonete Esfoliante para o Rosto Biōme (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(71,'#3A0249','#760494','#AA06D6');
+(71,'#3A0249','#760494','#B971CC');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES
@@ -2211,10 +2211,10 @@ SODIUM COCOYL ISETHIONATE, ZEA MAYS STARCH / ZEA MAYS (CORN) STARCH, HYDROGENATE
 --#endregion 
 
 
---#region 
+--#region Sérum para Sobrancelhas Una (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(72,'#B7928C','#D6ABA4','#D6BBB7');
+(72,'#AD827B','#B58982','#D6BBB7');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2841,6 +2841,28 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Kit Tododia Máscaras Reparação, Nutrição e Hidratação', 'Natura', '250ml',
+'Cronocapilar completo com fórmulas para hidratar, nutrir ou reparar seus fios.
+O Cronocapilar de Natura Tododia tem três máscaras concentradas que proporcionam cuidado intenso desde o primeiro uso. Suas fórmulas com Tecnologia Prebiótica cuidam da raiz às pontas para hidratar, nutrir ou reparar os fios. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado.',
+'Cronocapilar completo com fórmulas para hidratar, nutrir ou reparar seus fios.
+O Cronocapilar de Natura Tododia tem três máscaras concentradas que proporcionam cuidado intenso desde o primeiro uso. Suas fórmulas com Tecnologia Prebiótica cuidam da raiz às pontas para hidratar, nutrir ou reparar os fios. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado.
+
+Benefícios:
+• Máscara Hidrata: feita com pantenol e extrato de aloe vera, que hidratam e retém a água dos fios. Essa máscara promove uma hidratação profunda e sem pesar, que recupera os fios dos desgastes do dia a dia. Devolve o brilho e movimento dos fios, deixando seu cabelo mais macio e solto. Fragrância fresca e delicada com notas de maçã verde.
+• Máscara Nutre: feita com óleo de coco e óleo de amêndoa, que repõem os nutrientes. Essa máscara nutre profundamente, dá brilho e combate o frizz. Perfeita para revitalizar seu cabelo de maneira rápida e prática. Fragrância alegre e cremosa, com notas de pêssego.
+• Máscara Repara: feita com arginina e óleo de abacate, que reparam fios danificados com uma recarga de aminoácidos. Essa máscara repara danos causados por procedimentos químicos e devolve o aspecto saudável dos fios. Fragrância feminina e envolvente, com notas de flor de cereja.
+
+Conteúdo::
+1 Máscara concentrada cronocapilar repara 250 ml.
+1 Máscara concentrada cronocapilar nutre 250 ml.
+1 Máscara concentrada cronocapilar hidrata 250 ml.
+
+Dicas de uso:
+Após lavar seus cabelos com os produtos de Tododia, aplique a máscara por todo o comprimento dos fios úmidos, evitando a raiz. Deixe agir por 3 minutos, aproveite o momento e relaxe. Em seguida, enxágue.
+
+Ingredientes:
+Máscara repara: ÁGUA, ÁLCOOL CETOESTEARÍLICO, METOSSULFATO DE BEENTRIMÔNIO, PALMITATO DE ISOPROPILA, DIMETICONOL, ÉSTERES CETÍLICOS, CLORETO DE CETRIMÔNIO, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, FENOXIETANOL, ÓLEO DE HÍBRIDO DE HELIANTHUS ANNUUS, GOMA GUAR, ÁCIDO CÍTRICO, ÓLEO DE PERSEA RATISSIMA, ARGININA, DODECILBENZENOSULFONATO DE TEA, HEXIL CINAMAL, ÁCIDO LÁCTICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, LIMONENO, ÁLCOOL BENZÍLICO, LINALOL, BUTILCARBAMATO DE IODOPROPINILA, MACROGOL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.Mascara nutre: ÁGUA, ÁLCOOL CETOESTEARÍLICO, LAURATO DE ISOAMILA, CLORETO DE BEENTRIMÔNIO, GLICEROL, DIMETICONOL, ÉSTERES CETÍLICOS, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, GOMA GUAR, FENOXIETANOL, DIEPTANOATO DE PROPILENOGLICOL, ÓLEO DE COCO, DIMETICONA, ÁCIDO CÍTRICO, ÁLCOOL ISOPROPÍLICO, ÓLEO DE AMÊNDOAS , ÁCIDO LÁCTICO, DODECILBENZENOSULFONATO DE TEA, HEXIL CINAMAL, EDETATO DISSÓDICO, SALICILATO DE BENZILA, DILAURATO DE PEG-4, LAURATO DE PEG-4, LINALOL, LIMONENO, ÁLCOOL BENZÍLICO, CITRONELOL, CUMARINA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.Máscara hidrata:',
+137,70,null,0,40,'kit-mascaras-natura-1.png','kit-mascaras-natura-2.jpg',null,16,95,)
 
 
 --#region --#endregion 
@@ -2850,6 +2872,33 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Máscara Concentrada Crono Capilar Tododia Hidrata','Natura1','250ml',
+'Cuidado intenso para cabelos hidratados desde o primeiro uso.
+A Máscara Concentrada Crono Capilar TodoDia Hidrata oferece um cuidado intenso e rápido, recuperando os fios dos desgastes diários.',
+'Com uma fórmula leve e prática, ela hidrata profundamente sem pesar, devolvendo o brilho e a maciez desde o primeiro uso. Enriquecida com pantenol e extrato de aloe vera, que hidratam e retêm a umidade nos fios, esta máscara deixa o cabelo mais solto, macio e com movimento. A fragrância fresca e delicada com notas de maçã verde transforma o cuidado em um momento de bem-estar.
+
+Benefícios:
+ - Enriquecido com pantenol e extrato de aloe vera, que hidratam e retêm a umidade.
+ - Fragrância fresca e delicada com notas de maçã verde.
+ - Hidrata profundamente sem pesar.
+ - Recupera os fios dos desgastes do dia a dia.
+ - Devolve brilho e movimento aos cabelos.
+ - Cabelos mais macios e soltos.
+ - Fórmula com 98% de ingredientes de origem natural.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Possui refil
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+ 
+Dicas de uso:
+Aplique nos fios úmidos, evitando a raiz, e deixe agir por 3 minutos. Aproveite esse momento para relaxar e em seguida enxágue. Use regularmente para cabelos mais saudáveis e hidratados.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETÍLICO, CLORETO DE BEENTRIMÔNIO, ÁLCOOL ESTEARÍLICO, BIS-CETEARILAMODIMETICONA, FARNESENO HIDROGENADO, PERFUME, ESTEARAMIDOPROPIL DIMETILAMINA, FENOXIETANOL, ÓLEO DEHÍBRIDO DE HELIANTHUS ANNUUS, ÁLCOOL ISOPROPÍLICO, MALTODEXTRINA, PANTENOL, ÁCIDO LÁCTICO, EXTRATO DAFOLHA DE ALOE BARBADENSIS, ÁCIDO CÍTRICO, CETOMACROGOL 1000, CETOMACROGOL 1000, EDETATO DISSÓDICO,ÁLCOOL MIRISTÍLICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, CAPRILILGLICOL, BUTILCARBAMATO DE IODOPROPINILA ,MACROGOL, ÁCIDO GLICÓLICO, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
+45.90,32.13,1,30,'natura-mascara-tododia-hidrata-1.png', 'natura-mascara-tododia-hidrata-2.jpg', 'natura-mascara-tododia-hidrata-3.jpg',16,96,)
 
 
 --#region --#endregion 
@@ -2859,6 +2908,31 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Máscara Concentrada Crono Capilar Tododia Nutre','Natura','250ml',
+'A Máscara Concentrada Crono Capilar TodoDia Nutre oferece cuidado intenso, revitalizando e nutrindo os cabelos profundamente.',
+'Perfeita para recuperar cabelos ressecados e com frizz, sua fórmula rica em óleo de coco e óleo de amêndoa repõe os nutrientes essenciais dos fios, deixando-os com brilho, maciez e sem frizz. Com uma fragrância alegre e cremosa, que traz as notas encantadoras de pêssego e baunilha, ela transforma o cuidado capilar em um momento de prazer e bem-estar.
+
+Benefícios:
+ - Enriquecida com óleo de coco e óleo de amêndoa, que repõem os nutrientes.
+ - Nutre e revitaliza cabelos ressecados.
+ - Combate o frizz e recupera o brilho dos fios.
+ - Cabelos macios e soltos desde o primeiro uso.
+ - Fragrância alegre com notas de pêssego.
+ - Fórmula com 95% de ingredientes de origem natural.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Possui refil
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+ 
+Dicas de uso:
+Aplique a máscara nos fios úmidos, evitando a raiz, e deixe agir por 3 minutos. Aproveite esse tempo para relaxar e, em seguida, enxágue bem. Para melhores resultados, use regularmente.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, LAURATO DE ISOAMILA, CLORETO DE BEENTRIMÔNIO, GLICEROL, DIMETICONOL, ÉSTERES CETÍLICOS, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, GOMA GUAR, FENOXIETANOL, DIEPTANOATO DE PROPILENOGLICOL, ÓLEO DE COCO, DIMETICONA, ÁCIDO CÍTRICO, ÁLCOOL ISOPROPÍLICO, ÓLEO DE AMÊNDOAS , ÁCIDO LÁCTICO, DODECILBENZENOSULFONATO DE TEA, HEXIL CINAMAL, EDETATO DISSÓDICO, SALICILATO DE BENZILA, DILAURATO DE PEG-4, LAURATO DE PEG-4, LINALOL, LIMONENO, ÁLCOOL BENZÍLICO, CITRONELOL, CUMARINA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
+45.90,27.54,1,30,'natura-mascara-tododia-nutre-1.png', 'natura-mascara-tododia-nutre-2.png', 'natura-mascara-tododia-nutre-3.png',16,97,)
 
 
 --#region --#endregion 
@@ -2868,6 +2942,31 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Máscara Concentrada Crono Capilar Tododia Repara','Natura','250ml',
+'A Máscara Concentrada Crono Capilar TodoDia Repara oferece um cuidado intenso, restaurando cabelos enfraquecidos e danificados por procedimentos químicos.',
+'Sua fórmula enriquecida com arginina e óleo de abacate proporciona uma recarga de aminoácidos que repara os fios, devolvendo seu aspecto saudável. Com uma fragrância envolvente de flor de cereja, a máscara transforma o cuidado capilar em um momento de prazer e bem-estar. Ideal para quem busca cabelos mais fortes, saudáveis desde o primeiro uso.
+
+Benefícios:
+ - Repara danos causados por procedimentos químicos.
+ - Recupera cabelos enfraquecidos e danificados.
+ - Enriquecida com arginina e óleo de abacate, que restauram os fios.
+ - Devolve o aspecto saudável dos fios.
+ - Fragrância envolvente com notas de flor de cereja.
+ - Fórmula com 95% de ingredientes de origem natural.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Possui refil
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+ 
+Dicas de uso:
+Aplique a máscara nos fios úmidos, evitando a raiz, e deixe agir por 3 minutos. Aproveite para relaxar enquanto o produto repara os fios. Enxágue bem em seguida.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, METOSSULFATO DE BEENTRIMÔNIO, PALMITATO DE ISOPROPILA, DIMETICONOL, ÉSTERES CETÍLICOS, CLORETO DE CETRIMÔNIO, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, FENOXIETANOL, ÓLEO DE HÍBRIDO DE HELIANTHUS ANNUUS, GOMA GUAR, ÁCIDO CÍTRICO, ÓLEO DE PERSEA RATISSIMA, ARGININA, DODECILBENZENOSULFONATO DE TEA, HEXIL CINAMAL, ÁCIDO LÁCTICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, LIMONENO, ÁLCOOL BENZÍLICO, LINALOL, BUTILCARBAMATO DE IODOPROPINILA, MACROGOL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
+45.90,null,0,30,'natura-mascara-tododia-repara-1.png', 'natura-mascara-tododia-repara-2.png', 'natura-mascara-tododia-repara-3.png',16,98,)
 
 
 --#region --#endregion 
@@ -2877,6 +2976,32 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Spray Hidratante Tododia Maçã Verde e Aloe Vera','Natura','200ml',
+'Natura Tododia Spray Hidratante Maçã Verde e Aloe Vera é a combinação perfeita de frescor e hidratação para seus cabelos.',
+'Com uma fórmula leve e refrescante, proporciona hidratação instantânea, deixando seus cabelos com menos frizz, macios, soltinhos e com brilho radiante. Sua fragrância deliciosa, inspirada na maçã verde e na aloe vera, traz a sensação de bem-estar e vitalidade, ideal para o dia a dia.
+
+Benefícios:
+ - Para todas as curvaturas.
+ - Textura leve que não pesa.
+ - Fios soltinhos e radiantes.
+ - Cabelos sem frizz por mais tempo.
+ - Hidratação prolongada.
+ - Fragrância fresca e delicada com notas de maçã verde.
+ - Cabelos mais macios e sedosos.
+ - Proteção térmica para evitar danos causados pelo calor do secador.
+ - Fórmula com 95% ingredientes de origem natural.
+ - Recupera os fios dos desgastes do dia a dia.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Possui refil
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+ 
+Dicas de uso:
+Aplique nos fios secos ou úmidos, do comprimento às pontas, evitando a raiz. Sem enxágue.',
+37.90,null,0,30,'spray-hidratante-tododia-maca-1.png', 'spray-hidratante-tododia-maca-2.jpg', 'spray-hidratante-tododia-maca-3.jpg',16,99,)
 
 
 --#region --#endregion 
@@ -2886,6 +3011,24 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Shampoo Hidratante Tododia Maçã Verde e Aloe Vera','Natura','300ml',
+'O Shampoo Hidratante Tododia Maçã Verde e Aloe Vera limpa e hidrata sem pesar os fios. ',
+'Limpa e deixa seus cebelos soltinhos. Sua fórmula equilibrada deixa os cabelos soltinhos e brilhantes. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado. Essa linha conta com a exclusiva Tecnologia Prebiótica, que cuida da raiz às pontas.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Possui refil
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+
+Dicas de uso:
+ - Deixe a sua rotina mais gostosa.
+ - Aplique o shampoo nos cabelos molhados. Massageie até formar espuma e enxágue em seguida.
+ 
+Ingredientes:
+ÁGUA, LAURILSULFATO DE SÓDIO, COCOAMIDOPROPILBETAÍNA, DECIL GLICOSÍDEO , GLICEROL, COCOATO DE PEG-7 GLICERILA, PERFUME, CLORETO DE SÓDIO, BENZOATO DE SÓDIO, POLIQUATÉRNIO-39, ÁCIDOCÍTRICO, SORBATO DE POTÁSSIO, TRIOLEATO DE PEG-120 METIL GLICOSE, PROPILENOGLICOL, GLICONATO DE SÓDIO, HIDRÓXIDO DE SÓDIO, MALTODEXTRINA, EXTRATO DA FOLHA DE ALOE BARBADENSIS, ÓLEO DA SEMENTE DE ORBIGNYA OLEIFERA, CARBONATO DE SÓDIO.',
+33.90,null,0,30,'shampoo-hidratante-tododia-maca-1.png','shampoo-hidratante-tododia-maca-2.png','shampoo-hidratante-tododia-maca-3.png',15,100,)
 
 
 --#region --#endregion 
@@ -2895,6 +3038,24 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Condicionador Hidratante Tododia Maçã Verde e Aloe Vera','Natura','280ml',
+'O Condicionador Hidratante Tododia Maçã Verde e Aloe Vera promove uma hidratação profunda e sem pesar.',
+'Hidrata sem pesar os fios.
+Sua textura cremosa desliza entre os fios, deixando eles soltinhos e brilhantes. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado. Essa linha conta com a exclusiva Tecnologia Prebiótica, que cuida da raiz às pontas.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Possui refil
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+
+Dicas de uso:
+Aplique o condicionador nos cabelos molhados. Espalhe por todo o comprimento do cabelo, evitando a raiz. Enxágue em seguida.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, CLORETO DE BEENTRIMÔNIO, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, FENOXIETANOL, FARNESENO HIDROGENADO, DICAPRILIL ÉTER, LAURATO DE ISOAMILA, DIMETICONOL, MALTODEXTRINA, ÁLCOOL ISOPROPÍLICO, EXTRATO DA FOLHA DE ALOE BARBADENSIS, ÓLEO DE HÍBRIDO DE HELIANTHUS ANNUUS, ÁCIDO CÍTRICO, ÓLEO DE COCO, DIEPTANOATO DE PROPILENOGLICOL, ÁCIDO LÁCTICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, DODECILBENZENOSULFONATO DE TEA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, ÁLCOOL BENZÍLICO, TOCOFEROL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
+35.90,null,0,30,'condicionador-hidratante-tododia-maca-1.png', 'condicionador-hidratante-tododia-maca-2.jpg', 'condicionador-hidratante-tododia-maca-3.jpg',15,101,)
 
 
 --#region --#endregion 
@@ -2904,6 +3065,35 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Shampoo Reparador Tododia Flor de Cereja e Abacate','Natura','300ml',
+'O Shampoo Reparador Tododia Flor de Cereja e Abacate limpa e recupera os cabelos danificados pelo uso de produtos químicos.',
+'Limpeza suave com espuma envolvente e perfumada.
+Sua fórmula com óleo de abacate não agride os fios e ainda evita o ressecamento. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado. Essa linha conta com a exclusiva Tecnologia Prebiótica, que cuida da raiz às pontas.
+
+Benefícios:
+ - Repara os fios e melhora a sua resistência.
+ - Evita o ressecamento.
+ - Espuma envolvente.
+ - Fragrância feminina e envolvente, com notas de flor de cereja.
+ - Limpeza suave que não agride os fios.
+ - Para todas as curvaturas.
+ - Repara cabelos danificados por procedimentos químicos.
+ - Fórmula com 92% ingredientes de origem natural.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Possui refil
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+
+Dicas de uso:
+ - Deixe a sua rotina mais gostosa.
+ - Aplique o shampoo nos cabelos molhados. Massageie até formar espuma e enxágue em seguida.
+
+Ingredientes:
+ÁGUA, LAURILSULFATO DE SÓDIO, COCOAMIDOPROPILBETAÍNA, CLORETO DE SÓDIO, COPOLÍMERO DE ÁCIDO METACRÍLICO E ACRILATO DE ETILA, DECIL GLICOSÍDEO , DIMETICONOL, ÁCIDO CÍTRICO, PERFUME, COCO-GLICOSÍDEO, DIESTEARATO DE ETILENOGLICOL, BENZOATO DE SÓDIO, POLIQUATÉRNIO-6, HIDRÓXIDO DE SÓDIO, SORBATO DE POTÁSSIO, POLIQUATÉRNIO-39, TRIOLEATO DE PEG-120 METIL GLICOSE, PROPILENOGLICOL, ARGININA, ÓLEO DE RÍCINO HIDROGENADO ETOXILADO, GLICONATO DE SÓDIO, POLIQUATÉRNIO-22, ÓLEO DE PERSEA GRATISSIMA, GLICEROL, HEXIL CINAMAL, DODECILBENZENOSULFONATO DE TEA, LIMONENO, MONOLEATO DE GLICERILA, MONOESTEARATO DE GLICERILA, ÁLCOOL BENZÍLICO, ÓLEO DA SEMENTE DE ORBIGNYA OLEIFERA, ÁCIDO BENZOICO, CARBONATO DE SÓDIO, BUTILCARBAMATO DE IODOPROPINILA.',
+33.90,null,0,30,'shampoo-reparador-tododia-flor-1.png', 'shampoo-reparador-tododia-flor-2.jpg', 'shampoo-reparador-tododia-flor-3.jpg',15,102,)
 
 
 --#region --#endregion 
@@ -2913,6 +3103,33 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Condicionador Reparador Tododia Flor de Cereja e Abacate','Natura','280ml',
+'O Condicionador Reparador Tododia Flor de Cereja e Abacate recupera os cabelos danificados pelo uso de produtos químicos.',
+'Fios selados e com menos pontas duplas.
+Sua fórmula com óleo de abacate sela os fios e reduz pontas duplas. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado. Essa linha conta com a exclusiva Tecnologia Prebiótica, que cuida da raiz às pontas.
+
+Benefícios:
+ - Repara e revitaliza os fios.
+ - Repara cabelos danificados por procedimentos químicos.
+ - Fórmula com 94% ingredientes de origem natural.
+ - Para todas as curvaturas.
+ - Fragrância feminina e envolvente, com notas de flor de cereja.
+ - Deixa os fios com aspecto saudável.
+ - Reduz pontas duplas.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Possui refil
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+
+Dicas de uso:
+Aplique o condicionador nos cabelos molhados. Espalhe por todo o comprimento do cabelo, evitando a raiz. Enxágue em seguida.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, CLORETO DE BEENTRIMÔNIO, BIS-CETEARILAMODIMETICONA, DIMETICONOL, FENOXIETANOL, PERFUME, ÁLCOOL ISOPROPÍLICO, ÓLEO DE PERSEA GRATISSIMA,CETOMACROGOL 1000, CETOMACROGOL 1000, ARGININA, ÁCIDO CÍTRICO, DODECILBENZENOSULFONATO DE TEA,EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, HEXIL CINAMAL, LIMONENO, CAPRILILGLICOL, ÁLCOOLBENZÍLICO, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, ÁCIDO GLICÓLICO, HIDRÓXIDO DE SÓDIO, CARBONATO DESÓDIO, CLORETO DE SÓDIO.',
+35.90,null,0,30,'condicionador-reparador-tododia-flor-1.png', 'condicionador-reparador-tododia-flor-2.jpg', 'condicionador-reparador-tododia-flor-3.jpg',15,103)
 
 
 --#region --#endregion 
@@ -2922,6 +3139,22 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Shampoo Nutritivo Tododia Pêssego e Amêndoa','Natura','300ml',
+'O Shampoo Nutritivo Tododia Pêssego e Amêndoa limpa os cabelos sem ressecar.',
+'Protege do ressecamento e realça o brilho dos fios.
+Sua fórmula com óleo de amêndoa deixa os fios mais macios, nutridos e sedosos. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado. Essa linha conta com a exclusiva Tecnologia Prebiótica, que cuida da raiz às pontas.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Possui refil
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+ 
+Dicas de uso:
+Deixe a sua rotina mais gostosa.
+Aplique o shampoo nos cabelos molhados. Massageie até formar espuma e enxágue em seguida.',
+33.90,null,0,30,'shampoo-nutritivo-tododia-pessego-1.png', 'shampoo-nutritivo-tododia-pessego-2.jpg','shampoo-nutritivo-tododia-pessego-3.jpg',15,104,)
 
 
 --#region --#endregion 
@@ -2931,6 +3164,233 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Condicionador Nutritivo Tododia Pêssego e Amêndoa','Natura','280ml',
+'O Condicionador Nutritivo Tododia Pêssego e Amêndoa nutre intensamente e devolve o brilho natural dos cabelos.',
+'Nutre intensamente e devolve o brilho natural.
+Sua fórmula com óleo de amêndoa deixa os fios sedosos e com menos frizz. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem estar para sua rotina de um jeito simples e descomplicado. Essa linha conta com a exclusiva Tecnologia Prebiótica, que cuida da raiz às pontas.
+
+Benefícios:
+ - Fragrância alegre e cremosa, com notas de pêssego.
+ - Desembaraça.
+ - Reduz o frizz.
+ - Textura cremosa que desmaia o fio.
+ - Nutre intensamente.
+ - Devolve o brilho natural.
+ - Fórmula com 96% ingredientes de origem natural.
+ - Para todas as curvaturas.
+ - Cabelos mais sedosos.
+ 
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Possui refil
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+
+Dicas de uso:
+Aplique o condicionador nos cabelos molhados. Espalhe por todo o comprimento do cabelo, evitando a raiz. Enxágue em seguida.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, PALMITATO DE ISOPROPILA, CLORETO DE BEENTRIMÔNIO,DIMETICONA, ÓLEO DE AMÊNDOAS , GOMA GUAR, FENOXIETANOL, PERFUME, ÁLCOOL ISOPROPÍLICO, HEXIL CINAMAL,ÁCIDO CÍTRICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, LINALOL, SALICILATO DE BENZILA,LIMONENO, CITRONELOL, CUMARINA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, HIDRÓXIDO DE SÓDIO,CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
+35.90,null,0,30,'condicionador-nutritivo-tododia-pessego-1.png', 'condicionador-nutritivo-tododia-pessego-2.jpg', ',condicionador-nutritivo-tododia-pessego-3.jpg',15,105,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(106,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(106,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Shampoo de Tratamento Antissinais Regenerador Capilar Lumina','Natura','300ml',
+'Ação antissinais com proteção antioxidante para o couro cabeludo e fios.',
+'Neutraliza o efeito dos radicais livres e desacelera os sinais do tempo. Fórmula com Tecnologia Bioproteína Tripla Ação + Ativo ProMelanina: protege a melanina e estimula a formação da cor natural dos cabelos.
+Nova fragrância com bergamota, frésia e sândalo.
+
+Benefícios com o uso da linha completa:
+ - Previne e reverte a aparição dos fios brancos
+ - Protege e estimula a produção de melanina, mantendo a pigmentação natural dos fios
+ - Tratamento progressivo com resultados cientificamente comprovados.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Possui refil
+ - Cruelty free
+ - Vegano
+ 
+Dicas de uso:
+ - Aplique o shampoo de Natura Lumina nos cabelos molhados, massageando o couro cabeludo. Enxágue em seguida.
+ 
+Ingredientes:
+ÁGUA, SULFATO DE SÓDIO LAURETE, COCAMIDOPROPIL BETAÍNA, COPOLÍMERO DE ÁCIDO METACRÍLICO E ACRILATO DE ETILA, PERFUME, ÁCIDO CÍTRICO, ÓXIDO DE LAURAMINA, DIESTEARATO DE ETILENOGLICOL, TRIETANOLAMINA, BIS-CETEARIL AMODIMETICONA, CAFEÍNA, LAURETE-4, BENZOATO DE SÓDIO, POLIQUATÉRNIO-6, POLIQUATÉRNIO-22, SORBATO DE POTÁSSIO, PROPANODIOL, LINALOL, EDETATO DISSÓDICO, ÓLEO DA SEMENTE DE CASTANHA-DO-PARÁ, GLICEROL, LIMONENO, HIDRÓXIDO DE SÓDIO, CETEARETE-25, CETEARETE-7, HEXIL CINAMAL, MANTEIGA DA SEMENTE DE MURUMURU [ASTROCARYUM MURUMURU], ÁCIDO BENZOICO, CAPRILILGLICOL, FENOXIETANOL, EXTRATO DE GROSELHA-DA-ÍNDIA, ÁCIDO GLICÓLICO, POLIPEPTÍDEO-1 DE SR-ARANHA, ÓLEO DE RÍCINO HIDROGENADO PEG-40, CLORETO DE SÓDIO, TOCOFEROL, 1,2-HEXANODIOL.',
+52.90,null,0,30,'shampoo-antissinais-lumina-1.png', 'shampoo-antissinais-lumina-2.jpg', 'shampoo-antissinais-lumina-3.jpg',16,106,)
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(107,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sérum de Prevenção Antissinais Regenerador Capilar Lumina','Natura','100ml',
+'Previne e posterga a aparição de fios brancos, mantendo a pigmentação natural dos fios.',
+'Previne e reverte a aparição dos fios brancos, protege e estimula a produção de melanina, mantendo a pigmentação natural dos fios. Tratamento progressivo com resultados cientificamente comprovados, com o uso diário do sérum por 90 dias.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Possui refil
+ - Cruelty free
+ - Vegano
+ 
+Dicas de uso:
+Antes de dormir, aplique o sérum Lumina em toda a extensão do couro cabeludo. Posicione o aplicador próximo ao couro cabeludo e acione a válvula. Em seguida, massageie com as pontas dos dedos. Não enxaguar. No dia seguinte, caso sinta necessidade, lave os cabelos. O produto pode ser aplicado no couro cabeludo com os cabelos limpos, úmidos ou secos.
+
+Ingredientes:
+ÁGUA, ÁLCOOL ETÍLICO, ÓLEO DE RÍCINO HIDROGENADO PEG-40, PROPANODIOL, PERFUME, CAFEÍNA, GLICEROL, SORBATO DE POTÁSSIO, CROSPOLÍMERO DE ACRILATOS/ACRILATO DE ALQUILA C10-30, LINALOL, TRIETANOLAMINA, EDETATO DISSÓDICO, LIMONENO, EXTRATO DE GROSELHA-DA-ÍNDIA, HEXIL CINAMAL, POLIPEPTÍDEO-1 DE SR-ARANHA, CITRAL, CITRONELOL, GERANIOL, ÁCIDO CÍTRICO, CAPRILILGLICOL, 1,2-HEXANODIOL.',
+89.90,null,0,'serum-antissinais-lumina-1.png', 'serum-antissinais-lumina-2.jpg', 'serum-antissinais-lumina-3.jpg',16,107,)
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(108,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Shampoo Cabelo Corpo e Barba Essencial','Natura','100ml',
+'Limpa e perfuma o cabelo, a barba e o corpo com a fragrância amadeirada de Essencial.',
+'Perfeito para homens que gostam de um ritual de cuidados prático e com fragrância amadeirada. Este shampoo 3 em 1 limpa o corpo, a barba e os cabelos sem pesar. Ideal para ser combinado em um presente com os demais produtos de Essencial.
+
+Benefícios:
+• Prático, pode ser usado no cabelo, barba e corpo.
+• Limpa sem pesar.
+• Fragrância amadeirada que combina com o Deo Parfum da linha.
+• Fórmula 87% de origem natural.
+• Produto vegano.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Possui refil
+ - Cruelty free
+ - Vegano
+
+Conteúdo: 100 ml.
+
+Ingredientes:
+AQUA, SODIUM LAURETH SULFATE, COCAMIDOPROPYL BETAINE, PARFUM, PPG-1-PEG-9 LAURYL GLYCOL ETHER, PHENOXYETHANOL, SODIUM CHLORIDE, POLYQUATERNIUM-10, LINALOOL, CITRIC ACID, LIMONENE TRIETHANOLAMINE, TETRASODIUM EDTA, PEG-4 DILAURATE, PEG-4 LAURATE, SODIUM HYDROXIDE, HYDROXYCITRONELLAL, HEXYL CINNAMAL, PEG-120 METHYL GLUCOSE TRIOLEATE, PROPYLENE GLYCOL, BENZYL BENZOATE, CITRAL, IODOPROPYNYL BUTYLCARBAMATE, PEG-200. INGREDIENTES (PORTUGUÊS): ÁGUA, LAURILETERSULFATO DE SÓDIO, COCOAMIDOPROPILBETAÍNA, PERFUME, PPG-1-PEG-9 LAURIL GLICOL ÉTER, FENOXIETANOL, CLORETO DE SÓDIO, POLIQUATÉRNIO-1O, LINALOL, ÁCIDO CÍTRICO, LIMONENO, TROLAMINA, EDETATO DE SÓDIO, DILAURATO DE PEG-4, LAURATO DE PEG-4, HIDRÓXIDO DE SÓDIO, HIDROXICITRONELAL, HEXIL CINAMAL, TRIOLEATO DE PEG-120 METIL GLICOSE, PROPILENOGLICOL, BENZOATO DE BENZILA, CITRAL, BUTILCARBAMATO DE IODOPROPINILA, MACROGOL.',
+35.50,17.70,1,30,'shampoo-cabelo-corpo-barba-essencial-1.png', 'shampoo-cabelo-corpo-barba-essencial-2.jpg', 'shampoo-cabelo-corpo-barba-essencial-3.jpg',15,108,)
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(109,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sérum Noturno Força e Reparação Molecular Lumina','Natura','100ml',
+'Sérum que repara as ligações internas do fio a nível molecular para 5 vezes mais força e potencializa o tratamento do sistema força e reparação',
+'Produto multifuncional, também pode ser usado como pré-shampoo e finalizador. Nova fragrância autoral que combina bergamota, rosa, cedro e musk.
+
+Sistema de tratamento força e reparação molecular:
+• Cabelos 5 vezes mais fortes e protegidos contra danos futuros.
+• Tratamento progressivo com resultados cientificamente comprovados desde a primeira aplicação.
+
+
+3 formas de usar:
+• Modo 1: Como tratamento noturno
+Recupera a massa capilar para ação antiquebra, elimina 95% das pontas duplas e promove 2 vezes mais brilho.
+• Modo 2: como pré-shampoo
+Protege as pontas dos fios antes da lavagem para prevenir os danos.
+• Modo 3: no pós-banho
+Finaliza, trata e alinha as cutículas para mais elasticidade e força. Sem enxágue, pode ser usado com os cabelos molhados ou secos.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Possui refil
+• Cruelty free
+• Vegano
+• Tipo de tratamento: força e reparação molecular.
+
+Dicas de uso:
+Aplique o produto nas mãos, espalhe e aplique nos cabelos úmidos ou secos, evitando a raiz. Use com ou sem enxágue.
+
+Ingredientes:
+ÁGUA, POLIQUATÉRNIO-37, DICAPRILATO/DICAPRATO DE PROPILENOGLICOL, COCOATO DE DECILA, DIMETICONA, PERFUME, TREALOSE, FENOXIETANOL, CLORETO DE HIDROXIPROPIL GUAR HIDROXIPROPILTRIMÔNIO, PPG-1 PEG-6 ÉTER DE ÁLCOOL TRIDECÍLICO, LINALOL, EDETATO DISSÓDICO, HEXIL CINAMAL, DILAURATO DE PEG-4, LAURATO DE PEG-4, ÁCIDO CÍTRICO, SALICILATO DE BENZILA, LIMONENO, CITRAL, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, SR-ARANHA POLIPEPTÍDEO-1, HIDROXICITRONELAL, CITRONELOL, GERANIOL, HIDRÓXIDO DE SÓDIO, CAPRILILGLICOL, 1,2-HEXANODIOL, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
+73.90,58.90,1,30,'serum-noturno-lumina-1.png', 'serum-noturno-lumina-2.jpg', 'serum-noturno-lumina-3.jpg',16,109,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(110,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Shampoo Reequilibrante Anticaspa','Natura','300ml',
+'',
+'',
+52.90,39.90,1,30,1)
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(106,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(106,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(106,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(106,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
 
 
 --#region --#endregion 
