@@ -8,6 +8,14 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
     header.forEach(item => {
         const pesquisa = item.childNodes[3];
         const input = item.childNodes[3].childNodes[1];
+        // debounce helper to avoid firing requests on every keystroke
+        function debounce(fn, delay){
+            let timer;
+            return function(...args){
+                clearTimeout(timer);
+                timer = setTimeout(() => fn.apply(this, args), delay);
+            }
+        }
         const lupa = item.childNodes[5].childNodes[1].childNodes[1];
         const favHeaderBotao = item.childNodes[5].childNodes[1].childNodes[3];
         const carrinhoBotaoHeader = item.childNodes[5].childNodes[1].childNodes[5];
@@ -120,7 +128,47 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
             item.className = "headerUsuario";
             input.value = "";
         })
+
+        // Chamar a busca ao digitar (com debounce) e ao pressionar Enter
+        if (input) {
+            input.addEventListener('input', debounce(function(e){
+                // passa o valor atual para a função de busca
+                ObterDadosProdutoHeader(e.target.value);
+            }, 300));
+
+            input.addEventListener('keydown', function(e){
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    ObterDadosProdutoHeader(e.target.value);
+                }
+            });
+        }
     })
 
 
+
 })
+
+
+async function ObterDadosProdutoHeader(textoPesquisa = null){
+    // permite passar o texto como argumento ou ler o primeiro inputHeader do DOM
+    if (textoPesquisa === null){
+        const el = document.getElementsByClassName("inputHeader")[0];
+        textoPesquisa = el ? el.value : "";
+    }
+    console.log("Texto: ", textoPesquisa);
+
+    // proteger/escapar o valor antes de enviar na query string
+    const pesquisaParam = encodeURIComponent(textoPesquisa);
+
+    const resposta = await fetch(`http://localhost/projeto-integrador-et.com/router/ProdutoRouter.php?acao=buscarTodosProdutos&ordem=%22%22&pesquisa=${pesquisaParam}`, { 
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    const dados = await resposta.json();
+    console.log(dados);
+    return dados;
+}
