@@ -657,6 +657,7 @@ body{
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
 }
 
 .imgProdutoLancamento{
@@ -670,6 +671,23 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.imagemItem .overlayBotaoSelecionarImg{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* display: none; */
+    background-image: linear-gradient(to bottom, rgba(123, 123, 123, 70%) 0%, rgba(0, 0, 0, 70%) 100%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.imagemItem:hover .overlayBotaoSelecionarImg{
+    opacity: 100;
 }
 
 .imagemItemWarning p{
