@@ -179,10 +179,10 @@ tfoot {
 .cor1 {
   width: 100px;
   height: auto;
-  background-color: rgb(88, 88, 88);
+  background-color: transparent;
   border-radius: 15px;
   margin: 0px;
-  box-shadow: inset 0px 0px 20px #000000;
+  box-shadow: inset 0px 0px 10px #9b9b9b;
 }
 .cor2{
   text-align: center;
