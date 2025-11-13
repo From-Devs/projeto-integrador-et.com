@@ -35,13 +35,13 @@
                     <p class= "p2">PREENCHIMENTO OBRIGATÓRIO</p>
                 </div>
                 <div class="id">
-                    <?php echo Camp("Nome Completo", "text", "nome")?>
-                    <?php echo Camp("Email", "email", "email") ?>
-                    <?php echo Camp("Data de Nascimento", "date", "data_nascimento") ?>
-                    <?php echo Camp("Telefone", "text", "telefone") ?>
-                    <?php echo Camp("Senha", "password", "senha") ?>
-                    <?php echo Camp("CPF", "text", "cpf") ?>
-                    <?php echo Camp("Confirmar Senha", "password", "confirmar_senha") ?>
+                    <?php echo Camp("Nome Completo", "text", "nome", "campo", "", $erro)?>
+                    <?php echo Camp("Email", "email", "email", "campo", "", $erro) ?>
+                    <?php echo Camp("Data de Nascimento", "date", "data_nascimento", "campo", "", $erro) ?>
+                    <?php echo Camp("Telefone", "text", "telefone", "campo", "", $erro) ?>
+                    <?php echo Camp("Senha", "password", "senha", "campo", "", $erro) ?>
+                    <?php echo Camp("CPF", "text", "cpf", "campo", "", $erro) ?>
+                    <?php echo Camp("Confirmar Senha", "password", "confirmar_senha", "campo", "", $erro) ?>
                 </div>
 
                 <!--Termos de uso e botões-->
