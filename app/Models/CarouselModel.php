@@ -126,21 +126,117 @@ class CarouselModel {
     }
 
     // 🔹 UPDATE - Atualizar carrossel
-    public function update(int $id, array $data): bool {
+   // Substitua a sua função 'update' por esta (ou mude o nome para algo como 'mudarProdutoECores'):
+    public function update(int $id_carousel, array $data): array {
+        // Pegando o novo ID do produto do array de dados
+        $novo_id_produto = $data['id_produto'] ?? null;
+
+        if (!$novo_id_produto) {
+            return ['error' => 'ID do novo produto não fornecido no array de dados.'];
+        }
+
         try {
-            $stmt = $this->conn->prepare("
-                UPDATE carousel
-                SET id_produto = :id_produto, id_coressubs = :id_coresSubs
-                WHERE id_carousel = :id
+            // 1. Busca o ID do produto ATUAL (e o id_coressubs)
+            // OBS: Corrigido o erro de digitação no placeholder ':id_carosel'
+            $stmt_atual = $this->conn->prepare("SELECT id_produto, id_coressubs FROM carousel WHERE id_carousel = :id_carousel");
+            $stmt_atual->execute([':id_carousel' => $id_carousel]);
+            $carousel_atual = $stmt_atual->fetch(PDO::FETCH_ASSOC);
+
+            if (!$carousel_atual) {
+                return ['error' => 'Carrossel não encontrado.'];
+            }
+            
+            // 2. VERIFICAÇÃO IF: Se o produto é o mesmo, retorna sucesso sem mexer
+            if ((int)$carousel_atual['id_produto'] === (int)$novo_id_produto) {
+                error_log("[CarouselModel] Produto JÁ é o mesmo ({$novo_id_produto}), pulando atualização. kkkk");
+                // Retorna o id_coressubs atual, não o do novo produto
+                return ['success' => true, 'id_coressubs_usado' => (int)$carousel_atual['id_coressubs']]; 
+            }
+            
+            // 3. Busca as cores do NOVO PRODUTO (CORRIGIDO: '->' e mapeamento de colunas)
+            // Aqui assumo que: produto.id_cores liga com cores.id_cores
+            // E que cores.corPrincipal deve ser mapeado para coressubs.corEspecial
+        // ✅ CÓDIGO CORRIGIDO NO CarouselModel.php -> função update
+
+            $stmt_cores_produto = $this->conn->prepare("
+                SELECT 
+                    p.id_produto, 
+                    c.corPrincipal AS corEspecial, 
+                    c.hexDegrade1, 
+                    c.hexDegrade2,
+                    NULL AS hexDegrade3  // AGORA SIM! Pegamos NULL porque não existe na tabela 'cores'
+                FROM produto p 
+                INNER JOIN cores c ON p.id_cores = c.id_cores
+                WHERE p.id_produto = :id_produto;
             ");
-            return $stmt->execute([
-                ":id" => $id,
-                ":id_produto" => $data['id_produto'],
-                ":id_coresSubs" => $data['id_coresSubs']
+            $stmt_cores_produto->execute([':id_produto' => $novo_id_produto]);
+            $cores_novo_produto = $stmt_cores_produto->fetch(PDO::FETCH_ASSOC);
+            
+            if (!$cores_novo_produto) {
+                return ['error' => 'Novo produto ou suas cores não encontradas.'];
+            }
+            
+            // --- O resto da sua lógica de reutilização/criação de cores está CORRETA! ---
+            
+            // 4. Verifica se a nova cor JÁ EXISTE em coressubs
+            $check = $this->conn->prepare("
+                SELECT id_coressubs FROM coressubs
+                WHERE corEspecial = :corEspecial
+                AND hexDegrade1 = :hexDegrade1
+                AND hexDegrade2 = :hexDegrade2
+                AND (hexDegrade3 = :hexDegrade3 OR (hexDegrade3 IS NULL AND :hexDegrade3 IS NULL))
+                LIMIT 1
+            ");
+            $check->execute([
+                ':corEspecial' => $cores_novo_produto['corEspecial'],
+                ':hexDegrade1' => $cores_novo_produto['hexDegrade1'],
+                ':hexDegrade2' => $cores_novo_produto['hexDegrade2'],
+                ':hexDegrade3' => $cores_novo_produto['hexDegrade3'] ?? null
             ]);
-        } catch (PDOException $e) {
-            error_log("[CarouselModel] Erro ao atualizar: " . $e->getMessage());
-            return false;
+            $existe = $check->fetch(PDO::FETCH_ASSOC);
+            
+            $novo_id_coressubs;
+
+            if ($existe) {
+                $novo_id_coressubs = $existe['id_coressubs'];
+                error_log("[CarouselModel] Cor do novo produto já existia. Reutilizando ID: {$novo_id_coressubs}");
+            } else {
+                // 5. Se a cor é nova, CRIA uma nova entrada em coressubs (CÓPIA)
+                $insertCor = $this->conn->prepare("
+                    INSERT INTO coressubs (corEspecial, hexDegrade1, hexDegrade2, hexDegrade3)
+                    VALUES (:corEspecial, :hexDegrade1, :hexDegrade2, :hexDegrade3)
+                ");
+                $insertCor->execute([
+                    ':corEspecial' => $cores_novo_produto['corEspecial'],
+                    ':hexDegrade1' => $cores_novo_produto['hexDegrade1'],
+                    ':hexDegrade2' => $cores_novo_produto['hexDegrade2'],
+                    ':hexDegrade3' => $cores_novo_produto['hexDegrade3'] ?? null
+                ]);
+                $novo_id_coressubs = $this->conn->lastInsertId();
+                error_log("[CarouselModel] Nova cor copiada e criada com ID: {$novo_id_coressubs}");
+            }
+            
+            // 6. ATUALIZA o carrossel (MUDANÇA DE PRODUTO E CORES)
+            $update = $this->conn->prepare("
+                UPDATE carousel
+                SET id_produto = :id_produto, id_coressubs = :id_coressubs
+                WHERE id_carousel = :id_carousel
+            ");
+            $ok = $update->execute([
+                ':id_produto' => $novo_id_produto,
+                ':id_coressubs' => $novo_id_coressubs,
+                ':id_carousel' => $id_carousel
+            ]);
+
+            if ($ok) {
+                return ['success' => true, 'id_coressubs_usado' => $novo_id_coressubs];
+            } else {
+                return ['error' => 'Falha ao atualizar o carrossel.'];
+            }
+
+        } catch (Exception $e) {
+            error_log("[CarouselModel] Erro ao atualizar/mudar produto: " . $e->getMessage());
+            return ['error' => 'Erro interno ao processar a mudança: ' . $e->getMessage()];
         }
     }
 
