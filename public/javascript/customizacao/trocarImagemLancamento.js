@@ -1,52 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const imgSeletor1 = document.querySelector('.popUpEditProdutoLancamento .imagemItem #img1ProdutoLancamento');
-    const imgSeletor2 = document.querySelector('.popUpEditProdutoLancamento .imagemItem #img2ProdutoLancamento');
-    const imgSeletor3 = document.querySelector('.popUpEditProdutoLancamento .imagemItem #img3ProdutoLancamento');
-    const imgCardLancamento = document.querySelectorAll('.popUpEditProdutoLancamento .cardLancamento .imgCardLancamento')[1];
-    
-    console.log(imgCardLancamento)
-    
-    function selecionarImagemLancamento(selecionado){
-        imgCardLancamento.src = selecionado.src;
-    };
+    const imagemPrincipal = document.querySelectorAll(
+        '.popUpEditProdutoLancamento .cardLancamento .imgCardLancamento'
+    )[1];
 
-    function trocarStyleBotoesLancamento(botao){
-        if (botao.id === 'botaoSelecionarImagemLancamento1') {
-            document.querySelectorAll('.botaoSelecionarImagemLancamento')[1].textContent = "Selecionar";
-            document.querySelectorAll('.botaoSelecionarImagemLancamento')[2].textContent = "Selecionar";
-        }
-        if (botao.id === 'botaoSelecionarImagemLancamento2') {
-            document.querySelectorAll('.botaoSelecionarImagemLancamento')[0].textContent = "Selecionar";
-            document.querySelectorAll('.botaoSelecionarImagemLancamento')[2].textContent = "Selecionar";
-        }
-        if (botao.id === 'botaoSelecionarImagemLancamento3') {
-            document.querySelectorAll('.botaoSelecionarImagemLancamento')[0].textContent = "Selecionar";
-            document.querySelectorAll('.botaoSelecionarImagemLancamento')[1].textContent = "Selecionar";
-        }
-    };
+    const imagens = [
+        document.querySelector('#img1ProdutoLancamento'),
+        document.querySelector('#img2ProdutoLancamento'),
+        document.querySelector('#img3ProdutoLancamento')
+    ];
 
-    document.querySelectorAll('.botaoSelecionarImagemLancamento').forEach(botao => {
-        botao.addEventListener('click', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
+    const botoes = document.querySelectorAll('.botaoSelecionarImagemLancamento');
 
-            const id = botao.id;
-            if (id === 'botaoSelecionarImagemLancamento1'){
-                selecionarImagemLancamento(imgSeletor1);
+    // Pegamos todos os .imagemItem (pais das imagens)
+    const imagemItems = document.querySelectorAll('.imagemItem');
+
+    window.selecionarImagem = function (indexClicado) {
+
+        // Trocar imagem do card de lançamento
+        imagemPrincipal.src = imagens[indexClicado].src;
+
+        // Atualizar texto/disable dos botões
+        botoes.forEach((botao, index) => {
+            if (index === indexClicado) {
                 botao.textContent = "Selecionado";
-                trocarStyleBotoesLancamento(botao)
+                botao.disabled = true;
+            } else {
+                botao.textContent = "Selecionar";
+                botao.disabled = false;
             }
-            if (id === 'botaoSelecionarImagemLancamento2'){
-                selecionarImagemLancamento(imgSeletor2);
-                botao.textContent = "Selecionado";
-                trocarStyleBotoesLancamento(botao)
+        });
+
+        // *** NOVO: Atualizar classe de seleção no pai das imagens ***
+        imagemItems.forEach((item, index) => {
+            if (index === indexClicado) {
+                item.classList.add("imagemSelecionada");
+            } else {
+                item.classList.remove("imagemSelecionada");
             }
-            if (id === 'botaoSelecionarImagemLancamento3'){
-                selecionarImagemLancamento(imgSeletor3);
-                botao.textContent = "Selecionado";
-                trocarStyleBotoesLancamento(botao)
-            }
+        });
+    }
+
+    // adicionar listeners nos botões
+    botoes.forEach((botao, index) => {
+        botao.addEventListener('click', e => {
+            e.preventDefault();
+            e.stopPropagation();
+            selecionarImagem(index);
         });
     });
 });
-

@@ -699,12 +699,18 @@ body{
     font-size: 60px;
 }
 
+.botaoSelecionarImagemLancamento:disabled{
+    background-color: #9f9f9f;
+    pointer-events: none;
+}
+
 .imagemContainer .imagemSelecionada{
     border: 5px dashed black ;
 }
 
 .imagemContainer .imagemVazia{
     background-color: #D2D2D2;
+    pointer-events: none;
 }
 
 .imagemVazia .imagemItemWarning{
