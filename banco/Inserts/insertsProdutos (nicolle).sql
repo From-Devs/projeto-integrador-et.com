@@ -8,7 +8,8 @@ VALUES
 (6,'Maiara Lima','maytheforcebwu@gmail.com','(49) 99272-3729','444.444.444-44','2003-11-01','associado','Associado',null,null),
 (7,'Adriana de Moura','adrimourana@outlook.com','(62) 99373-3738','555.555.555-55','1962-02-21','associado','Associado',null,null),
 (8,'Bruna Araripe','brunararipe@gmail.com','(68) 99383-8337','777.777.777-77','1987-05-23','associado','Associado',null,null),
-(9,'Roberta da Silva Pereira','robertinhap@outlook.com','(27) 99272-4641','888.888.888-88','2000-01-17','associado','Associado',null,null);
+(9,'Roberta da Silva Pereira','robertinhap@outlook.com','(27) 99272-4641','888.888.888-88','2000-01-17','associado','Associado',null,null),
+(10,'Jonathan Silveira','eusouojonathan@gmail.com','(11) 99397-6483','999.999.999-99','2001-08-10','associado','Associado',null,null);
 
 		-- Ambos eu cadastrei pelo site para a senha ser criptografada
 
@@ -961,11 +962,10 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 --#endregion
 
 
---#region 
+--#region Elástico de Concha do Mar (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(35,'#C0C0C0','#D6D6D6','#EAEAEA');
---#endregion
+(35,'#B7AEAE','#C0C0C0','#DEDEDE');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -977,10 +977,10 @@ Confortável para uso diário, é perfeito para quem ama detalhes únicos e sofi
 --#endregion
 
 
---#region 
+--#region Escova Secador Rotativa Rotating Hyaluronic (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(36,'#1EDCEA','#64edf7','#96f6fd');
+(36,'#10B6C1','#1EDCEA','#86ECF4');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1208,7 +1208,7 @@ AQUA (WATER), PARAFFIN, GLYCERYL STEARATE, SYNTHETIC BEESWAX, STEARIC ACID, BUTY
 --#endregion
 
 
---#region 
+--#region Secador Travel Dryer (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (43,'#2F2F2F','#525252','#7A7A7A');
@@ -2833,10 +2833,10 @@ Nenhum produto O Boticário é testado em animais, ou seja, este item possui sel
 --#endregion
 
 
---#region --#endregion 
+--#region  Kit Tododia Máscaras Reparação, Nutrição e Hidratação (maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(95,'','','');
+(95,'#11929C' '#D66D77','#EC7C16',);
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2862,16 +2862,17 @@ Após lavar seus cabelos com os produtos de Tododia, aplique a máscara por todo
 Ingredientes:
 Máscara repara: ÁGUA, ÁLCOOL CETOESTEARÍLICO, METOSSULFATO DE BEENTRIMÔNIO, PALMITATO DE ISOPROPILA, DIMETICONOL, ÉSTERES CETÍLICOS, CLORETO DE CETRIMÔNIO, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, FENOXIETANOL, ÓLEO DE HÍBRIDO DE HELIANTHUS ANNUUS, GOMA GUAR, ÁCIDO CÍTRICO, ÓLEO DE PERSEA RATISSIMA, ARGININA, DODECILBENZENOSULFONATO DE TEA, HEXIL CINAMAL, ÁCIDO LÁCTICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, LIMONENO, ÁLCOOL BENZÍLICO, LINALOL, BUTILCARBAMATO DE IODOPROPINILA, MACROGOL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.Mascara nutre: ÁGUA, ÁLCOOL CETOESTEARÍLICO, LAURATO DE ISOAMILA, CLORETO DE BEENTRIMÔNIO, GLICEROL, DIMETICONOL, ÉSTERES CETÍLICOS, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, GOMA GUAR, FENOXIETANOL, DIEPTANOATO DE PROPILENOGLICOL, ÓLEO DE COCO, DIMETICONA, ÁCIDO CÍTRICO, ÁLCOOL ISOPROPÍLICO, ÓLEO DE AMÊNDOAS , ÁCIDO LÁCTICO, DODECILBENZENOSULFONATO DE TEA, HEXIL CINAMAL, EDETATO DISSÓDICO, SALICILATO DE BENZILA, DILAURATO DE PEG-4, LAURATO DE PEG-4, LINALOL, LIMONENO, ÁLCOOL BENZÍLICO, CITRONELOL, CUMARINA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.Máscara hidrata:',
 137,70,null,0,40,'kit-mascaras-natura-1.png','kit-mascaras-natura-2.jpg',null,16,95,)
+--#endregion
 
 
---#region --#endregion 
+--#region  Máscara Concentrada Crono Capilar Tododia Hidrata (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(96,'','','');
+(96,'#11929C','#35A4AC','#8FD6DB');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-('Máscara Concentrada Crono Capilar Tododia Hidrata','Natura1','250ml',
+('Máscara Concentrada Crono Capilar Tododia Hidrata','Natura','250ml',
 'Cuidado intenso para cabelos hidratados desde o primeiro uso.
 A Máscara Concentrada Crono Capilar TodoDia Hidrata oferece um cuidado intenso e rápido, recuperando os fios dos desgastes diários.',
 'Com uma fórmula leve e prática, ela hidrata profundamente sem pesar, devolvendo o brilho e a maciez desde o primeiro uso. Enriquecida com pantenol e extrato de aloe vera, que hidratam e retêm a umidade nos fios, esta máscara deixa o cabelo mais solto, macio e com movimento. A fragrância fresca e delicada com notas de maçã verde transforma o cuidado em um momento de bem-estar.
@@ -2897,12 +2898,13 @@ Aplique nos fios úmidos, evitando a raiz, e deixe agir por 3 minutos. Aproveite
 Ingredientes:
 ÁGUA, ÁLCOOL CETÍLICO, CLORETO DE BEENTRIMÔNIO, ÁLCOOL ESTEARÍLICO, BIS-CETEARILAMODIMETICONA, FARNESENO HIDROGENADO, PERFUME, ESTEARAMIDOPROPIL DIMETILAMINA, FENOXIETANOL, ÓLEO DEHÍBRIDO DE HELIANTHUS ANNUUS, ÁLCOOL ISOPROPÍLICO, MALTODEXTRINA, PANTENOL, ÁCIDO LÁCTICO, EXTRATO DAFOLHA DE ALOE BARBADENSIS, ÁCIDO CÍTRICO, CETOMACROGOL 1000, CETOMACROGOL 1000, EDETATO DISSÓDICO,ÁLCOOL MIRISTÍLICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, CAPRILILGLICOL, BUTILCARBAMATO DE IODOPROPINILA ,MACROGOL, ÁCIDO GLICÓLICO, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
 45.90,32.13,1,30,'natura-mascara-tododia-hidrata-1.png', 'natura-mascara-tododia-hidrata-2.jpg', 'natura-mascara-tododia-hidrata-3.jpg',16,96,)
+--#endregion
 
 
---#region --#endregion 
+--#region Máscara Concentrada Crono Capilar Tododia Nutre (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(97,'','','');
+(97,'#E06C00','#EC7C16','#FDBB7C');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2930,12 +2932,13 @@ Aplique a máscara nos fios úmidos, evitando a raiz, e deixe agir por 3 minutos
 Ingredientes:
 ÁGUA, ÁLCOOL CETOESTEARÍLICO, LAURATO DE ISOAMILA, CLORETO DE BEENTRIMÔNIO, GLICEROL, DIMETICONOL, ÉSTERES CETÍLICOS, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, GOMA GUAR, FENOXIETANOL, DIEPTANOATO DE PROPILENOGLICOL, ÓLEO DE COCO, DIMETICONA, ÁCIDO CÍTRICO, ÁLCOOL ISOPROPÍLICO, ÓLEO DE AMÊNDOAS , ÁCIDO LÁCTICO, DODECILBENZENOSULFONATO DE TEA, HEXIL CINAMAL, EDETATO DISSÓDICO, SALICILATO DE BENZILA, DILAURATO DE PEG-4, LAURATO DE PEG-4, LINALOL, LIMONENO, ÁLCOOL BENZÍLICO, CITRONELOL, CUMARINA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
 45.90,27.54,1,30,'natura-mascara-tododia-nutre-1.png', 'natura-mascara-tododia-nutre-2.png', 'natura-mascara-tododia-nutre-3.png',16,97,)
+--#endregion 
 
 
---#region --#endregion 
+--#region Máscara Concentrada Crono Capilar Tododia Repara (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(98,'','','');
+(98,'#BB545E','#D66D77','#F29CA4');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2963,12 +2966,13 @@ Aplique a máscara nos fios úmidos, evitando a raiz, e deixe agir por 3 minutos
 Ingredientes:
 ÁGUA, ÁLCOOL CETOESTEARÍLICO, METOSSULFATO DE BEENTRIMÔNIO, PALMITATO DE ISOPROPILA, DIMETICONOL, ÉSTERES CETÍLICOS, CLORETO DE CETRIMÔNIO, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, FENOXIETANOL, ÓLEO DE HÍBRIDO DE HELIANTHUS ANNUUS, GOMA GUAR, ÁCIDO CÍTRICO, ÓLEO DE PERSEA RATISSIMA, ARGININA, DODECILBENZENOSULFONATO DE TEA, HEXIL CINAMAL, ÁCIDO LÁCTICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, LIMONENO, ÁLCOOL BENZÍLICO, LINALOL, BUTILCARBAMATO DE IODOPROPINILA, MACROGOL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
 45.90,null,0,30,'natura-mascara-tododia-repara-1.png', 'natura-mascara-tododia-repara-2.png', 'natura-mascara-tododia-repara-3.png',16,98,)
+--#endregion 
 
 
---#region --#endregion 
+--#region Spray Hidratante Tododia Maçã Verde e Aloe Vera (jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(99,'','','');
+(99,'#4A8C85','#62A39B','#9DD7D0');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2997,12 +3001,13 @@ Características:
 Dicas de uso:
 Aplique nos fios secos ou úmidos, do comprimento às pontas, evitando a raiz. Sem enxágue.',
 37.90,null,0,30,'spray-hidratante-tododia-maca-1.png', 'spray-hidratante-tododia-maca-2.jpg', 'spray-hidratante-tododia-maca-3.jpg',16,99,)
+--#endregion 
 
 
---#region --#endregion 
+--#region Shampoo Hidratante Tododia Maçã Verde e Aloe Vera (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(100,'','','');
+(100,'#58847C','#6E938C','#A2C8C1');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3023,12 +3028,13 @@ Dicas de uso:
 Ingredientes:
 ÁGUA, LAURILSULFATO DE SÓDIO, COCOAMIDOPROPILBETAÍNA, DECIL GLICOSÍDEO , GLICEROL, COCOATO DE PEG-7 GLICERILA, PERFUME, CLORETO DE SÓDIO, BENZOATO DE SÓDIO, POLIQUATÉRNIO-39, ÁCIDOCÍTRICO, SORBATO DE POTÁSSIO, TRIOLEATO DE PEG-120 METIL GLICOSE, PROPILENOGLICOL, GLICONATO DE SÓDIO, HIDRÓXIDO DE SÓDIO, MALTODEXTRINA, EXTRATO DA FOLHA DE ALOE BARBADENSIS, ÓLEO DA SEMENTE DE ORBIGNYA OLEIFERA, CARBONATO DE SÓDIO.',
 33.90,null,0,30,'shampoo-hidratante-tododia-maca-1.png','shampoo-hidratante-tododia-maca-2.png','shampoo-hidratante-tododia-maca-3.png',15,100,)
+--#endregion 
 
 
---#region --#endregion 
+--#region Condicionador Hidratante Tododia Maçã Verde e Aloe Vera (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(101,'','','');
+(101,'#78B5AD','#A6D5CF','#D4F7F2');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3049,12 +3055,13 @@ Aplique o condicionador nos cabelos molhados. Espalhe por todo o comprimento do 
 Ingredientes:
 ÁGUA, ÁLCOOL CETOESTEARÍLICO, CLORETO DE BEENTRIMÔNIO, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, FENOXIETANOL, FARNESENO HIDROGENADO, DICAPRILIL ÉTER, LAURATO DE ISOAMILA, DIMETICONOL, MALTODEXTRINA, ÁLCOOL ISOPROPÍLICO, EXTRATO DA FOLHA DE ALOE BARBADENSIS, ÓLEO DE HÍBRIDO DE HELIANTHUS ANNUUS, ÁCIDO CÍTRICO, ÓLEO DE COCO, DIEPTANOATO DE PROPILENOGLICOL, ÁCIDO LÁCTICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, DODECILBENZENOSULFONATO DE TEA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, ÁLCOOL BENZÍLICO, TOCOFEROL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
 35.90,null,0,30,'condicionador-hidratante-tododia-maca-1.png', 'condicionador-hidratante-tododia-maca-2.jpg', 'condicionador-hidratante-tododia-maca-3.jpg',15,101,)
+--#endregion 
 
 
---#region --#endregion 
+--#region  Shampoo Reparador Tododia Flor de Cereja e Abacate (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(102,'','','');
+(102,'#D18088','#D59AA0','#DE9F8D');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3086,12 +3093,13 @@ Dicas de uso:
 Ingredientes:
 ÁGUA, LAURILSULFATO DE SÓDIO, COCOAMIDOPROPILBETAÍNA, CLORETO DE SÓDIO, COPOLÍMERO DE ÁCIDO METACRÍLICO E ACRILATO DE ETILA, DECIL GLICOSÍDEO , DIMETICONOL, ÁCIDO CÍTRICO, PERFUME, COCO-GLICOSÍDEO, DIESTEARATO DE ETILENOGLICOL, BENZOATO DE SÓDIO, POLIQUATÉRNIO-6, HIDRÓXIDO DE SÓDIO, SORBATO DE POTÁSSIO, POLIQUATÉRNIO-39, TRIOLEATO DE PEG-120 METIL GLICOSE, PROPILENOGLICOL, ARGININA, ÓLEO DE RÍCINO HIDROGENADO ETOXILADO, GLICONATO DE SÓDIO, POLIQUATÉRNIO-22, ÓLEO DE PERSEA GRATISSIMA, GLICEROL, HEXIL CINAMAL, DODECILBENZENOSULFONATO DE TEA, LIMONENO, MONOLEATO DE GLICERILA, MONOESTEARATO DE GLICERILA, ÁLCOOL BENZÍLICO, ÓLEO DA SEMENTE DE ORBIGNYA OLEIFERA, ÁCIDO BENZOICO, CARBONATO DE SÓDIO, BUTILCARBAMATO DE IODOPROPINILA.',
 33.90,null,0,30,'shampoo-reparador-tododia-flor-1.png', 'shampoo-reparador-tododia-flor-2.jpg', 'shampoo-reparador-tododia-flor-3.jpg',15,102,)
+--#endregion
 
 
---#region --#endregion 
+--#region Condicionador Reparador Tododia Flor de Cereja e Abacate (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(103,'','','');
+(103,'#C55758','#EAA2A3','#EDB39D');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3121,12 +3129,13 @@ Aplique o condicionador nos cabelos molhados. Espalhe por todo o comprimento do 
 Ingredientes:
 ÁGUA, ÁLCOOL CETOESTEARÍLICO, CLORETO DE BEENTRIMÔNIO, BIS-CETEARILAMODIMETICONA, DIMETICONOL, FENOXIETANOL, PERFUME, ÁLCOOL ISOPROPÍLICO, ÓLEO DE PERSEA GRATISSIMA,CETOMACROGOL 1000, CETOMACROGOL 1000, ARGININA, ÁCIDO CÍTRICO, DODECILBENZENOSULFONATO DE TEA,EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, HEXIL CINAMAL, LIMONENO, CAPRILILGLICOL, ÁLCOOLBENZÍLICO, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, ÁCIDO GLICÓLICO, HIDRÓXIDO DE SÓDIO, CARBONATO DESÓDIO, CLORETO DE SÓDIO.',
 35.90,null,0,30,'condicionador-reparador-tododia-flor-1.png', 'condicionador-reparador-tododia-flor-2.jpg', 'condicionador-reparador-tododia-flor-3.jpg',15,103)
+--#endregion 
 
 
---#region --#endregion 
+--#region Shampoo Nutritivo Tododia Pêssego e Amêndoa (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(104,'','','');
+(104,'#E4682C','#C99364','#E9C195');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3145,12 +3154,13 @@ Dicas de uso:
 Deixe a sua rotina mais gostosa.
 Aplique o shampoo nos cabelos molhados. Massageie até formar espuma e enxágue em seguida.',
 33.90,null,0,30,'shampoo-nutritivo-tododia-pessego-1.png', 'shampoo-nutritivo-tododia-pessego-2.jpg','shampoo-nutritivo-tododia-pessego-3.jpg',15,104,)
+--#endregion 
 
 
---#region --#endregion 
+--#region Condicionador Nutritivo Tododia Pêssego e Amêndoa (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(105,'','','');
+(105,'#D3562A','#DFA46D','#DEC4AB');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3182,23 +3192,13 @@ Aplique o condicionador nos cabelos molhados. Espalhe por todo o comprimento do 
 Ingredientes:
 ÁGUA, ÁLCOOL CETOESTEARÍLICO, PALMITATO DE ISOPROPILA, CLORETO DE BEENTRIMÔNIO,DIMETICONA, ÓLEO DE AMÊNDOAS , GOMA GUAR, FENOXIETANOL, PERFUME, ÁLCOOL ISOPROPÍLICO, HEXIL CINAMAL,ÁCIDO CÍTRICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, LINALOL, SALICILATO DE BENZILA,LIMONENO, CITRONELOL, CUMARINA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, HIDRÓXIDO DE SÓDIO,CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
 35.90,null,0,30,'condicionador-nutritivo-tododia-pessego-1.png', 'condicionador-nutritivo-tododia-pessego-2.jpg', ',condicionador-nutritivo-tododia-pessego-3.jpg',15,105,)
+--#endregion 
 
 
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(106,'','','');
-
-INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
-
-
-
-
---#region --#endregion 
-INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
-VALUES  
-(106,'','','');
+(106,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3229,7 +3229,7 @@ Ingredientes:
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(107,'','','');
+(107,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3251,10 +3251,10 @@ Ingredientes:
 
 
 
---#region --#endregion 
+--#region Shampoo Cabelo Corpo e Barba Essencial (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(108,'','','');
+(108,'#372521','#5D473C','#A68F6D');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3279,13 +3279,13 @@ Conteúdo: 100 ml.
 Ingredientes:
 AQUA, SODIUM LAURETH SULFATE, COCAMIDOPROPYL BETAINE, PARFUM, PPG-1-PEG-9 LAURYL GLYCOL ETHER, PHENOXYETHANOL, SODIUM CHLORIDE, POLYQUATERNIUM-10, LINALOOL, CITRIC ACID, LIMONENE TRIETHANOLAMINE, TETRASODIUM EDTA, PEG-4 DILAURATE, PEG-4 LAURATE, SODIUM HYDROXIDE, HYDROXYCITRONELLAL, HEXYL CINNAMAL, PEG-120 METHYL GLUCOSE TRIOLEATE, PROPYLENE GLYCOL, BENZYL BENZOATE, CITRAL, IODOPROPYNYL BUTYLCARBAMATE, PEG-200. INGREDIENTES (PORTUGUÊS): ÁGUA, LAURILETERSULFATO DE SÓDIO, COCOAMIDOPROPILBETAÍNA, PERFUME, PPG-1-PEG-9 LAURIL GLICOL ÉTER, FENOXIETANOL, CLORETO DE SÓDIO, POLIQUATÉRNIO-1O, LINALOL, ÁCIDO CÍTRICO, LIMONENO, TROLAMINA, EDETATO DE SÓDIO, DILAURATO DE PEG-4, LAURATO DE PEG-4, HIDRÓXIDO DE SÓDIO, HIDROXICITRONELAL, HEXIL CINAMAL, TRIOLEATO DE PEG-120 METIL GLICOSE, PROPILENOGLICOL, BENZOATO DE BENZILA, CITRAL, BUTILCARBAMATO DE IODOPROPINILA, MACROGOL.',
 35.50,17.70,1,30,'shampoo-cabelo-corpo-barba-essencial-1.png', 'shampoo-cabelo-corpo-barba-essencial-2.jpg', 'shampoo-cabelo-corpo-barba-essencial-3.jpg',15,108,)
-
+--#endregion 
 
 
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(109,'','','');
+(109,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3323,7 +3323,7 @@ Ingredientes:
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(110,'','','');
+(110,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3344,10 +3344,10 @@ Aplique o shampoo nos cabelos molhados, massageando o couro cabeludo com movimen
 
 
 
---#region --#endregion 
+--#region Creme de Pentear Ativador para Definição e Nutrição de Cabelos Crespos (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(111,'','','');
+(111,'#193334','#40686A','#669E9F');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3368,13 +3368,13 @@ Aplique o creme de pentear nos cabelos úmidos ou secos, evitando a raiz. Sem en
 Ingredientes:
 ÁGUA, ÁLCOOL CETOESTEARÍLICO, ISONONANOATO DE ISONONILA, TRIGLICERÍDEO CAPRÍLICO/CÁPRICO, PALMITATO DE ETILEXILA, EXTRATO DA SEMENTE DE LINUM USITATISSIMUM, ESTEARAMIDOPROPIL DIMETILAMINA, EXTRATO DA SEMENTE DE SALVIA HISPANICA, PERFUME, FENOXIETANOL, HIETELOSE, MANTEIGA DA SEMENTE DE ASTROCARYUM MURUMURU, ÁCIDO CÍTRICO, ÓLEO DE RÍCINO, ÁCIDO LÁCTICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, ÁLCOOL BENZÍLICO, AMIL CINAMAL, ÁCIDO CAPRÍLICO, XILITOL, CUMARINA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, SR-ARANHA POLIPEPTÍDEO-1, LIMONENO, TROLAMINA, ACETATO DE SÓDIO, CITRONELOL, CAPRILILGLICOL, 1,2-HEXANODIOL.',
 54.90,null,0,30,'cremedepentear-crespo-lumina-1.png', 'cremedepentear-crespo-lumina-2.jpg', 'cremedepentear-crespo-lumina-3.jpg',15,111)
+--#endregion 
 
 
-
---#region --#endregion 
+--#region Creme de Pentear Selador de Cutículas para Nutrição e Reparação Profunda (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(112,'','','');
+(112,'#852919','#A2402F','#D07C60');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3394,13 +3394,13 @@ Dicas de uso:
 • Passo 2: utilize a Máscara Reparadora para potencializar o tratamento. em seguida, aplique a Ampola de Reparação para obter 2 vezes mais força e resistência.
 • Passo 3: finalize com o Creme de Pentear Selador de Cutículas para alcançar 2 vezes menos volume e 4 vezes menos frizz.',
 54.90,null,0,30,'cremedepentear-reparacao-lumina-1.png', 'cremedepentear-reparacao-lumina-2.jpg', 'cremedepentear-reparacao-lumina-3.jpg',15,112,)
+--#endregion 
 
 
-
---#region --#endregion 
+--#region Shampoo Ekos Murumuru (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(113,'','','');
+(113,'#7C483A','#A57955','#DBBC83');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3421,12 +3421,13 @@ Aplique uma pequena quantidade do produto no cabelo molhado e massageie o couro 
 Ingredientes:
 AQUA / ÁGUA, SODIUM COCOYL ISETHIONATE / COCOIL ISETIONATO DE SÓDIO, DECYL GLUCOSIDE / DECIL GLICOSÍDEO , COCAMIDOPROPYL BETAINE / COCOAMIDOPROPILBETAÍNA, GLYCERIN / GLICEROL, COCONUT ACID / ÁCIDO DE COCO, PARFUM / PERFUME, PEG-7 GLYCERYL COCOATE / COCOATO DE PEG-7 GLICERILA, ACRYLATES/C10-30 ALKYL ACRYLATE CROSSPOLYMER / CROSPOLÍMERO DE ACRILATOS/ACRILATO DE ALQUILA C10-30, HYDROXYACETOPHENONE / HIDROXIACETOFENONA, GLYCOL DISTEARATE / DIESTEARATO DE ETILENOGLICOL, SORBITOL, POTASSIUM SORBATE / SORBATO DE POTÁSSIO, SODIUM BENZOATE / BENZOATO DE SÓDIO, LAURETH-4 / LAUROMACROGOL 400, POLYQUATERNIUM-10 / POLIQUATÉRNIO-10, CITRIC ACID / ÁCIDO CÍTRICO, SODIUM HYDROXIDE / HIDRÓXIDO DE SÓDIO, SODIUM GLUCONATE / GLICONATO DE SÓDIO, BENZYL SALICYLATE / SALICILATO DE BENZILA, LINALOOL / LINALOL, LIMONENE / LIMONENO, COUMARIN / CUMARINA, ASTROCARYUM MURUMURU SEED BUTTER / MANTEIGA DA SEMENTE DE ASTROCARYUM MURUMURU, BENZOIC ACID / ÁCIDO BENZOICO, PEG-150 PENTAERYTHRITYL TETRASTEARATE / TETRAESTEARATO DE PEG-150 PENTAERITRITILA, PEG-6 CAPRYLIC/CAPRIC GLYCERIDES / GLICERÍDEOS CAPRÍLICO/CÁPRICO PEG-6, SODIUM CARBONATE / CARBONATO DE SÓDIO, CI 19140 / AMARELO DE TARTRAZINA , CI 15510 / CORANTE LARANJA 15510, SODIUM CHLORIDE / CLORETO DE SÓDIO, SODIUM SULFATE / SULFATO DE SÓDIO.',
 56.90,44.90,1,30,'shampoo-murumu-ekos-1.png', 'shampoo-murumu-ekos-2.jpg', 'shampoo-murumu-ekos-3.jpg',15,113,)
+--#endregion 
 
 
---#region --#endregion 
+--#region  Condicionador Ekos Murumuru (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(114,'','','');
+(114,'#824A3D','#AF836E','#EAD8C2');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3447,12 +3448,13 @@ Após lavar o cabelo com o Shampoo Ekos Murumuru, aplique o Condicionador Ekos M
 Ingredientes:
 AQUA / ÁGUA, CETEARYL ALCOHOL / ÁLCOOL CETOESTEARÍLICO, ISOPROPYL PALMITATE / PALMITATO DE ISOPROPILA, DICAPRYLYL CARBONATE / CARBONATO DE DICAPRILILA, PROPANEDIOL / PROPANODIOL, ASTROCARYUM MURUMURU SEED BUTTER / MANTEIGA DA SEMENTE DE ASTROCARYUM MURUMURU, PARFUM / PERFUME, STEARAMIDOPROPYL DIMETHYLAMINE / ESTEARAMIDOPROPIL DIMETILAMINA, SORBITOL, BEHENTRIMONIUM CHLORIDE / CLORETO DE BEENTRIMÔNIO, CAPRYLOYL GLYCERIN/SEBACIC ACID COPOLYMER / COPOLÍMERO DE CAPRILOIL GLICERINA/ÁCIDO SEBÁCICO, HYDROXYACETOPHENONE / HIDROXIACETOFENONA, HYDROXYETHYLCELLULOSE / HIETELOSE, DIHEPTYL SUCCINATE / SUCCINATO DE DIEPTILA, CETRIMONIUM CHLORIDE / CLORETO DE CETRIMÔNIO, CITRIC ACID / ÁCIDO CÍTRICO, SODIUM GLUCONATE / GLICONATO DE SÓDIO, LACTIC ACID / ÁCIDO LÁCTICO, ISOPROPYL ALCOHOL / ÁLCOOL ISOPROPÍLICO, BENZYL SALICYLATE / SALICILATO DE BENZILA, LINALOOL / LINALOL, LIMONENE / LIMONENO, COUMARIN / CUMARINA, SODIUM ACETATE / ACETATO DE SÓDIO, TOCOPHEROL / TOCOFEROL, SODIUM HYDROXIDE / HIDRÓXIDO DE SÓDIO, CI 19140 / AMARELO DE TARTRAZINA , CI 15510 / CORANTE LARANJA 15510, SODIUM CHLORIDE / CLORETO DE SÓDIO, SODIUM SULFATE / SULFATO DE SÓDIO, SODIUM CARBONATE / CARBONATO DE SÓDIO.',
 59.90,47.90,1,30,'condicionador-ekos-murumuru-1.png', 'condicionador-ekos-murumuru-2.jpg', 'condicionador-ekos-murumuru-3.jpg',15,114,)
+--#endregion
 
 
---#region --#endregion 
+--#region Ekos Frescor Maracujá (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(115,'','','');
+(115,'#E5DC5D','#DED77C','#ECE7A2');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3478,13 +3480,13 @@ Aplique a fragrância de Ekos Maracujá em áreas como punhos, pescoço e atrás
 Ingredientes:
 ALCOHOL, AQUA, PARFUM, POLYGLYCERYL-3 CAPRYLATE, PASSIFLORA EDULIS FRUIT, BENZOPHENONE-2, BHT, DENATONIUM BENZOATE, CI 19140, CI 14700, SODIUM CHLORIDE, SODIUM SULFATE, LIMONENE, HEXYL CINNAMAL, LINALOOL, BUTYLPHENYL METHYLPROPIONAL, COUMARIN, CITRONELLOL, ALPHA-ISOMETHYL IONONE, CITRAL, BENZYL BENZOATE, GERANIOL.',
 124.90,null,0,30,'fragrancia-ekos-maracuja-1.png', 'fragrancia-ekos-maracuja-2.jpg', 'fragrancia-ekos-maracuja-3.jpg',8,115)
+--#endregion 
 
 
-
---#region --#endregion 
+--#region Creme Hidratante para as Mãos Ekos Castanha (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(116,'','','');
+(116,'#A24E2A','#B85C35','#DD906E');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3502,13 +3504,13 @@ Características:
 Dicas de uso:
 Aplique o creme para mãos de Natura Ekos sempre que sentir necessidade. Espalhe nas mãos e unhas com movimentos deslizantes, dos dedos em direção ao pulso.',
 57.90,null,0,30,'cremeparamao-ekos-castanha-1.png', 'cremeparamao-ekos-castanha-2.jpg', 'cremeparamao-ekos-castanha-3.jpg',23,116,)
+--#endregion 
 
 
-
---#region --#endregion 
+--#region Condicionador Ekos Patauá (jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(117,'','','');
+(117,'#517C60','#789673','#D5CFBF');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3526,12 +3528,13 @@ Características:
 Ingredientes:
 AQUA/ ÁGUA, SORBITOL/ SORBITOL, CETEARYL ALCOHOL/ ÁLCOOL CETOESTEARÍLICO, PROPANEDIOL/ PROPANODIOL, BEHENTRIMONIUM CHLORIDE/ CLORETO DE BEENTRIMÔNIO, ASTROCARYUM MURUMURU SEED BUTTER/ MANTEIGA DA SEMENTE DE MURUMURU, ISOPROPYL PALMITATE/ PALMITATO DE ISOPROPILA, ISOAMYL LAURATE/ LAURATO DE ISOAMILA, CETYL ESTERS/ ÉSTERES CETÍLICOS, HYDROXYPROPYL GUAR/ GOMA GUAR, PARFUM/ PERFUME, HYDROXYACETOPHENONE/ HIDROXIACETOFENONA, OENOCARPUS BATAUA FRUIT OIL/ ÓLEO DO FRUTO DE PATAUÁ, PROPYLENE GLYCOL DIHEPTANOATE/ DIEPTANOATO DE PROPILENOGLICOL, ISOPROPYL ALCOHOL/ ÁLCOOL ISOPROPÍLICO, SODIUM GLUCONATE/ GLICONATO DE SÓDIO, BENZYL SALICYLATE/ SALICILATO DE BENZILA, TOCOPHEROL/ TOCOFEROL, HEXYL CINNAMAL/ HEXIL CINAMAL, LINALOOL/ LINALOL, GERANIOL/ GERANIOL, CITRIC ACID/ ÁCIDO CÍTRICO, CI 19140/ AMARELO DE TARTRAZINA , SODIUM HYDROXIDE/ HIDRÓXIDO DE SÓDIO, CI 14700/ VERMELHO ESCARLATE 125, CI 42090/ AZUL BRILHANTE, SODIUM CHLORIDE/ CLORETO DE SÓDIO, SODIUM SULFATE/ SULFATO DE SÓDIO, SODIUM CARBONATE/ CARBONATO DE SÓDIO.',
 40.30,20.10,1,30,'condicionador-ekos-pataua-1.png', 'condicionador-ekos-pataua-2.jpg', 'condicionador-ekos-pataua-3.jpg',15,117,)
+--#endregion 
 
 
---#region --#endregion 
+--#region Shampoo Ekos Patauá','Natura (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(118,'','','');
+(118,'#715B29','#947D47','#BBA677');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3549,13 +3552,13 @@ Características:
 Ingredientes:
 AQUA/ ÁGUA, COCAMIDOPROPYL BETAINE/ COCOAMIDOPROPILBETAÍNA, SODIUM COCOYL ISETHIONATE/ COCOIL ISETIONATO DE SÓDIO, DISODIUM COCOYL GLUTAMATE/ COCOIL GLUTAMATO DISSÓDICO, GLYCERIN/ GLICEROL, DECYL GLUCOSIDE/ DECIL GLICOSÍDEO , PARFUM/ PERFUME, CITRIC ACID/ ÁCIDO CÍTRICO, COCONUT ACID/ ÁCIDO DE COCO, PEG-150 PENTAERYTHRITYL TETRASTEARATE/ TETRAESTEARATO DE POLIETILENOGLICOL-150 PENTAERITRITILA, HYDROXYACETOPHENONE/ HIDROXIACETOFENONA, DISODIUM EDTA/ EDETATO DISSÓDICO, POTASSIUM SORBATE/ SORBATO DE POTÁSSIO, SODIUM BENZOATE/ BENZOATO DE SÓDIO, PEG-7 GLYCERYL COCOATE/ COCOATO DE POLIETILENOGLICOL-7 GLICERILA, PEG-6 CAPRYLIC/CAPRIC GLYCERIDES/ GLICERÍDEOS CAPRÍLICO/CÁPRICO POLIETILENOGLICOL-6, POLYQUATERNIUM-6/ POLIQUATÉRNIO-6, BENZYL SALICYLATE/ SALICILATO DE BENZILA, HEXYL CINNAMAL/ HEXIL CINAMAL, LINALOOL/ LINALOL, SODIUM HYDROXIDE/ HIDRÓXIDO DE SÓDIO, GERANIOL/ GERANIOL, OENOCARPUS BATAUA FRUIT OIL/ ÓLEO DO FRUTO DE PATAUÁ, CI 61570/ CORANTE VERDE 61570, CI 15510/ CORANTE LARANJA 15510, SODIUM CHLORIDE/ CLORETO DE SÓDIO, SODIUM SULFATE/ SULFATO DE SÓDIO, SODIUM CARBONATE/ CARBONATO DE SÓDIO.',
 38.30,19.10,1,30,'shampoo-ekos-pataua-1.png', 'shampoo-ekos-pataua-2.jpg', 'shampoo-ekos-pataua-3.jpg',15,118,)
+--#endregion 
 
 
-
---#region --#endregion 
+--#region Tônico Noturno de Crescimento Ekos Patauá (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(119,'','','');
+(119,'#984F3A','#76b8a4','#A4D5C7');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3577,12 +3580,13 @@ Importante: lave bem as mãos após a aplicação do produto.
 Ingredientes:
 AQUA/ ÁGUA, ALCOHOL/ ÁLCOOL ETÍLICO, GLYCERIN/ GLICEROL, PEG-40 HYDROGENATED CASTOR OIL/ ÓLEO DE RÍCINO HIDROGENADO ETOXILADO, PROPANEDIOL/ PROPANODIOL, OENOCARPUS BATAUA FRUIT OIL/ ÓLEO DO FRUTO DE PATAUÁ, PARFUM/ PERFUME, CITRIC ACID/ ÁCIDO CÍTRICO, HYDROXYACETOPHENONE/ HIDROXIACETOFENONA, SODIUM GLUCONATE/ GLICONATO DE SÓDIO, TOCOPHEROL/ TOCOFEROL, BENZYL SALICYLATE/ SALICILATO DE BENZILA, HEXYL CINNAMAL/ HEXIL CINAMAL, LINALOOL/ LINALOL, GERANIOL/ GERANIOL, LIMONENE/ LIMONENO, ALPHA-ISOMETHYL IONONE/ ALFA-ISOMETIL IONONA, SODIUM HYDROXIDE/ HIDRÓXIDO DE SÓDIO, SODIUM CARBONATE/ CARBONATO DE SÓDIO, SODIUM CHLORIDE/ CLORETO DE SÓDIO.',
 73.90,null,0,30,'tonico-ekos-pataua-1.png', 'tonico-ekos-pataua-2.jpg', 'tonico-ekos-pataua-3.jpg',16,119,)
+ --#endregion
 
 
---#region --#endregion 
+--#region Óleo Trifásico Desodorante Corporal Ekos Maracujá (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(120,'','','');
+(120,'#C6A907','#EACD2A','#F8E787');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES
@@ -3600,13 +3604,13 @@ Características:
 Dicas de uso:
 Agite o óleo corporal de Natura Ekos antes de usar. Aplique sobre o corpo, massageando a pele. Este óleo perfumado pode ser usado com e sem enxágue.',
 96.90,null,0,30,'oleo-maracuja-ekos-1.png', 'oleo-maracuja-ekos-2.jpg', 'oleo-maracuja-ekos-3.jpg',24,220.) 
-
+--#endregion 
 
 
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(121,'','','');
+(121,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3633,7 +3637,7 @@ Ingredientes:
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(122,'','','');
+(122,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3657,7 +3661,7 @@ Espalhe o sabonete líquido esfoliante de Natura Ekos sobre o corpo até formar 
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrad26,122,)
 VALUES  
-(123,'','','');
+(123,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3689,7 +3693,7 @@ Ingredientes:
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(124,'','','');
+(124,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3711,7 +3715,7 @@ Aplique uma pequena quantidade nas mãos e espalhe pelo cabelo. Reaplique caso s
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(125,'','','');
+(125,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3739,7 +3743,7 @@ Ingredientes:
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(120,'','','');
+(120,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3749,7 +3753,7 @@ VALUES
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(120,'','','');
+(120,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3759,7 +3763,7 @@ VALUES
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(120,'','','');
+(120,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3769,7 +3773,7 @@ VALUES
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(120,'','','');
+(120,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
