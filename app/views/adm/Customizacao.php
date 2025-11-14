@@ -8,9 +8,15 @@ require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento
 require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
 require_once __DIR__ . "/../../Controllers/ProdutoController.php";
+require_once __DIR__ . "/../../Controllers/CarouselController.php";
 
-$listaProdutos = new ProdutoController();
-$listaProdutos = $listaProdutos->pegarTodosProdutos();
+$produtoController = new ProdutoController();
+$carouselController = new CaroselController();
+
+$listaProdutos = $produtoController->pegarTodosProdutos();
+$listaCarousel = $carouselController->getAll();
+
+var_dump($listaCarousel);
 
 // session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
@@ -176,13 +182,11 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 
                         </div>
                     </div>
-                    
                 </div>
             </form>
-
         </div>
     </dialog>
-    <!-- width: 965px; height: 594px;   -->
+
     <dialog class='popUpDialog popUpEditProdutoLancamento'>
         <div class='popUp' style='padding: 33px; background-color: #F8F8F8; position: relative;'>
             <div class='topoPopUp'>
@@ -199,7 +203,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         echo createCardProdutoLancamento("", "","","","", "lancamentoFuncional");
                         echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg", "lancamentoFuncional");
                         ?>
-        
                     </div>
                 </div> 
                 
