@@ -5,6 +5,16 @@
     font-family: "Montserrat", sans-serif;
 }
 
+/*inputs de erro*/
+.input-erro{
+    border-bottom: 2px rgb(224, 0, 0) solid !important;
+}
+
+.label-erro{
+    color: rgb(224, 0, 0) !important;
+}
+/**/
+
 #container{
     display: flex;
     height: 100vh;

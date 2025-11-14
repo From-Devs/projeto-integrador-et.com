@@ -56,17 +56,22 @@ $erro = $_GET["erro"] ?? '';
 
             <form class="formContainer" id="formContainer" method="POST" action="../../../router/UserRoutes.php?acao=login">
                 <div class="email-input">
-                    <input type="text" name="email" class="input" id="email" required>
-                    <label for="email">Email</label>
+                    <input type="text" name="email" class="input <?= !empty($erro) ? 'input-erro' :  '' ?>" id="email" required>
+                    <label for="email" class="<?= !empty($erro) ? 'label-erro' :  '' ?>">Email</label>
                 </div>
                 <div class="senha-input">
-                    <input type="password" name="senha" class="input" id="senha" required>
-                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" class="input <?= !empty($erro) ? 'input-erro' :  '' ?>" id="senha" required>
+                    <label for="senha" class="<?= !empty($erro) ? 'label-erro' :  '' ?>">Senha</label>
                 </div>
                 <button type="button" id='esqueciSenha' onClick='abrirPopUp("popUpRecuperarSenha")'>Esqueceu a senha?</button>
             </form>
 
             <button id="botaoEntrar" type="submit" form="formContainer">Entrar</button>
+
+            <p style="color: red; text-align: left; margin-top: 35px; font-size: 18px; font-weight: 450;">
+                <?= htmlspecialchars($erro) ?>
+            </p>
+
             <div id="cadastro">
                 <p>Novo na ET?</p>
                 <a id="cadastroClique" href="CadastroUsuario.php">Cadastre-se</a>
@@ -75,12 +80,6 @@ $erro = $_GET["erro"] ?? '';
                 <i class='fas fa-chevron-left'></i>
                 <p id="voltar" href="./paginaPrincipal.php">Voltar</p>          
             </button> 
-
-            <?php if ($erro): ?>
-                <p style="color: red; text-align: left; margin-top: 35px; font-size: 18px">
-                    <?= htmlspecialchars($erro) ?>
-                </p>
-            <?php endif; ?>
         </div>
         <section>
             <div class='wave solida'></div>
