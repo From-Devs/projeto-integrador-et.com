@@ -2063,8 +2063,7 @@ VALUES
 
 Características:
 • Possui bioativo: maracujá.
-• Testado dermatologicamente.
-• Possui refil.
+• Testado dermatologicamente..
 • Cruelty free.
 • Vegano.
 • Tipo de pele: todos os tipos de pele.
@@ -2888,7 +2887,6 @@ Benefícios:
 
 Características:
  - Tipo de cabelo: todos os tipos de cabelos
- - Possui refil
  - Cruelty free
  - Vegano
  - Ocasião: cuidado diário
@@ -2922,7 +2920,6 @@ Benefícios:
 
 Características:
  - Tipo de cabelo: todos os tipos de cabelos
- - Possui refil
  - Cruelty free
  - Vegano
  - Ocasião: cuidado diário
@@ -2956,7 +2953,6 @@ Benefícios:
 
 Características:
  - Tipo de cabelo: todos os tipos de cabelos
- - Possui refil
  - Cruelty free
  - Vegano
  - Ocasião: cuidado diário
@@ -2994,7 +2990,6 @@ Benefícios:
 
 Características:
  - Tipo de cabelo: todos os tipos de cabelos
- - Possui refil
  - Cruelty free
  - Vegano
  - Ocasião: cuidado diário
@@ -3017,7 +3012,6 @@ VALUES
 
 Características:
  - Tipo de cabelo: todos os tipos de cabelos
- - Possui refil
  - Cruelty free
  - Vegano
  - Ocasião: cuidado diário
@@ -3045,7 +3039,6 @@ Sua textura cremosa desliza entre os fios, deixando eles soltinhos e brilhantes.
 
 Características:
  - Tipo de cabelo: todos os tipos de cabelos
- - Possui refil
  - Cruelty free
  - Vegano
  - Ocasião: cuidado diário
@@ -3082,7 +3075,6 @@ Benefícios:
 
 Características:
  - Tipo de cabelo: todos os tipos de cabelos
- - Possui refil
  - Cruelty free
  - Vegano
  - Ocasião: cuidado diário
@@ -3119,7 +3111,6 @@ Benefícios:
 
 Características:
  - Tipo de cabelo: todos os tipos de cabelos
- - Possui refil
  - Cruelty free
  - Vegano
  - Ocasião: cuidado diário
@@ -3146,7 +3137,6 @@ Sua fórmula com óleo de amêndoa deixa os fios mais macios, nutridos e sedosos
 
 Características:
  - Tipo de cabelo: todos os tipos de cabelos
- - Possui refil
  - Cruelty free
  - Vegano
  - Ocasião: cuidado diário
@@ -3182,7 +3172,6 @@ Benefícios:
  
 Características:
  - Tipo de cabelo: todos os tipos de cabelos
- - Possui refil
  - Cruelty free
  - Vegano
  - Ocasião: cuidado diário
@@ -3225,7 +3214,6 @@ Benefícios com o uso da linha completa:
 
 Características:
  - Tipo de cabelo: todos os tipos de cabelos
- - Possui refil
  - Cruelty free
  - Vegano
  
@@ -3251,7 +3239,6 @@ VALUES
 
 Características:
  - Tipo de cabelo: todos os tipos de cabelos
- - Possui refil
  - Cruelty free
  - Vegano
  
@@ -3284,7 +3271,6 @@ Benefícios:
 
 Características:
  - Tipo de cabelo: todos os tipos de cabelos
- - Possui refil
  - Cruelty free
  - Vegano
 
@@ -3322,7 +3308,6 @@ Finaliza, trata e alinha as cutículas para mais elasticidade e força. Sem enx�
 
 Características:
 • Tipo de cabelo: todos os tipos de cabelos
-• Possui refil
 • Cruelty free
 • Vegano
 • Tipo de tratamento: força e reparação molecular.
@@ -3343,63 +3328,450 @@ VALUES
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
 ('Shampoo Reequilibrante Anticaspa','Natura','300ml',
-'',
-'',
-52.90,39.90,1,30,1)
+'Elimina até 99% da caspa sem agredir o couro cabeludo.
+A linha para Tratamento Anticaspa de Lumina mudou! São novas embalagens e ainda mais tecnologia para cuidar do seu cabelo.',
+'Com BioProteína Tripla Ação e Ativo Dermocontrole, esse sistema deixa o cabelo até 99% livre da caspa sem ressecar e promove o reequilíbrio da microbiota para controle da caspa por mais tempo. O Shampoo Reequilibrante Anticaspa Lumina é um passo essencial nesse ritual, com fórmula que promove limpeza suave sem ressecar ou agredir.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: anticaspa.
+
+Dicas de uso:
+Aplique o shampoo nos cabelos molhados, massageando o couro cabeludo com movimentos circulares. Enxágue. Pós o uso do shampoo, você pode complementar o ritual de cuidados com o condicionador Lumina de sua preferência.',
+52.90,39.90,1,30,'shampoo-anticaspa-lumina-1.png', 'shampoo-anticaspa-lumina-2.jpg', 'shampoo-anticaspa-lumina-3.jpg',15,110,)
 
 
 
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(106,'','','');
+(111,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Creme de Pentear Ativador para Definição e Nutrição de Cabelos Crespos','Natura','300ml',
+'Cabelos 73% mais definidos, 2 vezes mais brilhantes e com ação antiencolhimento.
+A linha para Cabelos Crespos de Lumina mudou! Agora o seu Sistema de Definição e Nutrição tem novas embalagens, nova fragrância e ainda mais tecnologia para cuidar do seu cabelo.',
+'Com BioProteína Tripla Ação e Complexo de Linhaça e Óleo de Rícino, esse sistema promove cabelos crespos até 73% mais definidos e com 2 vezes mais brilho. O Creme de Pentear Ativador para Cabelos Crespos Lumina é um passo essencial nesse ritual, com fórmula que deixa os fios mais fáceis de pentear e com ação antiencolhimento.
 
+Características:
+• Tipo de cabelo: crespos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: definição e nutrição.
+
+Dicas de uso:
+Aplique o creme de pentear nos cabelos úmidos ou secos, evitando a raiz. Sem enxágue.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, ISONONANOATO DE ISONONILA, TRIGLICERÍDEO CAPRÍLICO/CÁPRICO, PALMITATO DE ETILEXILA, EXTRATO DA SEMENTE DE LINUM USITATISSIMUM, ESTEARAMIDOPROPIL DIMETILAMINA, EXTRATO DA SEMENTE DE SALVIA HISPANICA, PERFUME, FENOXIETANOL, HIETELOSE, MANTEIGA DA SEMENTE DE ASTROCARYUM MURUMURU, ÁCIDO CÍTRICO, ÓLEO DE RÍCINO, ÁCIDO LÁCTICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, ÁLCOOL BENZÍLICO, AMIL CINAMAL, ÁCIDO CAPRÍLICO, XILITOL, CUMARINA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, SR-ARANHA POLIPEPTÍDEO-1, LIMONENO, TROLAMINA, ACETATO DE SÓDIO, CITRONELOL, CAPRILILGLICOL, 1,2-HEXANODIOL.',
+54.90,null,0,30,'cremedepentear-crespo-lumina-1.png', 'cremedepentear-crespo-lumina-2.jpg', 'cremedepentear-crespo-lumina-3.jpg',15,111)
 
 
 
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(106,'','','');
+(112,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Creme de Pentear Selador de Cutículas para Nutrição e Reparação Profunda','Natura','250ml',
+'Cabelo protegido, brilhante, com 2 vezes menos volume e 4 vezes menos frizz.
+A linha para Cabelos Secos ou Ressecados de Lumina mudou! Agora o seu Sistema de Nutrição e Reparação Profunda tem novas embalagens e ainda mais tecnologia para cuidar do seu cabelo.',
+'Com BioProteína Tripla Ação e Ativo Nutrirrevitalização, esse sistema promove 2 vezes mais nutrição com reparação e selagem dos fios. O Creme de Pentear Selador de Cutículas Cabelos Secos ou Ressecados Lumina é um passo essencial nesse ritual, com fórmula que blinda, hidrata e protege os fios.
 
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: nutrição e reparação profunda.
+
+Dicas de uso:
+• Passo 1: lave os cabelos com o Shampoo Nutritivo e o Condicionador Polinutrição para promover limpeza e nutrição imediata dos fios.
+• Passo 2: utilize a Máscara Reparadora para potencializar o tratamento. em seguida, aplique a Ampola de Reparação para obter 2 vezes mais força e resistência.
+• Passo 3: finalize com o Creme de Pentear Selador de Cutículas para alcançar 2 vezes menos volume e 4 vezes menos frizz.',
+54.90,null,0,30,'cremedepentear-reparacao-lumina-1.png', 'cremedepentear-reparacao-lumina-2.jpg', 'cremedepentear-reparacao-lumina-3.jpg',15,112,)
 
 
 
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(106,'','','');
+(113,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Shampoo Ekos Murumuru','Natura','300ml',
+'Limpeza suave que prepara seus cabelos para o tratamento antidanos.
+Feito com manteiga bruta de murumuru, que combate o ressecamento e os danos capilares, o Shampoo Ekos Murumuru deixa seu cabelo nutrido e com aspecto saudável.',
+'Sua fórmula mais potente e radicalmente natural limpa os fios sem agredir o couro cabeludo, preparando-o para o ritual de tratamento biocosmético capilar antidanos.
 
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: reconstrução.
+
+Dicas de uso:
+Aplique uma pequena quantidade do produto no cabelo molhado e massageie o couro cabeludo. Em seguida, enxágue bem. Para potencializar os resultados e a ação antidanos, combine seu uso com o Condicionador Ekos Murumuru e outros produtos da linha.
+
+Ingredientes:
+AQUA / ÁGUA, SODIUM COCOYL ISETHIONATE / COCOIL ISETIONATO DE SÓDIO, DECYL GLUCOSIDE / DECIL GLICOSÍDEO , COCAMIDOPROPYL BETAINE / COCOAMIDOPROPILBETAÍNA, GLYCERIN / GLICEROL, COCONUT ACID / ÁCIDO DE COCO, PARFUM / PERFUME, PEG-7 GLYCERYL COCOATE / COCOATO DE PEG-7 GLICERILA, ACRYLATES/C10-30 ALKYL ACRYLATE CROSSPOLYMER / CROSPOLÍMERO DE ACRILATOS/ACRILATO DE ALQUILA C10-30, HYDROXYACETOPHENONE / HIDROXIACETOFENONA, GLYCOL DISTEARATE / DIESTEARATO DE ETILENOGLICOL, SORBITOL, POTASSIUM SORBATE / SORBATO DE POTÁSSIO, SODIUM BENZOATE / BENZOATO DE SÓDIO, LAURETH-4 / LAUROMACROGOL 400, POLYQUATERNIUM-10 / POLIQUATÉRNIO-10, CITRIC ACID / ÁCIDO CÍTRICO, SODIUM HYDROXIDE / HIDRÓXIDO DE SÓDIO, SODIUM GLUCONATE / GLICONATO DE SÓDIO, BENZYL SALICYLATE / SALICILATO DE BENZILA, LINALOOL / LINALOL, LIMONENE / LIMONENO, COUMARIN / CUMARINA, ASTROCARYUM MURUMURU SEED BUTTER / MANTEIGA DA SEMENTE DE ASTROCARYUM MURUMURU, BENZOIC ACID / ÁCIDO BENZOICO, PEG-150 PENTAERYTHRITYL TETRASTEARATE / TETRAESTEARATO DE PEG-150 PENTAERITRITILA, PEG-6 CAPRYLIC/CAPRIC GLYCERIDES / GLICERÍDEOS CAPRÍLICO/CÁPRICO PEG-6, SODIUM CARBONATE / CARBONATO DE SÓDIO, CI 19140 / AMARELO DE TARTRAZINA , CI 15510 / CORANTE LARANJA 15510, SODIUM CHLORIDE / CLORETO DE SÓDIO, SODIUM SULFATE / SULFATO DE SÓDIO.',
+56.90,44.90,1,30,'shampoo-murumu-ekos-1.png', 'shampoo-murumu-ekos-2.jpg', 'shampoo-murumu-ekos-3.jpg',15,113,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(114,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Condicionador Ekos Murumuru','Natura','300ml',
+'Restaura, desembaraça e nutre os fios.
+Feito com manteiga bruta de murumuru, o Condicionador Ekos Murumuru é potente para reconstruir a fibra capilar.',
+'Esse condicionador com ação antidanos desembaraça os fios, deixando o cabelo mais macio, hidratado e nutrido.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: reconstrução.
+
+Dicas de uso:
+Após lavar o cabelo com o Shampoo Ekos Murumuru, aplique o Condicionador Ekos Murumuru, massageie e deixe agir por 1 minuto. Em seguida, enxágue bem. Esse condicionador pode ser usado diariamente. Para potencializar os resultados e a ação antiqueda, combine seu uso com os demais produtos da linha Ekos Murumuru.
+
+Ingredientes:
+AQUA / ÁGUA, CETEARYL ALCOHOL / ÁLCOOL CETOESTEARÍLICO, ISOPROPYL PALMITATE / PALMITATO DE ISOPROPILA, DICAPRYLYL CARBONATE / CARBONATO DE DICAPRILILA, PROPANEDIOL / PROPANODIOL, ASTROCARYUM MURUMURU SEED BUTTER / MANTEIGA DA SEMENTE DE ASTROCARYUM MURUMURU, PARFUM / PERFUME, STEARAMIDOPROPYL DIMETHYLAMINE / ESTEARAMIDOPROPIL DIMETILAMINA, SORBITOL, BEHENTRIMONIUM CHLORIDE / CLORETO DE BEENTRIMÔNIO, CAPRYLOYL GLYCERIN/SEBACIC ACID COPOLYMER / COPOLÍMERO DE CAPRILOIL GLICERINA/ÁCIDO SEBÁCICO, HYDROXYACETOPHENONE / HIDROXIACETOFENONA, HYDROXYETHYLCELLULOSE / HIETELOSE, DIHEPTYL SUCCINATE / SUCCINATO DE DIEPTILA, CETRIMONIUM CHLORIDE / CLORETO DE CETRIMÔNIO, CITRIC ACID / ÁCIDO CÍTRICO, SODIUM GLUCONATE / GLICONATO DE SÓDIO, LACTIC ACID / ÁCIDO LÁCTICO, ISOPROPYL ALCOHOL / ÁLCOOL ISOPROPÍLICO, BENZYL SALICYLATE / SALICILATO DE BENZILA, LINALOOL / LINALOL, LIMONENE / LIMONENO, COUMARIN / CUMARINA, SODIUM ACETATE / ACETATO DE SÓDIO, TOCOPHEROL / TOCOFEROL, SODIUM HYDROXIDE / HIDRÓXIDO DE SÓDIO, CI 19140 / AMARELO DE TARTRAZINA , CI 15510 / CORANTE LARANJA 15510, SODIUM CHLORIDE / CLORETO DE SÓDIO, SODIUM SULFATE / SULFATO DE SÓDIO, SODIUM CARBONATE / CARBONATO DE SÓDIO.',
+59.90,47.90,1,30,'condicionador-ekos-murumuru-1.png', 'condicionador-ekos-murumuru-2.jpg', 'condicionador-ekos-murumuru-3.jpg',15,114,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(115,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Ekos Frescor Maracujá','Natura','150ml',
+'Fragrância encantadora e refrescante como um sossego no embalo de uma rede. Ddestaca o azedinho doce do maracujá em contraste com o conforto das notas de musk e madeiras.',
+'Desodorante colônia com ingrediente natural da biodiversidade brasileira, extraído da polpa do maracujá.
+
+Gota olfativa:
+• Possui bioativo: maracujá
+• Concentração: deo colônia
+• Família olfativa: frutal
+• Notas de topo: anis, maçã, bergamota, alecrim, mandarina e maracujá.
+• Notas de corpo: muguet, rosa, jasmim e violeta.
+• Notas de fundo: cedro, musk, musgo de carvalho e sândalo.
+• Cruelty free
+• Vegano
+• Ocasião: dia a dia, pós banho
+• Subfamília: floral
+
+Dicas de uso:
+Aplique a fragrância de Ekos Maracujá em áreas como punhos, pescoço e atrás das orelhas.
+
+Ingredientes:
+ALCOHOL, AQUA, PARFUM, POLYGLYCERYL-3 CAPRYLATE, PASSIFLORA EDULIS FRUIT, BENZOPHENONE-2, BHT, DENATONIUM BENZOATE, CI 19140, CI 14700, SODIUM CHLORIDE, SODIUM SULFATE, LIMONENE, HEXYL CINNAMAL, LINALOOL, BUTYLPHENYL METHYLPROPIONAL, COUMARIN, CITRONELLOL, ALPHA-ISOMETHYL IONONE, CITRAL, BENZYL BENZOATE, GERANIOL.',
+124.90,null,0,30,'fragrancia-ekos-maracuja-1.png', 'fragrancia-ekos-maracuja-2.jpg', 'fragrancia-ekos-maracuja-3.jpg',8,115)
 
 
 
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(106,'','','');
+(116,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Creme Hidratante para as Mãos Ekos Castanha','Natura','75g',
+'48 horas de hidratação para as mãos e unhas com a potência antirressecamento da castanha. Seu hidratante favorito mudou, mas continua com textura e fragrância deliciosas.',
+'Creme de mãos feito com óleo bruto de castanha, rico em ômegas 6 e 9, que promove nutrição intensa e combate os sinais do ressecamento, hidratando imediatamente. Ajuda a potencializar o brilho das unhas, com textura cremosa de rápida absorção.
 
+Características:
+• Possui bioativo: castanha
+• Testado dermatologicamente
+• Cruelty free
+• Vegano
+• Tipo de pele: todos os tipos de pele
+
+Dicas de uso:
+Aplique o creme para mãos de Natura Ekos sempre que sentir necessidade. Espalhe nas mãos e unhas com movimentos deslizantes, dos dedos em direção ao pulso.',
+57.90,null,0,30,'cremeparamao-ekos-castanha-1.png', 'cremeparamao-ekos-castanha-2.jpg', 'cremeparamao-ekos-castanha-3.jpg',23,116,)
 
 
 
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(106,'','','');
+(117,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Condicionador Ekos Patauá','Natura','100ml',
+'Leve seu condicionador com potente ação antiqueda para onde quiser.
+Feito com óleo bruto de patauá, o Condicionador Ekos Patauá desembaraça os fios e reforça a fibra capilar.',
+'Sua fórmula potente e radicalmente natural deixa os fios 2 vezes* mais resistentes contra a quebra. Esta embalagem de 100 ml é perfeita para levar em viagens.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: antiqueda.
+
+Ingredientes:
+AQUA/ ÁGUA, SORBITOL/ SORBITOL, CETEARYL ALCOHOL/ ÁLCOOL CETOESTEARÍLICO, PROPANEDIOL/ PROPANODIOL, BEHENTRIMONIUM CHLORIDE/ CLORETO DE BEENTRIMÔNIO, ASTROCARYUM MURUMURU SEED BUTTER/ MANTEIGA DA SEMENTE DE MURUMURU, ISOPROPYL PALMITATE/ PALMITATO DE ISOPROPILA, ISOAMYL LAURATE/ LAURATO DE ISOAMILA, CETYL ESTERS/ ÉSTERES CETÍLICOS, HYDROXYPROPYL GUAR/ GOMA GUAR, PARFUM/ PERFUME, HYDROXYACETOPHENONE/ HIDROXIACETOFENONA, OENOCARPUS BATAUA FRUIT OIL/ ÓLEO DO FRUTO DE PATAUÁ, PROPYLENE GLYCOL DIHEPTANOATE/ DIEPTANOATO DE PROPILENOGLICOL, ISOPROPYL ALCOHOL/ ÁLCOOL ISOPROPÍLICO, SODIUM GLUCONATE/ GLICONATO DE SÓDIO, BENZYL SALICYLATE/ SALICILATO DE BENZILA, TOCOPHEROL/ TOCOFEROL, HEXYL CINNAMAL/ HEXIL CINAMAL, LINALOOL/ LINALOL, GERANIOL/ GERANIOL, CITRIC ACID/ ÁCIDO CÍTRICO, CI 19140/ AMARELO DE TARTRAZINA , SODIUM HYDROXIDE/ HIDRÓXIDO DE SÓDIO, CI 14700/ VERMELHO ESCARLATE 125, CI 42090/ AZUL BRILHANTE, SODIUM CHLORIDE/ CLORETO DE SÓDIO, SODIUM SULFATE/ SULFATO DE SÓDIO, SODIUM CARBONATE/ CARBONATO DE SÓDIO.',
+40.30,20.10,1,30,'condicionador-ekos-pataua-1.png', 'condicionador-ekos-pataua-2.jpg', 'condicionador-ekos-pataua-3.jpg',15,117,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(118,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Shampoo Ekos Patauá','Natura','100ml',
+'Leve seu shampoo com potente ação antiqueda para onde quiser.
+Feito com óleo bruto de patauá, o Shampoo Ekos Patauá reforça os fios desde a raiz e combate o enfraquecimento capilar. ',
+'Sua fórmula potente e radicalmente natural promove uma limpeza suave, sem agredir os fios, enquanto prepara o cabelo para o ritual de tratamento biocosmético antiqueda. Esta embalagem de 100 ml é perfeita para levar em viagens.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: antiqueda.
+
+Ingredientes:
+AQUA/ ÁGUA, COCAMIDOPROPYL BETAINE/ COCOAMIDOPROPILBETAÍNA, SODIUM COCOYL ISETHIONATE/ COCOIL ISETIONATO DE SÓDIO, DISODIUM COCOYL GLUTAMATE/ COCOIL GLUTAMATO DISSÓDICO, GLYCERIN/ GLICEROL, DECYL GLUCOSIDE/ DECIL GLICOSÍDEO , PARFUM/ PERFUME, CITRIC ACID/ ÁCIDO CÍTRICO, COCONUT ACID/ ÁCIDO DE COCO, PEG-150 PENTAERYTHRITYL TETRASTEARATE/ TETRAESTEARATO DE POLIETILENOGLICOL-150 PENTAERITRITILA, HYDROXYACETOPHENONE/ HIDROXIACETOFENONA, DISODIUM EDTA/ EDETATO DISSÓDICO, POTASSIUM SORBATE/ SORBATO DE POTÁSSIO, SODIUM BENZOATE/ BENZOATO DE SÓDIO, PEG-7 GLYCERYL COCOATE/ COCOATO DE POLIETILENOGLICOL-7 GLICERILA, PEG-6 CAPRYLIC/CAPRIC GLYCERIDES/ GLICERÍDEOS CAPRÍLICO/CÁPRICO POLIETILENOGLICOL-6, POLYQUATERNIUM-6/ POLIQUATÉRNIO-6, BENZYL SALICYLATE/ SALICILATO DE BENZILA, HEXYL CINNAMAL/ HEXIL CINAMAL, LINALOOL/ LINALOL, SODIUM HYDROXIDE/ HIDRÓXIDO DE SÓDIO, GERANIOL/ GERANIOL, OENOCARPUS BATAUA FRUIT OIL/ ÓLEO DO FRUTO DE PATAUÁ, CI 61570/ CORANTE VERDE 61570, CI 15510/ CORANTE LARANJA 15510, SODIUM CHLORIDE/ CLORETO DE SÓDIO, SODIUM SULFATE/ SULFATO DE SÓDIO, SODIUM CARBONATE/ CARBONATO DE SÓDIO.',
+38.30,19.10,1,30,'shampoo-ekos-pataua-1.png', 'shampoo-ekos-pataua-2.jpg', 'shampoo-ekos-pataua-3.jpg',15,118,)
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(119,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Tônico Noturno de Crescimento Ekos Patauá','Natura','30ml',
+'Acelera o crescimento e deixa os fios fixos no couro por mais tempo.
+O Tônico Noturno de Crescimento Ekos Patauá evita a queda transitória do cabelo, acelera o crescimento dos fios em até 3 vezes e aumenta a densidade capilar.',
+'Sua fórmula potente e radicalmente natural deixa o cabelo mais forte, ancorado ao couro cabeludo e com maior espessura da fibra capilar desde a raiz.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: antiqueda.
+
+Dicas de uso:
+Utilize o Tônico Capilar Ekos Patauá antes de dormir. Agite o produto e aplique em toda a extensão do couro cabeludo, massageando com as pontas dos dedos. Não lave a cabeça logo após a aplicação do produto. Pela manhã, se sentir necessidade, lave o cabelo com os produtos da linha Ekos Patauá. Para melhores resultados, utilize o tônico diariamente. 
+Importante: lave bem as mãos após a aplicação do produto.
+
+Ingredientes:
+AQUA/ ÁGUA, ALCOHOL/ ÁLCOOL ETÍLICO, GLYCERIN/ GLICEROL, PEG-40 HYDROGENATED CASTOR OIL/ ÓLEO DE RÍCINO HIDROGENADO ETOXILADO, PROPANEDIOL/ PROPANODIOL, OENOCARPUS BATAUA FRUIT OIL/ ÓLEO DO FRUTO DE PATAUÁ, PARFUM/ PERFUME, CITRIC ACID/ ÁCIDO CÍTRICO, HYDROXYACETOPHENONE/ HIDROXIACETOFENONA, SODIUM GLUCONATE/ GLICONATO DE SÓDIO, TOCOPHEROL/ TOCOFEROL, BENZYL SALICYLATE/ SALICILATO DE BENZILA, HEXYL CINNAMAL/ HEXIL CINAMAL, LINALOOL/ LINALOL, GERANIOL/ GERANIOL, LIMONENE/ LIMONENO, ALPHA-ISOMETHYL IONONE/ ALFA-ISOMETIL IONONA, SODIUM HYDROXIDE/ HIDRÓXIDO DE SÓDIO, SODIUM CARBONATE/ CARBONATO DE SÓDIO, SODIUM CHLORIDE/ CLORETO DE SÓDIO.',
+73.90,null,0,30,'tonico-ekos-pataua-1.png', 'tonico-ekos-pataua-2.jpg', 'tonico-ekos-pataua-3.jpg',16,119,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES
+('Óleo Trifásico Desodorante Corporal Ekos Maracujá','Natura','200ml',
+'100% mais hidratação para a pele com a potência antiestresse do maracujá. Acalma e reequilibra a pele, com textura surpreendente e que deixa a pele perfumada, protegida e iluminada.',
+'Feito com óleo de maracujá, rico em ácidos graxos essenciais.
+
+Características:
+• Possui bioativo: maracujá
+• Testado dermatologicamente
+• Cruelty free
+• Vegano
+• Tipo de pele: todos os tipos de pele.
+
+Dicas de uso:
+Agite o óleo corporal de Natura Ekos antes de usar. Aplique sobre o corpo, massageando a pele. Este óleo perfumado pode ser usado com e sem enxágue.',
+96.90,null,0,30,'oleo-maracuja-ekos-1.png', 'oleo-maracuja-ekos-2.jpg', 'oleo-maracuja-ekos-3.jpg',24,220.) 
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(121,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esfoliante para o Corpo Tododia Acerola e Hibisco','Natura','190g',
+'Esfolia, limpa e remove impurezas sem agredir a pele. Com fórmula com textura em gel, possui sementes de damasco, que esfoliam e removem profundamente as impurezas.',
+'Deixa a pele macia, mais lisa e saudável, e preparada para receber a nutrição de Tododia, previnindo a formação de pelos encravados.
+
+Características:
+• Família olfativa: cítrico
+• Subfamília: frutal
+• Testado dermatologicamente
+• Cruelty free
+• Vegano
+• Tipo de pele: todos os tipos de pele.
+
+Dicas de uso:
+Aplique por todo o corpo com movimentos circulares, exceto no rosto. Enxágue em seguida e pronto, sinta sua pele mais macia. Utilize até 3 vezes por semana.
+
+Ingredientes:
+ÁGUA, GLICEROL, PALMITATO DE ISOPROPILA, PROPANODIOL, SORBITOL, BEENATO DE ESTEARILA, COCOATO DE ISOAMILA, PERFUME, FENOXIETANOL, ÉSTERES DA JOJOBA, CARBÔMER, HIDROXIACETOFENONA, GOMA XANTANA , SEMENTE DE PRUNUS ARMENIACA EM PÓ, ACETATO DE TOCOFERILA, HIDRÓXIDO DE SÓDIO, EDETATO DISSÓDICO, LIMONENO, HEXIL CINAMAL, LINALOL, CITRAL, VERMELHO 33, CARBONATO DE SÓDIO, AMARELO DE TARTRAZINA , CLORETO DE SÓDIO, SULFATO DE SÓDIO.',
+49.90,null,0,30,'esfoliante-corporal-tododia-acerola-1.png', 'esfoliante-corporal-tododia-acerola-2.jpg', 'esfoliante-corporal-tododia-acerola-3.jpg',26,121,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(122,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sabonete Líquido Esfoliante para o Corpo Ekos Tukumã','Natura','185ml',
+'Pele renovada e mais uniforme com a potência antissinais do tukumã. Sabonete líquido que limpa suavemente e esfolia a pele, removendo as células mortas durante o banho.',
+'Sabonete e esfoliante vegano que mantém o pH natural da pele, deixando sua pele renovada e mais uniforme. Feito com óleo bruto de tukumã, um potente antissinais.
+
+Características:
+• Possui bioativo: tukumã
+• Testado dermatologicamente
+• Cruelty free
+• Vegano
+• Tipo de pele: todos os tipos de pele.
+
+Dicas de uso:
+Espalhe o sabonete líquido esfoliante de Natura Ekos sobre o corpo até formar espuma. Enxágue em seguida. Não utilizar o sabonete corporal no rosto.',
+54.90,null,0,30,'sabonete-esfoliante-tukuma-ekos-1.png', 'sabonete-esfoliante-tukuma-ekos-2.jpg', 'sabonete-esfoliante-tukuma-ekos-3.jpg',26,122,)
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrad26,122,)
+VALUES  
+(123,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Creme Desodorante Hidratante para o Corpo Ekos Maracujá','Natura','400ml',
+'Até 95% de ação calmante para a pele com a potência antiestresse do maracujá. Pele protegida e hidratada por até 72 horas. Hidratante corporal que reequilibra a pele, com textura leve e rápida absorção.',
+'Creme com ação desodorante, feito com óleo de maracujá, rico em ácidos graxos essenciais.
+
+Resultados visíveis na pele:
+• Imediatamente: protege, hidrata e acalma a pele.
+• Após 7 dias de uso: suaviza a pele, melhorando sua textura.
+• Após 14 dias de uso: a ação do óleo bruto de maracujá, rico em ácido graxos essenciais, combate osindicadores de estresse cutâneo, como o desconforto causado pelo ressecamento.
+• Aapós 30 dias de uso: pele reequilibrada com aumento do nível de hidratação natural e redução dos sinais de estresse cutâneo.
+
+Características:
+• Possui bioativo: maracujá
+• Testado dermatologicamente
+• Cruelty free
+• Vegano
+• Tipo de pele: todos os tipos de pele.
+
+Dicas de uso:
+Aplique o creme corporal de Natura Ekos sobre a pele do corpo. Espalhe massageando a pele até a absorção completa do produto. Não utilizar o hidratante corporal no rosto.
+
+Ingredientes:
+ÁGUA, PALMITATO DE ISOPROPILA, GLICEROL, PERFUME, PROPANODIOL, AMIDO DE TAPIOCA, ÓLEO DE SEMENTE DE MARACUJÁ, ÁLCOOL CETEARÍLICO, ÓLEO DE PALMISTE, ÓLEO DA FRUTA DE TUCUMÃ[ASTROCARYUM VULGARE], MONOESTEARATO DE GLICERILA, HIDROXIACETOFENONA, ESTEARATO PEG-100, POLIACRILATO DE SÓDIO, LIMONENO, DIPALMITATO DE GLICERILA, PALMITATO DE GLICERILA, ADIPATO DE DIBUTILA,DIESTEARATO DE GLICERILA, GOMA XANTANA, HEXIL CINAMAL, LINALOL, CAPRILATO DE POLIGLICERILA-3, GLICONATO DE SÓDIO, PENTAERITRITIL TETRA-DI-T-BUTIL HIDROXI-HIDROCINAMATO, CUMARINA, CITRONELOL, ALFA-ISOMETIL IONONA,BENZOATO DE BENZILA, TOCOFEROL, HIDROXICITRONELAL, CITRAL.',
+88.90,null,0,30,'cremecorporal-maracuja-ekos-1.png', 'cremecorporal-maracuja-ekos-2.jpg', 'cremecorporal-maracuja-ekos-3.jpg',23,123,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(124,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Gelatina Cachos e Crespos Tododia Amora e Óleo de Coco','Natura','240g',
+'Definição prolongada, fixação e brilho.
+A Gelatina Tododia Amora e Óleo de Coco cuida do seu cabelo com Tecnologia Prebiótica. Para cachos e crespos definidos por mais tempo. ',
+'Sua fórmula multiúso funciona como creme de pentear, finalizador e na fixação de baby hair. Fragrância com notas florais e de amora.
+
+Características:
+• Tipo de cabelo: cacheados e crespos
+• Cruelty free
+• Vegano
+
+Dicas de uso:
+Aplique uma pequena quantidade nas mãos e espalhe pelo cabelo. Reaplique caso sinta necessidade.',
+37.90,null,0,30,'geleia-cachos-tododia-1.png', 'geleia-cachos-tododia-2.jpg', 'geleia-cachos-tododia-3.jpg',17,124,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(125,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Máscara Regeneradora para Reconstrução de Danos Extremos','Natura','250ml',
+'Regenera até as camadas mais profundas e promove 2 vezes mais reparação.
+ A Máscara Regeneradora para Cabelos Quimicamente Danificados Lumina é um passo essencial nesse ritual, com fórmula que regenera a estrutura capilar e prolonga o efeito da progressiva e da coloração.',
+'Com BioProteína Tripla Ação e Ativo Reconstrutor, esse sistema promove reconstrução de até 89% dos danos extremos e prevenção de até 2,9 vezes dos danos futuros.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: reconstrução de danos extremos
+
+Dicas de uso:
+• Passo 1: lave os cabelos com o Shampoo Reestruturante e o Condicionador Provitalidade para promover limpeza e reparação, trazendo mais força e resistência aos fios.
+• Passo 2: utilize o Primer para obter máxima potência do tratamento que reconstrói a camada interna dos fios. em seguida, aplique a Máscara Reconstrutora, que potencializa o tratamento deixando os fios resistentes à quebra.
+• Passo 3: aplique o Sérum Regenerador Progressivo para obter 3 vezes mais regeneração da camada interna dos cabelos.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, DIMETICONA, MANTEIGA DA SEMENTE DE ASTROCARYUM MURUMURU, METOSSULFATO DE BEENTRIMÔNIO, QUATÉRNIO-87, SORBITOL, PERFUME, FENOXIETANOL, BIS-CETEARIL AMODIMETICONA, HIETELOSE, ÓLEO DA SEMENTE DE BERTHOLLETIA EXCELSA, CETOMACROGOL 1000, CETOMACROGOL 1000, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, PROTEÍNA DE TRIGO HIDROLISADA , LINALOL, PROTEÍNA DA SEMENTE DE AVENA SATIVA, PROTEÍNA DE PRUNUS AMYGDALUS DULCIS, LIMONENO, SALICILATO DE BENZILA, HEXIL CINAMAL, CITRONELOL, CAPRILILGLICOL, ÁCIDO CÍTRICO, BUTILCARBAMATO DE IODOPROPINILA, MACROGOL, SR-ARANHA POLIPEPTÍDEO-1, TROLAMINA, ACETATO DE SÓDIO, ÁCIDO GLICÓLICO, ESTEARATO DE SÓDIO, 1,2-HEXANODIOL, SORBATO DE POTÁSSIO, CLORETO DE SÓDIO, AMARELO DE TARTRAZINA, VERMELHO ESCARLATE 125, AZUL BRILHANTE, SULFATO DE SÓDIO.',
+73.90,null,0,30,'mascara-reconstrucao-lumina-1.png', 'mascara-reconstrucao-lumina-2.jpg', 'mascara-reconstrucao-lumina-3.jpg',16,125,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'','','');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'','','');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
 
 
