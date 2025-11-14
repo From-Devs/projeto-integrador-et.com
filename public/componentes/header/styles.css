@@ -465,6 +465,12 @@
     box-shadow: 0 10px 24px rgba(2,6,23,0.12);
 }
 
+.produtoSugestao.focused{
+    outline: 2px solid rgba(15,81,50,0.12);
+    box-shadow: 0 12px 26px rgba(2,6,23,0.14);
+    transform: translateY(-6px) scale(1.002);
+}
+
 .produtoSugestao .thumb{
     flex: 0 0 64px;
     width: 64px;

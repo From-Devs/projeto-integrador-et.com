@@ -302,6 +302,14 @@ async function ObterDadosProdutoHeader(textoPesquisa = null, inputElement = null
                 const repositionHandler = () => {
                     if (divPesquisas && divPesquisas.classList.contains('show')) {
                         const anchor = divPesquisas._currentAnchor || document.querySelector('.pesquisaHeader');
+                        // se a âncora saiu totalmente da viewport, fechar automaticamente
+                        if (anchor) {
+                            const aRect = anchor.getBoundingClientRect();
+                            if (aRect.bottom < 0 || aRect.top > window.innerHeight) {
+                                fecharSugestoesComAnimacao();
+                                return;
+                            }
+                        }
                         posicionarDropdown(divPesquisas, anchor);
                     }
                 };
@@ -323,7 +331,7 @@ async function ObterDadosProdutoHeader(textoPesquisa = null, inputElement = null
             return dados;
         }
 
-        dados.forEach(produto => {
+    dados.forEach((produto, produtoIndex) => {
             const produtoDiv = document.createElement('div');
             produtoDiv.className = 'produtoSugestao';
 
@@ -377,6 +385,13 @@ async function ObterDadosProdutoHeader(textoPesquisa = null, inputElement = null
             produtoDiv.appendChild(thumb);
             produtoDiv.appendChild(info);
 
+            // hover destaca item para navegação por teclado
+            produtoDiv.addEventListener('mouseenter', () => {
+                try {
+                    if (divPesquisas && divPesquisas._setActive) divPesquisas._setActive(produtoIndex);
+                } catch(e){}
+            });
+
             if (produto.id) {
                 produtoDiv.style.cursor = 'pointer';
                 produtoDiv.addEventListener('click', () => {
@@ -391,6 +406,57 @@ async function ObterDadosProdutoHeader(textoPesquisa = null, inputElement = null
         divPesquisas.classList.remove('closing');
         divPesquisas.classList.add('show');
         divPesquisas.style.display = 'block';
+        // preparar navegação por teclado
+        const items = Array.from(divPesquisas.querySelectorAll('.produtoSugestao'));
+        divPesquisas._items = items;
+        divPesquisas._activeIndex = -1;
+        divPesquisas._setActive = function(index){
+            const it = divPesquisas._items || [];
+            if (!it.length) return;
+            if (index < 0) index = -1;
+            if (index >= it.length) index = it.length - 1;
+            it.forEach((el, i) => {
+                if (i === index) {
+                    el.classList.add('focused');
+                    el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+                } else {
+                    el.classList.remove('focused');
+                }
+            });
+            divPesquisas._activeIndex = index;
+        };
+
+        //  keyboard
+        if (inputElement) {
+            if (divPesquisas._input && divPesquisas._inputKeyHandler) {
+                try { divPesquisas._input.removeEventListener('keydown', divPesquisas._inputKeyHandler); } catch(e){}
+            }
+            const keyHandler = function(e){
+                if (!divPesquisas.classList.contains('show')) return;
+                if (e.key === 'ArrowDown'){
+                    e.preventDefault();
+                    let next = (divPesquisas._activeIndex || 0) + 1;
+                    if (divPesquisas._activeIndex === -1) next = 0;
+                    if (next >= divPesquisas._items.length) next = 0;
+                    divPesquisas._setActive(next);
+                } else if (e.key === 'ArrowUp'){
+                    e.preventDefault();
+                    let prev = (divPesquisas._activeIndex || 0) - 1;
+                    if (divPesquisas._activeIndex === -1) prev = divPesquisas._items.length - 1;
+                    if (prev < 0) prev = divPesquisas._items.length - 1;
+                    divPesquisas._setActive(prev);
+                } else if (e.key === 'Enter'){
+                    if (divPesquisas._activeIndex >= 0) {
+                        e.preventDefault();
+                        const el = divPesquisas._items[divPesquisas._activeIndex];
+                        if (el) el.click();
+                    }
+                }
+            };
+            inputElement.addEventListener('keydown', keyHandler);
+            divPesquisas._input = inputElement;
+            divPesquisas._inputKeyHandler = keyHandler;
+        }
         return dados;
     } catch (err) {
         console.error('Erro ao obter dados da busca:', err);
@@ -400,14 +466,21 @@ async function ObterDadosProdutoHeader(textoPesquisa = null, inputElement = null
     }
 }
 
-// função para fechar com animação
 function fecharSugestoesComAnimacao(){
     const div = document.getElementById('sugestoesHeader');
     if (!div) return;
     try {
         if (div._cleanupReposition) div._cleanupReposition();
     } catch(e){}
+    try {
+        if (div._input && div._inputKeyHandler) {
+            div._input.removeEventListener('keydown', div._inputKeyHandler);
+        }
+    } catch(e){}
     div._currentAnchor = null;
+    try { div._items = null; } catch(e){}
+    try { div._setActive = null; } catch(e){}
+    try { div._input = null; div._inputKeyHandler = null; } catch(e){}
     div.classList.remove('show');
     div.classList.add('closing');
     setTimeout(() => {
