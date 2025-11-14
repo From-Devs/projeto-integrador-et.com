@@ -1,10 +1,18 @@
 <?php
 
-function createCardProdutoLancamento($marca = "Indefinido", $nome = "Indefinido",$preco = "R$ 000,00",$cor = "#000000", $imagem = "", $classeExtra = ""){
+function createCardProdutoLancamento(
+    $marca = "Indefinido",
+    $nome = "Indefinido",
+    $preco = "R$ 000,00",
+    $cor = "#000000",
+    $imagem = "",
+    $idProduto = 0,
+    $classeExtra = ""
+    ){
     $titulo = $marca . " - " . $nome;
 
     return "
-    <article class='cardLancamento $classeExtra' id='cardLancamento'>
+    <article class='cardLancamento $classeExtra' id='cardLancamento' data-id='$idProduto'>
         <img class='imgCardLancamento' id='imgCardLancamento' src='/projeto-integrador-et.com/public/imagens/produto/$imagem' alt=''>
         <div class='baixo' id='baixo'>
             <span class='textoCardLancamento' id='textoCardLancamento'>$titulo</span>
