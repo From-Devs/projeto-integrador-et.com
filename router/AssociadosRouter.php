@@ -13,6 +13,11 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             header('Content-Type: application/json');
             echo json_encode($res);
             break;
+        case 'CapturarAssociadosComMaisProdutos':
+            $res = $associadosController->CapturarAssociadosComMaisProdutos();
+            header('Content-Type: application/json');
+            echo json_encode($res);
+            break;
 
         default:
             echo "Nao encontrei nada";

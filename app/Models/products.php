@@ -11,15 +11,38 @@ class Products {
 
     public function RemoverProduto($id){
         try {
-            $sqlDelete = "DELETE FROM PRODUTO WHERE id_produto = :idProduto";
+            $this->conn->beginTransaction();
 
+            $dependencias = [
+                'listadesejos' => 'id_produto',
+                'produtocarrinho' => 'id_produto',
+                'produtopedido' => 'id_produto',
+                'lancamentos' => 'id_produto',
+                'proddestaque' => 'id_produto',
+                'carousel' => 'id_produto',
+                'avaliacoes' => 'id_produto'
+            ];
+
+            foreach ($dependencias as $tab => $col) {
+                $sql = "DELETE FROM {$tab} WHERE {$col} = :idProduto";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindValue(':idProduto', $id, PDO::PARAM_INT);
+                $stmt->execute();
+            }
+
+            $sqlDelete = "DELETE FROM produto WHERE id_produto = :idProduto";
             $res = $this->conn->prepare($sqlDelete);
-            $res->bindParam(":idProduto", $id);
+            $res->bindParam(":idProduto", $id, PDO::PARAM_INT);
             $res->execute();
 
+            $this->conn->commit();
             return true;
         } catch (\Throwable $th) {
-            echo "Erro SQL: " . $th->getMessage();
+            if ($this->conn->inTransaction()) {
+                $this->conn->rollBack();
+            }
+            error_log("Erro SQL ao remover produto (id={$id}): " . $th->getMessage());
+            echo "Erro ao remover produto: " . $th->getMessage();
             return false;
         }
     }
@@ -193,10 +216,10 @@ class Products {
     
             $params = [];
     
-            //Para concatenar a pesquisa
+            // para concatenar a pesquisa (buscar por nome ou marca, busca parcial no meio do texto)
             if (!empty($pesquisa)) {
-                $sqlProdutos .= " WHERE nome LIKE :pesquisa";
-                $params[':pesquisa'] = "$pesquisa%";
+                $sqlProdutos .= " WHERE (nome LIKE :pesquisa OR marca LIKE :pesquisa)";
+                $params[':pesquisa'] = "%$pesquisa%";
             }
     
             if (!empty($ordem)) {
@@ -259,10 +282,10 @@ class Products {
 
             $params = [":idAssociado" => $idAssociado];
     
-            //Para concatenar a pesquisa
+            // para concatenar a pesquisa (buscar por nome ou marca, busca parcial no meio do texto)
             if (!empty($pesquisa)) {
-                $sqlProdutos .= " AND nome LIKE :pesquisa";
-                $params[':pesquisa'] = "$pesquisa%";
+                $sqlProdutos .= " AND (nome LIKE :pesquisa OR marca LIKE :pesquisa)";
+                $params[':pesquisa'] = "%$pesquisa%";
             }
     
             if (!empty($ordem)) {
