@@ -6,6 +6,15 @@
     font-weight: bold;
 }
 
+.input-erro{
+    border-bottom: rgb(224, 0, 0) 2px solid !important;
+    color: red solid;
+}
+
+.label-erro{
+    color: rgb(224, 0, 0) !important;
+}
+
 /* Configuranção do componetes*/
 
 .container{
