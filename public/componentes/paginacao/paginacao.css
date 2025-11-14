@@ -1,7 +1,11 @@
 .paginacao {
     display: flex;
-    margin: 20px 0;
+    margin: 10px 0;
     gap: 8px;
+    align-items: center;
+    overflow-x: auto;
+    padding: 6px; 
+    -webkit-overflow-scrolling: touch;
 }
 
 .paginacao a, .paginacao span {
@@ -10,11 +14,25 @@
     text-decoration: none;
     color: #333;
     border-radius: 4px;
+    white-space: nowrap;
 }
 
 .paginacao .pagina-ativa {
     background-color: #3449B6;
     color: white;
     font-weight: bold;
+}
+
+.paginacao .elipse {
+    padding: 8px 6px;
+    color: #666;
+    display: inline-block;
+}
+
+@media (max-width: 480px) {
+    .paginacao a, .paginacao span, .paginacao .elipse {
+        padding: 6px 8px;
+        font-size: 14px;
+    }
 }
 

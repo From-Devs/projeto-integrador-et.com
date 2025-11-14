@@ -44,6 +44,7 @@ a
 .td-lista-associados{
     display: flex; 
     justify-content: center; 
+    flex-direction: column;
     height: 80px; 
     padding: 0px;
     margin: 3px;
@@ -493,11 +494,13 @@ a
         width: fit-content;
         align-items: center;
         margin: 0 15px;
+        width: 90%;
+        margin-top: 30px;
     }
-
+/* 
     #lista{
         width: 100%;
-    }
+    } */
 
     th{
         font-size: 16px;
@@ -535,7 +538,7 @@ a
 
 @media (max-width: 550px) {
     #lista {
-        width: 100%;
+        /* width: 100%; */
         border-radius: 10px;
     }
 

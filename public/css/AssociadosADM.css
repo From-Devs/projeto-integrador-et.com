@@ -286,6 +286,8 @@ a
         width: fit-content;
         align-items: center;
         margin: 0 15px;
+        width: 90%;
+        margin-top: 50px;
     }
 
     #lista{
@@ -317,7 +319,6 @@ a
 
 @media (max-width: 520px) {
 
-    /*Celular  800x1280, 520x1040, 480x960, 430x932, 414x896, 390x844, 375x667, 360x640*/
     #divPesquisarEEscolher {
         padding-right: 140px;
     }

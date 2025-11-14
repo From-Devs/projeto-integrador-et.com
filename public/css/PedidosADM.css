@@ -221,6 +221,7 @@ a
         width: fit-content;
         align-items: center;
         margin: 0 15px;
+        width: 90%;
     }
 
     #lista{

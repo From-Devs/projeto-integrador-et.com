@@ -147,6 +147,10 @@ tr
         padding: 10px;
     }
 
+    .listaContainer{
+        width: 100%;
+    }
+    
     td {
         text-align: left;
         padding: 5px 10px;
