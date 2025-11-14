@@ -61,7 +61,7 @@ class Lancamentos {
             return false;
     }
   }
-  public function getAllCoresUnicas(): array {
+  public getAllCoresUnicas(): array {
         try {
             $stmt = $this->conn->query("
                 SELECT DISTINCT corEspecial, hexDegrade1, hexDegrade2, hexDegrade3
