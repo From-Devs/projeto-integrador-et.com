@@ -216,10 +216,10 @@ class Products {
     
             $params = [];
     
-            //Para concatenar a pesquisa
+            // para concatenar a pesquisa (buscar por nome ou marca, busca parcial no meio do texto)
             if (!empty($pesquisa)) {
-                $sqlProdutos .= " WHERE nome LIKE :pesquisa";
-                $params[':pesquisa'] = "$pesquisa%";
+                $sqlProdutos .= " WHERE (nome LIKE :pesquisa OR marca LIKE :pesquisa)";
+                $params[':pesquisa'] = "%$pesquisa%";
             }
     
             if (!empty($ordem)) {
@@ -282,10 +282,10 @@ class Products {
 
             $params = [":idAssociado" => $idAssociado];
     
-            //Para concatenar a pesquisa
+            // para concatenar a pesquisa (buscar por nome ou marca, busca parcial no meio do texto)
             if (!empty($pesquisa)) {
-                $sqlProdutos .= " AND nome LIKE :pesquisa";
-                $params[':pesquisa'] = "$pesquisa%";
+                $sqlProdutos .= " AND (nome LIKE :pesquisa OR marca LIKE :pesquisa)";
+                $params[':pesquisa'] = "%$pesquisa%";
             }
     
             if (!empty($ordem)) {
