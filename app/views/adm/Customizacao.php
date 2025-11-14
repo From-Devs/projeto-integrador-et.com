@@ -10,16 +10,19 @@ require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Asso
 require_once __DIR__ . "/../../Controllers/ProdutoController.php";
 // require_once __DIR__ . "/../../Controllers/CarouselController.php";
 // require_once __DIR__ . "/../../Controllers/LancamentoController.php";
+require_once __DIR__ . "/../../Controllers/DestaqueController.php";
 
 $produtoController = new ProdutoController();
 // $carouselController = new CaroselController();
 // $lancamentoController = new LancamentosController();
+$destaqueController = new DestaqueController();
 
 $listaProdutos = $produtoController->pegarTodosProdutos();
 // $listaCarousel = $carouselController->getAll();
 // $listaLancamentos = $lancamentoController->getAll();
+$produtoDestaque = $destaqueController->getAll();
 
-// var_dump($listaLancamentos);
+var_dump($produtoDestaque);
 
 // session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
