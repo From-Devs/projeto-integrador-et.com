@@ -67,6 +67,11 @@ $erro = $_GET["erro"] ?? '';
             </form>
 
             <button id="botaoEntrar" type="submit" form="formContainer">Entrar</button>
+
+            <p style="color: red; text-align: left; margin-top: 35px; font-size: 18px; font-weight: 450;">
+                <?= htmlspecialchars($erro) ?>
+            </p>
+
             <div id="cadastro">
                 <p>Novo na ET?</p>
                 <a id="cadastroClique" href="CadastroUsuario.php">Cadastre-se</a>

@@ -250,6 +250,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                             <i class="fa-solid fa-circle-minus"></i>
                                             <p>Vazio</p>
                                         </div>
+                                        <div class="overlayBotaoSelecionarImg">
+                                            <button type="button" id="botaoSelecionarImagemLancamento1" class="btn btn-white botaoSelecionarImagemLancamento" style="width: 120px; height:35px; font-size: 16px; ">Selecionar</button>
+                                        </div>
                                     </div>
                                     <div class="imagemItem">
                                         <img class="imgProdutoLancamento" id="img2ProdutoLancamento" src="" alt="">
@@ -257,12 +260,18 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                             <i class="fa-solid fa-circle-minus"></i>
                                             <p>Vazio</p>
                                         </div>
+                                        <div class="overlayBotaoSelecionarImg">
+                                            <button type="button" id="botaoSelecionarImagemLancamento2" class="btn btn-white botaoSelecionarImagemLancamento" style="width: 120px; height:35px; font-size: 16px; ">Selecionar</button>
+                                        </div>
                                     </div>
                                     <div class="imagemItem imagemVazia">
                                         <img class="imgProdutoLancamento" id="img3ProdutoLancamento" src="" alt="">
                                         <div class="imagemItemWarning">
                                             <i class="fa-solid fa-circle-minus"></i>
                                             <p>Vazio</p>
+                                        </div>
+                                        <div class="overlayBotaoSelecionarImg">
+                                            <button type="button" id="botaoSelecionarImagemLancamento3" class="btn btn-white botaoSelecionarImagemLancamento" style="width: 120px; height:35px; font-size: 16px; ">Selecionar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -275,11 +284,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                     </div>
 
                     <button type="submit" class="btn btn-black salvarAlteracoesLancamento" onclick="abrirPopUp()">Salvar alterações</button>
-
-                </form>
-               
+                </form>     
             </div>
-
         </div>
     </dialog>
 
@@ -316,12 +322,12 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         </div>
                     </div>
             
-                        <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
-        
-                        <ul class="descricaoContainer">
-                            <li class="descricao">Clique em um produto para editar</li>
-                            <li class="descricao">Arraste os produtos para organizar a ordem de apresentação</li>
-                        </ul>
+                    <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
+    
+                    <ul class="descricaoContainer">
+                        <li class="descricao">Clique em um produto para editar</li>
+                        <li class="descricao">Arraste os produtos para organizar a ordem de apresentação</li>
+                    </ul>
                 </form>
         
                 <div class="sessao">
@@ -444,6 +450,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/trocarCorDegradeCarousel.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/trocarCorLancamento.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/dragEDrop.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/customizacao/trocarImagemLancamento.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/listaDeProdutos.js"></script>
 </body>
 </html> 
