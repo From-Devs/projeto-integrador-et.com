@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const imagemCardProduto = cardProduto.querySelector('.imagemCardProdutoComum');
         const botaoComprar = cardProduto.querySelector(".botaoComprarCardProduto");
         const botaoAnimacao = cardProduto.querySelector(".botaoEspectro");
+        const textoImagemProdutoPlaceholder = cardProduto.querySelector(".textoImagemProdutoPlaceholder");
 
         // Função de atualizar cores e fundo do card
         function atualizarCoresCard() {
@@ -102,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         nomeCardProduto.innerHTML = nomeProduto.value;
         marcaCardProduto.innerHTML = marcaProduto.value;
+
         imagemCardProduto.src = imagemProduto.src;
         
         corPrincipalCardProduto.style.color = corPrincipal.value;
@@ -123,7 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
             corPrincipalCardProduto.style.color = "#000000";
             degrade1CardProduto.style.color = "#000000";
             degrade2CardProduto.style.color = "#000000";
-            imagemCardProduto.src = ""; // vazio por padrão
 
             atualizarCoresCard();
         }
@@ -167,6 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 reader.onload = function (e) {
                     // Troca o src da imagem existente
                     imagemCardProduto.src = e.target.result;
+                    textoImagemProdutoPlaceholder.style.display = "none";
+                    imagemCardProduto.style.display = "block"
                 };
 
                 reader.readAsDataURL(file);

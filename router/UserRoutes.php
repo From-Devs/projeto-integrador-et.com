@@ -50,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 }
 
                 $responseCreate = $userController->createUser($postData);
+
         
                 if ($responseCreate['success']) {
                     header("Location: ../app/views/usuario/Login.php?sucesso=1");
@@ -156,7 +157,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 header("Location: ../app/views/usuario/paginaPrincipal.php");
                 exit;
             } else {
-                header("Location: ../app/views/usuario/Login.php?erro=credenciais_invalidas");
+                // header("Location: ../app/views/usuario/Login.php?erro=credenciais_invalidas");
+                header("Location: ../app/views/usuario/Login.php?erro=" . $result["message"]);
                 exit;
             }
             break;
