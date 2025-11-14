@@ -89,6 +89,7 @@ function atualizarOrigemComProduto(produto) {
             
         case 'editLancamento':
             preencherPopUpEditLancamento(produto);
+            selecionarImagem(1);
             break;
 
         case 'produtoDestaque':
@@ -140,8 +141,6 @@ function preencherPopUpEditLancamento(produto) {
     const imgSeletor1 = document.querySelector('.popUpEditProdutoLancamento .imagemItem #img1ProdutoLancamento');
     const imgSeletor2 = document.querySelector('.popUpEditProdutoLancamento .imagemItem #img2ProdutoLancamento');
     const imgSeletor3 = document.querySelector('.popUpEditProdutoLancamento .imagemItem #img3ProdutoLancamento');
-
-    console.log(cardProdutoLancamento)
 
     if (nomeEl) nomeEl.textContent = produto.nome || '';
     if (textoProdutoLancamento) textoProdutoLancamento.textContent = `${produto.marca} - ${produto.nome}` || '';
