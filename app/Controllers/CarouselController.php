@@ -34,31 +34,42 @@ class CaroselController extends BaseController {
     public function createCarosel(array $data) {
         return $this->carouselModel->create($data);
     }
-
-    
-    public function mudarProdutoECores(int $id_carousel, int $novo_id_produto): array {
-        // Chamamos o método que criamos no Model para fazer toda a mágica do DB
-        return $this->carouselModel->mudarProdutoECores($id_carousel, $novo_id_produto);
-    }
     // CÓDIGO DO SEU CONTROLLER (apenas a função update alterada)
     public function deleteCarosel(int $id) {
         return $this->carouselModel->remove($id);
     }
-    // ⚠️ ATENÇÃO: Removi a declaração de tipo de retorno ":array" 
-    // para ser flexível e aceitar o retorno do Model que agora é array!
     public function update(int $id_carousel, array $data) { 
          return $this->carouselModel->update($id_carousel, $data);
     }
-    public function getAllUniqueCores() {
-        return $this->carouselModel->getAllUniqueCores(); 
-    }
 }
-// ...
-  
+
+// $conn = new CaroselController(); // ou CarouselController, como for o nome da sua classe
+// Primeiro vê o que já tem
+// echo "<pre>";
+// echo "=== ANTES DOS TESTES ===\n";
+// $te = $conn->getAll();
+// print_r($te);
+// echo "</pre><hr>";
+// echo "<h3>TESTE 1: Trocar só o produto (id_produto = 57)</h3>";
+// $res = $conn->update(1, [
+//     'id_produto' =>127
+// ]);
+// print_r($res);
+// echo "<h3>TESTE 3: Só mudar as cores (não mexe no produto)</h3>";
+// $res = $conn->update(3, [
+//     'corEspecial' => '#cf166cff',
+//     'hexDegrade1' => '#b71d74ff',
+//     'hexDegrade2' => '#940130ff',
+//     'hexDegrade3' => '#6a2018ff'
+// ]);
+// print_r($res); 
 
 // $conn = new CaroselController();
 // $te = $conn->getAll();
 
+// $res = $conn->update(1,[
+    
+// ])
 // $res = $conn->updateCoresPersonalizadas(1, [
 //     'corEspecial' => '#124b56ff',
 //     'hexDegrade1' => '#212165ff',
@@ -70,38 +81,3 @@ class CaroselController extends BaseController {
 // NO FINAL DO SEU CaroselController.php
 
 // ...
-$conn = new CaroselController();
-$te = $conn->getAll();
-
-// Exemplo de chamada: Mudar o Carrossel de ID 1 para o Produto de ID 30
-$id_carousel_para_mudar = 2; 
-$dados_para_update = [ 
-    'id_produto' => 30 // 👈 AGORA O ID DO PRODUTO ESTÁ NO LUGAR CERTO!
-]; 
-
-echo "### 🔄 TESTE 1: MUDANÇA DE PRODUTO (ID {$id_carousel_para_mudar} para ID {$dados_para_update['id_produto']}) 🔥\n";
-
-// A chamada deve usar os dois parâmetros INT e ARRAY que a função update espera!
-$resultado_mudanca = $conn->update($id_carousel_para_mudar, $dados_para_update);
-
-if ($resultado_mudanca['success'] ?? false) {
-    echo "🎉 SUCESSO! Carrossel {$id_carousel_para_mudar} agora é Produto {$dados_para_update['id_produto']}.\n";
-    echo "   Novo ID Cores Subs Usado: {$resultado_mudanca['id_coressubs_usado']}\n\n";
-} else {
-    echo "❌ DEU RUIM NO TESTE 1! Erro: " . ($resultado_mudanca['error'] ?? 'Erro desconhecido') . "\n\n";
-}
-
-// --------------------------------------------------------------------------
-
-// --- CENÁRIO DE TESTE 2: Produto IGUAL (NÃO Deve Copiar Cores) ---
-echo "### 🔍 TESTE 2: PRODUTO IGUAL (ID {$id_carousel_para_mudar} para ID {$dados_para_update['id_produto']} de novo) kkkk\n";
-
-$resultado_mudanca_2 = $conn->update($id_carousel_para_mudar, $dados_para_update);
-
-if ($resultado_mudanca_2['success'] ?? false) {
-    echo "✅ SUCESSO (IGNORADO)! O IF funcionou! O produto é o mesmo.\n";
-    echo "   ID Cores Subs Reutilizado: {$resultado_mudanca_2['id_coressubs_usado']}\n";
-} else {
-    echo "❌ DEU RUIM NO TESTE 2! Erro: " . ($resultado_mudanca_2['error'] ?? 'Erro desconhecido') . "\n";
-}
-
