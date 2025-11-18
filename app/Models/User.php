@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../../config/database.php';
 
 class User {
-    private $conn;
+    private PDO $conn;
 
     public function __construct() {
         $db = new Database();

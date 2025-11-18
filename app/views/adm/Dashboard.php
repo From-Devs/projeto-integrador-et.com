@@ -5,9 +5,14 @@ require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sideba
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
+    require_once __DIR__ . "/../../Controllers/Dashboard_ADM_Controller.php";
 
 // session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
+
+$obj = new Dashboard_ADM_Controller();
+
+$dados = $obj->getLucroTotal();
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +45,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             </div>
             <div id="geralInformacoes">
                 <!-- $nomeDiv,$icone, $titulo, $valor, $alt=''-->
-                <?php dadosInfor('valorVendas','./../../../public/imagens/imagensADM/walletDashboard.png','Valor Vendas','R$ 1.500,00','wallet') ?>
-                <?php dadosInfor('lucroLiquido','./../../../public/imagens/imagensADM/cifraoDashboard.png','Lucro Líquido','R$ 569,00','cifrao') ?>
-                <?php dadosInfor('vendas','./../../../public/imagens/imagensADM/graficoDashboard.png','Vendas','233','grafico') ?>
+                <?php dadosInfor('valorVendas','./../../../public/imagens/imagensADM/walletDashboard.png','Lucro total','$ ' . htmlspecialchars($dados['lucro_total']),'wallet') ?>
+                <?php dadosInfor('lucroLiquido','./../../../public/imagens/imagensADM/cifraoDashboard.png','Vendas realizadas','233','cifrao') ?>
+                <?php dadosInfor('vendas','./../../../public/imagens/imagensADM/graficoDashboard.png','Associados á ET','233','grafico') ?>
             </div>
             <div id="controlePizzas">
                 <div id="divPizzaEsquerda">
