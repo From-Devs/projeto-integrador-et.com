@@ -41,7 +41,7 @@
 }
 
     $carrinho = $controller->exibirCarrinho($id_usuario);
-    $resultado = paginar($carrinho, 3);
+    $resultado = paginar($carrinho, 4);
     $carrinho = $resultado['dados'];
     $total = array_sum(array_column($carrinho, 'subtotal'));
     $precosProdutos = array_column($carrinho, 'precoCalculado');
