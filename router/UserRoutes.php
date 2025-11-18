@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 if ($responseCreate['success']) {
                     header("Location: ../app/views/usuario/Login.php?sucesso=1");
                 } else {
-                    header("Location: ../app/views/usuario/CadastroUsuario.php?erro=" . urlencode($responseCreate['erro']));
+                    header("Location: ../app/views/usuario/CadastroUsuario.php?erro=" . urlencode($responseCreate['message']));
                 }
                 exit;
             }

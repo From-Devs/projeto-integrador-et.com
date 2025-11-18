@@ -8,7 +8,6 @@
 /*inputs de erro*/
 .input-erro{
     border-bottom: 2px rgb(224, 0, 0) solid !important;
-    transition: 0.5s ease-in-out;
 }
 
 .label-erro{

@@ -55,10 +55,6 @@ class User {
     
     public function create($data) {
         try {
-            if ($this->emailExists($data['email'])) {
-                return ["success" => false, "erro" => "E-mail já cadastrado"];
-            }
-
             if ($this->cpfExists($data['cpf'])) {
                 return ["success" => false, "message" => "CPF já cadastrado"];
             }
