@@ -31,7 +31,7 @@ class CustomizacaoController(){
     // }
     public function Create_CoresSubs() {
         $res =  $CoreSubsModel->create($id,)
-        return $res
+        return $re-o
     }
 
 }
