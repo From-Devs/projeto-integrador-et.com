@@ -177,6 +177,9 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <div class="card-expandido">
             <span class="card-titulo">DETALHES DO PRODUTO</span>
+            <div class="detalhes-imagem">
+                <img class="" src="${imgSrc}" height="100" onerror="this.src='/projeto-integrador-et.com/imagem-padrao.jpg'">
+            </div>
             <div class="detalhes-info" style="gap: 10px;">
                 <span class="detalhes-titulo">${item.nome} — ${item.marca || ''}</span>
                 <span class="detalhes-status">Status: <span style="color: red;">${card.dataset.tipoStatus || 'Aguardando'}</span></span>
