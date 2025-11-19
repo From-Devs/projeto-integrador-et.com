@@ -8,7 +8,8 @@ class Lancamentos {
     $db = new Database();
     $this->conn = $db->Connect();
   }
-  public getAll(): array {
+  
+  public function getAll(): array {
     try {
       $sql = "
         SELECT l.id_lancamentos, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.img2, p.img3, p.fgPromocao, 
@@ -22,10 +23,27 @@ class Lancamentos {
             return [];
     }
   }
-  // public create($date){
-        
-  // }
-  public Update(int $id, array $data): bool {
+
+  public function Create(array $data): int|false {
+    try {
+        $stmt = $this->conn->prepare("
+            INSERT INTO lancamentos (id_produto, id_coressubs)
+            VALUES (:id_produto, :id_coressubs)
+        ");
+        $stmt->execute([
+            ":id_produto" => $data['id_produto'],
+            ":id_coressubs" => $data['id_coressubs']
+        ]);
+
+        return $this->conn->lastInsertId();
+
+    } catch (PDOException $e) {
+        error_log("[Lancamentos] Erro ao criar: " . $e->getMessage());
+        return false;
+    }
+  }
+
+  public function Update(int $id, array $data): bool {
     try {
             $stmt = $this->conn->prepare("
                 UPDATE lancamentos
@@ -42,7 +60,8 @@ class Lancamentos {
             return false;
     }
   }
-  public getElementByid(): array {
+
+  public function getElementByid(): array {
     $stmt = $this->conn->prepare("
         SELECT l.id_lancamentos, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.img2, p.img3, p.fgPromocao, 
         cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3
@@ -52,7 +71,8 @@ class Lancamentos {
         WHERE l.id_lancamentos = :id
     ")
   }
-  public Remore(int $id): bool {
+
+  public function Remore(int $id): bool {
      try {
             $stmt = $this->conn->prepare("DELETE FROM lancamentos WHERE id_lancamentos = :id");
             return $stmt->execute([":id" => $id]);
@@ -61,7 +81,8 @@ class Lancamentos {
             return false;
     }
   }
-  public getAllCoresUnicas(): array {
+
+  public function getAllCoresUnicas(): array {
         try {
             $stmt = $this->conn->query("
                 SELECT DISTINCT corEspecial, hexDegrade1, hexDegrade2, hexDegrade3

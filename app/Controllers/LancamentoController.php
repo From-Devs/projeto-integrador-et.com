@@ -14,7 +14,7 @@ class LancamentosController {
 
 
     public function getAll() {
-        $dados = [ 
+        $dados = [
             'lancamentos' => $this->lancamentosModel->getAll(),
         ];
         return $dados['lancamentos'];

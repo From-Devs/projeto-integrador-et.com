@@ -1,38 +1,80 @@
-<?php 
-// Controllers/CustomizacaoModel.php
-require_once __DIR__ . "/../Models/CustomizacaoModel.php";
+<?php
+// Controllers/CustomizacaoController.php
 
+require_once __DIR__ . "/../Models/products.php";
 require_once __DIR__ . "/../Models/DestaqueModel.php";
-//require_once __DIR__ . "/../Models/LancamentoModel.php";
-class CustomizacaoController(){
-    // model juntando toda em unicico arquivo
-    private ProdutoDestaque $DestaqueModel
-    private CarouselModel $CarouselModel
-    // private ------------- $LansamenModel
-    private CoresSubModel $CoreSubsModel
+require_once __DIR__ . "/../Models/CarouselModel.php";
+require_once __DIR__ . "/../Models/CoresSubModel.php";
+
+class CustomizacaoController {
+    private Products $produtoModel;
+    private ProdutoDestaque $destaqueModel;
+    private CarouselModel $carouselModel;
+    private CoresSubModel $coresSubsModel;
 
     public function __construct() {
-        $this->DestaqueModel = new DestaqueModel();
-        $this->CarouselModel = new CoresSubModel();
-        // $this->LansamenModel = new LancamentoModel();
-        $this->CoreSubsModel = new CoresSubModel();;
+        $this->produtoModel = new Products();
+        $this->destaqueModel = new ProdutoDestaque();
+        $this->carouselModel = new CarouselModel();
+        $this->coresSubsModel = new CoresSubModel();
     }
 
-    public function Create_Carousel(int $id,array $data):array {
-        $res =  $CarouselModel->create($id,$data)
-        return $res
+    // Retorna todos os registros
+    public function index(): array {
+        return [
+            "produtos" => $this->produtoModel->getAllProdutos(),
+            "carousel" => $this->carouselModel->getAll(),
+            "coresSub" => $this->coresSubsModel->getAll(),
+            "destaque" => $this->destaqueModel->getAll()
+        ];
     }
-    public function Create_Destaque(int $id,array $data): array {
-        $res =  $DestaqueModel->create($id,)
-        return $res
+
+    // Deletar carousel
+    public function deleteCarousel(int $id) {
+        return $this->carouselModel->remove($id);
     }
-    // public function Create_Lancamentos() { "
-    
+
+    // Criar carousel
+    public function createCarousel(int $id, array $data): array {
+        $carousels = $this->carouselModel->create($id, $data);
+        return ['carousels' => $carousels];
+    }
+
+    // // Deletar carousel
+    // public function deleteCarousel(int $id) {
+    //     return $this->carouselModel->remove($id);
     // }
-    public function Create_CoresSubs() {
-        $res =  $CoreSubsModel->create($id,)
-        return $re-o
+
+    // Criar destaque
+    public function createDestaque(int $id, array $data): array {
+        $destaque = $this->destaqueModel->create($id, $data);
+        return ['destaque' => $destaque];
     }
+
+    // // Deletar carousel
+    // public function deleteCarousel(int $id) {
+    //     return $this->carouselModel->remove($id);
+    // }
+
+    // Criar cores/subs
+    public function createCoresSubs(int $id, array $data): array {
+        $coresSubs = $this->coresSubsModel->create($id, $data);
+        return ['coresSubs' => $coresSubs];
+    }
+
+    // // Deletar carousel
+    // public function deleteCarousel(int $id) {
+    //     return $this->carouselModel->remove($id);
+    // }
+    // public function createLanca(int $id, array $data): array {
+    //     $lanca
+    // }
 
 }
-?>
+
+$conn = new CustomizacaoController();
+
+$res = $conn->index();
+// echo "<pre>";
+// print_r($res);
+// echo "</pre>";
