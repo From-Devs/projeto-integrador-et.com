@@ -7,22 +7,13 @@ require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php";
 require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
-require_once __DIR__ . "/../../Controllers/ProdutoController.php";
-require_once __DIR__ . "/../../Controllers/CarouselController.php";
-// require_once __DIR__ . "/../../Controllers/LancamentoController.php";
-require_once __DIR__ . "/../../Controllers/DestaqueController.php";
+require_once __DIR__ . "/../../Controllers/CustomizacaoController.php";
 
-$produtoController = new ProdutoController();
-$carouselController = new CaroselController();
-// $lancamentoController = new LancamentosController();
-$destaqueController = new DestaqueController();
-
-$listaProdutos = $produtoController->pegarTodosProdutos();
-$listaCarousel = $carouselController->getAll();
-// $listaLancamentos = $lancamentoController->getAll();
-$produtoDestaque = $destaqueController->getAll();
-
-var_dump($listaCarousel);
+$conn = new CustomizacaoController();
+$res = $conn->index();
+echo "<pre>";
+var_dump($res);
+echo "</pre>";
 
 // session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
@@ -79,7 +70,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 
             <div class="listaProdutos">
                 <?php
-                foreach($listaProdutos as $produto){
+                foreach($res['produtos'] as $produto){
                 ?>
                 <div class="itemLista" data-id="<?= $produto['id_produto'] ?>">
                     <?= $produto['nome'] ?>
@@ -314,7 +305,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         </div>
                         <div class="editarCarouselContainer">
                             <?php
-                            foreach ($listaCarousel as $index => $carouselItem) {
+                            foreach ($res["carousel"] as $index => $carouselItem) {
                                 $carouselProdutoID = $carouselItem['id_produto'];
                                 $carouselImg = $carouselItem['img1'];
                                 $cor1 = $carouselItem['hexDegrade1'];

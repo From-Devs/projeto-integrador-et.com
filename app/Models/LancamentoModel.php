@@ -72,7 +72,7 @@ class Lancamentos {
         JOIN produto p ON  p.id_produto = l.id_produto
         JOIN coressubs cs ON cs.id_coressubs = l.id_coressubs
         WHERE l.id_lancamentos = :id
-    ")
+    ");
   }
 
   public function Remore(int $id): bool {
