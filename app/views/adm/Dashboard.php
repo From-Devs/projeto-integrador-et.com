@@ -12,7 +12,15 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 
 $obj = new Dashboard_ADM_Controller();
 
-$dados = $obj->getLucroTotal();
+$dados = $obj->getDashboardData();
+$topVendedores = $dados["top_vendedores"];
+$topCategorias = $dados["top_categorias"];
+
+$labelsVendedores = array_column($topVendedores, "vendedor");
+$valuesVendedores = array_column($topVendedores, "total_vendas");
+
+$labelsCategorias = array_column($topCategorias, "categoria");
+$valuesCategorias = array_column($topCategorias, "total_vendas");
 ?>
 
 <!DOCTYPE html>
@@ -45,9 +53,9 @@ $dados = $obj->getLucroTotal();
             </div>
             <div id="geralInformacoes">
                 <!-- $nomeDiv,$icone, $titulo, $valor, $alt=''-->
-                <?php dadosInfor('valorVendas','./../../../public/imagens/imagensADM/walletDashboard.png','Lucro total','$ ' . htmlspecialchars($dados['lucro_total']),'wallet') ?>
-                <?php dadosInfor('lucroLiquido','./../../../public/imagens/imagensADM/cifraoDashboard.png','Vendas realizadas','233','cifrao') ?>
-                <?php dadosInfor('vendas','./../../../public/imagens/imagensADM/graficoDashboard.png','Associados á ET','233','grafico') ?>
+                <?php dadosInfor('valorVendas','./../../../public/imagens/imagensADM/walletDashboard.png','Lucro total', '$ ' . htmlspecialchars($dados['lucro_total']['lucro_total']),'wallet') ?>
+                <?php dadosInfor('lucroLiquido','./../../../public/imagens/imagensADM/cifraoDashboard.png','Vendas realizadas',htmlspecialchars($dados['unidades_vendidas']['unidades_vendidas']),'cifrao') ?>
+                <?php dadosInfor('vendas','./../../../public/imagens/imagensADM/graficoDashboard.png','Associados á ET',htmlspecialchars($dados['total_associados']['total_associados']),'grafico') ?>
             </div>
             <div id="controlePizzas">
                 <div id="divPizzaEsquerda">
@@ -63,6 +71,16 @@ $dados = $obj->getLucroTotal();
             </div>
         </div>
     </div>
+
+    <script>
+    var vendedoresLabels = <?= json_encode($labelsVendedores) ?>;
+    var vendedoresData   = <?= json_encode($valuesVendedores) ?>;
+
+    var categoriasLabels = <?= json_encode($labelsCategorias) ?>;
+    var categoriasData   = <?= json_encode($valuesCategorias) ?>;
+    </script>
+
+    <script src="./../../../public/js/dashboardCharts.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./../../../public/javascript/javascriptADM.js"></script>
