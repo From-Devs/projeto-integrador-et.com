@@ -21,13 +21,13 @@
             <div class="tabela-body">
                 <table id="tabelaVendas">
                     <tbody>
-                        <?php foreach ($produtos as $produto): ?>
-                            <tr style="height: 80px;">
-                                <td><?= htmlspecialchars($produto['id']) ?></td>
-                                <td><?= htmlspecialchars($produto['nome']) ?></td>
-                                <td><?= htmlspecialchars($produto['marca']) ?></td>
-                                <td>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></td>
-                                <td class="td-lista-associados">
+                            <?php foreach ($produtos as $produto): ?>
+                                <tr>
+                                    <td data-label="ID"><?= htmlspecialchars($produto['id']) ?></td>
+                                    <td data-label="Produto"><?= htmlspecialchars($produto['nome']) ?></td>
+                                    <td data-label="Marca"><?= htmlspecialchars($produto['marca']) ?></td>
+                                    <td data-label="Preço">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></td>
+                                    <td class="td-lista-associados" data-label="Associado">
                                     <?php $nomeJs = json_encode($produto['nome']); ?>
                                     <button onclick='buscarAssociadoProdutos(<?= $produto['id']?>, <?= json_encode($produto['nome']) ?>)' class="btn-lista-associados">
                                         <span>Ver Associado</span>
@@ -98,12 +98,12 @@ function tabelaProduto($produtos) {
                 <tbody>
                     <?php foreach ($produtos as $produto): ?>
                         <tr>
-                            <td><?= $produto['id'] ?></td>
-                            <td><?= htmlspecialchars($produto['nome']) ?></td>
-                            <td>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></td>
-                            <td>R$ <?= number_format($produto['precoPromocional'], 2, ',', '.') ?></td>
-                            <td><?= $produto['qtdEstoque']?></td>
-                            <td>
+                            <td data-label="ID"><?= htmlspecialchars($produto['id']) ?></td>
+                            <td data-label="Produto"><?= htmlspecialchars($produto['nome']) ?></td>
+                            <td data-label="Preço">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></td>
+                            <td data-label="Preço Promocional">R$ <?= number_format($produto['precoPromocional'], 2, ',', '.') ?></td>
+                            <td data-label="Qtd. Estoque"><?= htmlspecialchars($produto['qtdEstoque']) ?></td>
+                            <td data-label="Ações">
                                 <div class="acoes-tabela">
                                     <?php
 

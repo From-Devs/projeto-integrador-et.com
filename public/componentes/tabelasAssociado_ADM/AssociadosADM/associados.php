@@ -89,11 +89,11 @@ function associadosTabela($nome, $listaAssociados){
                             echo PopUpComInput("popUpCancelar_$userId", "Deseja realmente RECUSAR esse associado?", "Motivo...", $btnSimCancelar, $btnNao);
                         ?>
                         <tr>
-                            <td><?= $userId ?></td>
-                            <td><?= $associado['nome'] ?></td>
-                            <td><?= $associado['email'] ?></td>
-                            <td><?= "{$associado['cidade']} - {$associado['estado']}" ?></td>
-                            <td>
+                            <td data-label="ID"><?= $userId ?></td>
+                            <td data-label="Nome"><?= $associado['nome'] ?></td>
+                            <td data-label="E-mail"><?= $associado['email'] ?></td>
+                            <td data-label="Cidade"><?= "{$associado['cidade']} - {$associado['estado']}" ?></td>
+                            <td data-label="Ações">
                                 <div class='verticalizacao'>
                                     <button 
                                         style="display: <?= !empty($associado['motivoDoRecuso']) ? 'none' : 'block' ?>"

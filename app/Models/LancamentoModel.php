@@ -18,6 +18,9 @@ class Lancamentos {
         JOIN produto p ON  p.id_produto = l.id_produto
         JOIN coressubs cs ON cs.id_coressubs = l.id_coressubs
       ";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }catch (PDOException $e) {
             error_log("[Lancamentos] Erro SQL: " . $e->getMessage());
             return [];

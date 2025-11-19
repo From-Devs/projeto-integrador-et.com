@@ -112,16 +112,16 @@ function tabelaPedidosADM($pedidos) {
         }
         ?>
         <tr>
-            <td><?= $pedido['id_pedido'] ?></td>
-            <td><?= htmlspecialchars($pedido['nome']) ?></td>
-            <td>R$ <?= number_format($pedido['precoTotal'], 2, ',', '.') ?></td>
-            <td><?= date("d/m/Y - H:i", strtotime($pedido['dataPedido'])) ?></td>
-            <td>
+            <td data-label="ID"><?= $pedido['id_pedido'] ?></td>
+            <td data-label="Nome"><?= htmlspecialchars($pedido['nome']) ?></td>
+            <td data-label="Preço">R$ <?= number_format($pedido['precoTotal'], 2, ',', '.') ?></td>
+            <td data-label="Data Pedido"><?= date("d/m/Y - H:i", strtotime($pedido['dataPedido'])) ?></td>
+            <td data-label="Status Pagamento">
                 <button id="<?= $statusClass?>" class="btnStatus" onclick="mudarStatus(this, <?= $pedido['id_pedido'] ?>)">
                     <p><?= $pedido['statusPagamento'] ?></p>
                 </button>
             </td>
-            <td>
+            <td data-label="Mais Detalhes">
                 <button class="tresPontos" onclick="abrirPopUpRedireciona('modalDetalhesDoPedido<?= $pedido['id_pedido'] ?>')">
                     <img src="/projeto-integrador-et.com/public/imagens/imagensADM/tresPontos.png" alt="Abrir Detalhes">
                 </button>
@@ -198,12 +198,12 @@ function tabelaPedidosAssociado($pedidos) {
                         $data = date("d/m/Y - H:i", strtotime($pedido['dataPedido']));
                     ?>
                         <tr>
-                            <td><?= $pedido['id_pedido'] ?></td>
-                            <td><?= htmlspecialchars($pedido['nome']) ?></td>
-                            <td><?= htmlspecialchars($pedido['nomeProduto']) ?></td>
-                            <td>R$ <?= number_format($pedido['preco'], 2, ',', '.') ?></td>
-                            <td><?= $data ?></td>
-                            <td><div id='<?= $statusClass ?>'><p><?= $pedido['statusPagamento'] ?></p></div></td>
+                            <td data-label="ID"><?= $pedido['id_pedido'] ?></td>
+                            <td data-label="Cliente"><?= htmlspecialchars($pedido['nome']) ?></td>
+                            <td data-label="Produto"><?= htmlspecialchars($pedido['nomeProduto']) ?></td>
+                            <td data-label="Preço">R$ <?= number_format($pedido['preco'], 2, ',', '.') ?></td>
+                            <td data-label="Data"><?= $data ?></td>
+                            <td data-label="Pagamento"><div id='<?= $statusClass ?>'><p><?= $pedido['statusPagamento'] ?></p></div></td>
                             <td>
                                 <?php
                                 $valorStatusEntrega = isset($pedido['statusEntrega']) ? $pedido['statusEntrega'] : '';

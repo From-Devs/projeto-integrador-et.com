@@ -8,7 +8,7 @@ class DestaqueController extends BaseController {
     private $coresModel;
 
     public function __construct() {
-        $this->DestaqueModel = new DestaqueModel();
+        $this->DestaqueModel = new ProdutoDestaque();
         $this->coresModel = new CoresSubModel();
     }
 

@@ -40,7 +40,6 @@ a {
     flex-direction: column;
 }
 
-/* estilizacao da parte do icone do usuario */
 
 #tituloH1{
     font-size: 36px;
@@ -178,10 +177,13 @@ tr {
         width: fit-content;
         align-items: center;
         margin: 0 15px;
+        width: 90%;
+        margin-top: 20px;
     }
 
     th, td {
         font-size: 16px;
+        text-align: left;
     }
 
     .btn-concluir-edicao {

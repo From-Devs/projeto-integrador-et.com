@@ -13,11 +13,9 @@ class ProdutoDestaque{
   public function getAll(): array {
     try {
       $sql = "
-        SELECT pd.id_prodDestaque, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.img2, p.img3, p.fgPromocao, 
-        cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3
+        SELECT pd.id_prodDestaque, pd.cor1, pd.cor2, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.fgPromocao
         FROM proddestaque pd 
-        JOIN produto p ON  p.id_produto = pd.id_produto
-        JOIN coressubs cs ON cs.id_coressubs = pd.id_coressubs
+        JOIN produto p ON p.id_produto = pd.id_produto
       ";
       $stmt = $this->conn->query($sql);
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
