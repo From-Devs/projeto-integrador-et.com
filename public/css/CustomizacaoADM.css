@@ -153,8 +153,6 @@ body{
     margin-left: 34px;
 }
 
-
-
 .imagemProduto{
     width: 100%;
 }
@@ -745,9 +743,13 @@ body{
 }
 
 .imagemProdutoWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 258px;
     height: 258px;
     border-radius: 24px;
+    overflow: hidden;
     cursor: pointer;
     box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.4);
 }

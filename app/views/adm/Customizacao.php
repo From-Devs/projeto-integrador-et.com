@@ -8,21 +8,21 @@ require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento
 require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
 require_once __DIR__ . "/../../Controllers/ProdutoController.php";
-// require_once __DIR__ . "/../../Controllers/CarouselController.php";
+require_once __DIR__ . "/../../Controllers/CarouselController.php";
 // require_once __DIR__ . "/../../Controllers/LancamentoController.php";
 require_once __DIR__ . "/../../Controllers/DestaqueController.php";
 
 $produtoController = new ProdutoController();
-// $carouselController = new CaroselController();
+$carouselController = new CaroselController();
 // $lancamentoController = new LancamentosController();
 $destaqueController = new DestaqueController();
 
 $listaProdutos = $produtoController->pegarTodosProdutos();
-// $listaCarousel = $carouselController->getAll();
+$listaCarousel = $carouselController->getAll();
 // $listaLancamentos = $lancamentoController->getAll();
 $produtoDestaque = $destaqueController->getAll();
 
-var_dump($produtoDestaque);
+var_dump($listaCarousel);
 
 // session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
@@ -313,21 +313,23 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <div class="bordaProdutoInicial"></div>
                         </div>
                         <div class="editarCarouselContainer">
-                            <div class="produtoContainer" id="produto1" onclick="abrirPopUp('popUpEditProduto')">
-                                <div class="imagemProdutoWrapper" id="cor-0">
-                                    <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/hinode.png" alt="">
+                            <?php
+                            foreach ($listaCarousel as $index => $carouselItem) {
+                                $carouselProdutoID = $carouselItem['id_produto'];
+                                $carouselImg = $carouselItem['img1'];
+                                $cor1 = $carouselItem['hexDegrade1'];
+                                $cor2 = $carouselItem['hexDegrade2'];
+                                $cor3 = $carouselItem['hexDegrade3'];
+
+                                echo '
+                                <div class="produtoContainer" onclick="abrirPopUp(\'popUpEditProduto\')">
+                                    <div class="imagemProdutoWrapper" data-id=' . $carouselProdutoID . ' style="background-image: linear-gradient(to bottom, '. $cor1 .' 0%, '. $cor2 .' 50%, '. $cor3 .' 100%);">
+                                        <img class="imagemProduto" src="/projeto-integrador-et.com/' . $carouselImg . '" alt="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="produtoContainer" id="produto2" onclick="abrirPopUp('popUpEditProduto')">
-                                <div class="imagemProdutoWrapper" id="cor-1">
-                                    <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/bocarosa.png" alt="">
-                                </div>
-                            </div>
-                            <div class="produtoContainer" id="produto3" onclick="abrirPopUp('popUpEditProduto')">
-                                <div class="imagemProdutoWrapper" id="cor-2">
-                                    <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/leite.png" alt="">
-                                </div>
-                            </div>
+                                ';
+                            }
+                            ?>
                         </div>
                     </div>
             
