@@ -44,6 +44,7 @@ a
 .td-lista-associados{
     display: flex; 
     justify-content: center; 
+    flex-direction: column;
     height: 80px; 
     padding: 0px;
     margin: 3px;
@@ -493,11 +494,13 @@ a
         width: fit-content;
         align-items: center;
         margin: 0 15px;
+        width: 90%;
+        margin-top: 30px;
     }
-
+/* 
     #lista{
         width: 100%;
-    }
+    } */
 
     th{
         font-size: 16px;
@@ -529,6 +532,49 @@ a
     }
 
     tr {
+        height: 40px;
+    }
+}
+
+@media (max-width: 550px) {
+    #lista {
+        /* width: 100%; */
+        border-radius: 10px;
+    }
+
+    table#tabelaVendas, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        display: none; 
+    }
+
+    tr {
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    td {
+        text-align: left;
+        padding: 5px 10px;
+        position: relative;
+        font-size: 16px;
+    }
+
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        color: #555;
+        margin-bottom: 3px;
+    }
+
+    #statusPago, #statusPendente, .selectStatusEntrega {
+        width: 100%;
         height: 40px;
     }
 }
