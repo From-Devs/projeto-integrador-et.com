@@ -13,7 +13,7 @@ class CaroselController extends BaseController {
     }
 
     public function getAll() {
-        $dados = [
+        $dados = [ 
             'carousels' => $this->carouselModel->getAll(),
         ];
         return $dados['carousels'];
@@ -34,21 +34,50 @@ class CaroselController extends BaseController {
     public function createCarosel(array $data) {
         return $this->carouselModel->create($data);
     }
-
-    public function editaCarosel(int $id, array $data) {
-        return $this->carouselModel->update($id, $data);
-    }
-
+    // CÓDIGO DO SEU CONTROLLER (apenas a função update alterada)
     public function deleteCarosel(int $id) {
         return $this->carouselModel->remove($id);
     }
-
-    public function updateCoresPersonalizadas(int $id_carousel, array $novaCor) {
-        return $this->carouselModel->updateCoresPersonalizadas($id_carousel, $novaCor);
-    }
-
-    public function getAllUniqueCores() {
-        return $this->carouselModel->getAllUniqueCores();
+    public function update(int $id_carousel, array $data) { 
+         return $this->carouselModel->update($id_carousel, $data);
     }
 }
-$conn = new CaroselController();
+
+// $conn = new CaroselController(); // ou CarouselController, como for o nome da sua classe
+// Primeiro vê o que já tem
+// echo "<pre>";
+// echo "=== ANTES DOS TESTES ===\n";
+// $te = $conn->getAll();
+// print_r($te);
+// echo "</pre><hr>";
+// echo "<h3>TESTE 1: Trocar só o produto (id_produto = 57)</h3>";
+// $res = $conn->update(1, [
+//     'id_produto' =>127
+// ]);
+// print_r($res);
+// echo "<h3>TESTE 3: Só mudar as cores (não mexe no produto)</h3>";
+// $res = $conn->update(3, [
+//     'corEspecial' => '#cf166cff',
+//     'hexDegrade1' => '#b71d74ff',
+//     'hexDegrade2' => '#940130ff',
+//     'hexDegrade3' => '#6a2018ff'
+// ]);
+// print_r($res); 
+
+// $conn = new CaroselController();
+// $te = $conn->getAll();
+
+// $res = $conn->update(1,[
+    
+// ])
+// $res = $conn->updateCoresPersonalizadas(1, [
+//     'corEspecial' => '#124b56ff',
+//     'hexDegrade1' => '#212165ff',
+//     'hexDegrade2' => '#9258ffff',
+//     'hexDegrade3' => '#e11cffff'
+// ]);
+
+
+// NO FINAL DO SEU CaroselController.php
+
+// ...

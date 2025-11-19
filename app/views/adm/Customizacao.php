@@ -8,9 +8,21 @@ require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento
 require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
 require_once __DIR__ . "/../../Controllers/ProdutoController.php";
+require_once __DIR__ . "/../../Controllers/CarouselController.php";
+// require_once __DIR__ . "/../../Controllers/LancamentoController.php";
+require_once __DIR__ . "/../../Controllers/DestaqueController.php";
 
-$listaProdutos = new ProdutoController();
-$listaProdutos = $listaProdutos->pegarTodosProdutos();
+$produtoController = new ProdutoController();
+$carouselController = new CaroselController();
+// $lancamentoController = new LancamentosController();
+$destaqueController = new DestaqueController();
+
+$listaProdutos = $produtoController->pegarTodosProdutos();
+$listaCarousel = $carouselController->getAll();
+// $listaLancamentos = $lancamentoController->getAll();
+$produtoDestaque = $destaqueController->getAll();
+
+var_dump($listaCarousel);
 
 // session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
@@ -176,13 +188,11 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 
                         </div>
                     </div>
-                    
                 </div>
             </form>
-
         </div>
     </dialog>
-    <!-- width: 965px; height: 594px;   -->
+
     <dialog class='popUpDialog popUpEditProdutoLancamento'>
         <div class='popUp' style='padding: 33px; background-color: #F8F8F8; position: relative;'>
             <div class='topoPopUp'>
@@ -199,7 +209,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         echo createCardProdutoLancamento("", "","","","", "lancamentoFuncional");
                         echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg", "lancamentoFuncional");
                         ?>
-        
                     </div>
                 </div> 
                 
@@ -304,21 +313,23 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <div class="bordaProdutoInicial"></div>
                         </div>
                         <div class="editarCarouselContainer">
-                            <div class="produtoContainer" id="produto1" onclick="abrirPopUp('popUpEditProduto')">
-                                <div class="imagemProdutoWrapper" id="cor-0">
-                                    <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/hinode.png" alt="">
+                            <?php
+                            foreach ($listaCarousel as $index => $carouselItem) {
+                                $carouselProdutoID = $carouselItem['id_produto'];
+                                $carouselImg = $carouselItem['img1'];
+                                $cor1 = $carouselItem['hexDegrade1'];
+                                $cor2 = $carouselItem['hexDegrade2'];
+                                $cor3 = $carouselItem['hexDegrade3'];
+
+                                echo '
+                                <div class="produtoContainer" onclick="abrirPopUp(\'popUpEditProduto\')">
+                                    <div class="imagemProdutoWrapper" data-id=' . $carouselProdutoID . ' style="background-image: linear-gradient(to bottom, '. $cor1 .' 0%, '. $cor2 .' 50%, '. $cor3 .' 100%);">
+                                        <img class="imagemProduto" src="/projeto-integrador-et.com/' . $carouselImg . '" alt="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="produtoContainer" id="produto2" onclick="abrirPopUp('popUpEditProduto')">
-                                <div class="imagemProdutoWrapper" id="cor-1">
-                                    <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/bocarosa.png" alt="">
-                                </div>
-                            </div>
-                            <div class="produtoContainer" id="produto3" onclick="abrirPopUp('popUpEditProduto')">
-                                <div class="imagemProdutoWrapper" id="cor-2">
-                                    <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/leite.png" alt="">
-                                </div>
-                            </div>
+                                ';
+                            }
+                            ?>
                         </div>
                     </div>
             
@@ -344,14 +355,25 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             <div class="frameProdutos">
                 <div class="containerProdutos" id="containerLancamentos">
                     <?php
-                    echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg", "lancamentoCustom");
-                    echo createCardProdutoLancamento("Avon", "Red Batom","R$ 2000,00","#D1061D","batom.png", "lancamentoCustom");
-                    echo createCardProdutoLancamento("Benefit", "BADgal Bang! Máscara de Cílios","R$ 3000,00","#D02369","bang.png", "lancamentoCustom");
-                    echo createCardProdutoLancamento("Avon", "Color Trend Delineador Líquido","R$ 1000,00","#F0CBDA","trend.webp", "lancamentoCustom");
-                    echo createCardProdutoLancamento("Mari Maria","Diamond Blender Esponja de Maquiagem","R$ 2000,00","#D79185","tri.jpeg", "lancamentoCustom");
-                    echo createCardProdutoLancamento("Simple Organic", "SOLUÇÃO RETINOL-LIKE","R$ 3000,00","#C9A176","simple.webp", "lancamentoCustom");
-                    echo createCardProdutoLancamento("Princess","Mini Chapinha Bivolt","R$ 2000,00","#745CA3","chapa.webp", "lancamentoCustom");
-                    echo createCardProdutoLancamento("O Boticário","L'eau De Lily Soleil Perfume Feminino","R$ 3000,00","#F4C83C","lily.jpg", "lancamentoCustom");
+                    // foreach ($listaLancamentos as $produto) {
+                    //     echo createCardProdutoLancamento(
+                    //         $produto['marca'],
+                    //         $produto['nome'],
+                    //         $produto['precoPromo'] == 0 ? $produto['preco'] : $produto['precoPromo'],
+                    //         $produto['corPrincipal'] ?? "#000",
+                    //         $produto['img2'],
+                    //         $produto['id_produto'],
+                    //         "lancamentoCustom"
+                    //     );
+                    // }
+                    echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg",0,"lancamentoCustom");
+                    echo createCardProdutoLancamento("Avon", "Red Batom","R$ 2000,00","#D1061D","batom.png",1, "lancamentoCustom");
+                    echo createCardProdutoLancamento("Benefit", "BADgal Bang! Máscara de Cílios","R$ 3000,00","#D02369","bang.png",2, "lancamentoCustom");
+                    echo createCardProdutoLancamento("Avon", "Color Trend Delineador Líquido","R$ 1000,00","#F0CBDA","trend.webp",3, "lancamentoCustom");
+                    echo createCardProdutoLancamento("Mari Maria","Diamond Blender Esponja de Maquiagem","R$ 2000,00","#D79185","tri.jpeg",4, "lancamentoCustom");
+                    echo createCardProdutoLancamento("Simple Organic", "SOLUÇÃO RETINOL-LIKE","R$ 3000,00","#C9A176","simple.webp",5, "lancamentoCustom");
+                    echo createCardProdutoLancamento("Princess","Mini Chapinha Bivolt","R$ 2000,00","#745CA3","chapa.webp",6, "lancamentoCustom");
+                    echo createCardProdutoLancamento("O Boticário","L'eau De Lily Soleil Perfume Feminino","R$ 3000,00","#F4C83C","lily.jpg",7, "lancamentoCustom");
                     ?>
                 </div>
             </div>
