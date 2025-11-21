@@ -8,12 +8,18 @@
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
     require __DIR__ . "/../../../public/componentes/carousel/carousel.php";
 
-    // session_start();
-    // $tipoUsuario = $_SESSION['tipoUsuario'] ?? 'Cliente';
+    require_once __DIR__ . "/../../Controllers/DestaqueController.php";
+    require_once __DIR__ . "/../../Controllers/LancamentoController.php";
+
+    $destaqueController = new DestaqueController();
+    $lancamentoController = new LancamentosController();
+
+    $lancamentoLista = $lancamentoController->getAll(); // Lista de produtos lançamento
+    $produtoDestaque = $destaqueController->getAll(); // Lista de produtos de destaque
+    $produtoDestaque = $produtoDestaque[0]; // Pega apenas o primeiro produto destaque
+
     $tipoUsuario = $_SESSION['tipoUsuario'] ?? "Associado";
     $login = false; // Estado de login do usuário (false = deslogado / true = logado)
-
-
 ?>
 
 <!DOCTYPE html>
@@ -133,14 +139,17 @@
             <div class="frameProdutos">
                 <div class="containerProdutos" id="containerLancamentos">
                     <?php
-                    echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg","lancamentoFuncional");
-                    echo createCardProdutoLancamento("Avon", "Red Batom","R$ 2000,00","#D1061D","batom.png","lancamentoFuncional");
-                    echo createCardProdutoLancamento("Benefit", "BADgal Bang! Máscara de Cílios","R$ 3000,00","#D02369","bang.png","lancamentoFuncional");
-                    echo createCardProdutoLancamento("Avon", "Color Trend Delineador Líquido","R$ 1000,00","#F0CBDA","trend.webp","lancamentoFuncional");
-                    echo createCardProdutoLancamento("Mari Maria","Diamond Blender Esponja de Maquiagem","R$ 2000,00","#D79185","tri.jpeg","lancamentoFuncional");
-                    echo createCardProdutoLancamento("Simple Organic", "SOLUÇÃO RETINOL-LIKE","R$ 3000,00","#C9A176","simple.webp","lancamentoFuncional");
-                    echo createCardProdutoLancamento("Princess","Mini Chapinha Bivolt","R$ 2000,00","#745CA3","chapa.webp","lancamentoFuncional");
-                    echo createCardProdutoLancamento("O Boticário","L'eau De Lily Soleil Perfume Feminino","R$ 3000,00","#F4C83C","lily.jpg","lancamentoFuncional");
+                    foreach ($lancamentoLista as $index => $lancamentoItem) {
+                        echo createCardProdutoLancamento(
+                            $lancamentoItem['marca'],
+                            $lancamentoItem['nome'],
+                            $lancamentoItem['precoPromo'] == 0 ? $lancamentoItem['preco'] : $lancamentoItem['precoPromo'],
+                            $lancamentoItem['corEspecial'] ?? "#000",
+                            $lancamentoItem['img2'],
+                            $lancamentoItem['id_produto'],
+                            "lancamentoFuncional"
+                        );
+                    }
                     ?>
                 </div>
             </div>
@@ -150,8 +159,16 @@
     </div>
 
     <?php
-    // echo createProdutoDestaque("Hidratante Corporal Milk","Nivea","R$20,00","milk.png","rgb(0, 0, 145)","rgb(75, 75, 226)","rgb(0, 0, 57)");
-    echo createProdutoDestaque();
+    echo createProdutoDestaque(
+        $produtoDestaque["id_produto"],
+        $produtoDestaque["nome"],
+        $produtoDestaque["marca"],
+        $produtoDestaque['precoPromo'] == 0 ? $produtoDestaque['preco'] : $produtoDestaque['precoPromo'],
+        $produtoDestaque["img1"],
+        $produtoDestaque["cor1"],
+        $produtoDestaque["cor2"],
+        $produtoDestaque["corSombra"]
+    );
     ?>
 
     <div class="sessaoProdutos">

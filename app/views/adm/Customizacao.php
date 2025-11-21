@@ -11,9 +11,11 @@ require_once __DIR__ . "/../../Controllers/CustomizacaoController.php";
 
 $conn = new CustomizacaoController();
 $res = $conn->index();
-echo "<pre>";
+echo "<pre style='display: none;'>";
 var_dump($res);
 echo "</pre>";
+
+$produtoDestaque = $res["destaque"][0];
 
 // session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
@@ -197,8 +199,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                     <h2>Exemplo:</h2>
                     <div class="bugBizarro">
                         <?php
-                        echo createCardProdutoLancamento("", "","","","", "lancamentoFuncional");
-                        echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg", "lancamentoFuncional");
+                        echo createCardProdutoLancamento("", "","","","", 0,"lancamentoFuncional");
+                        echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg", 0,"lancamentoFuncional");
                         ?>
                     </div>
                 </div> 
@@ -346,25 +348,25 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             <div class="frameProdutos">
                 <div class="containerProdutos" id="containerLancamentos">
                     <?php
-                    // foreach ($listaLancamentos as $produto) {
-                    //     echo createCardProdutoLancamento(
-                    //         $produto['marca'],
-                    //         $produto['nome'],
-                    //         $produto['precoPromo'] == 0 ? $produto['preco'] : $produto['precoPromo'],
-                    //         $produto['corPrincipal'] ?? "#000",
-                    //         $produto['img2'],
-                    //         $produto['id_produto'],
-                    //         "lancamentoCustom"
-                    //     );
-                    // }
-                    echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg",0,"lancamentoCustom");
-                    echo createCardProdutoLancamento("Avon", "Red Batom","R$ 2000,00","#D1061D","batom.png",1, "lancamentoCustom");
-                    echo createCardProdutoLancamento("Benefit", "BADgal Bang! Máscara de Cílios","R$ 3000,00","#D02369","bang.png",2, "lancamentoCustom");
-                    echo createCardProdutoLancamento("Avon", "Color Trend Delineador Líquido","R$ 1000,00","#F0CBDA","trend.webp",3, "lancamentoCustom");
-                    echo createCardProdutoLancamento("Mari Maria","Diamond Blender Esponja de Maquiagem","R$ 2000,00","#D79185","tri.jpeg",4, "lancamentoCustom");
-                    echo createCardProdutoLancamento("Simple Organic", "SOLUÇÃO RETINOL-LIKE","R$ 3000,00","#C9A176","simple.webp",5, "lancamentoCustom");
-                    echo createCardProdutoLancamento("Princess","Mini Chapinha Bivolt","R$ 2000,00","#745CA3","chapa.webp",6, "lancamentoCustom");
-                    echo createCardProdutoLancamento("O Boticário","L'eau De Lily Soleil Perfume Feminino","R$ 3000,00","#F4C83C","lily.jpg",7, "lancamentoCustom");
+                    foreach ($res["lancamento"] as $index => $lancamentoItem) {
+                        echo createCardProdutoLancamento(
+                            $lancamentoItem['marca'],
+                            $lancamentoItem['nome'],
+                            $lancamentoItem['precoPromo'] == 0 ? $lancamentoItem['preco'] : $lancamentoItem['precoPromo'],
+                            $lancamentoItem['corEspecial'] ?? "#000",
+                            $lancamentoItem['img2'],
+                            $lancamentoItem['id_produto'],
+                            "lancamentoCustom"
+                        );
+                    }
+                    // echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg",0,"lancamentoCustom");
+                    // echo createCardProdutoLancamento("Avon", "Red Batom","R$ 2000,00","#D1061D","batom.png",1, "lancamentoCustom");
+                    // echo createCardProdutoLancamento("Benefit", "BADgal Bang! Máscara de Cílios","R$ 3000,00","#D02369","bang.png",2, "lancamentoCustom");
+                    // echo createCardProdutoLancamento("Avon", "Color Trend Delineador Líquido","R$ 1000,00","#F0CBDA","trend.webp",3, "lancamentoCustom");
+                    // echo createCardProdutoLancamento("Mari Maria","Diamond Blender Esponja de Maquiagem","R$ 2000,00","#D79185","tri.jpeg",4, "lancamentoCustom");
+                    // echo createCardProdutoLancamento("Simple Organic", "SOLUÇÃO RETINOL-LIKE","R$ 3000,00","#C9A176","simple.webp",5, "lancamentoCustom");
+                    // echo createCardProdutoLancamento("Princess","Mini Chapinha Bivolt","R$ 2000,00","#745CA3","chapa.webp",6, "lancamentoCustom");
+                    // echo createCardProdutoLancamento("O Boticário","L'eau De Lily Soleil Perfume Feminino","R$ 3000,00","#F4C83C","lily.jpg",7, "lancamentoCustom");
                     ?>
                 </div>
             </div>
@@ -385,7 +387,18 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         <li class="tituloSessao">Produto em destaque</li>
                     </ul>
 
-                    <?php echo createProdutoDestaque(); ?>
+                    <?php
+                    echo createProdutoDestaque(
+                        $produtoDestaque["id_produto"],
+                        $produtoDestaque["nome"],
+                        $produtoDestaque["marca"],
+                        $produtoDestaque['precoPromo'] == 0 ? $produtoDestaque['preco'] : $produtoDestaque['precoPromo'],
+                        $produtoDestaque["img1"],
+                        $produtoDestaque["cor1"],
+                        $produtoDestaque["cor2"],
+                        $produtoDestaque["corSombra"]
+                    );
+                    ?>
 
                     <div class="wrapper">
                         <div class="editProdutoDestaque">
@@ -409,8 +422,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
                                             <div class="editCor" id="produtoLancamentoEditCor1">
-                                                <input type="color" class="corShow" value="#b4938a"></input>
-                                                <input class="corHex" maxlength="7" value="#b4938a"></input>
+                                                <input type="color" class="corShow" value="<?= $produtoDestaque["cor1"] ?>"></input>
+                                                <input class="corHex" maxlength="7"></input>
                                             </div>
                                         </div>
                                     </div>
@@ -419,8 +432,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
                                             <div class="editCor" id="produtoLancamentoEditCor2">
-                                                <input type="color" class="corShow" value="#fee1d8"></input>
-                                                <input class="corHex" maxlength="7" value="#fee1d8"></input>
+                                                <input type="color" class="corShow" value="<?= $produtoDestaque["cor2"] ?>"></input>
+                                                <input class="corHex" maxlength="7"></input>
                                             </div>
                                         </div>
                                     </div>
@@ -429,8 +442,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
                                             <div class="editCor" id="produtoLancamentoEditCorSombra">
-                                                <input type="color" class="corShow" value="#381507"></input>
-                                                <input class="corHex" maxlength="7" value="#381507"></input>
+                                                <input type="color" class="corShow" value="<?= $produtoDestaque["corSombra"] ?>"></input>
+                                                <input class="corHex" maxlength="7"></input>
                                             </div>
                                         </div>
                                     </div>

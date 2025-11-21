@@ -19,7 +19,7 @@ class ProdutoDestaque{
   public function getAll(): array {
     try {
       $sql = "
-        SELECT pd.id_prodDestaque, pd.cor1, pd.cor2, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.fgPromocao
+        SELECT pd.id_prodDestaque, pd.cor1, pd.cor2, pd.corSombra, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.fgPromocao
         FROM proddestaque pd 
         JOIN produto p ON p.id_produto = pd.id_produto
       ";
@@ -64,8 +64,9 @@ class ProdutoDestaque{
         $stmt = $this->conn->prepare('SELECT corPrincipal AS corEspecial, hexDegrade1, hexDegrade2 FROM cores WHERE id_cores = :id LIMIT 1');
       }
 
-    }catch(throw){
-
+    }catch (PDOException $e) {
+        error_log("[proddestaque] Erro ao criar: " . $e->getMessage());
+        return false;
     }
   }
   public function getElementByid(): array {

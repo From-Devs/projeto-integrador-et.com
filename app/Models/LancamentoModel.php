@@ -12,7 +12,7 @@ class Lancamentos {
   public function getAll(): array {
     try {
       $sql = "
-        SELECT l.id_lancamentos, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.img2, p.img3, p.fgPromocao, 
+        SELECT l.id_lancamento, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.img2, p.img3, p.fgPromocao, 
         cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3
         FROM lancamentos l 
         JOIN produto p ON  p.id_produto = l.id_produto
