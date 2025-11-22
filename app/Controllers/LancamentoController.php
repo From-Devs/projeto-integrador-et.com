@@ -21,7 +21,7 @@ class LancamentosController {
     }
 
     public function getByid() {
-        $lancamentos = this->lancamentosModel->getElementById($id);
+        $lancamentos = $this->lancamentosModel->getElementById($id);
         $cor = $lancamentos ? $this->coresModel->getElementById($lancamentos['id_coresSubs']) : null;
 
         $dados = [

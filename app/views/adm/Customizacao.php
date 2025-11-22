@@ -106,9 +106,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         <h2>Produto:</h2>
                         <div class="selectProduto">
                             <div class="nomeProduto">
-                                <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
+                                <p></p>
                             </div>
-                            <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 115px; height:33px; font-size: 15px; " onclick="abrirPopUp('popUpSelectProduto', 'editProduto')">Trocar</button>
+                            <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 115px; height:33px; font-size: 15px; " onclick="abrirPopUp('popUpSelectProduto', 'editCarousel')">Trocar</button>
                         </div>
                     </div>
 
@@ -199,8 +199,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                     <h2>Exemplo:</h2>
                     <div class="bugBizarro">
                         <?php
-                        echo createCardProdutoLancamento("", "","","","", 0,"lancamentoFuncional");
-                        echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg", 0,"lancamentoFuncional");
+                        echo createCardProdutoLancamento("", "","","","", 0, 0,"lancamentoFuncional");
+                        echo createCardProdutoLancamento("", "","","","", 0, 0,"lancamentoFuncional");
                         ?>
                     </div>
                 </div> 
@@ -212,7 +212,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <h2>Produto:</h2>
                             <div class="selectProduto">
                                 <div class="nomeProduto">
-                                    <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
+                                    <p></p>
                                 </div>
                                 <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 115px; height:33px; font-size: 15px; " onclick="abrirPopUp('popUpSelectProduto', 'editLancamento')">Trocar</button>
                             </div>
@@ -308,15 +308,15 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         <div class="editarCarouselContainer">
                             <?php
                             foreach ($res["carousel"] as $index => $carouselItem) {
-                                $carouselProdutoID = $carouselItem['id_produto'];
+                                $carouselProdutoID = $carouselItem['id_carousel'];
                                 $carouselImg = $carouselItem['img1'];
                                 $cor1 = $carouselItem['hexDegrade1'];
                                 $cor2 = $carouselItem['hexDegrade2'];
                                 $cor3 = $carouselItem['hexDegrade3'];
 
                                 echo '
-                                <div class="produtoContainer" onclick="abrirPopUp(\'popUpEditProduto\')">
-                                    <div class="imagemProdutoWrapper" data-id=' . $carouselProdutoID . ' style="background-image: linear-gradient(to bottom, '. $cor1 .' 0%, '. $cor2 .' 50%, '. $cor3 .' 100%);">
+                                <div class="produtoContainer">
+                                    <div class="imagemProdutoWrapper" onclick="abrirPopUp(\'popUpEditProduto\', \'editCarousel\',  ' . $carouselProdutoID . ')" data-id=' . $carouselProdutoID . ' style="background-image: linear-gradient(to bottom, '. $cor1 .' 0%, '. $cor2 .' 50%, '. $cor3 .' 100%);">
                                         <img class="imagemProduto" src="/projeto-integrador-et.com/' . $carouselImg . '" alt="">
                                     </div>
                                 </div>
@@ -356,6 +356,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             $lancamentoItem['corEspecial'] ?? "#000",
                             $lancamentoItem['img2'],
                             $lancamentoItem['id_produto'],
+                            $lancamentoItem['id_lancamento'],
                             "lancamentoCustom"
                         );
                     }
@@ -407,7 +408,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                     <h2>Produto:</h2>
                                     <div class="selectProduto">
                                         <div class="nomeProduto">
-                                            <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
+                                            <p><?= $produtoDestaque["nome"] ?></p>
                                         </div>
                                         <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\", \"produtoDestaque\")", "115px", "33px", "15px")?>
                                     </div>

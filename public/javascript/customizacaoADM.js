@@ -13,10 +13,8 @@ document.addEventListener("DOMContentLoaded", function(){
         botaoOverlay.innerHTML = "Editar";
 
         botaoOverlay.addEventListener("click", function(){
-            const dialog = document.getElementsByClassName("popUpEditProdutoLancamento")[0];
-            if (dialog) {
-                dialog.showModal();
-            }
+            const lancamentoId = card.getAttribute('lancamento-id');
+            abrirPopUp('popUpEditProdutoLancamento', 'editLancamento', lancamentoId)
         })
 
         overlayHover.appendChild(botaoOverlay);

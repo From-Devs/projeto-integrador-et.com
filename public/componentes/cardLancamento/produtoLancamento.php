@@ -7,12 +7,13 @@ function createCardProdutoLancamento(
     $cor = "#000000",
     $imagem = "",
     $idProduto = 0,
+    $idLancamento = 0,
     $classeExtra = ""
     ){
     $titulo = $marca . " - " . $nome;
 
     return "
-    <article class='cardLancamento $classeExtra' id='cardLancamento' data-id='$idProduto'>
+    <article class='cardLancamento $classeExtra' id='cardLancamento' produto-id='$idProduto' lancamento-id='$idLancamento'>
         <img class='imgCardLancamento' id='imgCardLancamento' src='/projeto-integrador-et.com/$imagem' alt=''>
         <div class='baixo' id='baixo'>
             <span class='textoCardLancamento' id='textoCardLancamento'>$titulo</span>

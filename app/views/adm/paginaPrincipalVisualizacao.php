@@ -147,6 +147,7 @@
                             $lancamentoItem['corEspecial'] ?? "#000",
                             $lancamentoItem['img2'],
                             $lancamentoItem['id_produto'],
+                            $lancamentoItem['id_lancamento'],
                             "lancamentoFuncional"
                         );
                     }
