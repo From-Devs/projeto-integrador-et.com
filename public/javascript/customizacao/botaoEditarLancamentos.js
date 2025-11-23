@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function(){
 
     const cardProdutos = document.querySelectorAll('.lancamentoCustom');
@@ -12,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function(){
         botaoOverlay.className = "btn btn-white botaoOverlay";
         botaoOverlay.innerHTML = "Editar";
 
-        botaoOverlay.addEventListener("click", function(){
+        botaoOverlay.addEventListener("click", function(event){
             const lancamentoId = card.getAttribute('lancamento-id');
-            abrirPopUp('popUpEditProdutoLancamento', 'editLancamento', lancamentoId)
+            abrirPopUp('popUpEditProdutoLancamento', 'editLancamento', lancamentoId, event)
         })
 
         overlayHover.appendChild(botaoOverlay);

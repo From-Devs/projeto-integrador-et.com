@@ -140,12 +140,13 @@
                 <div class="containerProdutos" id="containerLancamentos">
                     <?php
                     foreach ($lancamentoLista as $index => $lancamentoItem) {
+                        $imagem = 'img' . $lancamentoItem['imgSelecionada'];
                         echo createCardProdutoLancamento(
                             $lancamentoItem['marca'],
                             $lancamentoItem['nome'],
                             $lancamentoItem['precoPromo'] == 0 ? $lancamentoItem['preco'] : $lancamentoItem['precoPromo'],
                             $lancamentoItem['corEspecial'] ?? "#000",
-                            $lancamentoItem['img2'],
+                            $lancamentoItem[$imagem],
                             $lancamentoItem['id_produto'],
                             $lancamentoItem['id_lancamento'],
                             "lancamentoFuncional"
