@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function(){
         })
 
         botaoMaisDetalhes.addEventListener('click', function(){
-            const id = item.getAttribute('data-id');
+            const id = item.getAttribute('produto-id');
             window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${id}`;
         })
 
