@@ -1,44 +1,72 @@
 <?php
+
 require_once __DIR__ . '/../../config/database.php';
 
-class ProdutoDestaque {
-  private PDO $conn;
-  
-  public function __construct() {
+class ProdutoDestaque{
+  private $conn;
+
+  public function __construct(){
     $db = new Database();
     $this->conn = $db->Connect();
+  } 
+  //funcao axiliar
+  private function productExists(int $id_produto): bool {
+      $stmt = $this->conn->prepare('SELECT 1 FROM produto WHERE id_produto = :id LIMIT 1');
+      $stmt->execute([':id' => $id_produto]);
+      return (bool) $stmt->fetchColumn();
   }
+
   public function getAll(): array {
     try {
       $sql = "
-        SELECT pd.id_prodDestaque, pd.cor1, pd.cor2, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.fgPromocao
+        SELECT pd.id_prodDestaque, pd.cor1, pd.cor2, pd.corSombra, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.fgPromocao
         FROM proddestaque pd 
         JOIN produto p ON p.id_produto = pd.id_produto
       ";
-      $stmt = $this->conn->prepare($sql);
-      $stmt->execute();
-      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $stmt = $this->conn->query($sql);
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      return $rows;
     }catch (PDOException $e) {
-            error_log("[ProdutoDestaque] Erro SQL: " . $e->getMessage());
-            return [];
+      error_log("[ProdutoDestaque] Erro SQL: " . $e->getMessage());
     }
-  }
 
-  public function Update(int $id, array $data): bool {
-    try {
-            $stmt = $this->conn->prepare("
-                UPDATE proddestaque
-                SET id_produto = :id_produto, id_coressubs = :id_coresSubs
-                WHERE id_proddestaque = :id
-            ");
-            return $stmt->execute([
-                ":id" => $id,
-                ":id_produto" => $data['id_produto'],
-                ":id_coresSubs" => $data['id_coresSubs']
-            ]);
-        } catch (PDOException $e) {
-            error_log("[proddestaque] Erro ao atualizar: " . $e->getMessage());
-            return false;
+  }  
+  public function create(int $id, array $data): bool {
+    try{
+      if(empty($data["id_produto"])||  !is_numeric($data["id_produto"])) {
+        return ['error' => "ID do produto inválido ou ausente."];
+      } 
+      $id_produto = (int) $data["id_protudo"];
+      if($this->productExists($id_produto)){
+        return ['error' => 'Produto não encontrado.'];
+      }
+      $this->conn->beginTransaction();
+      $stmt = $this->conn->query('SELECT COUNT(*) as total from proddestaque');
+      $total = (int) $stmt->fetch()['total'];
+      if($total > 1){
+        $this->conn->rollBack();
+        return ['error' => 'Limite atingido, não é possível criar mais de 1 protudo destaque.'];
+      }
+      $stmt = $this->conn->prepare("SELECT corEspecial, hexDegrade1, hexDegrade2, hexDegrade3, id_cores FROM produto WHERE id_produto = :id_produto");
+      $stmt->execute([':id_produto' => $id_produto]);
+      $produto = $stmt->fetch(PDO::FETCH_ASSOC);
+      if (!$produto) {
+        $this->conn->rollBack();
+        return ['error' => 'Produto não encontrado para copiar cores.'];
+      }
+      $cores = [
+       'corEspecial' => $produto['corEspecial'] ?? null,
+        'hexDegrade1' => $produto['hexDegrade1'] ?? null,
+        'hexDegrade2' => $produto['hexDegrade2'] ?? null,
+        'hexDegrade3' => $produto['hexDegrade3'] ?? null,
+      ];
+      if (empty($cores['corEspecial']) && !empty($produto["id_cores"])){
+        $stmt = $this->conn->prepare('SELECT corPrincipal AS corEspecial, hexDegrade1, hexDegrade2 FROM cores WHERE id_cores = :id LIMIT 1');
+      }
+
+    }catch (PDOException $e) {
+        error_log("[proddestaque] Erro ao criar: " . $e->getMessage());
+        return false;
     }
   }
   public function getElementByid(): array {

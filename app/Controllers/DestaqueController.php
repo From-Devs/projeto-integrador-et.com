@@ -13,39 +13,81 @@ class DestaqueController extends BaseController {
     }
 
     public function getAll() {
-        $dados = [ 
-            'ProdDestaque' => $this->DestaqueModel->getAll(),
-        ];
-        return $dados['ProdDestaque'];
+        try {
+            $dados = $this->DestaqueModel->getAll();
+            return $dados;
+        }
+        catch (\Throwable $th) {
+            echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
     }
 
 
     public function getById(int $id) {
-        $carou = $this->DestaqueModel->getElementById($id);
-        $cor = $Destaque ? $this->coresModel->getElementById($Destaque['id_coresSubs']) : null;
+        try {
+            $carou = $this->DestaqueModel->getElementById($id);
+            $cor = $Destaque ? $this->coresModel->getElementById($Destaque['id_coresSubs']) : null;
+            $dados = [
+                'ProdDestaque' => $Destaque,
+                'cor' => $cor
+            ];
+            return $dados["ProdDestaque"];
 
-        $dados = [
-            'ProdDestaque' => $Destaque,
-            'cor' => $cor
-        ];
-        $this->renderCustom('index', 'teste/index.php', $dados);
+            // $this->renderCustom('index', 'teste/index.php', $dados);
+        }
+        catch (\Throwable $th) {
+            echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
     }
 
     public function createCarosel(array $data) {
-        return $this->DestaqueModel->create($data);
+        try {
+            return $this->DestaqueModel->create($data);
+        }
+        catch (\Throwable $th) {
+            echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
     }
 
     
     public function mudarProdutoECores(int $id_prodDestaque, int $novo_id_produto): array {
-        return $this->DestaqueModel->mudarProdutoECores($id_prodDestaque, $novo_id_produto);
+        try {
+            return $this->DestaqueModel->mudarProdutoECores($id_prodDestaque, $novo_id_produto);
+
+        }
+        catch (\Throwable $th) {
+            echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
     }
     public function deleteCarosel(int $id) {
-        return $this->DestaqueModel->remove($id);
+        try {
+            return $this->DestaqueModel->remove($id);
+        }
+        catch (\Throwable $th) {
+            echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
     }
-    public function update(int $id_prodDestaque, array $data) { 
-         return $this->DestaqueModel->update($id_prodDestaque, $data);
+    public function update(int $id_prodDestaque, array $data) {
+        try {
+            return $this->DestaqueModel->update($id_prodDestaque, $data);
+        }
+        catch (\Throwable $th) {
+            echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
     }
     public function getAllUniqueCores() {
-        return $this->DestaqueModel->getAllUniqueCores(); 
+        try {
+            return $this->DestaqueModel->getAllUniqueCores(); 
+        }
+        catch (\Throwable $th) {
+            echo "Erro ao buscar: " . $th->getMessage();
+            return false;
+        }
     }
 }

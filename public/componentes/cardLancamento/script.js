@@ -10,18 +10,40 @@ document.addEventListener("DOMContentLoaded", function(){
             corValor = style.getPropertyValue('color');
 
         const botaoMaisDetalhes = item.querySelector('.botaoMaisDetalhesCardLancamento');
-        const botaoComprar = item.querySelector('.botaoComprarCardLancamento');
+        const formCarrinhoLancamento = item.querySelector('.formCardProdutoCarrinho');
 
-        botaoComprar.addEventListener('click', function(){
+        formCarrinhoLancamento.addEventListener('submit', function(e){
+            e.preventDefault();
+
+            const idProduto = this.querySelector('input[name="id_produto"]').value;
+            const quantidadeVar = 1;
+
             if (LoginVerific == "true"){
-                window.location.href = 'Meu_Carrinho.php';
+                fetch('/projeto-integrador-et.com/router/CarrinhoRouter.php?action=adicionarCarrinho', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ id_produto: idProduto, quantidade: quantidadeVar })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.ok) {
+                        if (window.abrirPopUp) window.abrirPopUp("popUpCarrinho"); 
+                    } else {
+                        if (window.abrirPopUp) window.abrirPopUp("popUpErro"); 
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    if (window.abrirPopUp) window.abrirPopUp("popUpErro");
+                });
             }else{
                 abrirPopUpCurto("popUpErroDelogado", 2000);
             }
         })
 
         botaoMaisDetalhes.addEventListener('click', function(){
-            window.location.href = '/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php'
+            const id = item.getAttribute('produto-id');
+            window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${id}`;
         })
 
         item.addEventListener("mouseenter", function(){

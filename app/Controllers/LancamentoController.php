@@ -4,24 +4,24 @@ require_once __DIR__ . '/../Models/LancamentoModel.php';
 require_once __DIR__ . '/../Models/CoresSubModel.php';
 
 class LancamentosController {
-    private $lancamentosModel
+    private $lancamentosModel;
     private $coresModel;
 
     public function __construct() {
-        $this->lancamentosModel = new LancamentosModel();
+        $this->lancamentosModel = new Lancamentos();
         $this->coresModel = new CoresSubModel();
     }
 
 
     public function getAll() {
-        $dados = [ 
+        $dados = [
             'lancamentos' => $this->lancamentosModel->getAll(),
         ];
         return $dados['lancamentos'];
     }
 
     public function getByid() {
-        $lancamentos = this->lancamentosModel->getElementById($id)
+        $lancamentos = $this->lancamentosModel->getElementById($id);
         $cor = $lancamentos ? $this->coresModel->getElementById($lancamentos['id_coresSubs']) : null;
 
         $dados = [
@@ -31,7 +31,7 @@ class LancamentosController {
     }
 
     public function createLancamentos(int $id, Array $data) {
-        return $this->lancamentosModel->create($data)
+        return $this->lancamentosModel->create($data);
     }
 
     

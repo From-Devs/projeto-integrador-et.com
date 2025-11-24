@@ -1,56 +1,78 @@
 <?php
-// public/index.php
+require_once __DIR__ . '/../app/Models/products.php';
+require_once __DIR__ . '/../app/Models/LancamentoModel.php';
+require_once __DIR__ . '/../app/Models/CarouselModel.php';
 
-// 1. Habilita erros (bom para testar)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+$acao = $_GET['acao'] ?? null;
+$id   = $_GET['id'] ?? null;
 
-// 2. Carrega automaticamente classes
-spl_autoload_register(function ($class) {
-    $baseDir = __DIR__ . '/../app/';
-    $paths = [
-        'Controllers/' . $class . '.php',
-        'Models/' . $class . '.php',
-    ];
-    foreach ($paths as $path) {
-        $file = $baseDir . $path;
-        if (file_exists($file)) {
-            require_once $file;
-            return;
+$produtoModel   = new Products();
+$lancamentoModel = new Lancamentos();
+$carouselModel   = new CarouselModel();
+
+ob_clean();
+header("Content-Type: application/json; charset=UTF-8");
+
+switch ($acao) {
+
+    // ======================================
+    // PRODUTO
+    // ======================================
+
+    case 'BuscarProduto':
+        if (!$id) {
+            echo json_encode(["error" => "ID do produto não informado"]);
+            break;
         }
-    }
-});
+        
+        echo json_encode($produtoModel->buscarProdutoPeloId($id));
+        break;
 
-// 3. Pega a URL requisitada
-$uri = $_GET['url'] ?? 'home'; // ex: index.php?url=produtos/listar
-$uriParts = explode('/', trim($uri, '/'));
+    // ======================================
+    // LANÇAMENTO
+    // ======================================
 
-// 4. Define controller e método padrão
-$controllerName = ucfirst($uriParts[0]) . 'Controller'; // produtos → ProdutosController
-$method = $uriParts[1] ?? 'index';
-$param = $uriParts[2] ?? null;
+    case 'BuscarLancamento':
+        if (!$id) {
+            echo json_encode(["error" => "ID do lançamento não informado"]);
+            break;
+        }
+        echo json_encode($lancamentoModel->getElementByid($id));
+        break;
 
-// 5. Verifica se o controller existe
-$controllerPath = __DIR__ . '/../app/Controllers/' . $controllerName . '.php';
-if (!file_exists($controllerPath)) {
-    http_response_code(404);
-    echo "Erro 404 - Controller não encontrado.";
-    exit;
-}
+    case 'AtualizarLancamento':
+        $dados = json_decode(file_get_contents("php://input"), true);
+        echo json_encode($lancamentoModel->atualizar($dados));
+        break;
 
-require_once $controllerPath;
 
-// 6. Cria o controller
-$controller = new $controllerName();
+    // ======================================
+    // CAROUSEL
+    // ======================================
 
-// 7. Chama o método (função)
-if (method_exists($controller, $method)) {
-    if ($param) {
-        $controller->$method($param);
-    } else {
-        $controller->$method();
-    }
-} else {
-    http_response_code(404);
-    echo "Erro 404 - Método não encontrado.";
+    case 'BuscarCarousel':
+        if (!$id) {
+            echo json_encode(["error" => "ID do carousel não informado"]);
+            break;
+        }
+        echo json_encode($carouselModel->getElementById($id));
+        break;
+
+    case 'ListarCarousel':
+        echo json_encode($carouselModel->listarTodos());
+        break;
+
+    case 'AtualizarCarousel':
+        $dados = json_decode(file_get_contents("php://input"), true);
+        echo json_encode($carouselModel->atualizar($dados));
+        break;
+
+
+    // ======================================
+    // AÇÃO INVÁLIDA
+    // ======================================
+
+    default:
+        echo json_encode(["error" => "Ação inválida ou não definida"]);
+        break;
 }
