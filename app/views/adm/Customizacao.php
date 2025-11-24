@@ -11,9 +11,9 @@ require_once __DIR__ . "/../../Controllers/CustomizacaoController.php";
 
 $conn = new CustomizacaoController();
 $res = $conn->index();
-echo "<pre>";
-var_dump($res);
-echo "</pre>";
+// echo "<pre>";
+// var_dump($res);
+// echo "</pre>";
 
 // session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';

@@ -80,6 +80,3 @@ class CustomizacaoController {
 $conn = new CustomizacaoController();
 
 $res = $conn->index();
-// echo "<pre>";
-// print_r($res);
-// echo "</pre>";
