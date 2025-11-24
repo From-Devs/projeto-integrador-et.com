@@ -25,7 +25,7 @@ class Dashboard_ADM_Model {
             FROM produtopedido pp
             JOIN produto p ON p.id_produto = pp.id_produto
             JOIN pedido ped ON ped.id_pedido = pp.id_pedido
-            WHERE ped.id_status = 4    
+            WHERE ped.id_status_pagamento = 2    
         ";
 
         $stmt = $this->conn->prepare($sql);
@@ -54,7 +54,7 @@ class Dashboard_ADM_Model {
             SELECT COALESCE(SUM(pp.quantidade), 0) AS unidades_vendidas
             FROM produtopedido pp
             JOIN pedido ped ON ped.id_pedido = pp.id_pedido
-            WHERE ped.id_status = 4
+            WHERE ped.id_status_pagamento = 2
         ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
@@ -71,7 +71,7 @@ class Dashboard_ADM_Model {
             JOIN produto p ON p.id_produto = pp.id_produto
             JOIN usuario u ON u.id_usuario = p.id_associado
             JOIN pedido ped ON ped.id_pedido = pp.id_pedido
-            WHERE ped.id_status = 4
+            WHERE ped.id_status_pagamento = 2
             GROUP BY u.id_usuario
             ORDER BY total_vendas DESC
             LIMIT 5
@@ -93,7 +93,7 @@ class Dashboard_ADM_Model {
             JOIN subcategoria sc ON sc.id_subCategoria = p.id_subCategoria
             JOIN categoria c ON c.id_categoria = sc.id_categoria
             JOIN pedido ped ON ped.id_pedido = pp.id_pedido
-            WHERE ped.id_status = 4
+            WHERE ped.id_status_pagamento = 2
             GROUP BY c.id_categoria
             ORDER BY total_vendas DESC
             LIMIT 5
