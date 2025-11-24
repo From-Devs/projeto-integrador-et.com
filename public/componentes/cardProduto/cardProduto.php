@@ -77,7 +77,7 @@ function createCardProduto(
 
     $html .= "
             <h1 class='preco'>R$$preco</h1>
-            <form id='formCardProdutoCarrinho$idProduto' class='formCardProdutoCarrinho' method='POST'>
+            <form id='formCardProdutoCarrinho$idProduto' class='formCardProdutoCarrinho' method='POST' style='display: none;'>
                 <input type='hidden' name='id_produto' value='$idProduto'>
             </form>
             <button class='botaoComprarCardProduto' type='submit' form='formCardProdutoCarrinho$idProduto'>Comprar</button>

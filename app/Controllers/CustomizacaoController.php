@@ -25,11 +25,11 @@ class CustomizacaoController {
     // Retorna todos os registros
     public function index(): array {
         return [
-            "lancamento" => $this->lancamentoModel->getAll(),
-            "produtos" => $this->produtoModel->getAllProdutos(),
             "carousel" => $this->carouselModel->getAll(),
-            "coresSub" => $this->coresSubsModel->getAll(),
-            "destaque" => $this->destaqueModel->getAll()
+            "lancamento" => $this->lancamentoModel->getAll(),
+            "destaque" => $this->destaqueModel->getAll(),
+            "produtos" => $this->produtoModel->getAllProdutos(),
+            "coresSub" => $this->coresSubsModel->getAll()
         ];
     }
 

@@ -199,17 +199,18 @@ FOREIGN KEY (relaRec_id) REFERENCES relatoriodereceitas(relaRec_id)
  
 CREATE TABLE lancamentos(
 id_lancamento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-corPrincipalSub INT,
+imgSelecionada INT NOT NULL,
 id_produto INT NOT NULL,
-FOREIGN KEY (id_produto) REFERENCES produto(id_produto)
+id_coresSubs INT,
+FOREIGN KEY (id_produto) REFERENCES produto(id_produto),
+FOREIGN KEY (id_coresSubs) REFERENCES coressubs(id_coresSubs)
 );
  
 CREATE TABLE proddestaque(
 id_prodDestaque INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-cor1 INT NOT NULL,
-cor2 INT NOT NULL,
-corSombra INT NOT NULL,
-imgSelecionada VARCHAR(255) NOT NULL,
+cor1 VARCHAR(7) NOT NULL,
+cor2 VARCHAR(7) NOT NULL,
+corSombra VARCHAR(7) NOT NULL,
 id_produto INT,
 FOREIGN KEY (id_produto) REFERENCES produto(id_produto)
 );
