@@ -5,7 +5,7 @@ require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sideba
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
-    require_once __DIR__ . "/../../Controllers/Dashboard_ADM_Controller.php";
+require_once __DIR__ . "/../../Controllers/Dashboard_ADM_Controller.php";
 
 // session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
