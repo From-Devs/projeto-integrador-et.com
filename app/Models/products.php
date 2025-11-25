@@ -184,10 +184,10 @@ class Products {
 
     public function pesquisarProdutosHeader($termo)
     {
-        $sql = "SELECT p.id_produto, p.nome, p.marca, p.preco, p.img1
-                FROM Produto p
-                WHERE p.nome LIKE :termo OR p.marca LIKE :termo
-                ORDER BY p.nome ASC";
+    $sql = "SELECT p.id_produto AS id, p.nome, p.marca, p.preco, p.precoPromo as precoPromocional, p.descricaoBreve, p.img1
+        FROM Produto p
+        WHERE p.nome LIKE :termo OR p.marca LIKE :termo
+        ORDER BY p.nome ASC";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindValue(':termo', "%$termo%");
         $stmt->execute();

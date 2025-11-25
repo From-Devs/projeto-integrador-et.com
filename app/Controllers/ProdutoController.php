@@ -113,7 +113,7 @@ class ProdutoController {
 
     public function pesquisarHeader($termo)
     {
-        return $this->produtoModel->pesquisarProdutos($termo);
+        return $this->produtoModel->pesquisarProdutosHeader($termo);
     }
 
     public function getOfertasImperdiveis() {

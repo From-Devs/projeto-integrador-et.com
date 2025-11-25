@@ -6,16 +6,8 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
     const botaoSidebarMeusPedidos = document.getElementById('botaoSidebarMeusPedidos');
 
     header.forEach(item => {
-        const pesquisa = item.childNodes[3];
-        const input = item.childNodes[3].childNodes[1];
-        // debounce helper to avoid firing requests on every keystroke
-        function debounce(fn, delay){
-            let timer;
-            return function(...args){
-                clearTimeout(timer);
-                timer = setTimeout(() => fn.apply(this, args), delay);
-            }
-        }
+    const pesquisa = item.childNodes[3];
+    const input = item.childNodes[3].childNodes[1];
         const lupa = item.childNodes[5].childNodes[1].childNodes[1];
         const favHeaderBotao = item.childNodes[5].childNodes[1].childNodes[3];
         const carrinhoBotaoHeader = item.childNodes[5].childNodes[1].childNodes[5];
@@ -35,8 +27,36 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
             overlay.classList.toggle('mostrar'); // Ativa/desativa o overlay
             menuConta.style.display = "none";
             pesquisa.className = "pesquisaHeader closed";
+            try{ fecharSugestoesComAnimacao(); }catch(e){}
             item.className = "headerUsuario";
             input.value = "";
+        });
+
+        // --- Pesquisa: abrir ao focar e buscar ao digitar (debounce) ---
+        // Garante que o campo abra quando o usuário focar/começar a digitar
+        function abrirPesquisaIfClosed() {
+            if (pesquisa.className == "pesquisaHeader closed"){
+                pesquisa.className = "pesquisaHeader open";
+                item.className = "headerUsuario pesquisaOpen";
+                menuConta.style.display = "none";
+            }
+        }
+
+        // debounce simples por input (guarda no próprio elemento)
+        input.addEventListener('input', function(e){
+            abrirPesquisaIfClosed();
+            if (this._debounceTimeout) clearTimeout(this._debounceTimeout);
+            const valor = this.value;
+            this._debounceTimeout = setTimeout(() => {
+                // passa o elemento para que o dropdown posicione corretamente
+                ObterDadosProdutoHeader(valor, this).catch(err => console.error(err));
+            }, 220);
+        });
+
+        input.addEventListener('focus', function(){
+            abrirPesquisaIfClosed();
+            // dispara busca curta para popular sugestões quando o campo ficar vazio
+            ObterDadosProdutoHeader(this.value || '', this).catch(() => {});
         });
     
         // Fechar Sidebar ao clicar fora dela
@@ -98,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
                 event.stopPropagation();
                 menuConta.style.display = "flex"
                 pesquisa.className = "pesquisaHeader closed";
+                try{ fecharSugestoesComAnimacao(); }catch(e){}
                 item.className = "headerUsuario";
                 input.value = "";
             }
@@ -107,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
         document.addEventListener("click", function(event){
             if (pesquisa.className == "pesquisaHeader open" && !pesquisa.contains(event.target)){
                 pesquisa.className = "pesquisaHeader closed";
+                try{ fecharSugestoesComAnimacao(); }catch(e){}
                 item.className = "headerUsuario";
                 input.value = "";
             }
@@ -125,71 +147,14 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
             overlay.classList.remove('mostrar'); // Ativa/desativa o overlay
             menuConta.style.display = "none";
             pesquisa.className = "pesquisaHeader closed";
+            try{ fecharSugestoesComAnimacao(); }catch(e){}
             item.className = "headerUsuario";
             input.value = "";
         })
-
-        if (input) {
-            input.addEventListener('input', debounce(function(e){
-                ObterDadosProdutoHeader(e.target.value, e.target);
-            }, 300));
-
-            input.addEventListener('keydown', function(e){
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    ObterDadosProdutoHeader(e.target.value, e.target);
-                }
-            });
-        }
     })
 
-    // função utilitária para esconder sugestões
-    function esconderSugestoes(){
-        const div = document.getElementById('sugestoesHeader');
-        if (div) {
-            div.innerHTML = '';
-            div.style.display = 'none';
-        }
-        // fechar visualmente a barra de pesquisa
-        const pesquisaEls = document.querySelectorAll('.pesquisaHeader');
-        pesquisaEls.forEach(el => {
-            el.classList.remove('open');
-            el.classList.add('closed');
-        });
-    }
 
-    // fechar sugestões ao clicar fora da pesquisa e do dropdown
-    document.addEventListener('click', function(event){
-        const div = document.getElementById('sugestoesHeader');
-        const clicouNaPesquisa = !!event.target.closest('.pesquisaHeader');
-        const clicouNasSugestoes = div ? div.contains(event.target) : false;
-        if (!clicouNaPesquisa && !clicouNasSugestoes){
-            fecharSugestoesComAnimacao();
-        }
-    });
-
-    // ESC fecha as sugestões
-    document.addEventListener('keydown', function(e){
-        if (e.key === 'Escape' || e.key === 'Esc') {
-            fecharSugestoesComAnimacao();
-        }
-    });
-
-    try {
-        const body = document.body;
-        const promoStart = body.getAttribute('data-tag-promo-start');
-        const promoEnd = body.getAttribute('data-tag-promo-end');
-        const novoStart = body.getAttribute('data-tag-novo-start');
-        const novoEnd = body.getAttribute('data-tag-novo-end');
-        if (promoStart) document.documentElement.style.setProperty('--tag-promo-start', promoStart);
-        if (promoEnd) document.documentElement.style.setProperty('--tag-promo-end', promoEnd);
-        if (novoStart) document.documentElement.style.setProperty('--tag-novo-start', novoStart);
-        if (novoEnd) document.documentElement.style.setProperty('--tag-novo-end', novoEnd);
-    } catch(e) {
-        console.debug('Erro ao aplicar cores via data-attributes:', e);
-    }
 })
-
 
 async function ObterDadosProdutoHeader(textoPesquisa = null, inputElement = null){
     if (textoPesquisa === null){
@@ -201,7 +166,13 @@ async function ObterDadosProdutoHeader(textoPesquisa = null, inputElement = null
     const pesquisaParam = encodeURIComponent(textoPesquisa);
 
     try {
-        const url = `/projeto-integrador-et.com/router/ProdutoRouter.php?acao=buscarTodosProdutos&pesquisa=${pesquisaParam}`;
+        // Use lightweight header search when a term is present to improve performance
+        let url;
+        if (textoPesquisa && textoPesquisa.trim() !== ''){
+            url = `/projeto-integrador-et.com/router/ProdutoRouter.php?acao=pesquisarHeader&termo=${pesquisaParam}`;
+        } else {
+            url = `/projeto-integrador-et.com/router/ProdutoRouter.php?acao=buscarTodosProdutos&pesquisa=${pesquisaParam}`;
+        }
         const resposta = await fetch(url, { method: 'GET' });
 
         if (!resposta.ok) {
@@ -350,16 +321,11 @@ async function ObterDadosProdutoHeader(textoPesquisa = null, inputElement = null
 
             const precoEl = document.createElement('div');
             precoEl.className = 'preco';
-            precoEl.textContent = produto.preco || produto.precoPromocional || produto.precoPromo || '';
+            precoEl.textContent = `R$ ${produto.preco || produto.precoPromocional || produto.precoPromo || ''}`;
             meta.appendChild(precoEl);
-
-            const desc = document.createElement('div');
-            desc.className = 'descricaoBreve';
-            desc.textContent = produto.descricaoBreve || produto.descricao || produto.descricaoTotal || '';
 
             info.appendChild(nomeEl);
             info.appendChild(meta);
-            info.appendChild(desc);
 
             // badges: promoção / novo
             if (produto.fgPromocao || produto.fg_promocao || produto.fgPromocao === 1) {
