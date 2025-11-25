@@ -12,6 +12,14 @@ new Autoload();
 $rota = new Rotas();
 
 // A ÚNICA ROTA!
-$rota->add('GET', '/teste/conn', 'Teste::conexao', false);
+$rota->add('GET', '/teste', 'Custom::ping', false);
+// getAll carousel, lancamento e destaque
+$rota->add('GET', '/carousels', 'Custom::listcarousels', false);
+$rota->add('GET', '/lancamentos', 'Custom::listlancamentos', false);
+$rota->add('GET', '/destaques', 'Custom::listdestaques', false);
+// create
+$rota->add('POST', '/store_c', 'Custom::storecarousels', false);
+$rota->add('POST', '/store_d', 'Custom::storedestaques', false);
+$rota->add('POST', '/store_l', 'Custom::storelancamentos', false);
 
 $rota->ir($_GET['path'] ?? '');

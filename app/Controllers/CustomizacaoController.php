@@ -32,11 +32,9 @@ class CustomizacaoController {
             "coresSub" => $this->coresSubsModel->getAll()
         ];
     }
-
     // Criar carousel
-    public function createCarousel(int $id, array $data): array {
-        $carousels = $this->carouselModel->create($id, $data);
-        return ['carousels' => $carousels];
+    public function createCarousel(int $id_carousel, array $data) { 
+        return $this->carouselModel->update($id_carousel, $data);
     }
 
     // Deletar carousel
@@ -46,9 +44,10 @@ class CustomizacaoController {
 
     // Criar destaque
     public function createDestaque(int $id, array $data): array {
-        $destaque = $this->destaqueModel->create($id, $data);
-        return ['destaque' => $destaque];
+        $resultado = $this->destaqueModel->update($id, $data);
+        return ['destaque' => $resultado];
     }
+
 
     // Deletar destaque
     public function deleteDestaque(int $id) {
