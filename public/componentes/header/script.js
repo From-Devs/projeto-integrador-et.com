@@ -31,12 +31,14 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
         // Abrir a Sidebar
         botaoMenu.addEventListener('click', function (event) {
             event.stopPropagation();
-            menu.classList.toggle('mostrar');
-            overlay.classList.toggle('mostrar'); // Ativa/desativa o overlay
-            menuConta.style.display = "none";
-            pesquisa.className = "pesquisaHeader closed";
-            item.className = "headerUsuario";
-            input.value = "";
+            //menu.classList.toggle('mostrar');
+            //overlay.classList.toggle('mostrar'); // Ativa/desativa o overlay
+            //menuConta.style.display = "none";
+            //pesquisa.className = "pesquisaHeader closed";
+            //item.className = "headerUsuario";
+            //input.value = "";
+
+            menu.classList = "sidebar mostrar";
         });
     
         // Fechar Sidebar ao clicar fora dela
