@@ -236,6 +236,7 @@ body{
     grid-auto-flow: row;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 23px;
+    margin-bottom: 10px;
 }
 
 .corWrapper{
@@ -655,14 +656,38 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.imgProdutoLancamento{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .imagemItem .imagemItemWarning{
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
+}
+
+.imagemItem .overlayBotaoSelecionarImg{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* display: none; */
+    background-image: linear-gradient(to bottom, rgba(123, 123, 123, 70%) 0%, rgba(0, 0, 0, 70%) 100%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.imagemItem:hover .overlayBotaoSelecionarImg{
+    opacity: 100;
 }
 
 .imagemItemWarning p{
@@ -674,16 +699,26 @@ body{
     font-size: 60px;
 }
 
+.botaoSelecionarImagemLancamento:disabled{
+    background-color: #9f9f9f;
+    pointer-events: none;
+}
+
 .imagemContainer .imagemSelecionada{
-    border: 5px dashed black;
+    border: 5px dashed black ;
 }
 
 .imagemContainer .imagemVazia{
     background-color: #D2D2D2;
+    pointer-events: none;
 }
 
 .imagemVazia .imagemItemWarning{
-    visibility: visible;
+    display: flex;
+}
+
+.imagemVazia .imgProdutoLancamento{
+    display: none;
 }
 
 .editProdutoLancamentoContainer{

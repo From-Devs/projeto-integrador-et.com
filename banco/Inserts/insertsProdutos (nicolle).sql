@@ -8,7 +8,8 @@ VALUES
 (6,'Maiara Lima','maytheforcebwu@gmail.com','(49) 99272-3729','444.444.444-44','2003-11-01','associado','Associado',null,null),
 (7,'Adriana de Moura','adrimourana@outlook.com','(62) 99373-3738','555.555.555-55','1962-02-21','associado','Associado',null,null),
 (8,'Bruna Araripe','brunararipe@gmail.com','(68) 99383-8337','777.777.777-77','1987-05-23','associado','Associado',null,null),
-(9,'Roberta da Silva Pereira','robertinhap@outlook.com','(27) 99272-4641','888.888.888-88','2000-01-17','associado','Associado',null,null);
+(9,'Roberta da Silva Pereira','robertinhap@outlook.com','(27) 99272-4641','888.888.888-88','2000-01-17','associado','Associado',null,null),
+(10,'Jonathan Silveira','eusouojonathan@gmail.com','(11) 99397-6483','999.999.999-99','2001-08-10','associado','Associado',null,null);
 
 		-- Ambos eu cadastrei pelo site para a senha ser criptografada
 
@@ -24,7 +25,7 @@ VALUES
 
 -- INSERTS JÁ REALIZADOS:
 
---id da Eliana
+--#region Milk (Eliana)
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
 (1,'#133285','#1256b5','#5394ee');
@@ -50,10 +51,10 @@ Modo de Uso:
 Aviso:
 Uso externo. Não é indicado para uso no rosto. Não é protetor solar. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças. Este é um produto cosmético, não ingerir.',
 23.90,22.70,1,50,'milk-1.png','milk-2.jpg','milk-3.jpg',23,1,3); 
+--#endregion
 
 
-
---id do Michael
+--#region Bady Splash Biscoito (Michael)
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES (2,'#00728C', '#25abc9','#5CCCE6');
 
@@ -82,10 +83,10 @@ Uso Externo. Produto Cosmético. Não comestível. Inflamável. Evite contato co
 Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, longe da luz e do calor excessivo. Somente para uso externo. Mantenha fora do alcance de crianças. Uso adulto. Produto para perfumar e desodorizar a pele.
 Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.',
 69.90,null,0,30,'biscoito.png','biscoito-2.png','biscoito-3.png',8,2,4);  
+--#endregion
 
 
-
---id da Viviane
+--#region base mate vult  (Viviane)
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
 (3, '#72543A','#95765b','#ceb49c');
@@ -112,9 +113,10 @@ Ação / Resultado:
 Ácido Hialurônico: molécula hidrolisada de baixo peso molecular e alta penetração na pele, proporciona uma hidratação profunda que atua no preenchimento de rugas e linhas de expressão.
 Seu rosto ganha um tom uniforme e matificado, além de uma aparência saudável, o dia todo.',
 40.99,19.99,1,40,'vult-base.png','vult-base-2.jpg','vult-base-3.jpg',1,3,5);  
+--#endregion
 
 
---id do Michael
+--#region coffee man (Michael)
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
 (4,'#462d2d','#824d32','#bd886d');
@@ -133,14 +135,13 @@ Amadeirado Ambarado Couro.
 Como Usar:
 Borrife a fragrância nas áreas onde há maior circulação do sangue, como o pescoço, dobras do cotovelo e atrás das orelhas.',
 209.90,179.90,1,50,'coffee.png','coffee-2.jpg','coffee-3.jpg',6,4,6);  
-
-
+--#endregion
 
 
 
 --AGORA SERÃO PRODUTOS NOVOS QUE EU PEGUEI
 
---Viviane
+--#region bt velvet blackberry (Viviane)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (5,'#35100d','#91271d','#eb584b');
@@ -157,9 +158,10 @@ Descontinue o uso em caso de sensibilização. Conserve o produto bem fechado, l
 Composição do BT VELVET:
 Trihydroxystearin, Hydrogenated Polycyclopentadiene, Polyethylene, Copernicia Cerifera Cera, Tocopheryl Acetate, Ricinus Communis Seed Oil, VP/Eicosene Copolymer, Cyclopentasiloxane, Trimethylsiloxysilicate, BHT, Silica, Disteardimonium Hectorite, Propylene Carbonate, Isododecane, Talc, Parfum, Cinnamol, Eugenol, Polyglyceryl-4 Isostearate, Nylon-12 Polymethyl Methacrylate, Pentaerythrityl Tetraisostearate, Caprylyl Glycol, Phenoxyethanol. Pode conter: Benzyl Benzoate, CI 15850, CI 77492, CI 77491, CI 77499, CI 77266, CI 77891, CI 45380.',
 69.00,null,0,30,'bt-blackberry.png','bt-blackberry2.jpg','bt-blackberry3.jpg',3,5,4); 
+--#endregion
 
 
---Michael
+--#region body splash deleite (Michael)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (6,'#000000','#dcb4bf','#f5d7e0');
@@ -178,10 +180,10 @@ Inflamável. Evite contato com os olhos. Não aplique em pele irritada ou lesion
 
 Devido à presença de alguns ingredientes, a cor do produto pode variar, porém sem comprometer sua qualidade ou segurança.',
 89.90,null,0,40,'bodysplash-deleite.png','bodysplash-deleite-2.jpg','bodysplash-deleite-3.jpg',8,6,3);  
+--#endregion
 
 
-
----da Eliana
+--#region lily (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (7,'#af833a','#cea86a','#fef0d6');
@@ -202,10 +204,10 @@ Aplicar em todo o corpo, após o banho ou sempre que desejar.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
 139.90,null,0,15,'lily.png','lily-2.jpg','lily-3.jpg',23,7,3); 
+--#endregion
 
 
-
---Maiara
+--#region mascara danos vorazes (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (8,'#60aaca','#85D3F4','#B7E6FB');
@@ -222,9 +224,10 @@ Após a higienização dos cabelos, retire o excesso de umidade e distribua a M�
 Ingredientes:
 AQUA, BEHENAMIDOPROPYL DIMETHYLAMINE, BEHENTRIMONIUM METHOSULFATE and CETEARYL ALCOHOL, BENZYL ALCOHOL and BENZOIC ACID and SORBIC ACID and GLYCERIN, CAPRYLIC/CAPRIC TRIGLYCERIDE, CETEARYL ALCOHOL, CETYL ESTERS, COPAIFERA OFFICINALIS (BALSAM COPAIBA) RESIN and PASSIFLORA EDULIS SEED OIL, LACTIC ACID, PARFUM, PROPYLENE GLYCOL, SACCHAROMYCES/XYLINUM/BLACK TEA FERMENT and GLYCERIN and HYDROXYETHYLCELLULOSE',
 64.90,60.90,1,40,'lola-danos-vorazes.png','lola-danos-vorazes-2.jpg','lola-danos-vorazes-3.jpg',16,8,5);  
+--#endregion
 
 
---Maiara
+--#region shampoo protect color braé (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (9,'#97262a','#ba5b54','#f5a59f');
@@ -246,10 +249,10 @@ Modo de uso:
 2- Enxágue bem e repita a aplicação se necessário;
 3- Para melhores resultados, utilize o condicionador da linha.',
 69.90,49.90,1,30,'shampoo-protect-color-brae.png','shampoo-protect-color-brae-2.jpg','shampoo-protect-color-brae-3.jpg',17,9,5);  
+--#endregion
 
 
-
---Maiara
+--#region condicionador protect color (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (10,'#97262a','#ba5b54','#f5a59f');
@@ -271,10 +274,10 @@ Modo de uso:
 2- Deixe agir por alguns minutos;
 3- Enxágue bem e finalize como preferir.',
 79.0,52.90,1,30,'condicionador-protect-color-brae.png','condicionador-protect-color-brae-2.jpg','condicionador-protect-color-brae-3.jpg',17,10,5);  
+--#endregion
 
 
-
---Maiara
+--#region mascara trotect color brae (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (11,'#97262a','#ba5b54','#f5a59f');
@@ -297,10 +300,10 @@ Modo de uso:
 3- Deixe agir por 5 minutos;
 4- Enxágue bem e, para um cuidado completo, finalize com o condicionador da linha.',
 99.90,54.90,1,30,'mascara-color-protect-brae.png','mascara-color-protect-brae-2.jpg','mascara-color-protect-brae-3.jpg',17,11,5); 
+--#endregion
 
 
-
---Maiara
+--#region kit protect color brae (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (12,'#97262a','#ba5b54','#f5a59f');
@@ -317,9 +320,10 @@ Condicionador para cabelos coloridos. Condiciona de forma eficaz, promove maciez
 Brae stages Color Protect - Máscara Proteção da Cor 200g
 Máscara de tratamento para cabelos coloridos. Possui ação antioxidante, hidrata, promove maciez, luminosidade e proteção prolongada da cor, além de proporcionar brilho.',
 249.70,137.34,1,10,'kit-color-protect.png','kit-color-protect-2.jpg','kit-color-protect-3.jpg',17,12,5);  
+--#endregion
 
 
---Viviane
+--#region corretivo marimaria (Viviane)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (13,'#f54e00','#eb8252','#F5A884');
@@ -333,10 +337,10 @@ VALUES
 Composição: 
 DECAMETILCICLOPENTASILOXANO, MIRISTATO DE ISOPROPILA, ISODODECANO, TRIMETILSILOXISSILICATO, OCTENIL SUCCINATO DE AMIDO ALUMÍNIO, ÓLEO MINERAL, TRIIDROXIESTEARINA, CERA BRANCA DE ABELHA, OZOQUERITA, SÍLICA, HECTORITA DISTEARDIMÔNIO, FENOXIETANOL, ACETATO DE TOCOFERILA, CARBONATO DE PROPILENO, CROSPOLÍMERO DE DIMETICONA, COPOLÍMERO DE ETILENO/PROPILENO/ESTIRENO, COPOLÍMERO DE BUTILENO/ETILENO/ESTIRENO, ETILHEXILGLICERINA, BUTIL- HIDROXITOLUENO PODE CONTER : CORANTE BRANCO 77891, CORANTE AMARELO 77492, CORANTE VERMELHO 77491, CORANTE PRETO 77499.',
 69.90,null,0,20,'base-mari-maria.png','base-mari-maria-2.jpg','base-mari-maria-3.png',1,13,5);    
+--#endregion
 
 
-
---Viviane
+--#region superstay (Viviane)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (14,'#ea0137','#ff3463','#fa7d9a');
@@ -361,10 +365,10 @@ Benefícios:
 • Fórmula Vegana
 • Não transfere e não borra',
 82.90,null,0,15,'superstay-ink-vinyl-capricious.png','superstay-ink-vinyl-capricious-2.jpg','superstay-ink-vinyl-capricious-3.jpg',3,14,4);   
+--#endregion
 
 
-
---Viviane
+--#region brow up fix gel (Viviane)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (15,'#64c2c2','#8eddd6','#B6F7F1');
@@ -390,11 +394,10 @@ Gel cola fixador para sobrancelhas Super fixação Fácil aplicação Efeito Bro
 Qual é a composição?
 aqua/água, disodium edta/edetato dissódico, alcohol/alcool etilico, glycerin/glicerina(vegetal), polyacrylate crosspolymer-6/crospolímero-6 de poliacrilatov, pvp/poli vinil pirrolidona, benzyl alcohol/álcool benzilico, ethylhexylglycerin/etil hexil glicerina, tocopherol/tocoferol.',
 50.99,47.50,1,20,'gel-sobrancelhas-vizzela.png','gel-sobrancelhas-vizzela-2.jpg','gel-sobrancelhas-vizzela-3.jpg',4,15,4);
+--#endregion
 
 
-
-
---Michael
+--#region amor amor (Michael)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (16,'#970005','#C42127','#F25055');
@@ -416,10 +419,10 @@ Notas de Topo: Cassis ou Groselha Preta, Laranja, Tangerina, Cássia, Toranja e 
 Notas de Coração: Damasco, Lírio, Jasmin, Lírio-do-vale e Rosa;
 Notas de Fundo: Âmbar, Fava Tonka, Baunilha, Cedro da Virgínia e Almíscar.',
 189.90,119.90,1,30,'amor-amor.png','amor-amor-2.jpg','amor-amor-3.jpg',5,16,3);
+--#endregion
 
 
-
---Maiara
+--#region Mascara kamaleao color medusa (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (17,'#4e316b','#825EA6','#A683C9');
@@ -461,10 +464,10 @@ Para aplicação da Máscara Pigmentante Medusa seu cabelo precisa estar em uma 
 · Faça um teste de mecha antes da aplicação do produto no cabelo inteiro.
 ',
 64.50,54.82,1,30,'kamaleao-color-medusa.png','kamaleao-color-medusa-2.jpg','kamaleao-color-medusa-3.jpg',17,17,6);  
+--#endregion
 
 
-
---Maiara
+--#region mascara kamaleao color carpa (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (18,'#f58e18','#fbab2b','#f8d04c');
@@ -507,10 +510,10 @@ Avisos:
 . Faça um teste de mecha antes da aplicação do produto no cabelo inteiro.
 ',
 64.50,54.82,1,30,'carpa-kamaleao-color.png','carpa-kamaleao-color-2.jpg','carpa-kamaleao-color-3.jpg',17,18,6);   
+--#endregion
 
 
-
---Eliana
+--#region oleo avelã (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (19,'#833c0c','#c46220','#eeb087');
@@ -529,11 +532,11 @@ Aplique na pele limpa e umedecida após o banho e massageie levemente. Se deseja
 
 Composição:
 Petrolato Líquido, Lecitina, Perfume, Lauromacrogol 400, Octildodecanol, Óleo de Amêndoas, Óleo da Semente de Corylus avellana, Fenoxietanol, Adipato de Dibutila, Cumarina, Limoneno, Etilexilglicerina, Tetra-Di-T-Butil Hidróxi-Hidrocinamato de Pentaeritritila, Linalol, Citral.',
-13.49,null,0,14,'oleo-avela-paixao.png','oleo-avela-paixao-2.jpg','oleo-avela-paixao-3.jpg',24,19,3);  
+13.49,null,0,14,'oleo-avela-paixao.png','oleo-avela-paixao-2.jpg','oleo-avela-paixao-3.jpg',24,19,3);
+--#endregion
 
 
-
---Eliana
+--#region oleo tentadora (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (20,'#6e0313','#bd021f','#f1556cff');
@@ -570,10 +573,10 @@ Não ingerir.
 Em caso de contato acidental com os olhos enxaguar abundantemente com água. 
 Em caso de irritação suspenda o uso e procure orientação médica.',
 27.79,null,0,30,'oleo-ameixarubi-paixao.png','oleo-ameixarubi-paixao-2.jpg','oleo-ameixarubi-paixao-3.jpg',24,20,2);  
+--#endregion
 
 
-
---Eliana
+--#region oleo inspiradora (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (21,'#283256','#495a97','#8094e5');
@@ -610,10 +613,10 @@ Não ingerir.
 Em caso de contato acidental com os olhos enxaguar abundantemente com água.
 Em caso de irritação suspenda o uso e procure orientação médica.',
 14.20,null,0,15,'oleo-rosasbrancas-paixao.png','oleo-rosasbrancas-paixao-2.jpg','oleo-rosasbrancas-paixao-3.jpg',24,21,2);
+--#endregion
 
 
-
---Viviane
+--#region lapiseira cherry (Viviane)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (22,'#7c0023','#A91942','#C83C64');
@@ -632,10 +635,10 @@ Composição:
 methyl trimethicone, polyethylene, trimethylsiloxysilicate, octyldodecanol, ozokerit, acrylates/dimethicone copolymer, disteardimonium hectorite, propylene carbonate, pentaerythrityl tetra-di-t-butyl hydroxyhydrocinnamate. pode conter: ci 77491 ci 77499, ci 77891, ci 15850. (port) metil trimeticona, polietileno, trimetilsiloxissilicato, octildodecanol, ozoquerita, copolímero de acrilatos/dimeticona, hectorita diesteardimônio, carbonato de propileno, tetra-di-t-butil hidróxi-hidrocinamato de pentaeritritila.
 Pode conter colorantes: corante vermelho 77491, corante preto 77499, corante branco 77891, corante vermelho 15850.",
 39.90,35.22,1,20,'lapiseira-cherry-vizzela.png','lapiseira-cherry-vizzela-2.jpg','lapiseira-cherry-vizzela-3.jpg',2,22,4);    
+--#endregion
 
 
-
---Viviane
+--#region lip oil pand (Viviane)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (23,'#eb5763','#F7828C','#FFB3B9');
@@ -656,10 +659,10 @@ Aplique o Lip Oil Gummy Panda diretamente nos lábios com o aplicador. Espere al
 Composição:
 POLYISOBUTENE/POLIISOBUTENO, PHENOXYETHANOL/FENOXIETANOL, CAPRYLIC/CAPRIC TRIGLYCERIDE/TRIGLICERÍDEO CAPRÍLICO/CÁPRICO, BENZOTRIAZOLYL DODECYL P-CRESOL/BENZOTRIAZOLIL DODECIL P-CRESOL, ETHYLHEXYL PALMITATE/PALMITATO DE ETILEXILA, TOCOPHERYL ACETATE/ACETATO DE TOCOFERILA, PARFUM/PERFUME, HYDROGENATED POLYISOBUTENE/POLIISOBUTENO HIDROGENADO, ETHYLENE/PROPYLENE/STYRENE COPOLYMER/ COPOLÍMERO DE ETILENO/PROPILENO/ESTIRENO, BUTYLENE/ETHYLENE/STYRENE COPOLYMER/ COPOLÍMERO DE BUTILENO/ETILENO/ESTIRENO, PRUNUS AMYGDALUS DULCIS OIL/ÓLEO DE AMÊNDOA-DOCE, SODIUM SACCHARIN/SACARINA DE SÓDIO, SQUALANE/ESQUALANO, CI 45380/ CORANTE EOSINA AMARELA 45380.',
 69.90,null,0,40,'lip-oil-gummy.png','lip-oil-gummy-2.jpg','lip-oil-gummy-3.jpg',3,23,4);    
+--#endregion
 
 
-
---Viviane
+--#region gloss cherry (Viviane)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (24,'#801d31','#AE374F','#AE374F');
@@ -680,10 +683,10 @@ Cor única e acabamento glossy acompanha chaveiro hidratação intensa acabament
 Composição:
 hydrogenated polyisobutene/poliisobuteno hidrogenado, polyisobutene/poliisobuteno, paraffinum liquidum/parafina líquida, ethylene/propylene/styrene copolymer/copólímero de etileno/propileno/estireno, butylene/ethylene/styrene copolymer/copólímero de butileno/etileno/estireno, ethylhexyl metoxyccinamate/octinoxato, octyldodecanol/octildodecanol, parfum/perfume, ethylhexyl palmitate/palmitato de etilexila, ci 15880/corante vermelho 15880, phenoxyethanol/fenoxietanol, tocopheryl acetate/acetato de tocoferila, ci 15850/corante vermelho 15850/benzotriazolyl dodecyl p-cresol/benzotriazolyl dodecyl p-cresol, butylene glycol/butileno glicol, silica dimethyl silylate/silica dimethyl silylate, caprylyl glycol/caprililglicol, hexylene glycol/hexileno glicol, sodium hyaluronate/hialuronato de sódio.',
 69.90,null,0,20,'gloss-cherry-vizzela.png','gloss-cherry-vizzela-2.jpg','gloss-cherry-vizzela-3.jpg',3,24,4);   
+--#endregion
 
 
-
---Michael
+--#region giovanna baby blue (Michael)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (25,'#7DBAF2','#A5D3FD','#BDDFFF');
@@ -712,12 +715,10 @@ Composição:
 Dica de Uso:
 Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colônia e espalhe na região que deseja perfumar do seu corpo. Dê preferência as áreas como punho, pulso e pescoço para privilegiar a difusão da fragrância. Pode ser usada também como desodorante.',
 90.33,77.90,1,23,'giovanna-baby-blue.png','giovanna-baby-blue-2.jpg','giovanna-baby-blue-3.jpg',7,25,3);
+--#endregion
 
 
-
-
-
---Michael
+--#region giovanna baby classic (Michael)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (26,'#FFAAEA','#FFC2F0','#FFD1F4');
@@ -745,10 +746,10 @@ Composição:
 Dica de Uso:
 Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colônia e espalhe na região que deseja perfumar do seu corpo. Dê preferência as áreas como punho, pulso e pescoço para privilegiar a difusão da fragrância. Pode ser usada também como desodorante.',
 90.33,77.90,1,40,'giovanna-baby-pink.png','giovanna-baby-pink-2.jpg','giovanna-baby-pink-3.jpg',7,26,3);
+--#endregion
 
 
-
---Bruna
+--#region limpador facial sallve (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (27,'#d8d759','#FBFB6F','#FBFB9D');
@@ -768,10 +769,10 @@ Como usar:
 Quando usar: 
 Pela manhã, à noite ou quando quiser.',
 79.90,null,0,30,'limpador-facial-sallve.png','limpador-facial-sallve-2.jpg','limpador-facial-sallve-3.jpg',9,27,6),   
+--#endregion
 
 
-
---Bruna
+--#region limpador enximatico sallve (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (28,'#763b8d','#a65ec2ff','#d18aecff');
@@ -793,10 +794,10 @@ Use no máximo uma vez por dia.
 Durante o dia, utilize protetor solar. 
 Agite antes de usar.',
 79.90,null,0,20,'limpador-enzimatico-sallve.png','limpador-enzimatico-sallve-2.jpg','limpador-enzimatico-sallve-3.jpg',10,28,6);    
+--#endregion
 
 
-
---Bruna
+--#region esfoliante facial sallve (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (29,'#735f9c','#9f85d3ff','#cdb6fcff');
@@ -816,10 +817,10 @@ Como usar:
 4- Enxágue com água em abundância, removendo todo o produto, e sinta na pele uma limpeza profunda com toque macio.
 5- Use no máximo 2 vezes por semana, em dias alternados.',
 74.90,null,0,20,'esfoliante-facial-sallve.png','esfoliante-facial-sallve-2.jpg','esfoliante-facial-sallve-3.jpg',10,29,6);    
+--#endregion
 
 
-
---Bruna
+--#region hidratante + hialuronico sallve (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (30,'#678ec2','#8AB2E5','#B5D0F2');
@@ -836,10 +837,10 @@ Como usar:
 1- Aplique ao redor da área dos olhos e em todo o rosto até o pescoço, massageando em movimentos ascendentes até a total absorção do produto.
 2- Você pode usar pela manhã, à noite ou quando quiser, sempre sobre a pele limpa.',
 89.90,null,0,20,'hidratante-firmador-sallve.png','hidratante-firmador-sallve-2.jpg','hidratante-firmador-sallve-3.jpg',11,30,6);    
+--#endregion
 
 
-
---Bruna
+--#region pro colageno sallve (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (31,'#2de8f9','#63F0FD','#9EF7FF');
@@ -860,10 +861,10 @@ Observação:
 Durante a primeira semana de uso, aplique pequenas quantidades de produto, em dias alternados.
 Não aplique nas pálpebras, nos cantos externos do nariz e da boca nem na pele irritada ou lesionada.',
 129.90,89.90,1,20,'super-pro-colageno-sallve-1.png','super-pro-colageno-sallve-2.jpg','super-pro-colageno-sallve-3.jpg',14,31,6);   
+--#endregion
 
 
-
---Bruna
+--#region hidratante vitamina c sallve (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (32,'#cb9e74','#EAC099','#FFE2C7');
@@ -882,10 +883,10 @@ Como usar:
 Observações:
 Esse uso pode render em torno de 120 aplicações, de 3 a 4 meses de uso.',
 99.90,null,0,20,'antioxidante-hidratante.png','antioxidante-hidratante-2.jpg','antioxidante-hidratante-3.jpg',14,32,6);   
+--#endregion
 
 
-
---Bruna
+--#region mascara antiresseca sallve (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (33,'#794599','#9F65C3','#C994EB');
@@ -914,14 +915,12 @@ Esfoliar levemente a pele antes potencializ o efeito de qualquer máscara de tra
 Quando usar:
 Até 3 vezes por semana, em dias alternados.',
 69.90,null,0,30,'mascara-antirresseca.png','mascara-antirresseca-2.jpg','mascara-antirresseca-3.jpg',12,33,6);    
-
-
-
+--#endregion
 
 
 
 --PRODUTOS DO MARCOS
---Eliana
+--#region hidratante bob esponja (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (34,'#5B398F','#15AF93','#70F0D9');
@@ -960,15 +959,13 @@ Evite contato com os olhos. Não aplique em pele irritada ou lesionada e evite a
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free. Produto vegano.',
 57.90,null,0,35,'cuide-se-bem-bob-esponja-1.png','cuide-se-bem-bob-esponja-2.jpg',null,23,34,2);
+--#endregion
 
 
-
-
-
+--#region Elástico de Concha do Mar (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
-(35,'#C0C0C0','#D6D6D6','#EAEAEA');
-
+(35,'#B7AEAE','#C0C0C0','#DEDEDE');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -977,13 +974,13 @@ VALUES
 'Adicione um charme especial ao seu visual com este elástico de cabelo adornado com uma concha metálica prateada. Além de ser funcional e garantir firmeza ao prender os fios, ele é um acessório estiloso que remete ao universo marítimo, ideal para compor penteados delicados ou destacar um look casual com um toque de elegância. 
 Confortável para uso diário, é perfeito para quem ama detalhes únicos e sofisticados.',
 12.00,null,0,100,'elastico-de-concha-do-mar.png','elastico-de-concha-do-mar-2.png','elastico-de-concha-do-mar.png',18,35,5);
+--#endregion
 
 
-
-
+--#region Escova Secador Rotativa Rotating Hyaluronic (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(36,'#1EDCEA','#64edf7','#96f6fd');
+(36,'#10B6C1','#1EDCEA','#86ECF4');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1016,10 +1013,10 @@ Recursos:
 - Para todos os tipos de cabelo;
 - Capa protetora.',
 999.90,809.91,1,30,'escova_secadora_rotativa_1.png','escova_secadora_rotativa_2.jpg','escova_secadora_rotativa_3.jpg',19,36,5);
+--#endregion
 
 
-
---Michael
+--#region floratta my blue (Michael)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (37,'#0081B8','#279FD3','#66CAF5');
@@ -1050,9 +1047,10 @@ Fragrância feminina para ser usada durante o dia ou a noite.
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
 159.90,111.90,1,30,'FLORATTA-DES-COL-MY-BLUE.png','FLORATTA-DES-COL-MY-BLUE-2.jpg','FLORATTAS-3.jpg',5,37,3);
+--#endregion
 
 
-
+--#region 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (38,'#02020A','#23305D','#4660BA');
@@ -1096,10 +1094,10 @@ Devido à alta concentração de corantes utilizados neste produto, recomendamos
 
 Nenhum produto O Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
 184.90,null,0,40,'glamour-midnight.png','glamour-midnight-02.jpg','glamour-midnight-03.jpg',5,38,3);
+--#endregion
 
 
-
---Maiara
+--#region condicionador malbec (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES
 (39,'#070707','#595959','#ABABAB');
@@ -1128,10 +1126,10 @@ Ingrediente:
 
 Nenhum produto O Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
 54.90,null,0,50,'malbec-condicionador-antiqueda-1.png','malbec-condicionador-antiqueda-2.jpg',null,15,39,5);
+--#endregion
 
 
-
---Roberta
+--#region esponja make oceane (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (40,'#3E0D11','#8A151E','#BD515A');
@@ -1153,10 +1151,10 @@ A versatilidade dessa esponja permite com que você aplique diversos tipos de pr
 Como lavar a esponja My Blend?
 Para lavar a My Blend, basta enxaguá-la e usar um detergente neutro, massageando suavemente até sair a sujeira. Depois, enxague bem, retire o excesso de água espremendo a esponja com as mãos ou em uma toalha e deixe secar num lugar arejado ou ao ar livre.',
 30.90,null,0,30,'oceane-my-blend-esponja-1.png','oceane-my-blend-esponja-2.jpg','oceane-my-blend-esponja-3.jpg',20,40,4);
+--#endregion
 
 
-
---Roberta
+--#region pinceis maquiagem (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (41,'#C9758F','#DF90A9','#F5B8CB');
@@ -1185,10 +1183,10 @@ Material de Alta Qualidade - As cerdas são feitas de material sintético premiu
 Design Elegante - Cada pincel possui um cabo ergonômico e um design sofisticado, perfeito para qualquer penteadeira.
 Fácil Limpeza - As cerdas são fáceis de limpar, mantendo a higiene e prolongando a vida útil do produto.',
 78.90,null,0,30,'pinceis_de_maquiagem_transparente-1.png','pinceis_de_maquiagem_transparente-2.jpg','pinceis_de_maquiagem_transparente-3.jpg',20,41,6);
+--#endregion
 
 
-
---Viviane
+--#region mascara de cilios essence (Viviane)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (42,'#080806','#DD51B1','#FC86D3');
@@ -1207,9 +1205,10 @@ Detalhes do Produto:
 Ingredientes:
 AQUA (WATER), PARAFFIN, GLYCERYL STEARATE, SYNTHETIC BEESWAX, STEARIC ACID, BUTYLENE GLYCOL, ACACIA SENEGAL GUM, PALMITIC ACID, ORYZA SATIVA (RICE) BRAN WAX, POLYBUTENE, VP/EICOSENE COPOLYMER, AMINOMETHYL PROPANEDIOL, OZOKERITE, TROPOLONE, HYDROGENATED VEGETABLE OIL, STEARYL STEARATE, HYDROXYETHYLCELLULOSE, PHENOXYETHANOL, CI 77499 (IRON OXIDES).',
 36.90,null,0,30,'rimel_I_Love_Extreme_-_Crazy_Volume_1.png','rimel_I_Love_Extreme_-_Crazy_Volume_2.jpg','rimel_I_Love_Extreme_-_Crazy_Volume_3.jpg',2,42,4);    
+--#endregion
 
 
-
+--#region Secador Travel Dryer (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (43,'#2F2F2F','#525252','#7A7A7A');
@@ -1229,13 +1228,13 @@ Carcaterísticas do produto:
  - Potência: 1100/900W;
  - Peso: 330g',
 259.92,null,0,30,'secador-de-cabelo-be-emotion-1.png','secador-de-cabelo-be-emotion-2.jpg','secador-de-cabelo-be-emotion-3.jpg',19,43,6);
+--#endregion
 
 
-
-
+--#region sérum Facial Antioxidante Vitamina C (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(44,'#F68B00','#FFA018','#FFA837');
+(44,'#F68B00','#FFA018','#FFC87A');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1264,13 +1263,13 @@ Aplique VITA C 18 antes do protetor solar para aumentar a ação protetora contr
 Composição:
 ÁGUA, ÉTER DIETILENOGLICOL MONOETÍLICO, PROPANODIOL, ESQUALANO, GLICEROL, PROPILENOGLICOL, CROSPOLÍMERO-6 DE POLIACRILATO, ÁCIDO ASCÓRBICO, ÓLEO DE OLIVA, EXTRATO DE HAEMATOCOCCUS PLUVIALIS, ÓLEO DE GLYCINE MAX, TOCOFEROL, POLIETILENOGLICOL-12 DIMETICONA, DIMETICONA, FENOXIETANOL, ÁCIDO FREÚLICO, METABISSULFITO DE SÓDIO, HIDRÓXIDO DE SÓDIO, CLORETO DE SÓDIO, PERFUME, ETILEXILGLICERINA, EDETATO DISSÓDICO, ÁCIDO CÍTRICO.',
 84.90,79.24,1,40,'Serum-Facial-Vitamina-C-1.png','Serum-Facial-Vitamina-C-2.png','Serum-Facial-Vitamina-C-3.png',14,44,6);
+--#endregion
 
 
-
-
+--#region Biopsor Shampoo Calmante Para Psoríase (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(45,'#007F8E','#00C9E0','#62D1E0');
+(45,'#007F8E','#1198A7','#6ECED8');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1306,12 +1305,13 @@ Aplique primeiro o shampoo nos cabelos úmidos e enxague após concluir o banho,
 Composção:
 Aqua (Agua), Vitis Vinifera Seed Oil (Óleo de Semente de Uva), Sodium C14-16 Olefin Sulfonate (Sulfonato de olefina de sódio), Glycerin (Glicerina), Decyl Glucoside (Decil Glucosídeo), Butyrospermum parkii butter (Manteiga de karité), Polyquaternium-7, Cocos nucifera Oil (Óleo de coco extra virgem), Hydroxypropyl guar (Goma guar), Aloe barbadensis Extract (Extrato de aloe vera), Rosa Canina Fruit Oil (Oleo de rosa mosqueta), Zinc Pyrithione (Piritionato de zinco), Pilocarpus pennatifolius leaf extract (Extrato de jaborandi), Magnesium sulfate (Sulfato de magnésio), Azadirachta Indica Seed Oil (Oleo de neem), Phenoxyethanol (Fenoxietanol), Ruta Graveolens Leaf Extract (Oleo de arruda), Mentha Piperita Oil (Oleo essencial menta pimenta), Caprylyl Glycol (Caprilil glicol).',
 59.90,null,0,20,'shampoo-biopsor-vegano-1.png','shampoo-biopsor-vegano-2.jpg','shampoo-biopsor-vegano-3.jpg',15,45,6);
+--#endregion
 
 
-
+--#region Shampoo Match. Proteção da Cor (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(46,'#981D2D','#C44152','#C45F6B');
+(46,'#8A0F1F','#981D2D','#C84C5C');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1338,9 +1338,10 @@ Ingredientes:
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free. Shampoo vegano.',
 45.90,null,0,40,'shampoo-match-protecao-da-cor-1.png','shampoo-match-protecao-da-cor-2.jpg',null,17,46,5);
+--#endregion
 
 
-
+--#region 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (47,'#2B2B2B','#525252','#858585');
@@ -1371,13 +1372,15 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 Ingredientes:
 ÁLCOOL DESNATURADO; ÁGUA; PERFUME; CAPRILATO DE POLIGLICERILA-3; CINAMALDEÍDO; CITRAL; CITRONELOL; CUMARINA; EUGENOL; GERANIOL; HEXIL CINAMAL; LIMONENO; LINALOL.',
 194.90,180.99,1,40,'uomini-black-01.png','uomini-black-02.jpg',null,6,47,3);
+--#endregion
 
 
 --Mais produtos
 
+--#region Protetor Solar Facial Anthelios FPS 60 (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(48,'#F76601','#F2AC02','#FFC549');
+(48,'#F76601','#F98634','#FFC852');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1407,18 +1410,19 @@ Advertências:
 Composição:
 Aqua / Water, Homosalate, Ethylhexyl Salicylate, Silica, Styrene/Acrylates Copolymer, Ethylhexyl Triazone, Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine, Drometrizole Trisiloxane, Butyl Methoxydibenzoylmethane, Aluminum Starch Octenylsuccinate, Octocrylene, C12-15 Alkyl Benzoate, Glycerin, Pentylene Glycol, Potassium Cetyl Phosphate, Dimethicone, Perlite, Propylene Glycol, Terephthalylidene Dicamphor Sulfonic Acid, Titanium Dioxide, Triethanolamine, Phenoxyethanol, Stearyl Alcohol, Isopropyl Lauroyl Sarcosinate, Peg-8 Laurate, Caprylyl Glycol, Inulin Lauryl Carbamate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Tocopherol, Xanthan Gum, Disodium Edta, Aluminum Hydroxide, Stearic Acid, Zinc Gluconate.',
 89.90,73.62,1,40,'anthelios-la-roche-posay.png','anthelios-la-roche-posay-2.jpg','anthelios-la-roche-posay-3.jpg',13,48,5);
+--#endregion
 
 
-
+--#region Gel de Limpeza Mela B3 (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(49,'#6621A0','#8D2EDE','#AA4BFF');
+(49,'#6621A0','#8D2EDE','#B975F5');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
 ('Gel de Limpeza Mela B3','La Roche-Posay','120ml',
-'O Mela B3 Gel de Limpeza da La Roche-Posay é a solução nº1 para quem deseja uma limpeza antimanchas¹ eficaz.',
-'Formulado com o exclusivo ativo patenteado Melasyl™️, desenvolvido após 18 anos de pesquisa para corrigir e prevenir manchas¹ como nunca antes, o gel também contém Niacinamida e 1% de PHA (ácido polihidroxilado) para proporcionar uma esfoliação suave e gentil, limpando sem ressecar. O resultado é uma pele mais uniforme, radiante, renovada e com manchas corrigidas.
+'O Mela B3 Gel de Limpeza da La Roche-Posay é a solução nº1 para quem deseja uma limpeza antimanchas eficaz.',
+'Formulado com o exclusivo ativo patenteado Melasyl, desenvolvido após 18 anos de pesquisa para corrigir e prevenir manchas¹ como nunca antes, o gel também contém Niacinamida e 1% de PHA (ácido polihidroxilado) para proporcionar uma esfoliação suave e gentil, limpando sem ressecar. O resultado é uma pele mais uniforme, radiante, renovada e com manchas corrigidas.
 
 Característica:
  . Corrige manchas da pele, diferenças de tonalidade e manchas pós-acne.
@@ -1433,12 +1437,13 @@ Como usar:
 Dica de  uso:
 Evitar contato direto com os olhos. Utilizar Anthelios Ultracover FPS 60 na rotina da manhã.',
 102.90,89.52,1,80,'mela-b3-la-roche-1.png','mela-b3-la-roche-2.jpg','mela-b3-la-roche-3.jpg',14,49,2);
+--#endregion
 
 
-
+--#region Preenchedor de Rugas Q10 Expert Antissinais (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(50,'#F5D132','#FFE16A','#FFE992');
+(50,'#F5D132','#FBDE60','#FFEEA3');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1469,18 +1474,18 @@ Uso externo. Evite contato com os olhos. Caso aconteça, enxágue com água em a
 
 Ingredientes:
 Aqua, Dimethicone, Glycerin, Dimethicone Crosspolymer, Methylpropanediol, Alcohol Denat., Coco-Caprylate/Caprate, Octyldodecanol, Dicaprylyl Ether, Silica, Cetearyl Alcohol, Glyceryl Stearate, Tapioca Starch, Ubiquinone, Pimpinella Anisum Fruit Extract, Sodium Hyaluronate, Creatine, 1-Methylhydantoin-2-Imide, Panthenol, Pantolactone, Tocopherol, Sodium Cetearyl Sulfate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Citric Acid, Trisodium EDTA, Sodium Chloride, Sodium Sulfate, Sodium Hydroxide, Phenoxyethanol, CI 77891, CI 77491, CI 15985, Parfum',
-98.50,93.99,1,40,'nivea-antissinais-1.png','nivea-antissinais-2.jpg','nivea-antissinais-3.jpg',14,50,3);
+93.99,null,0,40,'nivea-antissinais-1.png','nivea-antissinais-2.jpg','nivea-antissinais-3.jpg',14,50,3);
+--#endregion
 
 
-
-
+--#region Gel Hidratante Facial (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(51,'#75B427','#98D449','#C3FF73');
+(51,'#75B427','#95CE50','#BCE58B');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-('Gel Hidratante Facial','Nivea','100ml',
+('Gel Hidratante Facial','Nivea','100g',
 'Hidratante em gel NIVEA com ácido hialurônico e pepino. Textura mais leve que o creme facial. Não obstrui os poros e hidrata por 24h. Cuide bem da sua pele!',
 'NIVEA Hidratante Facial Gel é um aliado essencial para quem busca cuidar da pele de maneira eficaz e refrescante.
 Este hidratante em gel é formulado com ácido hialurônico e pepino, proporcionando uma textura mais leve do que os cremes faciais tradicionais. Ele é especialmente projetado para peles oleosas, garantindo um equilíbrio perfeito de hidratação e controle da oleosidade. Uma das vantagens deste produto é sua capacidade de não obstruir os poros, permitindo que a pele respire livremente. Além disso, seu efeito refrescante revitaliza a pele do rosto, mantendo-a bem cuidada e hidratada por 24 horas. Com NIVEA Hidratante Facial Gel você pode desfrutar de uma pele livre de oleosidade, radiante e revigorada.
@@ -1506,13 +1511,13 @@ Aqua, Glycerin, PEG-8, Ceteareth-20, Sodium Hyaluronate, Cucumis Sativus Juice, 
 Ingredientes especiais:
  - Ácido hialurônico e estrato de pepino.',
 30.58,null,0,60,'nivea-hidratanteemgel-1.png','nivea-hidratanteemgel-2.jpg','nivea-hidratanteemgel-3.jpg',11,51,3);
+--#endregion
 
 
-
-
+--#region Creme Hidratante Facial Para Pele Negra (bRUNA)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(52,'#D6B2B1','#FFD4D3','#FFDFDF');
+(52,'#BB9796','#D6B2B1','#ECD0CF');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1543,17 +1548,17 @@ Precauções:
  - Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.
  - Este produto não é um protetor solar.',
 30.58,null,0,50,'nivea-hidratante-pelenegra-1.png','nivea-hidratante-pelenegra-2.png','nivea-hidratante-pelenegra-3.png',11,52,3);
+--#endregion
 
 
-
-
+--#region Creme Hidratante Facial Nutritivo (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(53,'#49A2DA','#62ADDA','#8CBDDA');
+(53,'#3488BC','#49A2DA','#77C0EE');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-('Creme Hidratante Facial Nutritivo','Nivea','100ml',
+('Creme Hidratante Facial Nutritivo','Nivea','100g',
 'Hidratante NIVEA para o rosto que cuida sem deixar a pele oleosa. Textura leve de rápida absorção.',
 'NIVEA Creme Facial Nutritivo é um hidratante para o rosto que cuida da pele sem deixá-la oleosa.
 
@@ -1589,12 +1594,13 @@ Aqua, Glycerin, Butyrospermum Parkii Butter, Cetyl Palmitate, Olus Oil, Cetyl Al
 Ingrediente especial: 
 Manteiga de karité',
 30.27,null,0,45,'nivea-hidratante-nutritivo-1.png','nivea-hidratante-nutritivo-2.png',null,11,53,4);
+--#endregion
 
 
-
+--#region Creme Hidratante Facial Antissinais (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(54,'#CF022D','#CF2645','#CF475F');
+(54,'#A80529','#CF022D','#EA5373');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1623,13 +1629,13 @@ Como usar:
 Ingredientes:
 Parfum, Citronellol, Geraniol, Linalool, Trisodium EDTA, Phenoxyethanol, Ethylhexylglycerin, Sodium Hydroxide, Sodium Polyacrylate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Xanthan Gum, Butyl Methoxydibenzoylmethane, Dimethicone, Tocopheryl Acetate, Cetyl Alcohol, Cetyl Palmitate, Butyrospermum Parkii Butter, Ethylhexyl Salicylate, Glycerin, Aqua.',
 30.27,null,0,40,'nivea-hidratante-antissinais-1.png','nivea-hidratante-antissinais-2.jpg','nivea-hidratante-antissinais-3.jpg',11,54,6);
+--#endregion
 
 
-
-
+--#region Sérum Facial Cellular Com Ácido Hialurônico (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(55,'#C4C6CA','#D6D8D9','#EBEDEE');
+(55,'#BABABA','#C4C6CA','#DEDEDE');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES
@@ -1657,13 +1663,13 @@ Precauções:
  - Em caso de irritação, suspenda o uso e procure orientação médica.
  - Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.',
 132.99,null,0,40,'nivea-serum-hialuronico-1.png','nivea-serum-hialuronico-2.jpg','nivea-serum-hialuronico-3.jpg',14,55,5);
+--#endregion
 
 
-
-
+--#region Sérum Reparador Diário Acne Control (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(56,'#03B59F','#2FC9BB','#63C9C2');
+(56,'#018E7E','#03B59F','#3BDECB');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1686,12 +1692,13 @@ Ingredientes:
  - Aqua, Glycerin, Alcohol Denat., Niacinamide, Glycyrrhiza Inflata Root Extract, Sodium Hyaluronate, Panthenol, Pantolactone, Ceteareth-20, Cellulose Gum, 1,2-Hexanediol, Sodium Chloride, Sodium Sulfate, Citric Acid, Phenoxyethanol, CI 42090, CI 16035.
  - Ingredientes especiais: Ácido Hialurônico e Provitamina B5.',
 75.50,60.99,1,59,'nivea-acne-control-1.png','nivea-acne-control-2.jpg',null,14,56,6);
+--#endregion
 
 
-
+--#region Hidratante Protetor Controle do Brilho & Oleosidade (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(57,'#249B36','#46BF57','#7EED8D');
+(57,'#177D26','#249B36','#7EED8D');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1724,10 +1731,10 @@ Ingredientes :
  - Ingredientes ativos: Vitamina E.
  - Ingredientes Especiais: Algas Marinhas.',
 34.99,null,0,50,'nivea-controle-do-brilho-1.png','nivea-controle-do-brilho-2.jpg','nivea-controle-do-brilho-3.jpg',11,57,2);
+--#endregion
 
 
-
---Roberta
+--#region hidratante labial rosé (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (58,'#E9647F','#F77D95','#FBA7B8');
@@ -1758,9 +1765,10 @@ Precauções:
 Ingredientes:
 Ricinus Communis Seed Oil, Cocoglycerides, Cera Alba, Octyldodecanol, Helianthus Annuus Seed Cera, Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, Cetearyl Alcohol, CI 77891, Ethylhexyl Triazone, Hydrogenated Castor Oil, Tocopheryl Acetate, Tocopherol, Ascorbyl Palmitate, Helianthus Annuus Seed Oil, Aroma, Menthol, CI 15850, CI 77491.',
 23.19,null,0,70,'nivea-hidra-color-rose-1.png','nivea-hidra-color-rose-2.jpg','nivea-hidra-color-rose-3.jpg',11,58,6);
+--#endregion
 
 
---Roberta
+--#region hidratante labia vermelho (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (59,'#B01C38','#DC1E41','#F95875');
@@ -1793,10 +1801,10 @@ Ingredientes:
  - Octyldodecanol, Cocoglycerides, Ricinus Communis Seed Oil, Cera Alba, Helianthus Annuus Seed Cera, Cetearyl Alcohol, Hydrogenated Castor Oil, Butyrospermum Parkii Butter, Aroma, Prunus Amygdalus Dulcis Oil, Tocopherol, Tocopheryl Acetate, Ascorbyl Palmitate, Helianthus Annuus Seed Oil, CI 77491, CI 15850.
  - Ingredientes especiais: Óleo de Amêndoa, Pura Vitamina E, Manteiga de Karité.',
 23.19,null,0,70,'nivea-hidra-color-vermelho-1.png','nivea-hidra-color-vermelho-2.jpg','nivea-hidra-color-vermelho-3.jpg',11,59,6);
+--#endregion
 
 
-
---Roberta
+--#region hidratante labial coral (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (60,'#EB6D70','#EB8387','#FCACAF');
@@ -1827,9 +1835,10 @@ Precauções:
 Ingredientes:
 Ricinus Communis Seed Oil, Cocoglycerides, Cera Alba, Octyldodecanol, Helianthus Annuus Seed Cera, Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, Cetearyl Alcohol, CI 77891, Ethylhexyl Triazone, Hydrogenated Castor Oil, Tocopheryl Acetate, Tocopherol, Ascorbyl Palmitate, Helianthus Annuus Seed Oil, Aroma, Menthol, CI 15850, CI 15985, CI 77492',
 23.19,null,0,70,'nivea-hidra-color-coral-1.png','nivea-hidra-color-coral-2.jpg','nivea-hidra-color-coral-3.jpg',11,60,6);
+--#endregion
 
 
---Roberta
+--#region hidratante labial amora shine (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (61,'#6A1E4C','#963570','#B84F8C');
@@ -1858,13 +1867,13 @@ Ingredientes:
  - Não inclui Óleo mineral.
  - Ingredientes especiais: Óleo de abacate.',
 23.19,null,0,70,'nivea-hidra-color-amora-1.png','nivea-hidra-color-amora-2.jpg','nivea-hidra-color-amora-3.jpg',11,61,6);
+--#endregion
 
 
-
-
+--#region Sabonete Facial em Gel Equilíbrio Nutritivo (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(62,'#0071C1','#228BD1','#44A2E8');
+(62,'#0071C1','#248CD6','#80CAFF');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1891,13 +1900,13 @@ Ingredientes:
  - Aqua, Cocamidopropyl Betaine, Sodium Myreth Sulfate, Acrylates Copolymer, Glycerin, Nelumbo Nucifera Flower Extract, Tocopherol, Tocopheryl Acetate, Lauryl Glucoside, Sodium Lauryl Sulfate, PEG-40 Hydrogenated Castor Oil, PEG-200 Hydrogenated Glyceryl Palmate, Benzophenone-4, Sodium Chloride, Polyquaternium-10, Sodium Hydroxide, Phenoxyethanol, Methylparaben, Ethylparaben, Sodium Sulfate, Geraniol, Benzyl Alcohol, Linalool, Triethanolamine, Parfum, CI 42090, CI 16035.
  - Ingredientes especiais: Pura Vitamina E.',
 27.59,null,0,60,'sabonete-facial-gel-nivea.png','sabonete-facial-gel-nivea-2.jpg',null,9,62,);
+--#endregion
 
 
-
-
+--#region Lenços de Limpeza Facial Ação Refrescante 25 Unidades (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(63,'#00519A','#396A9A','#549CE3');
+(63,'#00519A','#2778BE','#60A8E6');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES
@@ -1919,12 +1928,13 @@ Ingredientes:
  - Aqua, Isopropyl Stearate, Nelumbo Nucifera Flower Extract, Panthenol, Glycerin, VP/Hexadecene Copolymer, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Ethylhexylglycerin, Decylene Glycol, Phenoxyethanol, Sodium Hydroxide, Citric Acid, Pantolactone, Linalool, Linalyl Acetate, Citronellol, Limonene, Citrus Aurantium Peel Oil, Geraniol, Alpha-Isomethyl Ionone, Benzyl Alcohol, Hexyl Cinnamal, Terpineol, Benzyl Salicylate, Geranyl Acetate, Cananga Odorata Oil/Extract, Parfum.
  - Ingredientes especiais: Provitamina B5.",
 20.99,null,0,60,'lenços-limpeza-nivea.png','lenços-limpeza-nivea-2.jpg',22,63,);
+--#endregion
 
 
-
+--#region Mousse de Limpeza Facial Refrescante (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(64,'#0378BE','#2599D9','#4AB0E8');
+(64,'#00649E','#2599D9','#61C5FF');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -1953,13 +1963,13 @@ Ingredientes:
 Aviso:
 Uso externo. Evite contato com os olhos. Caso aconteça, enxágue com água em abundância. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.',
 33.59,null,0,70,'mousse-limpeza-nivea-1.png','mousse-limpeza-nivea-2.jpg',null,9,64,);
+--#endregion
 
 
-
-
+--#region Água Micelar Efeito Matte (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(65,'#A1D0AE','#BCF2CB','#D4F2D9');
+(65,'#82B590','#A1D0AE','#C7F0D2');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES
@@ -1991,13 +2001,13 @@ Aqua, Poloxamer 124, Alcohol, Fucus Vesiculosus Extract, Camellia Sinensis Leaf 
 Aviso:
 Uso externo. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças.',
 26.19,null,0,50,'agua-micelar-nivea-1.png','agua-micelar-nivea-2.png','agua-micelar-nivea-3.jpg',9,65,);
+--#endregion
 
 
-
-
+--#region  Esfoliante Peeling Antissinais Chronos Derma (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(66,'#B27E33','#DB9B3F','#FFBE61');
+(66,'#B27E33','#DB9B3F','#FFC87A');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2029,13 +2039,13 @@ Após a limpeza da pele, aplique o produto sobre o rosto molhado. massageie suav
 Ingredientes:
 Aqua / water / eau, bambusa arundinacea stem powder, glycolic acid, glycerin, coco-caprylate, coconut alkanes, elaeis guineensis oil / elaeis guineensis (palm) oil, propanediol, stearyl alcohol, sodium hydroxide, glyceryl stearate, papain, parfum / fragrance, cetyl lactate, sodium acrylates copolymer, peg-100 stearate, glyceryl dipalmitate, glyceryl palmitate, glyceryl distearate, xanthan gum, lecithin, sodium benzoate, disodium edta, theobroma cacao seed butter / theobroma cacao (cocoa) seed butter / theobroma cacao (cacau) seed butter, citronellol, tocopherol, alpha-isomethyl ionone, cetyl alcohol, sodium carbonate, conobea scoparioides leaf oil / conobea scoparioides (pataqueira) leaf oil, sodium chloride.',
 30.20,18.50,1,70,'esfoliante-facial-natura-1.png', 'esfoliante-facial-natura-2.jpg', 'esfoliante-facial-natura-3.jpg',10,66,)
+--#endregion
 
 
-
-
+--#region Sabonete Líquido Esfoliante para o Corpo Ekos Maracujá (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(67,'#F0BE0F','#FFD642','#FBE79D');
+(67,'#D3A603','#F0BE0F','#FFDE66');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2053,8 +2063,7 @@ VALUES
 
 Características:
 • Possui bioativo: maracujá.
-• Testado dermatologicamente.
-• Possui refil.
+• Testado dermatologicamente..
 • Cruelty free.
 • Vegano.
 • Tipo de pele: todos os tipos de pele.
@@ -2065,12 +2074,13 @@ Espalhe o sabonete líquido esfoliante de Natura Ekos sobre o corpo até formar 
 Ingredientes:
 ÁGUA, DECIL GLICOSÍDEO, COCOIL GLUTAMATO DE SÓDIO, GLICEROL, PROPANODIOL, BEENATO DE ESTEARILA, CROSPOLÍMERO DE ACRILATOS/ACRILATO DE ALQUILA C10-30, PERFUME, COCOATO DE SACAROSE, COCOIL GLUTAMATO DISSÓDICO, ÉSTERES DA JOJOBA, HIDROXIACETOFENONA, SEMENTE DE MARACUJÁAZEDO EM PÓ, HIDRÓXIDO DE SÓDIO, LIMONENO, GLICONATO DE SÓDIO, HEXIL CINAMAL, ALFA-ISOMETIL IONONA, ÓLEO DA SEMENTE DE MARACUJÁ-AZEDO, CARBONATO DE SÓDIO, AMARELO DE TARTRAZINA, CLORETO DE SÓDIO, ÁCIDO CÍTRICO, SULFATO DE SÓDIO, TOCOFEROL.',
 54.90,38.40,1,70,'esfoliante-corporal-ekos-natura-1.png', 'esfoliante-corporal-ekos-natura-2.jpg' ,'esfoliante-corporal-ekos-natura-3.jpg',26,67,);
+--#endregion
 
 
-
+--#region Polpa Esfoliante para o Corpo Ekos Castanha (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(68,'#BF734F','#CF8868','#ED9C78');
+(68,'#B05C36','#BF734F','#DD9573');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2098,13 +2108,13 @@ Use o esfoliante corporal Natura Ekos durante o banho. aplique sobre a pele e ma
 Ingredientes:
 SUCROSE, DICAPRYLYL ETHER, ELAEIS GUINEENSIS OIL, HELIANTHUS ANNUUS SEED OIL, RICINUS COMMUNIS SEED OIL, ORYZA SATIVA BRAN CERA, ASTROCARYUM MURUMURU SEED BUTTER, SUCROSE COCOATE, THEOBROMA GRANDIFLORUM SEED BUTTER, PARFUM, PALMITIC ACID, AQUA, STEARIC ACID, BERTHOLLETIA EXCELSA SEED OIL, SILICA, GLYCERYL DIPALMITATE, GLYCERYL PALMITATE, LINUM USITATISSIMUM SEED POWDER, GLYCERYL DISTEARATE, GLYCERYL STEARATE, TOCOPHEROL, LINALOOL, BENZYL SALICYLATE, LIMONENE, COUMARIN, ALPHA-ISOMETHYL IONONE.',
 95.90,85.90,1,80,'esfoliante-corporal-castanha-natura-1.png', 'esfoliante-corporal-castanha-natura-2.jpg', 'esfoliante-corporal-castanha-natura-3.jpg',26,68,);
+--#endregion
 
 
-
-
+--#region Sabonete em Barra Puro Vegetal Esfoliante Ekos (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(69,'#764C8B','#9A63B5','#C37DE6');
+(69,'#6F4285','#764C8B','#9971AD');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2133,14 +2143,14 @@ Deslize o sabonete em barra de Natura Ekos por todo o corpo até formar espuma, 
 
 Ingredientes:
 INGREDIENTES/ INGREDIENTES (PORTUGUÊS): SODIUM PALMITATE/ PALMITATO DE SÓDIO, SODIUM OLEATE/ OLEATO DE SÓDIO, AQUA/ ÁGUA, GLYCERIN/ GLICEROL, SODIUM LINOLEATE/ LINOLEATO DE SÓDIO, SODIUM LAURATE/ LAURATO DE SÓDIO, SODIUM STEARATE/ ESTEARATO DE SÓDIO, ZEA MAYS STARCH/ AMIDO, SODIUM MYRISTATE/ MIRISTATO DE SÓDIO, PARFUM/ PERFUME, MYRISTIC ACID/ ÁCIDO MIRÍSTICO, CARAPA GUAIANENSIS SEED OIL/ ÓLEO DE SEMENTE DE ANDIROBA, SODIUM CAPRYLATE/ CAPRILATO DE SÓDIO, LINUM USITATISSIMUM SEED POWDER/ SEMENTE DE LINHAÇA EM PÓ, SODIUM CAPRATE/ CAPRATO DE SÓDIO, SODIUM ARACHIDATE/ ARAQUIDATO DE SÓDIO, SODIUM CHLORIDE/ CLORETO DE SÓDIO, TITANIUM DIOXIDE/ DIÓXIDO DE TITÂNIO, ETIDRONIC ACID/ ÁCIDO ETIDRÔNICO, BENZYL ALCOHOL/ ÁLCOOL BENZÍLICO, COUMARIN/ CUMARINA, CITRIC ACID/ ÁCIDO CÍTRICO, LIMONENE/ LIMONENO, POLYQUATERNIUM-39/ POLIQUATÉRNIO-39, TETRASODIUM EDTA/ EDETATO DE SÓDIO, HEXYL CINNAMAL/ HEXIL CINAMAL, EUGENOL, CINNAMYL ALCOHOL/ ÁLCOOL CINAMÍLICO, CI 77492/ ÓXIDO DE FERRO AMARELO, SODIUM BENZOATE/ BENZOATO DE SÓDIO.',
-44.40,34.00,1,84,'sabonetes-barra-ekos-natura-1.png', 'sabonetes-barra-ekos-natura-2.jpg', 'sabonetes-barra-ekos-natura-3.jpg',26,69,);
+44.40,null,0,84,'sabonetes-barra-ekos-natura-1.png', 'sabonetes-barra-ekos-natura-2.jpg', 'sabonetes-barra-ekos-natura-3.jpg',26,69,);
+--#endregion
 
 
-
-
+--#region Esfoliante Térmico Ekos Andiroba (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(70,'#75803C','#A3B354','#D9ED6F');
+(70,'#6A762D','#75803C','#ADB96E');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2166,13 +2176,13 @@ Estudo realizado com 120 consumidores após 7 dias de uso do produto.
 Dicas de uso:
 Aplique sobre a pele limpa e úmida, massageando o corpo todo em movimentos circulares, exceto rosto. enxágue após o uso. aplique até 3 vezes por semana.',
 89.90,null,0,69,'esfoliante-corporal-andiroba-1.png', 'esfoliante-corporal-andiroba-2.jpg', 'esfoliante-corporal-andiroba-3.jpg',26,70,)
+--#endregion 
 
 
-
-
+--#region Sabonete Esfoliante para o Rosto Biōme (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(71,'#3A0249','#760494','#AA06D6');
+(71,'#3A0249','#760494','#B971CC');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES
@@ -2197,13 +2207,13 @@ Dicas de uso:
 Ingredientes:
 SODIUM COCOYL ISETHIONATE, ZEA MAYS STARCH / ZEA MAYS (CORN) STARCH, HYDROGENATED COCONUT ACID, PALMITIC ACID, STEARIC ACID, AQUA / WATER / EAU, SODIUM PALMITATE, SODIUM OLEATE, GLYCERIN, PARFUM / FRAGRANCE,TITANIUM DIOXIDE, PRUNUS ARMENIACA SEED POWDER / PRUNUS ARMENIACA (APRICOT) SEED POWDER, SODIUM CHLORIDE, STEARYL BEHENATE, SODIUM LINOLEATE, SODIUM LAURATE, TRIETHYL CITRATE, HYDROXYPROPYL GUAR, SODIUM STEARATE, HYDROXYACETOPHENONE, JOJOBA ESTERS, SODIUM MYRISTATE, ELAEIS GUINEENSIS OIL / ELAEIS GUINEENSIS (PALM) OIL, LIMONENE, SODIUM GLUCONATE, SODIUM CAPRYLATE, SODIUM CAPRATE, SODIUM ARACHIDATE, LINALOOL, ETIDRONIC ACID, TETRASODIUM EDTA, COPAIFERA OFFICINALIS RESIN / COPAIFERA OFFICINALIS (BALSAM COPAIBA) RESIN / COPAIFERA OFFICINALIS (COPAIBA) RESIN.',
 54.90,null,0,30,'esfoliante-facial-barra-natura-2.jpg', 'esfoliante-facial-barra-natura-1.png',null,10,71,)
+--#endregion 
 
 
-
-
+--#region Sérum para Sobrancelhas Una (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(72,'#B7928C','#D6ABA4','#D6BBB7');
+(72,'#AD827B','#B58982','#D6BBB7');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2225,9 +2235,10 @@ Use Una Sérum nas sobrancelhas limpas e secas. após retirar o excesso de produ
 Ingredientes:
 AQUA / ÁGUA, PENTYLENE GLYCOL / PENTILENOGLICOL, PPG-5-CETETH-20 / PPG-5-PEG-20 ÉTER DE ÁLCOOL CETÍLICO , PVP / CROSPOVIDONA, GLYCERIN / GLICEROL, PHENOXYETHANOL / FENOXIETANOL, SODIUM POLYACRYLATE STARCH / POLIACRILATO DE AMIDO SÓDICO, POLYQUATERNIUM-10 / POLIQUATÉRNIO-10, TRIETHANOLAMINE / TROLAMINA, PEG-4 DILAURATE / DILAURATO DE PEG-4, PEG-4 LAURATE / LAURATO DE PEG-4, TETRASODIUM EDTA / EDETATO DE SÓDIO, IODOPROPYNYL BUTYLCARBAMATE / BUTILCARBAMATO DE IODOPROPINILA , PANTHENOL / PANTENOL, PEG-200 / MACROGOL, SODIUM HYDROXIDE / HIDRÓXIDO DE SÓDIO, BIOTINOYL TRIPEPTIDE-1 / BIOTINOIL TRIPEPTÍDEO-1.',
 129.90,84.40,1,50,'serum-sobrancelhas-natura-2.jpg','serum-sobrancelhas-natura-1.png',null,4,72,)
+--#endregion 
 
 
---Viviane
+--#region lapis sobrancelhas natura (Viviane)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (73,'#693F31','#8D5E4E','#B08273');
@@ -2250,12 +2261,13 @@ Características:
 Dicas de uso:
 Faça traços no sentido dos pelos preenchendo as sobrancelhas. utilize a escova para pentear os fios. para traços mais claros e suave, não pressione muito o lápis. para traços mais escuros, pressione levemente o lápis ao preencher as sobrancelhas.',
 37.90,33.90,1,80,'lapis-sobrancelha-natura-2.jpg', 'lapis-sobrancelha-natura-1.png',null,4,73,)   
+--#endregion
 
 
-
+--#region Pincel PRO Sobrancelhas Una (Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(74,'#D4A0AD','#FFC0D0','#FFCDD8');
+(74,'#B68692','#D4A0AD','#EFC3CE');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2263,10 +2275,11 @@ VALUES
 'Pincel duplo vegano com ponta chanfrada para desenhar sobrancelhas e delineados, e escova para pentear fios e cílios. Proporciona acabamento profissional com cerdas macias e menor impacto ambiental, feito com plástico reciclado.',
 'Una acabamento profissional a menos impacto no planeta.
 Cerdas macias, com um lado em formato chanfrado, ideal para desenhar sobrancelhas e delineados, e outro lado em formato de escova para pentear as sobrancelhas e os cílios. Os pinceis profissionais de Natura Una oferecem menos impacto no planeta: 10 toneladas de plástico reciclado retirado do meio ambiente em um ano.',
-29.90,22.40,1,40,'pincel-sobrancelha-2.jpg', 'pincel-sobrancelha-1.png',null,20,74,)
+29.90,22.40,1,40, 'pincel-sobrancelha-1.png','pincel-sobrancelha-2.jpg',null,20,74,)
+--#endregion 
 
 
---Viviane
+--#region lapis retratil sobrancelhas natura (Viviane)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (75,'#734943','#976963','#B88A84');
@@ -2284,12 +2297,13 @@ Faça traços no sentido dos pelos preenchendo as sobrancelhas. utilize o pincel
 Ingredientes:
 CERA MICROCRISTALLINA, HYDROGENATED COCO-GLYCERIDES, CAPRYLIC/CAPRIC TRIGLYCERIDE, HYDROGENATED JOJOBA OIL, RICINUS COMMUNIS SEED OIL, COPERNICIA CERIFERA WAX, BUTYROSPERMUM PARKII BUTTER, CAPRYLYL GLYCOL, PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE, AQUA, TOCOPHEROL, CITRIC ACID. PODE CONTER / PUEDE CONTENER: MICA, CI 77499, CI 77891, CI 77491, CI 77492.',
 34.70,null,0,'lapis-retratil-sobrancelha-2.jpg', 'lapis-retratil-sobrancelha-1.png',null,4,75,)   
+--#endregion
 
 
-
+--#region Pincel PRO Iluminador Una(Roberta)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(76,'#FFC4CC','#FFDBE0','#FFEEEF');
+(76,'#DDA2AA','#FFC4CC','#FBD5DA');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2305,13 +2319,13 @@ Características:
 Dicas de uso:
 Aplique o produto com movimentos leves de “vai e vem” nas áreas em que deseja destacar como: nariz, parte superior dos lábios, têmporas e arco das sobrancelhas. dica do expert: pode ser utilizado para esfumar o côncavo, caso deseje um esfumado rápido, mas profissional.',
 49.90,32.40,1,70,'pince-pro-iluminador-natura-1.png','pince-pro-iluminador-natura-2.jpg',null,20,76,)
+--#endregion 
 
 
-
-
+--#region Esmalte Cremoso Nude (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(77,'#BB5767','#DE677A','#FF778C');
+(77,'#BB5767','#DE677A','#F59EAC');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2332,10 +2346,11 @@ Vale destacar que não recomendamos o uso para o público infantil e, em casos d
 
 Modo de Usar:
 Indicamos iniciar o processo de esmaltação com o uso de uma de uma de nossas bases da linha de Cuidados. Logo após aplicar duas camadas de cor do seu Colorama Cremeoso preferido! Para finalizar, você pode optar por uma secagem rápida com o nosso Oléo Secante ou, se preferir, realçar ainda mais sua cor, use o nosso famoso "roxinho", a Cobertura Intensificadora da Cor',
-7.29,6.64,1,102,'esmalte-colorama-nude-1.png', 'esmalte-colorama-nude-2.png', 'esmalte-colorama-nude-3.jpg',21,77,)
+6.64,null,0,102,'esmalte-colorama-nude-1.png', 'esmalte-colorama-nude-2.png', 'esmalte-colorama-nude-3.jpg',21,77,)
+--#endregion 
 
 
-
+--#region Cera Nutritiva de Unha Granado (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (78,'#FF3376','#FF5084','#FF719B');
@@ -2353,12 +2368,13 @@ Especificações:
 Cruelty Free
 Cuidado das Cutículas',
 41.00,28.88,1,70,'cera-nutritiva-unhasecuticulas-granado-1.png', 'cera-nutritiva-unhasecuticulas-granado-2.jpg', 'cera-nutritiva-unhasecuticulas-granado-3.jpg',21,78)
+--#endregion 
 
 
-
+--#region  Esmalte Cremoso Meia Seda (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(79,'#BF6F7C','#BF808A','#D49AA5');
+(79,'#A6646F','#BF808A','#E7B1BA');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2381,11 +2397,13 @@ Modo de Usar:
 • Remova o excesso do pincel do Esmalte Cremoso Dailus e aplique sobre as unhas.
 • Se preferir, aplique uma segunda camada.',
 9.49,null,0,89,'dailus-esmalte-meiadeseda-1.png', 'dailus-esmalte-meiadeseda-2.jpg','dailus-esmalte-meiadeseda-3.jpg',21,79,)
+--#endregion
 
 
+--#region  Esmalte Cremoso Worth a Pretty Penne (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(80,'#BD796B','#BD897D','#BD968E');
+(80,'#AF685A','#BD796B','#E2A497');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2407,11 +2425,11 @@ Modo de Usar:
 Precauções:
 Produto Inflamável. Mantenha fora do alcance de crianças.
 ',
-49.90,33.69,1,73,'opi-esmalte-naillacquer-1.png', 'opi-esmalte-naillacquer-2.jpg', 'opi-esmalte-naillacquer-3.jpg',21,80,)
+33.69,null,0,73,'opi-esmalte-naillacquer-1.png', 'opi-esmalte-naillacquer-2.jpg', 'opi-esmalte-naillacquer-3.jpg',21,80,)
+--#endregion
 
 
-
---Adriana
+--#region oleo secante unha (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (81,'#C55F8A','#EA80AC','#FBA7CA');
@@ -2436,9 +2454,10 @@ Aplicar uma gota em cada unha após a aplicação do esmalte. Pode ser usada ant
 
 Produto não tesado em animais. Produto Vegano.',
 19.00,null,0,83,'essence-oleo-secante-1.png', 'essence-oleo-secante-2.jpg', 'essence-oleo-secante-3.jpg',21,81,)    
+ --#endregion
 
 
---Adriama
+--#region esmalte dior nuir (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (82,'#480316','#7A0525','#BA4564');
@@ -2458,10 +2477,10 @@ Como Usar:
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
 219.00,186.15,1,49,'esmalte-dior-nuit-1.png', 'esmalte-dior-nuit-2.jpg', 'esmalte-dior-nuit-3.jpg',21,82,)  
+--#endregion
 
 
-
---Adriana
+--#region esmalte dior pastel mint (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (83,'#ADC4B4','#C8E3D0','#E2F4E7');
@@ -2481,10 +2500,10 @@ Como Usar:
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
 219.00,186.15,1,49,'esmalte-dior-pastelmint-1.png', 'esmalte-dior-pastelmint-2.jpg', 'esmalte-dior-pastelmint-3.jpg',21,83,)  
+--#endregion
 
 
-
---Adriana
+--#region esmalte dior dune (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (84,'#C87060','#E38C7D','#FBAFA2');
@@ -2504,11 +2523,10 @@ Como Usar:
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
 219.00,186.15,1,49,'esmalte-dior-dune-1.png', 'esmalte-dior-dune-2.jpg', 'esmalte-dior-dune-3.jpg',21,84,)  
+--#endregion
 
 
-
-
---Adriana
+--#region esmalte dior denim (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (85,'#2F3361','#4F559C','#848CDB');
@@ -2528,11 +2546,10 @@ Como Usar:
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
 219.00,186.15,1,49,'esmalte-dior-denim-1.png', 'esmalte-dior-denim-2.jpg', 'esmalte-dior-denim-3.jpg',21,84,) 
+--#endregion
 
 
-
-
---Adriana
+--#region esmalte dior rouge (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (86,'#99112A','#D11739','#F24A69');
@@ -2552,11 +2569,10 @@ Como Usar:
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
 219.00,186.15,1,49,'esmalte-dior-rouge-1.png', 'esmalte-dior-rouge-2.png',null,21,86) 
+--#endregion
 
 
-
-
---Adriana
+--#region esmalte dior cinema (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (87,'#BA3724','#EB452D','#EB5C49');
@@ -2576,10 +2592,10 @@ Como Usar:
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
 219.00,186.15,1,49,'esmalte-dior-cinema-1.png', 'esmalte-dior-cinema-2.jpg', 'esmalte-dior-cinema-3.jpg',21,87,)  
+--#endregion
 
 
-
---Adriana
+--#region esmalte dior grace (Adriana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (88,'#C65665','#F0687A','#F08391');
@@ -2599,13 +2615,13 @@ Como Usar:
 2. Aplique uma primeira camada muito fina de Dior Vernis no centro da unha e depois nos lados. Depois, aplique uma segunda camada mais generosa para dar profundidade à cor.
 3. Maximize o brilho com uma camada de Top Coat Dior.',
 219.00,186.15,1,49,'esmalte-dior-grace-1.png', 'esmalte-dior-grace-2.jpg', 'esmalte-dior-grace-3.jpg',21,88)  
+--#endregion
 
 
-
-
+--#region Protetor Solar Corporal FPS 50 (Bruna)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(89,'#F1D33B','#F1D853','#F1DC7A');
+(89,'#FBC532','#FFDA1F','#FFE45C');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -2630,11 +2646,10 @@ Ingredientes:
  - Água, Octocrileno, Homosalato, Propanodiol, Butil Metoxidibenzoilmetano, Salicilato de Etilhexila, Manteiga de Karité, Cetil Fosfato de Potássio, Adipato de Diisopropila, Etilhexiltriazone, Triacontanil PVP, Eter Dicaprílico, Undecano, Ácido Fenilbenzimidazol Sulfônico, Carbonato Dicaprílico, Estearato de Glicerila, Álcool Cetílico, Óleo de semente de uva, Sílica, Tridecano, Arginina, Hidroxiacetofenona, Goma Xantana, 1,2-Hexanodiol, Caprilil glicol, Crosspolímero de Acrilatos/Acrilato de Alquila C10-30, Ácido Cítrico, Gluconato de Sódio, Tetra-di-t-butil Hidroxiidrocinamato de Pentaeritritila, Tocoferol.
  - Ingredientes especiais: Manteiga de Karité e Óleo de Semente de Uva.',
 89.90,null,0,82,'protetor-solar50-corporal-sallve-1.png', 'protetor-solar50-corporal-sallve-2.jpg', 'protetor-solar50-corporal-sallve-3.jpg',25,89,)
+--#endregion 
 
 
-
-
---Michael
+--#region floratta red (Michael)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (90,'#892227','#EA1A25','#FB565E');
@@ -2667,9 +2682,10 @@ Ingredientes:
 
 Nenhum produto do Grupo Boticário é testado em animais. ',
 159.90,135.90,1,80,'floratta-red-1.png', 'floratta-red-2.jpg', 'floratta-red-3.jpg',5,90,)
+--#endregion 
 
 
---Michael
+--#region floratta rose bouquet (Michael)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (91,'#CA929C','#EAAEB9','#FDC9D2');
@@ -2703,8 +2719,10 @@ Alcool etilico denaturado, Agua, Perfume, Caprililglicol, Alfa-isometil ionona, 
 
 Nenhum produto o Boticário é testado em animais, ou seja, este item possui selo Cruelty Free. ',
 159,90,null,0,80,'floratta-rose-bouquet-1.png', 'floratta-rose-bouquet-2.jpg', 'floratta-rose-bouquet-3.jpg',5,91,)
+--#endregion
 
---Michael
+
+--#region floratta gold (Michael)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (92,'#EEDD85','#FDED9B','#FFF3B8');
@@ -2737,10 +2755,10 @@ Devido à presença de alguns ingredientes, a cor do produto pode variar, porém
 
 Nenhum produto o Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
 159.90,null,0,80,'floratta-gold-1.png', 'floratta-gold-2.jpg', 'floratta-gold-3.jpg',5,92,)
+--#endregion
 
 
-
---Michael
+--#region floratta romance de verão (Michael)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (93,'#E8247D','#E67C9D','#EAB396');
@@ -2775,10 +2793,10 @@ Devido à presença de alguns ingredientes, a cor do produto pode variar, porém
 
 Nenhum produto do Boticário é testado em animais, ou seja, este item possui selo Cruelty Free.',
 159.90,null,0,80,'floratta-romancedeverao-1.png', 'floratta-romancedeverao-2.jpg', 'floratta-romancedeverao-3.jpg',5,93,)
+--#endregion
 
 
-
---Michael
+--#region floratta fleur (Michael)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (94,'#692E66','#97398D','#AF78A2');
@@ -2812,115 +2830,952 @@ Devido à presença de alguns ingredientes, a cor do produto pode variar, porém
 
 Nenhum produto O Boticário é testado em animais, ou seja, este item possui selo Cruelty Free. Produto vegano.",
 209.90,null,0,90,'Floratta-Fleur-Eclipse-1.png', 'Floratta-Fleur-Eclipse-2.jpg', 'Floratta-Fleur-Eclipse-3.jpg',5,)94
+--#endregion
 
 
-
-
+--#region  Kit Tododia Máscaras Reparação, Nutrição e Hidratação (maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(95,'','','');
+(95,'#11929C' '#D66D77','#EC7C16',);
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Kit Tododia Máscaras Reparação, Nutrição e Hidratação', 'Natura', '250ml',
+'Cronocapilar completo com fórmulas para hidratar, nutrir ou reparar seus fios.
+O Cronocapilar de Natura Tododia tem três máscaras concentradas que proporcionam cuidado intenso desde o primeiro uso. Suas fórmulas com Tecnologia Prebiótica cuidam da raiz às pontas para hidratar, nutrir ou reparar os fios. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado.',
+'Cronocapilar completo com fórmulas para hidratar, nutrir ou reparar seus fios.
+O Cronocapilar de Natura Tododia tem três máscaras concentradas que proporcionam cuidado intenso desde o primeiro uso. Suas fórmulas com Tecnologia Prebiótica cuidam da raiz às pontas para hidratar, nutrir ou reparar os fios. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado.
+
+Benefícios:
+• Máscara Hidrata: feita com pantenol e extrato de aloe vera, que hidratam e retém a água dos fios. Essa máscara promove uma hidratação profunda e sem pesar, que recupera os fios dos desgastes do dia a dia. Devolve o brilho e movimento dos fios, deixando seu cabelo mais macio e solto. Fragrância fresca e delicada com notas de maçã verde.
+• Máscara Nutre: feita com óleo de coco e óleo de amêndoa, que repõem os nutrientes. Essa máscara nutre profundamente, dá brilho e combate o frizz. Perfeita para revitalizar seu cabelo de maneira rápida e prática. Fragrância alegre e cremosa, com notas de pêssego.
+• Máscara Repara: feita com arginina e óleo de abacate, que reparam fios danificados com uma recarga de aminoácidos. Essa máscara repara danos causados por procedimentos químicos e devolve o aspecto saudável dos fios. Fragrância feminina e envolvente, com notas de flor de cereja.
+
+Conteúdo::
+1 Máscara concentrada cronocapilar repara 250 ml.
+1 Máscara concentrada cronocapilar nutre 250 ml.
+1 Máscara concentrada cronocapilar hidrata 250 ml.
+
+Dicas de uso:
+Após lavar seus cabelos com os produtos de Tododia, aplique a máscara por todo o comprimento dos fios úmidos, evitando a raiz. Deixe agir por 3 minutos, aproveite o momento e relaxe. Em seguida, enxágue.
+
+Ingredientes:
+Máscara repara: ÁGUA, ÁLCOOL CETOESTEARÍLICO, METOSSULFATO DE BEENTRIMÔNIO, PALMITATO DE ISOPROPILA, DIMETICONOL, ÉSTERES CETÍLICOS, CLORETO DE CETRIMÔNIO, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, FENOXIETANOL, ÓLEO DE HÍBRIDO DE HELIANTHUS ANNUUS, GOMA GUAR, ÁCIDO CÍTRICO, ÓLEO DE PERSEA RATISSIMA, ARGININA, DODECILBENZENOSULFONATO DE TEA, HEXIL CINAMAL, ÁCIDO LÁCTICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, LIMONENO, ÁLCOOL BENZÍLICO, LINALOL, BUTILCARBAMATO DE IODOPROPINILA, MACROGOL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.Mascara nutre: ÁGUA, ÁLCOOL CETOESTEARÍLICO, LAURATO DE ISOAMILA, CLORETO DE BEENTRIMÔNIO, GLICEROL, DIMETICONOL, ÉSTERES CETÍLICOS, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, GOMA GUAR, FENOXIETANOL, DIEPTANOATO DE PROPILENOGLICOL, ÓLEO DE COCO, DIMETICONA, ÁCIDO CÍTRICO, ÁLCOOL ISOPROPÍLICO, ÓLEO DE AMÊNDOAS , ÁCIDO LÁCTICO, DODECILBENZENOSULFONATO DE TEA, HEXIL CINAMAL, EDETATO DISSÓDICO, SALICILATO DE BENZILA, DILAURATO DE PEG-4, LAURATO DE PEG-4, LINALOL, LIMONENO, ÁLCOOL BENZÍLICO, CITRONELOL, CUMARINA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.Máscara hidrata:',
+137,70,null,0,40,'kit-mascaras-natura-1.png','kit-mascaras-natura-2.jpg',null,16,95,)
+--#endregion
+
+
+--#region  Máscara Concentrada Crono Capilar Tododia Hidrata (Maiara)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(96,'#11929C','#35A4AC','#8FD6DB');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Máscara Concentrada Crono Capilar Tododia Hidrata','Natura','250ml',
+'Cuidado intenso para cabelos hidratados desde o primeiro uso.
+A Máscara Concentrada Crono Capilar TodoDia Hidrata oferece um cuidado intenso e rápido, recuperando os fios dos desgastes diários.',
+'Com uma fórmula leve e prática, ela hidrata profundamente sem pesar, devolvendo o brilho e a maciez desde o primeiro uso. Enriquecida com pantenol e extrato de aloe vera, que hidratam e retêm a umidade nos fios, esta máscara deixa o cabelo mais solto, macio e com movimento. A fragrância fresca e delicada com notas de maçã verde transforma o cuidado em um momento de bem-estar.
+
+Benefícios:
+ - Enriquecido com pantenol e extrato de aloe vera, que hidratam e retêm a umidade.
+ - Fragrância fresca e delicada com notas de maçã verde.
+ - Hidrata profundamente sem pesar.
+ - Recupera os fios dos desgastes do dia a dia.
+ - Devolve brilho e movimento aos cabelos.
+ - Cabelos mais macios e soltos.
+ - Fórmula com 98% de ingredientes de origem natural.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+ 
+Dicas de uso:
+Aplique nos fios úmidos, evitando a raiz, e deixe agir por 3 minutos. Aproveite esse momento para relaxar e em seguida enxágue. Use regularmente para cabelos mais saudáveis e hidratados.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETÍLICO, CLORETO DE BEENTRIMÔNIO, ÁLCOOL ESTEARÍLICO, BIS-CETEARILAMODIMETICONA, FARNESENO HIDROGENADO, PERFUME, ESTEARAMIDOPROPIL DIMETILAMINA, FENOXIETANOL, ÓLEO DEHÍBRIDO DE HELIANTHUS ANNUUS, ÁLCOOL ISOPROPÍLICO, MALTODEXTRINA, PANTENOL, ÁCIDO LÁCTICO, EXTRATO DAFOLHA DE ALOE BARBADENSIS, ÁCIDO CÍTRICO, CETOMACROGOL 1000, CETOMACROGOL 1000, EDETATO DISSÓDICO,ÁLCOOL MIRISTÍLICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, CAPRILILGLICOL, BUTILCARBAMATO DE IODOPROPINILA ,MACROGOL, ÁCIDO GLICÓLICO, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
+45.90,32.13,1,30,'natura-mascara-tododia-hidrata-1.png', 'natura-mascara-tododia-hidrata-2.jpg', 'natura-mascara-tododia-hidrata-3.jpg',16,96,)
+--#endregion
+
+
+--#region Máscara Concentrada Crono Capilar Tododia Nutre (Maiara)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(97,'#E06C00','#EC7C16','#FDBB7C');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Máscara Concentrada Crono Capilar Tododia Nutre','Natura','250ml',
+'A Máscara Concentrada Crono Capilar TodoDia Nutre oferece cuidado intenso, revitalizando e nutrindo os cabelos profundamente.',
+'Perfeita para recuperar cabelos ressecados e com frizz, sua fórmula rica em óleo de coco e óleo de amêndoa repõe os nutrientes essenciais dos fios, deixando-os com brilho, maciez e sem frizz. Com uma fragrância alegre e cremosa, que traz as notas encantadoras de pêssego e baunilha, ela transforma o cuidado capilar em um momento de prazer e bem-estar.
+
+Benefícios:
+ - Enriquecida com óleo de coco e óleo de amêndoa, que repõem os nutrientes.
+ - Nutre e revitaliza cabelos ressecados.
+ - Combate o frizz e recupera o brilho dos fios.
+ - Cabelos macios e soltos desde o primeiro uso.
+ - Fragrância alegre com notas de pêssego.
+ - Fórmula com 95% de ingredientes de origem natural.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+ 
+Dicas de uso:
+Aplique a máscara nos fios úmidos, evitando a raiz, e deixe agir por 3 minutos. Aproveite esse tempo para relaxar e, em seguida, enxágue bem. Para melhores resultados, use regularmente.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, LAURATO DE ISOAMILA, CLORETO DE BEENTRIMÔNIO, GLICEROL, DIMETICONOL, ÉSTERES CETÍLICOS, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, GOMA GUAR, FENOXIETANOL, DIEPTANOATO DE PROPILENOGLICOL, ÓLEO DE COCO, DIMETICONA, ÁCIDO CÍTRICO, ÁLCOOL ISOPROPÍLICO, ÓLEO DE AMÊNDOAS , ÁCIDO LÁCTICO, DODECILBENZENOSULFONATO DE TEA, HEXIL CINAMAL, EDETATO DISSÓDICO, SALICILATO DE BENZILA, DILAURATO DE PEG-4, LAURATO DE PEG-4, LINALOL, LIMONENO, ÁLCOOL BENZÍLICO, CITRONELOL, CUMARINA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
+45.90,27.54,1,30,'natura-mascara-tododia-nutre-1.png', 'natura-mascara-tododia-nutre-2.png', 'natura-mascara-tododia-nutre-3.png',16,97,)
+--#endregion 
+
+
+--#region Máscara Concentrada Crono Capilar Tododia Repara (Maiara)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(98,'#BB545E','#D66D77','#F29CA4');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Máscara Concentrada Crono Capilar Tododia Repara','Natura','250ml',
+'A Máscara Concentrada Crono Capilar TodoDia Repara oferece um cuidado intenso, restaurando cabelos enfraquecidos e danificados por procedimentos químicos.',
+'Sua fórmula enriquecida com arginina e óleo de abacate proporciona uma recarga de aminoácidos que repara os fios, devolvendo seu aspecto saudável. Com uma fragrância envolvente de flor de cereja, a máscara transforma o cuidado capilar em um momento de prazer e bem-estar. Ideal para quem busca cabelos mais fortes, saudáveis desde o primeiro uso.
+
+Benefícios:
+ - Repara danos causados por procedimentos químicos.
+ - Recupera cabelos enfraquecidos e danificados.
+ - Enriquecida com arginina e óleo de abacate, que restauram os fios.
+ - Devolve o aspecto saudável dos fios.
+ - Fragrância envolvente com notas de flor de cereja.
+ - Fórmula com 95% de ingredientes de origem natural.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+ 
+Dicas de uso:
+Aplique a máscara nos fios úmidos, evitando a raiz, e deixe agir por 3 minutos. Aproveite para relaxar enquanto o produto repara os fios. Enxágue bem em seguida.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, METOSSULFATO DE BEENTRIMÔNIO, PALMITATO DE ISOPROPILA, DIMETICONOL, ÉSTERES CETÍLICOS, CLORETO DE CETRIMÔNIO, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, FENOXIETANOL, ÓLEO DE HÍBRIDO DE HELIANTHUS ANNUUS, GOMA GUAR, ÁCIDO CÍTRICO, ÓLEO DE PERSEA RATISSIMA, ARGININA, DODECILBENZENOSULFONATO DE TEA, HEXIL CINAMAL, ÁCIDO LÁCTICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, LIMONENO, ÁLCOOL BENZÍLICO, LINALOL, BUTILCARBAMATO DE IODOPROPINILA, MACROGOL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
+45.90,null,0,30,'natura-mascara-tododia-repara-1.png', 'natura-mascara-tododia-repara-2.png', 'natura-mascara-tododia-repara-3.png',16,98,)
+--#endregion 
+
+
+--#region Spray Hidratante Tododia Maçã Verde e Aloe Vera (jonathan)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(99,'#4A8C85','#62A39B','#9DD7D0');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Spray Hidratante Tododia Maçã Verde e Aloe Vera','Natura','200ml',
+'Natura Tododia Spray Hidratante Maçã Verde e Aloe Vera é a combinação perfeita de frescor e hidratação para seus cabelos.',
+'Com uma fórmula leve e refrescante, proporciona hidratação instantânea, deixando seus cabelos com menos frizz, macios, soltinhos e com brilho radiante. Sua fragrância deliciosa, inspirada na maçã verde e na aloe vera, traz a sensação de bem-estar e vitalidade, ideal para o dia a dia.
+
+Benefícios:
+ - Para todas as curvaturas.
+ - Textura leve que não pesa.
+ - Fios soltinhos e radiantes.
+ - Cabelos sem frizz por mais tempo.
+ - Hidratação prolongada.
+ - Fragrância fresca e delicada com notas de maçã verde.
+ - Cabelos mais macios e sedosos.
+ - Proteção térmica para evitar danos causados pelo calor do secador.
+ - Fórmula com 95% ingredientes de origem natural.
+ - Recupera os fios dos desgastes do dia a dia.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+ 
+Dicas de uso:
+Aplique nos fios secos ou úmidos, do comprimento às pontas, evitando a raiz. Sem enxágue.',
+37.90,null,0,30,'spray-hidratante-tododia-maca-1.png', 'spray-hidratante-tododia-maca-2.jpg', 'spray-hidratante-tododia-maca-3.jpg',16,99,)
+--#endregion 
+
+
+--#region Shampoo Hidratante Tododia Maçã Verde e Aloe Vera (Jonathan)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(100,'#58847C','#6E938C','#A2C8C1');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Shampoo Hidratante Tododia Maçã Verde e Aloe Vera','Natura','300ml',
+'O Shampoo Hidratante Tododia Maçã Verde e Aloe Vera limpa e hidrata sem pesar os fios. ',
+'Limpa e deixa seus cebelos soltinhos. Sua fórmula equilibrada deixa os cabelos soltinhos e brilhantes. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado. Essa linha conta com a exclusiva Tecnologia Prebiótica, que cuida da raiz às pontas.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+
+Dicas de uso:
+ - Deixe a sua rotina mais gostosa.
+ - Aplique o shampoo nos cabelos molhados. Massageie até formar espuma e enxágue em seguida.
+ 
+Ingredientes:
+ÁGUA, LAURILSULFATO DE SÓDIO, COCOAMIDOPROPILBETAÍNA, DECIL GLICOSÍDEO , GLICEROL, COCOATO DE PEG-7 GLICERILA, PERFUME, CLORETO DE SÓDIO, BENZOATO DE SÓDIO, POLIQUATÉRNIO-39, ÁCIDOCÍTRICO, SORBATO DE POTÁSSIO, TRIOLEATO DE PEG-120 METIL GLICOSE, PROPILENOGLICOL, GLICONATO DE SÓDIO, HIDRÓXIDO DE SÓDIO, MALTODEXTRINA, EXTRATO DA FOLHA DE ALOE BARBADENSIS, ÓLEO DA SEMENTE DE ORBIGNYA OLEIFERA, CARBONATO DE SÓDIO.',
+33.90,null,0,30,'shampoo-hidratante-tododia-maca-1.png','shampoo-hidratante-tododia-maca-2.png','shampoo-hidratante-tododia-maca-3.png',15,100,)
+--#endregion 
+
+
+--#region Condicionador Hidratante Tododia Maçã Verde e Aloe Vera (Jonathan)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(101,'#78B5AD','#A6D5CF','#D4F7F2');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Condicionador Hidratante Tododia Maçã Verde e Aloe Vera','Natura','280ml',
+'O Condicionador Hidratante Tododia Maçã Verde e Aloe Vera promove uma hidratação profunda e sem pesar.',
+'Hidrata sem pesar os fios.
+Sua textura cremosa desliza entre os fios, deixando eles soltinhos e brilhantes. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado. Essa linha conta com a exclusiva Tecnologia Prebiótica, que cuida da raiz às pontas.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+
+Dicas de uso:
+Aplique o condicionador nos cabelos molhados. Espalhe por todo o comprimento do cabelo, evitando a raiz. Enxágue em seguida.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, CLORETO DE BEENTRIMÔNIO, ESTEARAMIDOPROPIL DIMETILAMINA, PERFUME, FENOXIETANOL, FARNESENO HIDROGENADO, DICAPRILIL ÉTER, LAURATO DE ISOAMILA, DIMETICONOL, MALTODEXTRINA, ÁLCOOL ISOPROPÍLICO, EXTRATO DA FOLHA DE ALOE BARBADENSIS, ÓLEO DE HÍBRIDO DE HELIANTHUS ANNUUS, ÁCIDO CÍTRICO, ÓLEO DE COCO, DIEPTANOATO DE PROPILENOGLICOL, ÁCIDO LÁCTICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, DODECILBENZENOSULFONATO DE TEA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, ÁLCOOL BENZÍLICO, TOCOFEROL, HIDRÓXIDO DE SÓDIO, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
+35.90,null,0,30,'condicionador-hidratante-tododia-maca-1.png', 'condicionador-hidratante-tododia-maca-2.jpg', 'condicionador-hidratante-tododia-maca-3.jpg',15,101,)
+--#endregion 
+
+
+--#region  Shampoo Reparador Tododia Flor de Cereja e Abacate (Maiara)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(102,'#D18088','#D59AA0','#DE9F8D');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Shampoo Reparador Tododia Flor de Cereja e Abacate','Natura','300ml',
+'O Shampoo Reparador Tododia Flor de Cereja e Abacate limpa e recupera os cabelos danificados pelo uso de produtos químicos.',
+'Limpeza suave com espuma envolvente e perfumada.
+Sua fórmula com óleo de abacate não agride os fios e ainda evita o ressecamento. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado. Essa linha conta com a exclusiva Tecnologia Prebiótica, que cuida da raiz às pontas.
+
+Benefícios:
+ - Repara os fios e melhora a sua resistência.
+ - Evita o ressecamento.
+ - Espuma envolvente.
+ - Fragrância feminina e envolvente, com notas de flor de cereja.
+ - Limpeza suave que não agride os fios.
+ - Para todas as curvaturas.
+ - Repara cabelos danificados por procedimentos químicos.
+ - Fórmula com 92% ingredientes de origem natural.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+
+Dicas de uso:
+ - Deixe a sua rotina mais gostosa.
+ - Aplique o shampoo nos cabelos molhados. Massageie até formar espuma e enxágue em seguida.
+
+Ingredientes:
+ÁGUA, LAURILSULFATO DE SÓDIO, COCOAMIDOPROPILBETAÍNA, CLORETO DE SÓDIO, COPOLÍMERO DE ÁCIDO METACRÍLICO E ACRILATO DE ETILA, DECIL GLICOSÍDEO , DIMETICONOL, ÁCIDO CÍTRICO, PERFUME, COCO-GLICOSÍDEO, DIESTEARATO DE ETILENOGLICOL, BENZOATO DE SÓDIO, POLIQUATÉRNIO-6, HIDRÓXIDO DE SÓDIO, SORBATO DE POTÁSSIO, POLIQUATÉRNIO-39, TRIOLEATO DE PEG-120 METIL GLICOSE, PROPILENOGLICOL, ARGININA, ÓLEO DE RÍCINO HIDROGENADO ETOXILADO, GLICONATO DE SÓDIO, POLIQUATÉRNIO-22, ÓLEO DE PERSEA GRATISSIMA, GLICEROL, HEXIL CINAMAL, DODECILBENZENOSULFONATO DE TEA, LIMONENO, MONOLEATO DE GLICERILA, MONOESTEARATO DE GLICERILA, ÁLCOOL BENZÍLICO, ÓLEO DA SEMENTE DE ORBIGNYA OLEIFERA, ÁCIDO BENZOICO, CARBONATO DE SÓDIO, BUTILCARBAMATO DE IODOPROPINILA.',
+33.90,null,0,30,'shampoo-reparador-tododia-flor-1.png', 'shampoo-reparador-tododia-flor-2.jpg', 'shampoo-reparador-tododia-flor-3.jpg',15,102,)
+--#endregion
+
+
+--#region Condicionador Reparador Tododia Flor de Cereja e Abacate (Maiara)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(103,'#C55758','#EAA2A3','#EDB39D');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Condicionador Reparador Tododia Flor de Cereja e Abacate','Natura','280ml',
+'O Condicionador Reparador Tododia Flor de Cereja e Abacate recupera os cabelos danificados pelo uso de produtos químicos.',
+'Fios selados e com menos pontas duplas.
+Sua fórmula com óleo de abacate sela os fios e reduz pontas duplas. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado. Essa linha conta com a exclusiva Tecnologia Prebiótica, que cuida da raiz às pontas.
+
+Benefícios:
+ - Repara e revitaliza os fios.
+ - Repara cabelos danificados por procedimentos químicos.
+ - Fórmula com 94% ingredientes de origem natural.
+ - Para todas as curvaturas.
+ - Fragrância feminina e envolvente, com notas de flor de cereja.
+ - Deixa os fios com aspecto saudável.
+ - Reduz pontas duplas.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+
+Dicas de uso:
+Aplique o condicionador nos cabelos molhados. Espalhe por todo o comprimento do cabelo, evitando a raiz. Enxágue em seguida.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, CLORETO DE BEENTRIMÔNIO, BIS-CETEARILAMODIMETICONA, DIMETICONOL, FENOXIETANOL, PERFUME, ÁLCOOL ISOPROPÍLICO, ÓLEO DE PERSEA GRATISSIMA,CETOMACROGOL 1000, CETOMACROGOL 1000, ARGININA, ÁCIDO CÍTRICO, DODECILBENZENOSULFONATO DE TEA,EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, HEXIL CINAMAL, LIMONENO, CAPRILILGLICOL, ÁLCOOLBENZÍLICO, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, ÁCIDO GLICÓLICO, HIDRÓXIDO DE SÓDIO, CARBONATO DESÓDIO, CLORETO DE SÓDIO.',
+35.90,null,0,30,'condicionador-reparador-tododia-flor-1.png', 'condicionador-reparador-tododia-flor-2.jpg', 'condicionador-reparador-tododia-flor-3.jpg',15,103)
+--#endregion 
+
+
+--#region Shampoo Nutritivo Tododia Pêssego e Amêndoa (Jonathan)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(104,'#E4682C','#C99364','#E9C195');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Shampoo Nutritivo Tododia Pêssego e Amêndoa','Natura','300ml',
+'O Shampoo Nutritivo Tododia Pêssego e Amêndoa limpa os cabelos sem ressecar.',
+'Protege do ressecamento e realça o brilho dos fios.
+Sua fórmula com óleo de amêndoa deixa os fios mais macios, nutridos e sedosos. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem-estar para sua rotina de um jeito simples e descomplicado. Essa linha conta com a exclusiva Tecnologia Prebiótica, que cuida da raiz às pontas.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+ 
+Dicas de uso:
+Deixe a sua rotina mais gostosa.
+Aplique o shampoo nos cabelos molhados. Massageie até formar espuma e enxágue em seguida.',
+33.90,null,0,30,'shampoo-nutritivo-tododia-pessego-1.png', 'shampoo-nutritivo-tododia-pessego-2.jpg','shampoo-nutritivo-tododia-pessego-3.jpg',15,104,)
+--#endregion 
+
+
+--#region Condicionador Nutritivo Tododia Pêssego e Amêndoa (Maiara)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(105,'#D3562A','#DFA46D','#DEC4AB');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Condicionador Nutritivo Tododia Pêssego e Amêndoa','Natura','280ml',
+'O Condicionador Nutritivo Tododia Pêssego e Amêndoa nutre intensamente e devolve o brilho natural dos cabelos.',
+'Nutre intensamente e devolve o brilho natural.
+Sua fórmula com óleo de amêndoa deixa os fios sedosos e com menos frizz. Tododia é dia de cuidar dos seus cabelos com produtos gostosos e fragrâncias deliciosas que trazem bem estar para sua rotina de um jeito simples e descomplicado. Essa linha conta com a exclusiva Tecnologia Prebiótica, que cuida da raiz às pontas.
+
+Benefícios:
+ - Fragrância alegre e cremosa, com notas de pêssego.
+ - Desembaraça.
+ - Reduz o frizz.
+ - Textura cremosa que desmaia o fio.
+ - Nutre intensamente.
+ - Devolve o brilho natural.
+ - Fórmula com 96% ingredientes de origem natural.
+ - Para todas as curvaturas.
+ - Cabelos mais sedosos.
+ 
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Cruelty free
+ - Vegano
+ - Ocasião: cuidado diário
+
+Dicas de uso:
+Aplique o condicionador nos cabelos molhados. Espalhe por todo o comprimento do cabelo, evitando a raiz. Enxágue em seguida.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, PALMITATO DE ISOPROPILA, CLORETO DE BEENTRIMÔNIO,DIMETICONA, ÓLEO DE AMÊNDOAS , GOMA GUAR, FENOXIETANOL, PERFUME, ÁLCOOL ISOPROPÍLICO, HEXIL CINAMAL,ÁCIDO CÍTRICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, LINALOL, SALICILATO DE BENZILA,LIMONENO, CITRONELOL, CUMARINA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, HIDRÓXIDO DE SÓDIO,CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
+35.90,null,0,30,'condicionador-nutritivo-tododia-pessego-1.png', 'condicionador-nutritivo-tododia-pessego-2.jpg', ',condicionador-nutritivo-tododia-pessego-3.jpg',15,105,)
+--#endregion 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(106,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Shampoo de Tratamento Antissinais Regenerador Capilar Lumina','Natura','300ml',
+'Ação antissinais com proteção antioxidante para o couro cabeludo e fios.',
+'Neutraliza o efeito dos radicais livres e desacelera os sinais do tempo. Fórmula com Tecnologia Bioproteína Tripla Ação + Ativo ProMelanina: protege a melanina e estimula a formação da cor natural dos cabelos.
+Nova fragrância com bergamota, frésia e sândalo.
+
+Benefícios com o uso da linha completa:
+ - Previne e reverte a aparição dos fios brancos
+ - Protege e estimula a produção de melanina, mantendo a pigmentação natural dos fios
+ - Tratamento progressivo com resultados cientificamente comprovados.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Cruelty free
+ - Vegano
+ 
+Dicas de uso:
+ - Aplique o shampoo de Natura Lumina nos cabelos molhados, massageando o couro cabeludo. Enxágue em seguida.
+ 
+Ingredientes:
+ÁGUA, SULFATO DE SÓDIO LAURETE, COCAMIDOPROPIL BETAÍNA, COPOLÍMERO DE ÁCIDO METACRÍLICO E ACRILATO DE ETILA, PERFUME, ÁCIDO CÍTRICO, ÓXIDO DE LAURAMINA, DIESTEARATO DE ETILENOGLICOL, TRIETANOLAMINA, BIS-CETEARIL AMODIMETICONA, CAFEÍNA, LAURETE-4, BENZOATO DE SÓDIO, POLIQUATÉRNIO-6, POLIQUATÉRNIO-22, SORBATO DE POTÁSSIO, PROPANODIOL, LINALOL, EDETATO DISSÓDICO, ÓLEO DA SEMENTE DE CASTANHA-DO-PARÁ, GLICEROL, LIMONENO, HIDRÓXIDO DE SÓDIO, CETEARETE-25, CETEARETE-7, HEXIL CINAMAL, MANTEIGA DA SEMENTE DE MURUMURU [ASTROCARYUM MURUMURU], ÁCIDO BENZOICO, CAPRILILGLICOL, FENOXIETANOL, EXTRATO DE GROSELHA-DA-ÍNDIA, ÁCIDO GLICÓLICO, POLIPEPTÍDEO-1 DE SR-ARANHA, ÓLEO DE RÍCINO HIDROGENADO PEG-40, CLORETO DE SÓDIO, TOCOFEROL, 1,2-HEXANODIOL.',
+52.90,null,0,30,'shampoo-antissinais-lumina-1.png', 'shampoo-antissinais-lumina-2.jpg', 'shampoo-antissinais-lumina-3.jpg',16,106,)
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(107,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sérum de Prevenção Antissinais Regenerador Capilar Lumina','Natura','100ml',
+'Previne e posterga a aparição de fios brancos, mantendo a pigmentação natural dos fios.',
+'Previne e reverte a aparição dos fios brancos, protege e estimula a produção de melanina, mantendo a pigmentação natural dos fios. Tratamento progressivo com resultados cientificamente comprovados, com o uso diário do sérum por 90 dias.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Cruelty free
+ - Vegano
+ 
+Dicas de uso:
+Antes de dormir, aplique o sérum Lumina em toda a extensão do couro cabeludo. Posicione o aplicador próximo ao couro cabeludo e acione a válvula. Em seguida, massageie com as pontas dos dedos. Não enxaguar. No dia seguinte, caso sinta necessidade, lave os cabelos. O produto pode ser aplicado no couro cabeludo com os cabelos limpos, úmidos ou secos.
+
+Ingredientes:
+ÁGUA, ÁLCOOL ETÍLICO, ÓLEO DE RÍCINO HIDROGENADO PEG-40, PROPANODIOL, PERFUME, CAFEÍNA, GLICEROL, SORBATO DE POTÁSSIO, CROSPOLÍMERO DE ACRILATOS/ACRILATO DE ALQUILA C10-30, LINALOL, TRIETANOLAMINA, EDETATO DISSÓDICO, LIMONENO, EXTRATO DE GROSELHA-DA-ÍNDIA, HEXIL CINAMAL, POLIPEPTÍDEO-1 DE SR-ARANHA, CITRAL, CITRONELOL, GERANIOL, ÁCIDO CÍTRICO, CAPRILILGLICOL, 1,2-HEXANODIOL.',
+89.90,null,0,'serum-antissinais-lumina-1.png', 'serum-antissinais-lumina-2.jpg', 'serum-antissinais-lumina-3.jpg',16,107,)
+
+
+
+--#region Shampoo Cabelo Corpo e Barba Essencial (Jonathan)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(108,'#372521','#5D473C','#A68F6D');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Shampoo Cabelo Corpo e Barba Essencial','Natura','100ml',
+'Limpa e perfuma o cabelo, a barba e o corpo com a fragrância amadeirada de Essencial.',
+'Perfeito para homens que gostam de um ritual de cuidados prático e com fragrância amadeirada. Este shampoo 3 em 1 limpa o corpo, a barba e os cabelos sem pesar. Ideal para ser combinado em um presente com os demais produtos de Essencial.
+
+Benefícios:
+• Prático, pode ser usado no cabelo, barba e corpo.
+• Limpa sem pesar.
+• Fragrância amadeirada que combina com o Deo Parfum da linha.
+• Fórmula 87% de origem natural.
+• Produto vegano.
+
+Características:
+ - Tipo de cabelo: todos os tipos de cabelos
+ - Cruelty free
+ - Vegano
+
+Conteúdo: 100 ml.
+
+Ingredientes:
+AQUA, SODIUM LAURETH SULFATE, COCAMIDOPROPYL BETAINE, PARFUM, PPG-1-PEG-9 LAURYL GLYCOL ETHER, PHENOXYETHANOL, SODIUM CHLORIDE, POLYQUATERNIUM-10, LINALOOL, CITRIC ACID, LIMONENE TRIETHANOLAMINE, TETRASODIUM EDTA, PEG-4 DILAURATE, PEG-4 LAURATE, SODIUM HYDROXIDE, HYDROXYCITRONELLAL, HEXYL CINNAMAL, PEG-120 METHYL GLUCOSE TRIOLEATE, PROPYLENE GLYCOL, BENZYL BENZOATE, CITRAL, IODOPROPYNYL BUTYLCARBAMATE, PEG-200. INGREDIENTES (PORTUGUÊS): ÁGUA, LAURILETERSULFATO DE SÓDIO, COCOAMIDOPROPILBETAÍNA, PERFUME, PPG-1-PEG-9 LAURIL GLICOL ÉTER, FENOXIETANOL, CLORETO DE SÓDIO, POLIQUATÉRNIO-1O, LINALOL, ÁCIDO CÍTRICO, LIMONENO, TROLAMINA, EDETATO DE SÓDIO, DILAURATO DE PEG-4, LAURATO DE PEG-4, HIDRÓXIDO DE SÓDIO, HIDROXICITRONELAL, HEXIL CINAMAL, TRIOLEATO DE PEG-120 METIL GLICOSE, PROPILENOGLICOL, BENZOATO DE BENZILA, CITRAL, BUTILCARBAMATO DE IODOPROPINILA, MACROGOL.',
+35.50,17.70,1,30,'shampoo-cabelo-corpo-barba-essencial-1.png', 'shampoo-cabelo-corpo-barba-essencial-2.jpg', 'shampoo-cabelo-corpo-barba-essencial-3.jpg',15,108,)
+--#endregion 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(109,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sérum Noturno Força e Reparação Molecular Lumina','Natura','100ml',
+'Sérum que repara as ligações internas do fio a nível molecular para 5 vezes mais força e potencializa o tratamento do sistema força e reparação',
+'Produto multifuncional, também pode ser usado como pré-shampoo e finalizador. Nova fragrância autoral que combina bergamota, rosa, cedro e musk.
+
+Sistema de tratamento força e reparação molecular:
+• Cabelos 5 vezes mais fortes e protegidos contra danos futuros.
+• Tratamento progressivo com resultados cientificamente comprovados desde a primeira aplicação.
+
+
+3 formas de usar:
+• Modo 1: Como tratamento noturno
+Recupera a massa capilar para ação antiquebra, elimina 95% das pontas duplas e promove 2 vezes mais brilho.
+• Modo 2: como pré-shampoo
+Protege as pontas dos fios antes da lavagem para prevenir os danos.
+• Modo 3: no pós-banho
+Finaliza, trata e alinha as cutículas para mais elasticidade e força. Sem enxágue, pode ser usado com os cabelos molhados ou secos.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: força e reparação molecular.
+
+Dicas de uso:
+Aplique o produto nas mãos, espalhe e aplique nos cabelos úmidos ou secos, evitando a raiz. Use com ou sem enxágue.
+
+Ingredientes:
+ÁGUA, POLIQUATÉRNIO-37, DICAPRILATO/DICAPRATO DE PROPILENOGLICOL, COCOATO DE DECILA, DIMETICONA, PERFUME, TREALOSE, FENOXIETANOL, CLORETO DE HIDROXIPROPIL GUAR HIDROXIPROPILTRIMÔNIO, PPG-1 PEG-6 ÉTER DE ÁLCOOL TRIDECÍLICO, LINALOL, EDETATO DISSÓDICO, HEXIL CINAMAL, DILAURATO DE PEG-4, LAURATO DE PEG-4, ÁCIDO CÍTRICO, SALICILATO DE BENZILA, LIMONENO, CITRAL, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, SR-ARANHA POLIPEPTÍDEO-1, HIDROXICITRONELAL, CITRONELOL, GERANIOL, HIDRÓXIDO DE SÓDIO, CAPRILILGLICOL, 1,2-HEXANODIOL, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
+73.90,58.90,1,30,'serum-noturno-lumina-1.png', 'serum-noturno-lumina-2.jpg', 'serum-noturno-lumina-3.jpg',16,109,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(110,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Shampoo Reequilibrante Anticaspa','Natura','300ml',
+'Elimina até 99% da caspa sem agredir o couro cabeludo.
+A linha para Tratamento Anticaspa de Lumina mudou! São novas embalagens e ainda mais tecnologia para cuidar do seu cabelo.',
+'Com BioProteína Tripla Ação e Ativo Dermocontrole, esse sistema deixa o cabelo até 99% livre da caspa sem ressecar e promove o reequilíbrio da microbiota para controle da caspa por mais tempo. O Shampoo Reequilibrante Anticaspa Lumina é um passo essencial nesse ritual, com fórmula que promove limpeza suave sem ressecar ou agredir.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: anticaspa.
+
+Dicas de uso:
+Aplique o shampoo nos cabelos molhados, massageando o couro cabeludo com movimentos circulares. Enxágue. Pós o uso do shampoo, você pode complementar o ritual de cuidados com o condicionador Lumina de sua preferência.',
+52.90,39.90,1,30,'shampoo-anticaspa-lumina-1.png', 'shampoo-anticaspa-lumina-2.jpg', 'shampoo-anticaspa-lumina-3.jpg',15,110,)
+
+
+
+--#region Creme de Pentear Ativador para Definição e Nutrição de Cabelos Crespos (Maiara)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(111,'#193334','#40686A','#669E9F');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Creme de Pentear Ativador para Definição e Nutrição de Cabelos Crespos','Natura','300ml',
+'Cabelos 73% mais definidos, 2 vezes mais brilhantes e com ação antiencolhimento.
+A linha para Cabelos Crespos de Lumina mudou! Agora o seu Sistema de Definição e Nutrição tem novas embalagens, nova fragrância e ainda mais tecnologia para cuidar do seu cabelo.',
+'Com BioProteína Tripla Ação e Complexo de Linhaça e Óleo de Rícino, esse sistema promove cabelos crespos até 73% mais definidos e com 2 vezes mais brilho. O Creme de Pentear Ativador para Cabelos Crespos Lumina é um passo essencial nesse ritual, com fórmula que deixa os fios mais fáceis de pentear e com ação antiencolhimento.
+
+Características:
+• Tipo de cabelo: crespos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: definição e nutrição.
+
+Dicas de uso:
+Aplique o creme de pentear nos cabelos úmidos ou secos, evitando a raiz. Sem enxágue.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, ISONONANOATO DE ISONONILA, TRIGLICERÍDEO CAPRÍLICO/CÁPRICO, PALMITATO DE ETILEXILA, EXTRATO DA SEMENTE DE LINUM USITATISSIMUM, ESTEARAMIDOPROPIL DIMETILAMINA, EXTRATO DA SEMENTE DE SALVIA HISPANICA, PERFUME, FENOXIETANOL, HIETELOSE, MANTEIGA DA SEMENTE DE ASTROCARYUM MURUMURU, ÁCIDO CÍTRICO, ÓLEO DE RÍCINO, ÁCIDO LÁCTICO, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, ÁLCOOL BENZÍLICO, AMIL CINAMAL, ÁCIDO CAPRÍLICO, XILITOL, CUMARINA, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, SR-ARANHA POLIPEPTÍDEO-1, LIMONENO, TROLAMINA, ACETATO DE SÓDIO, CITRONELOL, CAPRILILGLICOL, 1,2-HEXANODIOL.',
+54.90,null,0,30,'cremedepentear-crespo-lumina-1.png', 'cremedepentear-crespo-lumina-2.jpg', 'cremedepentear-crespo-lumina-3.jpg',15,111)
+--#endregion 
+
+
+--#region Creme de Pentear Selador de Cutículas para Nutrição e Reparação Profunda (Maiara)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(112,'#852919','#A2402F','#D07C60');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Creme de Pentear Selador de Cutículas para Nutrição e Reparação Profunda','Natura','250ml',
+'Cabelo protegido, brilhante, com 2 vezes menos volume e 4 vezes menos frizz.
+A linha para Cabelos Secos ou Ressecados de Lumina mudou! Agora o seu Sistema de Nutrição e Reparação Profunda tem novas embalagens e ainda mais tecnologia para cuidar do seu cabelo.',
+'Com BioProteína Tripla Ação e Ativo Nutrirrevitalização, esse sistema promove 2 vezes mais nutrição com reparação e selagem dos fios. O Creme de Pentear Selador de Cutículas Cabelos Secos ou Ressecados Lumina é um passo essencial nesse ritual, com fórmula que blinda, hidrata e protege os fios.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: nutrição e reparação profunda.
+
+Dicas de uso:
+• Passo 1: lave os cabelos com o Shampoo Nutritivo e o Condicionador Polinutrição para promover limpeza e nutrição imediata dos fios.
+• Passo 2: utilize a Máscara Reparadora para potencializar o tratamento. em seguida, aplique a Ampola de Reparação para obter 2 vezes mais força e resistência.
+• Passo 3: finalize com o Creme de Pentear Selador de Cutículas para alcançar 2 vezes menos volume e 4 vezes menos frizz.',
+54.90,null,0,30,'cremedepentear-reparacao-lumina-1.png', 'cremedepentear-reparacao-lumina-2.jpg', 'cremedepentear-reparacao-lumina-3.jpg',15,112,)
+--#endregion 
+
+
+--#region Shampoo Ekos Murumuru (Maiara)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(113,'#7C483A','#A57955','#DBBC83');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Shampoo Ekos Murumuru','Natura','300ml',
+'Limpeza suave que prepara seus cabelos para o tratamento antidanos.
+Feito com manteiga bruta de murumuru, que combate o ressecamento e os danos capilares, o Shampoo Ekos Murumuru deixa seu cabelo nutrido e com aspecto saudável.',
+'Sua fórmula mais potente e radicalmente natural limpa os fios sem agredir o couro cabeludo, preparando-o para o ritual de tratamento biocosmético capilar antidanos.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: reconstrução.
+
+Dicas de uso:
+Aplique uma pequena quantidade do produto no cabelo molhado e massageie o couro cabeludo. Em seguida, enxágue bem. Para potencializar os resultados e a ação antidanos, combine seu uso com o Condicionador Ekos Murumuru e outros produtos da linha.
+
+Ingredientes:
+AQUA / ÁGUA, SODIUM COCOYL ISETHIONATE / COCOIL ISETIONATO DE SÓDIO, DECYL GLUCOSIDE / DECIL GLICOSÍDEO , COCAMIDOPROPYL BETAINE / COCOAMIDOPROPILBETAÍNA, GLYCERIN / GLICEROL, COCONUT ACID / ÁCIDO DE COCO, PARFUM / PERFUME, PEG-7 GLYCERYL COCOATE / COCOATO DE PEG-7 GLICERILA, ACRYLATES/C10-30 ALKYL ACRYLATE CROSSPOLYMER / CROSPOLÍMERO DE ACRILATOS/ACRILATO DE ALQUILA C10-30, HYDROXYACETOPHENONE / HIDROXIACETOFENONA, GLYCOL DISTEARATE / DIESTEARATO DE ETILENOGLICOL, SORBITOL, POTASSIUM SORBATE / SORBATO DE POTÁSSIO, SODIUM BENZOATE / BENZOATO DE SÓDIO, LAURETH-4 / LAUROMACROGOL 400, POLYQUATERNIUM-10 / POLIQUATÉRNIO-10, CITRIC ACID / ÁCIDO CÍTRICO, SODIUM HYDROXIDE / HIDRÓXIDO DE SÓDIO, SODIUM GLUCONATE / GLICONATO DE SÓDIO, BENZYL SALICYLATE / SALICILATO DE BENZILA, LINALOOL / LINALOL, LIMONENE / LIMONENO, COUMARIN / CUMARINA, ASTROCARYUM MURUMURU SEED BUTTER / MANTEIGA DA SEMENTE DE ASTROCARYUM MURUMURU, BENZOIC ACID / ÁCIDO BENZOICO, PEG-150 PENTAERYTHRITYL TETRASTEARATE / TETRAESTEARATO DE PEG-150 PENTAERITRITILA, PEG-6 CAPRYLIC/CAPRIC GLYCERIDES / GLICERÍDEOS CAPRÍLICO/CÁPRICO PEG-6, SODIUM CARBONATE / CARBONATO DE SÓDIO, CI 19140 / AMARELO DE TARTRAZINA , CI 15510 / CORANTE LARANJA 15510, SODIUM CHLORIDE / CLORETO DE SÓDIO, SODIUM SULFATE / SULFATO DE SÓDIO.',
+56.90,44.90,1,30,'shampoo-murumu-ekos-1.png', 'shampoo-murumu-ekos-2.jpg', 'shampoo-murumu-ekos-3.jpg',15,113,)
+--#endregion 
+
+
+--#region  Condicionador Ekos Murumuru (Maiara)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(114,'#824A3D','#AF836E','#EAD8C2');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Condicionador Ekos Murumuru','Natura','300ml',
+'Restaura, desembaraça e nutre os fios.
+Feito com manteiga bruta de murumuru, o Condicionador Ekos Murumuru é potente para reconstruir a fibra capilar.',
+'Esse condicionador com ação antidanos desembaraça os fios, deixando o cabelo mais macio, hidratado e nutrido.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: reconstrução.
+
+Dicas de uso:
+Após lavar o cabelo com o Shampoo Ekos Murumuru, aplique o Condicionador Ekos Murumuru, massageie e deixe agir por 1 minuto. Em seguida, enxágue bem. Esse condicionador pode ser usado diariamente. Para potencializar os resultados e a ação antiqueda, combine seu uso com os demais produtos da linha Ekos Murumuru.
+
+Ingredientes:
+AQUA / ÁGUA, CETEARYL ALCOHOL / ÁLCOOL CETOESTEARÍLICO, ISOPROPYL PALMITATE / PALMITATO DE ISOPROPILA, DICAPRYLYL CARBONATE / CARBONATO DE DICAPRILILA, PROPANEDIOL / PROPANODIOL, ASTROCARYUM MURUMURU SEED BUTTER / MANTEIGA DA SEMENTE DE ASTROCARYUM MURUMURU, PARFUM / PERFUME, STEARAMIDOPROPYL DIMETHYLAMINE / ESTEARAMIDOPROPIL DIMETILAMINA, SORBITOL, BEHENTRIMONIUM CHLORIDE / CLORETO DE BEENTRIMÔNIO, CAPRYLOYL GLYCERIN/SEBACIC ACID COPOLYMER / COPOLÍMERO DE CAPRILOIL GLICERINA/ÁCIDO SEBÁCICO, HYDROXYACETOPHENONE / HIDROXIACETOFENONA, HYDROXYETHYLCELLULOSE / HIETELOSE, DIHEPTYL SUCCINATE / SUCCINATO DE DIEPTILA, CETRIMONIUM CHLORIDE / CLORETO DE CETRIMÔNIO, CITRIC ACID / ÁCIDO CÍTRICO, SODIUM GLUCONATE / GLICONATO DE SÓDIO, LACTIC ACID / ÁCIDO LÁCTICO, ISOPROPYL ALCOHOL / ÁLCOOL ISOPROPÍLICO, BENZYL SALICYLATE / SALICILATO DE BENZILA, LINALOOL / LINALOL, LIMONENE / LIMONENO, COUMARIN / CUMARINA, SODIUM ACETATE / ACETATO DE SÓDIO, TOCOPHEROL / TOCOFEROL, SODIUM HYDROXIDE / HIDRÓXIDO DE SÓDIO, CI 19140 / AMARELO DE TARTRAZINA , CI 15510 / CORANTE LARANJA 15510, SODIUM CHLORIDE / CLORETO DE SÓDIO, SODIUM SULFATE / SULFATO DE SÓDIO, SODIUM CARBONATE / CARBONATO DE SÓDIO.',
+59.90,47.90,1,30,'condicionador-ekos-murumuru-1.png', 'condicionador-ekos-murumuru-2.jpg', 'condicionador-ekos-murumuru-3.jpg',15,114,)
+--#endregion
+
+
+--#region Ekos Frescor Maracujá (Jonathan)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(115,'#E5DC5D','#DED77C','#ECE7A2');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Ekos Frescor Maracujá','Natura','150ml',
+'Fragrância encantadora e refrescante como um sossego no embalo de uma rede. Ddestaca o azedinho doce do maracujá em contraste com o conforto das notas de musk e madeiras.',
+'Desodorante colônia com ingrediente natural da biodiversidade brasileira, extraído da polpa do maracujá.
+
+Gota olfativa:
+• Possui bioativo: maracujá
+• Concentração: deo colônia
+• Família olfativa: frutal
+• Notas de topo: anis, maçã, bergamota, alecrim, mandarina e maracujá.
+• Notas de corpo: muguet, rosa, jasmim e violeta.
+• Notas de fundo: cedro, musk, musgo de carvalho e sândalo.
+• Cruelty free
+• Vegano
+• Ocasião: dia a dia, pós banho
+• Subfamília: floral
+
+Dicas de uso:
+Aplique a fragrância de Ekos Maracujá em áreas como punhos, pescoço e atrás das orelhas.
+
+Ingredientes:
+ALCOHOL, AQUA, PARFUM, POLYGLYCERYL-3 CAPRYLATE, PASSIFLORA EDULIS FRUIT, BENZOPHENONE-2, BHT, DENATONIUM BENZOATE, CI 19140, CI 14700, SODIUM CHLORIDE, SODIUM SULFATE, LIMONENE, HEXYL CINNAMAL, LINALOOL, BUTYLPHENYL METHYLPROPIONAL, COUMARIN, CITRONELLOL, ALPHA-ISOMETHYL IONONE, CITRAL, BENZYL BENZOATE, GERANIOL.',
+124.90,null,0,30,'fragrancia-ekos-maracuja-1.png', 'fragrancia-ekos-maracuja-2.jpg', 'fragrancia-ekos-maracuja-3.jpg',8,115)
+--#endregion 
+
+
+--#region Creme Hidratante para as Mãos Ekos Castanha (Jonathan)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(116,'#A24E2A','#B85C35','#DD906E');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Creme Hidratante para as Mãos Ekos Castanha','Natura','75g',
+'48 horas de hidratação para as mãos e unhas com a potência antirressecamento da castanha. Seu hidratante favorito mudou, mas continua com textura e fragrância deliciosas.',
+'Creme de mãos feito com óleo bruto de castanha, rico em ômegas 6 e 9, que promove nutrição intensa e combate os sinais do ressecamento, hidratando imediatamente. Ajuda a potencializar o brilho das unhas, com textura cremosa de rápida absorção.
+
+Características:
+• Possui bioativo: castanha
+• Testado dermatologicamente
+• Cruelty free
+• Vegano
+• Tipo de pele: todos os tipos de pele
+
+Dicas de uso:
+Aplique o creme para mãos de Natura Ekos sempre que sentir necessidade. Espalhe nas mãos e unhas com movimentos deslizantes, dos dedos em direção ao pulso.',
+57.90,null,0,30,'cremeparamao-ekos-castanha-1.png', 'cremeparamao-ekos-castanha-2.jpg', 'cremeparamao-ekos-castanha-3.jpg',23,116,)
+--#endregion 
+
+
+--#region Condicionador Ekos Patauá (jonathan)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(117,'#517C60','#789673','#D5CFBF');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Condicionador Ekos Patauá','Natura','100ml',
+'Leve seu condicionador com potente ação antiqueda para onde quiser.
+Feito com óleo bruto de patauá, o Condicionador Ekos Patauá desembaraça os fios e reforça a fibra capilar.',
+'Sua fórmula potente e radicalmente natural deixa os fios 2 vezes* mais resistentes contra a quebra. Esta embalagem de 100 ml é perfeita para levar em viagens.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: antiqueda.
+
+Ingredientes:
+AQUA/ ÁGUA, SORBITOL/ SORBITOL, CETEARYL ALCOHOL/ ÁLCOOL CETOESTEARÍLICO, PROPANEDIOL/ PROPANODIOL, BEHENTRIMONIUM CHLORIDE/ CLORETO DE BEENTRIMÔNIO, ASTROCARYUM MURUMURU SEED BUTTER/ MANTEIGA DA SEMENTE DE MURUMURU, ISOPROPYL PALMITATE/ PALMITATO DE ISOPROPILA, ISOAMYL LAURATE/ LAURATO DE ISOAMILA, CETYL ESTERS/ ÉSTERES CETÍLICOS, HYDROXYPROPYL GUAR/ GOMA GUAR, PARFUM/ PERFUME, HYDROXYACETOPHENONE/ HIDROXIACETOFENONA, OENOCARPUS BATAUA FRUIT OIL/ ÓLEO DO FRUTO DE PATAUÁ, PROPYLENE GLYCOL DIHEPTANOATE/ DIEPTANOATO DE PROPILENOGLICOL, ISOPROPYL ALCOHOL/ ÁLCOOL ISOPROPÍLICO, SODIUM GLUCONATE/ GLICONATO DE SÓDIO, BENZYL SALICYLATE/ SALICILATO DE BENZILA, TOCOPHEROL/ TOCOFEROL, HEXYL CINNAMAL/ HEXIL CINAMAL, LINALOOL/ LINALOL, GERANIOL/ GERANIOL, CITRIC ACID/ ÁCIDO CÍTRICO, CI 19140/ AMARELO DE TARTRAZINA , SODIUM HYDROXIDE/ HIDRÓXIDO DE SÓDIO, CI 14700/ VERMELHO ESCARLATE 125, CI 42090/ AZUL BRILHANTE, SODIUM CHLORIDE/ CLORETO DE SÓDIO, SODIUM SULFATE/ SULFATO DE SÓDIO, SODIUM CARBONATE/ CARBONATO DE SÓDIO.',
+40.30,20.10,1,30,'condicionador-ekos-pataua-1.png', 'condicionador-ekos-pataua-2.jpg', 'condicionador-ekos-pataua-3.jpg',15,117,)
+--#endregion 
+
+
+--#region Shampoo Ekos Patauá','Natura (Jonathan)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(118,'#715B29','#947D47','#BBA677');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Shampoo Ekos Patauá','Natura','100ml',
+'Leve seu shampoo com potente ação antiqueda para onde quiser.
+Feito com óleo bruto de patauá, o Shampoo Ekos Patauá reforça os fios desde a raiz e combate o enfraquecimento capilar. ',
+'Sua fórmula potente e radicalmente natural promove uma limpeza suave, sem agredir os fios, enquanto prepara o cabelo para o ritual de tratamento biocosmético antiqueda. Esta embalagem de 100 ml é perfeita para levar em viagens.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: antiqueda.
+
+Ingredientes:
+AQUA/ ÁGUA, COCAMIDOPROPYL BETAINE/ COCOAMIDOPROPILBETAÍNA, SODIUM COCOYL ISETHIONATE/ COCOIL ISETIONATO DE SÓDIO, DISODIUM COCOYL GLUTAMATE/ COCOIL GLUTAMATO DISSÓDICO, GLYCERIN/ GLICEROL, DECYL GLUCOSIDE/ DECIL GLICOSÍDEO , PARFUM/ PERFUME, CITRIC ACID/ ÁCIDO CÍTRICO, COCONUT ACID/ ÁCIDO DE COCO, PEG-150 PENTAERYTHRITYL TETRASTEARATE/ TETRAESTEARATO DE POLIETILENOGLICOL-150 PENTAERITRITILA, HYDROXYACETOPHENONE/ HIDROXIACETOFENONA, DISODIUM EDTA/ EDETATO DISSÓDICO, POTASSIUM SORBATE/ SORBATO DE POTÁSSIO, SODIUM BENZOATE/ BENZOATO DE SÓDIO, PEG-7 GLYCERYL COCOATE/ COCOATO DE POLIETILENOGLICOL-7 GLICERILA, PEG-6 CAPRYLIC/CAPRIC GLYCERIDES/ GLICERÍDEOS CAPRÍLICO/CÁPRICO POLIETILENOGLICOL-6, POLYQUATERNIUM-6/ POLIQUATÉRNIO-6, BENZYL SALICYLATE/ SALICILATO DE BENZILA, HEXYL CINNAMAL/ HEXIL CINAMAL, LINALOOL/ LINALOL, SODIUM HYDROXIDE/ HIDRÓXIDO DE SÓDIO, GERANIOL/ GERANIOL, OENOCARPUS BATAUA FRUIT OIL/ ÓLEO DO FRUTO DE PATAUÁ, CI 61570/ CORANTE VERDE 61570, CI 15510/ CORANTE LARANJA 15510, SODIUM CHLORIDE/ CLORETO DE SÓDIO, SODIUM SULFATE/ SULFATO DE SÓDIO, SODIUM CARBONATE/ CARBONATO DE SÓDIO.',
+38.30,19.10,1,30,'shampoo-ekos-pataua-1.png', 'shampoo-ekos-pataua-2.jpg', 'shampoo-ekos-pataua-3.jpg',15,118,)
+--#endregion 
+
+
+--#region Tônico Noturno de Crescimento Ekos Patauá (Jonathan)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(119,'#984F3A','#76b8a4','#A4D5C7');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Tônico Noturno de Crescimento Ekos Patauá','Natura','30ml',
+'Acelera o crescimento e deixa os fios fixos no couro por mais tempo.
+O Tônico Noturno de Crescimento Ekos Patauá evita a queda transitória do cabelo, acelera o crescimento dos fios em até 3 vezes e aumenta a densidade capilar.',
+'Sua fórmula potente e radicalmente natural deixa o cabelo mais forte, ancorado ao couro cabeludo e com maior espessura da fibra capilar desde a raiz.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: antiqueda.
+
+Dicas de uso:
+Utilize o Tônico Capilar Ekos Patauá antes de dormir. Agite o produto e aplique em toda a extensão do couro cabeludo, massageando com as pontas dos dedos. Não lave a cabeça logo após a aplicação do produto. Pela manhã, se sentir necessidade, lave o cabelo com os produtos da linha Ekos Patauá. Para melhores resultados, utilize o tônico diariamente. 
+Importante: lave bem as mãos após a aplicação do produto.
+
+Ingredientes:
+AQUA/ ÁGUA, ALCOHOL/ ÁLCOOL ETÍLICO, GLYCERIN/ GLICEROL, PEG-40 HYDROGENATED CASTOR OIL/ ÓLEO DE RÍCINO HIDROGENADO ETOXILADO, PROPANEDIOL/ PROPANODIOL, OENOCARPUS BATAUA FRUIT OIL/ ÓLEO DO FRUTO DE PATAUÁ, PARFUM/ PERFUME, CITRIC ACID/ ÁCIDO CÍTRICO, HYDROXYACETOPHENONE/ HIDROXIACETOFENONA, SODIUM GLUCONATE/ GLICONATO DE SÓDIO, TOCOPHEROL/ TOCOFEROL, BENZYL SALICYLATE/ SALICILATO DE BENZILA, HEXYL CINNAMAL/ HEXIL CINAMAL, LINALOOL/ LINALOL, GERANIOL/ GERANIOL, LIMONENE/ LIMONENO, ALPHA-ISOMETHYL IONONE/ ALFA-ISOMETIL IONONA, SODIUM HYDROXIDE/ HIDRÓXIDO DE SÓDIO, SODIUM CARBONATE/ CARBONATO DE SÓDIO, SODIUM CHLORIDE/ CLORETO DE SÓDIO.',
+73.90,null,0,30,'tonico-ekos-pataua-1.png', 'tonico-ekos-pataua-2.jpg', 'tonico-ekos-pataua-3.jpg',16,119,)
+ --#endregion
+
+
+--#region Óleo Trifásico Desodorante Corporal Ekos Maracujá (Eliana)
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#C6A907','#EACD2A','#F8E787');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES
+('Óleo Trifásico Desodorante Corporal Ekos Maracujá','Natura','200ml',
+'100% mais hidratação para a pele com a potência antiestresse do maracujá. Acalma e reequilibra a pele, com textura surpreendente e que deixa a pele perfumada, protegida e iluminada.',
+'Feito com óleo de maracujá, rico em ácidos graxos essenciais.
+
+Características:
+• Possui bioativo: maracujá
+• Testado dermatologicamente
+• Cruelty free
+• Vegano
+• Tipo de pele: todos os tipos de pele.
+
+Dicas de uso:
+Agite o óleo corporal de Natura Ekos antes de usar. Aplique sobre o corpo, massageando a pele. Este óleo perfumado pode ser usado com e sem enxágue.',
+96.90,null,0,30,'oleo-maracuja-ekos-1.png', 'oleo-maracuja-ekos-2.jpg', 'oleo-maracuja-ekos-3.jpg',24,220.) 
+--#endregion 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(121,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Esfoliante para o Corpo Tododia Acerola e Hibisco','Natura','190g',
+'Esfolia, limpa e remove impurezas sem agredir a pele. Com fórmula com textura em gel, possui sementes de damasco, que esfoliam e removem profundamente as impurezas.',
+'Deixa a pele macia, mais lisa e saudável, e preparada para receber a nutrição de Tododia, previnindo a formação de pelos encravados.
+
+Características:
+• Família olfativa: cítrico
+• Subfamília: frutal
+• Testado dermatologicamente
+• Cruelty free
+• Vegano
+• Tipo de pele: todos os tipos de pele.
+
+Dicas de uso:
+Aplique por todo o corpo com movimentos circulares, exceto no rosto. Enxágue em seguida e pronto, sinta sua pele mais macia. Utilize até 3 vezes por semana.
+
+Ingredientes:
+ÁGUA, GLICEROL, PALMITATO DE ISOPROPILA, PROPANODIOL, SORBITOL, BEENATO DE ESTEARILA, COCOATO DE ISOAMILA, PERFUME, FENOXIETANOL, ÉSTERES DA JOJOBA, CARBÔMER, HIDROXIACETOFENONA, GOMA XANTANA , SEMENTE DE PRUNUS ARMENIACA EM PÓ, ACETATO DE TOCOFERILA, HIDRÓXIDO DE SÓDIO, EDETATO DISSÓDICO, LIMONENO, HEXIL CINAMAL, LINALOL, CITRAL, VERMELHO 33, CARBONATO DE SÓDIO, AMARELO DE TARTRAZINA , CLORETO DE SÓDIO, SULFATO DE SÓDIO.',
+49.90,null,0,30,'esfoliante-corporal-tododia-acerola-1.png', 'esfoliante-corporal-tododia-acerola-2.jpg', 'esfoliante-corporal-tododia-acerola-3.jpg',26,121,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(122,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sabonete Líquido Esfoliante para o Corpo Ekos Tukumã','Natura','185ml',
+'Pele renovada e mais uniforme com a potência antissinais do tukumã. Sabonete líquido que limpa suavemente e esfolia a pele, removendo as células mortas durante o banho.',
+'Sabonete e esfoliante vegano que mantém o pH natural da pele, deixando sua pele renovada e mais uniforme. Feito com óleo bruto de tukumã, um potente antissinais.
+
+Características:
+• Possui bioativo: tukumã
+• Testado dermatologicamente
+• Cruelty free
+• Vegano
+• Tipo de pele: todos os tipos de pele.
+
+Dicas de uso:
+Espalhe o sabonete líquido esfoliante de Natura Ekos sobre o corpo até formar espuma. Enxágue em seguida. Não utilizar o sabonete corporal no rosto.',
+54.90,null,0,30,'sabonete-esfoliante-tukuma-ekos-1.png', 'sabonete-esfoliante-tukuma-ekos-2.jpg', 'sabonete-esfoliante-tukuma-ekos-3.jpg',26,122,)
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrad26,122,)
+VALUES  
+(123,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Creme Desodorante Hidratante para o Corpo Ekos Maracujá','Natura','400ml',
+'Até 95% de ação calmante para a pele com a potência antiestresse do maracujá. Pele protegida e hidratada por até 72 horas. Hidratante corporal que reequilibra a pele, com textura leve e rápida absorção.',
+'Creme com ação desodorante, feito com óleo de maracujá, rico em ácidos graxos essenciais.
+
+Resultados visíveis na pele:
+• Imediatamente: protege, hidrata e acalma a pele.
+• Após 7 dias de uso: suaviza a pele, melhorando sua textura.
+• Após 14 dias de uso: a ação do óleo bruto de maracujá, rico em ácido graxos essenciais, combate osindicadores de estresse cutâneo, como o desconforto causado pelo ressecamento.
+• Aapós 30 dias de uso: pele reequilibrada com aumento do nível de hidratação natural e redução dos sinais de estresse cutâneo.
+
+Características:
+• Possui bioativo: maracujá
+• Testado dermatologicamente
+• Cruelty free
+• Vegano
+• Tipo de pele: todos os tipos de pele.
+
+Dicas de uso:
+Aplique o creme corporal de Natura Ekos sobre a pele do corpo. Espalhe massageando a pele até a absorção completa do produto. Não utilizar o hidratante corporal no rosto.
+
+Ingredientes:
+ÁGUA, PALMITATO DE ISOPROPILA, GLICEROL, PERFUME, PROPANODIOL, AMIDO DE TAPIOCA, ÓLEO DE SEMENTE DE MARACUJÁ, ÁLCOOL CETEARÍLICO, ÓLEO DE PALMISTE, ÓLEO DA FRUTA DE TUCUMÃ[ASTROCARYUM VULGARE], MONOESTEARATO DE GLICERILA, HIDROXIACETOFENONA, ESTEARATO PEG-100, POLIACRILATO DE SÓDIO, LIMONENO, DIPALMITATO DE GLICERILA, PALMITATO DE GLICERILA, ADIPATO DE DIBUTILA,DIESTEARATO DE GLICERILA, GOMA XANTANA, HEXIL CINAMAL, LINALOL, CAPRILATO DE POLIGLICERILA-3, GLICONATO DE SÓDIO, PENTAERITRITIL TETRA-DI-T-BUTIL HIDROXI-HIDROCINAMATO, CUMARINA, CITRONELOL, ALFA-ISOMETIL IONONA,BENZOATO DE BENZILA, TOCOFEROL, HIDROXICITRONELAL, CITRAL.',
+88.90,null,0,30,'cremecorporal-maracuja-ekos-1.png', 'cremecorporal-maracuja-ekos-2.jpg', 'cremecorporal-maracuja-ekos-3.jpg',23,123,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(124,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Gelatina Cachos e Crespos Tododia Amora e Óleo de Coco','Natura','240g',
+'Definição prolongada, fixação e brilho.
+A Gelatina Tododia Amora e Óleo de Coco cuida do seu cabelo com Tecnologia Prebiótica. Para cachos e crespos definidos por mais tempo. ',
+'Sua fórmula multiúso funciona como creme de pentear, finalizador e na fixação de baby hair. Fragrância com notas florais e de amora.
+
+Características:
+• Tipo de cabelo: cacheados e crespos
+• Cruelty free
+• Vegano
+
+Dicas de uso:
+Aplique uma pequena quantidade nas mãos e espalhe pelo cabelo. Reaplique caso sinta necessidade.',
+37.90,null,0,30,'geleia-cachos-tododia-1.png', 'geleia-cachos-tododia-2.jpg', 'geleia-cachos-tododia-3.jpg',17,124,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(125,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Máscara Regeneradora para Reconstrução de Danos Extremos','Natura','250ml',
+'Regenera até as camadas mais profundas e promove 2 vezes mais reparação.
+ A Máscara Regeneradora para Cabelos Quimicamente Danificados Lumina é um passo essencial nesse ritual, com fórmula que regenera a estrutura capilar e prolonga o efeito da progressiva e da coloração.',
+'Com BioProteína Tripla Ação e Ativo Reconstrutor, esse sistema promove reconstrução de até 89% dos danos extremos e prevenção de até 2,9 vezes dos danos futuros.
+
+Características:
+• Tipo de cabelo: todos os tipos de cabelos
+• Cruelty free
+• Vegano
+• Tipo de tratamento: reconstrução de danos extremos
+
+Dicas de uso:
+• Passo 1: lave os cabelos com o Shampoo Reestruturante e o Condicionador Provitalidade para promover limpeza e reparação, trazendo mais força e resistência aos fios.
+• Passo 2: utilize o Primer para obter máxima potência do tratamento que reconstrói a camada interna dos fios. em seguida, aplique a Máscara Reconstrutora, que potencializa o tratamento deixando os fios resistentes à quebra.
+• Passo 3: aplique o Sérum Regenerador Progressivo para obter 3 vezes mais regeneração da camada interna dos cabelos.
+
+Ingredientes:
+ÁGUA, ÁLCOOL CETOESTEARÍLICO, DIMETICONA, MANTEIGA DA SEMENTE DE ASTROCARYUM MURUMURU, METOSSULFATO DE BEENTRIMÔNIO, QUATÉRNIO-87, SORBITOL, PERFUME, FENOXIETANOL, BIS-CETEARIL AMODIMETICONA, HIETELOSE, ÓLEO DA SEMENTE DE BERTHOLLETIA EXCELSA, CETOMACROGOL 1000, CETOMACROGOL 1000, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, PROTEÍNA DE TRIGO HIDROLISADA , LINALOL, PROTEÍNA DA SEMENTE DE AVENA SATIVA, PROTEÍNA DE PRUNUS AMYGDALUS DULCIS, LIMONENO, SALICILATO DE BENZILA, HEXIL CINAMAL, CITRONELOL, CAPRILILGLICOL, ÁCIDO CÍTRICO, BUTILCARBAMATO DE IODOPROPINILA, MACROGOL, SR-ARANHA POLIPEPTÍDEO-1, TROLAMINA, ACETATO DE SÓDIO, ÁCIDO GLICÓLICO, ESTEARATO DE SÓDIO, 1,2-HEXANODIOL, SORBATO DE POTÁSSIO, CLORETO DE SÓDIO, AMARELO DE TARTRAZINA, VERMELHO ESCARLATE 125, AZUL BRILHANTE, SULFATO DE SÓDIO.',
+73.90,null,0,30,'mascara-reconstrucao-lumina-1.png', 'mascara-reconstrucao-lumina-2.jpg', 'mascara-reconstrucao-lumina-3.jpg',16,125,)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
 
 
 
+--#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(96,'','','');
+(120,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
 
 
 
+--#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(97,'','','');
+(120,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
 
 
 
+--#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(98,'','','');
+(120,'#','#','#');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
-
-
-
-INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
-VALUES  
-(99,'','','');
-
-INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
-
-
-
-INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
-VALUES  
-(100,'','','');
-
-INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
-
-
-
-INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
-VALUES  
-(101,'','','');
-
-INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
-
-
-
-INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
-VALUES  
-(102,'','','');
-
-INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
-
-
-
-INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
-VALUES  
-(103,'','','');
-
-INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
-
-
-
-INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
-VALUES  
-(104,'','','');
-
-INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
-
-
-
-INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
-VALUES  
-(105,'','','');
-
-INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
-
-
-
-INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
-VALUES  
-(106,'','','');
-
-INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
-VALUES 
-
 
 
