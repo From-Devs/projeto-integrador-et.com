@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
             overlay.classList.toggle('mostrar'); // Ativa/desativa o overlay
             menuConta.style.display = "none";
             pesquisa.className = "pesquisaHeader closed";
+            try{ fecharSugestoesComAnimacao(); }catch(e){}
             item.className = "headerUsuario";
             input.value = "";
         });
@@ -117,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
                 event.stopPropagation();
                 menuConta.style.display = "flex"
                 pesquisa.className = "pesquisaHeader closed";
+                try{ fecharSugestoesComAnimacao(); }catch(e){}
                 item.className = "headerUsuario";
                 input.value = "";
             }
@@ -126,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
         document.addEventListener("click", function(event){
             if (pesquisa.className == "pesquisaHeader open" && !pesquisa.contains(event.target)){
                 pesquisa.className = "pesquisaHeader closed";
+                try{ fecharSugestoesComAnimacao(); }catch(e){}
                 item.className = "headerUsuario";
                 input.value = "";
             }
@@ -144,6 +147,7 @@ document.addEventListener("DOMContentLoaded", function(){ // Após a página tod
             overlay.classList.remove('mostrar'); // Ativa/desativa o overlay
             menuConta.style.display = "none";
             pesquisa.className = "pesquisaHeader closed";
+            try{ fecharSugestoesComAnimacao(); }catch(e){}
             item.className = "headerUsuario";
             input.value = "";
         })
@@ -317,16 +321,11 @@ async function ObterDadosProdutoHeader(textoPesquisa = null, inputElement = null
 
             const precoEl = document.createElement('div');
             precoEl.className = 'preco';
-            precoEl.textContent = produto.preco || produto.precoPromocional || produto.precoPromo || '';
+            precoEl.textContent = `R$ ${produto.preco || produto.precoPromocional || produto.precoPromo || ''}`;
             meta.appendChild(precoEl);
-
-            const desc = document.createElement('div');
-            desc.className = 'descricaoBreve';
-            desc.textContent = produto.descricaoBreve || produto.descricao || produto.descricaoTotal || '';
 
             info.appendChild(nomeEl);
             info.appendChild(meta);
-            info.appendChild(desc);
 
             // badges: promoção / novo
             if (produto.fgPromocao || produto.fg_promocao || produto.fgPromocao === 1) {
