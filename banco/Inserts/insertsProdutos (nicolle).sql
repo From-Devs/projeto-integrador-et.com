@@ -3607,7 +3607,7 @@ Agite o óleo corporal de Natura Ekos antes de usar. Aplique sobre o corpo, mass
 --#endregion 
 
 
---#region --#endregion 
+--#region Esfoliante para o Corpo Tododia Acerola e Hibisco (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (121,'#','#','#');
@@ -3632,12 +3632,13 @@ Aplique por todo o corpo com movimentos circulares, exceto no rosto. Enxágue em
 Ingredientes:
 ÁGUA, GLICEROL, PALMITATO DE ISOPROPILA, PROPANODIOL, SORBITOL, BEENATO DE ESTEARILA, COCOATO DE ISOAMILA, PERFUME, FENOXIETANOL, ÉSTERES DA JOJOBA, CARBÔMER, HIDROXIACETOFENONA, GOMA XANTANA , SEMENTE DE PRUNUS ARMENIACA EM PÓ, ACETATO DE TOCOFERILA, HIDRÓXIDO DE SÓDIO, EDETATO DISSÓDICO, LIMONENO, HEXIL CINAMAL, LINALOL, CITRAL, VERMELHO 33, CARBONATO DE SÓDIO, AMARELO DE TARTRAZINA , CLORETO DE SÓDIO, SULFATO DE SÓDIO.',
 49.90,null,0,30,'esfoliante-corporal-tododia-acerola-1.png', 'esfoliante-corporal-tododia-acerola-2.jpg', 'esfoliante-corporal-tododia-acerola-3.jpg',26,121,)
+--#endregion 
 
 
---#region --#endregion 
+--#region  Sabonete Líquido Esfoliante para o Corpo Ekos Tukumã (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(122,'#','#','#');
+(122,'#A23901','#BB470A','#DF956D');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3655,13 +3656,13 @@ Características:
 Dicas de uso:
 Espalhe o sabonete líquido esfoliante de Natura Ekos sobre o corpo até formar espuma. Enxágue em seguida. Não utilizar o sabonete corporal no rosto.',
 54.90,null,0,30,'sabonete-esfoliante-tukuma-ekos-1.png', 'sabonete-esfoliante-tukuma-ekos-2.jpg', 'sabonete-esfoliante-tukuma-ekos-3.jpg',26,122,)
+--#endregion 
 
 
-
---#region --#endregion 
+--#region Creme Desodorante Hidratante para o Corpo Ekos Maracujá (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrad26,122,)
 VALUES  
-(123,'#','#','#');
+(123,'#CD9E04','#E5B517','#FFE48A');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3688,6 +3689,7 @@ Aplique o creme corporal de Natura Ekos sobre a pele do corpo. Espalhe massagean
 Ingredientes:
 ÁGUA, PALMITATO DE ISOPROPILA, GLICEROL, PERFUME, PROPANODIOL, AMIDO DE TAPIOCA, ÓLEO DE SEMENTE DE MARACUJÁ, ÁLCOOL CETEARÍLICO, ÓLEO DE PALMISTE, ÓLEO DA FRUTA DE TUCUMÃ[ASTROCARYUM VULGARE], MONOESTEARATO DE GLICERILA, HIDROXIACETOFENONA, ESTEARATO PEG-100, POLIACRILATO DE SÓDIO, LIMONENO, DIPALMITATO DE GLICERILA, PALMITATO DE GLICERILA, ADIPATO DE DIBUTILA,DIESTEARATO DE GLICERILA, GOMA XANTANA, HEXIL CINAMAL, LINALOL, CAPRILATO DE POLIGLICERILA-3, GLICONATO DE SÓDIO, PENTAERITRITIL TETRA-DI-T-BUTIL HIDROXI-HIDROCINAMATO, CUMARINA, CITRONELOL, ALFA-ISOMETIL IONONA,BENZOATO DE BENZILA, TOCOFEROL, HIDROXICITRONELAL, CITRAL.',
 88.90,null,0,30,'cremecorporal-maracuja-ekos-1.png', 'cremecorporal-maracuja-ekos-2.jpg', 'cremecorporal-maracuja-ekos-3.jpg',23,123,)
+--#endregion 
 
 
 --#region --#endregion 
