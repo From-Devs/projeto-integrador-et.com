@@ -19,6 +19,15 @@ class ProdutoDestaque {
         return (bool) $stmt->fetchColumn();
     }
 
+    public function getDestaque(): ?array {
+        $stmt = $this->conn->query("
+            SELECT * FROM proddestaque LIMIT 1
+        ");
+        $destaque = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $destaque ?: null;
+    }
+    
     // ------------------------------
     // GET ALL — retorna todos os destaques
     // ------------------------------
@@ -44,97 +53,191 @@ class ProdutoDestaque {
     // ------------------------------
     // CREATE — cria novo destaque (máx. 1)
     // ------------------------------
-    public function create($id, array $data) {
+    public function create(array $data): array {
         try {
 
-            // valida produto
+            // 1) Validar produto enviado
             if (empty($data['id_produto']) || !is_numeric($data['id_produto'])) {
                 return ['error' => "ID de produto inválido."];
             }
 
-            $id_produto = (int) $data['id_produto'];
+            $id_produto = (int)$data['id_produto'];
 
-            if (!$this->productExists($id_produto)) {
-                return ['error' => 'Produto não encontrado.'];
-            }
-
-            // impede ter mais que 1 produto destaque
-            $stmt = $this->conn->query('SELECT COUNT(*) AS total FROM proddestaque');
-            $total = (int) $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+            // 2) Verificar se já existe destaque
+            $stmt = $this->conn->query("SELECT COUNT(*) AS total FROM proddestaque");
+            $total = (int)$stmt->fetch(PDO::FETCH_ASSOC)['total'];
 
             if ($total >= 1) {
                 return ['error' => 'Já existe um produto destaque.'];
             }
 
-            // coleta cores do produto
+            // 3) Buscar dados do produto
             $stmt = $this->conn->prepare("
-                SELECT corEspecial, hexDegrade1, hexDegrade2, hexDegrade3, id_cores 
-                FROM produto 
-                WHERE id_produto = :id_produto LIMIT 1
+                SELECT corEspecial, hexDegrade1, hexDegrade2, hexDegrade3, id_cores
+                FROM produto
+                WHERE id_produto = :id
+                LIMIT 1
             ");
-            $stmt->execute([':id_produto' => $id_produto]);
+            $stmt->execute([':id' => $id_produto]);
             $produto = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if (!$produto) {
                 return ['error' => 'Produto não encontrado.'];
             }
 
-            $corEspecial = $produto['corEspecial'] ?? null;
-            $hex1 = $produto['hexDegrade1'] ?? null;
-            $hex2 = $produto['hexDegrade2'] ?? null;
-            $hex3 = $produto['hexDegrade3'] ?? null;
+            // Cores padrão
+            $cor1 = $produto['hexDegrade1'];
+            $cor2 = $produto['hexDegrade2'];
+            $sombra = $produto['hexDegrade3'];
 
-            // busca na tabela cores se o produto usa id_cores
-            if (empty($corEspecial) && !empty($produto['id_cores'])) {
+            // 4) Caso produto use tabela cores
+            if (empty($produto['corEspecial']) && !empty($produto['id_cores'])) {
 
                 $stmt = $this->conn->prepare("
-                    SELECT corPrincipal AS corEspecial, hexDegrade1, hexDegrade2 
-                    FROM cores 
-                    WHERE id_cores = :id LIMIT 1
+                    SELECT hexDegrade1, hexDegrade2
+                    FROM cores
+                    WHERE id_cores = :id
+                    LIMIT 1
                 ");
-
                 $stmt->execute([':id' => $produto['id_cores']]);
                 $cores = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 if ($cores) {
-                    $corEspecial = $cores['corEspecial'] ?? $corEspecial;
-                    $hex1 = $cores['hexDegrade1'] ?? $hex1;
-                    $hex2 = $cores['hexDegrade2'] ?? $hex2;
+                    $cor1 = $cores['hexDegrade1'] ?? $cor1;
+                    $cor2 = $cores['hexDegrade2'] ?? $cor2;
                 }
             }
 
-            // cria registro das cores extras
+            // 5) Inserir
             $stmt = $this->conn->prepare("
-                INSERT INTO coressubs (corEspecial, hexDegrade1, hexDegrade2, hexDegrade3, created_at)
-                VALUES (:corEspecial, :h1, :h2, :h3, NOW())
+                INSERT INTO proddestaque (id_produto, cor1, cor2, corSombra, created_at)
+                VALUES (:produto, :cor1, :cor2, :sombra, NOW())
             ");
 
             $stmt->execute([
-                ':corEspecial' => $corEspecial,
-                ':h1' => $hex1,
-                ':h2' => $hex2,
-                ':h3' => $hex3
+                ':produto' => $id_produto,
+                ':cor1' => $cor1,
+                ':cor2' => $cor2,
+                ':sombra' => $sombra
             ]);
 
-            $id_coressubs = (int) $this->conn->lastInsertId();
+            return ['success' => true, 'message' => 'Destaque criado com sucesso!'];
 
-            // cria destaque
+        } catch (Exception $e) {
+            return ['error' => $e->getMessage()];
+        }
+    }
+
+    // ------------------------------
+    // UPDATE — atuliza novo destaque 
+    // ------------------------------
+    public function update(int $id_destaque, array $data): array {
+        try {
+
+            // 1) Verifica se existe destaque
             $stmt = $this->conn->prepare("
-                INSERT INTO proddestaque (id_produto, id_coressubs, cor1, cor2, created_at)
-                VALUES (:id_produto, :id_coressubs, :cor1, :cor2, NOW())
+                SELECT id_prodDestaque, id_produto
+                FROM proddestaque
+                WHERE id_prodDestaque = :id
+                LIMIT 1
             ");
+            $stmt->execute([':id' => $id_destaque]);
+            $destaque = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $stmt->execute([
-                ':id_produto' => $id_produto,
-                ':id_coressubs' => $id_coressubs,
-                ':cor1' => $data['cor1'] ?? $corEspecial,
-                ':cor2' => $data['cor2'] ?? $hex1,
-            ]);
+            if (!$destaque) {
+                return ['error' => 'Destaque não encontrado.'];
+            }
 
-            return ['success' => true, 'id' => $this->conn->lastInsertId()];
+            $produto_atual = (int)$destaque['id_produto'];
+            $novo_produto = !empty($data['id_produto']) ? (int)$data['id_produto'] : null;
 
-        } catch (PDOException $e) {
-            error_log("[ProdutoDestaque][create] " . $e->getMessage());
+            /*
+            ==========================================
+            SE MUDOU O PRODUTO
+            ==========================================
+            */
+            if ($novo_produto && $novo_produto !== $produto_atual) {
+
+                // Buscar dados do novo produto
+                $stmt = $this->conn->prepare("
+                    SELECT corEspecial, hexDegrade1, hexDegrade2, hexDegrade3, id_cores
+                    FROM produto
+                    WHERE id_produto = :id
+                    LIMIT 1
+                ");
+                $stmt->execute([':id' => $novo_produto]);
+                $produto = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if (!$produto) {
+                    return ['error' => 'Novo produto não encontrado.'];
+                }
+
+                // Cores padrão
+                $cor1 = $produto['hexDegrade1'];
+                $cor2 = $produto['hexDegrade2'];
+                $sombra = $produto['hexDegrade3'];
+
+                // Caso use tabela cores
+                if (empty($produto['corEspecial']) && !empty($produto['id_cores'])) {
+                    $stmt = $this->conn->prepare("
+                        SELECT hexDegrade1, hexDegrade2
+                        FROM cores
+                        WHERE id_cores = :id
+                        LIMIT 1
+                    ");
+                    $stmt->execute([':id' => $produto['id_cores']]);
+                    $cores = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    if ($cores) {
+                        $cor1 = $cores['hexDegrade1'] ?? $cor1;
+                        $cor2 = $cores['hexDegrade2'] ?? $cor2;
+                    }
+                }
+
+                // Atualiza tudo
+                $update = $this->conn->prepare("
+                    UPDATE proddestaque SET
+                        id_produto = :produto,
+                        cor1 = :cor1,
+                        cor2 = :cor2,
+                        corSombra = :sombra
+                    WHERE id_prodDestaque = :id
+                ");
+
+                $update->execute([
+                    ':produto' => $novo_produto,
+                    ':cor1' => $cor1,
+                    ':cor2' => $cor2,
+                    ':sombra' => $sombra,
+                    ':id' => $id_destaque
+                ]);
+
+            } else {
+            /*
+            ==========================================
+            NÃO MUDOU O PRODUTO → só altera as cores
+            ==========================================
+            */
+
+                $update = $this->conn->prepare("
+                    UPDATE proddestaque SET
+                        cor1 = COALESCE(:cor1, cor1),
+                        cor2 = COALESCE(:cor2, cor2),
+                        corSombra = COALESCE(:sombra, corSombra)
+                    WHERE id_prodDestaque = :id
+                ");
+
+                $update->execute([
+                    ':cor1' => $data['cor1'] ?? null,
+                    ':cor2' => $data['cor2'] ?? null,
+                    ':sombra' => $data['corSombra'] ?? null,
+                    ':id' => $id_destaque
+                ]);
+            }
+
+            return ['success' => true, 'message' => 'Destaque atualizado com sucesso!'];
+
+        } catch (Exception $e) {
             return ['error' => $e->getMessage()];
         }
     }
