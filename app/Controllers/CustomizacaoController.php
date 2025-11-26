@@ -32,10 +32,37 @@ class CustomizacaoController {
             "coresSub" => $this->coresSubsModel->getAll()
         ];
     }
-    // Criar carousel
-    public function createCarousel(int $id_carousel, array $data) { 
-        return $this->carouselModel->update($id_carousel, $data);
+    public function createCarousel(int $id_carousel = null, array $data) {
+        // Buscar quantos carrosseis já existem
+        $carrosseis = $this->carouselModel->getCarousel(); 
+        $total = count($carrosseis);
+
+        // ------------ CASO 1: UPDATE --------------------
+        // Se enviou um id, então é UPDATE mesmo
+        if ($id_carousel !== null) {
+            return [
+                'action' => 'update',
+                'result' => $this->carouselModel->update($id_carousel, $data)
+            ];
+        }
+
+        // ------------ CASO 2: CREATE --------------------
+        // Só cria se ainda tiver vagas (máx 3)
+        if ($total < 3) {
+            $resultado = $this->carouselModel->createCarousel($data);
+            return [
+                'action' => 'create',
+                'result' => $resultado
+            ];
+        }
+
+        // ------------ CASO 3: ERRO (tente criar o 4º) ---
+        return [
+            'error' => 'Limite máximo de 3 carrosseis atingido.',
+            'status' => false
+        ];
     }
+
 
     // Deletar carousel
     public function deleteCarousel(int $id) {
@@ -43,11 +70,24 @@ class CustomizacaoController {
     }
 
     // Criar destaque
-    public function createDestaque(int $id, array $data): array {
-        $resultado = $this->destaqueModel->update($id, $data);
-        return ['destaque' => $resultado];
-    }
+    public function createDestaque(array $data): array {
+        // 1) Verificar se já existe destaque
+        $existe = $this->destaqueModel->getDestaque();
+        if (!$existe) {
+            // -----------------------------------
+            // NÃO existe → CRIAR novo destaque
+            // -----------------------------------
+            $resultado = $this->destaqueModel->create($data);
+            return ['action' => 'create', 'result' => $resultado];
+        }
+        // -----------------------------------
+        // Já existe → UPDATE
+        // -----------------------------------
+        $id_destaque = (int)$existe['id_prodDestaque'];
+        $resultado = $this->destaqueModel->update($id_destaque, $data);
 
+        return ['action' => 'update', 'result' => $resultado];
+    }
 
     // Deletar destaque
     public function deleteDestaque(int $id) {
