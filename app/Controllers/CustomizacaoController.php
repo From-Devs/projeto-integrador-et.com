@@ -33,12 +33,12 @@ class CustomizacaoController {
         ];
     }
     public function createCarousel(int $id_carousel = null, array $data) {
+
         // Buscar quantos carrosseis já existem
         $carrosseis = $this->carouselModel->getCarousel(); 
         $total = count($carrosseis);
 
         // ------------ CASO 1: UPDATE --------------------
-        // Se enviou um id, então é UPDATE mesmo
         if ($id_carousel !== null) {
             return [
                 'action' => 'update',
@@ -46,8 +46,7 @@ class CustomizacaoController {
             ];
         }
 
-        // ------------ CASO 2: CREATE --------------------
-        // Só cria se ainda tiver vagas (máx 3)
+        // ------------ CASO 2: CREATE (só se < 3) --------
         if ($total < 3) {
             $resultado = $this->carouselModel->createCarousel($data);
             return [
@@ -56,7 +55,7 @@ class CustomizacaoController {
             ];
         }
 
-        // ------------ CASO 3: ERRO (tente criar o 4º) ---
+        // ------------ CASO 3: LIMITE DE 3 ---------------
         return [
             'error' => 'Limite máximo de 3 carrosseis atingido.',
             'status' => false

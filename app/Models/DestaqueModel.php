@@ -73,9 +73,10 @@ class ProdutoDestaque {
 
             // 3) Buscar dados do produto
             $stmt = $this->conn->prepare("
-                SELECT corEspecial, hexDegrade1, hexDegrade2, hexDegrade3, id_cores
-                FROM produto
-                WHERE id_produto = :id
+                SELECT c.corPrincipal, c.hexDegrade1, c.hexDegrade2, c.hexDegrade3
+                FROM produto as p
+                JOIN id_cores as c
+                ON 
                 LIMIT 1
             ");
             $stmt->execute([':id' => $id_produto]);

@@ -31,10 +31,26 @@ class Custom {
         echo json_encode($res);
         exit;
     }
-
+    // UPDATE / CREATE (depende do data)
     public function storedestaques($param = null) {
+        // Lê JSON
+        $data = json_decode(file_get_contents("php://input"), true);
 
+        if (!$data || !isset($data["id_produto"])) {
+            echo json_encode([
+                "error" => "Envie 'id_produto' no JSON."
+            ]);
+            exit;
+        }
+
+        // Chama o controller → ele decide CREATE ou UPDATE sozinho
+        $res = $this->conn->createDestaque($data);
+
+        echo json_encode($res);
+        exit;
     }
+
+    
     // GET ALL carousels
     public function listcarousels() {
         $res = $this->conn->index();
