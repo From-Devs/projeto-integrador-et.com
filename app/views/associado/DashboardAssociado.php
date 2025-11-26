@@ -22,6 +22,8 @@ $user = $controller->getLoggedUser();
 
 $dashboardController = new Dashboard_Assoc_Controller();
 $dashboard = $dashboardController->getDashboardAssociado($user['id_usuario']);
+
+$topProdutos = $dashboard['topProdutos'] ?? [];
 ?>
  
 <!DOCTYPE html>
@@ -73,6 +75,11 @@ $dashboard = $dashboardController->getDashboardAssociado($user['id_usuario']);
             </div>
         </div>
     </div>
+
+    <script>
+    var topLabels = <?php echo json_encode(array_column($topProdutos, 'nome')); ?>;
+    var topValues = <?php echo json_encode(array_column($topProdutos, 'total_vendido')); ?>;
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./../../../public/javascript/DashboardAssociado.js"></script>
