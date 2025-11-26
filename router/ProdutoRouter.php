@@ -156,6 +156,12 @@ else {
             echo json_encode($produtoController->buscarTodosProdutos($ordem, $pesquisa));
             break;
 
+        case 'pesquisarHeader':
+            // pesquisa rápida usada pelo header (nome/marca)
+            $termo = isset($_GET['termo']) ? trim($_GET['termo']) : '';
+            echo json_encode($produtoController->pesquisarHeader($termo));
+            break;
+
         case 'ListarSubCategorias':
             echo json_encode($produtoController->capturarSubCategorias());
             break;

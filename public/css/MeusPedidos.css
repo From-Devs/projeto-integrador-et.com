@@ -220,19 +220,22 @@
     }
 
     .popupMP .popupMP-conteudo .popupMP-main{
+        display: flex;
+        justify-content: center;
         padding-bottom: 120px;
     }
 
     .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos{
-        width: 100%;
+        width: 90%;
         height: 600px;
         margin-top: 60px;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         gap: 20px;
         overflow-y: auto;
+        padding: 10px;
     }
 
     .popupMP .popupMP-conteudo .popupMP-main .popupMP-Produtos:focus{
