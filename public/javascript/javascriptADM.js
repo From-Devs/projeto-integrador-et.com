@@ -56,13 +56,13 @@ var myChartEsquerda = new Chart(ctxEsquerda, {
 var myChartDireita = new Chart(ctxDireita, {
   type: 'bar',
   data: {
-    labels: ['Concluído' ],
-    ('Aguardando Confirmação'),
-('Em Andamento'),
-('Enviado'),
-('Concluído'),
-('Cancelado'),
-('Devolvido')
+    labels: [
+    'Aguardando Confirmação',
+    'Em Andamento',
+    'Enviado',
+    'Concluído',
+    'Devolvido',
+    'Cancelado'],
     datasets: [{
       label: 'Vendas',
       data: [12, 19, 3, 5, 2],
