@@ -153,12 +153,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $result = $userController->login($email, $senha);
             
             if ($result["success"]) {
-                $_SESSION['id_usuario'] = $result['user']['id_usuario'];
-                header("Location: ../app/views/usuario/paginaPrincipal.php");
+                if ($result["role"] === "admin") {
+                    header("Location: ../app/views/adm/Dashboard.php"); 
+                } else {
+                    $_SESSION['id_usuario'] = $result['user']['id_usuario'];
+                    header("Location: ../app/views/usuario/paginaPrincipal.php");
+                }
                 exit;
             } else {
-                // header("Location: ../app/views/usuario/Login.php?erro=credenciais_invalidas");
-                header("Location: ../app/views/usuario/Login.php?erro=" . $result["message"]);
+                header("Location: ../app/views/usuario/Login.php?erro=" . urlencode($result["message"]));
                 exit;
             }
             break;
