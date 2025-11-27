@@ -167,7 +167,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             break;
 
         case "logout":
-            session_start();
             session_unset();
             session_destroy();
             
