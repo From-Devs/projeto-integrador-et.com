@@ -1050,7 +1050,7 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 --#endregion
 
 
---#region 
+--#region Glamour Midnight Desodorante Colônia (Michael)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (38,'#02020A','#23305D','#4660BA');
@@ -1341,7 +1341,7 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 --#endregion
 
 
---#region 
+--#region Uomini Black Colônia (Michael)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (47,'#2B2B2B','#525252','#858585');
@@ -3195,10 +3195,10 @@ Ingredientes:
 --#endregion 
 
 
---#region --#endregion 
+--#region Shampoo de Tratamento Antissinais Regenerador Capilar Lumina (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(106,'#','#','#');
+(106,'#936A39','#B58A57','#E6C59E');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3223,13 +3223,13 @@ Dicas de uso:
 Ingredientes:
 ÁGUA, SULFATO DE SÓDIO LAURETE, COCAMIDOPROPIL BETAÍNA, COPOLÍMERO DE ÁCIDO METACRÍLICO E ACRILATO DE ETILA, PERFUME, ÁCIDO CÍTRICO, ÓXIDO DE LAURAMINA, DIESTEARATO DE ETILENOGLICOL, TRIETANOLAMINA, BIS-CETEARIL AMODIMETICONA, CAFEÍNA, LAURETE-4, BENZOATO DE SÓDIO, POLIQUATÉRNIO-6, POLIQUATÉRNIO-22, SORBATO DE POTÁSSIO, PROPANODIOL, LINALOL, EDETATO DISSÓDICO, ÓLEO DA SEMENTE DE CASTANHA-DO-PARÁ, GLICEROL, LIMONENO, HIDRÓXIDO DE SÓDIO, CETEARETE-25, CETEARETE-7, HEXIL CINAMAL, MANTEIGA DA SEMENTE DE MURUMURU [ASTROCARYUM MURUMURU], ÁCIDO BENZOICO, CAPRILILGLICOL, FENOXIETANOL, EXTRATO DE GROSELHA-DA-ÍNDIA, ÁCIDO GLICÓLICO, POLIPEPTÍDEO-1 DE SR-ARANHA, ÓLEO DE RÍCINO HIDROGENADO PEG-40, CLORETO DE SÓDIO, TOCOFEROL, 1,2-HEXANODIOL.',
 52.90,null,0,30,'shampoo-antissinais-lumina-1.png', 'shampoo-antissinais-lumina-2.jpg', 'shampoo-antissinais-lumina-3.jpg',16,106,)
+--#endregion 
 
 
-
---#region --#endregion 
+--#region Sérum de Prevenção Antissinais Regenerador Capilar Lumina (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(107,'#','#','#');
+(107,'#653811','#916036','#EFC39C');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3248,7 +3248,7 @@ Antes de dormir, aplique o sérum Lumina em toda a extensão do couro cabeludo. 
 Ingredientes:
 ÁGUA, ÁLCOOL ETÍLICO, ÓLEO DE RÍCINO HIDROGENADO PEG-40, PROPANODIOL, PERFUME, CAFEÍNA, GLICEROL, SORBATO DE POTÁSSIO, CROSPOLÍMERO DE ACRILATOS/ACRILATO DE ALQUILA C10-30, LINALOL, TRIETANOLAMINA, EDETATO DISSÓDICO, LIMONENO, EXTRATO DE GROSELHA-DA-ÍNDIA, HEXIL CINAMAL, POLIPEPTÍDEO-1 DE SR-ARANHA, CITRAL, CITRONELOL, GERANIOL, ÁCIDO CÍTRICO, CAPRILILGLICOL, 1,2-HEXANODIOL.',
 89.90,null,0,'serum-antissinais-lumina-1.png', 'serum-antissinais-lumina-2.jpg', 'serum-antissinais-lumina-3.jpg',16,107,)
-
+--#endregion 
 
 
 --#region Shampoo Cabelo Corpo e Barba Essencial (Jonathan)
@@ -3282,10 +3282,10 @@ AQUA, SODIUM LAURETH SULFATE, COCAMIDOPROPYL BETAINE, PARFUM, PPG-1-PEG-9 LAURYL
 --#endregion 
 
 
---#region --#endregion 
+--#region Sérum Noturno Força e Reparação Molecular Lumina (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(109,'#','#','#');
+(109,'#45403D','#695C54','#CFB8AA');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3318,12 +3318,13 @@ Aplique o produto nas mãos, espalhe e aplique nos cabelos úmidos ou secos, evi
 Ingredientes:
 ÁGUA, POLIQUATÉRNIO-37, DICAPRILATO/DICAPRATO DE PROPILENOGLICOL, COCOATO DE DECILA, DIMETICONA, PERFUME, TREALOSE, FENOXIETANOL, CLORETO DE HIDROXIPROPIL GUAR HIDROXIPROPILTRIMÔNIO, PPG-1 PEG-6 ÉTER DE ÁLCOOL TRIDECÍLICO, LINALOL, EDETATO DISSÓDICO, HEXIL CINAMAL, DILAURATO DE PEG-4, LAURATO DE PEG-4, ÁCIDO CÍTRICO, SALICILATO DE BENZILA, LIMONENO, CITRAL, BUTILCARBAMATO DE IODOPROPINILA , MACROGOL, SR-ARANHA POLIPEPTÍDEO-1, HIDROXICITRONELAL, CITRONELOL, GERANIOL, HIDRÓXIDO DE SÓDIO, CAPRILILGLICOL, 1,2-HEXANODIOL, CARBONATO DE SÓDIO, CLORETO DE SÓDIO.',
 73.90,58.90,1,30,'serum-noturno-lumina-1.png', 'serum-noturno-lumina-2.jpg', 'serum-noturno-lumina-3.jpg',16,109,)
+--#endregion 
 
 
---#region --#endregion 
+--#region Shampoo Reequilibrante Anticaspa (Jonathan)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(110,'#','#','#');
+(110,'#2E454D','#49828D','#94CBD6');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3341,7 +3342,7 @@ Características:
 Dicas de uso:
 Aplique o shampoo nos cabelos molhados, massageando o couro cabeludo com movimentos circulares. Enxágue. Pós o uso do shampoo, você pode complementar o ritual de cuidados com o condicionador Lumina de sua preferência.',
 52.90,39.90,1,30,'shampoo-anticaspa-lumina-1.png', 'shampoo-anticaspa-lumina-2.jpg', 'shampoo-anticaspa-lumina-3.jpg',15,110,)
-
+--#endregion 
 
 
 --#region Creme de Pentear Ativador para Definição e Nutrição de Cabelos Crespos (Maiara)
@@ -3607,7 +3608,7 @@ Agite o óleo corporal de Natura Ekos antes de usar. Aplique sobre o corpo, mass
 --#endregion 
 
 
---#region --#endregion 
+--#region Esfoliante para o Corpo Tododia Acerola e Hibisco (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (121,'#','#','#');
@@ -3632,12 +3633,13 @@ Aplique por todo o corpo com movimentos circulares, exceto no rosto. Enxágue em
 Ingredientes:
 ÁGUA, GLICEROL, PALMITATO DE ISOPROPILA, PROPANODIOL, SORBITOL, BEENATO DE ESTEARILA, COCOATO DE ISOAMILA, PERFUME, FENOXIETANOL, ÉSTERES DA JOJOBA, CARBÔMER, HIDROXIACETOFENONA, GOMA XANTANA , SEMENTE DE PRUNUS ARMENIACA EM PÓ, ACETATO DE TOCOFERILA, HIDRÓXIDO DE SÓDIO, EDETATO DISSÓDICO, LIMONENO, HEXIL CINAMAL, LINALOL, CITRAL, VERMELHO 33, CARBONATO DE SÓDIO, AMARELO DE TARTRAZINA , CLORETO DE SÓDIO, SULFATO DE SÓDIO.',
 49.90,null,0,30,'esfoliante-corporal-tododia-acerola-1.png', 'esfoliante-corporal-tododia-acerola-2.jpg', 'esfoliante-corporal-tododia-acerola-3.jpg',26,121,)
+--#endregion 
 
 
---#region --#endregion 
+--#region  Sabonete Líquido Esfoliante para o Corpo Ekos Tukumã (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(122,'#','#','#');
+(122,'#A23901','#BB470A','#DF956D');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3655,13 +3657,13 @@ Características:
 Dicas de uso:
 Espalhe o sabonete líquido esfoliante de Natura Ekos sobre o corpo até formar espuma. Enxágue em seguida. Não utilizar o sabonete corporal no rosto.',
 54.90,null,0,30,'sabonete-esfoliante-tukuma-ekos-1.png', 'sabonete-esfoliante-tukuma-ekos-2.jpg', 'sabonete-esfoliante-tukuma-ekos-3.jpg',26,122,)
+--#endregion 
 
 
-
---#region --#endregion 
+--#region Creme Desodorante Hidratante para o Corpo Ekos Maracujá (Eliana)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrad26,122,)
 VALUES  
-(123,'#','#','#');
+(123,'#CD9E04','#E5B517','#FFE48A');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3688,12 +3690,13 @@ Aplique o creme corporal de Natura Ekos sobre a pele do corpo. Espalhe massagean
 Ingredientes:
 ÁGUA, PALMITATO DE ISOPROPILA, GLICEROL, PERFUME, PROPANODIOL, AMIDO DE TAPIOCA, ÓLEO DE SEMENTE DE MARACUJÁ, ÁLCOOL CETEARÍLICO, ÓLEO DE PALMISTE, ÓLEO DA FRUTA DE TUCUMÃ[ASTROCARYUM VULGARE], MONOESTEARATO DE GLICERILA, HIDROXIACETOFENONA, ESTEARATO PEG-100, POLIACRILATO DE SÓDIO, LIMONENO, DIPALMITATO DE GLICERILA, PALMITATO DE GLICERILA, ADIPATO DE DIBUTILA,DIESTEARATO DE GLICERILA, GOMA XANTANA, HEXIL CINAMAL, LINALOL, CAPRILATO DE POLIGLICERILA-3, GLICONATO DE SÓDIO, PENTAERITRITIL TETRA-DI-T-BUTIL HIDROXI-HIDROCINAMATO, CUMARINA, CITRONELOL, ALFA-ISOMETIL IONONA,BENZOATO DE BENZILA, TOCOFEROL, HIDROXICITRONELAL, CITRAL.',
 88.90,null,0,30,'cremecorporal-maracuja-ekos-1.png', 'cremecorporal-maracuja-ekos-2.jpg', 'cremecorporal-maracuja-ekos-3.jpg',23,123,)
+--#endregion 
 
 
---#region --#endregion 
+--#region Gelatina Cachos e Crespos Tododia Amora e Óleo de Coco (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(124,'#','#','#');
+(124,'#62285A','#A25798','#ECBBE5');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3710,12 +3713,13 @@ Características:
 Dicas de uso:
 Aplique uma pequena quantidade nas mãos e espalhe pelo cabelo. Reaplique caso sinta necessidade.',
 37.90,null,0,30,'geleia-cachos-tododia-1.png', 'geleia-cachos-tododia-2.jpg', 'geleia-cachos-tododia-3.jpg',17,124,)
+--#endregion 
 
 
---#region --#endregion 
+--#region Máscara Regeneradora para Reconstrução de Danos Extremos (Maiara)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
-(125,'#','#','#');
+(125,'#691B2F','#8B3248','#D96884');
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
@@ -3738,6 +3742,7 @@ Dicas de uso:
 Ingredientes:
 ÁGUA, ÁLCOOL CETOESTEARÍLICO, DIMETICONA, MANTEIGA DA SEMENTE DE ASTROCARYUM MURUMURU, METOSSULFATO DE BEENTRIMÔNIO, QUATÉRNIO-87, SORBITOL, PERFUME, FENOXIETANOL, BIS-CETEARIL AMODIMETICONA, HIETELOSE, ÓLEO DA SEMENTE DE BERTHOLLETIA EXCELSA, CETOMACROGOL 1000, CETOMACROGOL 1000, EDETATO DISSÓDICO, DILAURATO DE PEG-4, LAURATO DE PEG-4, PROTEÍNA DE TRIGO HIDROLISADA , LINALOL, PROTEÍNA DA SEMENTE DE AVENA SATIVA, PROTEÍNA DE PRUNUS AMYGDALUS DULCIS, LIMONENO, SALICILATO DE BENZILA, HEXIL CINAMAL, CITRONELOL, CAPRILILGLICOL, ÁCIDO CÍTRICO, BUTILCARBAMATO DE IODOPROPINILA, MACROGOL, SR-ARANHA POLIPEPTÍDEO-1, TROLAMINA, ACETATO DE SÓDIO, ÁCIDO GLICÓLICO, ESTEARATO DE SÓDIO, 1,2-HEXANODIOL, SORBATO DE POTÁSSIO, CLORETO DE SÓDIO, AMARELO DE TARTRAZINA, VERMELHO ESCARLATE 125, AZUL BRILHANTE, SULFATO DE SÓDIO.',
 73.90,null,0,30,'mascara-reconstrucao-lumina-1.png', 'mascara-reconstrucao-lumina-2.jpg', 'mascara-reconstrucao-lumina-3.jpg',16,125,)
+--#endregion 
 
 
 --#region --#endregion 
