@@ -54,10 +54,15 @@ var myChartEsquerda = new Chart(ctxEsquerda, {
 
 // Gráfico à direita
 var myChartDireita = new Chart(ctxDireita, {
-  type: 'doughnut',
+  type: 'bar',
   data: {
-    labels: ['Centro Oeste', 'Sul', 'Norte', 'Nordeste', 'Sudeste'],
-    
+    labels: ['Concluído' ],
+    ('Aguardando Confirmação'),
+('Em Andamento'),
+('Enviado'),
+('Concluído'),
+('Cancelado'),
+('Devolvido')
     datasets: [{
       label: 'Vendas',
       data: [12, 19, 3, 5, 2],
