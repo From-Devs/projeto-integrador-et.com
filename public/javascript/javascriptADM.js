@@ -67,18 +67,20 @@ var myChartDireita = new Chart(ctxDireita, {
       label: 'Vendas',
       data: [12, 19, 3, 5, 2],
       backgroundColor: [
-        'rgba(255, 99, 132)',
-        'rgba(54, 162, 235)',
-        'rgba(255, 206, 86)',
-        'rgba(75, 192, 192)',
-        'rgba(153, 102, 255)'
+        '#F1C40F', // Aguardando Confirmação
+        '#3498DB', // Em Andamento
+        '#9B59B6', // Enviado
+        '#2ECC71', // Concluído
+        '#E67E22', // Devolvido
+        '#E74C3C'  // Cancelado
       ],
       borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)'
+        '#D4AC0D',
+        '#2E86C1',
+        '#884EA0',
+        '#28B463',
+        '#CA6F1E',
+        '#CB4335'
       ],
       borderWidth: 1
     }]
