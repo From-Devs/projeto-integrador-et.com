@@ -85,29 +85,65 @@ var myChartDireita = new Chart(ctxDireita, {
       borderWidth: 1
     }]
   },
-  options: {
-    plugins: {
-      legend: {
-        position: 'bottom', 
-        labels: {
-          boxWidth: 20,
-          padding: 15
-        }
-      },
-      title: {
-        display: true,
-        text: 'Top 5 Regiões', // Texto do título
+ options: {
+  responsive: true,
+  maintainAspectRatio: false,
+
+  plugins: {
+    legend: {
+      position: 'bottom',
+      labels: {
+        boxWidth: 18,
+        padding: 20,
         font: {
-          size: 28, // Tamanho grande do título
-          weight: 'bold',
+          size: 14,
+          weight: '600'
         },
-        padding: {
-          top: 20,
-          bottom: 30,
-        }
+        color: '#333' // cor do texto da legenda
+      }
+    },
+
+    title: {
+      display: true,
+      text: 'Top 5 Regiões',
+      font: {
+        size: 30,
+        weight: 'bold',
+        family: 'Arial, sans-serif'
+      },
+      color: '#222',
+      padding: {
+        top: 25,
+        bottom: 35
+      }
+    },
+
+    tooltip: {
+      backgroundColor: 'rgba(0,0,0,0.8)',
+      titleFont: { size: 14 },
+      bodyFont: { size: 13 },
+      padding: 12,
+      cornerRadius: 6
+    }
+  },
+
+  scales: {
+    y: {
+      beginAtZero: true,
+      ticks: {
+        font: { size: 14 },
+        color: '#444'
+      }
+    },
+    x: {
+      ticks: {
+        font: { size: 14 },
+        color: '#444'
       }
     }
   }
+}
+
 });
 
 document.addEventListener("DOMContentLoaded",function(){
