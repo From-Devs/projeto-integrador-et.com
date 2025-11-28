@@ -86,39 +86,17 @@ async function carregarDadosNoPopUp(registroId) {
             dadosItem = dadosLocais.lancamento[registroId];
         }
         else {
-            let url = "";
-            switch (origemPopUp) {
-                case "editLancamento":
-                    url = `${PASTA_PROJETO}router/CustomizacaoRouter.php?acao=BuscarLancamento&id=${registroId}`;
-                    break;
-                case "editCarousel":
-                    url = `${PASTA_PROJETO}router/CustomizacaoRouter.php?acao=BuscarCarousel&id=${registroId}`;
-                    break;
-                default:
-                    url = `${PASTA_PROJETO}router/CustomizacaoRouter.php?acao=BuscarProduto&id=${registroId}`;
-            }
-
-            const response = await fetch(url);
-            const data = await response.json();
-
-            if (!data || data.error) {
-                console.error("Erro dados:", data?.error);
-                return;
-            }
-
-            dadosItem = Array.isArray(data) ? data[0] : data;
-
-            if (origemPopUp === 'editCarousel') dadosLocais.carousel[registroId] = dadosItem;
-            if (origemPopUp === 'editLancamento') dadosLocais.lancamento[registroId] = dadosItem;
+            // REMOVIDO: A lógica de fetch para o CustomizacaoRouter.php foi removida.
+            console.error(`ERRO: Dados locais para ${origemPopUp} com ID ${registroId} não encontrados. Router de busca removido por instrução.`);
+            return;
         }
 
         preencherCamposModal(dadosItem);
 
     } catch (e) {
-        console.error("Erro catch carregar:", e);
+        console.error("Erro no catch de carregarDadosNoPopUp:", e);
     }
 }
-
 // ==========================================================
 // 2. TROCA DE PRODUTO
 // ==========================================================
