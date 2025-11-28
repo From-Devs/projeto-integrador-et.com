@@ -241,7 +241,12 @@ window.salvarAlteracoesLancamento = function () {
     const valorParaBanco = indiceSelecionado + 1; 
 
     const imagemSelecionadaEl = itensImagem[indiceSelecionado].querySelector("img");
-    const imagemSrc = imagemSelecionadaEl ? getImgUrl(imagemSelecionadaEl.src) : "";
+    // CORREÇÃO: Usa getImgUrl na URL de preview, que pode ser uma URL completa (data: ou http) ou um caminho relativo
+    const imagemSrc = imagemSelecionadaEl ? imagemSelecionadaEl.src : "";
+    
+    // REVERTER PARA A VERSÃO DE SEGURANÇA (usa getImgUrl para garantir o prefixo correto)
+    const imagemSrcSegura = imagemSelecionadaEl ? getImgUrl(imagemSelecionadaEl.src) : "";
+
 
     // --- Atualiza Memória Local ---
     if (!dadosLocais.lancamento[idRegistro]) dadosLocais.lancamento[idRegistro] = {};
@@ -260,7 +265,7 @@ window.salvarAlteracoesLancamento = function () {
 
     elementoOrigem.style.setProperty("--corEspecial", corBrilho);
     const imgCard = elementoOrigem.querySelector(".imgCardLancamento");
-    if(imgCard) imgCard.src = imagemSrc;
+    if(imgCard) imgCard.src = imagemSrcSegura;
 
     // Se houver um input de preço no card original (caso tenha)
     let dadosAtuais = dadosLocais.lancamento[idRegistro];
@@ -269,9 +274,10 @@ window.salvarAlteracoesLancamento = function () {
         precoCard.textContent = formatarPreco(dadosAtuais);
     }
 
-    console.log(`Lançamento salvo! Imagem escolhida: ${valorParaBanco} (URL: ${imagemSrc})`);
+    console.log(`Lançamento salvo visualmente! Imagem escolhida: ${valorParaBanco} (URL: ${imagemSrcSegura})`);
 
-    fecharPopUp("popUpEditProdutoLancamento");
+    // fecharPopUp("popUpEditProdutoLancamento"); // Não definida no escopo, deve ser global
+    document.querySelector(".popUpEditProdutoLancamento").close();
     elementoOrigem = null;
 };
 
