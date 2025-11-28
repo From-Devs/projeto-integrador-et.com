@@ -181,7 +181,6 @@ function atualizarVisualDestaque(dados) {
     setCorInput('#produtoLancamentoEditCorSombra', dados.corSombra);
 }
 
-
 // ==========================================================
 // 3. SALVAR
 // ==========================================================
