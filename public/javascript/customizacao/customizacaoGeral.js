@@ -100,65 +100,65 @@ async function carregarDadosNoPopUp(registroId) {
 // ==========================================================
 // 2. TROCA DE PRODUTO
 // ==========================================================
-async function trocarProdutoSelecionado(idNovoProduto) {
-    try {
-        const response = await fetch(`${PASTA_PROJETO}router/CustomizacaoRouter.php?acao=BuscarProduto&id=${idNovoProduto}`);
-        const data = await response.json();
-        const produtoNovo = Array.isArray(data) ? data[0] : data;
+// async function trocarProdutoSelecionado(idNovoProduto) {
+//     try {
+//         const response = await fetch(`${PASTA_PROJETO}router/CustomizacaoRouter.php?acao=BuscarProduto&id=${idNovoProduto}`);
+//         const data = await response.json();
+//         const produtoNovo = Array.isArray(data) ? data[0] : data;
 
-        if (produtoNovo.error) return;
+//         if (produtoNovo.error) return;
 
-        // --- CASO 1: DESTAQUE ---
-        if (origemPopUp === 'produtoDestaque') {
-            if (!dadosLocais.destaque) dadosLocais.destaque = {};
+//         // --- CASO 1: DESTAQUE ---
+//         if (origemPopUp === 'produtoDestaque') {
+//             if (!dadosLocais.destaque) dadosLocais.destaque = {};
             
-            dadosLocais.destaque = {
-                ...dadosLocais.destaque,
-                ...produtoNovo,
-                id_produto: idNovoProduto,
-                cor1: produtoNovo.hex1,
-                cor2: produtoNovo.hex2,
-                corSombra: produtoNovo.corPrincipal
-            };
+//             dadosLocais.destaque = {
+//                 ...dadosLocais.destaque,
+//                 ...produtoNovo,
+//                 id_produto: idNovoProduto,
+//                 cor1: produtoNovo.hex1,
+//                 cor2: produtoNovo.hex2,
+//                 corSombra: produtoNovo.corPrincipal
+//             };
             
-            produtoOriginal.produtoDestaque = { ...dadosLocais.destaque };
-            atualizarVisualDestaque(dadosLocais.destaque);
-            return;
-        }
+//             produtoOriginal.produtoDestaque = { ...dadosLocais.destaque };
+//             atualizarVisualDestaque(dadosLocais.destaque);
+//             return;
+//         }
 
-        // --- CASO 2: MODAIS ---
-        let modalEdit;
-        let tipoEdit;
+//         // --- CASO 2: MODAIS ---
+//         let modalEdit;
+//         let tipoEdit;
         
-        if(origemPopUp === 'editCarousel') {
-            modalEdit = document.querySelector('.popUpEditProduto');
-            tipoEdit = 'carousel';
-        } else if (origemPopUp === 'editLancamento') {
-            modalEdit = document.querySelector('.popUpEditProdutoLancamento');
-            tipoEdit = 'lancamento';
-        }
+//         if(origemPopUp === 'editCarousel') {
+//             modalEdit = document.querySelector('.popUpEditProduto');
+//             tipoEdit = 'carousel';
+//         } else if (origemPopUp === 'editLancamento') {
+//             modalEdit = document.querySelector('.popUpEditProdutoLancamento');
+//             tipoEdit = 'lancamento';
+//         }
 
-        if (modalEdit) {
-            const idRegistro = modalEdit.dataset.id;
+//         if (modalEdit) {
+//             const idRegistro = modalEdit.dataset.id;
             
-            const dadosAtualizados = {
-                ...dadosLocais[tipoEdit][idRegistro],
-                ...produtoNovo, 
-                corEspecial: produtoNovo.corEspecial || produtoNovo.corPrincipal, 
-                hexDegrade1: produtoNovo.hexDegrade1 || produtoNovo.corPrincipal,
-                hexDegrade2: produtoNovo.hexDegrade2 || produtoNovo.hex1,
-                hexDegrade3: produtoNovo.hexDegrade3 || produtoNovo.hex2,
-                id_produto: idNovoProduto
-            };
+//             const dadosAtualizados = {
+//                 ...dadosLocais[tipoEdit][idRegistro],
+//                 ...produtoNovo, 
+//                 corEspecial: produtoNovo.corEspecial || produtoNovo.corPrincipal, 
+//                 hexDegrade1: produtoNovo.hexDegrade1 || produtoNovo.corPrincipal,
+//                 hexDegrade2: produtoNovo.hexDegrade2 || produtoNovo.hex1,
+//                 hexDegrade3: produtoNovo.hexDegrade3 || produtoNovo.hex2,
+//                 id_produto: idNovoProduto
+//             };
 
-            dadosLocais[tipoEdit][idRegistro] = dadosAtualizados;
-            preencherCamposModal(dadosAtualizados);
-        }
+//             dadosLocais[tipoEdit][idRegistro] = dadosAtualizados;
+//             preencherCamposModal(dadosAtualizados);
+//         }
 
-    } catch (err) {
-        console.error('Erro troca produto:', err);
-    }
-}
+//     } catch (err) {
+//         console.error('Erro troca produto:', err);
+//     }
+// }
 
 // CORREÇÃO: Atualização completa do Destaque (Nome, Marca, Preço, Imagem)
 function atualizarVisualDestaque(dados) {
@@ -180,9 +180,8 @@ function atualizarVisualDestaque(dados) {
     setCorInput('#produtoLancamentoEditCor2', dados.cor2);
     setCorInput('#produtoLancamentoEditCorSombra', dados.corSombra);
 }
-
 // ==========================================================
-// 3. SALVAR
+// 3. SALVAR ALTERAÇÕES VISUAIS NA TELA (SÓ JS)
 // ==========================================================
 window.salvarAlteracoesCarousel = function () {
     if (!elementoOrigem) { alert("Erro: elemento original perdido."); return; }
@@ -190,8 +189,8 @@ window.salvarAlteracoesCarousel = function () {
     const popUp = document.querySelector(".popUpEditProduto");
     const idRegistro = popUp.dataset.id;
 
-    const imgElement = popUp.querySelector(".imagemProduto");
-    const novaImgSrc = getImgUrl(imgElement.src);
+    const imgElement = popUp.querySelector("#wrapperEditProdutoImg .imagemProduto"); // CORREÇÃO: Pega a imagem preview
+    const novaImgSrc = imgElement.src; // NÃO USA getImgUrl, JÁ ESTÁ COMPLETA
     const nomeProduto = popUp.querySelector('.nomeProduto p').textContent; 
     
     const corDestaque = document.querySelector("#corDestaqueCarousel .corShow").value;
@@ -201,17 +200,19 @@ window.salvarAlteracoesCarousel = function () {
 
     if (!dadosLocais.carousel[idRegistro]) dadosLocais.carousel[idRegistro] = {};
     
-    dadosLocais.carousel[idRegistro].nome = nomeProduto;
+    // Atualiza a memória local (dados prontos para enviar ao PHP)
+    dadosLocais.carousel[idRegistro].nome = nomeProduto; // Nome não é usado no payload de envio
     dadosLocais.carousel[idRegistro].corEspecial = corDestaque;
     dadosLocais.carousel[idRegistro].hexDegrade1 = cor1;
     dadosLocais.carousel[idRegistro].hexDegrade2 = cor2;
     dadosLocais.carousel[idRegistro].hexDegrade3 = cor3;
     
+    // Atualiza o DOM original
     elementoOrigem.style.backgroundImage = `linear-gradient(to bottom, ${cor1} 0%, ${cor2} 50%, ${cor3} 100%)`;
     const imgCard = elementoOrigem.querySelector("img.imagemProduto");
     if (imgCard) imgCard.src = novaImgSrc; 
-    
-    fecharPopUp("popUpEditProduto");
+]
+    document.querySelector(".popUpEditProduto").close();
     elementoOrigem = null;
 };
 
