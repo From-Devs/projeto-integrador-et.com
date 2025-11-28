@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 .then(res => res.json())
                 .then(data => {
                     if (data.ok) {
+                        window.location.href = 'Meu_Carrinho.php';
                         if (window.abrirPopUp) window.abrirPopUp("popUpCarrinho"); 
                     } else {
                         if (window.abrirPopUp) window.abrirPopUp("popUpErro"); 
