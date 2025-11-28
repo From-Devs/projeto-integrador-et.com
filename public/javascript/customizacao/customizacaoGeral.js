@@ -382,7 +382,6 @@ function restaurarEditProduto(botao) {
         setCorInput('#corDegrade3', padrao.hexDegrade3 || padrao.hex2);
     }
 }
-
 function restaurarEditLancamento(botao) {
     const padrao = produtoOriginal.editLancamento;
     if (!padrao) return;
@@ -420,93 +419,65 @@ function restaurarProdutoDestaque(botao) {
 // ==========================================================
 
 async function atualizarSessao(sessao) {
-    const botao = document.activeElement; // Pega o botão clicado para efeito de loading
+    const botao = document.activeElement; 
     const textoOriginal = botao.innerText;
-    botao.innerText = "Salvando...";
-    botao.disabled = true;
+    
+    if (botao && botao.tagName === 'BUTTON') {
+        botao.innerText = "Salvando...";
+        botao.disabled = true;
+    }
 
     try {
         let payload = {};
-        let acaoPHP = "";
+        let caminhoApi = ""; // store_c, store_l, store_d
 
         if (sessao === 'carousel') {
             payload = montarPayloadCarousel();
-            acaoPHP = "SalvarCarousel";
-        } 
-        else if (sessao === 'lancamento') {
+            // Rota POST /store_c
+            caminhoApi = "store_c"; 
+        } else if (sessao === 'lancamento') {
             payload = montarPayloadLancamento();
-            acaoPHP = "SalvarLancamento";
-        } 
-        else if (sessao === 'destaque') {
+            // Rota POST /store_l
+            caminhoApi = "store_l";
+        } else if (sessao === 'destaque') {
             payload = montarPayloadDestaque();
-            acaoPHP = "SalvarDestaque";
+            // Rota POST /store_d
+            caminhoApi = "store_d"; 
+        } else {
+            // Se o dev esquecer, melhor dar um erro na tela
+            throw new Error("Sessão de salvamento inválida."); 
         }
 
-        // Envia para o Router PHP
-        const response = await fetch(`${PASTA_PROJETO}router/CustomizacaoRouter.php`, {
+        // CORREÇÃO CRÍTICA: Passamos o path=/store_x na URL para o Router PHP
+        const url = `${PASTA_PROJETO}router/CustomizacaoRouter.php?path=/${caminhoApi}`;
+        
+        // Enviamos o payload puro, sem a chave 'acao' ou 'dados'
+        const response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json' // Importante para enviar JSON complexo
+                'Content-Type': 'application/json' 
             },
-            body: JSON.stringify({
-                acao: acaoPHP,
-                dados: payload
-            })
+            body: JSON.stringify(payload) // PHP recebe e decodifica diretamente
         });
 
         const resultado = await response.json();
 
         if (resultado.status === 'sucesso') {
             alert(`${sessao.toUpperCase()} atualizado com sucesso!`);
-            // Opcional: Limpar dadosLocais[sessao] pois já está salvo
-            // dadosLocais[sessao] = {}; 
-            window.location.reload(); // Recarrega para garantir sincronia total
+            window.location.reload(); 
         } else {
-            alert("Erro ao salvar: " + resultado.msg);
+            alert("Erro ao salvar: " + (resultado.msg || "Erro desconhecido."));
         }
 
     } catch (error) {
         console.error("Erro na requisição:", error);
-        alert("Erro ao conectar com o servidor.");
+        alert("Erro ao conectar com o servidor ou sessao inválida.");
     } finally {
-        botao.innerText = textoOriginal;
-        botao.disabled = false;
+        if (botao && botao.tagName === 'BUTTON') {
+            botao.innerText = textoOriginal;
+            botao.disabled = false;
+        }
     }
-}
-
-// --- 1. Montar dados do Carousel (Ordem + Edição) ---
-function montarPayloadCarousel() {
-    const listaFinal = [];
-    
-    // Selecionamos os containers NA ORDEM que estão na tela (pós drag & drop)
-    const containers = document.querySelectorAll('.editarCarouselContainer .produtoContainer');
-
-    containers.forEach((container, index) => {
-        // Dentro do container tem o wrapper que tem o ID do Carousel
-        const wrapper = container.querySelector('.imagemProdutoWrapper');
-        const idCarousel = wrapper.dataset.id; 
-
-        // Nova posição baseada na ordem da DOM (index 0 vira posicao 1)
-        const novaPosicao = index + 1;
-
-        // Verifica se houve edição local para esse card
-        const edicoesLocais = dadosLocais.carousel[idCarousel] || {};
-
-        // Monta o objeto para o PHP
-        listaFinal.push({
-            id_carousel: idCarousel,
-            posicao: novaPosicao,
-            // Se tiver id_produto na edição local usa ele, senão, não mandamos (PHP mantém o atual)
-            id_produto: edicoesLocais.id_produto || null, 
-            // Cores (se editadas)
-            hexDegrade1: edicoesLocais.hexDegrade1 || null,
-            hexDegrade2: edicoesLocais.hexDegrade2 || null,
-            hexDegrade3: edicoesLocais.hexDegrade3 || null,
-            corEspecial: edicoesLocais.corEspecial || null
-        });
-    });
-
-    return listaFinal;
 }
 
 // --- 2. Montar dados de Lançamentos ---
@@ -576,7 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
+ 
     // Trocar Produto
     produtosLista.forEach(item => {
         item.addEventListener('click', async () => {
