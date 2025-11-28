@@ -262,6 +262,10 @@ main{
         width: 100%;
     }
 
+    #formApagarConta{
+        display: flex;
+    }
+
     .edit-profile-button, .delete-profile-button{ 
         flex: 1;
     }

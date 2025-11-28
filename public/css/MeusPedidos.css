@@ -837,6 +837,7 @@
         .cardpopup:hover .card-expandido .avaliarBtn,
         .cardpopup:hover .card-expandido .comprarNovamenteBtn,
         .cardpopup:hover .card-expandido .devolverBtn{
+            cursor: pointer;
             padding: 9px 14px;
             border-radius: 20px;
             border: 2px solid rgb(202, 202, 202);
@@ -847,6 +848,7 @@
         }
         
         .comprarNovamenteBtn{
+            cursor: pointer;
             padding: 5px;
             border-radius: 20px;
             border: 2px solid rgb(202, 202, 202);
@@ -856,7 +858,12 @@
             color: black;
         }
 
+        .comprarNovamenteBtn:hover, .cancelarBtn:hover{
+            background-color: rgb(255, 255, 255);
+        }
+
         .cancelarBtn{
+            cursor: pointer;
             padding: 9px 14px;
             border-radius: 20px;
             border: 2px solid rgb(202, 202, 202);
@@ -867,6 +874,7 @@
         }
 
         .cardpopup:hover .card-expandido .detalhes-botoes .avaliarBtn:hover,
+        .cardpopup:hover .card-expandido .detalhes-botoes .devolverBtn:hover,
         .cardpopup:hover .card-expandido .detalhes-botoes .comprarNovamenteBtn:hover{
             background-color: rgb(255, 255, 255);
         }
