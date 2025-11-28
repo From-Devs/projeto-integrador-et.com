@@ -13,6 +13,24 @@ const produtoOriginal = {
 let origemPopUp = null;
 let elementoOrigem = null;
 
+// --- Helper de Imagem ---
+function getImgUrl(caminho) {
+    if (!caminho) return "";
+    if (caminho.startsWith("data:") || caminho.startsWith("http")) return caminho;
+
+    let caminhoLimpo = caminho;
+    if (caminho.includes("public/")) {
+        caminhoLimpo = caminho.substring(caminho.indexOf("public/"));
+    } else if (caminho.includes("uploads/")) {
+         caminhoLimpo = "public/" + caminho.substring(caminho.indexOf("uploads/"));
+    }
+
+    if (caminhoLimpo.startsWith("/")) {
+        caminhoLimpo = caminhoLimpo.substring(1);
+    }
+    return `${PASTA_PROJETO}${caminhoLimpo}`;
+}
+
 // --- Helper de Preço ---
 function formatarPreco(produto) {
     // Verifica se tem promoção (fgPromocao pode vir como "1", 1, true, etc)
