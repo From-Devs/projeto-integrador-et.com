@@ -358,12 +358,11 @@ function preencherPopUpEditLancamento(produto) {
     if (imgIndex < 0) imgIndex = 0;
     if (imgIndex > 2) imgIndex = 2;
 
-    // Chama a função global criada no arquivo trocarImagemLancamento.js
+    // Chama a função global selecionarImagem (definida mais abaixo no bloco DOMContentLoaded)
     if(typeof window.selecionarImagem === 'function') {
         window.selecionarImagem(imgIndex);
     }
 }
-
 
 // ==========================================================
 // 5. RESTAURAR PADRÃO
