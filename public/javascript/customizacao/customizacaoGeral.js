@@ -1,4 +1,17 @@
-
+// variaveis globais
+const PASTA_PROJETO = '/projeto-integrador-et.com/';
+const dadosLocais = {
+    carousel: {},
+    lancamento: null,
+    destaque: {}
+};
+const produtoOriginal = {
+    editCarousel: null,
+    editLancamento: null,
+    produtoDestaque: null
+};
+let origemPopUp = null;
+let elementoOrigem = null;
 
 // --- Helper de Preço ---
 function formatarPreco(produto) {
