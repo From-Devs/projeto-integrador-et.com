@@ -33,11 +33,8 @@ function getImgUrl(caminho) {
 
 // --- Helper de Preço ---
 function formatarPreco(produto) {
-    // Verifica se tem promoção (fgPromocao pode vir como "1", 1, true, etc)
     const isPromo = produto.fgPromocao == 1 || produto.fgPromocao === true;
     const valor = isPromo ? produto.precoPromo : produto.preco;
-    
-    // Formatação simples para R$
     return `R$ ${valor}`;
 }
 
