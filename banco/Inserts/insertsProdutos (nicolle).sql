@@ -3752,7 +3752,313 @@ VALUES
 
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
+('Sombra Mono Faces Wild Black','Natura','1,5g',
+'A Sombra Mono Wild Black T traz a intensidade que transforma qualquer look. Sua embalagem prática permite montar combinações personalizadas, enquanto a textura aveludada entrega alta pigmentação, longa duração e um acabamento marcante. Dermatologicamente testada e cruelty free, é perfeita para destacar o olhar com cor intensa e cobertura alta.',
+'FACES SOMBRA MONO WILD BLACK T
+Quem disse que você precisa escolher? A nova coleção de sombras mono possui embalagem prática para você montar, desmontar e levar suas favoritas para onde quiser. Cores vibrantes que se destacam na multidão, longa duração, alta pigmentação e alto impacto. 
 
+Características:
+ - Cobertura: alta
+ - Testado dermatologicamente
+ - Idade sugerida: a partir dos 18 anos
+ - Cruelty free
+ - Textura: aveludada
+ - Zona de aplicação: olhos
+
+Dicas de uso:
+Para criar o look que é a sua cara, aplique nas pálpebras uma pequena quantidade do produto com um pincel ou os dedos.
+
+Ingredientes:
+INGREDIENTES / INGREDIENTES (PORTUGUÊS): TALC/ TALCO, ETHYLHEXYL PALMITATE/ PALMITATO DE ETILEXILA, ZINC STEARATE/ ESTEARATO DE ZINCO, HYDROGENATED POLYISOBUTENE/ POLI-ISOBUTENO HIDROGENADO, MAGNESIUM CARBONATE/ CARBONATO DE MAGNÉSIO, ZEA MAYS STARCH/ AMIDO, DIMETHICONE/ DIMETICONA, PHENOXYETHANOL/ FENOXIETANOL, CAPRYLYL GLYCOL/ CAPRILILGLICOL, QUARTZ/ QUARTZO, SILICA/ DIÓXIDO DE SILÍCIO, AQUA/ ÁGUA, STEARIC ACID/ ÁCIDO ESTEÁRICO. PODE CONTER/ PUEDE CONTENER: MICA/ MICA, CI 15985/ AMARELO CREPÚSCULO, CI 77891/ DIÓXIDO DE TITÂNIO, CI 77499/ ÓXIDO DE FERRO PRETO, CI 77007/ CORANTE AZUL 77007, CI 15850/ CORANTE VERMELHO 15850, CI 77742/ CORANTE VIOLETA 77742, CI 77266/ CORANTE PRETO 77266, CI 42090/ AZUL BRILHANTE.',
+39.90,null,0,30,'','',2)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sombra Mono Faces Bright Glam','Natura','1,5g',
+'A Sombra Mono Bright Glam T traz a intensidade que transforma qualquer look. Sua embalagem prática permite montar combinações personalizadas, enquanto a textura aveludada entrega alta pigmentação, longa duração e um acabamento marcante. Dermatologicamente testada e cruelty free, é perfeita para destacar o olhar com cor intensa e cobertura alta.',
+'FACES SOMBRA MONO BRIGHT GLAM
+Quem disse que você precisa escolher? A nova coleção de sombras mono possui embalagem prática para você montar, desmontar e levar suas favoritas para onde quiser. Cores vibrantes que se destacam na multidão, longa duração, alta pigmentação e alto impacto. 
+
+Características:
+ - Cobertura: alta
+ - Testado dermatologicamente
+ - Idade sugerida: a partir dos 18 anos
+ - Cruelty free
+ - Textura: aveludada
+ - Zona de aplicação: olhos
+
+Dicas de uso:
+Para criar o look que é a sua cara, aplique nas pálpebras uma pequena quantidade do produto com um pincel ou os dedos.
+
+Ingredientes:
+INGREDIENTES / INGREDIENTES (PORTUGUÊS): TALC/ TALCO, ETHYLHEXYL PALMITATE/ PALMITATO DE ETILEXILA, ZINC STEARATE/ ESTEARATO DE ZINCO, HYDROGENATED POLYISOBUTENE/ POLI-ISOBUTENO HIDROGENADO, MAGNESIUM CARBONATE/ CARBONATO DE MAGNÉSIO, ZEA MAYS STARCH/ AMIDO, DIMETHICONE/ DIMETICONA, PHENOXYETHANOL/ FENOXIETANOL, CAPRYLYL GLYCOL/ CAPRILILGLICOL, QUARTZ/ QUARTZO, SILICA/ DIÓXIDO DE SILÍCIO, AQUA/ ÁGUA, STEARIC ACID/ ÁCIDO ESTEÁRICO. PODE CONTER/ PUEDE CONTENER: MICA/ MICA, CI 15985/ AMARELO CREPÚSCULO, CI 77891/ DIÓXIDO DE TITÂNIO, CI 77499/ ÓXIDO DE FERRO PRETO, CI 77007/ CORANTE AZUL 77007, CI 15850/ CORANTE VERMELHO 15850, CI 77742/ CORANTE VIOLETA 77742, CI 77266/ CORANTE PRETO 77266, CI 42090/ AZUL BRILHANTE.',
+39.90,null,0,30,'','',2)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sombra Mono Faces Azul Joy','Natura','1,5g',
+'A Sombra Mono Azul Joy T traz a intensidade que transforma qualquer look. Sua embalagem prática permite montar combinações personalizadas, enquanto a textura aveludada entrega alta pigmentação, longa duração e um acabamento marcante. Dermatologicamente testada e cruelty free, é perfeita para destacar o olhar com cor intensa e cobertura alta.',
+'FACES SOMBRA MONO AZUL JOY
+Quem disse que você precisa escolher? A nova coleção de sombras mono possui embalagem prática para você montar, desmontar e levar suas favoritas para onde quiser. Cores vibrantes que se destacam na multidão, longa duração, alta pigmentação e alto impacto. 
+
+Características:
+ - Cobertura: alta
+ - Testado dermatologicamente
+ - Idade sugerida: a partir dos 18 anos
+ - Cruelty free
+ - Textura: aveludada
+ - Zona de aplicação: olhos
+
+Dicas de uso:
+Para criar o look que é a sua cara, aplique nas pálpebras uma pequena quantidade do produto com um pincel ou os dedos.
+
+Ingredientes:
+INGREDIENTES / INGREDIENTES (PORTUGUÊS): TALC/ TALCO, ETHYLHEXYL PALMITATE/ PALMITATO DE ETILEXILA, ZINC STEARATE/ ESTEARATO DE ZINCO, HYDROGENATED POLYISOBUTENE/ POLI-ISOBUTENO HIDROGENADO, MAGNESIUM CARBONATE/ CARBONATO DE MAGNÉSIO, ZEA MAYS STARCH/ AMIDO, DIMETHICONE/ DIMETICONA, PHENOXYETHANOL/ FENOXIETANOL, CAPRYLYL GLYCOL/ CAPRILILGLICOL, QUARTZ/ QUARTZO, SILICA/ DIÓXIDO DE SILÍCIO, AQUA/ ÁGUA, STEARIC ACID/ ÁCIDO ESTEÁRICO. PODE CONTER/ PUEDE CONTENER: MICA/ MICA, CI 15985/ AMARELO CREPÚSCULO, CI 77891/ DIÓXIDO DE TITÂNIO, CI 77499/ ÓXIDO DE FERRO PRETO, CI 77007/ CORANTE AZUL 77007, CI 15850/ CORANTE VERMELHO 15850, CI 77742/ CORANTE VIOLETA 77742, CI 77266/ CORANTE PRETO 77266, CI 42090/ AZUL BRILHANTE.',
+39.90,null,0,30,'','',2)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sombra Mono Faces Rosa Like','Natura','1,5g',
+'A Sombra Mono Rosa Like T traz a intensidade que transforma qualquer look. Sua embalagem prática permite montar combinações personalizadas, enquanto a textura aveludada entrega alta pigmentação, longa duração e um acabamento marcante. Dermatologicamente testada e cruelty free, é perfeita para destacar o olhar com cor intensa e cobertura alta.',
+'FACES SOMBRA MONO ROSA LIKE
+Quem disse que você precisa escolher? A nova coleção de sombras mono possui embalagem prática para você montar, desmontar e levar suas favoritas para onde quiser. Cores vibrantes que se destacam na multidão, longa duração, alta pigmentação e alto impacto. 
+
+Características:
+ - Cobertura: alta
+ - Testado dermatologicamente
+ - Idade sugerida: a partir dos 18 anos
+ - Cruelty free
+ - Textura: aveludada
+ - Zona de aplicação: olhos
+
+Dicas de uso:
+Para criar o look que é a sua cara, aplique nas pálpebras uma pequena quantidade do produto com um pincel ou os dedos.
+
+Ingredientes:
+INGREDIENTES / INGREDIENTES (PORTUGUÊS): TALC/ TALCO, ETHYLHEXYL PALMITATE/ PALMITATO DE ETILEXILA, ZINC STEARATE/ ESTEARATO DE ZINCO, HYDROGENATED POLYISOBUTENE/ POLI-ISOBUTENO HIDROGENADO, MAGNESIUM CARBONATE/ CARBONATO DE MAGNÉSIO, ZEA MAYS STARCH/ AMIDO, DIMETHICONE/ DIMETICONA, PHENOXYETHANOL/ FENOXIETANOL, CAPRYLYL GLYCOL/ CAPRILILGLICOL, QUARTZ/ QUARTZO, SILICA/ DIÓXIDO DE SILÍCIO, AQUA/ ÁGUA, STEARIC ACID/ ÁCIDO ESTEÁRICO. PODE CONTER/ PUEDE CONTENER: MICA/ MICA, CI 15985/ AMARELO CREPÚSCULO, CI 77891/ DIÓXIDO DE TITÂNIO, CI 77499/ ÓXIDO DE FERRO PRETO, CI 77007/ CORANTE AZUL 77007, CI 15850/ CORANTE VERMELHO 15850, CI 77742/ CORANTE VIOLETA 77742, CI 77266/ CORANTE PRETO 77266, CI 42090/ AZUL BRILHANTE.',
+39.90,null,0,30,'','',2)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Sombra Mono Faces Laranja Hype','Natura','1,5g',
+'A Sombra Mono Laranja Hype T traz a intensidade que transforma qualquer look. Sua embalagem prática permite montar combinações personalizadas, enquanto a textura aveludada entrega alta pigmentação, longa duração e um acabamento marcante. Dermatologicamente testada e cruelty free, é perfeita para destacar o olhar com cor intensa e cobertura alta.',
+'FACES SOMBRA MONO LARANJA HYPE
+Quem disse que você precisa escolher? A nova coleção de sombras mono possui embalagem prática para você montar, desmontar e levar suas favoritas para onde quiser. Cores vibrantes que se destacam na multidão, longa duração, alta pigmentação e alto impacto. 
+
+Características:
+ - Cobertura: alta
+ - Testado dermatologicamente
+ - Idade sugerida: a partir dos 18 anos
+ - Cruelty free
+ - Textura: aveludada
+ - Zona de aplicação: olhos
+
+Dicas de uso:
+Para criar o look que é a sua cara, aplique nas pálpebras uma pequena quantidade do produto com um pincel ou os dedos.
+
+Ingredientes:
+INGREDIENTES / INGREDIENTES (PORTUGUÊS): TALC/ TALCO, ETHYLHEXYL PALMITATE/ PALMITATO DE ETILEXILA, ZINC STEARATE/ ESTEARATO DE ZINCO, HYDROGENATED POLYISOBUTENE/ POLI-ISOBUTENO HIDROGENADO, MAGNESIUM CARBONATE/ CARBONATO DE MAGNÉSIO, ZEA MAYS STARCH/ AMIDO, DIMETHICONE/ DIMETICONA, PHENOXYETHANOL/ FENOXIETANOL, CAPRYLYL GLYCOL/ CAPRILILGLICOL, QUARTZ/ QUARTZO, SILICA/ DIÓXIDO DE SILÍCIO, AQUA/ ÁGUA, STEARIC ACID/ ÁCIDO ESTEÁRICO. PODE CONTER/ PUEDE CONTENER: MICA/ MICA, CI 15985/ AMARELO CREPÚSCULO, CI 77891/ DIÓXIDO DE TITÂNIO, CI 77499/ ÓXIDO DE FERRO PRETO, CI 77007/ CORANTE AZUL 77007, CI 15850/ CORANTE VERMELHO 15850, CI 77742/ CORANTE VIOLETA 77742, CI 77266/ CORANTE PRETO 77266, CI 42090/ AZUL BRILHANTE.',
+39.90,null,0,30,'','',2)
+
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Maxxi Palette de Sombras 12 Intensa Tons Una','Natura','11,28g',
+'A paleta Una reúne 12 cores entre acabamentos matte e perolados, oferecendo versatilidade para criar desde looks naturais até produções intensas. Com ultrapigmentação, alta cobertura e excelente fixação, entrega um acabamento aveludado que valoriza qualquer estilo. Dermatologicamente testada e cruelty free, é perfeita para destacar o olhar com elegância e praticidade.',
+'Una 12 tons matte e perolados a alta cobertura e fixação
+Combina tons matte e perolados para looks naturais e elaborados. Garante ultrapigmentação e alta fixação. Ideal para compor looks do dia a dia ou super produções para a noite.
+
+Características:
+ - Cobertura: alta
+ - Testado dermatologicamente
+ - Idade sugerida: a partir dos 18 anos
+ - Cruelty free
+ - Textura: aveludada
+ - Zona de aplicação: olhos
+
+Dicas de uso:
+Com o auxílio de um pincel de maquiagem ou com as pontas dos dedos, aplique uma pequena quantidade de sombra nas pálpebras. Espalhe a sombra de maneira uniforme, construindo camadas conforme a intensidade desejada.
+
+Ingredientes:
+TALC, MAGNESIUM STEARATE, DIMETHICONE, HYDROGENATED POLYISOBUTENE, OCTYLDODECYL STEAROYL STEARATE, BIS-DIGLYCERYL POLYACYLADIPATE-2, PHENOXYETHANOL, ETHYLHEXYLGLYCERIN. PODE CONTER/ PUEDE CONTENER: CI 77499, MICA, CI 77491, CI 77891, CI 77007, CI 77492, CI 42090, SYNTHETIC FLUORPHLOGOPITE, TIN OXIDE.
+',
+199.90,149.90,1,30,'','',null,2)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Caneta Delineadora para Olhos Una','Natura','1ml',
+'Para um olhar definido e impactante, a Caneta Delineadora Una combina traço preciso, ultrapigmentação e longa duração. Sua ponta fina e flexível garante controle total, permitindo criar desde linhas delicadas até delineados marcantes. O preto intenso seca rápido, não borra e permanece impecável o dia todo, além de oferecer acabamento matte e resistência à água e ao suor. Dermatologicamente testada e cruelty free, é ideal para realçar qualquer estilo com praticidade e precisão.',
+'Una o traço preciso e a ultrapigmentação à longa duração
+A Caneta Delineadora para Olhos Una é a escolha ideal para quem deseja um traço preciso e intenso. Com ponta fina e flexível, essa caneta delineadora oferece controle total para criar desde linhas finas e sutis até delineados mais marcantes e ousados. Sua fórmula de alta pigmentação garante um traço preto intenso, que seca rapidamente e dura o dia todo, sem borrar. Ideal para todos os tipos de pele, a caneta proporciona um acabamento matte perfeito, permitindo um olhar poderoso e definido com facilidade. Além disso, é resistente à água e ao suor, garantindo longa duração.
+
+Características:
+ - Cobertura: alta
+ - Testado dermatologicamente
+ - Cruelty free
+ - Zona de aplicação: olhos
+
+Dicas de uso:
+Para um delineado clássico, comece aplicando a caneta na linha dos cílios superiores, partindo do canto interno até o canto externo. Para um olhar mais dramático, aumente a espessura do traço e adicione um puxado no canto externo dos olhos.agite a Caneta Delineadora Natura Una antes de aplicá-la. Posicione a caneta na pálpebra, rente à raiz dos cílios no canto externo, e deslize até o canto interno dos olhos.
+
+Ingredientes:
+AQUA, BUTYLENE GLYCOL, CI 77266, STYRENE/ACRYLATES/AMMONIUM METHACRYLATE COPOLYMER, PEG-60 HYDROGENATED CASTOR OIL, PHENOXYETHANOL, COCO-GLUCOSIDE, POTASSIUM SORBATE, CITRIC ACID, SODIUM LAURETH-12 SULFATE, SODIUM BENZOATE, AMMONIUM HYDROXIDE, IODOPROPYNYL BUTYLCARBAMATE.
+',
+74.90,59.90,1,30,'','','',2)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Delineador Matte Peel Off Una','Natura','3ml',
+'Prático, ultrapigmentado e fácil de remover, o Delineador Una entrega um olhar marcante com efeito matte de longa duração. Seu aplicador extrafino de fibra permite criar traços precisos — desde linhas delicadas até delineados dramáticos — com suavidade e controle. A fórmula vegana, cruelty free e dermatologicamente testada oferece cobertura alta e cor intensa. E para completar, a tecnologia peel off possibilita uma remoção rápida: basta umedecer com água e puxar como um adesivo.',
+'Una o delineado matte à facilidade de remoção peel off.
+ - Aplicador extrafino de fibra que garante aplicação precisa e suave.
+ - Feito para desenhar traços finos ou dramáticos.
+ - Ultrapigmentado: cor intensa e efeito matte de longa duração.
+ - Remoção peel off: facilmente removível, como um adesivo, quando umedecido com água.
+ - Olhar ainda mais marcante e poderoso.
+ 
+Características:
+ - Cobertura: alta
+ - Testado dermatologicamente
+ - Efeito: matte
+ - Cruelty free
+ - Vegano
+ - Zona de aplicação: olhos
+ 
+Dicas de uso:
+1. Agite o delineador antes de usar.
+2. Inicie o traço a partir da parte interna da pálpebra para externa, rente à raiz dos cílios.
+3. Para remover, umedeça com água e retire com auxílio dos dedos. Com tecnologia peel off, é facilmente removível, como um adesivo.
+
+Ingredientes:
+AQUA, CI 77499, ACRYLATES/ETHYLHEXYL ACRYLATE COPOLYMER, CHARCOAL POWDER, PHENOXYETHANOL, GLYCERIN, LAURETH-21, CAPRYLYL GLYCOL, AMINOMETHYL PROPANOL, MAGNESIUM ALUMINUM SILICATE, XANTHAN GUM, HECTORITE, ETHYLHEXYLGLYCERIN, PEG-4 LAURATE, PEG-4 DILAURATE, PEG-200, IODOPROPYNYL BUTYLCARBAMATE, TOCOPHEROL.',
+74.90,44.90,1,30,'','','',2)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Caneta Delineadora de Sobrancelhas Una','Natura',null,
+'A Caneta Delineadora Una cria fios precisos com efeito fio a fio semelhante ao microblading, garantindo sobrancelhas preenchidas e definidas de forma natural. O aplicador exclusivo Precision 4, aliado à fórmula ultra fluida, permite desenhar novos fios e também tingir os já existentes com facilidade e controle. Dermatologicamente testada e cruelty free, é ideal para quem busca acabamento natural e precisão máxima.',
+'UNA CANETA DELIN DE SOBRAN CAS
+A Caneta Delineadora desenha os fios com efeito Fio a Fio/Microblanding. A união perfeita do exclusivo aplicador para sobrancelhas PRECISON 4 e fórmula ultra fluída garantem desenho preciso do fio para preenchimento e definição da sobrancelhas, de maneira natural. Além de desenhar os fios, pode ser usado também para pintar os fios já existentes.
+ 
+Características:
+ - Testado dermatologicamente
+ - Cruelty free
+ - Textura: fluida
+ - Zona de aplicação: olhos
+
+Dicas de uso:
+Aplique suavemente a caneta levemente inclinada na direção da raiz dos fios até as pontas, seguindo o sentido dos fios e penteando e tingindo os fios já existentes. para traços mais claros e suave, não pressione muito a caneta. Para traços mais escuros, pressione levemente a caneta ao desenhar os fios.
+
+Ingredientes:
+AQUA, ACRYLATES COPOLYMER, BUTYLENE GLYCOL, PEG-40 HYDROGENATED CASTOR OIL, LAURETH-4, PHENOXYETHANOL, CAPRYLYL GLYCOL, ETHYLHEXYLGLYCERIN, SODIUM LAURETH-12 SULFATE, BISABOLOL, DISODIUM EDTA, XANTHAN GUM, C11-15 PARETH-7, POTASSIUM SORBATE. PODE CONTER / PUEDE CONTENER:, CI 77266, CI 15850.
+',
+74.90,null,0,30,'','',null,4)
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Delineador Retrátil Faces Roxo','Natura',null,
+'O Delineador Retrátil Faces é o aliado ideal para um olhar marcante e bem definido. Sua ponta macia e retrátil desliza com facilidade, permitindo criar desde traços finos e delicados até delineados intensos e dramáticos. Com alta pigmentação e fórmula de longa duração, garante um acabamento impecável ao longo do dia — tudo isso com a praticidade de dispensar apontador.',
+'Seu aliado perfeito para um olhar marcante e definido, o Delineador Retrátil Faces desliza com sua ponta macia e retrátil. Com um traço preciso de alta pigmentação, ele cria linhas finas e sutis e delineados intensos e dramáticos. A fórmula de longa duração mantém o olhar impecável o dia todo.
+
+Dicas de uso:
+Deslize o Delineador Retrátil Faces ao longo da linha dos cílios, começando do canto interno para o externo, adaptando a espessura do traço como desejar. Para um olhar mais intenso, reaplique para construir a cor. A ponta retrátil dispensa apontador, garantindo praticidade no uso.
+
+Ingredientes:
+DIMETICONA, ISOBUTIRATO ACETATO DE SACAROSE, POLIETILENO, TRIMETILSILOXISSILICATO, COPOLÍMERO DE VINIL PIRROLIDONA/HEXADECENO, POLIACILADIPATO-2 DE BIS-DIGLICERILA, POLI-ISOBUTILENO, ESTEARIL DIMETICONA, ÁLCOOIS C30-50, SESQUIOLEATO DE SORBITANA, DIÓXIDO DE SILÍCIO , CETIL POLIETILENOGLICOL/POLIPROPILENOGLICOL-10/1 DIMETICONA, ACETATO DE TOCOFERILA, LEVOMENOL, ÁGUA. PODE CONTER: MICA, ÓXIDO DE FERRO PRETO, DIÓXIDO DE TITÂNIO, CORANTE BRANCO 77002, CORANTE VERMELHO 15850, ÓXIDO DE FERRO VERMELHO, CORANTE AZUL 77510, AZUL BRILHANTE, AMARELO DE TARTRAZINA , ÓXIDO DE ESTANHO.
+',
+34.90,16.70,1,30,'','',''2)
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Delineador Retrátil Faces Wine','Natura',null,
+'O Delineador Retrátil Faces é o aliado ideal para um olhar marcante e bem definido. Sua ponta macia e retrátil desliza com facilidade, permitindo criar desde traços finos e delicados até delineados intensos e dramáticos. Com alta pigmentação e fórmula de longa duração, garante um acabamento impecável ao longo do dia — tudo isso com a praticidade de dispensar apontador.',
+'Seu aliado perfeito para um olhar marcante e definido, o Delineador Retrátil Faces desliza com sua ponta macia e retrátil. Com um traço preciso de alta pigmentação, ele cria linhas finas e sutis e delineados intensos e dramáticos. A fórmula de longa duração mantém o olhar impecável o dia todo.
+
+Dicas de uso:
+Deslize o Delineador Retrátil Faces ao longo da linha dos cílios, começando do canto interno para o externo, adaptando a espessura do traço como desejar. Para um olhar mais intenso, reaplique para construir a cor. A ponta retrátil dispensa apontador, garantindo praticidade no uso.
+
+Ingredientes:
+DIMETICONA, ISOBUTIRATO ACETATO DE SACAROSE, POLIETILENO, TRIMETILSILOXISSILICATO, COPOLÍMERO DE VINIL PIRROLIDONA/HEXADECENO, POLIACILADIPATO-2 DE BIS-DIGLICERILA, POLI-ISOBUTILENO, ESTEARIL DIMETICONA, ÁLCOOIS C30-50, SESQUIOLEATO DE SORBITANA, DIÓXIDO DE SILÍCIO , CETIL POLIETILENOGLICOL/POLIPROPILENOGLICOL-10/1 DIMETICONA, ACETATO DE TOCOFERILA, LEVOMENOL, ÁGUA. PODE CONTER: MICA, ÓXIDO DE FERRO PRETO, DIÓXIDO DE TITÂNIO, CORANTE BRANCO 77002, CORANTE VERMELHO 15850, ÓXIDO DE FERRO VERMELHO, CORANTE AZUL 77510, AZUL BRILHANTE, AMARELO DE TARTRAZINA , ÓXIDO DE ESTANHO.
+',
+34.90,16.70,1,30,'','',''2)
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+('Delineador Retrátil Faces Verde','Natura',null,
+'O Delineador Retrátil Faces é o aliado ideal para um olhar marcante e bem definido. Sua ponta macia e retrátil desliza com facilidade, permitindo criar desde traços finos e delicados até delineados intensos e dramáticos. Com alta pigmentação e fórmula de longa duração, garante um acabamento impecável ao longo do dia — tudo isso com a praticidade de dispensar apontador.',
+'Seu aliado perfeito para um olhar marcante e definido, o Delineador Retrátil Faces desliza com sua ponta macia e retrátil. Com um traço preciso de alta pigmentação, ele cria linhas finas e sutis e delineados intensos e dramáticos. A fórmula de longa duração mantém o olhar impecável o dia todo.
+
+Dicas de uso:
+Deslize o Delineador Retrátil Faces ao longo da linha dos cílios, começando do canto interno para o externo, adaptando a espessura do traço como desejar. Para um olhar mais intenso, reaplique para construir a cor. A ponta retrátil dispensa apontador, garantindo praticidade no uso.
+
+Ingredientes:
+DIMETICONA, ISOBUTIRATO ACETATO DE SACAROSE, POLIETILENO, TRIMETILSILOXISSILICATO, COPOLÍMERO DE VINIL PIRROLIDONA/HEXADECENO, POLIACILADIPATO-2 DE BIS-DIGLICERILA, POLI-ISOBUTILENO, ESTEARIL DIMETICONA, ÁLCOOIS C30-50, SESQUIOLEATO DE SORBITANA, DIÓXIDO DE SILÍCIO , CETIL POLIETILENOGLICOL/POLIPROPILENOGLICOL-10/1 DIMETICONA, ACETATO DE TOCOFERILA, LEVOMENOL, ÁGUA. PODE CONTER: MICA, ÓXIDO DE FERRO PRETO, DIÓXIDO DE TITÂNIO, CORANTE BRANCO 77002, CORANTE VERMELHO 15850, ÓXIDO DE FERRO VERMELHO, CORANTE AZUL 77510, AZUL BRILHANTE, AMARELO DE TARTRAZINA , ÓXIDO DE ESTANHO.
+',
+34.90,16.70,1,30,'','',''2)
 
 
 --#region --#endregion 
@@ -3764,6 +4070,14 @@ INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,prec
 VALUES 
 
 
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
 
 --#region --#endregion 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
@@ -3773,6 +4087,311 @@ VALUES
 INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
 VALUES 
 
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
+
+
+--#region --#endregion 
+INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
+VALUES  
+(120,'#','#','#');
+
+INSERT INTO produto (nome,marca,tamanho,descricaoBreve,descricaoTotal,preco,precoPromo,fgPromocao,qtdEstoque,img1,img2,img3,id_subCategoria,id_cores,id_associado)
+VALUES 
 
 
 --#region --#endregion 
