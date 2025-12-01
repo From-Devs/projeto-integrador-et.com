@@ -2,7 +2,6 @@
     position: relative;
     display: block;
     height: 850px;
-    background-image: linear-gradient(to top, rgb(180, 147, 138) 0%, rgb(254, 225, 216) 50%, rgba(255, 255, 255, 0) 100%);
     width: 1920px;
     margin-top: 0;
     overflow: hidden;
@@ -19,18 +18,17 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    transition: all 0.6s;
+    /* transition: all 0.6s; */
 }
 
 .ondaPrincipal{
     z-index: 200;
-    filter: drop-shadow(0px 0px 50px rgb(56, 21, 7));
-    transition: all 0.6s;
+    /* transition: all 0.6s; */
 }
 
 .ondaFantasma{
     z-index: 199;
-    transition: all 0.6s;
+    /* transition: all 0.6s; */
 }
 
 .retanguloProdutoDestaque{
@@ -38,7 +36,6 @@
     bottom: 0;
     right: 0;
     width: 50%;
-    filter: drop-shadow(0px 0px 120px rgba(56, 21, 7, 1));
     z-index: 198;
 }
 

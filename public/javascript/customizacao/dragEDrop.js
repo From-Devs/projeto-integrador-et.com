@@ -16,6 +16,7 @@ function dragOver(e) {
     if (!this.className.includes("hovered")) {
         this.className += " hovered";
     }
+    
 }
 
 function dragEnter(e) {

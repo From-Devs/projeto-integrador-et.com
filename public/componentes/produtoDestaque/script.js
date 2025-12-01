@@ -4,31 +4,40 @@ document.addEventListener("DOMContentLoaded", function(){
     const LoginVerific = document.getElementById('LoginVerific').innerHTML;
 
     produtoDestaque.forEach(item => {
+        const formCarrinhoDestaque = item.querySelector('.formCardProdutoCarrinho');
+        formCarrinhoDestaque.addEventListener('submit', function(e){
+            e.preventDefault();
 
-        let cor = item.childNodes[7],
-            cores = [];
+            const idProduto = this.querySelector('input[name="id_produto"]').value;
+            const quantidadeVar = 1;
 
-        for (let index = 1; index < cor.childNodes.length; index+=2) {
-            let style = window.getComputedStyle(cor.childNodes[index]),
-                corValor = style.getPropertyValue('color');
-                
-            cores.push(corValor);
-        }
-
-        item.style.background = "linear-gradient(to top, "+ cores[0] +" 0%, "+ cores[1] +" 50%, rgba(255, 255, 255, 0) 100%)";
-        item.childNodes[5].childNodes[1].style.filter = "drop-shadow(0px 0px 50px "+ cores[2] +")";
-        item.childNodes[5].childNodes[5].style.filter = "drop-shadow(0px 0px 90px "+ cores[2] +")";
-
-        item.childNodes[3].childNodes[1].childNodes[7].childNodes[1].addEventListener('click', function(){
             if (LoginVerific == "true"){
-                window.location.href = 'Meu_Carrinho.php';
+                fetch('/projeto-integrador-et.com/router/CarrinhoRouter.php?action=adicionarCarrinho', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ id_produto: idProduto, quantidade: quantidadeVar })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.ok) {
+                        window.location.href = 'Meu_Carrinho.php';
+                        if (window.abrirPopUp) window.abrirPopUp("popUpCarrinho"); 
+                    } else {
+                        if (window.abrirPopUp) window.abrirPopUp("popUpErro"); 
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    if (window.abrirPopUp) window.abrirPopUp("popUpErro");
+                });
             }else{
                 abrirPopUpCurto("popUpErroDelogado", 2000);
             }
         });
 
         item.childNodes[3].childNodes[1].childNodes[7].childNodes[3].addEventListener('click', function(){
-            window.location.href = 'detalhesDoProduto.php'
+            const id = item.getAttribute('data-id');
+            window.location.href = `/projeto-integrador-et.com/app/views/usuario/detalhesDoProduto.php?id=${id}`;
         });
     });
  

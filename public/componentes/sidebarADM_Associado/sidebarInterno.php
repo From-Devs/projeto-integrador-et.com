@@ -98,7 +98,22 @@ require_once __DIR__ . "/../botao/botao.php";
         }
     }
     function createSidebarInterna($tipo_usuario){
-        $btnSim = botaoPersonalizadoRedirect('Sim','btn-white','app/views/usuario/paginaPrincipal.php','60px', '30px');
+        if ($tipo_usuario == 'ADM') {
+            $actionForm = '/projeto-integrador-et.com/router/UserRoutes.php?acao=logout';
+        } else {
+            $actionForm = 'app/views/usuario/paginaPrincipal.php';
+        }
+    
+        if ($tipo_usuario == 'ADM') {
+            $btnSim = "
+                <form action='{$actionForm}' method='POST' style='display:inline;'>
+                    <button type='submit' class='btn btn-white' style='width: 60px; height: 30px;'>Sim</button>
+                </form>
+            ";
+        } else {
+            $btnSim = botaoPersonalizadoRedirect('Sim','btn-white', $actionForm ,'60px', '30px');
+        }
+
         $btnNao = botaoPersonalizadoOnClick('Não', 'btn-white', 'fecharPopUp("popupSair")','60px', '30px');
         return "
                 <div class='menu-toggle' id='menu-toggle'>

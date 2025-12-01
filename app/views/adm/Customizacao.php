@@ -15,6 +15,8 @@ $res = $conn->index();
 // var_dump($res);
 // echo "</pre>";
 
+$produtoDestaque = $res["destaque"][0];
+
 // session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 ?>
@@ -25,7 +27,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador - Customização</title>
-    
     
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/botao/styles.css">
     <link rel="stylesheet" href="/projeto-integrador-et.com/public/componentes/popUp/styles.css">
@@ -89,13 +90,13 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                 <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
             </div>
 
-            <form class="wrapperPopUp">
+            <div class="wrapperPopUp">
                 <div class="esquerdaEditProduto">
                     <div class="produtoContainer cor-0" id="wrapperEditProdutoImg">
                         <img class="imagemProduto" src="/projeto-integrador-et.com/public/imagens/produto/hinode.png" alt="">
                     </div>
-    
-                    <button type="submit" id="botaoPadrao" class="btn btn-black" style="width: 161px; height:33px; font-size: 15px;">Salvar alterações</button>
+
+                    <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 161px; height:33px; font-size: 15px;" onclick="salvarAlteracoesCarousel()">Salvar alterações</button>
                 </div>
 
                 <div class="editProdutoContainer">
@@ -104,9 +105,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         <h2>Produto:</h2>
                         <div class="selectProduto">
                             <div class="nomeProduto">
-                                <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
+                                <p></p>
                             </div>
-                            <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 115px; height:33px; font-size: 15px; " onclick="abrirPopUp('popUpSelectProduto', 'editProduto')">Trocar</button>
+                            <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 115px; height:33px; font-size: 15px; " onclick="abrirPopUp('popUpSelectProduto', 'editCarousel')">Trocar</button>
                         </div>
                     </div>
 
@@ -180,7 +181,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </dialog>
 
@@ -197,20 +198,20 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                     <h2>Exemplo:</h2>
                     <div class="bugBizarro">
                         <?php
-                        echo createCardProdutoLancamento("", "","","","", "lancamentoFuncional");
-                        echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg", "lancamentoFuncional");
+                        echo createCardProdutoLancamento("", "","","","", 0, 0,"lancamentoFuncional");
+                        echo createCardProdutoLancamento("", "","","","", 0, 0,"lancamentoFuncional");
                         ?>
                     </div>
                 </div> 
                 
-                <form class="direita">
+                <div class="direita">
                     <div class="editProdutoLancamentoContainer">
         
                         <div class="switchProduto">
                             <h2>Produto:</h2>
                             <div class="selectProduto">
                                 <div class="nomeProduto">
-                                    <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
+                                    <p></p>
                                 </div>
                                 <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 115px; height:33px; font-size: 15px; " onclick="abrirPopUp('popUpSelectProduto', 'editLancamento')">Trocar</button>
                             </div>
@@ -282,9 +283,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         </div>
                                     
                     </div>
+                    <button type="button" class="btn btn-black salvarAlteracoesLancamento" onclick="salvarAlteracoesLancamento()">Salvar alterações</button>
 
-                    <button type="submit" class="btn btn-black salvarAlteracoesLancamento" onclick="abrirPopUp()">Salvar alterações</button>
-                </form>     
+                </div>     
             </div>
         </div>
     </dialog>
@@ -306,15 +307,15 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         <div class="editarCarouselContainer">
                             <?php
                             foreach ($res["carousel"] as $index => $carouselItem) {
-                                $carouselProdutoID = $carouselItem['id_produto'];
+                                $carouselProdutoID = $carouselItem['id_carousel'];
                                 $carouselImg = $carouselItem['img1'];
                                 $cor1 = $carouselItem['hexDegrade1'];
                                 $cor2 = $carouselItem['hexDegrade2'];
                                 $cor3 = $carouselItem['hexDegrade3'];
 
                                 echo '
-                                <div class="produtoContainer" onclick="abrirPopUp(\'popUpEditProduto\')">
-                                    <div class="imagemProdutoWrapper" data-id=' . $carouselProdutoID . ' style="background-image: linear-gradient(to bottom, '. $cor1 .' 0%, '. $cor2 .' 50%, '. $cor3 .' 100%);">
+                                <div class="produtoContainer">
+                                    <div class="imagemProdutoWrapper" onclick="abrirPopUp(\'popUpEditProduto\', \'editCarousel\',  ' . $carouselProdutoID . ', event)" data-id=' . $carouselProdutoID . ' style="background-image: linear-gradient(to bottom, '. $cor1 .' 0%, '. $cor2 .' 50%, '. $cor3 .' 100%);">
                                         <img class="imagemProduto" src="/projeto-integrador-et.com/' . $carouselImg . '" alt="">
                                     </div>
                                 </div>
@@ -324,7 +325,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                         </div>
                     </div>
             
-                    <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
+                    <button id="botaoPadrao" class="btn btn-white" style="width: 220px; height:45px; font-size: 20px; " onclick="atualizarSessao('carousel')">Atualizar</button>
     
                     <ul class="descricaoContainer">
                         <li class="descricao">Clique em um produto para editar</li>
@@ -346,25 +347,19 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             <div class="frameProdutos">
                 <div class="containerProdutos" id="containerLancamentos">
                     <?php
-                    // foreach ($listaLancamentos as $produto) {
-                    //     echo createCardProdutoLancamento(
-                    //         $produto['marca'],
-                    //         $produto['nome'],
-                    //         $produto['precoPromo'] == 0 ? $produto['preco'] : $produto['precoPromo'],
-                    //         $produto['corPrincipal'] ?? "#000",
-                    //         $produto['img2'],
-                    //         $produto['id_produto'],
-                    //         "lancamentoCustom"
-                    //     );
-                    // }
-                    echo createCardProdutoLancamento("Phállebeauty", "Base Matte Alta Cobertura","R$ 1000,00","#E1B48C","matte.jpg",0,"lancamentoCustom");
-                    echo createCardProdutoLancamento("Avon", "Red Batom","R$ 2000,00","#D1061D","batom.png",1, "lancamentoCustom");
-                    echo createCardProdutoLancamento("Benefit", "BADgal Bang! Máscara de Cílios","R$ 3000,00","#D02369","bang.png",2, "lancamentoCustom");
-                    echo createCardProdutoLancamento("Avon", "Color Trend Delineador Líquido","R$ 1000,00","#F0CBDA","trend.webp",3, "lancamentoCustom");
-                    echo createCardProdutoLancamento("Mari Maria","Diamond Blender Esponja de Maquiagem","R$ 2000,00","#D79185","tri.jpeg",4, "lancamentoCustom");
-                    echo createCardProdutoLancamento("Simple Organic", "SOLUÇÃO RETINOL-LIKE","R$ 3000,00","#C9A176","simple.webp",5, "lancamentoCustom");
-                    echo createCardProdutoLancamento("Princess","Mini Chapinha Bivolt","R$ 2000,00","#745CA3","chapa.webp",6, "lancamentoCustom");
-                    echo createCardProdutoLancamento("O Boticário","L'eau De Lily Soleil Perfume Feminino","R$ 3000,00","#F4C83C","lily.jpg",7, "lancamentoCustom");
+                    foreach ($res["lancamento"] as $index => $lancamentoItem) {
+                        $imagem = 'img' . $lancamentoItem['imgSelecionada'];
+                        echo createCardProdutoLancamento(
+                            $lancamentoItem['marca'],
+                            $lancamentoItem['nome'],
+                            $lancamentoItem['precoPromo'] == 0 ? $lancamentoItem['preco'] : $lancamentoItem['precoPromo'],
+                            $lancamentoItem['corEspecial'] ?? "#000",
+                            $lancamentoItem[$imagem],
+                            $lancamentoItem['id_produto'],
+                            $lancamentoItem['id_lancamento'],
+                            "lancamentoCustom"
+                        );
+                    }
                     ?>
                 </div>
             </div>
@@ -373,30 +368,41 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
 
         <div class="customizacaoMain">
             <div class="containerCustomizacao">
-                <div class="sessao" id="sessaoLancamento">
-                    <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
+                <form class="sessao" id="sessaoLancamento">
+                    <button id="botaoPadrao" class="btn btn-white" style="width: 220px; height:45px; font-size: 20px; " onclick="atualizarSessao('lancamento')">Atualizar</button>
                     <ul class="descricaoContainer">
                         <li class="descricao">Arraste o cursor sobre um produto e clique no botão “Editar” para editá-lo</li>
                     </ul>
-                </div>
+                </form>
 
                 <div class="sessao" id="sessaoDestaque">
                     <ul>
                         <li class="tituloSessao">Produto em destaque</li>
                     </ul>
 
-                    <?php echo createProdutoDestaque(); ?>
+                    <?php
+                    echo createProdutoDestaque(
+                        $produtoDestaque["id_produto"],
+                        $produtoDestaque["nome"],
+                        $produtoDestaque["marca"],
+                        $produtoDestaque['precoPromo'] == 0 ? $produtoDestaque['preco'] : $produtoDestaque['precoPromo'],
+                        $produtoDestaque["img1"],
+                        $produtoDestaque["cor1"],
+                        $produtoDestaque["cor2"],
+                        $produtoDestaque["corSombra"]
+                    );
+                    ?>
 
-                    <div class="wrapper">
+                    <form class="wrapper">
                         <div class="editProdutoDestaque">
                             <div class="esquerda">
                                 <div class="switchProduto">
                                     <h2>Produto:</h2>
                                     <div class="selectProduto">
                                         <div class="nomeProduto">
-                                            <p>BATOM LÍQUIDO MATTIFY DAZZLE</p>
+                                            <p><?= $produtoDestaque["nome"] ?></p>
                                         </div>
-                                        <?php echo botaoPersonalizadoOnClick("Trocar","btn-black", "abrirPopUp(\"popUpSelectProduto\", \"produtoDestaque\")", "115px", "33px", "15px")?>
+                                        <button type="button" id="botaoPadrao" class="btn btn-black" style="width: 115px; height:33px; font-size: 15px; " onclick="abrirPopUp('popUpSelectProduto', 'produtoDestaque')">Trocar</button>
                                     </div>
                                 </div>
                             </div>
@@ -409,8 +415,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
                                             <div class="editCor" id="produtoLancamentoEditCor1">
-                                                <input type="color" class="corShow" value="#b4938a"></input>
-                                                <input class="corHex" maxlength="7" value="#b4938a"></input>
+                                                <input type="color" class="corShow" value="<?= $produtoDestaque["cor1"] ?>"></input>
+                                                <input class="corHex" maxlength="7"></input>
                                             </div>
                                         </div>
                                     </div>
@@ -419,8 +425,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
                                             <div class="editCor" id="produtoLancamentoEditCor2">
-                                                <input type="color" class="corShow" value="#fee1d8"></input>
-                                                <input class="corHex" maxlength="7" value="#fee1d8"></input>
+                                                <input type="color" class="corShow" value="<?= $produtoDestaque["cor2"] ?>"></input>
+                                                <input class="corHex" maxlength="7"></input>
                                             </div>
                                         </div>
                                     </div>
@@ -429,8 +435,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                         <div class="corContainer">
                                             <p class="textHex">HEX</p>
                                             <div class="editCor" id="produtoLancamentoEditCorSombra">
-                                                <input type="color" class="corShow" value="#381507"></input>
-                                                <input class="corHex" maxlength="7" value="#381507"></input>
+                                                <input type="color" class="corShow" value="<?= $produtoDestaque["corSombra"] ?>"></input>
+                                                <input class="corHex" maxlength="7"></input>
                                             </div>
                                         </div>
                                     </div>
@@ -438,7 +444,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                                 <p class="restaurarPadrao">Restaurar Padrão</p>
                             </div>
                         </div>
-                        <?php echo botaoPersonalizadoOnClick("Atualizar","btn-white", "abrirPopUp(\"popUpUpdate\")", "220px", "45px", "20px")?>
+                        <button id="botaoPadrao" class="btn btn-white" style="width: 220px; height:45px; font-size: 20px; " onclick="atualizarSessao('destaque')">Atualizar</button>
                         
                         <div class="sessao" id="sessaoPI">
                             <ul>
@@ -447,7 +453,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <?php echo botaoPersonalizadoRedirect("Visualizar","btn-black", "/app/views/adm/paginaPrincipalVisualizacao.php", "220px", "45px", "20px")?>
                             
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -456,7 +462,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <script src="/projeto-integrador-et.com/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
-    <script src="/projeto-integrador-et.com/public/javascript/customizacaoADM.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/customizacao/botaoEditarLancamentos.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/cardLancamento/script.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/editorCor.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/trocarCorProdutoDestaque.js"></script>
@@ -464,6 +470,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/trocarCorLancamento.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/dragEDrop.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/trocarImagemLancamento.js"></script>
-    <script src="/projeto-integrador-et.com/public/javascript/customizacao/listaDeProdutos.js"></script>
+    <script src="/projeto-integrador-et.com/public/javascript/customizacao/customizacaoGeral.js"></script>
 </body>
 </html> 
