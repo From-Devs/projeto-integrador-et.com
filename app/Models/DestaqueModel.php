@@ -250,12 +250,15 @@ class ProdutoDestaque {
         try {
             $stmt = $this->conn->prepare("
                 SELECT 
-                    pd.id_proddestaque, 
+                    pd.id_prodDestaque, 
                     p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.img2, p.img3, p.fgPromocao,
-                    cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3
+                    // CORREÇÃO: Buscando as cores diretamente da tabela proddestaque (pd)
+                    pd.cor1 AS hexDegrade1, 
+                    pd.cor2 AS hexDegrade2, 
+                    pd.corSombra AS hexDegrade3
+                    // Note que corEspecial não está na proddestaque, mas você pode usar o nome do produto ou marca
                 FROM proddestaque pd
                 JOIN produto p ON p.id_produto = pd.id_produto
-                LEFT JOIN coressubs cs ON cs.id_coressubs = pd.id_coressubs
                 WHERE pd.id_proddestaque = :id
                 LIMIT 1
             ");

@@ -106,11 +106,38 @@ class CustomizacaoController {
     // Criar lancamentos
     public function createLancamento(int $id, array $data): array {
         $lancamento = $this->lancamentoModel->create($id, $data);
-        return ['lancamento' => $lancamentoModel];
+        return ['lancamento' => $lancamento];
     }
     // Deletar lancamentos
     public function deleteLancamento(int $id) {
         return $this->lancamentoModel->remove($id);
+    }
+
+    public function processarLancamentos(array $lancamentos): array {
+        $resultados = [];
+        foreach ($lancamentos as $data) {
+            $id_lancamento = (int)($data['id_lancamento'] ?? 0); // O ID do registro 'lancamento'
+            
+            // Chamada ao Model para criação/atualização
+            $resultado = $this->lancamentoModel->create($id_lancamento, $data); 
+            $resultados[] = $resultado;
+        }
+        return ['status' => 'sucesso', 'resultados' => $resultados];
+    }
+
+    public function processarCarousel(array $carrosseis): array {
+        $resultados = [];
+        
+        // O seu createCarousel já trata limites, mas vamos garantir que ele lide com a atualização de posição e dados.
+        foreach ($carrosseis as $data) {
+            $id_carousel = (int)($data['id_carousel'] ?? null); 
+            
+            // Se o ID for null, o createCarousel original trata como CRIAÇÃO (limitada a 3)
+            // Se o ID existir, ele trata como UPDATE
+            $resultado = $this->createCarousel($id_carousel, $data); 
+            $resultados[] = $resultado;
+        }
+        return ['status' => 'sucesso', 'resultados' => $resultados];
     }
 
 }

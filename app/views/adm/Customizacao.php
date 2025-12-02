@@ -87,7 +87,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         <div class='popUp' style=' padding: 33px; background-color: #F8F8F8;'>
             <div class='topoPopUp'>
                 <h1 class="tituloPopUp">Editar Produto</h1>
-                <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
+                <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp' onclick="closeModalDialog('popUpEditProduto')">
             </div>
 
             <div class="wrapperPopUp">
@@ -189,7 +189,7 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         <div class='popUp' style='padding: 33px; background-color: #F8F8F8; position: relative;'>
             <div class='topoPopUp'>
                 <h1 class="tituloPopUp">Editar Lançamento</h1>
-                <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp'>
+                <img class='icone-fechar' id="iconeFechar" src='/projeto-integrador-et.com/public/imagens/popUp_Botoes/icone-fechar.png' alt='img-fechar-popUp' onclick="closeModalDialog('popUpEditProdutoLancamento')">
             </div>
 
             <div class="popUpEditLancamentoWrapper">
@@ -468,7 +468,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/trocarCorProdutoDestaque.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/trocarCorDegradeCarousel.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/trocarCorLancamento.js"></script>
-    <script src="/projeto-integrador-et.com/public/javascript/customizacao/dragEDrop.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/trocarImagemLancamento.js"></script>
     <script src="/projeto-integrador-et.com/public/javascript/customizacao/customizacaoGeral.js"></script>
 </body>

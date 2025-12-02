@@ -1,78 +1,92 @@
 <?php
-require_once __DIR__ . '/../app/Models/products.php';
-require_once __DIR__ . '/../app/Models/LancamentoModel.php';
-require_once __DIR__ . '/../app/Models/CarouselModel.php';
+// CustomizacaoRouter.php
 
-$acao = $_GET['acao'] ?? null;
-$id   = $_GET['id'] ?? null;
-
-$produtoModel   = new Products();
-$lancamentoModel = new Lancamentos();
-$carouselModel   = new CarouselModel();
-
-ob_clean();
+// 1. Configurações para garantir JSON limpo e tratar erros
+ob_start(); 
+ini_set('display_errors', 1); 
 header("Content-Type: application/json; charset=UTF-8");
 
-switch ($acao) {
+require_once __DIR__ . '/../app/Controllers/CustomizacaoController.php'; 
 
-    // ======================================
-    // PRODUTO
-    // ======================================
+try {
+    // 2. Verifica se é POST (JSON) vindo do JavaScript
+    $inputJSON = file_get_contents('php://input');
+    $input = json_decode($inputJSON, TRUE);
 
-    case 'BuscarProduto':
-        if (!$id) {
-            echo json_encode(["error" => "ID do produto não informado"]);
-            break;
-        }
+    // --- FLUXO DE SALVAR (POST) ---
+    if ($input && isset($input['acao'])) {
         
-        echo json_encode($produtoModel->buscarProdutoPeloId($id));
-        break;
+        $customController = new CustomizacaoController();
+        $acaoPost = $input['acao'];
+        $dados    = $input['dados'];
 
-    // ======================================
-    // LANÇAMENTO
-    // ======================================
+        // CustomizacaoRouter.php (Alterar a seção de fluxo de salvar POST)
+        switch ($acaoPost) {
+            case 'SalvarCarousel':
+                ob_clean(); 
+                echo json_encode($customController->processarCarousel($dados)); 
+                break;
 
-    case 'BuscarLancamento':
-        if (!$id) {
-            echo json_encode(["error" => "ID do lançamento não informado"]);
-            break;
+            case 'SalvarLancamento':
+                ob_clean(); 
+                // CORREÇÃO: Chamar createLancamento
+                echo json_encode($customController->processarLancamentos($dados)); 
+                break;
+
+            case 'SalvarDestaque':
+                ob_clean(); 
+                // CORREÇÃO: Chamar createDestaque
+                echo json_encode($customController->createDestaque($dados));
+                break;
+
         }
-        echo json_encode($lancamentoModel->getElementByid($id));
-        break;
+        exit; // Para aqui se for POST
+    }
 
-    case 'AtualizarLancamento':
-        $dados = json_decode(file_get_contents("php://input"), true);
-        echo json_encode($lancamentoModel->atualizar($dados));
-        break;
+    // --- FLUXO DE BUSCAR (GET) ---
+    // Só carrega os models antigos se for GET
+    require_once __DIR__ . '/../app/Models/products.php';
+    require_once __DIR__ . '/../app/Models/LancamentoModel.php';
+    require_once __DIR__ . '/../app/Models/CarouselModel.php';
 
+    $acao = $_GET['acao'] ?? null;
+    $id   = $_GET['id'] ?? null;
 
-    // ======================================
-    // CAROUSEL
-    // ======================================
-
-    case 'BuscarCarousel':
-        if (!$id) {
-            echo json_encode(["error" => "ID do carousel não informado"]);
+    switch ($acao) {
+        case 'BuscarProduto':
+            if (!$id) throw new Exception("ID não informado");
+            $model = new Products();
+            ob_clean(); echo json_encode($model->buscarProdutoPeloId($id));
             break;
-        }
-        echo json_encode($carouselModel->getElementById($id));
-        break;
 
-    case 'ListarCarousel':
-        echo json_encode($carouselModel->listarTodos());
-        break;
+        case 'BuscarLancamento':
+            if (!$id) throw new Exception("ID não informado");
+            $model = new Lancamentos();
+            ob_clean(); echo json_encode($model->getElementByid($id));
+            break;
 
-    case 'AtualizarCarousel':
-        $dados = json_decode(file_get_contents("php://input"), true);
-        echo json_encode($carouselModel->atualizar($dados));
-        break;
+        case 'BuscarCarousel':
+            if (!$id) throw new Exception("ID não informado");
+            $model = new CarouselModel();
+            ob_clean(); echo json_encode($model->getElementById($id));
+            break;
 
+        case 'ListarCarousel':
+            $model = new CarouselModel();
+            ob_clean(); echo json_encode($model->listarTodos());
+            break;
 
-    // ======================================
-    // AÇÃO INVÁLIDA
-    // ======================================
+        default:
+            throw new Exception("Ação GET inválida ou não informada");
+    }
 
-    default:
-        echo json_encode(["error" => "Ação inválida ou não definida"]);
-        break;
+}    catch (Throwable $e) {
+        ob_clean();
+        // Adicione detalhes do erro, incluindo a linha e o arquivo.
+        echo json_encode([
+        "status" => "erro",
+        "msg" => "ERRO FATAL CAPTURADO: " . $e->getMessage(),
+        "detalhe" => "Arquivo: " . $e->getFile() . " Linha: " . $e->getLine()
+    ]);
 }
+?>

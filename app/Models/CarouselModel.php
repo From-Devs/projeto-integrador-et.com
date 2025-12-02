@@ -139,7 +139,12 @@ class CarouselModel {
     // 🔹 READ - Buscar carrossel por ID
     public function getElementById(int $id): array|false {
         try {
-            $stmt = $this->conn->prepare("\n                SELECT c.id_carousel, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo,\n                       p.img1, p.img2, p.img3, p.fgPromocao,\n                       cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3, c.posicao\n                FROM carousel c\n                JOIN produto p ON p.id_produto = c.id_produto\n                JOIN coressubs cs ON cs.id_coressubs = c.id_coressubs\n                WHERE c.id_carousel = :id\n            ");
+            $stmt = $this->conn->prepare("SELECT c.id_carousel, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo,
+            p.img1, p.img2, p.img3, p.fgPromocao, cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3, c.posicao
+            FROM carousel c
+            JOIN produto p ON p.id_produto = c.id_produto
+            JOIN coressubs cs ON cs.id_coressubs = c.id_coressubs
+            WHERE c.id_carousel = :id");
             $stmt->execute([":id" => $id]);
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
 

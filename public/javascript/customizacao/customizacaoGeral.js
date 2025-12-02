@@ -1,4 +1,6 @@
-const PASTA_PROJETO = "/projeto-integrador-et.com/"; 
+// ==========================================================
+// CONFIGURAÇÕES GLOBAIS & ESTADO LOCAL
+// ==========================================================
 
 const dadosLocais = {
     carousel: {},   
@@ -15,6 +17,12 @@ const produtoOriginal = {
 let origemPopUp = null; 
 let elementoOrigem = null; 
 
+// Variáveis Drag & Drop
+let dragSelected = null;
+let dragParentOfFill = null;
+let dragDoesExist = false;
+let dragSwapElement = null;
+
 // --- Helper de Imagem ---
 function getImgUrl(caminho) {
     if (!caminho) return "";
@@ -30,17 +38,7 @@ function getImgUrl(caminho) {
     if (caminhoLimpo.startsWith("/")) {
         caminhoLimpo = caminhoLimpo.substring(1);
     }
-    return `${PASTA_PROJETO}${caminhoLimpo}`;
-}
-
-// --- Helper de Preço ---
-function formatarPreco(produto) {
-    // Verifica se tem promoção (fgPromocao pode vir como "1", 1, true, etc)
-    const isPromo = produto.fgPromocao == 1 || produto.fgPromocao === true;
-    const valor = isPromo ? produto.precoPromo : produto.preco;
-    
-    // Formatação simples para R$
-    return `R$ ${valor}`;
+    return `/projeto-integrador-et.com/${caminhoLimpo}`;
 }
 
 // --- Helper de Input de Cor ---
@@ -54,6 +52,13 @@ function setCorInput(seletorContainer, valor) {
         if(elHex) elHex.value = corFinal;
         elShow.dispatchEvent(new Event("input", { bubbles: true }));
     }
+}
+
+// --- Helper de Preço ---
+function formatarPreco(produto) {
+    const isPromo = produto.fgPromocao == 1 || produto.fgPromocao === true;
+    const valor = isPromo ? produto.precoPromo : produto.preco;
+    return `R$ ${valor}`;
 }
 
 // ==========================================================
@@ -80,6 +85,33 @@ window.abrirPopUp = function (nomePopUp, origem = null, registroId = null, event
     dialog.showModal();
 }
 
+window.closeModalDialog = function (nomePopUp) {
+    const dialog = document.querySelector(`.${nomePopUp}`);
+    if (!dialog) return;
+
+    // --- RESET DOS DADOS NÃO SALVOS ---
+    if (origemPopUp === 'editCarousel' && elementoOrigem) {
+        const id = elementoOrigem.dataset.id;
+        // Restaura os dados do produto original antes de fechar
+        if (produtoOriginal.editCarousel && produtoOriginal.editCarousel[id]) {
+            dadosLocais.carousel[id] = { ...produtoOriginal.editCarousel[id] };
+        }
+    } else if (origemPopUp === 'editLancamento' && elementoOrigem) {
+        const id = elementoOrigem.dataset.id;
+        // Restaura os dados do produto original antes de fechar
+        if (produtoOriginal.editLancamento && produtoOriginal.editLancamento[id]) {
+            dadosLocais.lancamento[id] = { ...produtoOriginal.editLancamento[id] };
+        }
+    }
+    // O Destaque não precisa de reset aqui se ele for salvo diretamente sem PopUp de edição.
+
+    // Reseta as variáveis de controle
+    origemPopUp = null;
+    elementoOrigem = null;
+    
+    dialog.close();
+}
+
 async function carregarDadosNoPopUp(registroId) {
     try {
         let dadosItem = null;
@@ -94,16 +126,22 @@ async function carregarDadosNoPopUp(registroId) {
             let url = "";
             switch (origemPopUp) {
                 case "editLancamento":
-                    url = `${PASTA_PROJETO}router/CustomizacaoRouter.php?acao=BuscarLancamento&id=${registroId}`;
+                    url = `/projeto-integrador-et.com/router/CustomizacaoRouter.php?acao=BuscarLancamento&id=${registroId}`;
                     break;
                 case "editCarousel":
-                    url = `${PASTA_PROJETO}router/CustomizacaoRouter.php?acao=BuscarCarousel&id=${registroId}`;
+                    url = `/projeto-integrador-et.com/router/CustomizacaoRouter.php?acao=BuscarCarousel&id=${registroId}`;
                     break;
                 default:
-                    url = `${PASTA_PROJETO}router/CustomizacaoRouter.php?acao=BuscarProduto&id=${registroId}`;
+                    url = `/projeto-integrador-et.com/router/CustomizacaoRouter.php?acao=BuscarProduto&id=${registroId}`;
             }
 
             const response = await fetch(url);
+            
+            // Verificação de erro HTTP
+            if (!response.ok) {
+                throw new Error(`Erro HTTP: ${response.status}`);
+            }
+
             const data = await response.json();
 
             if (!data || data.error) {
@@ -129,7 +167,7 @@ async function carregarDadosNoPopUp(registroId) {
 // ==========================================================
 async function trocarProdutoSelecionado(idNovoProduto) {
     try {
-        const response = await fetch(`${PASTA_PROJETO}router/CustomizacaoRouter.php?acao=BuscarProduto&id=${idNovoProduto}`);
+        const response = await fetch(`/projeto-integrador-et.com/router/CustomizacaoRouter.php?acao=BuscarProduto&id=${idNovoProduto}`);
         const data = await response.json();
         const produtoNovo = Array.isArray(data) ? data[0] : data;
 
@@ -187,7 +225,6 @@ async function trocarProdutoSelecionado(idNovoProduto) {
     }
 }
 
-// CORREÇÃO: Atualização completa do Destaque (Nome, Marca, Preço, Imagem)
 function atualizarVisualDestaque(dados) {
     const nomeEditor = document.querySelector('.editProdutoDestaque .nomeProduto p');
     if (nomeEditor) nomeEditor.textContent = dados.nome;
@@ -198,19 +235,17 @@ function atualizarVisualDestaque(dados) {
     const precoDestaque = document.querySelector('.produtoDestaque .precoProduto');
 
     if (imgDestaque && dados.img1) imgDestaque.src = getImgUrl(dados.img1);
-    if (nomeDestaque) nomeDestaque.textContent = dados.nome ? dados.nome : '';
+    if (nomeDestaque) nomeDestaque.textContent = dados.nome ? dados.nome.toUpperCase() : '';
     if (marcaDestaque) marcaDestaque.textContent = dados.marca || '';
     if (precoDestaque) precoDestaque.textContent = formatarPreco(dados);
 
-    // 3. Inputs de Cor
     setCorInput('#produtoLancamentoEditCor1', dados.cor1);
     setCorInput('#produtoLancamentoEditCor2', dados.cor2);
     setCorInput('#produtoLancamentoEditCorSombra', dados.corSombra);
 }
 
-
 // ==========================================================
-// 3. SALVAR
+// 3. SALVAR (VISUAL + LOCAL)
 // ==========================================================
 window.salvarAlteracoesCarousel = function () {
     if (!elementoOrigem) { alert("Erro: elemento original perdido."); return; }
@@ -238,6 +273,19 @@ window.salvarAlteracoesCarousel = function () {
     elementoOrigem.style.backgroundImage = `linear-gradient(to bottom, ${cor1} 0%, ${cor2} 50%, ${cor3} 100%)`;
     const imgCard = elementoOrigem.querySelector("img.imagemProduto");
     if (imgCard) imgCard.src = novaImgSrc; 
+    const payloadItem = {
+        id_carousel: idRegistro,
+        // A posição será definida na função montarPayloadCarousel
+        // id_produto: (dadosLocais.carousel[idRegistro].id_produto || null), // Não está definido aqui
+        hexDegrade1: cor1,
+        hexDegrade2: cor2,
+        hexDegrade3: cor3,
+        corEspecial: corDestaque
+    };
+    
+    console.log(`\n--- Payload Local do Item Carrossel (ID: ${idRegistro}) ---`);
+    console.log(payloadItem);
+    console.log("------------------------------------------------------------------\n");
     
     fecharPopUp("popUpEditProduto");
     elementoOrigem = null;
@@ -256,7 +304,7 @@ window.salvarAlteracoesLancamento = function () {
     const corBrilho = document.querySelector("#corBrilhoLancamento .corShow").value;
     
     const itensImagem = popUp.querySelectorAll(".imagemItem");
-    let indiceSelecionado = 1; // Padrão é a segunda (índice 1)
+    let indiceSelecionado = 1; 
     
     itensImagem.forEach((item, index) => {
         if (item.classList.contains("imagemSelecionada")) {
@@ -264,22 +312,17 @@ window.salvarAlteracoesLancamento = function () {
         }
     });
     
-    // O banco espera 1, 2 ou 3. O array é 0, 1 ou 2. Então somamos 1.
     const valorParaBanco = indiceSelecionado + 1; 
 
     const imagemSelecionadaEl = itensImagem[indiceSelecionado].querySelector("img");
     const imagemSrc = imagemSelecionadaEl ? getImgUrl(imagemSelecionadaEl.src) : "";
 
-    // --- Atualiza Memória Local ---
     if (!dadosLocais.lancamento[idRegistro]) dadosLocais.lancamento[idRegistro] = {};
     dadosLocais.lancamento[idRegistro].nome = nome;
     dadosLocais.lancamento[idRegistro].marca = marca;
     dadosLocais.lancamento[idRegistro].corEspecial = corBrilho; 
-    
-    // SALVANDO O INTEIRO (1, 2 ou 3)
     dadosLocais.lancamento[idRegistro].imgSelecionada = valorParaBanco;
     
-    // --- Atualiza DOM Visual ---
     const tituloCard = elementoOrigem.querySelector(".textoCardLancamento");
     if(tituloCard) {
         tituloCard.textContent = marca ? `${marca} - ${nome}` : nome;
@@ -289,14 +332,22 @@ window.salvarAlteracoesLancamento = function () {
     const imgCard = elementoOrigem.querySelector(".imgCardLancamento");
     if(imgCard) imgCard.src = imagemSrc;
 
-    // Se houver um input de preço no card original (caso tenha)
     let dadosAtuais = dadosLocais.lancamento[idRegistro];
     const precoCard = elementoOrigem.querySelector(".CardLancamentoPreco");
     if(precoCard && dadosAtuais.preco) {
         precoCard.textContent = formatarPreco(dadosAtuais);
     }
 
-    console.log(`Lançamento salvo! Imagem escolhida: ${valorParaBanco} (URL: ${imagemSrc})`);
+    const payloadItem = {
+        id_lancamento: idRegistro,
+        id_produto: (dadosAtuais.id_produto || null), 
+        imgSelecionada: valorParaBanco,
+        corEspecial: corBrilho
+    };
+    
+    console.log(`\n--- Payload Local do Item Lançamento (ID: ${idRegistro}) ---`);
+    console.log(payloadItem);
+    console.log("------------------------------------------------------------------\n");
 
     fecharPopUp("popUpEditProdutoLancamento");
     elementoOrigem = null;
@@ -316,8 +367,6 @@ function preencherCamposModal(dados) {
             break;
         case 'editLancamento':
             preencherPopUpEditLancamento(dados);
-            break;
-        case 'produtoDestaque':
             break;
     }
 }
@@ -371,24 +420,14 @@ function preencherPopUpEditLancamento(produto) {
         if (preco) preco.textContent = formatarPreco(produto);
     }
     
-    // O banco/local manda 1, 2 ou 3. Se não existir, padrão é 2.
-    // O Javascript espera index 0, 1 ou 2. Então subtraímos 1.
     let imgIndex = (produto.imgSelecionada || 2) - 1; 
-
-    // Garante que o índice esteja entre 0 e 2
     if (imgIndex < 0) imgIndex = 0;
     if (imgIndex > 2) imgIndex = 2;
 
-    // Chama a função global criada no arquivo trocarImagemLancamento.js
     if(typeof window.selecionarImagem === 'function') {
         window.selecionarImagem(imgIndex);
     }
 }
-
-
-// ==========================================================
-// 5. RESTAURAR PADRÃO
-// ==========================================================
 
 function restaurarEditProduto(botao) {
     const padrao = produtoOriginal.editCarousel;
@@ -420,17 +459,10 @@ function restaurarProdutoDestaque(botao) {
     
     if (botao.closest('.corWrapper')) {
         const wrapper = botao.closest('.corWrapper');
-        
-        if(wrapper.querySelector('#produtoLancamentoEditCor1')) 
-            setCorInput('#produtoLancamentoEditCor1', padrao.cor1 || padrao.hex1);
-            
-        if(wrapper.querySelector('#produtoLancamentoEditCor2')) 
-            setCorInput('#produtoLancamentoEditCor2', padrao.cor2 || padrao.hex2);
-            
-        if(wrapper.querySelector('#produtoLancamentoEditCorSombra')) 
-            setCorInput('#produtoLancamentoEditCorSombra', padrao.corSombra || padrao.corPrincipal);
+        if(wrapper.querySelector('#produtoLancamentoEditCor1')) setCorInput('#produtoLancamentoEditCor1', padrao.cor1 || padrao.hex1);
+        if(wrapper.querySelector('#produtoLancamentoEditCor2')) setCorInput('#produtoLancamentoEditCor2', padrao.cor2 || padrao.hex2);
+        if(wrapper.querySelector('#produtoLancamentoEditCorSombra')) setCorInput('#produtoLancamentoEditCorSombra', padrao.corSombra || padrao.corPrincipal);
     } else {
-        // Fallback: restaura tudo se o botão estiver fora (ex: rodapé)
         setCorInput('#produtoLancamentoEditCor1', padrao.cor1 || padrao.hex1);
         setCorInput('#produtoLancamentoEditCor2', padrao.cor2 || padrao.hex2);
         setCorInput('#produtoLancamentoEditCorSombra', padrao.corSombra || padrao.corPrincipal);
@@ -438,14 +470,19 @@ function restaurarProdutoDestaque(botao) {
 }
 
 // ==========================================================
-// LOGICA DE ENVIO PARA O BANCO (UPDATE)
+// ENVIO PARA O BANCO (UPDATE)
 // ==========================================================
 
 async function atualizarSessao(sessao) {
-    const botao = document.activeElement; // Pega o botão clicado para efeito de loading
-    const textoOriginal = botao.innerText;
-    botao.innerText = "Salvando...";
-    botao.disabled = true;
+    // Evita erro se o clique não vier de um botão (ex: enter)
+    const botao = document.activeElement && document.activeElement.tagName === "BUTTON" ? document.activeElement : null;
+    let textoOriginal = "";
+    
+    if(botao) {
+        textoOriginal = botao.innerText;
+        botao.innerText = "Salvando...";
+        botao.disabled = true;
+    }
 
     try {
         let payload = {};
@@ -464,84 +501,91 @@ async function atualizarSessao(sessao) {
             acaoPHP = "SalvarDestaque";
         }
 
-        // Envia para o Router PHP
-        const response = await fetch(`${PASTA_PROJETO}router/CustomizacaoRouter.php`, {
+        console.log(`Enviando ${sessao}...`, payload);
+
+        const response = await fetch(`/projeto-integrador-et.com/router/CustomizacaoRouter.php`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json' // Importante para enviar JSON complexo
-            },
-            body: JSON.stringify({
-                acao: acaoPHP,
-                dados: payload
-            })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ acao: acaoPHP, dados: payload })
         });
 
-        const resultado = await response.json();
+        // Tenta ler o JSON e captura erro se não for JSON válido
+        const textResponse = await response.text(); 
+        let resultado;
+        try {
+            resultado = JSON.parse(textResponse);
+        } catch (e) {
+            throw new Error("Resposta do servidor inválida (não é JSON): " + textResponse);
+        }
 
         if (resultado.status === 'sucesso') {
             alert(`${sessao.toUpperCase()} atualizado com sucesso!`);
-            // Opcional: Limpar dadosLocais[sessao] pois já está salvo
-            // dadosLocais[sessao] = {}; 
-            window.location.reload(); // Recarrega para garantir sincronia total
+            window.location.reload(); 
         } else {
-            alert("Erro ao salvar: " + resultado.msg);
+            // Tratamento do 'undefined': Garantir que msg exista
+            const msgErro = resultado.msg || "Erro desconhecido no servidor.";
+            alert("Erro ao salvar: " + msgErro);
         }
 
     } catch (error) {
-        console.error("Erro na requisição:", error);
-        alert("Erro ao conectar com o servidor.");
+        console.error("Erro crítico:", error);
+        alert("Erro ao conectar: " + error.message);
     } finally {
-        botao.innerText = textoOriginal;
-        botao.disabled = false;
+        if(botao) {
+            botao.innerText = textoOriginal;
+            botao.disabled = false;
+        }
     }
 }
 
-// --- 1. Montar dados do Carousel (Ordem + Edição) ---
+// --- 1. Montar Carousel (A ORDEM DO DOM DEFINE A POSIÇÃO) ---
 function montarPayloadCarousel() {
     const listaFinal = [];
-    
-    // Selecionamos os containers NA ORDEM que estão na tela (pós drag & drop)
+    // Pega os containers na ordem visual atual (pós drag-and-drop)
     const containers = document.querySelectorAll('.editarCarouselContainer .produtoContainer');
 
     containers.forEach((container, index) => {
-        // Dentro do container tem o wrapper que tem o ID do Carousel
         const wrapper = container.querySelector('.imagemProdutoWrapper');
+        if (!wrapper) return;
+
         const idCarousel = wrapper.dataset.id; 
+        const novaPosicao = index + 1; // 1, 2, 3...
 
-        // Nova posição baseada na ordem da DOM (index 0 vira posicao 1)
-        const novaPosicao = index + 1;
-
-        // Verifica se houve edição local para esse card
         const edicoesLocais = dadosLocais.carousel[idCarousel] || {};
 
-        // Monta o objeto para o PHP
         listaFinal.push({
             id_carousel: idCarousel,
             posicao: novaPosicao,
-            // Se tiver id_produto na edição local usa ele, senão, não mandamos (PHP mantém o atual)
             id_produto: edicoesLocais.id_produto || null, 
-            // Cores (se editadas)
             hexDegrade1: edicoesLocais.hexDegrade1 || null,
             hexDegrade2: edicoesLocais.hexDegrade2 || null,
             hexDegrade3: edicoesLocais.hexDegrade3 || null,
             corEspecial: edicoesLocais.corEspecial || null
         });
     });
-
     return listaFinal;
 }
 
-// --- 2. Montar dados de Lançamentos ---
+// --- 2. Montar Lançamentos ---
 function montarPayloadLancamento() {
-    const cards = document.querySelectorAll('.customizacaoMain #containerLancamentos .cardLancamento');
+    const cards = document.querySelectorAll('.customizacaoMain #containerLancamentos .cardLancamento'); // Seletor ajustado?
+    // Verifique se no seu HTML do lançamento tem a classe .cardLancamento
+    // e se o wrapper pai ou ele mesmo tem data-id
+    
+    // Se o seu HTML no Customizacao.php usa uma div pai, ajuste aqui:
+    // No PHP você deve ter algo como: <div class="cardLancamento" data-id="...">
+    
     const listaFinal = [];
 
     cards.forEach(card => {
-        const idLancamento = card.dataset.id; 
+        // Tenta pegar o ID do dataset. Se não achar no card, tenta no pai.
+        let idLancamento = card.dataset.id;
+        
+        // Se o createCardProdutoLancamento não poe o ID na div raiz, precisamos ver onde ele está.
+        // Assumindo que você ajustou o PHP para colocar data-id na div .cardLancamento
         
         if(idLancamento) {
             const edicoes = dadosLocais.lancamento[idLancamento] || {};
-
             listaFinal.push({
                 id_lancamento: idLancamento,
                 id_produto: edicoes.id_produto || null,
@@ -550,16 +594,12 @@ function montarPayloadLancamento() {
             });
         }
     });
-
     return listaFinal;
 }
 
-// --- 3. Montar dados de Destaque ---
+// --- 3. Montar Destaque ---
 function montarPayloadDestaque() {
-    // Destaque é um item único
-    // Se não houver edição local, enviamos null ou objeto vazio, mas o ideal é verificar
     if (!dadosLocais.destaque) return null;
-
     return {
         id_produto: dadosLocais.destaque.id_produto || null,
         cor1: dadosLocais.destaque.cor1,
@@ -569,24 +609,27 @@ function montarPayloadDestaque() {
 }
 
 // ==========================================================
-// LISTENERS
+// LISTENERS & DRAG AND DROP
 // ==========================================================
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Inicializar Destaque (Lê do DOM para ter um ponto de restauração inicial)
+    // Inicializar Destaque
     const cor1Input = document.querySelector('#produtoLancamentoEditCor1 .corShow');
     const cor2Input = document.querySelector('#produtoLancamentoEditCor2 .corShow');
     const corSombraInput = document.querySelector('#produtoLancamentoEditCorSombra .corShow');
+    const destaqueWrapper = document.querySelector('.produtoDestaque');
+    const idProdutoDestaque = destaqueWrapper 
+        ? destaqueWrapper.getAttribute('data-id') 
+        : null;
     
     dadosLocais.destaque = {
+        id_produto: idProdutoDestaque,
         cor1: cor1Input ? cor1Input.value : '#000000',
         cor2: cor2Input ? cor2Input.value : '#000000',
         corSombra: corSombraInput ? corSombraInput.value : '#000000',
     };
     produtoOriginal.produtoDestaque = { ...dadosLocais.destaque };
 
-    
-    // Filtro de Busca
     const input = document.querySelector(".popUpSelectProduto .inputProduto");
     const produtosLista = document.querySelectorAll('.popUpSelectProduto .itemLista');
     if(input){
@@ -599,34 +642,79 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Trocar Produto
     produtosLista.forEach(item => {
         item.addEventListener('click', async () => {
             const idNovoProduto = item.getAttribute('data-id'); 
             if (!idNovoProduto) return;
-
             const popupSelecao = document.querySelector('.popUpSelectProduto');
             if (popupSelecao) popupSelecao.close();
-
             await trocarProdutoSelecionado(idNovoProduto);
         });
     });
 
-    // Restaurar Padrão
     const botoesRestaurar = document.querySelectorAll('.restaurarPadrao');
     botoesRestaurar.forEach(botao => {
         botao.addEventListener('click', () => {
             const popUp = botao.closest('dialog');
-            
-            if (popUp && popUp.classList.contains('popUpEditProduto')) {
-                restaurarEditProduto(botao);
-            } 
-            else if (popUp && popUp.classList.contains('popUpEditProdutoLancamento')) {
-                restaurarEditLancamento(botao);
-            }
-            else if (botao.closest('.editProdutoDestaque')) {
-                restaurarProdutoDestaque(botao);
-            }
+            if (popUp && popUp.classList.contains('popUpEditProduto')) restaurarEditProduto(botao);
+            else if (popUp && popUp.classList.contains('popUpEditProdutoLancamento')) restaurarEditLancamento(botao);
+            else if (botao.closest('.editProdutoDestaque')) restaurarProdutoDestaque(botao);
         });
+    });
+
+    // --- LÓGICA DRAG & DROP ---
+    const imagens = document.querySelectorAll(".imagemProdutoWrapper");
+    const containers = document.querySelectorAll(".produtoContainer");
+
+    function dragStart(e) {
+        dragSelected = this;
+        e.dataTransfer.setDragImage(dragSelected, 129, 129);
+        dragParentOfFill = dragSelected.parentNode;
+        this.className += " hold";
+        setTimeout(() => { if(dragSelected) dragSelected.style.opacity = "0.6"; }, 0);
+    }
+
+    function dragOver(e) {
+        e.preventDefault();
+        if (!this.className.includes("hovered")) this.className += " hovered";
+    }
+
+    function dragEnter(e) {
+        e.preventDefault();
+        if (this.querySelector(".imagemProdutoWrapper") !== null) {
+            dragDoesExist = true;
+            const elements = this.querySelectorAll(".imagemProdutoWrapper");
+            dragSwapElement = elements[0];
+        } else {
+            dragDoesExist = false;
+        }
+    }
+
+    function dragLeave() { this.className = "produtoContainer"; }
+
+    function dragDrop() {
+        this.className = "produtoContainer";
+        if(dragSelected) dragSelected.style.opacity = "1";
+        if (dragDoesExist && dragParentOfFill && dragSwapElement) {
+            dragParentOfFill.append(dragSwapElement);
+        }
+        this.append(dragSelected);
+    }
+
+    function dragEnd() {
+        this.className = "imagemProdutoWrapper";
+        if (dragSelected && dragSelected.style.opacity === "0.6") dragSelected.style.opacity = "1";
+    }
+
+    imagens.forEach(element => {
+        element.addEventListener("dragstart", dragStart);
+        element.addEventListener("dragend", dragEnd);
+    });
+
+    containers.forEach(element => {
+        element.addEventListener("dragover", dragOver);
+        element.addEventListener("dragenter", dragEnter);
+        element.addEventListener("dragleave", dragLeave);
+        element.addEventListener("drop", dragDrop);
     });
 });

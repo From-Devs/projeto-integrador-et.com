@@ -80,8 +80,8 @@ class Lancamentos {
       return $stmt->fetch(PDO::FETCH_ASSOC);
       
     }catch (PDOException $e) {
-        echo "Erro ao buscar: " . $th->getMessage();
-        return false;
+        error_log("[Lancamentos] Erro ao buscar: " . $e->getMessage()); 
+        return false; 
     }
   }
 

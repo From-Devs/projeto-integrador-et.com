@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
         botaoOverlay.innerHTML = "Editar";
 
         botaoOverlay.addEventListener("click", function(event){
-            const lancamentoId = card.getAttribute('lancamento-id');
+            const lancamentoId = card.getAttribute('data-id');
             abrirPopUp('popUpEditProdutoLancamento', 'editLancamento', lancamentoId, event)
         })
 
