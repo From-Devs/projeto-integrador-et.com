@@ -25,7 +25,7 @@ VALUES
 
 -- INSERTS JÁ REALIZADOS:
 
---#region Milk (Eliana)
+--#region Milk (Eliana 3)
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
 (1,'#133285','#1256b5','#5394ee');
@@ -50,11 +50,11 @@ Modo de Uso:
 
 Aviso:
 Uso externo. Não é indicado para uso no rosto. Não é protetor solar. Em caso de irritação, suspenda o uso e procure orientação médica. Manter em local seco e arejado, ao abrigo de luz e fora do alcance de crianças. Este é um produto cosmético, não ingerir.',
-23.90,22.70,1,50,'milk-1.png','milk-2.jpg','milk-3.jpg',23,1,3); 
+23.90,22.70,1,50,'1761593429_milk-1.png','milk-2.jpg','milk-3.jpg',23,1,3); 
 --#endregion
 
 
---#region Bady Splash Biscoito (Michael)
+--#region Bady Splash Biscoito (Michael 4)
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES (2,'#00728C', '#25abc9','#5CCCE6');
 
@@ -86,7 +86,7 @@ Devido à presença de alguns ingredientes, a cor do produto pode variar, porém
 --#endregion
 
 
---#region base mate vult  (Viviane)
+--#region base mate vult  (Viviane 5)
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
 (3, '#72543A','#95765b','#ceb49c');
@@ -116,7 +116,7 @@ Seu rosto ganha um tom uniforme e matificado, além de uma aparência saudável,
 --#endregion
 
 
---#region coffee man (Michael)
+--#region coffee man (Michael 4)
 INSERT INTO Cores(id_cores, corPrincipal, hexDegrade1, hexDegrade2)
 VALUES
 (4,'#462d2d','#824d32','#bd886d');
@@ -141,7 +141,7 @@ Borrife a fragrância nas áreas onde há maior circulação do sangue, como o p
 
 --AGORA SERÃO PRODUTOS NOVOS QUE EU PEGUEI
 
---#region bt velvet blackberry (Viviane)
+--#region bt velvet blackberry (Viviane 5)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (5,'#35100d','#91271d','#eb584b');
@@ -161,7 +161,7 @@ Trihydroxystearin, Hydrogenated Polycyclopentadiene, Polyethylene, Copernicia Ce
 --#endregion
 
 
---#region body splash deleite (Michael)
+--#region body splash deleite (Michael 4)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (6,'#000000','#dcb4bf','#f5d7e0');
@@ -183,7 +183,7 @@ Devido à presença de alguns ingredientes, a cor do produto pode variar, porém
 --#endregion
 
 
---#region lily (Eliana)
+--#region lily (Eliana 3)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (7,'#af833a','#cea86a','#fef0d6');
@@ -323,7 +323,7 @@ Máscara de tratamento para cabelos coloridos. Possui ação antioxidante, hidra
 --#endregion
 
 
---#region corretivo marimaria (Viviane)
+--#region corretivo marimaria (Viviane 5)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (13,'#f54e00','#eb8252','#F5A884');
@@ -340,7 +340,7 @@ DECAMETILCICLOPENTASILOXANO, MIRISTATO DE ISOPROPILA, ISODODECANO, TRIMETILSILOX
 --#endregion
 
 
---#region superstay (Viviane)
+--#region superstay (Viviane 5)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (14,'#ea0137','#ff3463','#fa7d9a');
@@ -368,7 +368,7 @@ Benefícios:
 --#endregion
 
 
---#region brow up fix gel (Viviane)
+--#region brow up fix gel (Viviane 5)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (15,'#64c2c2','#8eddd6','#B6F7F1');
@@ -397,7 +397,7 @@ aqua/água, disodium edta/edetato dissódico, alcohol/alcool etilico, glycerin/g
 --#endregion
 
 
---#region amor amor (Michael)
+--#region amor amor (Michael 4)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (16,'#970005','#C42127','#F25055');
@@ -513,7 +513,7 @@ Avisos:
 --#endregion
 
 
---#region oleo avelã (Eliana)
+--#region oleo avelã (Eliana 3)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (19,'#833c0c','#c46220','#eeb087');
@@ -536,7 +536,7 @@ Petrolato Líquido, Lecitina, Perfume, Lauromacrogol 400, Octildodecanol, Óleo 
 --#endregion
 
 
---#region oleo tentadora (Eliana)
+--#region oleo tentadora (Eliana 3)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (20,'#6e0313','#bd021f','#f1556cff');
@@ -576,7 +576,7 @@ Em caso de irritação suspenda o uso e procure orientação médica.',
 --#endregion
 
 
---#region oleo inspiradora (Eliana)
+--#region oleo inspiradora (Eliana 3)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (21,'#283256','#495a97','#8094e5');
@@ -616,7 +616,7 @@ Em caso de irritação suspenda o uso e procure orientação médica.',
 --#endregion
 
 
---#region lapiseira cherry (Viviane)
+--#region lapiseira cherry (Viviane 5)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (22,'#7c0023','#A91942','#C83C64');
@@ -638,7 +638,7 @@ Pode conter colorantes: corante vermelho 77491, corante preto 77499, corante bra
 --#endregion
 
 
---#region lip oil pand (Viviane)
+--#region lip oil pand (Viviane 5)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (23,'#eb5763','#F7828C','#FFB3B9');
@@ -662,7 +662,7 @@ POLYISOBUTENE/POLIISOBUTENO, PHENOXYETHANOL/FENOXIETANOL, CAPRYLIC/CAPRIC TRIGLY
 --#endregion
 
 
---#region gloss cherry (Viviane)
+--#region gloss cherry (Viviane 5)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (24,'#801d31','#AE374F','#AE374F');
@@ -686,7 +686,7 @@ hydrogenated polyisobutene/poliisobuteno hidrogenado, polyisobutene/poliisobuten
 --#endregion
 
 
---#region giovanna baby blue (Michael)
+--#region giovanna baby blue (Michael 4)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (25,'#7DBAF2','#A5D3FD','#BDDFFF');
@@ -718,7 +718,7 @@ Com a ponta dos dedos ou a palma da mão aplique uma pequena porção da colôni
 --#endregion
 
 
---#region giovanna baby classic (Michael)
+--#region giovanna baby classic (Michael 4)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES 
 (26,'#FFAAEA','#FFC2F0','#FFD1F4');
@@ -920,7 +920,7 @@ Até 3 vezes por semana, em dias alternados.',
 
 
 --PRODUTOS DO MARCOS
---#region hidratante bob esponja (Eliana)
+--#region hidratante bob esponja (Eliana 3)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (34,'#5B398F','#15AF93','#70F0D9');
@@ -1016,7 +1016,7 @@ Recursos:
 --#endregion
 
 
---#region floratta my blue (Michael)
+--#region floratta my blue (Michael 4)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (37,'#0081B8','#279FD3','#66CAF5');
@@ -1050,7 +1050,7 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 --#endregion
 
 
---#region Glamour Midnight Desodorante Colônia (Michael)
+--#region Glamour Midnight Desodorante Colônia (Michael 4)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (38,'#02020A','#23305D','#4660BA');
@@ -1186,7 +1186,7 @@ Fácil Limpeza - As cerdas são fáceis de limpar, mantendo a higiene e prolonga
 --#endregion
 
 
---#region mascara de cilios essence (Viviane)
+--#region mascara de cilios essence (Viviane 5)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (42,'#080806','#DD51B1','#FC86D3');
@@ -1341,7 +1341,7 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 --#endregion
 
 
---#region Uomini Black Colônia (Michael)
+--#region Uomini Black Colônia (Michael 4)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (47,'#2B2B2B','#525252','#858585');
@@ -2042,7 +2042,7 @@ Aqua / water / eau, bambusa arundinacea stem powder, glycolic acid, glycerin, co
 --#endregion
 
 
---#region Sabonete Líquido Esfoliante para o Corpo Ekos Maracujá (Eliana)
+--#region Sabonete Líquido Esfoliante para o Corpo Ekos Maracujá (Eliana 3)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (67,'#D3A603','#F0BE0F','#FFDE66');
@@ -2077,7 +2077,7 @@ Ingredientes:
 --#endregion
 
 
---#region Polpa Esfoliante para o Corpo Ekos Castanha (Eliana)
+--#region Polpa Esfoliante para o Corpo Ekos Castanha (Eliana 3)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (68,'#B05C36','#BF734F','#DD9573');
@@ -2111,7 +2111,7 @@ SUCROSE, DICAPRYLYL ETHER, ELAEIS GUINEENSIS OIL, HELIANTHUS ANNUUS SEED OIL, RI
 --#endregion
 
 
---#region Sabonete em Barra Puro Vegetal Esfoliante Ekos (Eliana)
+--#region Sabonete em Barra Puro Vegetal Esfoliante Ekos (Eliana 3)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (69,'#6F4285','#764C8B','#9971AD');
@@ -2147,7 +2147,7 @@ INGREDIENTES/ INGREDIENTES (PORTUGUÊS): SODIUM PALMITATE/ PALMITATO DE SÓDIO, 
 --#endregion
 
 
---#region Esfoliante Térmico Ekos Andiroba (Eliana)
+--#region Esfoliante Térmico Ekos Andiroba (Eliana 3)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (70,'#6A762D','#75803C','#ADB96E');
@@ -2238,7 +2238,7 @@ AQUA / ÁGUA, PENTYLENE GLYCOL / PENTILENOGLICOL, PPG-5-CETETH-20 / PPG-5-PEG-20
 --#endregion 
 
 
---#region lapis sobrancelhas natura (Viviane)
+--#region lapis sobrancelhas natura (Viviane 5)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (73,'#693F31','#8D5E4E','#B08273');
@@ -2279,7 +2279,7 @@ Cerdas macias, com um lado em formato chanfrado, ideal para desenhar sobrancelha
 --#endregion 
 
 
---#region lapis retratil sobrancelhas natura (Viviane)
+--#region lapis retratil sobrancelhas natura (Viviane 5)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (75,'#734943','#976963','#B88A84');
@@ -2649,7 +2649,7 @@ Ingredientes:
 --#endregion 
 
 
---#region floratta red (Michael)
+--#region floratta red (Michael 4)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (90,'#892227','#EA1A25','#FB565E');
@@ -2685,7 +2685,7 @@ Nenhum produto do Grupo Boticário é testado em animais. ',
 --#endregion 
 
 
---#region floratta rose bouquet (Michael)
+--#region floratta rose bouquet (Michael 4)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (91,'#CA929C','#EAAEB9','#FDC9D2');
@@ -2722,7 +2722,7 @@ Nenhum produto o Boticário é testado em animais, ou seja, este item possui sel
 --#endregion
 
 
---#region floratta gold (Michael)
+--#region floratta gold (Michael 4)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (92,'#EEDD85','#FDED9B','#FFF3B8');
@@ -2758,7 +2758,7 @@ Nenhum produto o Boticário é testado em animais, ou seja, este item possui sel
 --#endregion
 
 
---#region floratta romance de verão (Michael)
+--#region floratta romance de verão (Michael 4)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (93,'#E8247D','#E67C9D','#EAB396');
@@ -2796,7 +2796,7 @@ Nenhum produto do Boticário é testado em animais, ou seja, este item possui se
 --#endregion
 
 
---#region floratta fleur (Michael)
+--#region floratta fleur (Michael 4)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (94,'#692E66','#97398D','#AF78A2');
@@ -3584,7 +3584,7 @@ AQUA/ ÁGUA, ALCOHOL/ ÁLCOOL ETÍLICO, GLYCERIN/ GLICEROL, PEG-40 HYDROGENATED 
  --#endregion
 
 
---#region Óleo Trifásico Desodorante Corporal Ekos Maracujá (Eliana)
+--#region Óleo Trifásico Desodorante Corporal Ekos Maracujá (Eliana 3)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (120,'#C6A907','#EACD2A','#F8E787');
@@ -3608,7 +3608,7 @@ Agite o óleo corporal de Natura Ekos antes de usar. Aplique sobre o corpo, mass
 --#endregion 
 
 
---#region Esfoliante para o Corpo Tododia Acerola e Hibisco (Eliana)
+--#region Esfoliante para o Corpo Tododia Acerola e Hibisco (Eliana 3)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (121,'#','#','#');
@@ -3636,7 +3636,7 @@ Ingredientes:
 --#endregion 
 
 
---#region  Sabonete Líquido Esfoliante para o Corpo Ekos Tukumã (Eliana)
+--#region  Sabonete Líquido Esfoliante para o Corpo Ekos Tukumã (Eliana 3)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (122,'#A23901','#BB470A','#DF956D');
@@ -3660,7 +3660,7 @@ Espalhe o sabonete líquido esfoliante de Natura Ekos sobre o corpo até formar 
 --#endregion 
 
 
---#region Creme Desodorante Hidratante para o Corpo Ekos Maracujá (Eliana)
+--#region Creme Desodorante Hidratante para o Corpo Ekos Maracujá (Eliana 3)
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrad26,122,)
 VALUES  
 (123,'#CD9E04','#E5B517','#FFE48A');
@@ -3745,7 +3745,7 @@ Ingredientes:
 --#endregion 
 
 
---#region --#endregion 
+--#region 
 INSERT INTO cores (id_cores,corPrincipal,hexDegrade1,hexDegrade2)
 VALUES  
 (120,'#','#','#');
@@ -3771,6 +3771,7 @@ Para criar o look que é a sua cara, aplique nas pálpebras uma pequena quantida
 Ingredientes:
 INGREDIENTES / INGREDIENTES (PORTUGUÊS): TALC/ TALCO, ETHYLHEXYL PALMITATE/ PALMITATO DE ETILEXILA, ZINC STEARATE/ ESTEARATO DE ZINCO, HYDROGENATED POLYISOBUTENE/ POLI-ISOBUTENO HIDROGENADO, MAGNESIUM CARBONATE/ CARBONATO DE MAGNÉSIO, ZEA MAYS STARCH/ AMIDO, DIMETHICONE/ DIMETICONA, PHENOXYETHANOL/ FENOXIETANOL, CAPRYLYL GLYCOL/ CAPRILILGLICOL, QUARTZ/ QUARTZO, SILICA/ DIÓXIDO DE SILÍCIO, AQUA/ ÁGUA, STEARIC ACID/ ÁCIDO ESTEÁRICO. PODE CONTER/ PUEDE CONTENER: MICA/ MICA, CI 15985/ AMARELO CREPÚSCULO, CI 77891/ DIÓXIDO DE TITÂNIO, CI 77499/ ÓXIDO DE FERRO PRETO, CI 77007/ CORANTE AZUL 77007, CI 15850/ CORANTE VERMELHO 15850, CI 77742/ CORANTE VIOLETA 77742, CI 77266/ CORANTE PRETO 77266, CI 42090/ AZUL BRILHANTE.',
 39.90,null,0,30,'','',2)
+--#endregion 
 
 
 --#region --#endregion 
