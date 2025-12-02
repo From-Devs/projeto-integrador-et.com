@@ -79,4 +79,4 @@ INSERT INTO Status (`tipoStatus`) VALUES
 -- Conta ADM
 
 INSERT INTO administrador (email, senha)
-VALUES ('admin@admin.com','Adm123');
+VALUES ('admin@admin.com','$2y$10$Yr284xtvLvN3VgaINP2psu3nzyHKDX78AWLlxW6YbsZcL60j/foZa');
