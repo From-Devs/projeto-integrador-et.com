@@ -3,7 +3,7 @@ function dadosInfor($nomeDiv,$icone, $titulo, $valor, $alt=''){
     $html = "
     <div id='$nomeDiv'>
         <div id='textoInformacao'>
-        <h1 id='textoTituloInform'>$titulo</h1>
+        <h2 id='textoTituloInform'>$titulo</h1>
         <h1 id='valorInform'>$valor</h1>
         </div>
         <div id='controleImagemInform'>    
