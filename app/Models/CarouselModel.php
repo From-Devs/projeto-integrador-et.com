@@ -383,5 +383,39 @@ class CarouselModel {
             error_log("[CarouselModel] Erro no update: " . $e->getMessage());
             return ['error' => 'Erro ao atualizar carrossel: ' . $e->getMessage()];
         }
-    } 
+    }
+    // ------------------------------
+    // REORDER — Atualiza a posição dos itens
+    // ------------------------------
+    public function reorder(array $newOrder): bool {
+        if (empty($newOrder)) {
+            return false;
+        }
+
+        try {
+            $this->conn->beginTransaction();
+
+            $sql = "UPDATE carousel SET posicao = :pos WHERE id_carousel = :id";
+            $stmt = $this->conn->prepare($sql);
+
+            $pos = 1;
+            foreach ($newOrder as $id_carousel) {
+                // Os IDs vêm como string do JS, garantimos que é um inteiro
+                $id = (int) $id_carousel; 
+                
+                if ($id > 0) {
+                    $stmt->execute([':pos' => $pos, ':id' => $id]);
+                    $pos++;
+                }
+            }
+
+            $this->conn->commit();
+            return true;
+
+        } catch (Exception $e) {
+            $this->conn->rollBack();
+            error_log("[CarouselModel][reorder] Erro: " . $e->getMessage());
+            return false;
+        }
+    }
 }

@@ -1,5 +1,5 @@
 <?php
-// Controllers/CustomizacaoController.php
+// app/Controllers/CustomizacaoController.php
 
 require_once __DIR__ . "/../Models/products.php";
 require_once __DIR__ . "/../Models/DestaqueModel.php";
@@ -22,97 +22,104 @@ class CustomizacaoController {
         $this->coresSubsModel = new CoresSubModel();
     }
 
-    // Retorna todos os registros
+    // Retorna todos os registros (tela)
     public function index(): array {
         return [
-            "carousel" => $this->carouselModel->getAll(),
-            "lancamento" => $this->lancamentoModel->getAll(),
-            "destaque" => $this->destaqueModel->getAll(),
-            "produtos" => $this->produtoModel->getAllProdutos(),
-            "coresSub" => $this->coresSubsModel->getAll()
+            "carousel"  => $this->carouselModel->getAll(),
+            "lancamento"=> $this->lancamentoModel->getAll(),
+            "destaque"  => $this->destaqueModel->getAll(),
+            "produtos"  => $this->produtoModel->getAllProdutos(),
+            "coresSub"  => $this->coresSubsModel->getAll()
         ];
     }
+
+    // === CRUD CAROUSEL / DESTAQUE já existentes (mantive como estão) ===
     public function createCarousel(int $id_carousel = null, array $data) {
-
-        // Buscar quantos carrosseis já existem
-        $carrosseis = $this->carouselModel->getCarousel(); 
+        $carrosseis = $this->carouselModel->getCarousel();
         $total = count($carrosseis);
-
-        // ------------ CASO 1: UPDATE --------------------
         if ($id_carousel !== null) {
-            return [
-                'action' => 'update',
-                'result' => $this->carouselModel->update($id_carousel, $data)
-            ];
+            return ['action'=>'update','result'=>$this->carouselModel->update($id_carousel, $data)];
         }
-
-        // ------------ CASO 2: CREATE (só se < 3) --------
         if ($total < 3) {
             $resultado = $this->carouselModel->createCarousel($data);
-            return [
-                'action' => 'create',
-                'result' => $resultado
-            ];
+            return ['action'=>'create','result'=>$resultado];
         }
-
-        // ------------ CASO 3: LIMITE DE 3 ---------------
-        return [
-            'error' => 'Limite máximo de 3 carrosseis atingido.',
-            'status' => false
-        ];
+        return ['error'=>'Limite máximo de 3 carrosseis atingido.','status'=>false];
     }
 
+    public function deleteCarousel(int $id) { return $this->carouselModel->remove($id); }
 
-    // Deletar carousel
-    public function deleteCarousel(int $id) {
-        return $this->carouselModel->remove($id);
-    }
-
-    // Criar destaque
     public function createDestaque(array $data): array {
-        // 1) Verificar se já existe destaque
         $existe = $this->destaqueModel->getDestaque();
         if (!$existe) {
-            // -----------------------------------
-            // NÃO existe → CRIAR novo destaque
-            // -----------------------------------
             $resultado = $this->destaqueModel->create($data);
-            return ['action' => 'create', 'result' => $resultado];
+            return ['action'=>'create','result'=>$resultado];
         }
-        // -----------------------------------
-        // Já existe → UPDATE
-        // -----------------------------------
         $id_destaque = (int)$existe['id_prodDestaque'];
         $resultado = $this->destaqueModel->update($id_destaque, $data);
-
-        return ['action' => 'update', 'result' => $resultado];
+        return ['action'=>'update','result'=>$resultado];
     }
 
-    // Deletar destaque
-    public function deleteDestaque(int $id) {
-        return $this->destaqueModel->remove($id);
-    }
+    public function deleteDestaque(int $id) { return $this->destaqueModel->remove($id); }
 
-    // Criar coresSubs
     public function createCoresSubs(int $id, array $data): array {
         $coresSubs = $this->coresSubsModel->create($id, $data);
         return ['coresSubs' => $coresSubs];
     }
 
-    // Deletar coresSubs
-    public function deleteCoresSubs(int $id) {
-        return $this->coresSubsModel->remove($id);
-    }
-    // Criar lancamentos
-    public function createLancamento(int $id, array $data): array {
-        $lancamento = $this->lancamentoModel->create($id, $data);
-        return ['lancamento' => $lancamentoModel];
-    }
-    // Deletar lancamentos
-    public function deleteLancamento(int $id) {
-        return $this->lancamentoModel->remove($id);
+    public function deleteCoresSubs(int $id) { return $this->coresSubsModel->remove($id); }
+
+    // ============================
+    // LANÇAMENTOS: CREATE / UPDATE
+    // ============================
+    // Recebe array $data (json decodificado). Se tiver id_lancamento => UPDATE, senão CREATE.
+    public function createLancamento(array $data): array {
+        $id = $data['id_lancamento'] ?? null;
+
+        if (!empty($id)) {
+            // UPDATE
+            $ok = $this->lancamentoModel->Update((int)$id, $data);
+            return ['action' => 'update', 'success' => (bool)$ok, 'id' => (int)$id];
+        }
+
+        // CREATE
+        $createdId = $this->lancamentoModel->Create($data);
+        return ['action' => 'create', 'success' => $createdId ? true : false, 'id' => $createdId];
     }
 
+    // DELETE lançamento
+    public function deleteLancamento(int $id): array {
+        $ok = $this->lancamentoModel->Remove($id);
+        return ['action'=>'delete','success'=>$ok,'id'=>$id];
+    }
+
+    // LISTAGEM específicas (usadas pela API)
+    public function listCarousels() { return $this->carouselModel->getAll(); }
+    public function listLancamentos() { return $this->lancamentoModel->getAll(); }
+    public function listDestaques() { return $this->destaqueModel->getAll(); }
+
+    /**
+     * Busca um único produto por ID. Usado pelo JavaScript ao trocar produto no modal.
+     */
+    public function buscarProdutoPorId(int $id): ?array {
+        return $this->produtoModel->getProdutoById($id);
+    }
+    
+    /**
+     * 🔥 NOVO: Busca UM único lançamento com todos os dados associados.
+     * Presume-se que o LancamentoModel tem o método getById(int $id).
+     */
+    public function getLancamentoById(int $id): ?array {
+        return $this->lancamentoModel->getById($id);
+    }
+    // ============================\
+    // CAROUSEL: REORDER
+    // ============================\
+    public function reorderCarousel(array $newOrder): array {
+        // Chama o Model para fazer a mágica no DB
+        $ok = $this->carouselModel->reorder($newOrder);
+        return ['action' => 'reorder', 'success' => (bool)$ok, 'count' => count($newOrder)];
+    }
 }
 
 $conn = new CustomizacaoController();

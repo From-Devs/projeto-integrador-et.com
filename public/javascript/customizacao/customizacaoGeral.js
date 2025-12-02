@@ -2,7 +2,7 @@
 const PASTA_PROJETO = '/projeto-integrador-et.com/';
 const dadosLocais = {
     carousel: {},
-    lancamento: {}, // CORREÇÃO: ERA 'null', MUDADO PARA OBJETO VAZIO para permitir a indexação por ID.
+    lancamento: {},
     destaque: {}
 };
 const produtoOriginal = {
@@ -100,11 +100,10 @@ async function carregarDadosNoPopUp(registroId) {
 // ==========================================================
 // 2. TROCA DE PRODUTO
 // ==========================================================
-// A função estava comentada! DESCOMENTADA para permitir a troca de produto nos popups!
 async function trocarProdutoSelecionado(idNovoProduto) {
      try {
-         // Busca os dados do produto (manter acao=BuscarProduto pois é GET, não de salvamento)
-         const response = await fetch(`${PASTA_PROJETO}router/CustomizacaoRouter.php?acao=BuscarProduto&id=${idNovoProduto}`);
+         // 🔥 CORREÇÃO 1/2: Atualiza a rota de busca de produto para o novo formato de API
+         const response = await fetch(`${PASTA_PROJETO}Api/BuscarProduto?id=${idNovoProduto}`);
          const data = await response.json();
          const produtoNovo = Array.isArray(data) ? data[0] : data;
 
@@ -144,15 +143,28 @@ async function trocarProdutoSelecionado(idNovoProduto) {
              const idRegistro = modalEdit.dataset.id;
             
              // Preserva edições de cor feitas antes da troca do produto
-             const dadosAtualizados = {
-                 ...dadosLocais[tipoEdit][idRegistro],
-                 ...produtoNovo, 
-                 corEspecial: produtoNovo.corEspecial || produtoNovo.corPrincipal, 
-                 hexDegrade1: produtoNovo.hexDegrade1 || produtoNovo.corPrincipal,
-                 hexDegrade2: produtoNovo.hexDegrade2 || produtoNovo.hex1,
-                 hexDegrade3: produtoNovo.hexDegrade3 || produtoNovo.hex2,
+             let dadosAtualizados = {
+                 ...dadosLocais[tipoEdit][idRegistro], // Preserva corEspecial e imgSelecionada anterior
+                 ...produtoNovo,
                  id_produto: idNovoProduto
              };
+
+             if (tipoEdit === 'lancamento') {
+                 // Lançamento usa corEspecial, mas o padrão é hex1 (cor do produto)
+                 dadosAtualizados.corEspecial = produtoNovo.corEspecial || produtoNovo.hex1;
+                
+                 // Limpa props de Carousel, se vierem
+                 delete dadosAtualizados.hexDegrade1;
+                 delete dadosAtualizados.hexDegrade2;
+                 delete dadosAtualizados.hexDegrade3;
+                
+             } else if (tipoEdit === 'carousel') {
+                 // Cores específicas de Carousel (Degrade)
+                 dadosAtualizados.corEspecial = produtoNovo.corEspecial || produtoNovo.corPrincipal; // Destaque
+                 dadosAtualizados.hexDegrade1 = produtoNovo.hexDegrade1 || produtoNovo.corPrincipal;
+                 dadosAtualizados.hexDegrade2 = produtoNovo.hexDegrade2 || produtoNovo.hex1;
+                 dadosAtualizados.hexDegrade3 = produtoNovo.hexDegrade3 || produtoNovo.hex2;
+             }
 
              dadosLocais[tipoEdit][idRegistro] = dadosAtualizados;
              preencherCamposModal(dadosAtualizados);
@@ -183,41 +195,102 @@ function atualizarVisualDestaque(dados) {
     setCorInput('#produtoLancamentoEditCor2', dados.cor2);
     setCorInput('#produtoLancamentoEditCorSombra', dados.corSombra);
 }
+
 // ==========================================================
-// 3. SALVAR ALTERAÇÕES VISUAIS NA TELA (SÓ JS)
+// 3. SALVAR ALTERAÇÕES NO BANCO (FUNÇÃO PRINCIPAL DO BOTÃO SALVAR DO CAROUSEL)
 // ==========================================================
 window.salvarAlteracoesCarousel = function () {
-    if (!elementoOrigem) { alert("Erro: elemento original perdido."); return; }
+    // 1. Pega o container do PopUp e dados de origem
+    const dialog = document.querySelector(".popUpEditProduto");
+    if (!dialog) return console.error("PopUp não encontrado.");
 
-    const popUp = document.querySelector(".popUpEditProduto");
-    const idRegistro = popUp.dataset.id;
+    if (!elementoOrigem) { alert("Erro: elemento original perdido."); return; } 
+    
+    // O ID pode vir como string, "null" ou undefined. Se for edição, tem o ID. Se for novo, é null.
+    const carouselId = dialog.dataset.id; 
+    
+    // 3. Pega os valores das cores
+    const corDegrade1 = document.getElementById('corDegrade1');
+    const corDegrade2 = document.getElementById('corDegrade2');
+    const corDegrade3 = document.getElementById('corDegrade3');
+    const corDestaque = document.querySelector("#corDestaqueCarousel .corShow"); 
 
-    const imgElement = popUp.querySelector("#wrapperEditProdutoImg .imagemProduto"); // CORREÇÃO: Pega a imagem preview
-    const novaImgSrc = imgElement.src; // NÃO USA getImgUrl, JÁ ESTÁ COMPLETA
-    const nomeProduto = popUp.querySelector('.nomeProduto p').textContent; 
-    
-    const corDestaque = document.querySelector("#corDestaqueCarousel .corShow").value;
-    const cor1 = document.querySelector("#corDegrade1 .corShow").value;
-    const cor2 = document.querySelector("#corDegrade2 .corShow").value;
-    const cor3 = document.querySelector("#corDegrade3 .corShow").value;
+    // ⚠️ ATENÇÃO: Se for NOVO item, você PRECISA de um ID de produto.
+    const idProdutoNovo = document.getElementById('selectProdutoId')?.value; 
 
-    if (!dadosLocais.carousel[idRegistro]) dadosLocais.carousel[idRegistro] = {};
-    
-    // Atualiza a memória local (dados prontos para enviar ao PHP)
-    dadosLocais.carousel[idRegistro].nome = nomeProduto; // Nome não é usado no payload de envio
-    dadosLocais.carousel[idRegistro].corEspecial = corDestaque;
-    dadosLocais.carousel[idRegistro].hexDegrade1 = cor1;
-    dadosLocais.carousel[idRegistro].hexDegrade2 = cor2;
-    dadosLocais.carousel[idRegistro].hexDegrade3 = cor3;
-    
-    // Atualiza o DOM original
-    elementoOrigem.style.backgroundImage = `linear-gradient(to bottom, ${cor1} 0%, ${cor2} 50%, ${cor3} 100%)`;
-    const imgCard = elementoOrigem.querySelector("img.imagemProduto");
-    if (imgCard) imgCard.src = novaImgSrc; 
+    const dataToSend = {
+        // Envia o ID: se existir, o PHP faz UPDATE. Se for nulo, o PHP faz CREATE.
+        id_carousel: carouselId || null, 
+        
+        // Cores (pegando o valor final do input de texto/hex)
+        corEspecial: corDestaque ? corDestaque.value : '#000000',
+        hexDegrade1: corDegrade1 ? corDegrade1.childNodes[3].value : '#000000',
+        hexDegrade2: corDegrade2 ? corDegrade2.childNodes[3].value : '#000000',
+        hexDegrade3: corDegrade3 ? corDegrade3.childNodes[3].value : '#000000',
 
-    document.querySelector(".popUpEditProduto").close();
-    elementoOrigem = null;
-};
+        // Se for CRIAR um novo, enviamos o ID do produto selecionado
+        id_produto: carouselId ? null : idProdutoNovo 
+    };
+
+    // Remove a chave id_produto se ela for nula ou for um UPDATE
+    if (!dataToSend.id_produto) {
+        delete dataToSend.id_produto;
+    }
+
+    // 4. Envia para a API!
+    fetch('/projeto-integrador-et.com/Api/store_c', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dataToSend),
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Se deu sucesso (ou o PHP devolveu o ID do novo registro)
+        if (data.success || data.id) { 
+            
+            // --- ATUALIZAÇÃO VISUAL (Se for UPDATE) ---
+            const idRegistro = carouselId || data.id; 
+            const nomeProduto = dialog.querySelector('.nomeProduto p').textContent;
+            const imgElement = dialog.querySelector("#wrapperEditProdutoImg .imagemProduto");
+            const novaImgSrc = imgElement.src;
+            
+            // 1. Atualiza a memória local
+            if (!dadosLocais.carousel[idRegistro]) dadosLocais.carousel[idRegistro] = {};
+            dadosLocais.carousel[idRegistro] = {
+                ...dadosLocais.carousel[idRegistro], // Preserva outros dados
+                nome: nomeProduto, 
+                corEspecial: dataToSend.corEspecial,
+                hexDegrade1: dataToSend.hexDegrade1,
+                hexDegrade2: dataToSend.hexDegrade2,
+                hexDegrade3: dataToSend.hexDegrade3
+            };
+            
+            // 2. Atualiza o DOM original (somente se for um item existente, ou se você for injetar o novo)
+            if(elementoOrigem) {
+                elementoOrigem.style.backgroundImage = `linear-gradient(to bottom, ${dataToSend.hexDegrade1} 0%, ${dataToSend.hexDegrade2} 50%, ${dataToSend.hexDegrade3} 100%)`;
+                const imgCard = elementoOrigem.querySelector("img.imagemProduto");
+                if (imgCard) imgCard.src = novaImgSrc;
+            }
+            // --------------------------------------------------------
+
+            alert(`Carrossel ${carouselId ? 'atualizado' : 'criado'} com sucesso, Dev! kkk`);
+            
+            dialog.close(); 
+            // Se for criação, recarrega para ver o novo item
+            if(!carouselId) {
+                 location.reload(); 
+            }
+            
+        } else {
+            alert("Erro ao salvar! Olha o console, irmão.");
+            console.error(data);
+        }
+    })
+    .catch(error => {
+        console.error("Erro na requisição: ", error);
+        alert("Erro de conexão com o servidor! 😭");
+    });
+}
 
 window.salvarAlteracoesLancamento = function () {
     if (!elementoOrigem) { alert("Erro: card original perdido."); return; }
@@ -244,7 +317,6 @@ window.salvarAlteracoesLancamento = function () {
     const valorParaBanco = indiceSelecionado + 1; 
 
     const imagemSelecionadaEl = itensImagem[indiceSelecionado].querySelector("img");
-    // CORREÇÃO: Usa getImgUrl na URL de preview, que pode ser uma URL completa (data: ou http) ou um caminho relativo
     const imagemSrcSegura = imagemSelecionadaEl ? getImgUrl(imagemSelecionadaEl.src) : "";
 
 
@@ -448,8 +520,8 @@ async function atualizarSessao(sessao) {
             throw new Error("Sessão de salvamento inválida."); 
         }
 
-        // CORREÇÃO CRÍTICA: Passamos o path=/store_x na URL para o Router PHP
-        const url = `${PASTA_PROJETO}router/CustomizacaoRouter.php?path=/${caminhoApi}`;
+        // 🔥 CORREÇÃO 2/2: Remove CustomizacaoRouter.php e usa a rota direta /Api/funcao
+        const url = `${PASTA_PROJETO}Api/${caminhoApi}`;
         
         // Enviamos o payload puro, sem a chave 'acao' ou 'dados'
         const response = await fetch(url, {

@@ -1,24 +1,80 @@
 <?php 
 // caminho boss
- 
 require_once __DIR__ . "/../../../public/componentes/sidebarADM_Associado/sidebarInterno.php";
 require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require __DIR__ . "/../../../public/componentes/cardLancamento/produtoLancamento.php";
 require __DIR__ . "/../../../public/componentes/produtoDestaque/produtoDestaque.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
+
+// Controller principal
 require_once __DIR__ . "/../../Controllers/CustomizacaoController.php";
 
+
+// ================================================================
+// API – função padrão
+// ================================================================
+function getAPI($endpoint) {
+    // base da sua aplicação (remova http://localhost se estiver usando relativo)
+    $base = "http://localhost/projeto-integrador-et.com/Api/";
+    $url = $base . ltrim($endpoint, "/");
+
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_TIMEOUT, 3); // evita travar a tela
+    // opcional: se precisar enviar header Authorization, descomente e ajuste
+    // curl_setopt($curl, CURLOPT_HTTPHEADER, ['Authorization: Bearer TOKEN']);
+    $response = curl_exec($curl);
+    $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    curl_close($curl);
+
+    // só retorna JSON decodificado quando 200 OK
+    if ($httpCode === 200 && $response) {
+        return json_decode($response, true);
+    }
+    return null;
+}
+
+
+// ================================================================
+// TENTA PEGAR DA API
+// se falhar → usa index() como fallback
+// ================================================================
+$carouselAPI = getAPI("carousels");
+$lancAPI     = getAPI("lancamentos");
+$destaqueAPI = getAPI("destaques");
+
+// alguns projetos também expõem "produtos" — tenta pegar, mas não obrigatório
+$produtosAPI = getAPI("produtos");
+
+// se tudo OK usa a API, senão fallback para controller (index)
+require_once __DIR__ . "/../../Controllers/CustomizacaoController.php";
 $conn = new CustomizacaoController();
-$res = $conn->index();
-// echo "<pre>";
-// var_dump($res);
-// echo "</pre>";
 
-$produtoDestaque = $res["destaque"][0];
+if ($carouselAPI !== null && $lancAPI !== null && $destaqueAPI !== null) {
+    $res = [
+        "carousel"   => $carouselAPI,
+        "lancamento" => $lancAPI,
+        "produtos"   => $produtosAPI ?? [],
+        "destaque"   => $destaqueAPI
+    ];
+} else {
+    // fallback: usa o método index() do controller
+    $res = $conn->index();
+}
 
-// session_start();
+// ================================================================
+// NORMALIZAÇÃO
+// ================================================================
+$produtoDestaque = $res["destaque"][0] ?? null;
+
+
+// ================================================================
+// USUÁRIO
+// ================================================================
+session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
+
 ?>
 
 <!DOCTYPE html>
@@ -308,14 +364,13 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
                             <?php
                             foreach ($res["carousel"] as $index => $carouselItem) {
                                 $carouselProdutoID = $carouselItem['id_carousel'];
-                                $carouselImg = $carouselItem['img1'];
                                 $cor1 = $carouselItem['hexDegrade1'];
                                 $cor2 = $carouselItem['hexDegrade2'];
                                 $cor3 = $carouselItem['hexDegrade3'];
-
+                                // ...
                                 echo '
                                 <div class="produtoContainer">
-                                    <div class="imagemProdutoWrapper" onclick="abrirPopUp(\'popUpEditProduto\', \'editCarousel\',  ' . $carouselProdutoID . ', event)" data-id=' . $carouselProdutoID . ' style="background-image: linear-gradient(to bottom, '. $cor1 .' 0%, '. $cor2 .' 50%, '. $cor3 .' 100%);">
+                                    <div class="imagemProdutoWrapper" onclick="abrirPopUp(\'popUpEditProduto\', \'editCarousel\',  ' . $carouselProdutoID . ', event)" data-id=' . $carouselProdutoID . ' style="background-image: linear-gradient(to bottom, '. $cor1 .' 0%, '. $cor2 .' 50%, '. $cor3 .' 100%);">
                                         <img class="imagemProduto" src="/projeto-integrador-et.com/' . $carouselImg . '" alt="">
                                     </div>
                                 </div>

@@ -1,101 +1,105 @@
 <?php
+// app/Models/LancamentoModel.php
 require_once __DIR__ . '/../../config/database.php';
 
 class Lancamentos {
-  private PDO $conn;
-  
-  public function __construct() {
-    $db = new Database();
-    $this->conn = $db->Connect();
-  }
-  
-  public function getAll(): array {
-    try {
-      $sql = "
-        SELECT l.id_lancamento, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.img2, p.img3, l.imgSelecionada, p.fgPromocao, 
-        cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3
-        FROM lancamentos l 
-        JOIN produto p ON  p.id_produto = l.id_produto
-        JOIN coressubs cs ON cs.id_coressubs = l.id_coressubs
-      ";
-      $stmt = $this->conn->prepare($sql);
-      $stmt->execute();
-      return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }catch (PDOException $e) {
+    private PDO $conn;
+
+    public function __construct() {
+        $db = new Database();
+        $this->conn = $db->Connect();
+    }
+
+    public function getAll(): array {
+        try {
+            $sql = "
+                SELECT l.id_lancamento, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo,
+                       p.img1, p.img2, p.img3, l.imgSelecionada, p.fgPromocao,
+                       cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3
+                FROM lancamentos l
+                JOIN produto p ON p.id_produto = l.id_produto
+                JOIN coressubs cs ON cs.id_coressubs = l.id_coressubs
+            ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
             error_log("[Lancamentos] Erro SQL: " . $e->getMessage());
             return [];
+        }
     }
-  }
 
-  public function Create(array $data): int|false {
-    try {
-        $stmt = $this->conn->prepare("
-            INSERT INTO lancamentos (id_produto, id_coressubs)
-            VALUES (:id_produto, :id_coressubs)
-        ");
-        $stmt->execute([
-            ":id_produto" => $data['id_produto'],
-            ":id_coressubs" => $data['id_coressubs']
-        ]);
-
-        return $this->conn->lastInsertId();
-
-    } catch (PDOException $e) {
-        error_log("[Lancamentos] Erro ao criar: " . $e->getMessage());
-        return false;
+    // CREATE: aceita array com id_produto, id_coressubs, imgSelecionada (opcional), etc.
+    public function Create(array $data): int|false {
+        try {
+            $stmt = $this->conn->prepare("
+                INSERT INTO lancamentos (id_produto, id_coressubs, imgSelecionada)
+                VALUES (:id_produto, :id_coressubs, :imgSelecionada)
+            ");
+            $stmt->execute([
+                ":id_produto" => $data['id_produto'] ?? null,
+                ":id_coressubs" => $data['id_coressubs'] ?? null,
+                ":imgSelecionada" => $data['imgSelecionada'] ?? null
+            ]);
+            return (int)$this->conn->lastInsertId();
+        } catch (PDOException $e) {
+            error_log("[Lancamentos] Erro ao criar: " . $e->getMessage());
+            return false;
+        }
     }
-  }
 
-  public function Update(int $id, array $data): bool {
-    try {
+    // UPDATE: atualiza campos relevantes (imgSelecionada, id_produto, id_coressubs)
+    public function Update(int $id, array $data): bool {
+        try {
             $stmt = $this->conn->prepare("
                 UPDATE lancamentos
-                SET id_produto = :id_produto, id_coressubs = :id_coresSubs
+                SET id_produto = :id_produto,
+                    id_coressubs = :id_coressubs,
+                    imgSelecionada = :imgSelecionada
                 WHERE id_lancamento = :id
             ");
             return $stmt->execute([
                 ":id" => $id,
-                ":id_produto" => $data['id_produto'],
-                ":id_coresSubs" => $data['id_coresSubs']
+                ":id_produto" => $data['id_produto'] ?? null,
+                ":id_coressubs" => $data['id_coressubs'] ?? null,
+                ":imgSelecionada" => $data['imgSelecionada'] ?? null
             ]);
         } catch (PDOException $e) {
             error_log("[Lancamentos] Erro ao atualizar: " . $e->getMessage());
             return false;
+        }
     }
-  }
 
-  public function getElementByid(int $id): array {
-    try {
-      $stmt = $this->conn->prepare("
-          SELECT l.id_lancamento, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo, p.img1, p.img2, p.img3, l.imgSelecionada, p.fgPromocao, 
-          cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3
-          FROM lancamentos l 
-          JOIN produto p ON  p.id_produto = l.id_produto
-          JOIN coressubs cs ON cs.id_coressubs = l.id_coressubs
-          WHERE l.id_lancamento = :id
-      ");
-
-      $stmt->execute([":id" => $id]);
-
-      return $stmt->fetch(PDO::FETCH_ASSOC);
-      
-    }catch (PDOException $e) {
-        echo "Erro ao buscar: " . $th->getMessage();
-        return false;
+    public function getElementByid(int $id): array|false {
+        try {
+            $stmt = $this->conn->prepare("
+                SELECT l.id_lancamento, p.id_produto, p.nome, p.marca, p.preco, p.precoPromo,
+                       p.img1, p.img2, p.img3, l.imgSelecionada, p.fgPromocao,
+                       cs.corEspecial, cs.hexDegrade1, cs.hexDegrade2, cs.hexDegrade3
+                FROM lancamentos l
+                JOIN produto p ON p.id_produto = l.id_produto
+                JOIN coressubs cs ON cs.id_coressubs = l.id_coressubs
+                WHERE l.id_lancamento = :id
+            ");
+            $stmt->execute([":id" => $id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("[Lancamentos] Erro ao buscar: " . $e->getMessage());
+            return false;
+        }
     }
-  }
 
-  public function Remore(int $id): bool {
-     try {
+    public function Remove(int $id): bool {
+        try {
             $stmt = $this->conn->prepare("DELETE FROM lancamentos WHERE id_lancamento = :id");
             return $stmt->execute([":id" => $id]);
         } catch (PDOException $e) {
             error_log("[Lancamentos] Erro ao remover: " . $e->getMessage());
             return false;
+        }
     }
-  }
 
-  public function getAllCoresUnicas(): array {
+    public function getAllCoresUnicas(): array {
         try {
             $stmt = $this->conn->query("
                 SELECT DISTINCT corEspecial, hexDegrade1, hexDegrade2, hexDegrade3

@@ -1,40 +1,35 @@
-const imagens = document.querySelectorAll(".imagemProdutoWrapper")
-const containers = document.querySelectorAll(".produtoContainer")
+// Função para percorrer o DOM e enviar a nova ordem para a API
+function salvarNovaOrdem() {
+    // 1. Coleta os IDs na ordem atual
+    // Pega o 'data-id' de todos os wrappers na ordem em que estão no HTML
+    const idsEmOrdem = Array.from(
+        document.querySelectorAll(".editarCarouselContainer .imagemProdutoWrapper")
+    ).map(item => item.getAttribute("data-id"));
 
-function dragStart(e) {
-    selected = this;
-    e.dataTransfer.setDragImage(selected, 129, 129)
-    parentOfFill = selected.parentNode;
-    this.className += " hold";
-    setTimeout(() => {
-    return (this.style.opacity = "0.6");
-    }, 0);
+    // 2. Manda pro backend (você criará a rota /reorder_c no PHP)
+    fetch('/projeto-integrador-et.com/Api/reorder_c', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ newOrder: idsEmOrdem }), // Envia o array de IDs
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log("Ordem salva no DB! Posições atualizadas.");
+        } else {
+            console.error("Bug de save da ordem: ", data);
+            alert("Erro ao salvar a nova ordem no servidor!");
+        }
+    })
+    .catch(error => {
+        console.error("Erro na requisição de reorder: ", error);
+        alert("Erro de conexão ao salvar a ordem! 😭");
+    });
 }
 
-function dragOver(e) {
-    e.preventDefault();
-    if (!this.className.includes("hovered")) {
-        this.className += " hovered";
-    }
-    
-}
-
-function dragEnter(e) {
-    e.preventDefault();
-    
-    if (this.querySelector(".imagemProdutoWrapper") !== null) {
-        doesExist = true;
-        const elements = this.querySelectorAll(".imagemProdutoWrapper");
-        swapElement = elements[0];
-    } else {
-        doesExist = false;
-    }
-}
-
-function dragLeave() {
-    this.className = "produtoContainer";
-}
-
+// Modifique a função dragDrop para chamar a função de salvar
 function dragDrop() {
     this.className = "produtoContainer";
     selected.style.opacity = "1";
@@ -42,23 +37,7 @@ function dragDrop() {
         parentOfFill.append(swapElement);
     }
     this.append(selected);
+    
+    // 🔥 NOVO: SALVA A NOVA ORDEM!
+    salvarNovaOrdem(); 
 }
-
-function dragEnd() {
-    this.className = "imagemProdutoWrapper";
-    if (selected.style.opacity === "0.6") {
-        selected.style.opacity = "1";
-    }
-}
-
-imagens.forEach(element => {
-    element.addEventListener("dragstart", dragStart);
-    element.addEventListener("dragend", dragEnd);
-});
-
-containers.forEach(element => {
-    element.addEventListener("dragover", dragOver);
-    element.addEventListener("dragenter", dragEnter);
-    element.addEventListener("dragleave", dragLeave);
-    element.addEventListener("drop", dragDrop);
-})

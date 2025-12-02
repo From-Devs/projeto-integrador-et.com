@@ -17,6 +17,11 @@ $rota->add('GET', '/teste', 'Custom::ping', false);
 $rota->add('GET', '/carousels', 'Custom::listcarousels', false);
 $rota->add('GET', '/lancamentos', 'Custom::listlancamentos', false);
 $rota->add('GET', '/destaques', 'Custom::listdestaques', false);
+
+// 🔥 NOVO: Rota para buscar um produto por ID (usada no JS)
+$rota->add('GET', '/BuscarProduto', 'Custom::buscarProduto', false); 
+// NOVO: Rota para salvar a nova ordem
+$rota->add('POST', '/reorder_c', 'Custom::reordercarousels', false);
 // create
 $rota->add('POST', '/store_c', 'Custom::storecarousels', false);
 $rota->add('POST', '/store_d', 'Custom::storedestaques', false);

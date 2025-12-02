@@ -1,3 +1,4 @@
+// trocarCorLancamento (filtro de brilho)
 const corBrilho = document.getElementById('corBrilhoLancamento');
 const card = document.querySelector(".bugBizarro").childNodes[3];
 
