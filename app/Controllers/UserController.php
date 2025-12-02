@@ -35,12 +35,29 @@ class UserController {
 
     public function login($email, $senha) {
         $user = $this->model->getUserByEmail($email);
-        if ($user && password_verify($senha, $user['senha'])) {
-            $_SESSION['id_usuario'] = $user['id_usuario'];
-            $_SESSION['tipoUsuario'] = $user['tipo'];
-            $_SESSION['login'] = true;
-            return ["success" => true, "user" => $user];
+        if ($user) {
+            if (password_verify($senha, $user['senha'])) {
+                $_SESSION['id_usuario'] = $user['id_usuario'];
+                $_SESSION['tipoUsuario'] = $user['tipo'];
+                $_SESSION['login'] = true;
+                
+                return ["success" => true, "user" => $user, "role" => "usuario"];
+            }
         }
+
+        if (!$user) {
+            $admin = $this->model->getAdminByEmail($email);
+    
+            if ($admin) {
+                if (password_verify($senha, $admin['senha'])) {
+                    $_SESSION['tipoUsuario'] = 'ADM';
+                    $_SESSION['login'] = true;
+    
+                    return ["success" => true, "user" => $admin, "role" => "admin"];
+                }
+            }
+        }
+
         return ["success" => false, "message" => "E-mail ou senha inválidos!"];
     }
     

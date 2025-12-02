@@ -21,6 +21,18 @@ class User {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function getAdminByEmail($email) {   
+        $sql = "SELECT * FROM administrador WHERE email = :email";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(':email', $email);
+        $stmt->execute();
+    
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+        return false;
+    }
+
     public function testConntx() {
         try {
             $stmt = $this->conn->query("SELECT 1");
