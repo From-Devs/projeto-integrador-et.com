@@ -38,7 +38,7 @@ var myChartEsquerda = new Chart(ctxEsquerda, {
       },
       title: {
         display: true,
-        text: 'Lorem ipsum', // Texto do título
+        text: 'Top 5 Produtos Mais Vendidos', // Texto do título
         font: {
           size: 28, // Tamanho grande do título
           weight: 'bold',
@@ -90,7 +90,7 @@ var myChartDireita = new Chart(ctxDireita, {
       },
       title: {
         display: true,
-        text: 'Lorem ipsum', // Texto do título
+        text: 'Status dos Pedidos', // Texto do título
         font: {
           size: 28, // Tamanho grande do título
           weight: 'bold',

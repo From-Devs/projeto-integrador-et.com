@@ -105,7 +105,7 @@ var myChartDireita = new Chart(ctxDireita, {
 
     title: {
       display: true,
-      text: 'Top 5 Regiões',
+      text: 'Status dos Pedidos',
       font: {
         size: 30,
         weight: 'bold',
