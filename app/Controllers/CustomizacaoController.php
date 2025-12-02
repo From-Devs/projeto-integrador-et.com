@@ -35,15 +35,26 @@ class CustomizacaoController {
 
     // === CRUD CAROUSEL / DESTAQUE já existentes (mantive como estão) ===
     public function createCarousel(int $id_carousel = null, array $data) {
-        $carrosseis = $this->carouselModel->getCarousel();
-        $total = count($carrosseis);
+        
+        // AJUSTE A (Recomendado): Usa getAll() que SEMPRE retorna array ([]) ou os dados.
+        // Isso é mais robusto para contar o total de carrosséis.
+        $carrosseis = $this->carouselModel->getAll(); 
+        
+        // OU AJUSTE B (Se você for forçado a usar o getCarousel que só pega 1 item, mas ele tem o limite de 3 na regra do Controller. Confuso!):
+        // $carrosseis = $this->carouselModel->getCarousel() ?? []; 
+
+        $total = count($carrosseis); // Agora o count() está seguro, pois $carrosseis é um array.
+        
         if ($id_carousel !== null) {
             return ['action'=>'update','result'=>$this->carouselModel->update($id_carousel, $data)];
         }
+        
+        // Mudei para usar 'create' que está no seu Model.
         if ($total < 3) {
-            $resultado = $this->carouselModel->createCarousel($data);
+            $resultado = $this->carouselModel->create($data); 
             return ['action'=>'create','result'=>$resultado];
         }
+        
         return ['error'=>'Limite máximo de 3 carrosseis atingido.','status'=>false];
     }
 
