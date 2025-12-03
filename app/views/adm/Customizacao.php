@@ -459,6 +459,35 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
         </div>
     </div>
 
+    <dialog class="custom-alert-modal" id="statusMessageModal" style='
+    /* Estilos Existentes */
+        padding: 15px; 
+        border-radius: 20px; 
+        border: none; 
+        box-shadow: inset 0px 0px 10px 0px rgb(71, 71, 71);
+        
+        /* 💡 ESTILOS PARA CENTRALIZAÇÃO */
+        margin: auto; 
+        max-width: 450px; /* Define uma largura máxima para não ser muito grande */
+        width: 90%;      /* Garante responsividade em telas menores */
+    '>
+        <div class="modal-content">
+            <h3 id="modalTitle"></h3>
+            <p id="modalMessage"></p>
+            
+            <div id="modalDetails" style="white-space: pre-wrap; font-family: monospace; font-size: 0.9em; max-height: 200px; overflow-y: auto; background: #f4f4f4; padding: 10px; border-radius: 4px; margin-top: 15px;"></div>
+            
+            <div class="modal-actions" style="display: flex; width: 100%; gap: 12px; margin-top: 8px;">
+                <button class="btn btn-white" id="modalCloseButton" onclick="document.getElementById('statusMessageModal').close()" style="flex: 1;">
+                    Fechar
+                </button>
+                <button class="btn btn-white" id="modalReloadButton" onclick="window.location.reload();" style="display: none; flex: 1; padding: 8px 0px">
+                    Recarregar
+                </button>
+            </div>
+        </div>
+    </dialog>
+
     <script>
         // Função para converter um array de objetos em um objeto indexado por uma chave (e.g., id)
         function indexarPorId(array, idKey) {

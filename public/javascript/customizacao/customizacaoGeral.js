@@ -112,6 +112,36 @@ window.closeModalDialog = function (nomePopUp) {
     dialog.close();
 }
 
+function showStatusModal(status, title, message, details = '', shouldReload = false) {
+    const modal = document.getElementById('statusMessageModal');
+    if (!modal) return;
+    
+    // Define cores e ícones (você pode customizar no CSS)
+    const statusColor = status === 'sucesso' ? 'green' : 'red';
+    const statusIcon = status === 'sucesso' ? '✅' : '❌';
+
+    document.getElementById('modalTitle').textContent = `${statusIcon} ${title}`;
+    document.getElementById('modalTitle').style.color = statusColor;
+    document.getElementById('modalMessage').textContent = message;
+    
+    const detailsEl = document.getElementById('modalDetails');
+    if (details) {
+        detailsEl.textContent = details;
+        detailsEl.style.display = 'block';
+    } else {
+        detailsEl.style.display = 'none';
+    }
+    
+    const reloadButton = document.getElementById('modalReloadButton');
+    reloadButton.style.display = shouldReload ? 'inline-block' : 'none';
+    
+    const closeButton = document.getElementById('modalCloseButton');
+    // Adiciona a função de fechar para o caso de não precisar recarregar
+    closeButton.onclick = () => modal.close(); 
+    
+    modal.showModal();
+}
+
 async function carregarDadosNoPopUp(registroId) {
     try {
         let dadosItem = null;
@@ -523,9 +553,15 @@ async function atualizarSessao(sessao) {
         try {
             resultado = JSON.parse(textResponse);
         } catch (e) {
-            // Se falhar ao parsear, mostra a resposta crua (provavelmente um erro PHP)
-            const erroMensagem = `[ERRO] Resposta do servidor não é JSON. Verifique o console.\n\nPAYLOAD ENVIADO:\n${payloadString}\n\nRESPOSTA CRUA:\n${textResponse.substring(0, 500)}...`;
-            alert(erroMensagem);
+            const erroMensagem = `[ERRO] Resposta do servidor não é JSON. Verifique o console.`;
+            
+            showStatusModal(
+                'erro', 
+                'Erro Crítico de Comunicação', 
+                erroMensagem, 
+                `PAYLOAD ENVIADO:\n${payloadString}\n\nRESPOSTA CRUA:\n${textResponse.substring(0, 500)}...`
+            );
+            
             console.error(erroMensagem, { rawResponse: textResponse });
             throw new Error("Resposta do servidor inválida (não é JSON).");
         }
@@ -535,20 +571,37 @@ async function atualizarSessao(sessao) {
         const respostaString = JSON.stringify(resultado, null, 2);
 
         if (resultado.status === 'sucesso') {
-            const mensagem = `${sessao.toUpperCase()} atualizado com sucesso!\n\n--- INFORMAÇÕES DE DEPURAÇÃO ---\n\nPAYLOAD ENVIADO:\n${payloadString}\n\nRESPOSTA DO SERVIDOR:\n${respostaString}`;
-            alert(mensagem); 
-            window.location.reload(); 
+            const mensagem = `${sessao.toUpperCase()} atualizado com sucesso!`;
+            showStatusModal(
+                'sucesso', 
+                'Salvamento Concluído', 
+                mensagem, 
+                `PAYLOAD ENVIADO:\n${payloadString}\n\nRESPOSTA DO SERVIDOR:\n${respostaString}`,
+                true // Deve recarregar após o sucesso
+            );
+
         } else {
-            // Tratamento do 'undefined': Garantir que msg exista
             const msgErro = resultado.msg || "Erro desconhecido no servidor.";
-            const mensagem = `ERRO ao salvar: ${msgErro}\n\n--- INFORMAÇÕES DE DEPURAÇÃO ---\n\nPAYLOAD ENVIADO:\n${payloadString}\n\nRESPOSTA DO SERVIDOR:\n${respostaString}`;
-            alert(mensagem);
+            const mensagem = `ERRO ao salvar: ${msgErro}`;
+            
+            showStatusModal(
+                'erro', 
+                'Erro no Servidor', 
+                mensagem, 
+                `PAYLOAD ENVIADO:\n${payloadString}\n\nRESPOSTA DO SERVIDOR:\n${respostaString}`
+            );
+            
             console.error(`[3/3] ERRO:`, resultado);
         }
 
     } catch (error) {
         console.error("Erro crítico na requisição:", error);
-        alert("Erro crítico ao conectar ou processar. Verifique o console.");
+        showStatusModal(
+            'erro', 
+            'Erro de Rede/JS', 
+            "Erro crítico ao conectar ou processar. Verifique o console.", 
+            error.message
+        );
     } finally {
         if(botao) {
             botao.innerText = textoOriginal;
