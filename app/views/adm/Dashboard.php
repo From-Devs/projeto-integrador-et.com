@@ -40,9 +40,9 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             </div>
             <div id="geralInformacoes">
                 <!-- $nomeDiv,$icone, $titulo, $valor, $alt=''-->
-                <?php dadosInfor('valorVendas','./../../../public/imagens/imagensADM/walletDashboard.png','Valor Vendas','R$ 1.500,00','wallet') ?>
-                <?php dadosInfor('lucroLiquido','./../../../public/imagens/imagensADM/cifraoDashboard.png','Lucro Líquido','R$ 569,00','cifrao') ?>
-                <?php dadosInfor('vendas','./../../../public/imagens/imagensADM/graficoDashboard.png','Vendas','233','grafico') ?>
+                <?php dadosInfor('valorVendas','./../../../public/imagens/imagensADM/walletDashboard.png','Lucro total','R$ 1.500,00','wallet') ?>
+                <?php dadosInfor('lucroLiquido','./../../../public/imagens/imagensADM/cifraoDashboard.png','Vendas realizadas','R$ 569,00','cifrao') ?>
+                <?php dadosInfor('vendas','./../../../public/imagens/imagensADM/graficoDashboard.png','Associados á ET','233','grafico') ?>
             </div>
             <div id="controlePizzas">
                 <div id="divPizzaEsquerda">
