@@ -123,8 +123,8 @@ class Carrinho {
         $precoTotal = array_sum(array_column($produtos, 'subtotal'));
 
         $stmtPedido = $this->conn->prepare("
-            INSERT INTO Pedido (id_usuario, id_status, dataPedido, precoTotal)
-            VALUES (:id_usuario, 1, NOW(), :precoTotal)
+            INSERT INTO Pedido (id_usuario, id_status, dataPedido, precoTotal, id_status_pagamento)
+            VALUES (:id_usuario, 1, NOW(), :precoTotal, 1)
         ");
         $stmtPedido->execute([
             ':id_usuario' => $id_usuario,

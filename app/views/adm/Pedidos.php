@@ -26,7 +26,7 @@
     $pedidosController = new PedidosController();
     $pedidos = $pedidosController->BuscarTodosPedidos($ordem, $pesquisa);
 
-    // // session_start();
+    // session_start();
     $tipo_usuario = $_SESSION['tipo_usuario'] ?? "ADM";
 ?>
 
