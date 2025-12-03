@@ -5,9 +5,10 @@ var ctxEsquerda = document.getElementById('myChartEsquerda').getContext('2d');
 var myChartEsquerda = new Chart(ctxEsquerda, {
   type: 'doughnut', // Tipo de gráfico
   data: {
-    labels: vendedoresLabels,
+    labels: ['Vendedor 1', 'Vendedor 2', 'Vendedor 3', 'Vendedor 4', 'Vendedor 5'],
     datasets: [{
-      data: vendedoresData,
+      label: 'Vendas',
+      data: [12, 19, 3, 5, 2], // Dados para o gráfico
       backgroundColor: [
         'rgba(255, 99, 132)',
         'rgba(54, 162, 235)',
@@ -63,7 +64,8 @@ var myChartDireita = new Chart(ctxDireita, {
     'Devolvido',
     'Cancelado'],
     datasets: [{
-      data: categoriasData,
+      label: 'Vendas',
+      data: [12, 19, 3, 5, 2],
       backgroundColor: [
         '#F1C40F', // Aguardando Confirmação
         '#3498DB', // Em Andamento

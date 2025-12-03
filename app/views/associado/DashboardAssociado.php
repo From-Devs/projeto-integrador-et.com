@@ -6,7 +6,6 @@ require_once __DIR__ . "/../../../public/componentes/popUp/popUp.php";
 require_once __DIR__ . "/../../../public/componentes/botao/botao.php";
 require __DIR__ . "/../../../public/componentes/contaADM_Associado/contaADM_Associado.php";
 require_once __DIR__ . "/../../Controllers/UserController.php";
-require_once __DIR__ . "/../../Controllers/Dashboard_Assoc_Controller.php";
 
 session_start();
 
@@ -19,11 +18,6 @@ if($tipo_usuario != "Associado" || !isset($_SESSION['id_usuario'])){
 
 $controller = new UserController();
 $user = $controller->getLoggedUser();
-
-$dashboardController = new Dashboard_Assoc_Controller();
-$dashboard = $dashboardController->getDashboardAssociado($user['id_usuario']);
-
-$topProdutos = $dashboard['topProdutos'] ?? [];
 ?>
  
 <!DOCTYPE html>
@@ -57,9 +51,9 @@ $topProdutos = $dashboard['topProdutos'] ?? [];
             </div>
             <div id="geralInformacoes">
                 <!-- $nomeDiv,$icone, $titulo, $valor, $alt=''-->
-                <?php dadosInfor('valorVendas','./../../../public/imagens/imagensADM/walletDashboard.png','Valor Vendas','R$ '.$dashboard['bruto'],'wallet') ?>
-                <?php dadosInfor('lucroLiquido','./../../../public/imagens/imagensADM/cifraoDashboard.png','Lucro Líquido','R$ '.$dashboard['liquido'],'cifrao') ?>
-                <?php dadosInfor('vendas','./../../../public/imagens/imagensADM/graficoDashboard.png','Vendas',$dashboard['vendas'],'grafico') ?>
+                <?php dadosInfor('valorVendas','./../../../public/imagens/imagensADM/walletDashboard.png','Valor Vendas','R$ 1.500,00','wallet') ?>
+                <?php dadosInfor('lucroLiquido','./../../../public/imagens/imagensADM/cifraoDashboard.png','Lucro Líquido','R$ 569,00','cifrao') ?>
+                <?php dadosInfor('vendas','./../../../public/imagens/imagensADM/graficoDashboard.png','Vendas','233','grafico') ?>
             </div>
             <div id="controlePizzas">
                 <div id="divPizzaEsquerda">
@@ -75,11 +69,6 @@ $topProdutos = $dashboard['topProdutos'] ?? [];
             </div>
         </div>
     </div>
-
-    <script>
-    var topLabels = <?php echo json_encode(array_column($topProdutos, 'nome')); ?>;
-    var topValues = <?php echo json_encode(array_column($topProdutos, 'total_vendido')); ?>;
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./../../../public/javascript/DashboardAssociado.js"></script>
