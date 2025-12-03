@@ -282,111 +282,82 @@ class CarouselModel {
             return false;
         }
     }
-    public function update(int $id_carousel, array $data): array {
+
+    public function update(int $id, array $data): bool {
+        // 1. Extração e Definição das variáveis de entrada
+        $posicao = (int)($data['posicao'] ?? 0); 
+        
+        // ** VARIÁVEIS DE COR ADICIONADAS AQUI **
+        // Garante que estas variáveis existam para serem usadas no execute()
+        $corEspecial = $data['corEspecial'] ?? null;
+        $hexDegrade1 = $data['hexDegrade1'] ?? null;
+        $hexDegrade2 = $data['hexDegrade2'] ?? null;
+        $hexDegrade3 = $data['hexDegrade3'] ?? null;
+        // ****************************************
+
         try {
-            // 1. Verifica se o carousel existe
-            $stmt = $this->conn->prepare("SELECT id_coressubs, id_produto FROM carousel WHERE id_carousel = :id");
-            $stmt->execute([':id' => $id_carousel]);
-            $carousel = $stmt->fetch(PDO::FETCH_ASSOC);
+            $this->conn->beginTransaction();
 
-            if (!$carousel) {
-                return ['error' => 'Carrossel não encontrado.'];
+            // 1. Descobrir qual é o id_coresSubs e o id_produto vinculado a este carrossel
+            $stmtBusca = $this->conn->prepare("SELECT id_coresSubs, id_produto FROM carousel WHERE id_carousel = :id");
+            $stmtBusca->execute([':id' => $id]);
+            $carouselAtual = $stmtBusca->fetch(\PDO::FETCH_ASSOC);
+
+            if (!$carouselAtual) {
+                throw new \Exception("Carrossel ID {$id} não encontrado para atualização.");
             }
 
-            $id_produto_atual = $carousel['id_produto'];
-            $novo_produto = !empty($data['id_produto']) ? (int)$data['id_produto'] : null;
+            $id_coresSubs = $carouselAtual['id_coresSubs'];
+            
+            // ** GARANTE QUE id_produto NUNCA É PERDIDO **
+            // Se o payload não enviou (ou enviou 0/null), usa o original do banco.
+            $id_produto = (int)($data['id_produto'] ?? $carouselAtual['id_produto']);
 
-            // Se mudou o produto → CRIA NOVO coressubs e atualiza o carousel
-            if ($novo_produto && $novo_produto !== $id_produto_atual) {
-
-            // Pega as cores do novo produto
-            $sql = "
-                SELECT
-                    c.corPrincipal AS corEspecial,
-                    c.hexDegrade1,
-                    c.hexDegrade2,
-                    NULL AS hexDegrade3
-                FROM produto p
-                INNER JOIN cores c ON p.id_cores = c.id_cores
-                WHERE p.id_produto = :id_produto
-            ";
-
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute([':id_produto' => $novo_produto]);
-            $cores = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if (!$cores) {
-                return ['error' => 'Produto não encontrado ou sem cores.'];
-            }
-
-            // Aplica personalizações se vieram
-            $corEspecial = $data['corEspecial'] ?? $cores['corEspecial'];
-            $hexDegrade1 = $data['hexDegrade1'] ?? $cores['hexDegrade1'];
-            $hexDegrade2 = $data['hexDegrade2'] ?? $cores['hexDegrade2'];
-            $hexDegrade3 = $data['hexDegrade3'] ?? null;
-
-            // CRIA NOVO REGISTRO EM coressubs
-            $insert = $this->conn->prepare("
-                INSERT INTO coressubs (corEspecial, hexDegrade1, hexDegrade2, hexDegrade3)
-                VALUES (:corEspecial, :hexDegrade1, :hexDegrade2, :hexDegrade3)
-            ");
-
-            $insert->execute([
-                ':corEspecial' => $corEspecial,
-                ':hexDegrade1' => $hexDegrade1,
-                ':hexDegrade2' => $hexDegrade2,
-                ':hexDegrade3' => $hexDegrade3
-            ]);
-
-            $novo_id_coressubs = $this->conn->lastInsertId(); // <- NOVO ID!
-
-            // Atualiza o carousel com o NOVO produto e NOVO coressubs
-            $this->conn->prepare("
-                UPDATE carousel 
-                SET id_produto = :id_produto, 
-                    id_coressubs = :id_coressubs 
-                WHERE id_carousel = :id_carousel
-            ")->execute([
-                ':id_produto'   => $novo_produto,
-                ':id_coressubs' => $novo_id_coressubs,
-                ':id_carousel'  => $id_carousel
-            ]);
-
-        } else {
-            // Se NÃO mudou o produto → só edita o coressubs atual
-            $corEspecial = $data['corEspecial'] ?? null;
-            $hexDegrade1 = $data['hexDegrade1'] ?? null;
-            $hexDegrade2 = $data['hexDegrade2'] ?? null;
-            $hexDegrade3 = $data['hexDegrade3'] ?? null;
-
-            if ($corEspecial || $hexDegrade1 || $hexDegrade2 || $hexDegrade3) {
-                $update = $this->conn->prepare("
-                    UPDATE coressubs SET
-                        corEspecial = COALESCE(:corEspecial, corEspecial),
-                        hexDegrade1 = COALESCE(:hexDegrade1, hexDegrade1),
-                        hexDegrade2 = COALESCE(:hexDegrade2, hexDegrade2),
-                        hexDegrade3 = COALESCE(:hexDegrade3, hexDegrade3)
-                    WHERE id_coressubs = :id_coressubs
+            // 2. Atualizar o registro de Cor (coressubs)
+            if ($id_coresSubs) {
+                $stmtCor = $this->conn->prepare("
+                    UPDATE coressubs 
+                    SET corEspecial = :corEspecial, 
+                        hexDegrade1 = :hexDegrade1, 
+                        hexDegrade2 = :hexDegrade2, 
+                        hexDegrade3 = :hexDegrade3
+                    WHERE id_coresSubs = :id_coresSubs
                 ");
-
-                $update->execute([
-                    ':corEspecial'  => $corEspecial,
-                    ':hexDegrade1'  => $hexDegrade1,
-                    ':hexDegrade2'  => $hexDegrade2,
-                    ':hexDegrade3'  => $hexDegrade3,
-                    ':id_coressubs' => $carousel['id_coressubs']
+                $stmtCor->execute([
+                    ':id_coresSubs' => $id_coresSubs,
+                    ':corEspecial' => $corEspecial,  // AGORA ESTÁ DEFINIDA
+                    ':hexDegrade1' => $hexDegrade1,  // AGORA ESTÁ DEFINIDA
+                    ':hexDegrade2' => $hexDegrade2,  // AGORA ESTÁ DEFINIDA
+                    ':hexDegrade3' => $hexDegrade3   // AGORA ESTÁ DEFINIDA
                 ]);
             }
-        }
 
-        return [
-            'success' => true,
-            'message' => 'Carrossel atualizado com sucesso!'
-        ];
+            // 3. Atualizar dados do Carrossel (carousel)
+            $stmtCarousel = $this->conn->prepare("
+                UPDATE carousel
+                SET id_produto = :id_produto, 
+                    posicao = :posicao
+                WHERE id_carousel = :id
+            ");
 
-        } catch (Exception $e) {
-            error_log("[CarouselModel] Erro no update: " . $e->getMessage());
-            return ['error' => 'Erro ao atualizar carrossel: ' . $e->getMessage()];
+            $resultado = $stmtCarousel->execute([
+                ":id"         => $id,
+                ":id_produto" => $id_produto,
+                ":posicao"    => $posicao
+            ]);
+
+            error_log("[DEBUG] Carrossel ID {$id} atualizado com posicao: {$posicao}. Resultado: " . ($resultado ? 'Sucesso' : 'Falha'));
+
+            $this->conn->commit();
+            return $resultado;
+
+        } catch (\Exception $e) {
+            if ($this->conn->inTransaction()) {
+                $this->conn->rollBack();
+                error_log("[DEBUG/ERRO] ROLLBACK EXECUTADO! Carrossel ID {$id}. Erro: " . $e->getMessage()); // <-- LOG IMPORTANTE
+            }
+            error_log("[Carousel] Erro ao atualizar o Carrossel ID {$id}: " . $e->getMessage());
+            return false;
         }
-    } 
+    }
 }

@@ -29,13 +29,11 @@ try {
 
             case 'SalvarLancamento':
                 ob_clean(); 
-                // CORREÇÃO: Chamar createLancamento
                 echo json_encode($customController->processarLancamentos($dados)); 
                 break;
 
             case 'SalvarDestaque':
                 ob_clean(); 
-                // CORREÇÃO: Chamar createDestaque
                 echo json_encode($customController->createDestaque($dados));
                 break;
 

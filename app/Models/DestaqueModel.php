@@ -132,114 +132,30 @@ class ProdutoDestaque {
     // ------------------------------
     // UPDATE — atuliza novo destaque 
     // ------------------------------
-    public function update(int $id_destaque, array $data): array {
+    public function update(int $id, array $data): bool {
         try {
-
-            // 1) Verifica se existe destaque
+            // Prepara a query SQL para atualizar os campos na tabela
             $stmt = $this->conn->prepare("
-                SELECT id_prodDestaque, id_produto
-                FROM proddestaque
+                UPDATE proddestaque
+                SET id_produto = :id_produto, 
+                    cor1 = :cor1, 
+                    cor2 = :cor2, 
+                    corSombra = :corSombra
                 WHERE id_prodDestaque = :id
-                LIMIT 1
             ");
-            $stmt->execute([':id' => $id_destaque]);
-            $destaque = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if (!$destaque) {
-                return ['error' => 'Destaque não encontrado.'];
-            }
+            // Executa a query
+            return $stmt->execute([
+                ":id" => $id,
+                ":id_produto" => $data['id_produto'],
+                ":cor1" => $data['cor1'],
+                ":cor2" => $data['cor2'] ?? null,      // Usa null se cor2 não for fornecida (assumindo que é opcional)
+                ":corSombra" => $data['corSombra'] ?? null // Usa null se corSombra não for fornecida
+            ]);
 
-            $produto_atual = (int)$destaque['id_produto'];
-            $novo_produto = !empty($data['id_produto']) ? (int)$data['id_produto'] : null;
-
-            /*
-            ==========================================
-            SE MUDOU O PRODUTO
-            ==========================================
-            */
-            if ($novo_produto && $novo_produto !== $produto_atual) {
-
-                // Buscar dados do novo produto
-                $stmt = $this->conn->prepare("
-                    SELECT corEspecial, hexDegrade1, hexDegrade2, hexDegrade3, id_cores
-                    FROM produto
-                    WHERE id_produto = :id
-                    LIMIT 1
-                ");
-                $stmt->execute([':id' => $novo_produto]);
-                $produto = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                if (!$produto) {
-                    return ['error' => 'Novo produto não encontrado.'];
-                }
-
-                // Cores padrão
-                $cor1 = $produto['hexDegrade1'];
-                $cor2 = $produto['hexDegrade2'];
-                $sombra = $produto['hexDegrade3'];
-
-                // Caso use tabela cores
-                if (empty($produto['corEspecial']) && !empty($produto['id_cores'])) {
-                    $stmt = $this->conn->prepare("
-                        SELECT hexDegrade1, hexDegrade2
-                        FROM cores
-                        WHERE id_cores = :id
-                        LIMIT 1
-                    ");
-                    $stmt->execute([':id' => $produto['id_cores']]);
-                    $cores = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                    if ($cores) {
-                        $cor1 = $cores['hexDegrade1'] ?? $cor1;
-                        $cor2 = $cores['hexDegrade2'] ?? $cor2;
-                    }
-                }
-
-                // Atualiza tudo
-                $update = $this->conn->prepare("
-                    UPDATE proddestaque SET
-                        id_produto = :produto,
-                        cor1 = :cor1,
-                        cor2 = :cor2,
-                        corSombra = :sombra
-                    WHERE id_prodDestaque = :id
-                ");
-
-                $update->execute([
-                    ':produto' => $novo_produto,
-                    ':cor1' => $cor1,
-                    ':cor2' => $cor2,
-                    ':sombra' => $sombra,
-                    ':id' => $id_destaque
-                ]);
-
-            } else {
-            /*
-            ==========================================
-            NÃO MUDOU O PRODUTO → só altera as cores
-            ==========================================
-            */
-
-                $update = $this->conn->prepare("
-                    UPDATE proddestaque SET
-                        cor1 = COALESCE(:cor1, cor1),
-                        cor2 = COALESCE(:cor2, cor2),
-                        corSombra = COALESCE(:sombra, corSombra)
-                    WHERE id_prodDestaque = :id
-                ");
-
-                $update->execute([
-                    ':cor1' => $data['cor1'] ?? null,
-                    ':cor2' => $data['cor2'] ?? null,
-                    ':sombra' => $data['corSombra'] ?? null,
-                    ':id' => $id_destaque
-                ]);
-            }
-
-            return ['success' => true, 'message' => 'Destaque atualizado com sucesso!'];
-
-        } catch (Exception $e) {
-            return ['error' => $e->getMessage()];
+        } catch (\PDOException $e) {
+            error_log("[ProdutoDestaque] Erro ao atualizar o destaque ID {$id}: " . $e->getMessage());
+            return false;
         }
     }
 

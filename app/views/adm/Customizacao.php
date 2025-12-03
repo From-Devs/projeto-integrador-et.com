@@ -11,11 +11,11 @@ require_once __DIR__ . "/../../Controllers/CustomizacaoController.php";
 
 $conn = new CustomizacaoController();
 $res = $conn->index();
-// echo "<pre>";
-// var_dump($res);
-// echo "</pre>";
 
 $produtoDestaque = $res["destaque"][0];
+// echo "<pre style='diplay: none'>";
+// var_dump($produtoDestaque);
+// echo "</pre>";
 
 // session_start();
 $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
@@ -458,6 +458,38 @@ $tipo_usuario = $_SESSION['tipo_usuario'] ?? 'ADM';
             </div>
         </div>
     </div>
+
+    <script>
+        // Função para converter um array de objetos em um objeto indexado por uma chave (e.g., id)
+        function indexarPorId(array, idKey) {
+            if (!Array.isArray(array)) return {};
+            return array.reduce((acc, item) => {
+                // Garante que a chave seja uma string do ID
+                acc[item[idKey].toString()] = item; 
+                return acc;
+            }, {});
+        }
+
+        // Dados crus do PHP
+        const dadosBrutos = <?php echo json_encode($res); ?>;
+
+        // Variável global dadosLocais que será usada pelo customizacaoGeral.js
+        // Indexamos o carousel e o lancamento pelo ID para acesso rápido (e.g., dadosLocais.carousel['1'])
+        window.dadosLocais = {
+            // ✅ CORREÇÃO: Indexa os itens do carrossel pelo id_carousel
+            carousel: indexarPorId(dadosBrutos.carousel || [], 'id_carousel'), 
+            
+            // ✅ Indexa os itens de lançamento pelo id_lancamento
+            lancamento: indexarPorId(dadosBrutos.lancamento || [], 'id_lancamento'), 
+            
+            // Os demais dados podem permanecer como array ou objeto conforme necessário
+            destaque: dadosBrutos.destaque || [],
+            produtos: dadosBrutos.produtos || [],
+            coresSub: dadosBrutos.coresSub || []
+        };
+        
+        console.log('Dados Locais Inicializados:', dadosLocais);
+    </script>
     
     <script src="/projeto-integrador-et.com/public/componentes/sidebarADM_Associado/scripts.js"></script>
     <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>

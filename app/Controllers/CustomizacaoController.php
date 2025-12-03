@@ -32,36 +32,6 @@ class CustomizacaoController {
             "coresSub" => $this->coresSubsModel->getAll()
         ];
     }
-    public function createCarousel(int $id_carousel = null, array $data) {
-
-        // Buscar quantos carrosseis já existem
-        $carrosseis = $this->carouselModel->getCarousel(); 
-        $total = count($carrosseis);
-
-        // ------------ CASO 1: UPDATE --------------------
-        if ($id_carousel !== null) {
-            return [
-                'action' => 'update',
-                'result' => $this->carouselModel->update($id_carousel, $data)
-            ];
-        }
-
-        // ------------ CASO 2: CREATE (só se < 3) --------
-        if ($total < 3) {
-            $resultado = $this->carouselModel->createCarousel($data);
-            return [
-                'action' => 'create',
-                'result' => $resultado
-            ];
-        }
-
-        // ------------ CASO 3: LIMITE DE 3 ---------------
-        return [
-            'error' => 'Limite máximo de 3 carrosseis atingido.',
-            'status' => false
-        ];
-    }
-
 
     // Deletar carousel
     public function deleteCarousel(int $id) {
@@ -69,23 +39,39 @@ class CustomizacaoController {
     }
 
     // Criar destaque
-    public function createDestaque(array $data): array {
-        // 1) Verificar se já existe destaque
-        $existe = $this->destaqueModel->getDestaque();
-        if (!$existe) {
-            // -----------------------------------
-            // NÃO existe → CRIAR novo destaque
-            // -----------------------------------
-            $resultado = $this->destaqueModel->create($data);
-            return ['action' => 'create', 'result' => $resultado];
-        }
-        // -----------------------------------
-        // Já existe → UPDATE
-        // -----------------------------------
-        $id_destaque = (int)$existe['id_prodDestaque'];
-        $resultado = $this->destaqueModel->update($id_destaque, $data);
+    // CustomizacaoController.php
 
-        return ['action' => 'update', 'result' => $resultado];
+    // Criar destaque
+    public function createDestaque(array $data): array {
+        try {
+            // 1) Verificar se já existe destaque
+            $existe = $this->destaqueModel->getDestaque();
+            
+            if (!$existe) {
+                // -----------------------------------
+                // NÃO existe → CRIAR novo destaque
+                // -----------------------------------
+                $resultado = $this->destaqueModel->create($data);
+                return ['action' => 'create', 'result' => $resultado, 'status' => 'sucesso']; // Adicione 'status'
+            }
+            
+            // -----------------------------------
+            // Já existe → UPDATE
+            // -----------------------------------
+            $id_destaque = (int)$existe['id_prodDestaque'];
+            $resultado = $this->destaqueModel->update($id_destaque, $data);
+
+            return ['action' => 'update', 'result' => $resultado, 'status' => 'sucesso']; // Adicione 'status'
+
+        } catch (\Throwable $e) { // Captura erros fatais e exceções
+            error_log("[DESTAQUE] Erro Fatal ao salvar: " . $e->getMessage() . " - Trace: " . $e->getTraceAsString());
+            
+            // Retorna uma resposta JSON que o JavaScript consegue ler corretamente como erro
+            return [
+                'status' => 'erro',
+                'msg' => 'Erro interno ao processar o destaque. Verifique os logs do servidor.'
+            ];
+        }
     }
 
     // Deletar destaque
@@ -119,23 +105,36 @@ class CustomizacaoController {
             $id_lancamento = (int)($data['id_lancamento'] ?? 0); // O ID do registro 'lancamento'
             
             // Chamada ao Model para criação/atualização
-            $resultado = $this->lancamentoModel->create($id_lancamento, $data); 
+            $resultado = $this->lancamentoModel->Update($id_lancamento, $data); 
             $resultados[] = $resultado;
         }
         return ['status' => 'sucesso', 'resultados' => $resultados];
     }
 
+    // Controllers/CustomizacaoController.php (Função processarCarousel)
+
     public function processarCarousel(array $carrosseis): array {
         $resultados = [];
         
-        // O seu createCarousel já trata limites, mas vamos garantir que ele lide com a atualização de posição e dados.
         foreach ($carrosseis as $data) {
-            $id_carousel = (int)($data['id_carousel'] ?? null); 
-            
-            // Se o ID for null, o createCarousel original trata como CRIAÇÃO (limitada a 3)
-            // Se o ID existir, ele trata como UPDATE
-            $resultado = $this->createCarousel($id_carousel, $data); 
-            $resultados[] = $resultado;
+            $id_carousel = (int)($data['id_carousel'] ?? 0); // Garante que é int
+
+            // O id_carousel nunca deve ser 0 em um UPDATE, mas o Model vai tratar.
+            if ($id_carousel === 0) { 
+                // Se o ID for 0, você deveria chamar um CREATE. Por enquanto, ignore.
+                $resultados[] = false;
+                continue; 
+            }
+
+            try {
+                // Chamada ao Model para UPDATE
+                $resultado = $this->carouselModel->update($id_carousel, $data); 
+                $resultados[] = $resultado;
+            } catch (\Exception $e) {
+                // Logar se o UPDATE lançar uma exceção não tratada no Model
+                error_log("[CarouselController] Erro ao processar o Carousel ID {$id_carousel}: " . $e->getMessage());
+                $resultados[] = false;
+            }
         }
         return ['status' => 'sucesso', 'resultados' => $resultados];
     }

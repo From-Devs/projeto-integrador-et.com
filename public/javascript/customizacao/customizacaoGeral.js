@@ -2,11 +2,11 @@
 // CONFIGURAÇÕES GLOBAIS & ESTADO LOCAL
 // ==========================================================
 
-const dadosLocais = {
-    carousel: {},   
-    lancamento: {}, 
-    destaque: null
-};
+// const dadosLocais = {
+//     carousel: {},   
+//     lancamento: {}, 
+//     destaque: null
+// };
 
 const produtoOriginal = {
     editCarousel: null,
@@ -229,13 +229,15 @@ function atualizarVisualDestaque(dados) {
     const nomeEditor = document.querySelector('.editProdutoDestaque .nomeProduto p');
     if (nomeEditor) nomeEditor.textContent = dados.nome;
 
+    const cardDestaque = document.querySelector('.produtoDestaque')
     const imgDestaque = document.querySelector('.produtoDestaque .imagemProduto img');
     const nomeDestaque = document.querySelector('.produtoDestaque .nomeProduto');
     const marcaDestaque = document.querySelector('.produtoDestaque .marcaProduto');
     const precoDestaque = document.querySelector('.produtoDestaque .precoProduto');
 
+    if (cardDestaque) cardDestaque.setAttribute('data-id', dados.id_produto)
     if (imgDestaque && dados.img1) imgDestaque.src = getImgUrl(dados.img1);
-    if (nomeDestaque) nomeDestaque.textContent = dados.nome ? dados.nome.toUpperCase() : '';
+    if (nomeDestaque) nomeDestaque.textContent = dados.nome ? dados.nome : '';
     if (marcaDestaque) marcaDestaque.textContent = dados.marca || '';
     if (precoDestaque) precoDestaque.textContent = formatarPreco(dados);
 
@@ -473,6 +475,8 @@ function restaurarProdutoDestaque(botao) {
 // ENVIO PARA O BANCO (UPDATE)
 // ==========================================================
 
+// customizacaoGeral.js
+
 async function atualizarSessao(sessao) {
     // Evita erro se o clique não vier de um botão (ex: enter)
     const botao = document.activeElement && document.activeElement.tagName === "BUTTON" ? document.activeElement : null;
@@ -501,7 +505,11 @@ async function atualizarSessao(sessao) {
             acaoPHP = "SalvarDestaque";
         }
 
-        console.log(`Enviando ${sessao}...`, payload);
+        // Log no console antes de enviar (Para ver o objeto)
+        console.log(`[1/3] Enviando ${sessao}...`, payload);
+        
+        // Converte o payload para uma string JSON formatada para o Alert
+        const payloadString = JSON.stringify(payload, null, 2);
 
         const response = await fetch(`/projeto-integrador-et.com/router/CustomizacaoRouter.php`, {
             method: 'POST',
@@ -515,21 +523,32 @@ async function atualizarSessao(sessao) {
         try {
             resultado = JSON.parse(textResponse);
         } catch (e) {
-            throw new Error("Resposta do servidor inválida (não é JSON): " + textResponse);
+            // Se falhar ao parsear, mostra a resposta crua (provavelmente um erro PHP)
+            const erroMensagem = `[ERRO] Resposta do servidor não é JSON. Verifique o console.\n\nPAYLOAD ENVIADO:\n${payloadString}\n\nRESPOSTA CRUA:\n${textResponse.substring(0, 500)}...`;
+            alert(erroMensagem);
+            console.error(erroMensagem, { rawResponse: textResponse });
+            throw new Error("Resposta do servidor inválida (não é JSON).");
         }
+        
+        // Log no console da resposta do servidor
+        console.log(`[2/3] Resposta do Servidor:`, resultado);
+        const respostaString = JSON.stringify(resultado, null, 2);
 
         if (resultado.status === 'sucesso') {
-            alert(`${sessao.toUpperCase()} atualizado com sucesso!`);
+            const mensagem = `${sessao.toUpperCase()} atualizado com sucesso!\n\n--- INFORMAÇÕES DE DEPURAÇÃO ---\n\nPAYLOAD ENVIADO:\n${payloadString}\n\nRESPOSTA DO SERVIDOR:\n${respostaString}`;
+            alert(mensagem); 
             window.location.reload(); 
         } else {
             // Tratamento do 'undefined': Garantir que msg exista
             const msgErro = resultado.msg || "Erro desconhecido no servidor.";
-            alert("Erro ao salvar: " + msgErro);
+            const mensagem = `ERRO ao salvar: ${msgErro}\n\n--- INFORMAÇÕES DE DEPURAÇÃO ---\n\nPAYLOAD ENVIADO:\n${payloadString}\n\nRESPOSTA DO SERVIDOR:\n${respostaString}`;
+            alert(mensagem);
+            console.error(`[3/3] ERRO:`, resultado);
         }
 
     } catch (error) {
-        console.error("Erro crítico:", error);
-        alert("Erro ao conectar: " + error.message);
+        console.error("Erro crítico na requisição:", error);
+        alert("Erro crítico ao conectar ou processar. Verifique o console.");
     } finally {
         if(botao) {
             botao.innerText = textoOriginal;
@@ -539,10 +558,14 @@ async function atualizarSessao(sessao) {
 }
 
 // --- 1. Montar Carousel (A ORDEM DO DOM DEFINE A POSIÇÃO) ---
+// customizacaoGeral.js (ou onde esta função está)
+
 function montarPayloadCarousel() {
     const listaFinal = [];
     // Pega os containers na ordem visual atual (pós drag-and-drop)
     const containers = document.querySelectorAll('.editarCarouselContainer .produtoContainer');
+
+    console.log(containers)
 
     containers.forEach((container, index) => {
         const wrapper = container.querySelector('.imagemProdutoWrapper');
@@ -551,38 +574,35 @@ function montarPayloadCarousel() {
         const idCarousel = wrapper.dataset.id; 
         const novaPosicao = index + 1; // 1, 2, 3...
 
-        const edicoesLocais = dadosLocais.carousel[idCarousel] || {};
+        console.log(idCarousel)
+        console.log(novaPosicao)
 
-        listaFinal.push({
-            id_carousel: idCarousel,
-            posicao: novaPosicao,
-            id_produto: edicoesLocais.id_produto || null, 
-            hexDegrade1: edicoesLocais.hexDegrade1 || null,
-            hexDegrade2: edicoesLocais.hexDegrade2 || null,
-            hexDegrade3: edicoesLocais.hexDegrade3 || null,
-            corEspecial: edicoesLocais.corEspecial || null
-        });
+        if(idCarousel){
+            // ✅ AGORA ISTO VAI FUNCIONAR porque dadosLocais.carousel foi indexado
+            const edicoes = dadosLocais.carousel[idCarousel] || {}; 
+    
+            listaFinal.push({
+                id_carousel: idCarousel,
+                posicao: novaPosicao, // Posição que deve ser salva
+                id_produto: edicoes.id_produto || null, // Se o produto não foi alterado, pega o ID original
+                hexDegrade1: edicoes.hexDegrade1 || null,
+                hexDegrade2: edicoes.hexDegrade2 || null,
+                hexDegrade3: edicoes.hexDegrade3 || null,
+                corEspecial: edicoes.corEspecial || null
+            });
+        }
     });
     return listaFinal;
 }
 
 // --- 2. Montar Lançamentos ---
 function montarPayloadLancamento() {
-    const cards = document.querySelectorAll('.customizacaoMain #containerLancamentos .cardLancamento'); // Seletor ajustado?
-    // Verifique se no seu HTML do lançamento tem a classe .cardLancamento
-    // e se o wrapper pai ou ele mesmo tem data-id
-    
-    // Se o seu HTML no Customizacao.php usa uma div pai, ajuste aqui:
-    // No PHP você deve ter algo como: <div class="cardLancamento" data-id="...">
+    const cards = document.querySelectorAll('#containerLancamentos .cardLancamento'); // Seletor ajustado?
     
     const listaFinal = [];
 
     cards.forEach(card => {
-        // Tenta pegar o ID do dataset. Se não achar no card, tenta no pai.
         let idLancamento = card.dataset.id;
-        
-        // Se o createCardProdutoLancamento não poe o ID na div raiz, precisamos ver onde ele está.
-        // Assumindo que você ajustou o PHP para colocar data-id na div .cardLancamento
         
         if(idLancamento) {
             const edicoes = dadosLocais.lancamento[idLancamento] || {};
@@ -599,12 +619,24 @@ function montarPayloadLancamento() {
 
 // --- 3. Montar Destaque ---
 function montarPayloadDestaque() {
-    if (!dadosLocais.destaque) return null;
+    // Busca os elementos de input no DOM usando seus IDs
+    const inputProduto = document.querySelector('.produtoDestaque').getAttribute('data-id'); // ID do select/input do produto
+    const inputCor1 = document.querySelector('#produtoLancamentoEditCor1 .corShow'); // Exemplo de ID para a Cor 1
+    const inputCor2 = document.querySelector('#produtoLancamentoEditCor2 .corShow'); // Exemplo de ID para a Cor 2
+    const inputCorSombra = document.querySelector('#produtoLancamentoEditCorSombra .corShow'); // Exemplo de ID para a Cor Sombra
+
+    // Verifica se os elementos cruciais foram encontrados antes de tentar ler o valor
+    if (!inputProduto || !inputCor1 || !inputCor2 || !inputCorSombra) {
+        console.error("Erro: Elementos do Destaque (Produto ou Cor 1) não encontrados no DOM.");
+        return null; // Retorna nulo se não puder ler os dados
+    }
+
+    // Retorna um objeto com os valores ATUAIS dos inputs (usando .value)
     return {
-        id_produto: dadosLocais.destaque.id_produto || null,
-        cor1: dadosLocais.destaque.cor1,
-        cor2: dadosLocais.destaque.cor2,
-        corSombra: dadosLocais.destaque.corSombra
+        id_produto: inputProduto || null,
+        cor1: inputCor1.value,
+        cor2: inputCor2.value, // Verifica se existe antes de ler
+        corSombra: inputCorSombra.value
     };
 }
 
@@ -612,6 +644,8 @@ function montarPayloadDestaque() {
 // LISTENERS & DRAG AND DROP
 // ==========================================================
 document.addEventListener('DOMContentLoaded', () => {
+
+    console.log("Dados Locais (Acesso Pós-Inicialização):", window.dadosLocais)
     
     // Inicializar Destaque
     const cor1Input = document.querySelector('#produtoLancamentoEditCor1 .corShow');
