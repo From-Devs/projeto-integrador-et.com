@@ -7,6 +7,10 @@
         echo popUpCurto("popUpErro", "Acesso negado! Você precisa estar logado para acessar a página de associado.", "red", "white");
     }
 
+    if(isset($_GET['sucesso']) && $_GET['sucesso'] === '1'){
+        echo popUpCurto("popUpSucesso", "Cadastro realizado com sucesso! Faça login com seus dados.", "green", "white");
+    }
+
 $erro = $_GET["erro"] ?? '';
 
 
@@ -93,6 +97,10 @@ $erro = $_GET["erro"] ?? '';
     <script>
     if(window.location.href.indexOf('erro=acesso_negado') > -1){
         abrirPopUpCurto("popUpErro", 5000);
+    }
+
+    if(window.location.href.indexOf('sucesso=1') > -1){
+        abrirPopUpCurto("popUpSucesso", 5000); 
     }
 </script>
 </body>
