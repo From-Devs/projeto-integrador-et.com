@@ -9,6 +9,7 @@
     require __DIR__ . "/../../../public/componentes/ondas/onda.php";
     require_once __DIR__ . "/../../../public/componentes/popup/popUp.php";
     require __DIR__ . "/../../../public/componentes/paginacao/paginacao.php";
+    session_start();
     
     $parametrosExtras = [];
     

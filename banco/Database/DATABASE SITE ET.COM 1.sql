@@ -90,6 +90,11 @@ CREATE TABLE status(
 id_status INT AUTO_INCREMENT PRIMARY KEY, 
 tipoStatus VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE statusPagamento (
+id_status_pagamento INT PRIMARY KEY AUTO_INCREMENT,
+tipoStatus VARCHAR(100) NOT NULL
+);
  
 CREATE TABLE avaliacoes (
   id_avaliacao INT AUTO_INCREMENT PRIMARY KEY,

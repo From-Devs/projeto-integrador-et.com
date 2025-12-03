@@ -11,6 +11,7 @@ class Database
     private static $dbName = "et_com";
 
     // função para conectar o banco de dados
+    
     public function Connect(){
         try{
             $conn = new PDO(

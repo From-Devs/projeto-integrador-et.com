@@ -76,6 +76,10 @@ INSERT INTO Status (`tipoStatus`) VALUES
 ('Devolvido');
 
 
+INSERT INTO statusPagamento ('tipoStatus') VALUES
+('Pendente'),
+('Pago');
+
 -- Conta ADM
 
 INSERT INTO administrador (email, senha)
