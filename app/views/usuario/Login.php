@@ -95,13 +95,13 @@ $erro = $_GET["erro"] ?? '';
 
     <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
     <script>
-    if(window.location.href.indexOf('erro=acesso_negado') > -1){
-        abrirPopUpCurto("popUpErro", 5000);
-    }
+        if(window.location.href.indexOf('erro=acesso_negado') > -1){
+            abrirPopUpCurto("popUpErro", 5000);
+        }
 
-    if(window.location.href.indexOf('sucesso=1') > -1){
-        abrirPopUpCurto("popUpSucesso", 5000); 
-    }
-</script>
+        if(window.location.href.indexOf('sucesso=1') > -1){
+            abrirPopUpCurto("popUpSucesso", 5000); 
+        }
+    </script>
 </body>
 </html>

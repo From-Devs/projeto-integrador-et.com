@@ -22,6 +22,14 @@
     $id_usuario = $_SESSION['id_usuario'];
     $controller = new CarrinhoController();
 
+    if(isset($_GET['pedido']) && $_GET['pedido'] === '1'){
+        echo popUpCurto("popUpSucessoPedido", "Pedido realizado com sucesso! Mais detalhes em Meus Pedidos.", "green", "white");
+    }
+
+    if(isset($_GET['removido']) && $_GET['removido'] === '1'){
+        echo popUpCurto("popUpSucessoRemover", "Produtos removidos do carrinho com sucesso!", "green", "white");
+    }
+
     
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $acao = $_POST['acao'] ?? '';
@@ -270,6 +278,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+
 <script src="/projeto-integrador-et.com/public/componentes/header/script.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/sidebar/script.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/rodape/script.js"></script>
@@ -277,5 +286,13 @@ document.addEventListener("DOMContentLoaded", function() {
 <script src="/projeto-integrador-et.com/public/javascript/slider.js"></script>
 <script src="/projeto-integrador-et.com/public/javascript/Meu_Carrinho.js"></script>
 <script src="/projeto-integrador-et.com/public/componentes/popup/script.js"></script>
+    <script>
+        if(window.location.href.indexOf('pedido=1') > -1){
+            abrirPopUpCurto("popUpSucessoPedido", 5000); 
+        }
+        if(window.location.href.indexOf('removido=1') > -1){
+            abrirPopUpCurto("popUpSucessoRemover", 5000); 
+        }
+    </script>
 </body>
 </html>
